@@ -60,7 +60,20 @@ public class PaymentControllerV4 {
 
 	}
 
-	
+	@Test(priority = 4, groups = "Payment")
+	public void postPaymentBatchtruev4() throws ClassNotFoundException, SQLException, InterruptedException {
+		// CommonMethods.CompanyDBRestore();
+		String uri = "/payment/paymentBatch";
+		String ver = "4.0";
+		String payload = "./\\TestData\\paymentBatchtruev4.json";
+		jsonPathEvaluator = CommonMethods.postMethod(payload, uri, ver);
+		Boolean Result = jsonPathEvaluator.get("Payment.Success");
+		if (Result == false) {
+			System.out.println(jsonPathEvaluator.prettyPrint());
+			Assert.fail(jsonPathEvaluator.prettyPrint());
+		}
+		// System.out.println(jsonPathEvaluator.toString());
+	}
 
 	
 

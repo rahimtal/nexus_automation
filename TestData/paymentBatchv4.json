@@ -1,4 +1,5 @@
 {
-    "BatchId":"API20240327001",    		    
-    "PostDate":"2024-01-24"
+    "BatchId":"API20220929001",    		    
+    "PostDate":"2024-01-24",
+    "PrintCreditMemoLetter": false
 }
