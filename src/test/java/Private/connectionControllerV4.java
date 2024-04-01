@@ -36,7 +36,7 @@ public class connectionControllerV4 {
 		String uri = "/connection/meter";
 		String ver = "4.0";
 		String payload = "./\\TestData\\/postconnectionv4.json";
-		String exResponse = "{\"Connection\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"New meter is installed on another connection on the current location.\",\"Level\":3}]}}";
+		String exResponse = "{\"Connection\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Connection.Confirm is required\",\"Level\":3}]}}";
 		CommonMethods.postcall(uri, payload, ver, exResponse);
 		
 	}
