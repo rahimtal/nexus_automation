@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>214/7/7</td>
+<td>Tests passed/Failed/Skipped:</td><td>22/1/3</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Apr 04 03:04:03 PDT 2024</td>
+<td>Started on:</td><td>Thu Apr 04 04:56:51 PDT 2024</td>
 </tr>
-<tr><td>Total time:</td><td>104 seconds (104688 ms)</td>
+<tr><td>Total time:</td><td>6 seconds (6801 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,53 +75,25 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='Private.SmartlistControllerV3.getsmartList_v_3()'><b>getsmartList_v_3</b><br>Test class: Private.SmartlistControllerV3</td>
-<td><div><pre>java.lang.AssertionError: 1 expectation failed.
-Response body doesn&apos;t match expectation.
-Expected: a string containing &quot;{\&quot;Smartlist\&quot;:{\&quot;Success\&quot;:true,&quot;
-  Actual: {&quot;Smartlist&quot;:{&quot;Success&quot;:false,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;csmApi_spSmartlistGet - Invalid object name &apos;DYNAMICS..SLB10000&apos;.&quot;,&quot;Level&quot;:3}]}}
-
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:80)
-	at org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:74)
-	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:59)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:237)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:249)
-	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:493)
-	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:115)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:127)
-	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:674)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:190)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:58)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:51)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:156)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:168)
-	at io.restassured.internal.ResponseSpecificationImpl.body(ResponseSpecificationImpl.groovy:98)
-	at io.restassured.internal.ValidatableResponseOptionsImpl.body(ValidatableResponseOptionsImpl.java:238)
-	at io.restassured.internal.ValidatableResponseImpl.super$2$body(ValidatableResponseImpl.groovy)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:101)
-	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)
-	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1217)
-	at org.codehaus.groovy.runtime.ScriptBytecodeAdapter.invokeMethodOnSuperN(ScriptBytecodeAdapter.java:144)
-	at io.restassured.internal.ValidatableResponseImpl.body(ValidatableResponseImpl.groovy:293)
-	at io.restassured.internal.ValidatableResponseImpl.body(ValidatableResponseImpl.groovy)
-	at com.NexustAPIAutomation.java.CommonMethods.getMethodContains(CommonMethods.java:1044)
-	at Private.SmartlistControllerV3.getsmartList_v_3(SmartlistControllerV3.java:25)
+<td title='Private.lookupControllerv4.lookupPaymentDocuments()'><b>lookupPaymentDocuments</b><br>Test class: Private.lookupControllerv4</td>
+<td><div><pre>java.lang.AssertionError: expected [{&quot;Payment&quot;:[{&quot;DocumentNumber&quot;:&quot;PYMT00000000505&quot;,&quot;BatchId&quot;:&quot;WO101619CRP001&quot;,&quot;LocationId&quot;:&quot;100002&quot;,&quot;CustomerId&quot;:&quot;500002&quot;,&quot;PaymentDate&quot;:&quot;2027-04-12T00:00:00&quot;,&quot;PaymentTypeDesc&quot;:&quot;CreditMemo&quot;}]}] but found [{
+    	&quot;Payment&quot;: [{
+    		&quot;DocumentNumber&quot;: &quot;&quot;,
+    		&quot;BatchId&quot;: &quot;&quot;,
+    		&quot;LocationId&quot;: &quot;&quot;,
+    		&quot;CustomerId&quot;: &quot;&quot;,
+    		&quot;PaymentDate&quot;: &quot;&quot;,
+    		&quot;PaymentTypeDesc&quot;: &quot;&quot;,
+    	}]
+    }]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:629)
+	at org.testng.Assert.assertEquals(Assert.java:639)
+	at com.NexustAPIAutomation.java.CommonMethods.getMethod(CommonMethods.java:521)
+	at Private.lookupControllerv4.lookupPaymentDocuments(lookupControllerv4.java:296)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -150,53 +122,25 @@ Expected: a string containing &quot;{\&quot;Smartlist\&quot;:{\&quot;Success\&qu
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1315038402", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1315038402'><pre>java.lang.AssertionError: 1 expectation failed.
-Response body doesn&apos;t match expectation.
-Expected: a string containing &quot;{\&quot;Smartlist\&quot;:{\&quot;Success\&quot;:true,&quot;
-  Actual: {&quot;Smartlist&quot;:{&quot;Success&quot;:false,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;csmApi_spSmartlistGet - Invalid object name &apos;DYNAMICS..SLB10000&apos;.&quot;,&quot;Level&quot;:3}]}}
-
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:80)
-	at org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:74)
-	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:59)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:237)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:249)
-	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:493)
-	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:115)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:127)
-	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:674)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:190)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:58)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:51)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:156)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:168)
-	at io.restassured.internal.ResponseSpecificationImpl.body(ResponseSpecificationImpl.groovy:98)
-	at io.restassured.internal.ValidatableResponseOptionsImpl.body(ValidatableResponseOptionsImpl.java:238)
-	at io.restassured.internal.ValidatableResponseImpl.super$2$body(ValidatableResponseImpl.groovy)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:101)
-	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)
-	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1217)
-	at org.codehaus.groovy.runtime.ScriptBytecodeAdapter.invokeMethodOnSuperN(ScriptBytecodeAdapter.java:144)
-	at io.restassured.internal.ValidatableResponseImpl.body(ValidatableResponseImpl.groovy:293)
-	at io.restassured.internal.ValidatableResponseImpl.body(ValidatableResponseImpl.groovy)
-	at com.NexustAPIAutomation.java.CommonMethods.getMethodContains(CommonMethods.java:1044)
-	at Private.SmartlistControllerV3.getsmartList_v_3(SmartlistControllerV3.java:25)
+</pre></div><a href='#' onClick='toggleBox("stack-trace542839598", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace542839598'><pre>java.lang.AssertionError: expected [{&quot;Payment&quot;:[{&quot;DocumentNumber&quot;:&quot;PYMT00000000505&quot;,&quot;BatchId&quot;:&quot;WO101619CRP001&quot;,&quot;LocationId&quot;:&quot;100002&quot;,&quot;CustomerId&quot;:&quot;500002&quot;,&quot;PaymentDate&quot;:&quot;2027-04-12T00:00:00&quot;,&quot;PaymentTypeDesc&quot;:&quot;CreditMemo&quot;}]}] but found [{
+    	&quot;Payment&quot;: [{
+    		&quot;DocumentNumber&quot;: &quot;&quot;,
+    		&quot;BatchId&quot;: &quot;&quot;,
+    		&quot;LocationId&quot;: &quot;&quot;,
+    		&quot;CustomerId&quot;: &quot;&quot;,
+    		&quot;PaymentDate&quot;: &quot;&quot;,
+    		&quot;PaymentTypeDesc&quot;: &quot;&quot;,
+    	}]
+    }]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:629)
+	at org.testng.Assert.assertEquals(Assert.java:639)
+	at com.NexustAPIAutomation.java.CommonMethods.getMethod(CommonMethods.java:521)
+	at Private.lookupControllerv4.lookupPaymentDocuments(lookupControllerv4.java:296)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -227,589 +171,7 @@ Expected: a string containing &quot;{\&quot;Smartlist\&quot;:{\&quot;Success\&qu
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>Private.SmartlistControllerV3@18078bef</td></tr>
-<tr>
-<td title='Public.printControllerV4.getprintreportPaymentPostEditListv3()'><b>getprintreportPaymentPostEditListv3</b><br>Test class: Public.printControllerV4</td>
-<td><div><pre>java.lang.AssertionError: PDF verification failed
-	at org.testng.Assert.fail(Assert.java:99)
-	at com.NexustAPIAutomation.java.verifyPDFReports.verifyPDF(verifyPDFReports.java:36)
-	at Public.printControllerV4.getprintreportPaymentPostEditListv3(printControllerV4.java:16)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(ArrayList.java:1257)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace269973396", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace269973396'><pre>java.lang.AssertionError: PDF verification failed
-	at org.testng.Assert.fail(Assert.java:99)
-	at com.NexustAPIAutomation.java.verifyPDFReports.verifyPDF(verifyPDFReports.java:36)
-	at Public.printControllerV4.getprintreportPaymentPostEditListv3(printControllerV4.java:16)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(ArrayList.java:1257)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>4</td>
-<td>Public.printControllerV4@3c41ed1d</td></tr>
-<tr>
-<td title='Public.TestAPI.postsmartlistfavorite_v_3()'><b>postsmartlistfavorite_v_3</b><br>Test class: Public.TestAPI</td>
-<td><div><pre>java.lang.AssertionError: {
-    &quot;SmartlistFavorite&quot;: {
-        &quot;Success&quot;: false,
-        &quot;Data&quot;: null,
-        &quot;Messages&quot;: [
-            {
-                &quot;Enabled&quot;: 1,
-                &quot;Info&quot;: &quot;csmApi_spSmartlistFavoriteAdd - Invalid object name &apos;DYNAMICS..SLB10000&apos;.&quot;,
-                &quot;Level&quot;: 3
-            }
-        ]
-    }
-}
-	at org.testng.Assert.fail(Assert.java:99)
-	at Public.TestAPI.postsmartlistfavorite_v_3(TestAPI.java:74)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(ArrayList.java:1257)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace2049837144", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2049837144'><pre>java.lang.AssertionError: {
-    &quot;SmartlistFavorite&quot;: {
-        &quot;Success&quot;: false,
-        &quot;Data&quot;: null,
-        &quot;Messages&quot;: [
-            {
-                &quot;Enabled&quot;: 1,
-                &quot;Info&quot;: &quot;csmApi_spSmartlistFavoriteAdd - Invalid object name &apos;DYNAMICS..SLB10000&apos;.&quot;,
-                &quot;Level&quot;: 3
-            }
-        ]
-    }
-}
-	at org.testng.Assert.fail(Assert.java:99)
-	at Public.TestAPI.postsmartlistfavorite_v_3(TestAPI.java:74)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(ArrayList.java:1257)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>0</td>
-<td>Public.TestAPI@35d019a3</td></tr>
-<tr>
-<td title='Public.billingControllerv4.billingprintStatementv4()'><b>billingprintStatementv4</b><br>Test class: Public.billingControllerv4</td>
-<td><div><pre>java.lang.AssertionError: Bill Posting Failed 
-{
-    &quot;Billing&quot;: {
-        &quot;Success&quot;: false,
-        &quot;Data&quot;: null,
-        &quot;Messages&quot;: [
-            {
-                &quot;Enabled&quot;: 1,
-                &quot;Info&quot;: &quot;csmApi_spBillingPrintStatementCreate - Cannot insert the value NULL into column &apos;umBillData&apos;, table &apos;TWO.dbo.UMBILX01&apos;; column does not allow nulls. INSERT fails.&quot;,
-                &quot;Level&quot;: 3
-            }
-        ]
-    }
-}
-	at org.testng.Assert.fail(Assert.java:99)
-	at Public.billingControllerv4.billingprintStatementv4(billingControllerv4.java:176)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(ArrayList.java:1257)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1043773344", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1043773344'><pre>java.lang.AssertionError: Bill Posting Failed 
-{
-    &quot;Billing&quot;: {
-        &quot;Success&quot;: false,
-        &quot;Data&quot;: null,
-        &quot;Messages&quot;: [
-            {
-                &quot;Enabled&quot;: 1,
-                &quot;Info&quot;: &quot;csmApi_spBillingPrintStatementCreate - Cannot insert the value NULL into column &apos;umBillData&apos;, table &apos;TWO.dbo.UMBILX01&apos;; column does not allow nulls. INSERT fails.&quot;,
-                &quot;Level&quot;: 3
-            }
-        ]
-    }
-}
-	at org.testng.Assert.fail(Assert.java:99)
-	at Public.billingControllerv4.billingprintStatementv4(billingControllerv4.java:176)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(ArrayList.java:1257)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>1</td>
-<td>Public.billingControllerv4@408d971b</td></tr>
-<tr>
-<td title='Public.billingControllerv4.printcsvbillingStatements()'><b>printcsvbillingStatements</b><br>Test class: Public.billingControllerv4</td>
-<td><div><pre>java.lang.AssertionError: 1 expectation failed.
-Response body doesn&apos;t match expectation.
-Expected: a string containing &quot;40305/17/201706/16/2017This is your first quarter bill for 2000. Any balance not paid by May 15, 2000                                will be releived  on your year 2000 tax bill with penalties.                                                                                                                                                                                                                                                                              This your first quarter bill for 2000.                                                                                                                                                                                      ELECWAT003     CUSTOMER010    Mrs. Gail M Dewar                                           0                                                                                                                           78 MARINER BLVD                                             NEW YORK                      NY  USA                 12345     MONTHLY            EQUIPMENT015   03/31/2000        342002/28/2000        3356          64          EQUIPMENT015   04/12/2019            03/31/2000        3420                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    154.64 Previous Balance                                                                                                                                       1.00 Penalty for late payment                                                 2.64 Penalty for overdue                                                      1.20 Refuse Late Charges                                                      2.59 Penalty for late payment                                                 2.30 Penalty for late payment                                                 5.84 Stepped range                                                            0.36 Tax - USASTCITY-6*                                                       0.06 Tax - USASTCITY-6*                                                                                                                                                                                                                  15.00 Fixed charge                                                            25.50 Stepped ranges                                                          21.50 Phone fixed rate                                                         4.10 Phone charge                                                            12.00 Monthly Refuse Charge                                                                                                                                285.73 Amount Due if Paid By 06/16/2017                                       300.02 Amount Due if Paid After 06/16/2017                                                                                                                                                                                                                                                                                                                                                            154.64      130.6706/16/2017      285.73          643                             2                             3                             2                             1                             12                            11                            10                            9                             8                             7                             6                             Last Year               NN1                                                                                                                              ROUTEEW001      &quot;
-  Actual: 
-
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:80)
-	at org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:74)
-	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:249)
-	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:493)
-	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
-	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:674)
-	at sun.reflect.GeneratedMethodAccessor208.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:190)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:58)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:168)
-	at io.restassured.internal.ResponseSpecificationImpl.body(ResponseSpecificationImpl.groovy:98)
-	at io.restassured.internal.ValidatableResponseOptionsImpl.body(ValidatableResponseOptionsImpl.java:238)
-	at io.restassured.internal.ValidatableResponseImpl.super$2$body(ValidatableResponseImpl.groovy)
-	at sun.reflect.GeneratedMethodAccessor207.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:101)
-	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)
-	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1217)
-	at org.codehaus.groovy.runtime.ScriptBytecodeAdapter.invokeMethodOnSuperN(ScriptBytecodeAdapter.java:144)
-	at io.restassured.internal.ValidatableResponseImpl.body(ValidatableResponseImpl.groovy:293)
-	at io.restassured.internal.ValidatableResponseImpl.body(ValidatableResponseImpl.groovy)
-	at com.NexustAPIAutomation.java.CommonMethods.getMethodContains(CommonMethods.java:1044)
-	at Public.billingControllerv4.printcsvbillingStatements(billingControllerv4.java:220)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(ArrayList.java:1257)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace2068279617", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2068279617'><pre>java.lang.AssertionError: 1 expectation failed.
-Response body doesn&apos;t match expectation.
-Expected: a string containing &quot;40305/17/201706/16/2017This is your first quarter bill for 2000. Any balance not paid by May 15, 2000                                will be releived  on your year 2000 tax bill with penalties.                                                                                                                                                                                                                                                                              This your first quarter bill for 2000.                                                                                                                                                                                      ELECWAT003     CUSTOMER010    Mrs. Gail M Dewar                                           0                                                                                                                           78 MARINER BLVD                                             NEW YORK                      NY  USA                 12345     MONTHLY            EQUIPMENT015   03/31/2000        342002/28/2000        3356          64          EQUIPMENT015   04/12/2019            03/31/2000        3420                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    154.64 Previous Balance                                                                                                                                       1.00 Penalty for late payment                                                 2.64 Penalty for overdue                                                      1.20 Refuse Late Charges                                                      2.59 Penalty for late payment                                                 2.30 Penalty for late payment                                                 5.84 Stepped range                                                            0.36 Tax - USASTCITY-6*                                                       0.06 Tax - USASTCITY-6*                                                                                                                                                                                                                  15.00 Fixed charge                                                            25.50 Stepped ranges                                                          21.50 Phone fixed rate                                                         4.10 Phone charge                                                            12.00 Monthly Refuse Charge                                                                                                                                285.73 Amount Due if Paid By 06/16/2017                                       300.02 Amount Due if Paid After 06/16/2017                                                                                                                                                                                                                                                                                                                                                            154.64      130.6706/16/2017      285.73          643                             2                             3                             2                             1                             12                            11                            10                            9                             8                             7                             6                             Last Year               NN1                                                                                                                              ROUTEEW001      &quot;
-  Actual: 
-
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:80)
-	at org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:74)
-	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:249)
-	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:493)
-	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
-	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:674)
-	at sun.reflect.GeneratedMethodAccessor208.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:190)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:58)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:168)
-	at io.restassured.internal.ResponseSpecificationImpl.body(ResponseSpecificationImpl.groovy:98)
-	at io.restassured.internal.ValidatableResponseOptionsImpl.body(ValidatableResponseOptionsImpl.java:238)
-	at io.restassured.internal.ValidatableResponseImpl.super$2$body(ValidatableResponseImpl.groovy)
-	at sun.reflect.GeneratedMethodAccessor207.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:101)
-	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)
-	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1217)
-	at org.codehaus.groovy.runtime.ScriptBytecodeAdapter.invokeMethodOnSuperN(ScriptBytecodeAdapter.java:144)
-	at io.restassured.internal.ValidatableResponseImpl.body(ValidatableResponseImpl.groovy:293)
-	at io.restassured.internal.ValidatableResponseImpl.body(ValidatableResponseImpl.groovy)
-	at com.NexustAPIAutomation.java.CommonMethods.getMethodContains(CommonMethods.java:1044)
-	at Public.billingControllerv4.printcsvbillingStatements(billingControllerv4.java:220)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(ArrayList.java:1257)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>0</td>
-<td>Public.billingControllerv4@408d971b</td></tr>
-<tr>
-<td title='Private.SmartlistControllerV3.postsmartlistfavorite_v_3()'><b>postsmartlistfavorite_v_3</b><br>Test class: Private.SmartlistControllerV3</td>
-<td><div><pre>java.lang.AssertionError: {
-    &quot;SmartlistFavorite&quot;: {
-        &quot;Success&quot;: false,
-        &quot;Data&quot;: null,
-        &quot;Messages&quot;: [
-            {
-                &quot;Enabled&quot;: 1,
-                &quot;Info&quot;: &quot;csmApi_spSmartlistFavoriteAdd - Invalid object name &apos;DYNAMICS..SLB10000&apos;.&quot;,
-                &quot;Level&quot;: 3
-            }
-        ]
-    }
-}
-	at org.testng.Assert.fail(Assert.java:99)
-	at Private.SmartlistControllerV3.postsmartlistfavorite_v_3(SmartlistControllerV3.java:43)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(ArrayList.java:1257)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace851033362", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace851033362'><pre>java.lang.AssertionError: {
-    &quot;SmartlistFavorite&quot;: {
-        &quot;Success&quot;: false,
-        &quot;Data&quot;: null,
-        &quot;Messages&quot;: [
-            {
-                &quot;Enabled&quot;: 1,
-                &quot;Info&quot;: &quot;csmApi_spSmartlistFavoriteAdd - Invalid object name &apos;DYNAMICS..SLB10000&apos;.&quot;,
-                &quot;Level&quot;: 3
-            }
-        ]
-    }
-}
-	at org.testng.Assert.fail(Assert.java:99)
-	at Private.SmartlistControllerV3.postsmartlistfavorite_v_3(SmartlistControllerV3.java:43)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(ArrayList.java:1257)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>0</td>
-<td>Private.SmartlistControllerV3@18078bef</td></tr>
-<tr>
-<td title='Public.billingControllerv4.postBillingv4()'><b>postBillingv4</b><br>Test class: Public.billingControllerv4</td>
-<td><div><pre>java.lang.AssertionError: {
-    &quot;Billing&quot;: {
-        &quot;Success&quot;: false,
-        &quot;Data&quot;: {
-            &quot;BatchId&quot;: &quot;BT1231&quot;,
-            &quot;HasPostingError&quot;: false
-        },
-        &quot;Messages&quot;: [
-            {
-                &quot;Enabled&quot;: 1,
-                &quot;Info&quot;: &quot;Bill batch (BT1231) must be printed before posting.&quot;,
-                &quot;Level&quot;: 3
-            }
-        ]
-    }
-}
-	at org.testng.Assert.fail(Assert.java:99)
-	at Public.billingControllerv4.postBillingv4(billingControllerv4.java:204)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(ArrayList.java:1257)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace766681183", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace766681183'><pre>java.lang.AssertionError: {
-    &quot;Billing&quot;: {
-        &quot;Success&quot;: false,
-        &quot;Data&quot;: {
-            &quot;BatchId&quot;: &quot;BT1231&quot;,
-            &quot;HasPostingError&quot;: false
-        },
-        &quot;Messages&quot;: [
-            {
-                &quot;Enabled&quot;: 1,
-                &quot;Info&quot;: &quot;Bill batch (BT1231) must be printed before posting.&quot;,
-                &quot;Level&quot;: 3
-            }
-        ]
-    }
-}
-	at org.testng.Assert.fail(Assert.java:99)
-	at Public.billingControllerv4.postBillingv4(billingControllerv4.java:204)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(ArrayList.java:1257)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>0</td>
-<td>Public.billingControllerv4@408d971b</td></tr>
+<td>Private.lookupControllerv4@1fa268de</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -819,1075 +181,115 @@ Expected: a string containing &quot;40305/17/201706/16/2017This is your first qu
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='Public.checkControllerv4.postingReceivable4RefundError()'><b>postingReceivable4RefundError</b><br>Test class: Public.checkControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Public.checkControllerv4@7c7b252e</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupbillingCyclePeriod()'><b>lookupbillingCyclePeriod</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@38425407</td></tr>
-<tr>
-<td title='Private.BillingControllerv4.delBatv4()'><b>delBatv4</b><br>Test class: Private.BillingControllerv4</td>
-<td></td>
-<td>1</td>
-<td>Private.BillingControllerv4@34a3d150</td></tr>
-<tr>
-<td title='Public.spaController.getcalculatedocuments_v_2()'><b>getcalculatedocuments_v_2</b><br>Test class: Public.spaController</td>
-<td></td>
-<td>0</td>
-<td>Public.spaController@459e9125</td></tr>
-<tr>
-<td title='Public.spaControllerV3.getspaAccountBalances_v_3()'><b>getspaAccountBalances_v_3</b><br>Test class: Public.spaControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.spaControllerV3@22555ebf</td></tr>
-<tr>
-<td title='Public.createandcancelSpa.putspaCalculate_v_2()'><b>putspaCalculate_v_2</b><br>Test class: Public.createandcancelSpa</td>
-<td></td>
-<td>0</td>
-<td>Public.createandcancelSpa@2a65fe7c</td></tr>
-<tr>
-<td title='Public.createandcancelSpaV3.cancelSPA_v_2()'><b>cancelSPA_v_2</b><br>Test class: Public.createandcancelSpaV3</td>
-<td></td>
-<td>0</td>
-<td>Public.createandcancelSpaV3@128d2484</td></tr>
-<tr>
-<td title='Private.MiscellaneousChargeControllerV4.deleteMiscellaneousChargeErrv4()'><b>deleteMiscellaneousChargeErrv4</b><br>Test class: Private.MiscellaneousChargeControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.MiscellaneousChargeControllerV4@4d5d943d</td></tr>
-<tr>
-<td title='Public.customerControllerV3.getCustomerBillingOptions_v2()'><b>getCustomerBillingOptions_v2</b><br>Test class: Public.customerControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.customerControllerV3@6a6cb05c</td></tr>
-<tr>
-<td title='Public.createandcancelSpa.cancelSPA_v_2()'><b>cancelSPA_v_2</b><br>Test class: Public.createandcancelSpa</td>
-<td></td>
-<td>0</td>
-<td>Public.createandcancelSpa@2a65fe7c</td></tr>
-<tr>
-<td title='Public.customerController_v2.getnextCustomerId_v2()'><b>getnextCustomerId_v2</b><br>Test class: Public.customerController_v2</td>
-<td></td>
-<td>0</td>
-<td>Public.customerController_v2@c730b35</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupzonev4()'><b>lookupzonev4</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@38425407</td></tr>
-<tr>
-<td title='Public.searchController.getCustomer_v2()'><b>getCustomer_v2</b><br>Test class: Public.searchController</td>
-<td></td>
-<td>0</td>
-<td>Public.searchController@42a48628</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupbillingPrepareType()'><b>lookupbillingPrepareType</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@38425407</td></tr>
-<tr>
-<td title='Private.transactionsControllerv2.getrecentTransactions_v_2()'><b>getrecentTransactions_v_2</b><br>Test class: Private.transactionsControllerv2</td>
-<td></td>
-<td>0</td>
-<td>Private.transactionsControllerv2@75d4a5c2</td></tr>
-<tr>
-<td title='Private.MeterReadControllerV4.PostMeterReadv4()'><b>PostMeterReadv4</b><br>Test class: Private.MeterReadControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.MeterReadControllerV4@7cc0cdad</td></tr>
-<tr>
-<td title='Public.ServiceOrderController.getServiceOrder_v2()'><b>getServiceOrder_v2</b><br>Test class: Public.ServiceOrderController</td>
-<td></td>
-<td>0</td>
-<td>Public.ServiceOrderController@34e9fd99</td></tr>
-<tr>
-<td title='Public.customerController_v2.getLocationsByCustomer_v2()'><b>getLocationsByCustomer_v2</b><br>Test class: Public.customerController_v2</td>
-<td></td>
-<td>0</td>
-<td>Public.customerController_v2@c730b35</td></tr>
-<tr>
-<td title='Public.ServiceOrderController.putTaskCompleteNocharge_v2_3()'><b>putTaskCompleteNocharge_v2_3</b><br>Test class: Public.ServiceOrderController</td>
-<td></td>
-<td>0</td>
-<td>Public.ServiceOrderController@34e9fd99</td></tr>
-<tr>
-<td title='Private.DepositsControllerV3.getdepositpaymentPlan_v_3()'><b>getdepositpaymentPlan_v_3</b><br>Test class: Private.DepositsControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Private.DepositsControllerV3@48f2bd5b</td></tr>
-<tr>
-<td title='Private.voidController.getVoidLaodv4()'><b>getVoidLaodv4</b><br>Test class: Private.voidController</td>
-<td></td>
-<td>0</td>
-<td>Private.voidController@6302bbb1</td></tr>
-<tr>
-<td title='Public.billingControllerv4.postcreateStatementv4()'><b>postcreateStatementv4</b><br>Test class: Public.billingControllerv4</td>
-<td></td>
-<td>2</td>
-<td>Public.billingControllerv4@408d971b</td></tr>
-<tr>
-<td title='Public.CashieringGetV3.TC005_getRegisterInfo()'><b>TC005_getRegisterInfo</b><br>Test class: Public.CashieringGetV3</td>
-<td></td>
-<td>0</td>
-<td>Public.CashieringGetV3@7c7a06ec</td></tr>
-<tr>
-<td title='Public.ServiceOrderController.putaddMiscCharge_v_2()'><b>putaddMiscCharge_v_2</b><br>Test class: Public.ServiceOrderController</td>
-<td></td>
-<td>0</td>
-<td>Public.ServiceOrderController@34e9fd99</td></tr>
-<tr>
-<td title='Public.spaController.getspaAccountBalances_v_2()'><b>getspaAccountBalances_v_2</b><br>Test class: Public.spaController</td>
-<td></td>
-<td>0</td>
-<td>Public.spaController@459e9125</td></tr>
-<tr>
-<td title='Public.ServiceOrderController.postcreateServiceOrder_v2()'><b>postcreateServiceOrder_v2</b><br>Test class: Public.ServiceOrderController</td>
-<td></td>
-<td>0</td>
-<td>Public.ServiceOrderController@34e9fd99</td></tr>
-<tr>
-<td title='Private.CollectionControllerv4.putcollectionapplyDisconnectDatev4()'><b>putcollectionapplyDisconnectDatev4</b><br>Test class: Private.CollectionControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.CollectionControllerv4@145f66e3</td></tr>
-<tr>
-<td title='Public.CashieringGet.TC003_getCashin()'><b>TC003_getCashin</b><br>Test class: Public.CashieringGet</td>
-<td></td>
-<td>0</td>
-<td>Public.CashieringGet@3c46e67a</td></tr>
-<tr>
-<td title='Private.DepositsControllerV3.lookupDepositId_v_3()'><b>lookupDepositId_v_3</b><br>Test class: Private.DepositsControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Private.DepositsControllerV3@48f2bd5b</td></tr>
-<tr>
-<td title='Public.createandcancelSpaV3.createSPA_v_2()'><b>createSPA_v_2</b><br>Test class: Public.createandcancelSpaV3</td>
-<td></td>
-<td>0</td>
-<td>Public.createandcancelSpaV3@128d2484</td></tr>
-<tr>
-<td title='Private.transactionsControllerv4.gettransactionbatch_v4()'><b>gettransactionbatch_v4</b><br>Test class: Private.transactionsControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.transactionsControllerv4@4c583ecf</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupcollectionnoticeType()'><b>lookupcollectionnoticeType</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@38425407</td></tr>
-<tr>
-<td title='Public.customerController_v2.putcustomerbillingoptionv2()'><b>putcustomerbillingoptionv2</b><br>Test class: Public.customerController_v2</td>
-<td></td>
-<td>0</td>
-<td>Public.customerController_v2@c730b35</td></tr>
-<tr>
-<td title='Public.CashieringGetV3.TC004_getReceipt()'><b>TC004_getReceipt</b><br>Test class: Public.CashieringGetV3</td>
-<td></td>
-<td>0</td>
-<td>Public.CashieringGetV3@7c7a06ec</td></tr>
-<tr>
-<td title='Private.MeterReadControllerV4.putMeterReadinginWorkV4()'><b>putMeterReadinginWorkV4</b><br>Test class: Private.MeterReadControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.MeterReadControllerV4@7cc0cdad</td></tr>
-<tr>
-<td title='Public.customerControllerV3.getLocationsByCustomer_v3()'><b>getLocationsByCustomer_v3</b><br>Test class: Public.customerControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.customerControllerV3@6a6cb05c</td></tr>
-<tr>
-<td title='Public.customerControllerV3.putcustomersrolldownAddressCodev2()'><b>putcustomersrolldownAddressCodev2</b><br>Test class: Public.customerControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.customerControllerV3@6a6cb05c</td></tr>
-<tr>
-<td title='Private.MiscellaneousChargeControllerV4.miscellaneousChargeSimulatev4()'><b>miscellaneousChargeSimulatev4</b><br>Test class: Private.MiscellaneousChargeControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.MiscellaneousChargeControllerV4@4d5d943d</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupMetergroup4()'><b>lookupMetergroup4</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@38425407</td></tr>
-<tr>
-<td title='Public.ServiceOrderControllerV3.getServiceOrder_v3()'><b>getServiceOrder_v3</b><br>Test class: Public.ServiceOrderControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.ServiceOrderControllerV3@36ebc363</td></tr>
-<tr>
 <td title='Private.lookupControllerv4.lookupbillType()'><b>lookupbillType</b><br>Test class: Private.lookupControllerv4</td>
 <td></td>
 <td>0</td>
-<td>Private.lookupControllerv4@38425407</td></tr>
+<td>Private.lookupControllerv4@1fa268de</td></tr>
 <tr>
-<td title='Private.lookupControllerv4.lookupEquipmentRegisterCode4()'><b>lookupEquipmentRegisterCode4</b><br>Test class: Private.lookupControllerv4</td>
+<td title='Private.lookupControllerv4.lookupserviceOrderOrigin()'><b>lookupserviceOrderOrigin</b><br>Test class: Private.lookupControllerv4</td>
 <td></td>
 <td>0</td>
-<td>Private.lookupControllerv4@38425407</td></tr>
-<tr>
-<td title='Public.TestAPI.getdepositpaymentPlan_v_3()'><b>getdepositpaymentPlan_v_3</b><br>Test class: Public.TestAPI</td>
-<td></td>
-<td>0</td>
-<td>Public.TestAPI@35d019a3</td></tr>
-<tr>
-<td title='Public.accountBalancesv4.getAccountBalancesV4()'><b>getAccountBalancesV4</b><br>Test class: Public.accountBalancesv4</td>
-<td></td>
-<td>0</td>
-<td>Public.accountBalancesv4@206a70ef</td></tr>
-<tr>
-<td title='Public.CashieringPost.TC002_RecieptAdjustment()'><b>TC002_RecieptAdjustment</b><br>Test class: Public.CashieringPost</td>
-<td></td>
-<td>0</td>
-<td>Public.CashieringPost@702657cc</td></tr>
-<tr>
-<td title='Public.CashieringGetV3.TC004_balances()'><b>TC004_balances</b><br>Test class: Public.CashieringGetV3</td>
-<td></td>
-<td>0</td>
-<td>Public.CashieringGetV3@7c7a06ec</td></tr>
-<tr>
-<td title='Public.checkControllerv4.putChecksendtoAPv4()'><b>putChecksendtoAPv4</b><br>Test class: Public.checkControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Public.checkControllerv4@7c7b252e</td></tr>
-<tr>
-<td title='Public.createandcancelSpa.recancelSPA_v_2()'><b>recancelSPA_v_2</b><br>Test class: Public.createandcancelSpa</td>
-<td></td>
-<td>0</td>
-<td>Public.createandcancelSpa@2a65fe7c</td></tr>
-<tr>
-<td title='Private.CollectionControllerv4.postcollectionprintv4()'><b>postcollectionprintv4</b><br>Test class: Private.CollectionControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.CollectionControllerv4@145f66e3</td></tr>
-<tr>
-<td title='Public.createandcancelSpaV3.putspaCalculate_v_2()'><b>putspaCalculate_v_2</b><br>Test class: Public.createandcancelSpaV3</td>
-<td></td>
-<td>0</td>
-<td>Public.createandcancelSpaV3@128d2484</td></tr>
-<tr>
-<td title='Public.customerControllerV3.getpreauthorizepaymentplan_v2()'><b>getpreauthorizepaymentplan_v2</b><br>Test class: Public.customerControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.customerControllerV3@6a6cb05c</td></tr>
-<tr>
-<td title='Private.equipmentControllerV4.postequipmentControllerv4()'><b>postequipmentControllerv4</b><br>Test class: Private.equipmentControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.equipmentControllerV4@45752059</td></tr>
-<tr>
-<td title='Private.MiscellaneousChargeControllerV4.postMiscellaneousv4()'><b>postMiscellaneousv4</b><br>Test class: Private.MiscellaneousChargeControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.MiscellaneousChargeControllerV4@4d5d943d</td></tr>
-<tr>
-<td title='Public.ServiceOrderController.putTaskComplete_v_2()'><b>putTaskComplete_v_2</b><br>Test class: Public.ServiceOrderController</td>
-<td></td>
-<td>0</td>
-<td>Public.ServiceOrderController@34e9fd99</td></tr>
-<tr>
-<td title='Private.transactionsControllerv3.getBillInquirychargeSummary_v_3()'><b>getBillInquirychargeSummary_v_3</b><br>Test class: Private.transactionsControllerv3</td>
-<td></td>
-<td>0</td>
-<td>Private.transactionsControllerv3@557caf28</td></tr>
-<tr>
-<td title='Public.CashieringGet.TC003_1_getCashin()'><b>TC003_1_getCashin</b><br>Test class: Public.CashieringGet</td>
-<td></td>
-<td>0</td>
-<td>Public.CashieringGet@3c46e67a</td></tr>
-<tr>
-<td title='Private.transactionsControllerv4.getMeterReadInquiryOpen_v4()'><b>getMeterReadInquiryOpen_v4</b><br>Test class: Private.transactionsControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.transactionsControllerv4@4c583ecf</td></tr>
-<tr>
-<td title='Public.searchController.getindex_v2()'><b>getindex_v2</b><br>Test class: Public.searchController</td>
-<td></td>
-<td>0</td>
-<td>Public.searchController@42a48628</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.getapplyByService_v4()'><b>getapplyByService_v4</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@38425407</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupequipmentTypev4()'><b>lookupequipmentTypev4</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@38425407</td></tr>
-<tr>
-<td title='Public.CashieringGet.TC003_getnextReceipt()'><b>TC003_getnextReceipt</b><br>Test class: Public.CashieringGet</td>
-<td></td>
-<td>0</td>
-<td>Public.CashieringGet@3c46e67a</td></tr>
-<tr>
-<td title='Public.billingControllerv4.getbillprintTemplatePath()'><b>getbillprintTemplatePath</b><br>Test class: Public.billingControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Public.billingControllerv4@408d971b</td></tr>
-<tr>
-<td title='Public.customerControllerV3.getnextCustomerId_v2()'><b>getnextCustomerId_v2</b><br>Test class: Public.customerControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.customerControllerV3@6a6cb05c</td></tr>
-<tr>
-<td title='Public.spaController.putcalculatedocuments_v_2()'><b>putcalculatedocuments_v_2</b><br>Test class: Public.spaController</td>
-<td></td>
-<td>0</td>
-<td>Public.spaController@459e9125</td></tr>
-<tr>
-<td title='Public.ServiceOrderControllerV3.getServiceOrderRequestDetailsbyOptional_v3()'><b>getServiceOrderRequestDetailsbyOptional_v3</b><br>Test class: Public.ServiceOrderControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.ServiceOrderControllerV3@36ebc363</td></tr>
-<tr>
-<td title='Public.spaController.getheaderInfo_v_2()'><b>getheaderInfo_v_2</b><br>Test class: Public.spaController</td>
-<td></td>
-<td>0</td>
-<td>Public.spaController@459e9125</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupequipmentNetMetervType4()'><b>lookupequipmentNetMetervType4</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@38425407</td></tr>
-<tr>
-<td title='Public.customerControllerV3.getCustomerDetail_v3()'><b>getCustomerDetail_v3</b><br>Test class: Public.customerControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.customerControllerV3@6a6cb05c</td></tr>
-<tr>
-<td title='Public.customerControllerV3.putcustomersotherOptionsv2()'><b>putcustomersotherOptionsv2</b><br>Test class: Public.customerControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.customerControllerV3@6a6cb05c</td></tr>
-<tr>
-<td title='Public.ServiceLocationv2.getServicesByLocation_v_2()'><b>getServicesByLocation_v_2</b><br>Test class: Public.ServiceLocationv2</td>
-<td></td>
-<td>0</td>
-<td>Public.ServiceLocationv2@799f10e1</td></tr>
-<tr>
-<td title='Private.transactionsControllerv3.getBillInquiry_v_3()'><b>getBillInquiry_v_3</b><br>Test class: Private.transactionsControllerv3</td>
-<td></td>
-<td>0</td>
-<td>Private.transactionsControllerv3@557caf28</td></tr>
-<tr>
-<td title='Public.ServiceOrderControllerV3.putTaskComplete_v_3()'><b>putTaskComplete_v_3</b><br>Test class: Public.ServiceOrderControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.ServiceOrderControllerV3@36ebc363</td></tr>
-<tr>
-<td title='Public.ServiceOrderController.putswitchMeter_v_2()'><b>putswitchMeter_v_2</b><br>Test class: Public.ServiceOrderController</td>
-<td></td>
-<td>0</td>
-<td>Public.ServiceOrderController@34e9fd99</td></tr>
-<tr>
-<td title='Public.searchControllerV3.getCustomer_v3()'><b>getCustomer_v3</b><br>Test class: Public.searchControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.searchControllerV3@54d9d12d</td></tr>
-<tr>
-<td title='Private.MeterReadControllerV4.getmeterlastDocumentv4()'><b>getmeterlastDocumentv4</b><br>Test class: Private.MeterReadControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.MeterReadControllerV4@7cc0cdad</td></tr>
-<tr>
-<td title='Private.CollectionControllerv4.postcollectionprocessv4()'><b>postcollectionprocessv4</b><br>Test class: Private.CollectionControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.CollectionControllerv4@145f66e3</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.getapplyByService_Paymentsv4()'><b>getapplyByService_Paymentsv4</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@38425407</td></tr>
-<tr>
-<td title='Private.searchControllerV4.part_searchMatchPhrasePrefixv4()'><b>part_searchMatchPhrasePrefixv4</b><br>Test class: Private.searchControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.searchControllerV4@692f203f</td></tr>
-<tr>
-<td title='Public.customerControllerV3.getOtheroptions_v2()'><b>getOtheroptions_v2</b><br>Test class: Public.customerControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.customerControllerV3@6a6cb05c</td></tr>
-<tr>
-<td title='Public.customerControllerV3.getlocationsByCustomerv_2_4_ExcludeFormer()'><b>getlocationsByCustomerv_2_4_ExcludeFormer</b><br>Test class: Public.customerControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.customerControllerV3@6a6cb05c</td></tr>
-<tr>
-<td title='Private.MiscellaneousChargeControllerV4.deleteMiscellaneousChargeErr1v4()'><b>deleteMiscellaneousChargeErr1v4</b><br>Test class: Private.MiscellaneousChargeControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.MiscellaneousChargeControllerV4@4d5d943d</td></tr>
-<tr>
-<td title='Private.equipmentControllerV4.getequipmentControllerClassv4()'><b>getequipmentControllerClassv4</b><br>Test class: Private.equipmentControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.equipmentControllerV4@45752059</td></tr>
-<tr>
-<td title='Private.PaymentControllerV4.delPaymentv4()'><b>delPaymentv4</b><br>Test class: Private.PaymentControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.PaymentControllerV4@43bc63a3</td></tr>
-<tr>
-<td title='Public.customerController_v2.getCustomerbylocation_v_2()'><b>getCustomerbylocation_v_2</b><br>Test class: Public.customerController_v2</td>
-<td></td>
-<td>0</td>
-<td>Public.customerController_v2@c730b35</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupCheckBookv4()'><b>lookupCheckBookv4</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@38425407</td></tr>
-<tr>
-<td title='Private.CollectionControllerv4.getcollectionv4()'><b>getcollectionv4</b><br>Test class: Private.CollectionControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.CollectionControllerv4@145f66e3</td></tr>
-<tr>
-<td title='Public.ServiceOrderController.postcreateServiceOrder_v2_3_1()'><b>postcreateServiceOrder_v2_3_1</b><br>Test class: Public.ServiceOrderController</td>
-<td></td>
-<td>1</td>
-<td>Public.ServiceOrderController@34e9fd99</td></tr>
-<tr>
-<td title='Private.CollectionControllerv4.confirmNoticev4()'><b>confirmNoticev4</b><br>Test class: Private.CollectionControllerv4</td>
-<td></td>
-<td>2</td>
-<td>Private.CollectionControllerv4@145f66e3</td></tr>
-<tr>
-<td title='Private.transactionsControllerv4.getMeterReadInquiryHistory_v4()'><b>getMeterReadInquiryHistory_v4</b><br>Test class: Private.transactionsControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.transactionsControllerv4@4c583ecf</td></tr>
-<tr>
-<td title='Public.customerControllerV3.getCustomerbylocation_v_2()'><b>getCustomerbylocation_v_2</b><br>Test class: Public.customerControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.customerControllerV3@6a6cb05c</td></tr>
-<tr>
-<td title='Private.MeterReadControllerV4.deletemeterReadingErrorv4()'><b>deletemeterReadingErrorv4</b><br>Test class: Private.MeterReadControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.MeterReadControllerV4@7cc0cdad</td></tr>
-<tr>
-<td title='Public.consumptionHistoryController.getconsumptionHistoryController()'><b>getconsumptionHistoryController</b><br>Test class: Public.consumptionHistoryController</td>
-<td></td>
-<td>0</td>
-<td>Public.consumptionHistoryController@1d296da</td></tr>
-<tr>
-<td title='Public.checkControllerv4.postingReceivable4Error()'><b>postingReceivable4Error</b><br>Test class: Public.checkControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Public.checkControllerv4@7c7b252e</td></tr>
-<tr>
-<td title='Public.ServiceOrderController.getServiceOrderRequestDetailsbyOptional_v2()'><b>getServiceOrderRequestDetailsbyOptional_v2</b><br>Test class: Public.ServiceOrderController</td>
-<td></td>
-<td>0</td>
-<td>Public.ServiceOrderController@34e9fd99</td></tr>
-<tr>
-<td title='Private.MiscellaneousChargeControllerV4.miscellaneousChargepostv4err()'><b>miscellaneousChargepostv4err</b><br>Test class: Private.MiscellaneousChargeControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.MiscellaneousChargeControllerV4@4d5d943d</td></tr>
-<tr>
-<td title='Public.checkControllerv4.PostCheckv4()'><b>PostCheckv4</b><br>Test class: Public.checkControllerv4</td>
-<td></td>
-<td>1</td>
-<td>Public.checkControllerv4@7c7b252e</td></tr>
-<tr>
-<td title='Public.consumptionHistoryControllerV3.getconsumptionHistoryController()'><b>getconsumptionHistoryController</b><br>Test class: Public.consumptionHistoryControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.consumptionHistoryControllerV3@55b699ef</td></tr>
-<tr>
-<td title='Private.equipmentControllerV4.postequipmentControllerv4Error()'><b>postequipmentControllerv4Error</b><br>Test class: Private.equipmentControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.equipmentControllerV4@45752059</td></tr>
-<tr>
-<td title='Private.CollectionControllerv4.postcollectionGeneratev4()'><b>postcollectionGeneratev4</b><br>Test class: Private.CollectionControllerv4</td>
-<td></td>
-<td>4</td>
-<td>Private.CollectionControllerv4@145f66e3</td></tr>
-<tr>
-<td title='Public.ServiceOrderController.postcreateServiceOrder_v2_ERROR()'><b>postcreateServiceOrder_v2_ERROR</b><br>Test class: Public.ServiceOrderController</td>
-<td></td>
-<td>0</td>
-<td>Public.ServiceOrderController@34e9fd99</td></tr>
-<tr>
-<td title='Public.customerControllerV3.putcustomersaddressv2()'><b>putcustomersaddressv2</b><br>Test class: Public.customerControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.customerControllerV3@6a6cb05c</td></tr>
-<tr>
-<td title='Public.searchControllerV3.elascticsearchcreateindex_v_3()'><b>elascticsearchcreateindex_v_3</b><br>Test class: Public.searchControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.searchControllerV3@54d9d12d</td></tr>
-<tr>
-<td title='Public.GetAccountBalancesV3.getAccountBalancesV3()'><b>getAccountBalancesV3</b><br>Test class: Public.GetAccountBalancesV3</td>
-<td></td>
-<td>0</td>
-<td>Public.GetAccountBalancesV3@292b08d6</td></tr>
-<tr>
-<td title='Public.ServiceOrderController.putaddMeterReading_v_2()'><b>putaddMeterReading_v_2</b><br>Test class: Public.ServiceOrderController</td>
-<td></td>
-<td>0</td>
-<td>Public.ServiceOrderController@34e9fd99</td></tr>
-<tr>
-<td title='Private.MeterReadControllerV4.postMeterReadPostInvalidv4()'><b>postMeterReadPostInvalidv4</b><br>Test class: Private.MeterReadControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.MeterReadControllerV4@7cc0cdad</td></tr>
-<tr>
-<td title='Public.spaController.getoutstandingDocuments_v_2()'><b>getoutstandingDocuments_v_2</b><br>Test class: Public.spaController</td>
-<td></td>
-<td>0</td>
-<td>Public.spaController@459e9125</td></tr>
-<tr>
-<td title='Private.DepositsControllerV3.getdeposit_v_3()'><b>getdeposit_v_3</b><br>Test class: Private.DepositsControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Private.DepositsControllerV3@48f2bd5b</td></tr>
-<tr>
-<td title='Public.searchController.elascticsearchcreateindex_v_2()'><b>elascticsearchcreateindex_v_2</b><br>Test class: Public.searchController</td>
-<td></td>
-<td>2</td>
-<td>Public.searchController@42a48628</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupdocumentTypev4()'><b>lookupdocumentTypev4</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@38425407</td></tr>
-<tr>
-<td title='Public.customerControllerV3.putcustomerscollectionsOptionsv2()'><b>putcustomerscollectionsOptionsv2</b><br>Test class: Public.customerControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.customerControllerV3@6a6cb05c</td></tr>
-<tr>
-<td title='Public.connectionControllerv4.getconnection_v4()'><b>getconnection_v4</b><br>Test class: Public.connectionControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Public.connectionControllerv4@40a4337a</td></tr>
-<tr>
-<td title='Public.PaymentControllerV4.postPaymentBatchtruev4()'><b>postPaymentBatchtruev4</b><br>Test class: Public.PaymentControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Public.PaymentControllerV4@31304f14</td></tr>
-<tr>
-<td title='Public.customerController_v2.getCollectionsoptions_v2()'><b>getCollectionsoptions_v2</b><br>Test class: Public.customerController_v2</td>
-<td></td>
-<td>0</td>
-<td>Public.customerController_v2@c730b35</td></tr>
-<tr>
-<td title='Private.searchControllerV4.part4_searchMatchPhrasePrefixv4()'><b>part4_searchMatchPhrasePrefixv4</b><br>Test class: Private.searchControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.searchControllerV4@692f203f</td></tr>
-<tr>
-<td title='Public.customerController_v2.getpreauthorizepaymentplan_v2()'><b>getpreauthorizepaymentplan_v2</b><br>Test class: Public.customerController_v2</td>
-<td></td>
-<td>0</td>
-<td>Public.customerController_v2@c730b35</td></tr>
-<tr>
-<td title='Public.ServiceOrderController.putupdatecomment_v_2()'><b>putupdatecomment_v_2</b><br>Test class: Public.ServiceOrderController</td>
-<td></td>
-<td>0</td>
-<td>Public.ServiceOrderController@34e9fd99</td></tr>
-<tr>
-<td title='Private.voidController.getlinkedDocumentv4()'><b>getlinkedDocumentv4</b><br>Test class: Private.voidController</td>
-<td></td>
-<td>0</td>
-<td>Private.voidController@6302bbb1</td></tr>
-<tr>
-<td title='Private.MeterReadControllerV4.deletemeterReadingvalidv4()'><b>deletemeterReadingvalidv4</b><br>Test class: Private.MeterReadControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.MeterReadControllerV4@7cc0cdad</td></tr>
-<tr>
-<td title='Public.PaymentExtensionV3.postPaymentv3()'><b>postPaymentv3</b><br>Test class: Public.PaymentExtensionV3</td>
-<td></td>
-<td>1</td>
-<td>Public.PaymentExtensionV3@4c371370</td></tr>
-<tr>
-<td title='Private.transactionsControllerv4.getMeterReadInquiryWork_v4()'><b>getMeterReadInquiryWork_v4</b><br>Test class: Private.transactionsControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.transactionsControllerv4@4c583ecf</td></tr>
-<tr>
-<td title='Public.spaControllerV3.getcalculatedocuments_v_3()'><b>getcalculatedocuments_v_3</b><br>Test class: Public.spaControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.spaControllerV3@22555ebf</td></tr>
-<tr>
-<td title='Private.equipmentControllerV4.getequipmentControllerEquipmentDetailv4()'><b>getequipmentControllerEquipmentDetailv4</b><br>Test class: Private.equipmentControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.equipmentControllerV4@45752059</td></tr>
-<tr>
-<td title='Private.searchControllerV4.searchMatchPhrasePrefixv4()'><b>searchMatchPhrasePrefixv4</b><br>Test class: Private.searchControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.searchControllerV4@692f203f</td></tr>
-<tr>
-<td title='Public.customerControllerV3.getCollectionsoptions_v2()'><b>getCollectionsoptions_v2</b><br>Test class: Public.customerControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.customerControllerV3@6a6cb05c</td></tr>
-<tr>
-<td title='Public.customerControllerV3.getlocationsByCustomerv_2_4()'><b>getlocationsByCustomerv_2_4</b><br>Test class: Public.customerControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.customerControllerV3@6a6cb05c</td></tr>
-<tr>
-<td title='Public.CashieringPostV3.TC002_RecieptAdjustment()'><b>TC002_RecieptAdjustment</b><br>Test class: Public.CashieringPostV3</td>
-<td></td>
-<td>0</td>
-<td>Public.CashieringPostV3@368f2016</td></tr>
-<tr>
-<td title='Public.connectionControllerv4.putconnectionmeterGroupV4()'><b>putconnectionmeterGroupV4</b><br>Test class: Public.connectionControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Public.connectionControllerv4@40a4337a</td></tr>
-<tr>
-<td title='Public.GetAccountBalances.getAccountBalancesPortalv2_4()'><b>getAccountBalancesPortalv2_4</b><br>Test class: Public.GetAccountBalances</td>
-<td></td>
-<td>0</td>
-<td>Public.GetAccountBalances@6c6cb480</td></tr>
-<tr>
-<td title='Public.billingControllerv4.TC001_getutilitySetup()'><b>TC001_getutilitySetup</b><br>Test class: Public.billingControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Public.billingControllerv4@408d971b</td></tr>
-<tr>
-<td title='Public.createandcancelSpaV3.recancelSPA_v_2()'><b>recancelSPA_v_2</b><br>Test class: Public.createandcancelSpaV3</td>
-<td></td>
-<td>0</td>
-<td>Public.createandcancelSpaV3@128d2484</td></tr>
-<tr>
-<td title='Public.spaControllerV3.getoutstandingDocuments_v_3()'><b>getoutstandingDocuments_v_3</b><br>Test class: Public.spaControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.spaControllerV3@22555ebf</td></tr>
-<tr>
-<td title='Private.CollectionControllerv4.getcollectionMessagesv4()'><b>getcollectionMessagesv4</b><br>Test class: Private.CollectionControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.CollectionControllerv4@145f66e3</td></tr>
-<tr>
-<td title='Public.CashieringGetV3.TC003_getnextReceipt()'><b>TC003_getnextReceipt</b><br>Test class: Public.CashieringGetV3</td>
-<td></td>
-<td>0</td>
-<td>Public.CashieringGetV3@7c7a06ec</td></tr>
-<tr>
-<td title='Public.spaControllerV3.putcalculatedocuments_v_3()'><b>putcalculatedocuments_v_3</b><br>Test class: Public.spaControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.spaControllerV3@22555ebf</td></tr>
-<tr>
-<td title='Private.MeterReadControllerV4.putMeterReadingnottheLatestreadingV4()'><b>putMeterReadingnottheLatestreadingV4</b><br>Test class: Private.MeterReadControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.MeterReadControllerV4@7cc0cdad</td></tr>
-<tr>
-<td title='Public.ServiceLocationV4.getServicesByLocation_v_4()'><b>getServicesByLocation_v_4</b><br>Test class: Public.ServiceLocationV4</td>
-<td></td>
-<td>0</td>
-<td>Public.ServiceLocationV4@5c6648b0</td></tr>
-<tr>
-<td title='Public.PaymentExtension.postPaymentv2()'><b>postPaymentv2</b><br>Test class: Public.PaymentExtension</td>
-<td></td>
-<td>0</td>
-<td>Public.PaymentExtension@3023df74</td></tr>
-<tr>
-<td title='Public.customerController_v2.putcustomersaddressv2()'><b>putcustomersaddressv2</b><br>Test class: Public.customerController_v2</td>
-<td></td>
-<td>0</td>
-<td>Public.customerController_v2@c730b35</td></tr>
-<tr>
-<td title='Private.PaymentControllerV4.gettPaymentNextv4()'><b>gettPaymentNextv4</b><br>Test class: Private.PaymentControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.PaymentControllerV4@43bc63a3</td></tr>
-<tr>
-<td title='Public.billingControllerv4.TC002_getbillBatchStatus()'><b>TC002_getbillBatchStatus</b><br>Test class: Public.billingControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Public.billingControllerv4@408d971b</td></tr>
-<tr>
-<td title='Private.transactionsControllerv4.getapplyByService_v4()'><b>getapplyByService_v4</b><br>Test class: Private.transactionsControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.transactionsControllerv4@4c583ecf</td></tr>
-<tr>
-<td title='Public.GetAccountBalancesV3.getAccountBalancesPortalv3Paymentatwork()'><b>getAccountBalancesPortalv3Paymentatwork</b><br>Test class: Public.GetAccountBalancesV3</td>
-<td></td>
-<td>0</td>
-<td>Public.GetAccountBalancesV3@292b08d6</td></tr>
-<tr>
-<td title='Public.PaymentExtensionV3.paymentExtensionv3()'><b>paymentExtensionv3</b><br>Test class: Public.PaymentExtensionV3</td>
-<td></td>
-<td>0</td>
-<td>Public.PaymentExtensionV3@4c371370</td></tr>
-<tr>
-<td title='Public.CashieringPostV3.saveReciept_v_3()'><b>saveReciept_v_3</b><br>Test class: Public.CashieringPostV3</td>
-<td></td>
-<td>6</td>
-<td>Public.CashieringPostV3@368f2016</td></tr>
-<tr>
-<td title='Private.connectionControllerV4.postconnectionmeterv4Error()'><b>postconnectionmeterv4Error</b><br>Test class: Private.connectionControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.connectionControllerV4@4135c3b</td></tr>
-<tr>
-<td title='Public.customerControllerV3.getCustomerDetail_v_2()'><b>getCustomerDetail_v_2</b><br>Test class: Public.customerControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.customerControllerV3@6a6cb05c</td></tr>
-<tr>
-<td title='Public.billingControllerv4.PostgenerateEditReportv4()'><b>PostgenerateEditReportv4</b><br>Test class: Public.billingControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Public.billingControllerv4@408d971b</td></tr>
-<tr>
-<td title='Public.CashieringGet.TC004_balances()'><b>TC004_balances</b><br>Test class: Public.CashieringGet</td>
-<td></td>
-<td>0</td>
-<td>Public.CashieringGet@3c46e67a</td></tr>
-<tr>
-<td title='Private.MeterReadControllerV4.putMeterReadingNetMeterV4()'><b>putMeterReadingNetMeterV4</b><br>Test class: Private.MeterReadControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.MeterReadControllerV4@7cc0cdad</td></tr>
-<tr>
-<td title='Public.ServiceOrderControllerV3.postcreateServiceOrder_v3()'><b>postcreateServiceOrder_v3</b><br>Test class: Public.ServiceOrderControllerV3</td>
-<td></td>
-<td>1</td>
-<td>Public.ServiceOrderControllerV3@36ebc363</td></tr>
-<tr>
-<td title='Private.BillingControllerv4.delBatv4Err()'><b>delBatv4Err</b><br>Test class: Private.BillingControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.BillingControllerv4@34a3d150</td></tr>
-<tr>
-<td title='Public.GetAccountBalances.getAccountBalancesV24()'><b>getAccountBalancesV24</b><br>Test class: Public.GetAccountBalances</td>
-<td></td>
-<td>0</td>
-<td>Public.GetAccountBalances@6c6cb480</td></tr>
-<tr>
-<td title='Public.customerController_v2.getCustomerDetail_v_2()'><b>getCustomerDetail_v_2</b><br>Test class: Public.customerController_v2</td>
-<td></td>
-<td>0</td>
-<td>Public.customerController_v2@c730b35</td></tr>
-<tr>
-<td title='Public.ServiceOrderControllerV3.putTaskCompleteNocharge_v3()'><b>putTaskCompleteNocharge_v3</b><br>Test class: Public.ServiceOrderControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.ServiceOrderControllerV3@36ebc363</td></tr>
-<tr>
-<td title='Public.PaymentControllerV4.postPaymentBatchv4()'><b>postPaymentBatchv4</b><br>Test class: Public.PaymentControllerV4</td>
-<td></td>
-<td>1</td>
-<td>Public.PaymentControllerV4@31304f14</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupNsfReasonCodev4()'><b>lookupNsfReasonCodev4</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@38425407</td></tr>
-<tr>
-<td title='Public.spaControllerV3.getheaderInfo_v_3()'><b>getheaderInfo_v_3</b><br>Test class: Public.spaControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.spaControllerV3@22555ebf</td></tr>
-<tr>
-<td title='Private.voidController.putvoidv4()'><b>putvoidv4</b><br>Test class: Private.voidController</td>
-<td></td>
-<td>2</td>
-<td>Private.voidController@6302bbb1</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupequipmentStatusv4()'><b>lookupequipmentStatusv4</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@38425407</td></tr>
-<tr>
-<td title='Private.MiscellaneousChargeControllerV4.miscellaneousChargepostv4()'><b>miscellaneousChargepostv4</b><br>Test class: Private.MiscellaneousChargeControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.MiscellaneousChargeControllerV4@4d5d943d</td></tr>
-<tr>
-<td title='Public.ServiceOrderControllerV3.putaddMiscCharge_v_3()'><b>putaddMiscCharge_v_3</b><br>Test class: Public.ServiceOrderControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.ServiceOrderControllerV3@36ebc363</td></tr>
-<tr>
-<td title='Public.PaymentControllerV4.postPaymentv4()'><b>postPaymentv4</b><br>Test class: Public.PaymentControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Public.PaymentControllerV4@31304f14</td></tr>
-<tr>
-<td title='Public.ServiceOrderControllerV3.putaddMeterReading_v_3()'><b>putaddMeterReading_v_3</b><br>Test class: Public.ServiceOrderControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.ServiceOrderControllerV3@36ebc363</td></tr>
-<tr>
-<td title='Public.customerController_v2.getCustomerBillingOptions_v2()'><b>getCustomerBillingOptions_v2</b><br>Test class: Public.customerController_v2</td>
-<td></td>
-<td>0</td>
-<td>Public.customerController_v2@c730b35</td></tr>
-<tr>
-<td title='Public.spaController.getspadetails_v_2()'><b>getspadetails_v_2</b><br>Test class: Public.spaController</td>
-<td></td>
-<td>0</td>
-<td>Public.spaController@459e9125</td></tr>
-<tr>
-<td title='Public.customerController_v2.putcustomersrolldownAddressCodev2()'><b>putcustomersrolldownAddressCodev2</b><br>Test class: Public.customerController_v2</td>
-<td></td>
-<td>0</td>
-<td>Public.customerController_v2@c730b35</td></tr>
-<tr>
-<td title='Private.PaymentControllerV4.delPaymentv4Err()'><b>delPaymentv4Err</b><br>Test class: Private.PaymentControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.PaymentControllerV4@43bc63a3</td></tr>
-<tr>
-<td title='Private.searchControllerV4.part2_searchMatchPhrasePrefixv4()'><b>part2_searchMatchPhrasePrefixv4</b><br>Test class: Private.searchControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.searchControllerV4@692f203f</td></tr>
-<tr>
-<td title='Public.ServiceOrderControllerV3.getServiceOrderRequestDetails_v3()'><b>getServiceOrderRequestDetails_v3</b><br>Test class: Public.ServiceOrderControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.ServiceOrderControllerV3@36ebc363</td></tr>
-<tr>
-<td title='Public.GetAccountBalancesV3.getAccountBalancesPortalv3()'><b>getAccountBalancesPortalv3</b><br>Test class: Public.GetAccountBalancesV3</td>
-<td></td>
-<td>0</td>
-<td>Public.GetAccountBalancesV3@292b08d6</td></tr>
-<tr>
-<td title='Public.searchControllerV3.getindex_v3()'><b>getindex_v3</b><br>Test class: Public.searchControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.searchControllerV3@54d9d12d</td></tr>
+<td>Private.lookupControllerv4@1fa268de</td></tr>
 <tr>
 <td title='Private.lookupControllerv4.lookupequipmentClassv4()'><b>lookupequipmentClassv4</b><br>Test class: Private.lookupControllerv4</td>
 <td></td>
 <td>0</td>
-<td>Private.lookupControllerv4@38425407</td></tr>
+<td>Private.lookupControllerv4@1fa268de</td></tr>
 <tr>
-<td title='Public.ServiceOrderControllerV3.putupdatecomment_v_3()'><b>putupdatecomment_v_3</b><br>Test class: Public.ServiceOrderControllerV3</td>
+<td title='Private.lookupControllerv4.lookupCheckBookv4()'><b>lookupCheckBookv4</b><br>Test class: Private.lookupControllerv4</td>
 <td></td>
 <td>0</td>
-<td>Public.ServiceOrderControllerV3@36ebc363</td></tr>
+<td>Private.lookupControllerv4@1fa268de</td></tr>
 <tr>
-<td title='Public.PaymentExtension.paymentExtensionv2()'><b>paymentExtensionv2</b><br>Test class: Public.PaymentExtension</td>
+<td title='Private.lookupControllerv4.lookupbillingPrepareType()'><b>lookupbillingPrepareType</b><br>Test class: Private.lookupControllerv4</td>
 <td></td>
 <td>0</td>
-<td>Public.PaymentExtension@3023df74</td></tr>
+<td>Private.lookupControllerv4@1fa268de</td></tr>
 <tr>
-<td title='Public.customerControllerV3.getinfolabels_v2()'><b>getinfolabels_v2</b><br>Test class: Public.customerControllerV3</td>
+<td title='Private.lookupControllerv4.lookupcollectionnoticeType()'><b>lookupcollectionnoticeType</b><br>Test class: Private.lookupControllerv4</td>
 <td></td>
 <td>0</td>
-<td>Public.customerControllerV3@6a6cb05c</td></tr>
+<td>Private.lookupControllerv4@1fa268de</td></tr>
 <tr>
-<td title='Private.CollectionControllerv4.getcollectionsetupv4()'><b>getcollectionsetupv4</b><br>Test class: Private.CollectionControllerv4</td>
+<td title='Private.lookupControllerv4.lookupzonev4()'><b>lookupzonev4</b><br>Test class: Private.lookupControllerv4</td>
 <td></td>
 <td>0</td>
-<td>Private.CollectionControllerv4@145f66e3</td></tr>
+<td>Private.lookupControllerv4@1fa268de</td></tr>
 <tr>
-<td title='Public.CashieringGetV3.TC007_getAutoApply()'><b>TC007_getAutoApply</b><br>Test class: Public.CashieringGetV3</td>
+<td title='Private.lookupControllerv4.lookupequipmentStatusv4()'><b>lookupequipmentStatusv4</b><br>Test class: Private.lookupControllerv4</td>
 <td></td>
 <td>0</td>
-<td>Public.CashieringGetV3@7c7a06ec</td></tr>
+<td>Private.lookupControllerv4@1fa268de</td></tr>
 <tr>
-<td title='Public.CashieringPost.saveReciept_2_4()'><b>saveReciept_2_4</b><br>Test class: Public.CashieringPost</td>
-<td></td>
-<td>5</td>
-<td>Public.CashieringPost@702657cc</td></tr>
-<tr>
-<td title='Public.customerController_v2.putcustomerscollectionsOptionsv2()'><b>putcustomerscollectionsOptionsv2</b><br>Test class: Public.customerController_v2</td>
+<td title='Private.lookupControllerv4.lookupequipmentTypev4()'><b>lookupequipmentTypev4</b><br>Test class: Private.lookupControllerv4</td>
 <td></td>
 <td>0</td>
-<td>Public.customerController_v2@c730b35</td></tr>
+<td>Private.lookupControllerv4@1fa268de</td></tr>
 <tr>
-<td title='Private.lookupControllerv4.lookupkvaReadingType()'><b>lookupkvaReadingType</b><br>Test class: Private.lookupControllerv4</td>
+<td title='Private.lookupControllerv4.lookupbillingCyclePeriod()'><b>lookupbillingCyclePeriod</b><br>Test class: Private.lookupControllerv4</td>
 <td></td>
 <td>0</td>
-<td>Private.lookupControllerv4@38425407</td></tr>
+<td>Private.lookupControllerv4@1fa268de</td></tr>
 <tr>
-<td title='Public.CashieringGet.TC005_getRegisterInfo()'><b>TC005_getRegisterInfo</b><br>Test class: Public.CashieringGet</td>
+<td title='Private.lookupControllerv4.lookupNsfReasonCodev4()'><b>lookupNsfReasonCodev4</b><br>Test class: Private.lookupControllerv4</td>
 <td></td>
 <td>0</td>
-<td>Public.CashieringGet@3c46e67a</td></tr>
+<td>Private.lookupControllerv4@1fa268de</td></tr>
 <tr>
-<td title='Public.spaController.getspadocuments_v_2()'><b>getspadocuments_v_2</b><br>Test class: Public.spaController</td>
+<td title='Private.lookupControllerv4.lookupEquipmentRegisterCode4()'><b>lookupEquipmentRegisterCode4</b><br>Test class: Private.lookupControllerv4</td>
 <td></td>
 <td>0</td>
-<td>Public.spaController@459e9125</td></tr>
+<td>Private.lookupControllerv4@1fa268de</td></tr>
 <tr>
-<td title='Public.customerController_v2.getOtheroptions_v2()'><b>getOtheroptions_v2</b><br>Test class: Public.customerController_v2</td>
+<td title='Private.lookupControllerv4.getapplyByService_Paymentsv4()'><b>getapplyByService_Paymentsv4</b><br>Test class: Private.lookupControllerv4</td>
 <td></td>
 <td>0</td>
-<td>Public.customerController_v2@c730b35</td></tr>
+<td>Private.lookupControllerv4@1fa268de</td></tr>
 <tr>
-<td title='Private.transactionsControllerv3.getrecentTransactions_v_3()'><b>getrecentTransactions_v_3</b><br>Test class: Private.transactionsControllerv3</td>
+<td title='Private.lookupControllerv4.lookupdocumentTypev4()'><b>lookupdocumentTypev4</b><br>Test class: Private.lookupControllerv4</td>
 <td></td>
 <td>0</td>
-<td>Private.transactionsControllerv3@557caf28</td></tr>
-<tr>
-<td title='Public.ServiceOrderControllerV3.putswitchMeter_v_3()'><b>putswitchMeter_v_3</b><br>Test class: Public.ServiceOrderControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.ServiceOrderControllerV3@36ebc363</td></tr>
-<tr>
-<td title='Public.ServiceLocationV3.getServicesByLocation_v_3()'><b>getServicesByLocation_v_3</b><br>Test class: Public.ServiceLocationV3</td>
-<td></td>
-<td>0</td>
-<td>Public.ServiceLocationV3@6f1de4c7</td></tr>
-<tr>
-<td title='Public.customerController_v2.putcustomersotherOptionsv2()'><b>putcustomersotherOptionsv2</b><br>Test class: Public.customerController_v2</td>
-<td></td>
-<td>0</td>
-<td>Public.customerController_v2@c730b35</td></tr>
-<tr>
-<td title='Public.CashieringGetV3.TC003_getCashin()'><b>TC003_getCashin</b><br>Test class: Public.CashieringGetV3</td>
-<td></td>
-<td>0</td>
-<td>Public.CashieringGetV3@7c7a06ec</td></tr>
-<tr>
-<td title='Private.csmGlobalsController.csmSetupautoGeneratenextIdv4()'><b>csmSetupautoGeneratenextIdv4</b><br>Test class: Private.csmGlobalsController</td>
-<td></td>
-<td>0</td>
-<td>Private.csmGlobalsController@2a4fb17b</td></tr>
-<tr>
-<td title='Public.spaControllerV3.getspadocuments_v_3()'><b>getspadocuments_v_3</b><br>Test class: Public.spaControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.spaControllerV3@22555ebf</td></tr>
-<tr>
-<td title='Private.transactionsControllerv3.getBillInquirydistribution_v_3()'><b>getBillInquirydistribution_v_3</b><br>Test class: Private.transactionsControllerv3</td>
-<td></td>
-<td>0</td>
-<td>Private.transactionsControllerv3@557caf28</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupEquipmentAttributeProtection4()'><b>lookupEquipmentAttributeProtection4</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@38425407</td></tr>
-<tr>
-<td title='Public.PaymentExtension.postPaymentv2_2()'><b>postPaymentv2_2</b><br>Test class: Public.PaymentExtension</td>
-<td></td>
-<td>0</td>
-<td>Public.PaymentExtension@3023df74</td></tr>
-<tr>
-<td title='Private.PaymentControllerV4.delPaymentv4CreditNote()'><b>delPaymentv4CreditNote</b><br>Test class: Private.PaymentControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.PaymentControllerV4@43bc63a3</td></tr>
-<tr>
-<td title='Private.CollectionControllerv4.getcollectionNoticeTypev4()'><b>getcollectionNoticeTypev4</b><br>Test class: Private.CollectionControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.CollectionControllerv4@145f66e3</td></tr>
-<tr>
-<td title='Public.CashieringGet.TC004_getReceipt()'><b>TC004_getReceipt</b><br>Test class: Public.CashieringGet</td>
-<td></td>
-<td>0</td>
-<td>Public.CashieringGet@3c46e67a</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupPaymentDocuments()'><b>lookupPaymentDocuments</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@38425407</td></tr>
+<td>Private.lookupControllerv4@1fa268de</td></tr>
 <tr>
 <td title='Private.lookupControllerv4.lookupReadingTypev4()'><b>lookupReadingTypev4</b><br>Test class: Private.lookupControllerv4</td>
 <td></td>
 <td>0</td>
-<td>Private.lookupControllerv4@38425407</td></tr>
+<td>Private.lookupControllerv4@1fa268de</td></tr>
 <tr>
-<td title='Public.ServiceOrderController.getServiceOrderRequestDetails_v2()'><b>getServiceOrderRequestDetails_v2</b><br>Test class: Public.ServiceOrderController</td>
+<td title='Private.lookupControllerv4.lookupMetergroup4()'><b>lookupMetergroup4</b><br>Test class: Private.lookupControllerv4</td>
+<td></td>
+<td>2</td>
+<td>Private.lookupControllerv4@1fa268de</td></tr>
+<tr>
+<td title='Private.lookupControllerv4.getapplyByService_v4()'><b>getapplyByService_v4</b><br>Test class: Private.lookupControllerv4</td>
 <td></td>
 <td>0</td>
-<td>Public.ServiceOrderController@34e9fd99</td></tr>
+<td>Private.lookupControllerv4@1fa268de</td></tr>
 <tr>
-<td title='Public.billingControllerv4.PostBillingcalculatev4()'><b>PostBillingcalculatev4</b><br>Test class: Public.billingControllerv4</td>
-<td></td>
-<td>7</td>
-<td>Public.billingControllerv4@408d971b</td></tr>
-<tr>
-<td title='Public.customerController_v2.getinfolabels_v2()'><b>getinfolabels_v2</b><br>Test class: Public.customerController_v2</td>
+<td title='Private.lookupControllerv4.lookupEquipmentAttributeProtection4()'><b>lookupEquipmentAttributeProtection4</b><br>Test class: Private.lookupControllerv4</td>
 <td></td>
 <td>0</td>
-<td>Public.customerController_v2@c730b35</td></tr>
-<tr>
-<td title='Public.customerControllerV3.putcustomerbillingoptionv2()'><b>putcustomerbillingoptionv2</b><br>Test class: Public.customerControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.customerControllerV3@6a6cb05c</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.getapplyByService_nonev4()'><b>getapplyByService_nonev4</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@38425407</td></tr>
-<tr>
-<td title='Public.createandcancelSpa.createSPA_v_2()'><b>createSPA_v_2</b><br>Test class: Public.createandcancelSpa</td>
-<td></td>
-<td>0</td>
-<td>Public.createandcancelSpa@2a65fe7c</td></tr>
-<tr>
-<td title='Public.CashieringGetV3.TC006_gettransactions()'><b>TC006_gettransactions</b><br>Test class: Public.CashieringGetV3</td>
-<td></td>
-<td>0</td>
-<td>Public.CashieringGetV3@7c7a06ec</td></tr>
-<tr>
-<td title='Private.transactionsControllerv3.getTransactions_v_3()'><b>getTransactions_v_3</b><br>Test class: Private.transactionsControllerv3</td>
-<td></td>
-<td>0</td>
-<td>Private.transactionsControllerv3@557caf28</td></tr>
-<tr>
-<td title='Public.spaControllerV3.getspadetails_v_3()'><b>getspadetails_v_3</b><br>Test class: Public.spaControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.spaControllerV3@22555ebf</td></tr>
-<tr>
-<td title='Public.GetAccountBalances.getAccountBalancesV2()'><b>getAccountBalancesV2</b><br>Test class: Public.GetAccountBalances</td>
-<td></td>
-<td>0</td>
-<td>Public.GetAccountBalances@6c6cb480</td></tr>
-<tr>
-<td title='Private.MiscellaneousChargeControllerV4.putmiscellaneousChargeSimulatev4()'><b>putmiscellaneousChargeSimulatev4</b><br>Test class: Private.MiscellaneousChargeControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.MiscellaneousChargeControllerV4@4d5d943d</td></tr>
-<tr>
-<td title='Public.PaymentControllerV4.gettPaymentNextv4()'><b>gettPaymentNextv4</b><br>Test class: Public.PaymentControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Public.PaymentControllerV4@31304f14</td></tr>
-<tr>
-<td title='Private.MeterReadControllerV4.getmeterReadingnextv4()'><b>getmeterReadingnextv4</b><br>Test class: Private.MeterReadControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.MeterReadControllerV4@7cc0cdad</td></tr>
-<tr>
-<td title='Private.searchControllerV4.elascticsearchcreateindex_v_4()'><b>elascticsearchcreateindex_v_4</b><br>Test class: Private.searchControllerV4</td>
-<td></td>
-<td>0</td>
-<td>Private.searchControllerV4@692f203f</td></tr>
-<tr>
-<td title='Public.customerController_v2.getCustomerDetail_v2()'><b>getCustomerDetail_v2</b><br>Test class: Public.customerController_v2</td>
-<td></td>
-<td>0</td>
-<td>Public.customerController_v2@c730b35</td></tr>
+<td>Private.lookupControllerv4@1fa268de</td></tr>
 <tr>
 <td title='Private.lookupControllerv4.lookupequipmentModelv4()'><b>lookupequipmentModelv4</b><br>Test class: Private.lookupControllerv4</td>
 <td></td>
 <td>0</td>
-<td>Private.lookupControllerv4@38425407</td></tr>
+<td>Private.lookupControllerv4@1fa268de</td></tr>
+<tr>
+<td title='Private.lookupControllerv4.lookupequipmentNetMetervType4()'><b>lookupequipmentNetMetervType4</b><br>Test class: Private.lookupControllerv4</td>
+<td></td>
+<td>0</td>
+<td>Private.lookupControllerv4@1fa268de</td></tr>
+<tr>
+<td title='Private.lookupControllerv4.lookupkvaReadingType()'><b>lookupkvaReadingType</b><br>Test class: Private.lookupControllerv4</td>
+<td></td>
+<td>0</td>
+<td>Private.lookupControllerv4@1fa268de</td></tr>
+<tr>
+<td title='Private.lookupControllerv4.getapplyByService_nonev4()'><b>getapplyByService_nonev4</b><br>Test class: Private.lookupControllerv4</td>
+<td></td>
+<td>0</td>
+<td>Private.lookupControllerv4@1fa268de</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-skipped'>
 <tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
@@ -1896,74 +298,6 @@ Expected: a string containing &quot;40305/17/201706/16/2017This is your first qu
 <td width="10%"><b>Time (seconds)</b></td>
 <td><b>Instance</b></td>
 </tr>
-<tr>
-<td title='Public.CashieringGet.TC006_gettransactions()'><b>TC006_gettransactions</b><br>Test class: Public.CashieringGet</td>
-<td><div><pre>org.testng.SkipException: Skipping this due to bugCPDEV-16978
-	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1273)
-	at Public.CashieringGet.TC006_gettransactions(CashieringGet.java:149)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(ArrayList.java:1257)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace841721161", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace841721161'><pre>org.testng.SkipException: Skipping this due to bugCPDEV-16978
-	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1273)
-	at Public.CashieringGet.TC006_gettransactions(CashieringGet.java:149)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(ArrayList.java:1257)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>0</td>
-<td>Public.CashieringGet@3c46e67a</td></tr>
 <tr>
 <td title='Private.lookupControllerv4.lookupMeterReadv4()'><b>lookupMeterReadv4</b><br>Test class: Private.lookupControllerv4</td>
 <td><div><pre>org.testng.SkipException: Skipping this due to bugCPDEV-17166
@@ -1997,8 +331,8 @@ Expected: a string containing &quot;40305/17/201706/16/2017This is your first qu
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1798823822", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1798823822'><pre>org.testng.SkipException: Skipping this due to bugCPDEV-17166
+</pre></div><a href='#' onClick='toggleBox("stack-trace645208036", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace645208036'><pre>org.testng.SkipException: Skipping this due to bugCPDEV-17166
 	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1273)
 	at Private.lookupControllerv4.lookupMeterReadv4(lookupControllerv4.java:100)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -2031,7 +365,7 @@ Expected: a string containing &quot;40305/17/201706/16/2017This is your first qu
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>Private.lookupControllerv4@38425407</td></tr>
+<td>Private.lookupControllerv4@1fa268de</td></tr>
 <tr>
 <td title='Private.lookupControllerv4.lookupMiscChargeDocuments()'><b>lookupMiscChargeDocuments</b><br>Test class: Private.lookupControllerv4</td>
 <td><div><pre>org.testng.SkipException: Skipping this due to bug CPDEV-17161 
@@ -2065,8 +399,8 @@ Expected: a string containing &quot;40305/17/201706/16/2017This is your first qu
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1840457976", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1840457976'><pre>org.testng.SkipException: Skipping this due to bug CPDEV-17161 
+</pre></div><a href='#' onClick='toggleBox("stack-trace1322484262", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1322484262'><pre>org.testng.SkipException: Skipping this due to bug CPDEV-17161 
 	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1273)
 	at Private.lookupControllerv4.lookupMiscChargeDocuments(lookupControllerv4.java:276)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -2099,189 +433,7 @@ Expected: a string containing &quot;40305/17/201706/16/2017This is your first qu
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>Private.lookupControllerv4@38425407</td></tr>
-<tr>
-<td title='Private.PaymentControllerV4.postPaymentSimulatev4()'><b>postPaymentSimulatev4</b><br>Test class: Private.PaymentControllerV4</td>
-<td><div><pre>org.testng.SkipException: Skipping this due to bugCPDEV-17140
-	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1273)
-	at Private.PaymentControllerV4.postPaymentSimulatev4(PaymentControllerV4.java:33)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(ArrayList.java:1257)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace377570010", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace377570010'><pre>org.testng.SkipException: Skipping this due to bugCPDEV-17140
-	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1273)
-	at Private.PaymentControllerV4.postPaymentSimulatev4(PaymentControllerV4.java:33)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(ArrayList.java:1257)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>0</td>
-<td>Private.PaymentControllerV4@43bc63a3</td></tr>
-<tr>
-<td title='Public.CashieringGet.TC007_getAutoApply()'><b>TC007_getAutoApply</b><br>Test class: Public.CashieringGet</td>
-<td><div><pre>java.lang.Throwable: Method CashieringGet.TC007_getAutoApply()[pri:7, instance:Public.CashieringGet@3c46e67a] depends on not successfully finished methods
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(ArrayList.java:1257)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1410791643", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1410791643'><pre>java.lang.Throwable: Method CashieringGet.TC007_getAutoApply()[pri:7, instance:Public.CashieringGet@3c46e67a] depends on not successfully finished methods
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(ArrayList.java:1257)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>0</td>
-<td>Public.CashieringGet@3c46e67a</td></tr>
-<tr>
-<td title='Private.connectionControllerV4.postconnectionmeterv4()'><b>postconnectionmeterv4</b><br>Test class: Private.connectionControllerV4</td>
-<td><div><pre>org.testng.SkipException: Skipping this due to bugCPDEV-17054
-	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1273)
-	at Private.connectionControllerV4.postconnectionmeterv4(connectionControllerV4.java:21)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(ArrayList.java:1257)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1377212248", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1377212248'><pre>org.testng.SkipException: Skipping this due to bugCPDEV-17054
-	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1273)
-	at Private.connectionControllerV4.postconnectionmeterv4(connectionControllerV4.java:21)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(ArrayList.java:1257)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>0</td>
-<td>Private.connectionControllerV4@4135c3b</td></tr>
+<td>Private.lookupControllerv4@1fa268de</td></tr>
 <tr>
 <td title='Private.lookupControllerv4.lookupchargeType()'><b>lookupchargeType</b><br>Test class: Private.lookupControllerv4</td>
 <td><div><pre>org.testng.SkipException: Skipping this due to bugCPDEV-17064
@@ -2315,8 +467,8 @@ Expected: a string containing &quot;40305/17/201706/16/2017This is your first qu
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace2000856156", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2000856156'><pre>org.testng.SkipException: Skipping this due to bugCPDEV-17064
+</pre></div><a href='#' onClick='toggleBox("stack-trace193625667", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace193625667'><pre>org.testng.SkipException: Skipping this due to bugCPDEV-17064
 	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1273)
 	at Private.lookupControllerv4.lookupchargeType(lookupControllerv4.java:253)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -2349,7 +501,7 @@ Expected: a string containing &quot;40305/17/201706/16/2017This is your first qu
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>Private.lookupControllerv4@38425407</td></tr>
+<td>Private.lookupControllerv4@1fa268de</td></tr>
 </table><p>
 </body>
 </html>
