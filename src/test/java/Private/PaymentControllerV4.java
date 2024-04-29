@@ -21,7 +21,7 @@ public class PaymentControllerV4 {
 		String ver = "4.0";
 		String expected = "./\\TestData\\gettPaymentNextv4.json";
 		HashMap<String, String> params = new HashMap<String, String>();
-		// params.put("ConnectionSequence", "1");
+		params.put("PrevInWork", "true");
 		String result = CommonMethods.getMethod(uri, ver, params, expected);
 		System.out.println(result);
 
@@ -73,6 +73,45 @@ public class PaymentControllerV4 {
 		String jpath = "./\\TestData\\delPaymentCreditNoteV4.json";
 		String result = CommonMethods.deleteMethod(uri, ver, jpath);
 		System.out.println(result.toString());
+
+	}
+	
+	@Test(priority = 6, groups = "Payment")
+	public void gettPaymentNextOpenv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// CommonMethods.CompanyDBRestore();
+		String uri = "/payment/next";
+		String ver = "4.0";
+		String expected = "./\\TestData\\gettPaymentNextOpenv4.json";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("PrevInOpen", "true");
+		String result = CommonMethods.getMethod(uri, ver, params, expected);
+		System.out.println(result);
+
+	}
+	
+	@Test(priority = 7, groups = "Payment")
+	public void gettPaymentNextHistv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// CommonMethods.CompanyDBRestore();
+		String uri = "/payment/next";
+		String ver = "4.0";
+		String expected = "./\\TestData\\gettPaymentNextHistv4.json";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("PrevInHistory", "true");
+		String result = CommonMethods.getMethod(uri, ver, params, expected);
+		System.out.println(result);
+
+	}
+	
+	@Test(priority = 8, groups = "Payment")
+	public void gettPaymentNextAllv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// CommonMethods.CompanyDBRestore();
+		String uri = "/payment/next";
+		String ver = "4.0";
+		String expected = "./\\TestData\\gettPaymentNextAllv4.json";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("PaymentType", "All");
+		String result = CommonMethods.getMethod(uri, ver, params, expected);
+		System.out.println(result);
 
 	}
 

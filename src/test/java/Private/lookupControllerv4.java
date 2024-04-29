@@ -307,5 +307,17 @@ public class lookupControllerv4 {
 		String result = CommonMethods.getMethod(uri, ver, params, jpath);
 		System.out.println(result);
 	}
+	
+	@Test(priority = 26, groups = "lookup")
+	public void lookupserviceOrderStatus()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/lookup/serviceOrderStatus";
+		String ver = "4.0";
+		String jpath = "./\\TestData\\lookupserviceOrderStatusv4.json";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethod(uri, ver, params, jpath);
+		System.out.println(result);
+	}
+
 
 }

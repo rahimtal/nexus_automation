@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>22/1/3</td>
+<td>Tests passed/Failed/Skipped:</td><td>5/2/1</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Apr 04 04:56:51 PDT 2024</td>
+<td>Started on:</td><td>Mon Apr 29 05:25:17 PDT 2024</td>
 </tr>
-<tr><td>Total time:</td><td>6 seconds (6801 ms)</td>
+<tr><td>Total time:</td><td>3 seconds (3035 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,25 +75,46 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='Private.lookupControllerv4.lookupPaymentDocuments()'><b>lookupPaymentDocuments</b><br>Test class: Private.lookupControllerv4</td>
-<td><div><pre>java.lang.AssertionError: expected [{&quot;Payment&quot;:[{&quot;DocumentNumber&quot;:&quot;PYMT00000000505&quot;,&quot;BatchId&quot;:&quot;WO101619CRP001&quot;,&quot;LocationId&quot;:&quot;100002&quot;,&quot;CustomerId&quot;:&quot;500002&quot;,&quot;PaymentDate&quot;:&quot;2027-04-12T00:00:00&quot;,&quot;PaymentTypeDesc&quot;:&quot;CreditMemo&quot;}]}] but found [{
-    	&quot;Payment&quot;: [{
-    		&quot;DocumentNumber&quot;: &quot;&quot;,
-    		&quot;BatchId&quot;: &quot;&quot;,
-    		&quot;LocationId&quot;: &quot;&quot;,
-    		&quot;CustomerId&quot;: &quot;&quot;,
-    		&quot;PaymentDate&quot;: &quot;&quot;,
-    		&quot;PaymentTypeDesc&quot;: &quot;&quot;,
-    	}]
-    }]
-	at org.testng.Assert.fail(Assert.java:99)
-	at org.testng.Assert.failNotEquals(Assert.java:1037)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
-	at org.testng.Assert.assertEquals(Assert.java:122)
-	at org.testng.Assert.assertEquals(Assert.java:629)
-	at org.testng.Assert.assertEquals(Assert.java:639)
-	at com.NexustAPIAutomation.java.CommonMethods.getMethod(CommonMethods.java:521)
-	at Private.lookupControllerv4.lookupPaymentDocuments(lookupControllerv4.java:296)
+<td title='Private.PaymentControllerV4.delPaymentv4CreditNote()'><b>delPaymentv4CreditNote</b><br>Test class: Private.PaymentControllerV4</td>
+<td><div><pre>java.lang.AssertionError: 1 expectation failed.
+Response body doesn&apos;t match expectation.
+Expected: a string containing &quot;{\&quot;Payment\&quot;:{\&quot;Success\&quot;:true,\&quot;Data\&quot;:null,\&quot;Messages\&quot;:[{\&quot;Enabled\&quot;:1,\&quot;Info\&quot;:\&quot;Credit Note Deleted Successfully.\&quot;,\&quot;Level\&quot;:1}]}}&quot;
+  Actual: {&quot;Payment&quot;:{&quot;Success&quot;:false,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Invalid payment document number (PYMT00000000505).&quot;,&quot;Level&quot;:3}]}}
+
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:80)
+	at org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:74)
+	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:249)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:493)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
+	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:674)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:190)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:58)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:168)
+	at io.restassured.internal.ResponseSpecificationImpl.body(ResponseSpecificationImpl.groovy:98)
+	at io.restassured.internal.ValidatableResponseOptionsImpl.body(ValidatableResponseOptionsImpl.java:238)
+	at io.restassured.internal.ValidatableResponseImpl.super$2$body(ValidatableResponseImpl.groovy)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:101)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1217)
+	at org.codehaus.groovy.runtime.ScriptBytecodeAdapter.invokeMethodOnSuperN(ScriptBytecodeAdapter.java:144)
+	at io.restassured.internal.ValidatableResponseImpl.body(ValidatableResponseImpl.groovy:293)
+	at io.restassured.internal.ValidatableResponseImpl.body(ValidatableResponseImpl.groovy)
+	at com.NexustAPIAutomation.java.CommonMethods.deleteMethod(CommonMethods.java:1189)
+	at Private.PaymentControllerV4.delPaymentv4CreditNote(PaymentControllerV4.java:74)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -122,25 +143,46 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace542839598", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace542839598'><pre>java.lang.AssertionError: expected [{&quot;Payment&quot;:[{&quot;DocumentNumber&quot;:&quot;PYMT00000000505&quot;,&quot;BatchId&quot;:&quot;WO101619CRP001&quot;,&quot;LocationId&quot;:&quot;100002&quot;,&quot;CustomerId&quot;:&quot;500002&quot;,&quot;PaymentDate&quot;:&quot;2027-04-12T00:00:00&quot;,&quot;PaymentTypeDesc&quot;:&quot;CreditMemo&quot;}]}] but found [{
-    	&quot;Payment&quot;: [{
-    		&quot;DocumentNumber&quot;: &quot;&quot;,
-    		&quot;BatchId&quot;: &quot;&quot;,
-    		&quot;LocationId&quot;: &quot;&quot;,
-    		&quot;CustomerId&quot;: &quot;&quot;,
-    		&quot;PaymentDate&quot;: &quot;&quot;,
-    		&quot;PaymentTypeDesc&quot;: &quot;&quot;,
-    	}]
-    }]
-	at org.testng.Assert.fail(Assert.java:99)
-	at org.testng.Assert.failNotEquals(Assert.java:1037)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
-	at org.testng.Assert.assertEquals(Assert.java:122)
-	at org.testng.Assert.assertEquals(Assert.java:629)
-	at org.testng.Assert.assertEquals(Assert.java:639)
-	at com.NexustAPIAutomation.java.CommonMethods.getMethod(CommonMethods.java:521)
-	at Private.lookupControllerv4.lookupPaymentDocuments(lookupControllerv4.java:296)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1598047636", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1598047636'><pre>java.lang.AssertionError: 1 expectation failed.
+Response body doesn&apos;t match expectation.
+Expected: a string containing &quot;{\&quot;Payment\&quot;:{\&quot;Success\&quot;:true,\&quot;Data\&quot;:null,\&quot;Messages\&quot;:[{\&quot;Enabled\&quot;:1,\&quot;Info\&quot;:\&quot;Credit Note Deleted Successfully.\&quot;,\&quot;Level\&quot;:1}]}}&quot;
+  Actual: {&quot;Payment&quot;:{&quot;Success&quot;:false,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Invalid payment document number (PYMT00000000505).&quot;,&quot;Level&quot;:3}]}}
+
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:80)
+	at org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:74)
+	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:249)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:493)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
+	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:674)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:190)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:58)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:168)
+	at io.restassured.internal.ResponseSpecificationImpl.body(ResponseSpecificationImpl.groovy:98)
+	at io.restassured.internal.ValidatableResponseOptionsImpl.body(ValidatableResponseOptionsImpl.java:238)
+	at io.restassured.internal.ValidatableResponseImpl.super$2$body(ValidatableResponseImpl.groovy)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:101)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1217)
+	at org.codehaus.groovy.runtime.ScriptBytecodeAdapter.invokeMethodOnSuperN(ScriptBytecodeAdapter.java:144)
+	at io.restassured.internal.ValidatableResponseImpl.body(ValidatableResponseImpl.groovy:293)
+	at io.restassured.internal.ValidatableResponseImpl.body(ValidatableResponseImpl.groovy)
+	at com.NexustAPIAutomation.java.CommonMethods.deleteMethod(CommonMethods.java:1189)
+	at Private.PaymentControllerV4.delPaymentv4CreditNote(PaymentControllerV4.java:74)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -171,7 +213,161 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>Private.lookupControllerv4@1fa268de</td></tr>
+<td>Private.PaymentControllerV4@1fa268de</td></tr>
+<tr>
+<td title='Private.PaymentControllerV4.delPaymentv4()'><b>delPaymentv4</b><br>Test class: Private.PaymentControllerV4</td>
+<td><div><pre>java.lang.AssertionError: 1 expectation failed.
+Response body doesn&apos;t match expectation.
+Expected: a string containing &quot;{\&quot;Payment\&quot;:{\&quot;Success\&quot;:true,\&quot;Data\&quot;:null,\&quot;Messages\&quot;:[{\&quot;Enabled\&quot;:1,\&quot;Info\&quot;:\&quot;Payment Deleted Successfully.\&quot;,\&quot;Level\&quot;:1}]}}&quot;
+  Actual: {&quot;Payment&quot;:{&quot;Success&quot;:false,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Invalid payment document number (PYMT00000000431).&quot;,&quot;Level&quot;:3}]}}
+
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:80)
+	at org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:74)
+	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:59)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:237)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:249)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:493)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:115)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:127)
+	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:674)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:190)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:58)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:51)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:156)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:168)
+	at io.restassured.internal.ResponseSpecificationImpl.body(ResponseSpecificationImpl.groovy:98)
+	at io.restassured.internal.ValidatableResponseOptionsImpl.body(ValidatableResponseOptionsImpl.java:238)
+	at io.restassured.internal.ValidatableResponseImpl.super$2$body(ValidatableResponseImpl.groovy)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:101)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1217)
+	at org.codehaus.groovy.runtime.ScriptBytecodeAdapter.invokeMethodOnSuperN(ScriptBytecodeAdapter.java:144)
+	at io.restassured.internal.ValidatableResponseImpl.body(ValidatableResponseImpl.groovy:293)
+	at io.restassured.internal.ValidatableResponseImpl.body(ValidatableResponseImpl.groovy)
+	at com.NexustAPIAutomation.java.CommonMethods.deleteMethod(CommonMethods.java:1189)
+	at Private.PaymentControllerV4.delPaymentv4(PaymentControllerV4.java:50)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1106468732", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1106468732'><pre>java.lang.AssertionError: 1 expectation failed.
+Response body doesn&apos;t match expectation.
+Expected: a string containing &quot;{\&quot;Payment\&quot;:{\&quot;Success\&quot;:true,\&quot;Data\&quot;:null,\&quot;Messages\&quot;:[{\&quot;Enabled\&quot;:1,\&quot;Info\&quot;:\&quot;Payment Deleted Successfully.\&quot;,\&quot;Level\&quot;:1}]}}&quot;
+  Actual: {&quot;Payment&quot;:{&quot;Success&quot;:false,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Invalid payment document number (PYMT00000000431).&quot;,&quot;Level&quot;:3}]}}
+
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:80)
+	at org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:74)
+	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:59)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:237)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:249)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:493)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:115)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:127)
+	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:674)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:190)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:58)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:51)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:156)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:168)
+	at io.restassured.internal.ResponseSpecificationImpl.body(ResponseSpecificationImpl.groovy:98)
+	at io.restassured.internal.ValidatableResponseOptionsImpl.body(ValidatableResponseOptionsImpl.java:238)
+	at io.restassured.internal.ValidatableResponseImpl.super$2$body(ValidatableResponseImpl.groovy)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:101)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1217)
+	at org.codehaus.groovy.runtime.ScriptBytecodeAdapter.invokeMethodOnSuperN(ScriptBytecodeAdapter.java:144)
+	at io.restassured.internal.ValidatableResponseImpl.body(ValidatableResponseImpl.groovy:293)
+	at io.restassured.internal.ValidatableResponseImpl.body(ValidatableResponseImpl.groovy)
+	at com.NexustAPIAutomation.java.CommonMethods.deleteMethod(CommonMethods.java:1189)
+	at Private.PaymentControllerV4.delPaymentv4(PaymentControllerV4.java:50)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>Private.PaymentControllerV4@1fa268de</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -181,115 +377,30 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='Private.lookupControllerv4.lookupbillType()'><b>lookupbillType</b><br>Test class: Private.lookupControllerv4</td>
+<td title='Private.PaymentControllerV4.delPaymentv4Err()'><b>delPaymentv4Err</b><br>Test class: Private.PaymentControllerV4</td>
 <td></td>
 <td>0</td>
-<td>Private.lookupControllerv4@1fa268de</td></tr>
+<td>Private.PaymentControllerV4@1fa268de</td></tr>
 <tr>
-<td title='Private.lookupControllerv4.lookupserviceOrderOrigin()'><b>lookupserviceOrderOrigin</b><br>Test class: Private.lookupControllerv4</td>
+<td title='Private.PaymentControllerV4.gettPaymentNextAllv4()'><b>gettPaymentNextAllv4</b><br>Test class: Private.PaymentControllerV4</td>
 <td></td>
 <td>0</td>
-<td>Private.lookupControllerv4@1fa268de</td></tr>
+<td>Private.PaymentControllerV4@1fa268de</td></tr>
 <tr>
-<td title='Private.lookupControllerv4.lookupequipmentClassv4()'><b>lookupequipmentClassv4</b><br>Test class: Private.lookupControllerv4</td>
+<td title='Private.PaymentControllerV4.gettPaymentNextOpenv4()'><b>gettPaymentNextOpenv4</b><br>Test class: Private.PaymentControllerV4</td>
 <td></td>
 <td>0</td>
-<td>Private.lookupControllerv4@1fa268de</td></tr>
+<td>Private.PaymentControllerV4@1fa268de</td></tr>
 <tr>
-<td title='Private.lookupControllerv4.lookupCheckBookv4()'><b>lookupCheckBookv4</b><br>Test class: Private.lookupControllerv4</td>
+<td title='Private.PaymentControllerV4.gettPaymentNextv4()'><b>gettPaymentNextv4</b><br>Test class: Private.PaymentControllerV4</td>
+<td></td>
+<td>1</td>
+<td>Private.PaymentControllerV4@1fa268de</td></tr>
+<tr>
+<td title='Private.PaymentControllerV4.gettPaymentNextHistv4()'><b>gettPaymentNextHistv4</b><br>Test class: Private.PaymentControllerV4</td>
 <td></td>
 <td>0</td>
-<td>Private.lookupControllerv4@1fa268de</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupbillingPrepareType()'><b>lookupbillingPrepareType</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@1fa268de</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupcollectionnoticeType()'><b>lookupcollectionnoticeType</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@1fa268de</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupzonev4()'><b>lookupzonev4</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@1fa268de</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupequipmentStatusv4()'><b>lookupequipmentStatusv4</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@1fa268de</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupequipmentTypev4()'><b>lookupequipmentTypev4</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@1fa268de</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupbillingCyclePeriod()'><b>lookupbillingCyclePeriod</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@1fa268de</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupNsfReasonCodev4()'><b>lookupNsfReasonCodev4</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@1fa268de</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupEquipmentRegisterCode4()'><b>lookupEquipmentRegisterCode4</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@1fa268de</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.getapplyByService_Paymentsv4()'><b>getapplyByService_Paymentsv4</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@1fa268de</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupdocumentTypev4()'><b>lookupdocumentTypev4</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@1fa268de</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupReadingTypev4()'><b>lookupReadingTypev4</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@1fa268de</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupMetergroup4()'><b>lookupMetergroup4</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>2</td>
-<td>Private.lookupControllerv4@1fa268de</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.getapplyByService_v4()'><b>getapplyByService_v4</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@1fa268de</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupEquipmentAttributeProtection4()'><b>lookupEquipmentAttributeProtection4</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@1fa268de</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupequipmentModelv4()'><b>lookupequipmentModelv4</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@1fa268de</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupequipmentNetMetervType4()'><b>lookupequipmentNetMetervType4</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@1fa268de</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupkvaReadingType()'><b>lookupkvaReadingType</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@1fa268de</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.getapplyByService_nonev4()'><b>getapplyByService_nonev4</b><br>Test class: Private.lookupControllerv4</td>
-<td></td>
-<td>0</td>
-<td>Private.lookupControllerv4@1fa268de</td></tr>
+<td>Private.PaymentControllerV4@1fa268de</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-skipped'>
 <tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
@@ -299,10 +410,10 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='Private.lookupControllerv4.lookupMeterReadv4()'><b>lookupMeterReadv4</b><br>Test class: Private.lookupControllerv4</td>
-<td><div><pre>org.testng.SkipException: Skipping this due to bugCPDEV-17166
+<td title='Private.PaymentControllerV4.postPaymentSimulatev4()'><b>postPaymentSimulatev4</b><br>Test class: Private.PaymentControllerV4</td>
+<td><div><pre>org.testng.SkipException: Skipping this due to bugCPDEV-17140
 	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1273)
-	at Private.lookupControllerv4.lookupMeterReadv4(lookupControllerv4.java:100)
+	at Private.PaymentControllerV4.postPaymentSimulatev4(PaymentControllerV4.java:33)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -331,78 +442,10 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace645208036", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace645208036'><pre>org.testng.SkipException: Skipping this due to bugCPDEV-17166
+</pre></div><a href='#' onClick='toggleBox("stack-trace570422884", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace570422884'><pre>org.testng.SkipException: Skipping this due to bugCPDEV-17140
 	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1273)
-	at Private.lookupControllerv4.lookupMeterReadv4(lookupControllerv4.java:100)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(ArrayList.java:1257)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>0</td>
-<td>Private.lookupControllerv4@1fa268de</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupMiscChargeDocuments()'><b>lookupMiscChargeDocuments</b><br>Test class: Private.lookupControllerv4</td>
-<td><div><pre>org.testng.SkipException: Skipping this due to bug CPDEV-17161 
-	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1273)
-	at Private.lookupControllerv4.lookupMiscChargeDocuments(lookupControllerv4.java:276)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(ArrayList.java:1257)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1322484262", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1322484262'><pre>org.testng.SkipException: Skipping this due to bug CPDEV-17161 
-	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1273)
-	at Private.lookupControllerv4.lookupMiscChargeDocuments(lookupControllerv4.java:276)
+	at Private.PaymentControllerV4.postPaymentSimulatev4(PaymentControllerV4.java:33)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -433,75 +476,7 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>Private.lookupControllerv4@1fa268de</td></tr>
-<tr>
-<td title='Private.lookupControllerv4.lookupchargeType()'><b>lookupchargeType</b><br>Test class: Private.lookupControllerv4</td>
-<td><div><pre>org.testng.SkipException: Skipping this due to bugCPDEV-17064
-	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1273)
-	at Private.lookupControllerv4.lookupchargeType(lookupControllerv4.java:253)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(ArrayList.java:1257)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace193625667", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace193625667'><pre>org.testng.SkipException: Skipping this due to bugCPDEV-17064
-	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1273)
-	at Private.lookupControllerv4.lookupchargeType(lookupControllerv4.java:253)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(ArrayList.java:1257)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>0</td>
-<td>Private.lookupControllerv4@1fa268de</td></tr>
+<td>Private.PaymentControllerV4@1fa268de</td></tr>
 </table><p>
 </body>
 </html>
