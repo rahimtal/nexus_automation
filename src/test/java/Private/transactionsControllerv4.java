@@ -75,11 +75,8 @@ public class transactionsControllerv4 {
 		String expected = "{\"Batch\":{\"Success\":true,\"Data\":{\"Approved\":false,\"ApprovedDate\":\"1900-01-01\",\"ApprovedUser\":\"\",\"BatchDescription\":\"API Deposit Misc Charge\",\"BatchId\":\"NADMC2022093001\",\"source\":\"MISC CHARGES\",\"Status\":0,\"Frequency\":1,\"FrequencyDescription\":\"Single Use\",\"BatchTotal\":92.00000,\"ControlTotal\":0.00000,\"ControlNumber\":0,\"CreatedDate\":\"1900-01-01\",\"ModifiedDate\":\"1900-01-01\",\"PostedDate\":\"1900-01-01\",\"Marked\":false,\"NumberOfTransactions\":1,\"PostUserId\":\"\",\"PostDate\":\"2022-09-30\",\"RecurringPost\":0,\"RecurringLastDate\":\"1900-01-01\",\"NumberOfPosting\":0,\"BatchDaysToIncrement\":0,\"CurrencyId\":\"\",\"CheckBookId\":\"FIRST NATIONAL\",\"PaymentoriginId\":\"\"},\"Messages\":[]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
 	    String result = CommonMethods.getMethodasString(uri, ver, params);
-	    if (!result.contentEquals(expected))
-	    {
-	    	Assert.fail(result);
-	    }
-		System.out.println(result);
+	    Assert.assertEquals(result,expected);
+	  
 		
 		
 		uri = "/transaction/batch/ABC1213";
@@ -87,10 +84,19 @@ public class transactionsControllerv4 {
 		expected = "{\"Batch\":{\"Success\":true,\"Data\":{\"Approved\":false,\"ApprovedDate\":\"1900-01-01\",\"ApprovedUser\":\"\",\"BatchDescription\":\"\",\"BatchId\":\"ABC1213\",\"source\":\"MISC CHARGES\",\"Status\":0,\"Frequency\":0,\"FrequencyDescription\":\"\",\"BatchTotal\":3.82000,\"ControlTotal\":0.00000,\"ControlNumber\":0,\"CreatedDate\":\"1900-01-01\",\"ModifiedDate\":\"1900-01-01\",\"PostedDate\":\"1900-01-01\",\"Marked\":false,\"NumberOfTransactions\":4,\"PostUserId\":\"sa\",\"PostDate\":\"2019-07-31\",\"RecurringPost\":0,\"RecurringLastDate\":\"1900-01-01\",\"NumberOfPosting\":0,\"BatchDaysToIncrement\":0,\"CurrencyId\":\"\",\"CheckBookId\":\"FIRST NATIONAL\",\"PaymentoriginId\":\"\"},\"Messages\":[]}}";
 		params = new HashMap<String, String>();
 	    result = CommonMethods.getMethodasString(uri, ver, params);
-	    if (!result.contentEquals(expected))
-	    {
-	    	Assert.fail(result);
-	    }
-		System.out.println(result);
+	    Assert.assertEquals(result,expected);
 	}
+	
+	
+	@Test(priority = 6, groups = "Transaction")
+	public void gettransactionpayment_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/transaction/payment/PYMT00000000505";
+		String ver = "4.0";
+		String expected = "{\"Payment\":{\"Success\":true,\"Data\":{\"DocumentNumber\":\"PYMT00000000505\",\"BatchId\":\"WO101619CRP001\",\"PaidById\":\"500002\",\"PaymentOrigin\":null,\"Comment\":\"WRITEOFF\",\"Status\":\"Work\",\"CreateDateTime\":\"2019-10-16T12:18:28.053\",\"CreatedBy\":\"sa\",\"PayDetail\":{\"Type\":\"CreditMemo\",\"OtherType\":null,\"TaxSchduleId\":\"\",\"TaxDescription\":null,\"CreditNoteId\":\"WRITEOFF\",\"Date\":\"2027-04-12\",\"SubTotal\":68.96,\"TotalTaxAmount\":0.00,\"Amount\":68.96,\"UnappliedToBill\":0.00,\"CheckbookId\":\"FIRST NATIONAL\",\"CreditCard\":null,\"CreditNoteReasonCode\":\"\",\"TaxDetail\":[]},\"IsVoided\":false,\"Void\":null,\"LocationId\":\"100002\",\"ServiceAddress\":{\"Line1\":\"2 RED MILL RD\",\"City\":\"TROY\",\"State\":\"NY\",\"ZipCode\":\"12144\",\"Country\":\"USA\"},\"Customer\":{\"Id\":\"500002\",\"Type\":\"Individual\",\"Individual\":{\"FullName\":\"Mr. Anthony Chromoczak\",\"Name\":{\"Title\":\"Mr.\",\"First\":\"Anthony\",\"Middle\":\"\",\"Last\":\"Chromoczak\"}},\"Business\":null},\"Prepayment\":[]},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("HandleCreditMemoMessaging","true" );
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+	    Assert.assertEquals(result,expected);
+	    System.out.println(result);
+		}
 }
