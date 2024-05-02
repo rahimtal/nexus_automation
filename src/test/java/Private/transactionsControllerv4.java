@@ -99,4 +99,28 @@ public class transactionsControllerv4 {
 	    Assert.assertEquals(result,expected);
 	    System.out.println(result);
 		}
+	
+	@Test(priority = 7, groups = "Transaction")
+	public void gettransactionpaymentInv_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/transaction/payment/PYMT00000000501";
+		String ver = "4.0";
+		String expected = "{\"Payment\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Invalid document number (PYMT00000000501).\",\"Level\":3}]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("HandleCreditMemoMessaging","true" );
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+	    Assert.assertEquals(result,expected);
+	    System.out.println(result);
+		}
+	
+	@Test(priority = 8, groups = "Transaction")
+	public void gettransactionpaymentInvCred_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/transaction/payment/PYMT00000000001";
+		String ver = "4.0";
+		String expected = "{\"Payment\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Payment not previously created as a Credit Memo. Cannot display selected payment\",\"Level\":3}]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("HandleCreditMemoMessaging","true" );
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+	    Assert.assertEquals(result,expected);
+	    System.out.println(result);
+		}
 }
