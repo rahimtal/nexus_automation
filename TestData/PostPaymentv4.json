@@ -1,11 +1,10 @@
 {
-        "CustomerID" : "CUSTOMER009",
-          "LocationID": "LOCATION008",
-          "Type": 2,
-          "PaymentDate": "2020-01-15",
-          "PaymentAmount": 90.99,
-          "OriginID": "NexusApi",
-          "PaidBy": 1,
-          "PaidByID": "CUSTOMER009",
-          "AuthorizationCode": "AUTH: 123456"
+    "CustomerId" : "CUSTOMER009",
+    "LocationId": "LOCATION008",
+    "Type": 0,
+    "PaymentDate": "2020-01-15",
+    "PaymentAmount": 90.99,
+    "OriginId": "NexusApi",
+    "PaidBy": 1,
+    "PaidById": "CUSTOMER009"
 }

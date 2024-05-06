@@ -22,15 +22,9 @@ public class PaymentControllerV4 {
 		String uri = "/payment";
 		String ver = "4.0";
 		String payload = "./\\TestData\\PostPaymentv4.json";
-		jsonPathEvaluator = CommonMethods.postMethod(payload, uri, ver);
-		Boolean Result = jsonPathEvaluator.get("result[0].Success");
-		if (Result == false) {
-			System.out.println(jsonPathEvaluator.prettyPrint());
-			Assert.fail(jsonPathEvaluator.prettyPrint());
+		String exresult = "{\"Payment\":{\"Success\":true,\"Data\":{\"BatchId\":\"API20240505001\",\"DocumentNumber\":\"PYMT00000000528\"},\"Messages\":[]}}";
+		CommonMethods.postcall(uri, payload, ver, exresult);
 		}
-		// System.out.println(jsonPathEvaluator.toString());
-		System.out.println();
-	}
 
 	@Test(priority = 2, groups = "Payment")
 	public void postPaymentBatchv4() throws ClassNotFoundException, SQLException, InterruptedException {
@@ -74,7 +68,5 @@ public class PaymentControllerV4 {
 		}
 		// System.out.println(jsonPathEvaluator.toString());
 	}
-
-	
 
 }

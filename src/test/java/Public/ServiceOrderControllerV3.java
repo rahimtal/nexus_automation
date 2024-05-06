@@ -194,8 +194,8 @@ public class ServiceOrderControllerV3 {
 		result.assertThat().body(Matchers.containsString("true"));
 		System.out.println(result.extract().asString());
 	}
-
-	@Test(priority = 8, groups = "ServiceOrder")
+//DEPRECATED use "Complete service order Task"
+//	@Test(priority = 8, groups = "ServiceOrder")
 	public static void putTaskComplete_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
