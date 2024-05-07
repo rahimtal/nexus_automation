@@ -22,7 +22,7 @@ public class PaymentControllerV4 {
 		String uri = "/payment";
 		String ver = "4.0";
 		String payload = "./\\TestData\\PostPaymentv4.json";
-		String exresult = "{\"Payment\":{\"Success\":true,\"Data\":{\"BatchId\":\"API20240505001\",\"DocumentNumber\":\"PYMT00000000528\"},\"Messages\":[]}}";
+		String exresult = "{\"Payment\":{\"Success\":true,\"Data\":{\"BatchId\":\"API20240505001\",\"DocumentNumber\":\"PYMT00000000529\"},\"Messages\":[]}}";
 		CommonMethods.postcall(uri, payload, ver, exresult);
 		}
 
