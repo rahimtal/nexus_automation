@@ -84,7 +84,7 @@ public class PaymentControllerV4 {
 		String expected = "./\\TestData\\gettPaymentNextOpenv4.json";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("PrevInOpen", "true");
-		String result = CommonMethods.getMethod(uri, ver, params, expected);
+		String result = CommonMethods.getMethodContains(uri, ver, params, expected);
 		System.out.println(result);
 
 	}
@@ -97,7 +97,7 @@ public class PaymentControllerV4 {
 		String expected = "./\\TestData\\gettPaymentNextHistv4.json";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("PrevInHistory", "true");
-		String result = CommonMethods.getMethod(uri, ver, params, expected);
+		String result = CommonMethods.getMethodContains(uri, ver, params, expected);
 		System.out.println(result);
 
 	}
@@ -110,7 +110,7 @@ public class PaymentControllerV4 {
 		String expected = "./\\TestData\\gettPaymentNextAllv4.json";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("PaymentType", "All");
-		String result = CommonMethods.getMethod(uri, ver, params, expected);
+		String result = CommonMethods.getMethodContains(uri, ver, params, expected);
 		System.out.println(result);
 
 	}

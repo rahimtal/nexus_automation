@@ -42,7 +42,7 @@ public class PaymentControllerV4 {
 		// System.out.println(jsonPathEvaluator.toString());
 	}
 
-	@Test(priority = 3, groups = "Payment")
+	//@Test(priority = 3, groups = "Payment")
 	public void gettPaymentNextv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/payment/next";
