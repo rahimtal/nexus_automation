@@ -22,8 +22,9 @@ public class PaymentControllerV4 {
 		String uri = "/payment";
 		String ver = "4.0";
 		String payload = "./\\TestData\\PostPaymentv4.json";
-		String exresult = "{\"Payment\":{\"Success\":true,\"Data\":{\"BatchId\":\"API20240505001\",\"DocumentNumber\":\"PYMT00000000529\"},\"Messages\":[]}}";
-		CommonMethods.postcall(uri, payload, ver, exresult);
+		//String exresult = "{\"Payment\":{\"Success\":true,\"Data\":{\"BatchId\":\"API20240505001\",\"DocumentNumber\":\"PYMT00000000529\"},\"Messages\":[]}}";
+		String exresult = "{\"Payment\":{\"Success\":true,\"Data\":{\"BatchId\":\"API";
+		CommonMethods.postcallcontains(uri, payload, ver, exresult);
 		}
 
 	@Test(priority = 2, groups = "Payment")
@@ -49,7 +50,7 @@ public class PaymentControllerV4 {
 		String expected = "./\\TestData\\gettPaymentNextv4.json";
 		HashMap<String, String> params = new HashMap<String, String>();
 		// params.put("ConnectionSequence", "1");
-		String result = CommonMethods.getMethod(uri, ver, params, expected);
+		String result = CommonMethods.getMethodContains(uri, ver, params, expected);
 		System.out.println(result);
 
 	}

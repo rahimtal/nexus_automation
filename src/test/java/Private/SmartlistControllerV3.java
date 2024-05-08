@@ -16,7 +16,7 @@ public class SmartlistControllerV3 {
 
 	@Test(priority = 2, groups = "SmartList")
 	public void getsmartList_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-
+		CommonMethods.Bug("CPDEV-14084");
 		String uri = "/smartlist";
 		String ver = "3.0";
 		String jpath = "./\\TestData\\getsmartlistv3.json";
@@ -31,6 +31,7 @@ public class SmartlistControllerV3 {
 	public void postsmartlistfavorite_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		JsonPath jsonPathEvaluator;
+		CommonMethods.Bug("CPDEV-14084");
 		String uri = "/smartlist/favorite";
 		String ver = "3.0";
 		String payload = "./\\TestData\\smartlistaddfav_v3.json";

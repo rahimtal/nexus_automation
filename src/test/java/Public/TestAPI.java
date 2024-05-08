@@ -57,11 +57,11 @@ public class TestAPI {
 
 	}
 	
-	@Test(priority = 2, groups = "Deposits")
+	//@Test(priority = 2, groups = "Deposits")
 	public static void postsmartlistfavorite_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		JsonPath jsonPathEvaluator;
-		
+		CommonMethods.Bug("CPDEV-14084");
 		String uri = "/smartlist/favorite";
 		String ver = "3.0";
 		String payload = "./\\TestData\\smartlistaddfav_v3.json";

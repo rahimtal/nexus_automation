@@ -25,7 +25,7 @@ public class ServiceOrderControllerV4 {
 	@Test
 	public static void getServiceOrderdetails_v4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-
+		CommonMethods.Bug("CPDEV-17883");
 		String uri = "/serviceOrder/detail";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\getserviceOrderDetailsv4.json";

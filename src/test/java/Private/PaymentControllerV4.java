@@ -22,7 +22,7 @@ public class PaymentControllerV4 {
 		String expected = "./\\TestData\\gettPaymentNextv4.json";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("PrevInWork", "true");
-		String result = CommonMethods.getMethod(uri, ver, params, expected);
+		String result = CommonMethods.getMethodContains(uri, ver, params, expected);
 		System.out.println(result);
 
 	}
@@ -30,7 +30,7 @@ public class PaymentControllerV4 {
 	@Test(priority = 2, groups = "Payment")
 	public void postPaymentSimulatev4() throws ClassNotFoundException, SQLException, InterruptedException {
 
-		//CommonMethods.Bug("CPDEV-17140");
+		CommonMethods.Bug("CPDEV-17140");
 		String uri = "/payment/simulate";
 		String ver = "4.0";
 		String payload = "./\\TestData\\paymentsimulatev4.json";

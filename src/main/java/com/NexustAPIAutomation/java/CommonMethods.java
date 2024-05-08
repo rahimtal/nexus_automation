@@ -570,6 +570,8 @@ public class CommonMethods {
 		Assert.assertEquals(response.asString(), new String(Files.readAllBytes(Paths.get(jpath))));
 		return response.asString();
 	}
+	
+	
 
 	public static String putMethod(String uri, String version, HashMap<String, String> params, String payload,
 			String responseFile) throws InterruptedException, IOException {
@@ -1289,6 +1291,14 @@ public class CommonMethods {
 		jsonPathResponse = CommonMethods.postMethodResponseasString(payload, uri, ver);
 		Assert.assertEquals(jsonPathResponse.asString(), exResult);
 
+	}
+	
+	
+	public static void postcallcontains(String uri, String payload, String ver, String exResult) throws InterruptedException {
+		//Response jsonPathResponse;
+		//jsonPathResponse = CommonMethods.postMethodResponseasString(payload, uri, ver);
+		CommonMethods.postcallcontains(uri, payload, ver, exResult);
+	
 	}
 
 	public static void Match(String ss, String tomatch) throws Exception {

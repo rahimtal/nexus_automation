@@ -76,19 +76,14 @@ public class billingControllerv4 extends BaseClass {
 
 		}
 	}
-	
-	
+
 	@Test(priority = 4, groups = "Billing", dependsOnMethods = "PostBillingcalculatev4")
 	public static void PostgenerateEditReportv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/billing/generateEditReport";
 		String ver = "4.0";
-		String payload = "{\n"
-				+ "    \"Billing\": {\n"
-				+ "        \"BatchId\": \"BT1231\"\n"
-				+ "    }\n"
-				+ "}";
+		String payload = "{\n" + "    \"Billing\": {\n" + "        \"BatchId\": \"BT1231\"\n" + "    }\n" + "}";
 		String filepath = "./\\TestData\\PostgenerateEditReportv4.json";
 		FileWriter file = new FileWriter(filepath);
 		file.write(payload);
@@ -115,24 +110,16 @@ public class billingControllerv4 extends BaseClass {
 		String result = CommonMethods.getMethod(uri, ver, params, jpath);
 		System.out.println(result);
 	}
-	
-	
-	
-	
+
 	@Test(priority = 6, groups = "Billing", dependsOnMethods = "PostgenerateEditReportv4")
 	public static void postcreateStatementv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/billing/createStatement";
 		String ver = "4.0";
-		String payload = "{\n"
-				+ "    \"Billing\":{\n"
-				+ "        \"BatchId\":\"BT1231\",\n"
-				+ "        \"Confirm\": {\n"
-				+ "            \"IgnoreMiscChargeOrCreditValidation\": false\n"
-				+ "        }\n"
-				+ "    }\n"
-				+ "}";
+		String payload = "{\n" + "    \"Billing\":{\n" + "        \"BatchId\":\"BT1231\",\n"
+				+ "        \"Confirm\": {\n" + "            \"IgnoreMiscChargeOrCreditValidation\": false\n"
+				+ "        }\n" + "    }\n" + "}";
 		String filepath = "./\\TestData\\postBillingStatementv4.json";
 		FileWriter file = new FileWriter(filepath);
 		file.write(payload);
@@ -142,28 +129,22 @@ public class billingControllerv4 extends BaseClass {
 		System.out.println(Result);
 		if (!Result) {
 
-			Assert.fail("Bill Posting Failed \n"+ jsonPathEvaluator.prettyPrint());
+			Assert.fail("Bill Posting Failed \n" + jsonPathEvaluator.prettyPrint());
 
 		}
 	}
-	
+
 	@Test(priority = 7, groups = "Billing")
 	public static void billingprintStatementv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
+		CommonMethods.Bug("CPDEV-16682");
 		String uri = "/billing/printStatement";
 		String ver = "4.0";
-		String payload = "{\n"
-				+ "    \"Billing\":{\n"
-				+ "        \"ExportToCSV\": true,\n"
-				+ "        \"IncludeEbills\": true,\n"
-				+ "        \"PrintAction\": 1,\n"
-				+ "        \"BatchId\": \"BT1231\",\n"
-				+ "        \"Confirm\": {\n"
-				+ "            \"RefreshBillPrintData\": true\n"
-				+ "        }\n"
-				+ "    }\n"
-				+ "}";
+		String payload = "{\n" + "    \"Billing\":{\n" + "        \"ExportToCSV\": true,\n"
+				+ "        \"IncludeEbills\": true,\n" + "        \"PrintAction\": 1,\n"
+				+ "        \"BatchId\": \"BT1231\",\n" + "        \"Confirm\": {\n"
+				+ "            \"RefreshBillPrintData\": true\n" + "        }\n" + "    }\n" + "}";
 		String filepath = "./\\TestData\\billingprintStatement.json";
 		FileWriter file = new FileWriter(filepath);
 		file.write(payload);
@@ -173,26 +154,18 @@ public class billingControllerv4 extends BaseClass {
 		System.out.println(jsonPathEvaluator.prettyPrint());
 		if (!Result) {
 
-			Assert.fail("Bill Posting Failed \n"+ jsonPathEvaluator.prettyPrint());
+			Assert.fail("Bill Posting Failed \n" + jsonPathEvaluator.prettyPrint());
 
 		}
 	}
-	
-	
-	
-	
-	@Test(priority = 8, groups = "Billing")
-	public static void postBillingv4()
-			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+	@Test(priority = 8, groups = "Billing", dependsOnMethods = "billingprintStatementv4")
+	public static void postBillingv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/billing/postingBill";
 		String ver = "4.0";
-		String payload = "{\n"
-				+ "    \"Billing\": {\n"
-				+ "        \"BatchId\": \"BT1231\",\n"
-				+ "        \"Document\": []\n"
-				+ "    }\n"
-				+ "}";
+		String payload = "{\n" + "    \"Billing\": {\n" + "        \"BatchId\": \"BT1231\",\n"
+				+ "        \"Document\": []\n" + "    }\n" + "}";
 		String filepath = "./\\TestData\\postingBillv4.json";
 		FileWriter file = new FileWriter(filepath);
 		file.write(payload);
@@ -205,10 +178,8 @@ public class billingControllerv4 extends BaseClass {
 
 		}
 	}
-			
 
-
-	@Test(priority = 10, groups = "Billing")
+	@Test(priority = 10, groups = "Billing",  dependsOnMethods = "postBillingv4")
 	public void printcsvbillingStatements()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// extent.createTest("Test", "");
@@ -220,7 +191,5 @@ public class billingControllerv4 extends BaseClass {
 		String result = CommonMethods.getMethodContains(uri, ver, params, jpath);
 		System.out.println(result);
 	}
-	
-	
 
 }

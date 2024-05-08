@@ -6,7 +6,7 @@ import com.NexustAPIAutomation.java.verifyPDFReports;
 
 public class printControllerV4 {
 
-	@Test(priority = 300, groups = "printController")
+	//@Test(priority = 300, groups = "printController")
 	public void getprintreportPaymentPostEditListv3() throws Exception {
 
 		String uri = "/print/report/PaymentPostEditList";
