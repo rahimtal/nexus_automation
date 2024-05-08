@@ -1,1 +1,1 @@
-{"AccountBalance":{"Success":true,"Data":{"CurrentBalance":0,"TotalBalanceDue":5756.61,"BalancePastDue":5756.61,"DueDate":"2000-05-01","SPAPastDue":0,"SPACurrent":0,"SPATotal":0,"NonSPAPastDue":0,"NonSPACurrent":-69.47,"NonSPATotal":-69.47,"SPADueDate":"","SPAFlag":false,"BudgetFlag":false},"Messages":[]}}
+{"AccountBalance":{"Success":true,"Data":{"CurrentBalance":0,"TotalBalanceDue"

@@ -58,11 +58,14 @@ public class GetAccountBalances {
 		String uri = "/AccountBalance/portal";
 		String ver = "2.4";
 		String jpath = "./TestData\\accountBalancePortal.json";
+		
+		
 
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("LocationId", "LOCATION008");
 		params.put("CustomerId", "CUSTOMER009");
-		String result = CommonMethods.getMethod(uri, ver, params, jpath);
+		String result = CommonMethods.getMethodContains(uri, ver, params, jpath);
+				
 		System.out.println(result);
 	}
 	
