@@ -93,5 +93,20 @@ public class ServiceOrderController {
 		String exResponse = "./\\TestData\\/ServiceOrderPUTv4.json";
 		CommonMethods.putMethod(uri, ver, payload, exResponse);
 	}
+	
+	
+	@Test(priority = 4, groups = "ServiceOrder")
+	public static void delServiceOrderv4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// CommonMethods.CompanyDBRestore();
+		String uri = "/serviceOrder/SORD00000000161";
+		String ver = "4.0";
+		String jpath = "./\\TestData\\delServiceOrderv4.json";
+		String result = CommonMethods.deleteMethod(uri, ver, jpath);
+		System.out.println(result.toString());
+
+	}
+	
+	
 
 }
