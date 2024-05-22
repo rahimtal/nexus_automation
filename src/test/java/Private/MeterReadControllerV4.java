@@ -13,6 +13,7 @@ import org.testng.annotations.Test;
 import com.NexustAPIAutomation.java.CommonMethods;
 
 import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 
 public class MeterReadControllerV4 {
@@ -220,5 +221,18 @@ public class MeterReadControllerV4 {
 			System.out.print(jsonPathEvaluator.prettyPrint());
 		}
 	}
+	
+	
+	@Test(priority = 10, groups = "MeterRead")
+	public static void postmoveOpenToHistoryv4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// CommonMethods.CompanyDBRestore();
+		String uri = "/meterReading/moveOpenToHistory";
+		String ver = "4.0";
+		String payload = "./\\TestData\\PostmoveOpenToHistoryv4.json";
+		String exResponse ="{\"MeterReading\":{\"Success\":true,\"Data\":{\"Data\":[{}]},\"Messages\":[{\"Enabled\":1,\"Info\":\"Meter Reading successfully moved.\",\"Level\":1}]}}";
+		CommonMethods.postcall(uri, payload, ver, exResponse);
+	}
+
 
 }

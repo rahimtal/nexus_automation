@@ -158,7 +158,7 @@ public class MiscellaneousChargeControllerV4 {
 		String uri = "/miscellaneous";
 		String ver = "4.0";
 		String payload = "./\\TestData\\miscellaneousv4.json";
-		String exptected = "{\"MiscellaneousCharge\":{\"Success\":true,\"Data\":{\"DocumentNumber\":\"MISC00000000383\",\"BatchId\":\"auto\",\"LocationId\":\"TRANSACTION001\",\"CustomerId\":\"TRS0001\"},\"Messages\":[{\"Enabled\":1,\"Info\":\"Miscellaneous Charge Saved Successfully\",\"Level\":1}]}}";
+		String exptected = "{\"MiscellaneousCharge\":{\"Success\":true,\"Data\":{\"DocumentNumber\":\"MISC00000000384\",\"BatchId\":\"auto\",\"LocationId\":\"TRANSACTION001\",\"CustomerId\":\"TRS0001\"},\"Messages\":[{\"Enabled\":1,\"Info\":\"Miscellaneous Charge Saved Successfully\",\"Level\":1}]}}";
 		Response result = CommonMethods.postMethodResponseasString(payload, uri, ver);
 		String actualResult = result.print();
 		Assert.assertEquals(actualResult, exptected);

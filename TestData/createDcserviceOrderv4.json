@@ -1,0 +1,39 @@
+{
+    "ServiceOrder": [
+        {
+            "LocationId": "WATER003",
+            "CustomerId": "CUSTOMER003",
+            "MoveInCustomerId": "CUSTOMER006",
+            "RequestId": "REQ-INSTALL-E",
+            "Description": "",
+            "RequestedDateTime": "2019-04-08T10:45:00",
+            "ScheduledDateTime": "2019-04-08T11:45:00",
+            "EquipmentId": "WATEREQUIP001",
+            "CommentLine": [
+                {
+                    "Id": 2,
+                    "Description": "Line 2"
+                },
+                {
+                    "Id": 4,
+                    "Description": "Line 4"
+                },
+                {
+                    "Id": 6,
+                    "Description": "Line 6"
+                }
+            ],
+            "Udf": [
+                {
+                    "Label": "SORequestUDF",
+                    "Value": "udfval1ue1"
+                },
+                {
+                    "Label": "SOReqUDF-2",
+                    "Value": "udfValue2"
+                }
+            ],
+            "ShowDrillBack": 0
+        }
+    ]
+}

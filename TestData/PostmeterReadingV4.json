@@ -1,0 +1,45 @@
+{
+    "MeterReading": [
+        {
+            "LocationId": "WATER003",
+            "Connection": 1,
+            "EquipmentId": "WATEREQUIP001",
+            "RemoteId": "",
+            "BatchId": "",
+            "ReadDocumentLocation": 1,
+            "ServiceOrder": 
+                {
+                    "Id": "",
+                    "Task": {
+							"Sequence": 0
+					}
+                },
+            "MeterReadInfo": 
+                {
+                    "EmployeeId": "sa",
+                    "Description": "Meter Read from street",
+                    "ReadingType": 1,
+                    "ReadingDateTime": "2022-04-14T10:11:23",
+                    "ReasonCode": "",
+                    "RolloverAdjustment": 0,
+                    "Periods": 
+                        [
+                            {
+                                "Rollover": true,
+                                "Index": 1,
+                                "ConsumptionOverride": "false",
+                                "ConsumptionReading": 2,
+                                "Consumption": 0,
+                                "KW": 0,
+                                "KVA": 0,
+                                "NetMeterReceived": 0,
+                                "NetMeterPreviousReceived": 0,
+                                "PowerFactor": 0,
+                                "LoadFactor": 0
+                            }
+                        ]
+                }
+            
+        }
+    ]
+}

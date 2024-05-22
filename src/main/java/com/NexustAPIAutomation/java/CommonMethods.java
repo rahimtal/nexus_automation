@@ -725,7 +725,7 @@ public class CommonMethods {
 
 	}
 
-	public static ValidatableResponse putMethod(String uri, String version, String payload, String jsonDataInFile)
+	public static Response putMethod(String uri, String version, String payload, String jsonDataInFile)
 			throws InterruptedException, IOException {
 
 		switch (version) {
@@ -761,18 +761,15 @@ public class CommonMethods {
 			version = "Invalid version";
 			break;
 		}
-
 		RestAssured.baseURI = RestAssured.baseURI + uri;
 		System.out.println(RestAssured.baseURI.toString());
 		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
 				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
 				.body(payload);
-
-		ValidatableResponse response = httpRequest.put().then().assertThat()
-				.body(Matchers.equalTo(new String(Files.readAllBytes(Paths.get(jsonDataInFile)))));
-
+		Response response = httpRequest.put();
+		Assert.assertEquals( response.getBody().asString(), new String(Files.readAllBytes(Paths.get(jsonDataInFile))));
+	
 		System.out.println("** PUT call Response **");
-		System.out.println(response.extract().asString());
 		return response;
 
 	}
