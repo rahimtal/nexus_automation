@@ -125,7 +125,7 @@ public class checkControllerv4 {
 		FileWriter file = new FileWriter(filepath);
 		file.write(expected);
 		file.close();
-		ValidatableResponse result = CommonMethods.putMethod(uri, ver, params, filepath);
+		Response result = CommonMethods.putMethod(uri, ver, params, filepath);
 
 	}
 
@@ -138,7 +138,7 @@ public class checkControllerv4 {
 		String jpath = "./\\TestData\\putChecksendtoAPv4.json";
 		String params = new String(Files.readAllBytes(Paths.get(jpath)));
 		String expected = "./\\TestData\\putCheckexpectedsendtoApi_v4.json";
-		ValidatableResponse result = CommonMethods.putMethod(uri, ver, params, expected);
+		Response result = CommonMethods.putMethod(uri, ver, params, expected);
 
 	}
 

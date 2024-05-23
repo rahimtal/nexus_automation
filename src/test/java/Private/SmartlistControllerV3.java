@@ -13,6 +13,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.ValidatableResponse;
 
 public class SmartlistControllerV3 {
+private boolean  TestAll=true;
 
 	@Test(priority = 2, groups = "SmartList")
 	public void getsmartList_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
@@ -31,7 +32,7 @@ public class SmartlistControllerV3 {
 	public void postsmartlistfavorite_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		JsonPath jsonPathEvaluator;
-		CommonMethods.Bug("CPDEV-14084");
+		
 		String uri = "/smartlist/favorite";
 		String ver = "3.0";
 		String payload = "./\\TestData\\smartlistaddfav_v3.json";
@@ -41,6 +42,7 @@ public class SmartlistControllerV3 {
 		String info = jsonPathEvaluator.get("SmartlistFavorite.Messages[0].Info");
 		System.out.println(jsonPathEvaluator.prettyPrint());
 		if (Result != true) {
+			System.out.print("CPDEV-14084");
 			Assert.fail(jsonPathEvaluator.prettyPrint());
 		}
 		if(!info.contains("( 2 ) of the ( 2 ) smartlist favorites have been save."))

@@ -128,7 +128,7 @@ public class MeterReadControllerV4 {
 		String jpath = "./\\TestData\\putMeterReadingV4.json";
 		String params = new String(Files.readAllBytes(Paths.get(jpath)));
 		String expected = "./\\TestData\\putMeterReadingexpected_v4.json";
-		ValidatableResponse result = CommonMethods.putMethod(uri, ver, params, expected);
+		Response result = CommonMethods.putMethod(uri, ver, params, expected);
 
 	}
 
@@ -141,7 +141,7 @@ public class MeterReadControllerV4 {
 		String jpath = "./\\TestData\\putMeterReadingNetMeterV4.json";
 		String params = new String(Files.readAllBytes(Paths.get(jpath)));
 		String expected = "./\\TestData\\putMeterReadingexpectedNetMeter_v4.json";
-		ValidatableResponse result = CommonMethods.putMethod(uri, ver, params, expected);
+		Response result = CommonMethods.putMethod(uri, ver, params, expected);
 
 	}
 
@@ -154,7 +154,7 @@ public class MeterReadControllerV4 {
 		String jpath = "./\\TestData\\putMeterReadingnottheLatestreadingV4.json";
 		String params = new String(Files.readAllBytes(Paths.get(jpath)));
 		String expected = "./\\TestData\\putMeterReadingnottheLatestreadingexpectedNetMeter_v4.json";
-		ValidatableResponse result = CommonMethods.putMethod(uri, ver, params, expected);
+		Response result = CommonMethods.putMethod(uri, ver, params, expected);
 
 	}
 

@@ -1,7 +1,7 @@
 {
     "ServiceOrder": [
         {
-            "LocationId": "WATER003",
+            "LocationId": "LOCATION002",
             "CustomerId": "CUSTOMER003",
             "MoveInCustomerId": "CUSTOMER006",
             "RequestId": "REQ-INSTALL-E",

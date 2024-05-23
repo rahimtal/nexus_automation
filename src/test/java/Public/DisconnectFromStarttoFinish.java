@@ -29,7 +29,7 @@ public class DisconnectFromStarttoFinish {
 		String uri = "/serviceOrder";
 		String ver = "4.0";
 		String payload = "./\\TestData\\createDcserviceOrderv4.json";
-		String exResponse = "{\"ServiceOrder\":[{\"DocumentNumber\":\"SORD00000008996\",\"DrillbackLink\":\"\",\"Success\":true,\"Messages\":[{\"Enabled\":1,\"Info\":\"UDF Label 'SORequestUDF' not valid for Service Order SORD00000008989.\",\"Level\":1},{\"Enabled\":1,\"Info\":\"UDF Label 'SOReqUDF-2' not valid for Service Order SORD00000008989.\",\"Level\":1}]}]}";
+		String exResponse = "{\"ServiceOrder\":[{\"DocumentNumber\":\"SORD00000008993\",\"DrillbackLink\":\"\",\"Success\":true,\"Messages\":[{\"Enabled\":1,\"Info\":\"UDF Label 'SORequestUDF' not valid for Service Order SORD00000008993.\",\"Level\":1},{\"Enabled\":1,\"Info\":\"UDF Label 'SOReqUDF-2' not valid for Service Order SORD00000008993.\",\"Level\":1}]}]}";
 		CommonMethods.postcall(uri, payload, ver, exResponse);
 
 	}
@@ -41,7 +41,7 @@ public class DisconnectFromStarttoFinish {
 		String uri = "/meterReading";
 		String ver = "4.0";
 		String payload = "./\\TestData\\PostmeterReadingV4.json";
-		String exResponse = "{\"MeterReading\":[{\"DocumentNumber\":\"READ00000000922\",\"MiscChargeDocumentNumber\":\"\",\"PostingReport\":false,\"PostingError\":false,\"ReportList\":[],\"ReportErrorList\":[],\"Success\":true,\"Messages\":[{\"Enabled\":1,\"Info\":\"Meter Reading successfully Saved!\",\"Level\":1}]}]}";
+		String exResponse = "{\"MeterReading\":[{\"DocumentNumber\":\"READ00000000920\",\"MiscChargeDocumentNumber\":\"\",\"PostingReport\":false,\"PostingError\":false,\"ReportList\":[],\"ReportErrorList\":[],\"Success\":true,\"Messages\":[{\"Enabled\":1,\"Info\":\"Meter Reading successfully Saved!\",\"Level\":1}]}]}";
 		CommonMethods.postcall(uri, payload, ver, exResponse);
 
 	}
@@ -68,7 +68,7 @@ public class DisconnectFromStarttoFinish {
 				+ "        \"Confirm\": {\n" + "            \"IgnoreDisconnectMeterReadValidation\": true,\n"
 				+ "            \"IgnoreDisconnectToActiveValidation\": false,\n"
 				+ "            \"IgnoreEquipmentReinstallValidation\": false\n" + "        },\n"
-				+ "        \"ServiceOrder\":{\n" + "            \"Id\": \"SORD00000008989\",\n"
+				+ "        \"ServiceOrder\":{\n" + "            \"Id\": \"SORD00000008993\",\n"
 				+ "            \"Task\":{\n" + "                \"Sequence\": 1100\n" + "            }\n"
 				+ "        }\n" + "	}\n" + "}";
 

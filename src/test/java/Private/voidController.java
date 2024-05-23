@@ -11,9 +11,6 @@ import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
-import io.restassured.path.json.JsonPath;
-import io.restassured.response.ValidatableResponse;
-
 public class voidController {
 
 	// @Test(priority = 1, groups = "void")
@@ -23,7 +20,7 @@ public class voidController {
 		String jpath = "./\\TestData\\putvoidvalidateReasonCodev4.json";
 		String params = new String(Files.readAllBytes(Paths.get(jpath)));
 		String expected = "./\\TestData\\ExpputvoidvalidateReasonCodev4.json";
-		ValidatableResponse result = CommonMethods.putMethod(uri, ver, params, expected);
+		io.restassured.response.Response result = CommonMethods.putMethod(uri, ver, params, expected);
 
 	}
 
@@ -35,7 +32,7 @@ public class voidController {
 		String jpath = "./\\TestData\\putvoidvalidateReasonCode1v4.json";
 		String params = new String(Files.readAllBytes(Paths.get(jpath)));
 		String expected = "./\\TestData\\ExpputvoidvalidateReasonCode1v4.json";
-		ValidatableResponse result = CommonMethods.putMethod(uri, ver, params, expected);
+		io.restassured.response.Response result = CommonMethods.putMethod(uri, ver, params, expected);
 
 	}
 
@@ -46,7 +43,7 @@ public class voidController {
 		String jpath = "./\\TestData\\putvoidv4.json";
 		String params = new String(Files.readAllBytes(Paths.get(jpath)));
 		String expected = "./\\TestData\\expvoidv4.json";
-		ValidatableResponse result = CommonMethods.putMethod(uri, ver, params, expected);
+		io.restassured.response.Response result = CommonMethods.putMethod(uri, ver, params, expected);
 
 	}
 

@@ -1,5 +1,8 @@
 package Public;
 
+import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.io.IOException;
 import java.nio.file.NoSuchFileException;
 import java.sql.SQLException;
@@ -289,9 +292,10 @@ public class ServiceOrderController {
 				+ "    \r\n"
 				+ "}";
 		try {
-		ValidatableResponse result = CommonMethods.putMethod(uri, ver, jpath, "null");
-		result.assertThat().body(Matchers.containsString("\"Success\":true"));
-		System.out.println(result.extract().asString());
+			Response result = CommonMethods.putMethod(uri, ver, jpath, "null");
+			assertEquals(result.body().asString(),Matchers.containsString("\"Success\":true"));
+		
+		
 		}
 		catch (NoSuchFileException e)
 		{

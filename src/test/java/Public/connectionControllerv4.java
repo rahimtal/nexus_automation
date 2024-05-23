@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
+import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 
 public class connectionControllerv4 {
@@ -25,7 +26,7 @@ public class connectionControllerv4 {
 		String jpath = "./\\TestData\\putmeterGroup_v4.json";
 		String params = new String(Files.readAllBytes(Paths.get(jpath)));
 		String expected = "./\\TestData\\putmeterGroupexpected_v4.json";
-		ValidatableResponse result = CommonMethods.putMethod(uri, ver, params, expected);
+		Response result = CommonMethods.putMethod(uri, ver, params, expected);
 		
 
 	}
