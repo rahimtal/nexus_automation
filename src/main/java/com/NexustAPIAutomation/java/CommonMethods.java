@@ -438,6 +438,12 @@ public class CommonMethods {
 		case "3.0":
 			RestAssured.baseURI = urlv3;
 			break;
+		case "4.0" :
+			RestAssured.baseURI = urlv4;
+			break;
+		case "4" :
+			RestAssured.baseURI = urlv4;
+			break;
 
 		default:
 			version = "Invalid version";
