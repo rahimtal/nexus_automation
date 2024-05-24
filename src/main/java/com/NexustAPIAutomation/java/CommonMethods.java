@@ -1275,7 +1275,7 @@ public class CommonMethods {
 		System.out.println(RestAssured.baseURI.toString());
 		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
 				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br");
-
+ 
 		String response = httpRequest.delete().asString();
 		System.out.println(response);
 		return response;
