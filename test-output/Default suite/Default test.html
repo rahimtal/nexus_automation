@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>0/0/2</td>
+<td>Tests passed/Failed/Skipped:</td><td>4/2/0</td>
 </tr><tr>
-<td>Started on:</td><td>Thu May 23 07:36:41 PDT 2024</td>
+<td>Started on:</td><td>Mon May 27 02:47:11 PDT 2024</td>
 </tr>
-<tr><td>Total time:</td><td>0 seconds (126 ms)</td>
+<tr><td>Total time:</td><td>3 seconds (3813 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,18 +67,24 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-skipped'>
-<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='Private.SmartlistControllerV3.getsmartList_v_3()'><b>getsmartList_v_3</b><br>Test class: Private.SmartlistControllerV3</td>
-<td><div><pre>org.testng.SkipException: Skipping this due to bugCPDEV-14084
-	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1327)
-	at Private.SmartlistControllerV3.getsmartList_v_3(SmartlistControllerV3.java:20)
+<td title='Private.contactLogController.postcontactLogControllerv4()'><b>postcontactLogControllerv4</b><br>Test class: Private.contactLogController</td>
+<td><div><pre>java.lang.AssertionError: expected [{&quot;ContactLog&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;ServiceOrderNumber&quot;:&quot;SORD00000008993&quot;},&quot;Messages&quot;:[]}}] but found [{&quot;ContactLog&quot;:{&quot;Success&quot;:false,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Contact log already exists for this Location, Customer, Action Code, Contact date and Contact time.&quot;,&quot;Level&quot;:3}]}}]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:629)
+	at org.testng.Assert.assertEquals(Assert.java:639)
+	at com.NexustAPIAutomation.java.CommonMethods.postcall(CommonMethods.java:1293)
+	at Private.contactLogController.postcontactLogControllerv4(contactLogController.java:39)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -107,10 +113,16 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace379645464", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace379645464'><pre>org.testng.SkipException: Skipping this due to bugCPDEV-14084
-	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1327)
-	at Private.SmartlistControllerV3.getsmartList_v_3(SmartlistControllerV3.java:20)
+</pre></div><a href='#' onClick='toggleBox("stack-trace809520570", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace809520570'><pre>java.lang.AssertionError: expected [{&quot;ContactLog&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;ServiceOrderNumber&quot;:&quot;SORD00000008993&quot;},&quot;Messages&quot;:[]}}] but found [{&quot;ContactLog&quot;:{&quot;Success&quot;:false,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Contact log already exists for this Location, Customer, Action Code, Contact date and Contact time.&quot;,&quot;Level&quot;:3}]}}]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:629)
+	at org.testng.Assert.assertEquals(Assert.java:639)
+	at com.NexustAPIAutomation.java.CommonMethods.postcall(CommonMethods.java:1293)
+	at Private.contactLogController.postcontactLogControllerv4(contactLogController.java:39)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -141,12 +153,18 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>Private.SmartlistControllerV3@4f18837a</td></tr>
+<td>Private.contactLogController@4f18837a</td></tr>
 <tr>
-<td title='Private.SmartlistControllerV3.postsmartlistfavorite_v_3()'><b>postsmartlistfavorite_v_3</b><br>Test class: Private.SmartlistControllerV3</td>
-<td><div><pre>org.testng.SkipException: Skipping this due to bugCPDEV-14084
-	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1327)
-	at Private.SmartlistControllerV3.postsmartlistfavorite_v_3(SmartlistControllerV3.java:35)
+<td title='Private.contactLogController.putcontactLogv4()'><b>putcontactLogv4</b><br>Test class: Private.contactLogController</td>
+<td><div><pre>java.lang.AssertionError: expected [{&quot;Check&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;FileName&quot;:&quot;C:\\Csm_sendtoapi\\\\APCHE0000.TXT&quot;},&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Sent To AP updated&quot;,&quot;Level&quot;:1}]}}] but found [{&quot;ContactLog&quot;:{&quot;Success&quot;:false,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;LocationId is required&quot;,&quot;Level&quot;:3},{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;CustomerId is required&quot;,&quot;Level&quot;:3},{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;ActionCode is required&quot;,&quot;Level&quot;:3},{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;FirstContactDateTime is required&quot;,&quot;Level&quot;:3}]}}]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:629)
+	at org.testng.Assert.assertEquals(Assert.java:639)
+	at com.NexustAPIAutomation.java.CommonMethods.putMethod(CommonMethods.java:776)
+	at Private.contactLogController.putcontactLogv4(contactLogController.java:52)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -175,10 +193,16 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1833848849", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1833848849'><pre>org.testng.SkipException: Skipping this due to bugCPDEV-14084
-	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1327)
-	at Private.SmartlistControllerV3.postsmartlistfavorite_v_3(SmartlistControllerV3.java:35)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1153802607", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1153802607'><pre>java.lang.AssertionError: expected [{&quot;Check&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;FileName&quot;:&quot;C:\\Csm_sendtoapi\\\\APCHE0000.TXT&quot;},&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Sent To AP updated&quot;,&quot;Level&quot;:1}]}}] but found [{&quot;ContactLog&quot;:{&quot;Success&quot;:false,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;LocationId is required&quot;,&quot;Level&quot;:3},{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;CustomerId is required&quot;,&quot;Level&quot;:3},{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;ActionCode is required&quot;,&quot;Level&quot;:3},{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;FirstContactDateTime is required&quot;,&quot;Level&quot;:3}]}}]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:629)
+	at org.testng.Assert.assertEquals(Assert.java:639)
+	at com.NexustAPIAutomation.java.CommonMethods.putMethod(CommonMethods.java:776)
+	at Private.contactLogController.putcontactLogv4(contactLogController.java:52)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -209,7 +233,35 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>Private.SmartlistControllerV3@4f18837a</td></tr>
+<td>Private.contactLogController@4f18837a</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Private.contactLogController.getgetContactLogDetail2()'><b>getgetContactLogDetail2</b><br>Test class: Private.contactLogController</td>
+<td></td>
+<td>0</td>
+<td>Private.contactLogController@4f18837a</td></tr>
+<tr>
+<td title='Private.contactLogController.postcontactLogSimplev4()'><b>postcontactLogSimplev4</b><br>Test class: Private.contactLogController</td>
+<td></td>
+<td>2</td>
+<td>Private.contactLogController@4f18837a</td></tr>
+<tr>
+<td title='Private.contactLogController.contactLoggetContactLogActionCodes()'><b>contactLoggetContactLogActionCodes</b><br>Test class: Private.contactLogController</td>
+<td></td>
+<td>0</td>
+<td>Private.contactLogController@4f18837a</td></tr>
+<tr>
+<td title='Private.contactLogController.getgetContactLogDetail()'><b>getgetContactLogDetail</b><br>Test class: Private.contactLogController</td>
+<td></td>
+<td>0</td>
+<td>Private.contactLogController@4f18837a</td></tr>
 </table><p>
 </body>
 </html>
