@@ -1,0 +1,55 @@
+{
+    "Customer": [
+        {
+            "CustomerId": "CUSTOMER009",
+            "CustomerType": {
+                "Id": 1,
+                "Description": "Individual"
+            },
+            "CustomerClass": {
+                "Id": "RES-METERED",
+                "Description": "Residental Metered"
+            },
+            "Name": {
+                "Title": {
+                    "Id": "2",
+                    "Description": "Mr."
+                },
+                "FirstName": "Anthony",
+                "MiddleName": "W",
+                "LastName": "Bendetto",
+                "NameSuffix": "",
+                "MaidenName": ""
+            },
+            "PlaceOfWork": {
+                "Value": "",
+                "IsDirty": false
+            },
+            "PrimaryLanguage": "",
+            "EmailAddress": "uCustomer009@cogsdale.com",
+            "SSN": {
+                "Value": "765765",
+                "IsDirty": false
+            },
+            "DateOfBirth": {
+                "Value": "2031-04-11",
+                "IsDirty": false
+            },
+            "AlternateId": {
+                "Value": "",
+                "IssuedBy": "",
+                "Country": "USA",
+                "IsDirty": false
+            },
+            "BusinessAs": "",
+            "Confirm": 0,
+            "Success": true,
+            "Messages": [
+                {
+                    "Enabled": 0,
+                    "Info": ""
+                }
+            ]
+        }
+    ]
+}
