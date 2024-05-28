@@ -10,13 +10,13 @@ import com.NexustAPIAutomation.java.CommonMethods;
 
 import io.restassured.response.ValidatableResponse;
 
-public class DepositsControllerV3 {
+public class DepositsController {
 
 	@Test(priority = 1, groups = "Deposits")
-	public void getdeposit_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+	public void getdeposit() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/deposit";
-		String ver = "3.0";
+		String ver = "4.0";
 		String jpath = "./\\TestData\\depositsv3.json";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("LocationId", "SPALOCATION1");
@@ -26,11 +26,11 @@ public class DepositsControllerV3 {
 	}
 
 	@Test(priority = 2, groups = "Deposits")
-	public void getdepositpaymentPlan_v_3()
+	public void getdepositpaymentPlan()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/deposit/DEPS00000000026/paymentPlan";
-		String ver = "3.0";
+		String ver = "4.0";
 		String jpath = "./\\TestData\\depositsPaymentPlanv3.json";
 		HashMap<String, String> params = new HashMap<String, String>();
 		//params.put("DocumentNumber", "DEPS00000000026");
@@ -40,10 +40,10 @@ public class DepositsControllerV3 {
 	}
 
 	@Test(priority = 3, groups = "Deposits")
-	public void lookupDepositId_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+	public void lookupDepositId() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/lookupDepositId";
-		String ver = "3.0";
+		String ver = "4.0";
 		String jpath = "./\\TestData\\lookupDepositIdV2.json";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("OrderBy", "description");
