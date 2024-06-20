@@ -1,5 +1,7 @@
 package Public;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -32,7 +34,7 @@ public class CashieringGetV3 {
 		Boolean Result = jsonPathEvaluator.get("CashedIn[0].IsCashedIn");
 
 		if (Result == false) {
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 	}
@@ -48,19 +50,19 @@ public class CashieringGetV3 {
 		String Result = (jsonPathEvaluator.get("Cashiering[0].Amount[0].TotalBalanceDue")).toString();
 
 		if (!Result.contains("64.57")) {
-			Assert.fail(Result.toString());
+			AssertJUnit.fail(Result.toString());
 		}
 
 		Result = (jsonPathEvaluator.get("Cashiering[0].Amount[0].Current")).toString();
 
 		if (!Result.contains("-115")) {
-			Assert.fail(Result.toString());
+			AssertJUnit.fail(Result.toString());
 		}
 
 		Result = (jsonPathEvaluator.get("Cashiering[0].Amount[0].PastDue")).toString();
 
 		if (!Result.contains("179.57")) {
-			Assert.fail(Result.toString());
+			AssertJUnit.fail(Result.toString());
 		}
 
 	}
@@ -76,7 +78,7 @@ public class CashieringGetV3 {
 		Boolean Result = jsonPathEvaluator.get("Receipt[0].Success");
 
 		if (!Result == true) {
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 	}
@@ -92,13 +94,13 @@ public class CashieringGetV3 {
 		String Result = jsonPathEvaluator.get("Receipt.ReceiptNumber");
 
 		if (!Result.contentEquals("004270412000001")) {
-			Assert.fail(Result);
+			AssertJUnit.fail(Result);
 		}
 
 		Result = jsonPathEvaluator.get("Receipt.PreviousReceiptNumber");
 
 		if (Result.contentEquals("")) {
-			Assert.fail(Result);
+			AssertJUnit.fail(Result);
 		}
 
 	}
@@ -113,13 +115,13 @@ public class CashieringGetV3 {
 		String Result = jsonPathEvaluator.get("Register[0].RegId");
 
 		if (!Result.contentEquals("4")) {
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 		Result = jsonPathEvaluator.get("Register[0].RegisterId");
 
 		if (!Result.contentEquals("TRREG000001")) {
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 	}
@@ -134,7 +136,7 @@ public class CashieringGetV3 {
 		String Result = jsonPathEvaluator.get("CashieringTransaction[0].CustomerId");
 
 		if (!Result.contentEquals("customer017")) {
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 	}
@@ -155,10 +157,10 @@ public class CashieringGetV3 {
 		String Result = jsonPathEvaluator.getJsonObject("CashieringTransaction.CustomerId[0]");
 
 		if (!Result.contentEquals("CUSTOMER010"))
-			Assert.fail(Result);
+			AssertJUnit.fail(Result);
 		Result = jsonPathEvaluator.get("CashieringTransaction.Document[0].Number[0]");
 		if (!Result.contentEquals("BILL00000000374"))
-			Assert.fail(Result);
+			AssertJUnit.fail(Result);
 	}
 
 	public static void main(String args[]) throws ClassNotFoundException, SQLException, InterruptedException {

@@ -1,5 +1,7 @@
 package Private;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -35,12 +37,12 @@ public class CashieringController extends BaseClass {
 		System.out.println(jsonPathEvaluator.get().toString());
 		Boolean Result = jsonPathEvaluator.get("CashedIn[0].IsCashedIn");
 		if (Result == false) {
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 	}
 
-	@Test(priority = 2, groups = "Cashering", dependsOnMethods = "TC003_getCashin")
+	@Test(priority = 2, groups = "Cashering", dependsOnMethods = "TC003_1_getCashin")
 	public void TC004_balances() throws ClassNotFoundException, SQLException, InterruptedException {
 
 		String uri = "/cashiering/balances/customer006/1999-03-24";
@@ -51,19 +53,19 @@ public class CashieringController extends BaseClass {
 		String Result = (jsonPathEvaluator.get("Cashiering[0].Amount[0].TotalBalanceDue")).toString();
 
 		if (!Result.contains("64.57")) {
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 		Result = (jsonPathEvaluator.get("Cashiering[0].Amount[0].Current")).toString();
 
 		if (!Result.contains("-115")) {
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 		Result = (jsonPathEvaluator.get("Cashiering[0].Amount[0].PastDue")).toString();
 
 		if (!Result.contains("179.57")) {
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 	}
@@ -79,7 +81,7 @@ public class CashieringController extends BaseClass {
 		Boolean Result = jsonPathEvaluator.get("Receipt[0].Success");
 
 		if (!Result == true) {
-			Assert.fail();
+			AssertJUnit.fail();
 			// testStatus(false);
 		}
 
@@ -95,13 +97,13 @@ public class CashieringController extends BaseClass {
 		String Result = jsonPathEvaluator.get("Receipt.ReceiptNumber");
 
 		if (!Result.contentEquals("004270412000001")) {
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 		Result = jsonPathEvaluator.get("Receipt.PreviousReceiptNumber");
 
 		if (Result.contentEquals("")) {
-			Assert.fail();
+			AssertJUnit.fail();
 
 		}
 
@@ -118,14 +120,14 @@ public class CashieringController extends BaseClass {
 
 		if (!Result.contentEquals("4")) {
 
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 		Result = jsonPathEvaluator.get("Register[0].RegisterId");
 
 		if (!Result.contentEquals("TRREG000001")) {
 
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 	}
@@ -144,7 +146,7 @@ public class CashieringController extends BaseClass {
 		System.out.println(jsonPathEvaluator.get().toString());
 		String Result = jsonPathEvaluator.get("CashieringTransaction[0].CustomerId");
 		if (!Result.contentEquals("customer017")) {
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 	}
@@ -166,10 +168,10 @@ public class CashieringController extends BaseClass {
 		String Result = jsonPathEvaluator.getJsonObject("CashieringTransaction.CustomerId[0]");
 
 		if (!Result.contentEquals("CUSTOMER010"))
-			Assert.fail();
+			AssertJUnit.fail();
 		Result = jsonPathEvaluator.get("CashieringTransaction.Document[0].Number[0]");
 		if (!Result.contentEquals("BILL00000000374"))
-			Assert.fail();
+			AssertJUnit.fail();
 	}
 
 	public static void adjustRecieptPre(String recNum) throws ConnectionClosedException, InterruptedException {
@@ -216,7 +218,7 @@ public class CashieringController extends BaseClass {
 		System.out.println(jsonPathEvaluator.prettyPrint());
 		Boolean Result1 = jsonPathEvaluator.get("Receipt.Success");
 		if (Result1 == false) {
-			Assert.fail();
+			AssertJUnit.fail();
 		} else {
 			System.out.println(jsonPathEvaluator.toString());
 		}
@@ -233,7 +235,7 @@ public class CashieringController extends BaseClass {
 		Boolean Result = jsonPathEvaluator.get("Receipt.Success");
 		System.out.println(jsonPathEvaluator.toString());
 		if (Result == false) {
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 	}

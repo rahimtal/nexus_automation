@@ -1,12 +1,13 @@
 package Private;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-import org.junit.Assert;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
@@ -32,7 +33,7 @@ public class csmGlobalsController {
 		System.out.println(bodyAsString);
 
 		if (!bodyAsString.contains(param) && !bodyAsString.contains(param2)) {
-			Assert.fail(param + param2 + "Not Found");
+			AssertJUnit.fail(param + param2 + "Not Found");
 		}
 		System.out.println(response.prettyPrint());
 		 

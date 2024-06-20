@@ -1,10 +1,11 @@
 package Private;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-import org.junit.Assert;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
@@ -20,7 +21,7 @@ public class lookupControllerv4 {
 		String result = CommonMethods.getMethodasString(uri, ver, params);
 
 		if (!result.contains(expected)) {
-			Assert.fail("Actual Result " + result);
+			AssertJUnit.fail("Actual Result " + result);
 		}
 		System.out.println(result);
 	}

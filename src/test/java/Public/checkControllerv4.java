@@ -1,5 +1,7 @@
 package Public;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -39,7 +41,7 @@ public class checkControllerv4 {
 			System.out.println(Result);
 			if (Result == null) {
 
-				Assert.fail("Check Posting Failed");
+				AssertJUnit.fail("Check Posting Failed");
 
 			} else {
 				getCheckv4(nextCheck);
@@ -101,10 +103,10 @@ public class checkControllerv4 {
 		System.out.println(result.getString("Check"));
 		String j = result.getString("Check");
 		if (!j.contains("CHEQ000000000")) {
-			Assert.fail("next Check API is failed");
+			AssertJUnit.fail("next Check API is failed");
 		}
 		if (!j.contains("Success:true")) {
-			Assert.fail("next Check API is failed");
+			AssertJUnit.fail("next Check API is failed");
 		}
 		System.out.println(result.getString("Check.Data.NextDocumentNumber"));
 		return result.getString("Check.Data.NextDocumentNumber");
@@ -168,7 +170,7 @@ public class checkControllerv4 {
 			String expected = "Cannot insert the value NULL into column 'umTotalTaxes', table 'TWO.dbo.UTX'; column does not allow nulls. INSERT fails";
 
 			if (!result.contains(expected)) {
-				Assert.fail();
+				AssertJUnit.fail();
 			}
 
 			expected = "Success\":false,\"Data\":{\"DocumentNumber\":\"CHEQ00000000009\""; // ,"Receivable":[{"ChargeDocument":"MISC00000000391","Posted":false}],"PostingReport":true,"PostingError":true,"ReportList":[{"Name":"Post
@@ -188,7 +190,7 @@ public class checkControllerv4 {
 																							// fails.","Level":3}]}}
 
 			if (!result.contains(expected)) {
-				Assert.fail();
+				AssertJUnit.fail();
 			}
 
 		}
@@ -221,7 +223,7 @@ public class checkControllerv4 {
 			String expected = "{\"Check\":{\"Success\":false,\"Data\":{\"DocumentNumber\":\"CHEQ00000000013\",\"Receivable\":null,\"PostingReport\":false,\"PostingError\":true,\"ReportList\":[],\"ReportErrorList\":[{\"Name\":\"Post Check Refund Error List\",\"PrintOrder\":1}]},\"Messages\":[{\"Enabled\":1,\"Info\":\"Posting validation error found. Refer to posting error report.\",\"Level\":3}]}}";
 			System.out.println(expected);
 			if (!result.trim().contentEquals(expected.trim())) {
-				Assert.fail(result);
+				AssertJUnit.fail(result);
 			}
 		}
 

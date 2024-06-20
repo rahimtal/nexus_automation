@@ -1,5 +1,7 @@
 package Public;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -33,7 +35,7 @@ public class CashieringGet extends BaseClass {
 		System.out.println(jsonPathEvaluator.get().toString());
 		Boolean Result = jsonPathEvaluator.get("CashedIn[0].IsCashedIn");
 		if (Result == false) {
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 	}
@@ -48,7 +50,7 @@ public class CashieringGet extends BaseClass {
 		System.out.println(jsonPathEvaluator.get().toString());
 		Boolean Result = jsonPathEvaluator.get("CashedIn[0].IsCashedIn");
 		if (Result == false) {
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 	}
@@ -64,19 +66,19 @@ public class CashieringGet extends BaseClass {
 		String Result = (jsonPathEvaluator.get("Cashiering[0].Amount[0].TotalBalanceDue")).toString();
 
 		if (!Result.contains("64.57")) {
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 		Result = (jsonPathEvaluator.get("Cashiering[0].Amount[0].Current")).toString();
 
 		if (!Result.contains("-115")) {
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 		Result = (jsonPathEvaluator.get("Cashiering[0].Amount[0].PastDue")).toString();
 
 		if (!Result.contains("179.57")) {
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 	}
@@ -92,7 +94,7 @@ public class CashieringGet extends BaseClass {
 		Boolean Result = jsonPathEvaluator.get("Receipt[0].Success");
 
 		if (!Result == true) {
-			Assert.fail();
+			AssertJUnit.fail();
 			// testStatus(false);
 		}
 
@@ -131,14 +133,14 @@ public class CashieringGet extends BaseClass {
 
 		if (!Result.contentEquals("4")) {
 			testStatus(false);
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 		Result = jsonPathEvaluator.get("Register[0].RegisterId");
 
 		if (!Result.contentEquals("TRREG000001")) {
 			testStatus(false);
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 	}
@@ -185,10 +187,11 @@ public class CashieringGet extends BaseClass {
 			testStatus(false);
 	}
 
+	@Test
 	void testStatus(boolean Result) {
 		if (Result == false) {
 			test.log(Status.FAIL, "Test Failed");
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 		test.log(Status.PASS, "Test Passed");
 	}

@@ -1,5 +1,7 @@
 package Public;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -34,7 +36,7 @@ public class ServiceOrderControllerV3 {
 		System.out.println(ServiceOrderNumber);
 		if(ServiceOrderNumber==null)
 		{
-			Assert.fail("Service Order not created");
+			AssertJUnit.fail("Service Order not created");
 		
 		}
 		else {
@@ -61,7 +63,7 @@ public class ServiceOrderControllerV3 {
 		System.out.println(bodyAsString);
 
 		if (!bodyAsString.contains(param)) {
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 		System.out.println(response.prettyPrint());
 

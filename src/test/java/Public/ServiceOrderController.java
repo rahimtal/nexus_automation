@@ -2,6 +2,8 @@ package Public;
 
 
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.nio.file.NoSuchFileException;
 import java.sql.SQLException;
@@ -55,7 +57,7 @@ public class ServiceOrderController {
 		System.out.println(bodyAsString);
 
 		if (!bodyAsString.contains(param)) {
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 		System.out.println(response.prettyPrint());
 
@@ -239,12 +241,12 @@ public class ServiceOrderController {
 		if (ServiceOrderNumber != null) {
 			getServiceOrderdetails_v2_4(ServiceOrderNumber);
 		} else {
-			Assert.fail("Service Order null");
+			AssertJUnit.fail("Service Order null");
 		}
 
 		Thread.sleep(500);
 		if (ServiceOrderNumber == null) {
-			Assert.fail("Service Order " + ServiceOrderNumber + "Not found");
+			AssertJUnit.fail("Service Order " + ServiceOrderNumber + "Not found");
 		} else {
 			putTaskComplete_v_2_4(ServiceOrderNumber);
 			
@@ -270,7 +272,7 @@ public class ServiceOrderController {
 		System.out.println(bodyAsString);
 
 		if (!bodyAsString.contains(param)) {
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 		System.out.println(response.prettyPrint());
 
@@ -312,7 +314,7 @@ public class ServiceOrderController {
 		jsonPathEvaluator = CommonMethods.postMethod(payload, uri, ver);
 		String ServiceOrderNumber = jsonPathEvaluator.get("result.ServiceOrderNumber");
 		if (ServiceOrderNumber == null || ServiceOrderNumber.equalsIgnoreCase("")) {
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 		System.out.println(jsonPathEvaluator.get().toString());
 		System.out.println(ServiceOrderNumber);

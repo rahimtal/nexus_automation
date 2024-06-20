@@ -1,5 +1,7 @@
 package Public;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -108,7 +110,7 @@ public class searchControllerV3 {
 		params.put("numPerPage", "10");
 
 		Response result = CommonMethods.getMethod(uri, ver, params);
-		Assert.assertEquals(result.statusCode(), 200);
+		AssertJUnit.assertEquals(result.statusCode(), 200);
 		System.out.println(result);
 
 	}

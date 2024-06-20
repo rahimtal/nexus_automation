@@ -1,5 +1,7 @@
 package Private;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -7,7 +9,6 @@ import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-import org.junit.Assert;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
@@ -29,7 +30,7 @@ public class MeterReadControllerV4 {
 
 		if (!result.contains(expected)) {
 			System.out.println("MeterRead Already deleted" + result);
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 		System.out.println(result);
 	}
@@ -44,7 +45,7 @@ public class MeterReadControllerV4 {
 		String result = CommonMethods.deleteMethodasString(uri, ver);
 
 		if (!result.contains(expected)) {
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 		System.out.println(result);
 		System.out.println(result);
@@ -62,7 +63,7 @@ public class MeterReadControllerV4 {
 
 		String result = CommonMethods.getMethodasString(uri, ver, params);
 		if (!result.contains(expected) && !result.contains(expected2)) {
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 		System.out.println(result);
 		System.out.println(result);
@@ -111,7 +112,7 @@ public class MeterReadControllerV4 {
 		Boolean Result = jsonPathEvaluator.get("MeterReading[0].Success");
 		if (Result == true) {
 
-			Assert.fail("Meter Reading posting should not be done ");
+			AssertJUnit.fail("Meter Reading posting should not be done ");
 
 		} else {
 
@@ -172,7 +173,7 @@ public class MeterReadControllerV4 {
 
 		String result = CommonMethods.getMethodasString(uri, ver, params);
 		if (!result.contains(expected) && !result.contains(expected2)) {
-			Assert.fail("actual" + result);
+			AssertJUnit.fail("actual" + result);
 		}
 
 		System.out.println(result);
@@ -203,7 +204,7 @@ public class MeterReadControllerV4 {
 		Boolean Result = jsonPathEvaluator.get("MeterReading.Success");
 		if (Result == true) {
 
-			Assert.fail("Meter Reading posting should not be done.Meter Reading in open or history ");
+			AssertJUnit.fail("Meter Reading posting should not be done.Meter Reading in open or history ");
 
 		} else {
 
@@ -214,7 +215,7 @@ public class MeterReadControllerV4 {
 
 		if (!info.contentEquals("Meter Reading in open or history.  Unable to post Meter Reading.")) {
 
-			Assert.fail("Meter Reading posting should not be done.Meter Reading in open or history ");
+			AssertJUnit.fail("Meter Reading posting should not be done.Meter Reading in open or history ");
 
 		} else {
 

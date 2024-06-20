@@ -1,11 +1,12 @@
 package Private;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-import org.junit.Assert;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
@@ -59,7 +60,7 @@ public class BillingControllerv4 {
 		System.out.println(jsonPathEvaluator.prettyPrint());
 		if (!Result) {
 	
-			Assert.fail("Bill Posting Failed \n" + jsonPathEvaluator.prettyPrint());
+			AssertJUnit.fail("Bill Posting Failed \n" + jsonPathEvaluator.prettyPrint());
 	
 		}
 	}
@@ -87,7 +88,7 @@ public class BillingControllerv4 {
 		System.out.println(Result);
 		if (!Result) {
 	
-			Assert.fail("Bill Calculation Failed");
+			AssertJUnit.fail("Bill Calculation Failed");
 	
 		}
 	}
@@ -107,7 +108,7 @@ public class BillingControllerv4 {
 		Boolean Result = jsonPathEvaluator.get("Billing.Success");
 		System.out.println(jsonPathEvaluator.prettyPrint());
 		if (!Result) {
-			Assert.fail(jsonPathEvaluator.prettyPrint());
+			AssertJUnit.fail(jsonPathEvaluator.prettyPrint());
 	
 		}
 	}
@@ -130,7 +131,7 @@ public class BillingControllerv4 {
 		System.out.println(Result);
 		if (!Result) {
 	
-			Assert.fail("Bill Posting Failed \n" + jsonPathEvaluator.prettyPrint());
+			AssertJUnit.fail("Bill Posting Failed \n" + jsonPathEvaluator.prettyPrint());
 	
 		}
 	}
@@ -151,7 +152,7 @@ public class BillingControllerv4 {
 		System.out.println(Result);
 		if (!Result) {
 	
-			Assert.fail("Bill Calculation Failed");
+			AssertJUnit.fail("Bill Calculation Failed");
 	
 		}
 	}

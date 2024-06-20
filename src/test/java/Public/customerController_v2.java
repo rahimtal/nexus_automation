@@ -1,5 +1,7 @@
 package Public;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -138,13 +140,13 @@ public class customerController_v2 {
 		JsonPath jsonPathEvaluator = CommonMethods.getMethod(uri, ver);
 		Boolean Result = jsonPathEvaluator.get("GetNextCustomerId[0].Success");
 		if (!Result) {
-			Assert.fail(uri + " Next id failed");
+			AssertJUnit.fail(uri + " Next id failed");
 		}
 
 		String CustId = jsonPathEvaluator.get("GetNextCustomerId[0].CustomerId");
 		if (!CustId.contains("CUS@")) {
 			System.out.println(CustId);
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 
 	}
@@ -173,7 +175,7 @@ public class customerController_v2 {
 		JsonPath jsonPathEvaluator = CommonMethods.getMethod(uri, ver);
 		Boolean Result = jsonPathEvaluator.get("PreauthorizedPaymentPlan.Success");
 		if (!Result) {
-			Assert.fail(uri + " Next id failed");
+			AssertJUnit.fail(uri + " Next id failed");
 		}
 
 	}
