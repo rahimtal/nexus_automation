@@ -199,9 +199,9 @@ public class CashieringController extends BaseClass {
 		// CommonMethods.CompanyDBRestore();
 
 		String columnName = "umDocumentNumber";
-		String Command1 = "select top 1 umDocumentNumber from [UMRM102] order by umDocumentNumber desc";
+		String Command1 = "select top 1 umDocumentNumber from TWO.dbo.UMRM102 order by umDocumentNumber desc";
 		String Result = "";
-		ConnectionString = "jdbc:sqlserver://RND-BASE-A\\SQL_2017;DB= databaseName=TWO;user=auto;password=password123;";
+		ConnectionString = "jdbc:sqlserver://DESKTOP-QU86F3Q\\MSSQLSERVER2019;DB= databaseName=TWO;user=sa;password=cogs;";
 		Result = CommonMethods.selectFromDb(Command1, ConnectionString, columnName);
 		if (Result != "") {
 			adjustRecieptPre(Result);

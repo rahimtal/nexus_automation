@@ -9,13 +9,17 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num attn">1</td><td class="num">0</td><td class="num">0</td><td class="num">244</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">3,193</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="1">Public.ServiceOrderControllerV4</td><td><a href="#m0">getServiceOrderdetails_v4</a></td><td rowspan="1">1718889523186</td><td rowspan="1">109</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">Private.CashieringController</td><td><a href="#m0">saveReciept_2_4</a></td><td rowspan="1">1718893794494</td><td rowspan="1">3069</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">Public.ServiceOrderControllerV4#getServiceOrderdetails_v4</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.testng.SkipException: Skipping this due to bugCPDEV-17883
-	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1387)
-	at Public.ServiceOrderControllerV4.getServiceOrderdetails_v4(ServiceOrderControllerV4.java:28)
+<h2>Default test</h2><h3 id="m0">Private.CashieringController#saveReciept_2_4</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">io.restassured.path.json.exception.JsonPathException: Failed to parse the JSON document
+	at io.restassured.path.json.JsonPath$ExceptionCatcher.invoke(JsonPath.java:1002)
+	at io.restassured.path.json.JsonPath$4.doParseWith(JsonPath.java:967)
+	at io.restassured.path.json.JsonPath$JsonParser.parseWith(JsonPath.java:1047)
+	at io.restassured.path.json.JsonPath.get(JsonPath.java:202)
+	at Private.CashieringController.adjustRecieptPre(CashieringController.java:184)
+	at Private.CashieringController.saveReciept_2_4(CashieringController.java:207)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -44,6 +48,15 @@
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: groovy.json.JsonException: Lexing failed on line: 1, column: 1, while reading &apos;&lt;&apos;, no possible valid JSON value or punctuation could be recognized.
+	at groovy.json.JsonLexer.nextToken(JsonLexer.java:86)
+	at groovy.json.JsonLexer$nextToken.call(Unknown Source)
+	at io.restassured.internal.path.json.ConfigurableJsonSlurper.parse(ConfigurableJsonSlurper.groovy:97)
+	at io.restassured.internal.path.json.ConfigurableJsonSlurper$parse.callCurrent(Unknown Source)
+	at io.restassured.internal.path.json.ConfigurableJsonSlurper.parseText(ConfigurableJsonSlurper.groovy:83)
+	at io.restassured.path.json.JsonPath$4$1.method(JsonPath.java:965)
+	at io.restassured.path.json.JsonPath$ExceptionCatcher.invoke(JsonPath.java:1000)
+	... 33 more
 </div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>
