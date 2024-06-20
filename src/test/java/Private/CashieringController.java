@@ -31,7 +31,7 @@ public class CashieringController extends BaseClass {
 	public void TC003_1_getCashin() throws ClassNotFoundException, SQLException, InterruptedException {
 
 		String uri = "/cashiering/cashIn";
-		String ver = "4";
+		String ver = "4.0";
 		String payload = "";
 		jsonPathEvaluator = CommonMethods.getMethod(uri, ver);
 		System.out.println(jsonPathEvaluator.get().toString());
@@ -204,6 +204,7 @@ public class CashieringController extends BaseClass {
 		ConnectionString = "jdbc:sqlserver://DESKTOP-QU86F3Q\\MSSQLSERVER2019;DB= databaseName=TWO;user=sa;password=cogs;";
 		Result = CommonMethods.selectFromDb(Command1, ConnectionString, columnName);
 		if (Result != "") {
+			System.out.println(Result);
 			adjustRecieptPre(Result);
 		}
 
