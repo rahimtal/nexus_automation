@@ -71,5 +71,17 @@ public class PaymentControllerV4 {
 		}
 		// System.out.println(jsonPathEvaluator.toString());
 	}
+	
+	
+	@Test(priority = 5, groups = "Payment")
+	public void postPaymentMiscv4() throws ClassNotFoundException, SQLException, InterruptedException {
+		// CommonMethods.CompanyDBRestore();
+		String uri = "/payment";
+		String ver = "4.0";
+		String payload = "./\\TestData\\PostPaymentMiscv4.json";
+		//String exresult = "{\"Payment\":{\"Success\":true,\"Data\":{\"BatchId\":\"API20240505001\",\"DocumentNumber\":\"PYMT00000000529\"},\"Messages\":[]}}";
+		String exresult = "{\"Payment\":{\"Success\":true,\"Data\":{\"BatchId\":null,\"DocumentNumber\":\"PYMT";
+		CommonMethods.postcallcontains(uri, payload, ver, exresult);
+		}
 
 }

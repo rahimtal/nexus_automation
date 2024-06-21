@@ -1,0 +1,80 @@
+{
+    "BatchId": "___api_CR",
+    "LocationId": "BUDGETLOC02",
+    "CustomerId": "03332301204",
+    "Type": 3,
+    "PaymentDate": "2020-01-15",
+    "PaymentAmount": 6.06,
+    "OriginId": "",
+    "PaidBy": 1,
+    "PaidById": "CUSTOMER009",
+    "AuthorizationCode": "AUTH: 12345",
+    "AutoApply": false,
+    "ApplyBy": 0,
+    "Comment": "",
+    "CreditMemo": {
+        "CreditNoteId": "RMGT-OTH-000002",
+        "TaxScheduleId": "ONT GST/PST",
+        "ReasonCode": "",
+        "SubAmount": 4.17,
+        "TotalTaxAmount": 1.89,
+        "TaxDetail": [
+            {
+                "TaxDetailId": "AUSSTE+PS0N0",
+                "TransactionAmount": 5.00,
+                "TaxAmount": 0.21,
+                "TaxAccountIndex": 60
+            },
+            {
+                "TaxDetailId": "PST",
+                "TransactionAmount": 5.00,
+                "TaxAmount": 0.40,
+                "TaxAccountIndex": 96
+            }
+        ]
+    },
+    "DistributionDetail": [
+        {
+            "TypeId": 3,
+            "Index": 363,
+            "DebitAmount": 0.00,
+            "CreditAmount": 6.06
+        },
+        {
+            "TypeId": 9,
+            "Index": 515,
+            "DebitAmount": 4.17,
+            "CreditAmount": 0.00
+        },
+        {
+            "TypeId": 13,
+            "Index": 60,
+            "DebitAmount": 0.21,
+            "CreditAmount": 0.00
+        },
+        {
+            "TypeId": 13,
+            "Index": 84,
+            "DebitAmount": 0.30,
+            "CreditAmount": 0.00
+        },
+        {
+            "TypeId": 13,
+            "Index": 86,
+            "DebitAmount": 0.63,
+            "CreditAmount": 0.00
+        },
+        {
+            "TypeId": 13,
+            "Index": 96,
+            "DebitAmount": 0.75,
+            "CreditAmount": 0.00
+        }
+    ],
+    "DocumentToApply": [
+        {
+            "Number": "BUDG00000002801",
+            "ApplyAmount": 2
+        }
+    ]
+}
