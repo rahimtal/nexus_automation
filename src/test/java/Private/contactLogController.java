@@ -45,6 +45,7 @@ public class contactLogController {
 	public static void putcontactLogv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
+		
 		String uri = "/contactLog";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\putContactLogv4.json";

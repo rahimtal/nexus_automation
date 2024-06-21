@@ -39,6 +39,7 @@ public class voidController {
 
 	@Test(priority = 1, groups = "void")
 	public void putvoidv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-17270");
 		String uri = "/void";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\putvoidv4.json";

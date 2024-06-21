@@ -580,7 +580,7 @@ public class CommonMethods {
 		// .body(Matchers.equalTo(new String(Files.readAllBytes(Paths.get(jpath)))));
 
 		Response response = httpRequest.get();
-		AssertJUnit.assertEquals(response.asString(), new String(Files.readAllBytes(Paths.get(jpath))));
+		AssertJUnit.assertEquals(new String(Files.readAllBytes(Paths.get(jpath))),response.asString());
 		return response.asString();
 	}
 
