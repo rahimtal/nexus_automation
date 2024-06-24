@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/2/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Jun 24 11:18:44 PKT 2024</td>
+<td>Started on:</td><td>Mon Jun 24 16:38:47 PKT 2024</td>
 </tr>
-<tr><td>Total time:</td><td>1 seconds (1963 ms)</td>
+<tr><td>Total time:</td><td>1 seconds (1622 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,12 +75,22 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='Public.DisconnectFromStarttoFinish.putMeterDisconnect()'><b>putMeterDisconnect</b><br>Test class: Public.DisconnectFromStarttoFinish</td>
-<td><div><pre>java.lang.AssertionError: expected:&lt;{&quot;Connection&quot;:{&quot;Success&quot;:false,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Status can only change to Active or Inactive.&quot;,&quot;Level&quot;:3}]}}&gt; but was:&lt;{&quot;Connection&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;LocationId&quot;:&quot;WATER003&quot;,&quot;BaseConnection&quot;:{&quot;ConnectionSequence&quot;:1,&quot;NewConnectionSequence&quot;:0},&quot;AlternateConnection&quot;:[{&quot;AlternateConnectionSequence&quot;:2,&quot;NewAlternateConnectionSequence&quot;:0}],&quot;SubtractConnection&quot;:&quot;[]&quot;,&quot;Confirm&quot;:{&quot;DisconnectToActiveValidation&quot;:false,&quot;EquipmentReinstallValidation&quot;:false,&quot;DisconnectMeterReadValidation&quot;:false}},&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Updated&quot;,&quot;Level&quot;:1}]}}&gt;
+<td title='Private.consumptionHistoryController.getconsumptionHistoryController()'><b>getconsumptionHistoryController</b><br>Test class: Private.consumptionHistoryController</td>
+<td><div><pre>java.lang.AssertionError: expected:&lt;{&quot;ConsumptionHistory&quot;:[{&quot;ReadingDate&quot;:&quot;1997-03-29&quot;,&quot;ConsumptionPeriodEnd&quot;:&quot;1997-03-01&quot;,&quot;Consumption&quot;:&quot;820&quot;,&quot;NumberOfDays&quot;:&quot;88&quot;,&quot;MeterEquipments&quot;:&quot;EQUIPMENT008 (2)&quot;,&quot;UnitsPerDay&quot;:&quot;9.32&quot;,&quot;ServiceCategory&quot;:&quot;Electric&quot;,&quot;CurrentReading&quot;:620,&quot;PreviousReading&quot;:0,&quot;BilledAmount&quot;:73.37,&quot;SewerBilledAmount&quot;:0},{&quot;ReadingDate&quot;:&quot;1997-06-28&quot;,&quot;ConsumptionPeriodEnd&quot;:&quot;1997-06-01&quot;,&quot;Consumption&quot;:&quot;1200&quot;,&quot;NumberOfDays&quot;:&quot;91&quot;,&quot;MeterEquipments&quot;:&quot;EQUIPMENT008 (2)&quot;,&quot;UnitsPerDay&quot;:&quot;13.19&quot;,&quot;ServiceCategory&quot;:&quot;Electric&quot;,&quot;CurrentReading&quot;:1220,&quot;PreviousReading&quot;:620,&quot;BilledAmount&quot;:90.59,&quot;SewerBilledAmount&quot;:0},{&quot;ReadingDate&quot;:&quot;1997-09-28&quot;,&quot;ConsumptionPeriodEnd&quot;:&quot;1997-09-01&quot;,&quot;Consumption&quot;:&quot;1140&quot;,&quot;NumberOfDays&quot;:&quot;92&quot;,&quot;MeterEquipments&quot;:&quot;EQUIPMENT008 (2)&quot;,&quot;UnitsPerDay&quot;:&quot;12.39&quot;,&quot;ServiceCategory&quot;:&quot;Electric&quot;,&quot;CurrentReading&quot;:1790,&quot;PreviousReading&quot;:1220,&quot;BilledAmount&quot;:86.21,&quot;SewerBilledAmount&quot;:0},{&quot;ReadingDate&quot;:&quot;1997-12-28&quot;,&quot;ConsumptionPeriodEnd&quot;:&quot;1997-12-01&quot;,&quot;Consumption&quot;:&quot;295&quot;,&quot;NumberOfDays&quot;:&quot;91&quot;,&quot;MeterEquipments&quot;:&quot;EQUIPMENT008 (2)&quot;,&quot;UnitsPerDay&quot;:&quot;3.24&quot;,&quot;ServiceCategory&quot;:&quot;Electric&quot;,&quot;CurrentReading&quot;:1956,&quot;PreviousReading&quot;:1790,&quot;BilledAmount&quot;:25.98,&quot;SewerBilledAmount&quot;:0},{&quot;ReadingDate&quot;:&quot;1998-03-31&quot;,&quot;ConsumptionPeriodEnd&quot;:&quot;1998-03-01&quot;,&quot;Consumption&quot;:&quot;365&quot;,&quot;NumberOfDays&quot;:&quot;76&quot;,&quot;MeterEquipments&quot;:&quot;EQUIPMENT006 (3) ,EQUIPMENT008 (2)&quot;,&quot;UnitsPerDay&quot;:&quot;4.80&quot;,&quot;ServiceCategory&quot;:&quot;Electric&quot;,&quot;CurrentReading&quot;:120,&quot;PreviousReading&quot;:0,&quot;BilledAmount&quot;:30.87,&quot;SewerBilledAmount&quot;:0},{&quot;ReadingDate&quot;:&quot;1998-06-30&quot;,&quot;ConsumptionPeriodEnd&quot;:&quot;1998-06-01&quot;,&quot;Consumption&quot;:&quot;101&quot;,&quot;NumberOfDays&quot;:&quot;91&quot;,&quot;MeterEquipments&quot;:&quot;EQUIPMENT006 (3) ,EQUIPMENT008 (2)&quot;,&quot;UnitsPerDay&quot;:&quot;1.11&quot;,&quot;ServiceCategory&quot;:&quot;Electric&quot;,&quot;CurrentReading&quot;:2156,&quot;PreviousReading&quot;:2100,&quot;BilledAmount&quot;:11.4,&quot;SewerBilledAmount&quot;:0},{&quot;ReadingDate&quot;:&quot;1998-09-30&quot;,&quot;ConsumptionPeriodEnd&quot;:&quot;1998-09-01&quot;,&quot;Consumption&quot;:&quot;89&quot;,&quot;NumberOfDays&quot;:&quot;92&quot;,&quot;MeterEquipments&quot;:&quot;EQUIPMENT006 (3) ,EQUIPMENT008 (2)&quot;,&quot;UnitsPerDay&quot;:&quot;0.97&quot;,&quot;ServiceCategory&quot;:&quot;Electric&quot;,&quot;CurrentReading&quot;:2200,&quot;PreviousReading&quot;:2156,&quot;BilledAmount&quot;:11.4,&quot;SewerBilledAmount&quot;:0},{&quot;ReadingDate&quot;:&quot;1998-12-31&quot;,&quot;ConsumptionPeriodEnd&quot;:&quot;1998-12-01&quot;,&quot;Consumption&quot;:&quot;190&quot;,&quot;NumberOfDays&quot;:&quot;92&quot;,&quot;MeterEquipments&quot;:&quot;EQUIPMENT006 (3) ,EQUIPMENT008 (2)&quot;,&quot;UnitsPerDay&quot;:&quot;2.07&quot;,&quot;ServiceCategory&quot;:&quot;Electric&quot;,&quot;CurrentReading&quot;:2280,&quot;PreviousReading&quot;:2200,&quot;BilledAmount&quot;:17.34,&quot;SewerBilledAmount&quot;:0},{&quot;ReadingDate&quot;:&quot;1999-03-31&quot;,&quot;ConsumptionPeriodEnd&quot;:&quot;1999-03-01&quot;,&quot;Consumption&quot;:&quot;176&quot;,&quot;NumberOfDays&quot;:&quot;90&quot;,&quot;MeterEquipments&quot;:&quot;EQUIPMENT006 (3) ,EQUIPMENT008 (2)&quot;,&quot;UnitsPerDay&quot;:&quot;1.96&quot;,&quot;ServiceCategory&quot;:&quot;Electric&quot;,&quot;CurrentReading&quot;:2356,&quot;PreviousReading&quot;:2280,&quot;BilledAmount&quot;:16.07,&quot;SewerBilledAmount&quot;:0},{&quot;ReadingDate&quot;:&quot;1999-06-30&quot;,&quot;ConsumptionPeriodEnd&quot;:&quot;1999-06-01&quot;,&quot;Consumption&quot;:&quot;204&quot;,&quot;NumberOfDays&quot;:&quot;91&quot;,&quot;MeterEquipments&quot;:&quot;EQUIPMENT006 (3) ,EQUIPMENT008 (2)&quot;,&quot;UnitsPerDay&quot;:&quot;2.24&quot;,&quot;ServiceCategory&quot;:&quot;Electric&quot;,&quot;CurrentReading&quot;:2450,&quot;PreviousReading&quot;:2356,&quot;BilledAmount&quot;:18.62,&quot;SewerBilledAmount&quot;:0},{&quot;ReadingDate&quot;:&quot;1999-09-30&quot;,&quot;ConsumptionPeriodEnd&quot;:&quot;1999-09-01&quot;,&quot;Consumption&quot;:&quot;180&quot;,&quot;NumberOfDays&quot;:&quot;92&quot;,&quot;MeterEquipments&quot;:&quot;EQUIPMENT006 (3) ,EQUIPMENT008 (2)&quot;,&quot;UnitsPerDay&quot;:&quot;1.96&quot;,&quot;ServiceCategory&quot;:&quot;Electric&quot;,&quot;CurrentReading&quot;:2530,&quot;PreviousReading&quot;:2450,&quot;BilledAmount&quot;:16.43,&quot;SewerBilledAmount&quot;:0},{&quot;ReadingDate&quot;:&quot;1999-12-31&quot;,&quot;ConsumptionPeriodEnd&quot;:&quot;1999-12-01&quot;,&quot;Consumption&quot;:&quot;615&quot;,&quot;NumberOfDays&quot;:&quot;92&quot;,&quot;MeterEquipments&quot;:&quot;EQUIPMENT006 (3) ,EQUIPMENT008 (2)&quot;,&quot;UnitsPerDay&quot;:&quot;6.68&quot;,&quot;ServiceCategory&quot;:&quot;Electric&quot;,&quot;CurrentReading&quot;:2986,&quot;PreviousReading&quot;:2530,&quot;BilledAmount&quot;:51.75,&quot;SewerBilledAmount&quot;:0},{&quot;ReadingDate&quot;:&quot;2000-03-31&quot;,&quot;ConsumptionPeriodEnd&quot;:&quot;2000-03-01&quot;,&quot;Consumption&quot;:&quot;205&quot;,&quot;NumberOfDays&quot;:&quot;91&quot;,&quot;MeterEquipments&quot;:&quot;EQUIPMENT006 (3) ,EQUIPMENT008 (2)&quot;,&quot;UnitsPerDay&quot;:&quot;2.25&quot;,&quot;ServiceCategory&quot;:&quot;Electric&quot;,&quot;CurrentReading&quot;:3120,&quot;PreviousReading&quot;:2986,&quot;BilledAmount&quot;:18.71,&quot;SewerBilledAmount&quot;:0}]}&gt; but was:&lt;&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;Error&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;pre&gt;TypeORMError: Driver not Connected&lt;br&gt; &amp;nbsp; &amp;nbsp;at SqlServerDriver.obtainMasterConnection (C:\Users\tr15523\.jenkins\workspace\NexusApiDeployment Pipeline\src\driver\sqlserver\SqlServerDriver.ts:738:35)&lt;br&gt; &amp;nbsp; &amp;nbsp;at SqlServerQueryRunner.query (C:\Users\tr15523\.jenkins\workspace\NexusApiDeployment Pipeline\src\driver\sqlserver\SqlServerQueryRunner.ts:225:31)&lt;br&gt; &amp;nbsp; &amp;nbsp;at DataSource.query (C:\Users\tr15523\.jenkins\workspace\NexusApiDeployment Pipeline\src\data-source\DataSource.ts:536:20)&lt;/pre&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&gt;
 	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:115)
 	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:125)
-	at com.NexustAPIAutomation.java.CommonMethods.putMethod(CommonMethods.java:786)
-	at Public.DisconnectFromStarttoFinish.putMeterDisconnect(DisconnectFromStarttoFinish.java:76)
+	at com.NexustAPIAutomation.java.CommonMethods.getMethod(CommonMethods.java:583)
+	at Private.consumptionHistoryController.getconsumptionHistoryController(consumptionHistoryController.java:32)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -109,12 +119,22 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1918121287", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1918121287'><pre>java.lang.AssertionError: expected:&lt;{&quot;Connection&quot;:{&quot;Success&quot;:false,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Status can only change to Active or Inactive.&quot;,&quot;Level&quot;:3}]}}&gt; but was:&lt;{&quot;Connection&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;LocationId&quot;:&quot;WATER003&quot;,&quot;BaseConnection&quot;:{&quot;ConnectionSequence&quot;:1,&quot;NewConnectionSequence&quot;:0},&quot;AlternateConnection&quot;:[{&quot;AlternateConnectionSequence&quot;:2,&quot;NewAlternateConnectionSequence&quot;:0}],&quot;SubtractConnection&quot;:&quot;[]&quot;,&quot;Confirm&quot;:{&quot;DisconnectToActiveValidation&quot;:false,&quot;EquipmentReinstallValidation&quot;:false,&quot;DisconnectMeterReadValidation&quot;:false}},&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Updated&quot;,&quot;Level&quot;:1}]}}&gt;
+</pre></div><a href='#' onClick='toggleBox("stack-trace776178157", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace776178157'><pre>java.lang.AssertionError: expected:&lt;{&quot;ConsumptionHistory&quot;:[{&quot;ReadingDate&quot;:&quot;1997-03-29&quot;,&quot;ConsumptionPeriodEnd&quot;:&quot;1997-03-01&quot;,&quot;Consumption&quot;:&quot;820&quot;,&quot;NumberOfDays&quot;:&quot;88&quot;,&quot;MeterEquipments&quot;:&quot;EQUIPMENT008 (2)&quot;,&quot;UnitsPerDay&quot;:&quot;9.32&quot;,&quot;ServiceCategory&quot;:&quot;Electric&quot;,&quot;CurrentReading&quot;:620,&quot;PreviousReading&quot;:0,&quot;BilledAmount&quot;:73.37,&quot;SewerBilledAmount&quot;:0},{&quot;ReadingDate&quot;:&quot;1997-06-28&quot;,&quot;ConsumptionPeriodEnd&quot;:&quot;1997-06-01&quot;,&quot;Consumption&quot;:&quot;1200&quot;,&quot;NumberOfDays&quot;:&quot;91&quot;,&quot;MeterEquipments&quot;:&quot;EQUIPMENT008 (2)&quot;,&quot;UnitsPerDay&quot;:&quot;13.19&quot;,&quot;ServiceCategory&quot;:&quot;Electric&quot;,&quot;CurrentReading&quot;:1220,&quot;PreviousReading&quot;:620,&quot;BilledAmount&quot;:90.59,&quot;SewerBilledAmount&quot;:0},{&quot;ReadingDate&quot;:&quot;1997-09-28&quot;,&quot;ConsumptionPeriodEnd&quot;:&quot;1997-09-01&quot;,&quot;Consumption&quot;:&quot;1140&quot;,&quot;NumberOfDays&quot;:&quot;92&quot;,&quot;MeterEquipments&quot;:&quot;EQUIPMENT008 (2)&quot;,&quot;UnitsPerDay&quot;:&quot;12.39&quot;,&quot;ServiceCategory&quot;:&quot;Electric&quot;,&quot;CurrentReading&quot;:1790,&quot;PreviousReading&quot;:1220,&quot;BilledAmount&quot;:86.21,&quot;SewerBilledAmount&quot;:0},{&quot;ReadingDate&quot;:&quot;1997-12-28&quot;,&quot;ConsumptionPeriodEnd&quot;:&quot;1997-12-01&quot;,&quot;Consumption&quot;:&quot;295&quot;,&quot;NumberOfDays&quot;:&quot;91&quot;,&quot;MeterEquipments&quot;:&quot;EQUIPMENT008 (2)&quot;,&quot;UnitsPerDay&quot;:&quot;3.24&quot;,&quot;ServiceCategory&quot;:&quot;Electric&quot;,&quot;CurrentReading&quot;:1956,&quot;PreviousReading&quot;:1790,&quot;BilledAmount&quot;:25.98,&quot;SewerBilledAmount&quot;:0},{&quot;ReadingDate&quot;:&quot;1998-03-31&quot;,&quot;ConsumptionPeriodEnd&quot;:&quot;1998-03-01&quot;,&quot;Consumption&quot;:&quot;365&quot;,&quot;NumberOfDays&quot;:&quot;76&quot;,&quot;MeterEquipments&quot;:&quot;EQUIPMENT006 (3) ,EQUIPMENT008 (2)&quot;,&quot;UnitsPerDay&quot;:&quot;4.80&quot;,&quot;ServiceCategory&quot;:&quot;Electric&quot;,&quot;CurrentReading&quot;:120,&quot;PreviousReading&quot;:0,&quot;BilledAmount&quot;:30.87,&quot;SewerBilledAmount&quot;:0},{&quot;ReadingDate&quot;:&quot;1998-06-30&quot;,&quot;ConsumptionPeriodEnd&quot;:&quot;1998-06-01&quot;,&quot;Consumption&quot;:&quot;101&quot;,&quot;NumberOfDays&quot;:&quot;91&quot;,&quot;MeterEquipments&quot;:&quot;EQUIPMENT006 (3) ,EQUIPMENT008 (2)&quot;,&quot;UnitsPerDay&quot;:&quot;1.11&quot;,&quot;ServiceCategory&quot;:&quot;Electric&quot;,&quot;CurrentReading&quot;:2156,&quot;PreviousReading&quot;:2100,&quot;BilledAmount&quot;:11.4,&quot;SewerBilledAmount&quot;:0},{&quot;ReadingDate&quot;:&quot;1998-09-30&quot;,&quot;ConsumptionPeriodEnd&quot;:&quot;1998-09-01&quot;,&quot;Consumption&quot;:&quot;89&quot;,&quot;NumberOfDays&quot;:&quot;92&quot;,&quot;MeterEquipments&quot;:&quot;EQUIPMENT006 (3) ,EQUIPMENT008 (2)&quot;,&quot;UnitsPerDay&quot;:&quot;0.97&quot;,&quot;ServiceCategory&quot;:&quot;Electric&quot;,&quot;CurrentReading&quot;:2200,&quot;PreviousReading&quot;:2156,&quot;BilledAmount&quot;:11.4,&quot;SewerBilledAmount&quot;:0},{&quot;ReadingDate&quot;:&quot;1998-12-31&quot;,&quot;ConsumptionPeriodEnd&quot;:&quot;1998-12-01&quot;,&quot;Consumption&quot;:&quot;190&quot;,&quot;NumberOfDays&quot;:&quot;92&quot;,&quot;MeterEquipments&quot;:&quot;EQUIPMENT006 (3) ,EQUIPMENT008 (2)&quot;,&quot;UnitsPerDay&quot;:&quot;2.07&quot;,&quot;ServiceCategory&quot;:&quot;Electric&quot;,&quot;CurrentReading&quot;:2280,&quot;PreviousReading&quot;:2200,&quot;BilledAmount&quot;:17.34,&quot;SewerBilledAmount&quot;:0},{&quot;ReadingDate&quot;:&quot;1999-03-31&quot;,&quot;ConsumptionPeriodEnd&quot;:&quot;1999-03-01&quot;,&quot;Consumption&quot;:&quot;176&quot;,&quot;NumberOfDays&quot;:&quot;90&quot;,&quot;MeterEquipments&quot;:&quot;EQUIPMENT006 (3) ,EQUIPMENT008 (2)&quot;,&quot;UnitsPerDay&quot;:&quot;1.96&quot;,&quot;ServiceCategory&quot;:&quot;Electric&quot;,&quot;CurrentReading&quot;:2356,&quot;PreviousReading&quot;:2280,&quot;BilledAmount&quot;:16.07,&quot;SewerBilledAmount&quot;:0},{&quot;ReadingDate&quot;:&quot;1999-06-30&quot;,&quot;ConsumptionPeriodEnd&quot;:&quot;1999-06-01&quot;,&quot;Consumption&quot;:&quot;204&quot;,&quot;NumberOfDays&quot;:&quot;91&quot;,&quot;MeterEquipments&quot;:&quot;EQUIPMENT006 (3) ,EQUIPMENT008 (2)&quot;,&quot;UnitsPerDay&quot;:&quot;2.24&quot;,&quot;ServiceCategory&quot;:&quot;Electric&quot;,&quot;CurrentReading&quot;:2450,&quot;PreviousReading&quot;:2356,&quot;BilledAmount&quot;:18.62,&quot;SewerBilledAmount&quot;:0},{&quot;ReadingDate&quot;:&quot;1999-09-30&quot;,&quot;ConsumptionPeriodEnd&quot;:&quot;1999-09-01&quot;,&quot;Consumption&quot;:&quot;180&quot;,&quot;NumberOfDays&quot;:&quot;92&quot;,&quot;MeterEquipments&quot;:&quot;EQUIPMENT006 (3) ,EQUIPMENT008 (2)&quot;,&quot;UnitsPerDay&quot;:&quot;1.96&quot;,&quot;ServiceCategory&quot;:&quot;Electric&quot;,&quot;CurrentReading&quot;:2530,&quot;PreviousReading&quot;:2450,&quot;BilledAmount&quot;:16.43,&quot;SewerBilledAmount&quot;:0},{&quot;ReadingDate&quot;:&quot;1999-12-31&quot;,&quot;ConsumptionPeriodEnd&quot;:&quot;1999-12-01&quot;,&quot;Consumption&quot;:&quot;615&quot;,&quot;NumberOfDays&quot;:&quot;92&quot;,&quot;MeterEquipments&quot;:&quot;EQUIPMENT006 (3) ,EQUIPMENT008 (2)&quot;,&quot;UnitsPerDay&quot;:&quot;6.68&quot;,&quot;ServiceCategory&quot;:&quot;Electric&quot;,&quot;CurrentReading&quot;:2986,&quot;PreviousReading&quot;:2530,&quot;BilledAmount&quot;:51.75,&quot;SewerBilledAmount&quot;:0},{&quot;ReadingDate&quot;:&quot;2000-03-31&quot;,&quot;ConsumptionPeriodEnd&quot;:&quot;2000-03-01&quot;,&quot;Consumption&quot;:&quot;205&quot;,&quot;NumberOfDays&quot;:&quot;91&quot;,&quot;MeterEquipments&quot;:&quot;EQUIPMENT006 (3) ,EQUIPMENT008 (2)&quot;,&quot;UnitsPerDay&quot;:&quot;2.25&quot;,&quot;ServiceCategory&quot;:&quot;Electric&quot;,&quot;CurrentReading&quot;:3120,&quot;PreviousReading&quot;:2986,&quot;BilledAmount&quot;:18.71,&quot;SewerBilledAmount&quot;:0}]}&gt; but was:&lt;&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;Error&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;pre&gt;TypeORMError: Driver not Connected&lt;br&gt; &amp;nbsp; &amp;nbsp;at SqlServerDriver.obtainMasterConnection (C:\Users\tr15523\.jenkins\workspace\NexusApiDeployment Pipeline\src\driver\sqlserver\SqlServerDriver.ts:738:35)&lt;br&gt; &amp;nbsp; &amp;nbsp;at SqlServerQueryRunner.query (C:\Users\tr15523\.jenkins\workspace\NexusApiDeployment Pipeline\src\driver\sqlserver\SqlServerQueryRunner.ts:225:31)&lt;br&gt; &amp;nbsp; &amp;nbsp;at DataSource.query (C:\Users\tr15523\.jenkins\workspace\NexusApiDeployment Pipeline\src\data-source\DataSource.ts:536:20)&lt;/pre&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&gt;
 	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:115)
 	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:125)
-	at com.NexustAPIAutomation.java.CommonMethods.putMethod(CommonMethods.java:786)
-	at Public.DisconnectFromStarttoFinish.putMeterDisconnect(DisconnectFromStarttoFinish.java:76)
+	at com.NexustAPIAutomation.java.CommonMethods.getMethod(CommonMethods.java:583)
+	at Private.consumptionHistoryController.getconsumptionHistoryController(consumptionHistoryController.java:32)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -144,95 +164,8 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
-<td>0</td>
-<td>Public.DisconnectFromStarttoFinish@20f5281c</td></tr>
-<tr>
-<td title='Public.DisconnectFromStarttoFinish.PostMeterReading()'><b>PostMeterReading</b><br>Test class: Public.DisconnectFromStarttoFinish</td>
-<td><div><pre>java.lang.AssertionError: 
-	at org.testng.AssertJUnit.fail(AssertJUnit.java:65)
-	at org.testng.AssertJUnit.assertTrue(AssertJUnit.java:23)
-	at org.testng.AssertJUnit.assertTrue(AssertJUnit.java:33)
-	at com.NexustAPIAutomation.java.CommonMethods.postcallcontains(CommonMethods.java:1364)
-	at Public.DisconnectFromStarttoFinish.PostMeterReading(DisconnectFromStarttoFinish.java:46)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1993836574", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1993836574'><pre>java.lang.AssertionError: 
-	at org.testng.AssertJUnit.fail(AssertJUnit.java:65)
-	at org.testng.AssertJUnit.assertTrue(AssertJUnit.java:23)
-	at org.testng.AssertJUnit.assertTrue(AssertJUnit.java:33)
-	at com.NexustAPIAutomation.java.CommonMethods.postcallcontains(CommonMethods.java:1364)
-	at Public.DisconnectFromStarttoFinish.PostMeterReading(DisconnectFromStarttoFinish.java:46)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-	at org.testng.TestRunner.privateRun(TestRunner.java:794)
-	at org.testng.TestRunner.run(TestRunner.java:596)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-	at org.testng.TestNG.runSuites(TestNG.java:1063)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div></td>
-<td>0</td>
-<td>Public.DisconnectFromStarttoFinish@20f5281c</td></tr>
-</table><p>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='Public.DisconnectFromStarttoFinish.PostServiceOrder()'><b>PostServiceOrder</b><br>Test class: Public.DisconnectFromStarttoFinish</td>
-<td></td>
 <td>1</td>
-<td>Public.DisconnectFromStarttoFinish@20f5281c</td></tr>
+<td>Private.consumptionHistoryController@4397ad89</td></tr>
 </table><p>
 </body>
 </html>

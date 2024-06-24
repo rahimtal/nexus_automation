@@ -20,7 +20,7 @@ public class createandcancelSpaV3 {
 	public static JsonPath jsonPathEvaluator;
 
 	@Test(priority = 1, groups = "SPA")
-	public static void cancelSPA_v_2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+	public static void cancelSPA_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String customerId = "500300";
 		String spaIndexfromdb = CommonMethods.getSPAIndex(customerId);
@@ -32,8 +32,8 @@ public class createandcancelSpaV3 {
 		System.out.println(res);
 	}
 
-	@Test(priority = 2, dependsOnMethods = "cancelSPA_v_2", groups = "SPA")
-	public void createSPA_v_2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+	@Test(priority = 2, dependsOnMethods = "cancelSPA_v_3", groups = "SPA")
+	public void createSPA_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/spa/create";
 		String ver = "3.0";
@@ -48,8 +48,8 @@ public class createandcancelSpaV3 {
 
 	}
 
-	@Test(priority = 3, dependsOnMethods = "createSPA_v_2", groups = "SPA")
-	public void putspaCalculate_v_2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+	@Test(priority = 3, dependsOnMethods = "createSPA_v_3", groups = "SPA")
+	public void putspaCalculate_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/spa/calculate";
 		String ver = "3.0";
@@ -62,8 +62,8 @@ public class createandcancelSpaV3 {
 
 	}
 
-	@Test(priority = 4, dependsOnMethods = "putspaCalculate_v_2", groups = "SPA")
-	public void recancelSPA_v_2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+	@Test(priority = 4, dependsOnMethods = "putspaCalculate_v_3", groups = "SPA")
+	public void recancelSPA_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String customerId = "500300";
 		String spaIndexfromdb = CommonMethods.getSPAIndex(customerId);
@@ -85,7 +85,7 @@ public class createandcancelSpaV3 {
 	public static void main(String args[])
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
-		cancelSPA_v_2();
+		cancelSPA_v_3();
 	}
 
 }

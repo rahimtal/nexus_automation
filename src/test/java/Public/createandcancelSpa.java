@@ -19,12 +19,10 @@ public class createandcancelSpa {
 
 	public static JsonPath jsonPathEvaluator;
 
-	@Test(priority = 1, groups = "SPA")
+	//@Test(priority = 1, groups = "SPA")
 	public static void cancelSPA_v_2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-
 		String customerId = "500300";
 		String spaIndexfromdb = CommonMethods.getSPAIndex(customerId);
-
 		Boolean res = CommonMethods.cancelSpa(spaIndexfromdb, customerId);
 		if (!res) {
 			AssertJUnit.fail("Not cancelled");
@@ -32,37 +30,30 @@ public class createandcancelSpa {
 		System.out.println(res);
 	}
 
-	@Test(priority = 2, dependsOnMethods = "cancelSPA_v_2", groups = "SPA")
+	//@Test(priority = 2, dependsOnMethods = "cancelSPA_v_2", groups = "SPA")
 	public void createSPA_v_2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-
 		String uri = "/spa/create";
 		String ver = "2";
 		String payload = "./\\TestData\\spacreatev2.json";
-
 		jsonPathEvaluator = CommonMethods.postMethod(payload, uri, ver);
 		Boolean Result = jsonPathEvaluator.get("SpaCreate[0].Success");
-
 		if (Result == false) {
 			AssertJUnit.fail("SPA not created");
 		}
-
 	}
 
-	@Test(priority = 3, dependsOnMethods = "createSPA_v_2", groups = "SPA")
+	//@Test(priority = 3, dependsOnMethods = "createSPA_v_2", groups = "SPA")
 	public void putspaCalculate_v_2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-
 		String uri = "/spa/calculate";
 		String ver = "2";
 		String jpath = "./\\TestData\\putspacalculatev2.json";
-
 		ValidatableResponse result = CommonMethods.putMethod(uri, ver, jpath);
 		result.assertThat().body(Matchers.containsString(
 				"{\"SpaCalculated\":[{\"Success\":true,\"Messages\":[{\"Enabled\":0,\"Info\":\"\"}]}]}"));
 		System.out.println(result.extract().asString());
-
 	}
 
-	@Test(priority = 4, dependsOnMethods = "putspaCalculate_v_2", groups = "SPA")
+	//@Test(priority = 4, dependsOnMethods = "putspaCalculate_v_2", groups = "SPA")
 	public void recancelSPA_v_2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String customerId = "500300";

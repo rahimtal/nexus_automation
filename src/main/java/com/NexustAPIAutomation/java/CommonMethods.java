@@ -1020,7 +1020,7 @@ public class CommonMethods {
 
 	public static String getSPAIndex(String customerId) throws ClassNotFoundException, SQLException, SaslException {
 		String columnName = "umSPAIndex";
-		String Command1 = "select * from [UMCO102] where CUSTNMBR ='" + customerId + "'";
+		String Command1 = "select * from Two.dbo.UMCO102 where CUSTNMBR ='" + customerId + "'";
 		String Result = "";
 		String ConnectionString = Read.ReadFile("ConnectionStringServTWO");
 		Result = selectFromDb(Command1, ConnectionString, columnName);

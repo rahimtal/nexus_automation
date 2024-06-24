@@ -89,18 +89,18 @@ public class CashieringController extends BaseClass {
 
 	@Test(priority = 4, groups = "Cashering", dependsOnMethods = "TC003_getnextReceipt")
 	public void TC004_getReceipt() throws ClassNotFoundException, SQLException, InterruptedException {
-		String uri = "/cashiering/receipt/004270412000001";
+		String uri = "/cashiering/receipt/004220929000004";
 		String ver = "4";
 		String payload = "";
 		jsonPathEvaluator = CommonMethods.getMethod(uri, ver);
 		System.out.println(jsonPathEvaluator.get().toString());
-		String Result = jsonPathEvaluator.get("Receipt.ReceiptNumber");
+		String Result = jsonPathEvaluator.get("Receipt.Data.ReceiptNumber");
 
-		if (!Result.contentEquals("004270412000001")) {
+		if (!Result.contentEquals("004220929000004")) {
 			AssertJUnit.fail();
 		}
 
-		Result = jsonPathEvaluator.get("Receipt.PreviousReceiptNumber");
+		Result = jsonPathEvaluator.get("Receipt.Data.PreviousReceiptNumber");
 
 		if (Result.contentEquals("")) {
 			AssertJUnit.fail();
@@ -219,7 +219,7 @@ public class CashieringController extends BaseClass {
 		System.out.println(jsonPathEvaluator.prettyPrint());
 		Boolean Result1 = jsonPathEvaluator.get("Receipt.Success");
 		if (Result1 == false) {
-			AssertJUnit.fail();
+			Assert.fail();
 		} else {
 			System.out.println(jsonPathEvaluator.toString());
 		}
