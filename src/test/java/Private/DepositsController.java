@@ -1,5 +1,6 @@
 package Private;
 
+import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -9,6 +10,7 @@ import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
+import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 
 public class DepositsController {
@@ -55,5 +57,22 @@ public class DepositsController {
 		System.out.println(result);
 
 	}
+	
+	
+	@Test(priority = 4, groups = "Deposits")
+	public void postPaymentSimulatev4() throws ClassNotFoundException, SQLException, InterruptedException {
+
+		
+		String uri = "/deposit/paymentPlan";
+		String ver = "4.0";
+		String payload = "./\\TestData\\postdepositpaymentPlanv4.json";
+		String exptected = "{\"Deposit\":{\"Success\":true,\"Data\":{\"DocumentNumber\":\"DEPS00000000032\",\"IsThirdPartyCustomer\":false},\"Messages\":[{\"Enabled\":1,\"Info\":\"Service order number does not exist\",\"Level\":1}]}}";
+		Response result = CommonMethods.postMethodResponseasString(payload, uri, ver);
+		String actualResult = result.print();
+		AssertJUnit.assertEquals(actualResult, exptected);
+
+	}
+	
+	
 
 }

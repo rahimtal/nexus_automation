@@ -1,0 +1,38 @@
+{
+    "LocationId": "WATER001",
+    "CustomerId": "CUSTOMER001",
+    "DepositId": "ELECTRIC",
+    "TotalAmount": 100,
+    "InitialInstallmentAmount": 25,
+    "StartDate": "2022-01-01",
+    "NumberOfInstallments": 4,
+    "NumberOfDays": 30,
+    "Installment": [
+        {
+            "BillingDate": "2022-01-01",
+            "DueDate": "2022-01-02",
+            "Amount": 25
+        },
+        {
+            "BillingDate": "2022-01-01",
+            "DueDate": "2022-01-01",
+            "Amount": 25
+        },
+        {
+            "BillingDate": "2022-02-01",
+            "DueDate": "2022-02-01",
+            "Amount": 25
+        },
+        {
+            "BillingDate": "2022-03-01",
+            "DueDate": "2022-03-01",
+            "Amount": 25
+        }
+    ],
+    "ServiceOrder": {
+        "Id": "SORD00000000196",
+        "Task": {
+            "Sequence": "1000"
+        }
+    }   
+}
