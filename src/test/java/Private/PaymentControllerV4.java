@@ -3,6 +3,8 @@ package Private;
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.HashMap;
 
@@ -114,6 +116,20 @@ public class PaymentControllerV4 {
 		params.put("PaymentType", "All");
 		String result = CommonMethods.getMethodContains(uri, ver, params, expected);
 		System.out.println(result);
+
+	}
+	
+	
+	@Test(priority = 9, groups = "Payment")
+	public void putputPaymentV4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/Payment";
+		String ver = "4.0";
+		String jpath = "./\\TestData\\putPaymentV4.json";
+		String params = new String(Files.readAllBytes(Paths.get(jpath)));
+		String expected = "./\\TestData\\putPaymentV4expected_v4.json";
+		Response result = CommonMethods.putMethod(uri, ver, params, expected);
 
 	}
 

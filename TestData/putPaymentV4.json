@@ -1,0 +1,37 @@
+{
+    "LocationId": "100002",
+    "CustomerId": "500002",
+    "DocumentNumber": "PYMT00000000505",
+    "Checkbook": "PETTY CASH",
+    "BatchId": "BATCHID",
+    "Type": 3,
+    "PaymentDate": "2024-04-20",
+    "PaymentAmount": 10.00,
+    "Comment": "asd",
+    "DistributionDetail": [
+          {
+           
+                    "TypeId": 3,
+                    "Index": 6,
+                    "DebitAmount": 0.00,
+                    "CreditAmount": 10.00
+                },
+                {
+                    "TypeId": 9,
+                    "Index": 554,
+                    "DebitAmount": 10.00,
+                    "CreditAmount": 0.00
+                }
+    ],
+    "CreditMemo": {
+        "CreditNoteId": "RMGT-OTH-000002",
+        "TaxScheduleId": "ONT GST/PST",
+        "SubAmount": 10.00,
+        "TotalTaxAmount": 0.00,
+        "ReasonCode": "",
+        "TaxDetail": [             ]
+    },
+    "DocumentToApply": [
+       
+    ]
+}
