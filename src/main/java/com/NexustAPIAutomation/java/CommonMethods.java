@@ -580,7 +580,7 @@ public class CommonMethods {
 		// .body(Matchers.equalTo(new String(Files.readAllBytes(Paths.get(jpath)))));
 
 		Response response = httpRequest.get();
-		AssertJUnit.assertEquals(new String(Files.readAllBytes(Paths.get(jpath))),response.asString());
+		AssertJUnit.assertEquals(new String(Files.readAllBytes(Paths.get(jpath))), response.asString());
 		return response.asString();
 	}
 
@@ -783,7 +783,8 @@ public class CommonMethods {
 				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
 				.body(payload);
 		Response response = httpRequest.put();
-		AssertJUnit.assertEquals(response.getBody().asString(), new String(Files.readAllBytes(Paths.get(jsonDataInFile))));
+		AssertJUnit.assertEquals(response.getBody().asString(),
+				new String(Files.readAllBytes(Paths.get(jsonDataInFile))));
 
 		System.out.println("** PUT call Response **");
 		return response;
@@ -826,7 +827,7 @@ public class CommonMethods {
 			version = "Invalid version";
 			break;
 		}
-		
+
 		File body = new File(payload);
 		RestAssured.baseURI = RestAssured.baseURI + uri;
 		System.out.println(RestAssured.baseURI.toString());
@@ -1351,7 +1352,7 @@ public class CommonMethods {
 	public static void postcall(String uri, String payload, String ver, String exResult) throws InterruptedException {
 		Response jsonPathResponse;
 		jsonPathResponse = CommonMethods.postMethodResponseasString(payload, uri, ver);
-		AssertJUnit.assertEquals(jsonPathResponse.asString(), exResult);
+		Assert.assertEquals(exResult, jsonPathResponse.asString());
 
 	}
 
@@ -1359,6 +1360,7 @@ public class CommonMethods {
 			throws InterruptedException {
 		Response jsonPathResponse;
 		jsonPathResponse = CommonMethods.postMethodResponseasString(payload, uri, ver);
+		System.out.println(jsonPathResponse.asString());
 		AssertJUnit.assertTrue(jsonPathResponse.asString().contains(exResult));
 
 	}
