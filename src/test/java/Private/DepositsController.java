@@ -60,7 +60,7 @@ public class DepositsController {
 	
 	
 	@Test(priority = 4, groups = "Deposits")
-	public void postPaymentSimulatev4() throws ClassNotFoundException, SQLException, InterruptedException {
+	public void postdepositpaymentPlanv4() throws ClassNotFoundException, SQLException, InterruptedException {
 
 		
 		String uri = "/deposit/paymentPlan";
