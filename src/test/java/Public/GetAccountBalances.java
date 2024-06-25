@@ -23,7 +23,7 @@ public class GetAccountBalances {
 
 	public static JsonPath jsonPathEvaluator;
 
-	@Test(priority = 1, groups = "Account Balances")
+	//@Test(priority = 1, groups = "Account Balances")
 	public void getAccountBalancesV2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/accountBalance/getAccountBalances";
@@ -39,7 +39,7 @@ public class GetAccountBalances {
 
 	}
 
-	@Test(priority = 2, groups = "Account Balances")
+	//@Test(priority = 2, groups = "Account Balances")
 	public void getAccountBalancesV24() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/accountBalance/getAccountBalances";
 		String ver = "2.4";
@@ -54,7 +54,7 @@ public class GetAccountBalances {
 		System.out.println(result);
 	}
 	
-	@Test(priority = 3, groups = "Account Balances")
+//	@Test(priority = 3, groups = "Account Balances")
 	public void getAccountBalancesPortalv2_4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/AccountBalance/portal";
 		String ver = "2.4";

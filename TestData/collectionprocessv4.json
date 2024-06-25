@@ -5,12 +5,12 @@
                 "CustomerId": "03332301204",
                 "LocationId": "SPALOCATION1",
                 "NoticeTypeId": 1,
-                "DueDate": "2020-07-30",
+                "DueDate": "2000-01-31",
                 "PendingDisconnect": 0,
                 "DisconnectDateTime": "1900-01-01T00:00:00",
                 "CurrentFormer": 0,
-                "NoticeOverDueAmount": 865.41,
-                "TotalOverDueAmount": 865.41
+                "NoticeOverDueAmount": 59.59,
+                "TotalOverDueAmount": 59.59
             }
         ]
     }

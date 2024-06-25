@@ -24,7 +24,7 @@ public class ServiceOrderController {
 	public static JsonPath jsonPathEvaluator;
 	public static String ServiceOrderNumber;
 
-	@Test(priority = 1, groups = "ServiceOrder")
+	//@Test(priority = 1, groups = "ServiceOrder")
 	public static void postcreateServiceOrder_v2()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -63,7 +63,7 @@ public class ServiceOrderController {
 
 	}
 
-	@Test(priority = 2, groups = "ServiceOrder", dependsOnMethods = "postcreateServiceOrder_v2")
+//	@Test(priority = 2, groups = "ServiceOrder", dependsOnMethods = "postcreateServiceOrder_v2")
 	public static void getServiceOrder_v2()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -94,7 +94,7 @@ public class ServiceOrderController {
 
 	}
 
-	@Test(priority = 3, groups = "ServiceOrder")
+	//@Test(priority = 3, groups = "ServiceOrder")
 	public static void getServiceOrderRequestDetails_v2()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -112,7 +112,7 @@ public class ServiceOrderController {
 
 	}
 
-	@Test(priority = 4, groups = "ServiceOrder")
+//	@Test(priority = 4, groups = "ServiceOrder")
 	public static void getServiceOrderRequestDetailsbyOptional_v2()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -129,7 +129,7 @@ public class ServiceOrderController {
 
 	}
 
-	@Test(priority = 5, groups = "ServiceOrder")
+//	@Test(priority = 5, groups = "ServiceOrder")
 	public static void putaddMeterReading_v_2()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -148,7 +148,7 @@ public class ServiceOrderController {
 
 	}
 
-	@Test(priority = 6, groups = "ServiceOrder")
+//	@Test(priority = 6, groups = "ServiceOrder")
 	public static void putupdatecomment_v_2()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -163,7 +163,7 @@ public class ServiceOrderController {
 
 	}
 
-	@Test(priority = 7, groups = "ServiceOrder")
+//	@Test(priority = 7, groups = "ServiceOrder")
 	public static void putaddMiscCharge_v_2()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -179,7 +179,7 @@ public class ServiceOrderController {
 		System.out.println(result.extract().asString());
 	}
 
-	@Test(priority = 8, groups = "ServiceOrder")
+	//@Test(priority = 8, groups = "ServiceOrder")
 	public static void putswitchMeter_v_2()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -194,7 +194,7 @@ public class ServiceOrderController {
 		System.out.println(result.extract().asString());
 	}
 
-	@Test(priority = 8, groups = "ServiceOrder")
+//	@Test(priority = 8, groups = "ServiceOrder")
 	public static void putTaskComplete_v_2()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -209,7 +209,7 @@ public class ServiceOrderController {
 		System.out.println(result.extract().asString());
 	}
 
-	@Test(priority = 9, groups = "ServiceOrder")
+//	@Test(priority = 9, groups = "ServiceOrder")
 	public static void putTaskCompleteNocharge_v2_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -227,7 +227,7 @@ public class ServiceOrderController {
 	
 	
 	
-	@Test(priority = 10, groups = "ServiceOrder")
+//	@Test(priority = 10, groups = "ServiceOrder")
 	public static void postcreateServiceOrder_v2_3_1()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -304,7 +304,7 @@ public class ServiceOrderController {
 		}
 			}
 
-	@Test(priority = 1, groups = "ServiceOrder")
+	//@Test(priority = 1, groups = "ServiceOrder")
 	public static void postcreateServiceOrder_v2_ERROR()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 

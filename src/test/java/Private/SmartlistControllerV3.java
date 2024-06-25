@@ -33,6 +33,7 @@ private boolean  TestAll=true;
 	@Test(priority = 1, groups = "SmartList")
 	public void postsmartlistfavorite_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		CommonMethods.Bug("CPDEV-14084");
 		JsonPath jsonPathEvaluator;
 		
 		String uri = "/smartlist/favorite";

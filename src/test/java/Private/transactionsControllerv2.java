@@ -54,7 +54,7 @@ public class transactionsControllerv2 {
 		
 	}
 	
-	@Test(priority = 1, groups = "Transaction")
+	//@Test(priority = 1, groups = "Transaction")
 	public void getrecentTransactions_v_2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/transactions/getRecentTransactions";

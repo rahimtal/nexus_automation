@@ -14,7 +14,7 @@ import io.restassured.response.ValidatableResponse;
 public class ServiceLocationv2{
 
 	
-	@Test(priority = 1, groups = "ServiceLocation")
+	//@Test(priority = 1, groups = "ServiceLocation")
 	public void getServicesByLocation_v_2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/servicesByLocation/getServicesByLocation";

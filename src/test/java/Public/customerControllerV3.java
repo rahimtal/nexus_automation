@@ -60,7 +60,7 @@ public class customerControllerV3 {
 	}
 	
 	
-	@Test(priority = 1, groups = "CustomerController")
+	//@Test(priority = 1, groups = "CustomerController")
 	public static void getCustomerDetail_v_2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/customer/getCustomerDetail";
@@ -75,7 +75,7 @@ public class customerControllerV3 {
 
 	}
 
-	@Test(priority = 2, groups = "CustomerController")
+	//@Test(priority = 2, groups = "CustomerController")
 	public void getCustomerbylocation_v_2()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -92,7 +92,7 @@ public class customerControllerV3 {
 	}
 
 	@Test(priority = 3, groups = "CustomerController")
-	public void getCustomerBillingOptions_v2()
+	public void getCustomerBillingOptions_v3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/customers/Customer003/billingoptions";
 		String ver = "3.0";

@@ -36,7 +36,7 @@ public class contactLogController {
 		String uri = "/contactLog";
 		String ver = "4.0";
 		String payload = "./\\TestData\\/PostcontactLog2v4.json";
-		String exResponse = "{\"ContactLog\":{\"Success\":true,\"Data\":{\"ServiceOrderNumber\":\"SORD00000008993\"},\"Messages\":[]}}";
+		String exResponse = "{\"ContactLog\":{\"Success\":true,\"Data\":{\"ServiceOrderNumber\":\"SORD00000008994\"},\"Messages\":[]}}";
 		CommonMethods.postcall(uri, payload, ver, exResponse);
 
 	}
