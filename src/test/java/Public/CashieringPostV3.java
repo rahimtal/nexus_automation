@@ -18,7 +18,7 @@ public class CashieringPostV3 {
 	public static String nextRecieptNumber;
 	public static String ConnectionString;
 	// public static String ConnectionString =
-	// "jdbc:sqlserver://RND-BASE-A\\SQL_2017;DB=
+	// "jdbc:sqlserver://DESKTOP-QU86F3Q\\MSSQLSERVER2019;DB=
 	// databaseName=TWO;user=auto;password=password123;";
 
 	public static void adjustRecieptPre(String recNum) throws ConnectionClosedException, InterruptedException {
@@ -48,7 +48,7 @@ public class CashieringPostV3 {
 		String columnName = "umDocumentNumber";
 		String Command1 = "select top 1 umDocumentNumber from TWO.dbo.UMRM102 order by umDocumentNumber desc";
 		String Result = "";
-		ConnectionString = "jdbc:sqlserver://DESKTOP-QU86F3Q\\MSSQLSERVER2019;DB= databaseName=TWO;user=sa;password=cogs;";
+		ConnectionString = "jdbc:sqlserver://DESKTOP-QU86F3Q\\MSSQLSERVER2019;DB= databaseName=TWO;user=sa;password=Admin2019;";
 		Result = CommonMethods.selectFromDb(Command1, ConnectionString, columnName);
 		if (Result != "") {
 			adjustRecieptPre(Result);

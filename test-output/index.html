@@ -26,7 +26,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -40,7 +40,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Default_suite" class="navigator-link">
-              <span class="suite-name border-passed">Default suite</span>
+              <span class="suite-name border-failed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\tr15523\AppData\Local\Temp\testng-eclipse--214450071\testng-customsuite.xml</span>
+                    <span>C:\Users\tr15523\AppData\Local\Temp\testng-eclipse--1566179776\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -93,7 +93,26 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">15 methods,   15 passed</span>
+                    <span class="method-stats">4 methods, 2 failed,   2 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Default_suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="Public.PaymentControllerV4" class="method navigator-link" hash-for-method="postPaymentBatchtruev4">postPaymentBatchtruev4</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="Public.PaymentControllerV4" class="method navigator-link" hash-for-method="postPaymentBatchv4">postPaymentBatchv4</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Default_suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -104,77 +123,12 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Public.customerControllerV3" class="method navigator-link" hash-for-method="getCollectionsoptions_v2">getCollectionsoptions_v2</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="Public.PaymentControllerV4" class="method navigator-link" hash-for-method="postPaymentMiscv4">postPaymentMiscv4</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Public.customerControllerV3" class="method navigator-link" hash-for-method="getCustomerBillingOptions_v3">getCustomerBillingOptions_v3</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Public.customerControllerV3" class="method navigator-link" hash-for-method="getCustomerDetail_v3">getCustomerDetail_v3</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Public.customerControllerV3" class="method navigator-link" hash-for-method="getLocationsByCustomer_v3">getLocationsByCustomer_v3</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Public.customerControllerV3" class="method navigator-link" hash-for-method="getOtheroptions_v2">getOtheroptions_v2</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Public.customerControllerV3" class="method navigator-link" hash-for-method="getinfolabels_v2">getinfolabels_v2</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Public.customerControllerV3" class="method navigator-link" hash-for-method="getlocationsByCustomerv_2_4">getlocationsByCustomerv_2_4</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Public.customerControllerV3" class="method navigator-link" hash-for-method="getlocationsByCustomerv_2_4_ExcludeFormer">getlocationsByCustomerv_2_4_ExcludeFormer</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Public.customerControllerV3" class="method navigator-link" hash-for-method="getnextCustomerId_v2">getnextCustomerId_v2</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Public.customerControllerV3" class="method navigator-link" hash-for-method="getpreauthorizepaymentplan_v2">getpreauthorizepaymentplan_v2</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Public.customerControllerV3" class="method navigator-link" hash-for-method="putcustomerbillingoptionv2">putcustomerbillingoptionv2</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Public.customerControllerV3" class="method navigator-link" hash-for-method="putcustomersaddressv2">putcustomersaddressv2</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Public.customerControllerV3" class="method navigator-link" hash-for-method="putcustomerscollectionsOptionsv2">putcustomerscollectionsOptionsv2</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Public.customerControllerV3" class="method navigator-link" hash-for-method="putcustomersotherOptionsv2">putcustomersotherOptionsv2</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Public.customerControllerV3" class="method navigator-link" hash-for-method="putcustomersrolldownAddressCodev2">putcustomersrolldownAddressCodev2</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="Public.PaymentControllerV4" class="method navigator-link" hash-for-method="postPaymentv4">postPaymentv4</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -189,115 +143,136 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-passed">
+          <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">Public.customerControllerV3</span>
+              <img src="failed.png"/>
+              <span class="class-name">Public.PaymentControllerV4</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="getCollectionsoptions_v2">
-                  </a> <!-- getCollectionsoptions_v2 -->
-                  <span class="method-name">getCollectionsoptions_v2</span>
+                  <a name="postPaymentBatchtruev4">
+                  </a> <!-- postPaymentBatchtruev4 -->
+                  <span class="method-name">postPaymentBatchtruev4</span>
+                  <div class="stack-trace">java.lang.AssertionError: {
+    &quot;Payment&quot;: {
+        &quot;Success&quot;: false,
+        &quot;Data&quot;: null,
+        &quot;Messages&quot;: [
+            {
+                &quot;Enabled&quot;: 1,
+                &quot;Info&quot;: &quot;This Account does not allow Account Entry&quot;,
+                &quot;Level&quot;: 3
+            }
+        ]
+    }
+}
+	at org.testng.AssertJUnit.fail(AssertJUnit.java:65)
+	at Public.PaymentControllerV4.postPaymentBatchtruev4(PaymentControllerV4.java:70)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="getCustomerBillingOptions_v3">
-                  </a> <!-- getCustomerBillingOptions_v3 -->
-                  <span class="method-name">getCustomerBillingOptions_v3</span>
+                  <a name="postPaymentBatchv4">
+                  </a> <!-- postPaymentBatchv4 -->
+                  <span class="method-name">postPaymentBatchv4</span>
+                  <div class="stack-trace">java.lang.AssertionError: {
+    &quot;Payment&quot;: {
+        &quot;Success&quot;: false,
+        &quot;Data&quot;: null,
+        &quot;Messages&quot;: [
+            {
+                &quot;Enabled&quot;: 1,
+                &quot;Info&quot;: &quot;This Account does not allow Account Entry&quot;,
+                &quot;Level&quot;: 3
+            }
+        ]
+    }
+}
+	at org.testng.AssertJUnit.fail(AssertJUnit.java:65)
+	at Public.PaymentControllerV4.postPaymentBatchv4(PaymentControllerV4.java:42)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-failed -->
+          <div class="suite-Default_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">Public.PaymentControllerV4</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="postPaymentMiscv4">
+                  </a> <!-- postPaymentMiscv4 -->
+                  <span class="method-name">postPaymentMiscv4</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="getCustomerDetail_v3">
-                  </a> <!-- getCustomerDetail_v3 -->
-                  <span class="method-name">getCustomerDetail_v3</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="getLocationsByCustomer_v3">
-                  </a> <!-- getLocationsByCustomer_v3 -->
-                  <span class="method-name">getLocationsByCustomer_v3</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="getOtheroptions_v2">
-                  </a> <!-- getOtheroptions_v2 -->
-                  <span class="method-name">getOtheroptions_v2</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="getinfolabels_v2">
-                  </a> <!-- getinfolabels_v2 -->
-                  <span class="method-name">getinfolabels_v2</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="getlocationsByCustomerv_2_4">
-                  </a> <!-- getlocationsByCustomerv_2_4 -->
-                  <span class="method-name">getlocationsByCustomerv_2_4</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="getlocationsByCustomerv_2_4_ExcludeFormer">
-                  </a> <!-- getlocationsByCustomerv_2_4_ExcludeFormer -->
-                  <span class="method-name">getlocationsByCustomerv_2_4_ExcludeFormer</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="getnextCustomerId_v2">
-                  </a> <!-- getnextCustomerId_v2 -->
-                  <span class="method-name">getnextCustomerId_v2</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="getpreauthorizepaymentplan_v2">
-                  </a> <!-- getpreauthorizepaymentplan_v2 -->
-                  <span class="method-name">getpreauthorizepaymentplan_v2</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="putcustomerbillingoptionv2">
-                  </a> <!-- putcustomerbillingoptionv2 -->
-                  <span class="method-name">putcustomerbillingoptionv2</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="putcustomersaddressv2">
-                  </a> <!-- putcustomersaddressv2 -->
-                  <span class="method-name">putcustomersaddressv2</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="putcustomerscollectionsOptionsv2">
-                  </a> <!-- putcustomerscollectionsOptionsv2 -->
-                  <span class="method-name">putcustomerscollectionsOptionsv2</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="putcustomersotherOptionsv2">
-                  </a> <!-- putcustomersotherOptionsv2 -->
-                  <span class="method-name">putcustomersotherOptionsv2</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="putcustomersrolldownAddressCodev2">
-                  </a> <!-- putcustomersrolldownAddressCodev2 -->
-                  <span class="method-name">putcustomersrolldownAddressCodev2</span>
+                  <a name="postPaymentv4">
+                  </a> <!-- postPaymentv4 -->
+                  <span class="method-name">postPaymentv4</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -305,7 +280,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\tr15523\AppData\Local\Temp\testng-eclipse--214450071\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\tr15523\AppData\Local\Temp\testng-eclipse--1566179776\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -314,7 +289,7 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;Public.customerControllerV3&quot;/&gt;
+      &lt;class name=&quot;Public.PaymentControllerV4&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -339,66 +314,22 @@
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="test-group">
-              <span class="test-group-name">CustomerController</span>
+              <span class="test-group-name">Payment</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">getCollectionsoptions_v2</span>
+                <span class="method-in-group-name">postPaymentBatchtruev4</span>
                 <br/>
               </div> <!-- method-in-group -->
               <div class="method-in-group">
-                <span class="method-in-group-name">getCustomerBillingOptions_v3</span>
+                <span class="method-in-group-name">postPaymentBatchv4</span>
                 <br/>
               </div> <!-- method-in-group -->
               <div class="method-in-group">
-                <span class="method-in-group-name">getCustomerDetail_v3</span>
+                <span class="method-in-group-name">postPaymentMiscv4</span>
                 <br/>
               </div> <!-- method-in-group -->
               <div class="method-in-group">
-                <span class="method-in-group-name">getLocationsByCustomer_v3</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
-                <span class="method-in-group-name">getOtheroptions_v2</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
-                <span class="method-in-group-name">getinfolabels_v2</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
-                <span class="method-in-group-name">getlocationsByCustomerv_2_4</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
-                <span class="method-in-group-name">getlocationsByCustomerv_2_4_ExcludeFormer</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
-                <span class="method-in-group-name">getnextCustomerId_v2</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
-                <span class="method-in-group-name">getpreauthorizepaymentplan_v2</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
-                <span class="method-in-group-name">putcustomerbillingoptionv2</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
-                <span class="method-in-group-name">putcustomersaddressv2</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
-                <span class="method-in-group-name">putcustomerscollectionsOptionsv2</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
-                <span class="method-in-group-name">putcustomersotherOptionsv2</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
-                <span class="method-in-group-name">putcustomersrolldownAddressCodev2</span>
+                <span class="method-in-group-name">postPaymentv4</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -418,72 +349,28 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(15);
+data.addRows(4);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'getCustomerBillingOptions_v3')
-data.setCell(0, 2, 'Public.customerControllerV3')
-data.setCell(0, 3, 1546);
+data.setCell(0, 1, 'postPaymentv4')
+data.setCell(0, 2, 'Public.PaymentControllerV4')
+data.setCell(0, 3, 1588);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'putcustomersaddressv2')
-data.setCell(1, 2, 'Public.customerControllerV3')
-data.setCell(1, 3, 253);
+data.setCell(1, 1, 'postPaymentMiscv4')
+data.setCell(1, 2, 'Public.PaymentControllerV4')
+data.setCell(1, 3, 406);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'getLocationsByCustomer_v3')
-data.setCell(2, 2, 'Public.customerControllerV3')
-data.setCell(2, 3, 246);
+data.setCell(2, 1, 'postPaymentBatchv4')
+data.setCell(2, 2, 'Public.PaymentControllerV4')
+data.setCell(2, 3, 300);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'getnextCustomerId_v2')
-data.setCell(3, 2, 'Public.customerControllerV3')
-data.setCell(3, 3, 211);
-data.setCell(4, 0, 4)
-data.setCell(4, 1, 'getCollectionsoptions_v2')
-data.setCell(4, 2, 'Public.customerControllerV3')
-data.setCell(4, 3, 208);
-data.setCell(5, 0, 5)
-data.setCell(5, 1, 'getlocationsByCustomerv_2_4')
-data.setCell(5, 2, 'Public.customerControllerV3')
-data.setCell(5, 3, 201);
-data.setCell(6, 0, 6)
-data.setCell(6, 1, 'getCustomerDetail_v3')
-data.setCell(6, 2, 'Public.customerControllerV3')
-data.setCell(6, 3, 195);
-data.setCell(7, 0, 7)
-data.setCell(7, 1, 'putcustomerscollectionsOptionsv2')
-data.setCell(7, 2, 'Public.customerControllerV3')
-data.setCell(7, 3, 193);
-data.setCell(8, 0, 8)
-data.setCell(8, 1, 'putcustomerbillingoptionv2')
-data.setCell(8, 2, 'Public.customerControllerV3')
-data.setCell(8, 3, 192);
-data.setCell(9, 0, 9)
-data.setCell(9, 1, 'putcustomersotherOptionsv2')
-data.setCell(9, 2, 'Public.customerControllerV3')
-data.setCell(9, 3, 191);
-data.setCell(10, 0, 10)
-data.setCell(10, 1, 'getpreauthorizepaymentplan_v2')
-data.setCell(10, 2, 'Public.customerControllerV3')
-data.setCell(10, 3, 190);
-data.setCell(11, 0, 11)
-data.setCell(11, 1, 'getOtheroptions_v2')
-data.setCell(11, 2, 'Public.customerControllerV3')
-data.setCell(11, 3, 189);
-data.setCell(12, 0, 12)
-data.setCell(12, 1, 'getlocationsByCustomerv_2_4_ExcludeFormer')
-data.setCell(12, 2, 'Public.customerControllerV3')
-data.setCell(12, 3, 187);
-data.setCell(13, 0, 13)
-data.setCell(13, 1, 'getinfolabels_v2')
-data.setCell(13, 2, 'Public.customerControllerV3')
-data.setCell(13, 3, 180);
-data.setCell(14, 0, 14)
-data.setCell(14, 1, 'putcustomersrolldownAddressCodev2')
-data.setCell(14, 2, 'Public.customerControllerV3')
-data.setCell(14, 3, 178);
+data.setCell(3, 1, 'postPaymentBatchtruev4')
+data.setCell(3, 2, 'Public.PaymentControllerV4')
+data.setCell(3, 3, 247);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 4 seconds</span>
+              <span class="suite-total-time">Total running time: 2 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -509,66 +396,26 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">Public.customerControllerV3</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">Public.PaymentControllerV4</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">getCustomerBillingOptions_v3</span>
+                <span class="method-name">postPaymentv4</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">getCollectionsoptions_v2</span>
-                <span class="method-start">1608 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">postPaymentBatchv4</span>
+                <span class="method-start">1591 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">getOtheroptions_v2</span>
-                <span class="method-start">1820 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">postPaymentBatchtruev4</span>
+                <span class="method-start">1899 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">getinfolabels_v2</span>
-                <span class="method-start">2014 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">getlocationsByCustomerv_2_4</span>
-                <span class="method-start">2199 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">getlocationsByCustomerv_2_4_ExcludeFormer</span>
-                <span class="method-start">2404 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">getLocationsByCustomer_v3</span>
-                <span class="method-start">2595 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">getnextCustomerId_v2</span>
-                <span class="method-start">2846 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">getCustomerDetail_v3</span>
-                <span class="method-start">3062 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">getpreauthorizepaymentplan_v2</span>
-                <span class="method-start">3264 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">putcustomersaddressv2</span>
-                <span class="method-start">3457 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">putcustomerbillingoptionv2</span>
-                <span class="method-start">3716 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">putcustomerscollectionsOptionsv2</span>
-                <span class="method-start">3915 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">putcustomersotherOptionsv2</span>
-                <span class="method-start">4115 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">putcustomersrolldownAddressCodev2</span>
-                <span class="method-start">4309 ms</span>
+                <span class="method-name">postPaymentMiscv4</span>
+                <span class="method-start">2148 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

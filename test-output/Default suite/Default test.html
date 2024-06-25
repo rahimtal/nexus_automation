@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>15/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>2/2/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Jun 25 16:38:49 PKT 2024</td>
+<td>Started on:</td><td>Tue Jun 25 19:36:46 PKT 2024</td>
 </tr>
-<tr><td>Total time:</td><td>4 seconds (4521 ms)</td>
+<tr><td>Total time:</td><td>2 seconds (2577 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,198 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Public.PaymentControllerV4.postPaymentBatchv4()'><b>postPaymentBatchv4</b><br>Test class: Public.PaymentControllerV4</td>
+<td><div><pre>java.lang.AssertionError: {
+    &quot;Payment&quot;: {
+        &quot;Success&quot;: false,
+        &quot;Data&quot;: null,
+        &quot;Messages&quot;: [
+            {
+                &quot;Enabled&quot;: 1,
+                &quot;Info&quot;: &quot;This Account does not allow Account Entry&quot;,
+                &quot;Level&quot;: 3
+            }
+        ]
+    }
+}
+	at org.testng.AssertJUnit.fail(AssertJUnit.java:65)
+	at Public.PaymentControllerV4.postPaymentBatchv4(PaymentControllerV4.java:42)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div><a href='#' onClick='toggleBox("stack-trace379056819", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace379056819'><pre>java.lang.AssertionError: {
+    &quot;Payment&quot;: {
+        &quot;Success&quot;: false,
+        &quot;Data&quot;: null,
+        &quot;Messages&quot;: [
+            {
+                &quot;Enabled&quot;: 1,
+                &quot;Info&quot;: &quot;This Account does not allow Account Entry&quot;,
+                &quot;Level&quot;: 3
+            }
+        ]
+    }
+}
+	at org.testng.AssertJUnit.fail(AssertJUnit.java:65)
+	at Public.PaymentControllerV4.postPaymentBatchv4(PaymentControllerV4.java:42)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>0</td>
+<td>Public.PaymentControllerV4@6392827e</td></tr>
+<tr>
+<td title='Public.PaymentControllerV4.postPaymentBatchtruev4()'><b>postPaymentBatchtruev4</b><br>Test class: Public.PaymentControllerV4</td>
+<td><div><pre>java.lang.AssertionError: {
+    &quot;Payment&quot;: {
+        &quot;Success&quot;: false,
+        &quot;Data&quot;: null,
+        &quot;Messages&quot;: [
+            {
+                &quot;Enabled&quot;: 1,
+                &quot;Info&quot;: &quot;This Account does not allow Account Entry&quot;,
+                &quot;Level&quot;: 3
+            }
+        ]
+    }
+}
+	at org.testng.AssertJUnit.fail(AssertJUnit.java:65)
+	at Public.PaymentControllerV4.postPaymentBatchtruev4(PaymentControllerV4.java:70)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div><a href='#' onClick='toggleBox("stack-trace636953520", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace636953520'><pre>java.lang.AssertionError: {
+    &quot;Payment&quot;: {
+        &quot;Success&quot;: false,
+        &quot;Data&quot;: null,
+        &quot;Messages&quot;: [
+            {
+                &quot;Enabled&quot;: 1,
+                &quot;Info&quot;: &quot;This Account does not allow Account Entry&quot;,
+                &quot;Level&quot;: 3
+            }
+        ]
+    }
+}
+	at org.testng.AssertJUnit.fail(AssertJUnit.java:65)
+	at Public.PaymentControllerV4.postPaymentBatchtruev4(PaymentControllerV4.java:70)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>0</td>
+<td>Public.PaymentControllerV4@6392827e</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -75,80 +267,15 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='Public.customerControllerV3.putcustomersrolldownAddressCodev2()'><b>putcustomersrolldownAddressCodev2</b><br>Test class: Public.customerControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.customerControllerV3@1115ec15</td></tr>
-<tr>
-<td title='Public.customerControllerV3.getpreauthorizepaymentplan_v2()'><b>getpreauthorizepaymentplan_v2</b><br>Test class: Public.customerControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.customerControllerV3@1115ec15</td></tr>
-<tr>
-<td title='Public.customerControllerV3.getOtheroptions_v2()'><b>getOtheroptions_v2</b><br>Test class: Public.customerControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.customerControllerV3@1115ec15</td></tr>
-<tr>
-<td title='Public.customerControllerV3.getinfolabels_v2()'><b>getinfolabels_v2</b><br>Test class: Public.customerControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.customerControllerV3@1115ec15</td></tr>
-<tr>
-<td title='Public.customerControllerV3.putcustomersotherOptionsv2()'><b>putcustomersotherOptionsv2</b><br>Test class: Public.customerControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.customerControllerV3@1115ec15</td></tr>
-<tr>
-<td title='Public.customerControllerV3.putcustomersaddressv2()'><b>putcustomersaddressv2</b><br>Test class: Public.customerControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.customerControllerV3@1115ec15</td></tr>
-<tr>
-<td title='Public.customerControllerV3.getCustomerBillingOptions_v3()'><b>getCustomerBillingOptions_v3</b><br>Test class: Public.customerControllerV3</td>
+<td title='Public.PaymentControllerV4.postPaymentv4()'><b>postPaymentv4</b><br>Test class: Public.PaymentControllerV4</td>
 <td></td>
 <td>1</td>
-<td>Public.customerControllerV3@1115ec15</td></tr>
+<td>Public.PaymentControllerV4@6392827e</td></tr>
 <tr>
-<td title='Public.customerControllerV3.getlocationsByCustomerv_2_4()'><b>getlocationsByCustomerv_2_4</b><br>Test class: Public.customerControllerV3</td>
+<td title='Public.PaymentControllerV4.postPaymentMiscv4()'><b>postPaymentMiscv4</b><br>Test class: Public.PaymentControllerV4</td>
 <td></td>
 <td>0</td>
-<td>Public.customerControllerV3@1115ec15</td></tr>
-<tr>
-<td title='Public.customerControllerV3.getLocationsByCustomer_v3()'><b>getLocationsByCustomer_v3</b><br>Test class: Public.customerControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.customerControllerV3@1115ec15</td></tr>
-<tr>
-<td title='Public.customerControllerV3.getCustomerDetail_v3()'><b>getCustomerDetail_v3</b><br>Test class: Public.customerControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.customerControllerV3@1115ec15</td></tr>
-<tr>
-<td title='Public.customerControllerV3.getlocationsByCustomerv_2_4_ExcludeFormer()'><b>getlocationsByCustomerv_2_4_ExcludeFormer</b><br>Test class: Public.customerControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.customerControllerV3@1115ec15</td></tr>
-<tr>
-<td title='Public.customerControllerV3.putcustomerbillingoptionv2()'><b>putcustomerbillingoptionv2</b><br>Test class: Public.customerControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.customerControllerV3@1115ec15</td></tr>
-<tr>
-<td title='Public.customerControllerV3.putcustomerscollectionsOptionsv2()'><b>putcustomerscollectionsOptionsv2</b><br>Test class: Public.customerControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.customerControllerV3@1115ec15</td></tr>
-<tr>
-<td title='Public.customerControllerV3.getnextCustomerId_v2()'><b>getnextCustomerId_v2</b><br>Test class: Public.customerControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.customerControllerV3@1115ec15</td></tr>
-<tr>
-<td title='Public.customerControllerV3.getCollectionsoptions_v2()'><b>getCollectionsoptions_v2</b><br>Test class: Public.customerControllerV3</td>
-<td></td>
-<td>0</td>
-<td>Public.customerControllerV3@1115ec15</td></tr>
+<td>Public.PaymentControllerV4@6392827e</td></tr>
 </table><p>
 </body>
 </html>

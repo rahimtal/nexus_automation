@@ -18,7 +18,7 @@ public class CashieringPost {
 	public static String nextRecieptNumber;
 	public static String ConnectionString;
 	// public static String ConnectionString =
-	// "jdbc:sqlserver://RND-BASE-A\\SQL_2017;DB=
+	// "jdbc:sqlserver://DESKTOP-QU86F3Q\\MSSQLSERVER2019;DB=
 	// databaseName=TWO;user=auto;password=password123;";
 
 	public static void adjustRecieptPre(String recNum) throws ConnectionClosedException, InterruptedException {

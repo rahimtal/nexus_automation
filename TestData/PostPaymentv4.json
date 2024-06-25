@@ -4,7 +4,7 @@
     "Type": 0,
     "PaymentDate": "2020-01-15",
     "PaymentAmount": 90.99,
-    "OriginId": "NexusApi",
+    "OriginId": "",
     "PaidBy": 1,
     "PaidById": "CUSTOMER009"
 }
