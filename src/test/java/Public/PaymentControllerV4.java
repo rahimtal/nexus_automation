@@ -39,7 +39,7 @@ public class PaymentControllerV4 {
 		Boolean Result = jsonPathEvaluator.get("Payment.Success");
 		if (Result == false) {
 			System.out.println(jsonPathEvaluator.prettyPrint());
-			AssertJUnit.fail(jsonPathEvaluator.prettyPrint());
+			Assert.fail(jsonPathEvaluator.prettyPrint());
 		}
 		// System.out.println(jsonPathEvaluator.toString());
 	}

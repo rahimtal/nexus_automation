@@ -102,6 +102,9 @@ public class PaymentControllerV4 {
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("PrevInHistory", "true");
 		String result = CommonMethods.getMethodContains(uri, ver, params, expected);
+		expected = "./\\TestData\\getpaymentNextHistv4_1.json";
+		result = CommonMethods.getMethodContains(uri, ver, params, expected);
+		
 		System.out.println(result);
 
 	}
