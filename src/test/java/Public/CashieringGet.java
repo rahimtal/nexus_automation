@@ -187,7 +187,7 @@ public class CashieringGet extends BaseClass {
 			testStatus(false);
 	}
 
-	@Test
+	//@Test
 	void testStatus(boolean Result) {
 		if (Result == false) {
 			test.log(Status.FAIL, "Test Failed");
