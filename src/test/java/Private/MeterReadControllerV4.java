@@ -224,7 +224,7 @@ public class MeterReadControllerV4 {
 	}
 	
 	
-	@Test(priority = 10, groups = "MeterRead")
+	@Test(priority = 100, groups = "MeterRead")
 	public static void postmoveOpenToHistoryv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();

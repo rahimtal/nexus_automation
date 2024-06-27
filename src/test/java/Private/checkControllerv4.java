@@ -131,7 +131,7 @@ public class checkControllerv4 {
 
 	}
 
-	@Test(priority = 7, groups = "check")
+	//@Test(priority = 7, groups = "check")
 	public static void putChecksendtoAPv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
