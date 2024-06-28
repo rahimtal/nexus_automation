@@ -1,0 +1,38 @@
+{
+    "LocationId": "SPALOCATION1",
+    "CustomerId": "03332301204",
+    "DepositId": "ELECTRIC",
+    "TotalAmount": 100,
+    "InitialInstallmentAmount": 25,
+    "StartDate": "2022-01-01",
+    "NumberOfInstallments": 4,
+    "NumberOfDays": 30,
+    "Installment": [
+        {
+            "BillingDate": "2022-01-01",
+            "DueDate": "2022-01-02",
+            "Amount": 25
+        },
+        {
+            "BillingDate": "2022-01-01",
+            "DueDate": "2022-01-01",
+            "Amount": 25
+        },
+        {
+            "BillingDate": "2022-02-01",
+            "DueDate": "2022-02-01",
+            "Amount": 25
+        },
+        {
+            "BillingDate": "2022-03-01",
+            "DueDate": "2022-03-01",
+            "Amount": 25
+        }
+    ],
+    "ServiceOrder": {
+        "Id": "DEPS00000000031",
+        "Task": {
+            "Sequence": "1000"
+        }
+    }   
+}
