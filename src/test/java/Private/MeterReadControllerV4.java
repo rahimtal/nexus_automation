@@ -70,7 +70,7 @@ public class MeterReadControllerV4 {
 
 	}
 
-	@Test(priority = 4, groups = "MeterRead")
+	@Test(priority = 99, groups = "MeterRead")
 	public static void PostMeterReadv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
