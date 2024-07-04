@@ -152,10 +152,6 @@ public class checkControllerv4 {
 		String ver = "4.0";
 		String nextCheck = "CHEQ00000000009";
 		if (nextCheck != null) {
-			// String payload = "{\"Check\":{\"DocumentNumber\":
-			// \""+nextCheck+"\",\"CheckDate\":\"2023-07-13\",\"CreatedDate\":\"2023-07-13\",\"CheckAmount\":120.50,\"LocationId\":\"WATER005\",\"CustomerId\":\"500300\",\"IssuedToCustomerId\":\"500200\",\"CheckbookId\":\"FIRST
-			// NATIONAL\",\"MiscChargeId\":\"CHEQUE\",\"BatchId\":\"Test
-			// Batch\",\"Comment\":\"Example Comment\"}}";
 			String payload = "{\"Check\":{\"DocumentNumber\": \"CHEQ00000000009\"}}";
 			String filepath = "./\\TestData\\postingReceivablev4.json";
 			FileWriter file = new FileWriter(filepath);
@@ -167,31 +163,8 @@ public class checkControllerv4 {
 			String result = response.asString();
 			// result.replaceAll("\\s", "");
 			System.out.println("Response " + result);
-			String expected = "Cannot insert the value NULL into column 'umTotalTaxes', table 'TWO.dbo.UTX'; column does not allow nulls. INSERT fails";
-
-			if (!result.contains(expected)) {
-				AssertJUnit.fail();
-			}
-
-			expected = "Success\":false,\"Data\":{\"DocumentNumber\":\"CHEQ00000000009\""; // ,"Receivable":[{"ChargeDocument":"MISC00000000391","Posted":false}],"PostingReport":true,"PostingError":true,"ReportList":[{"Name":"Post
-																							// Check Refund Edit
-																							// List","PrintOrder":1}],"ReportErrorList":[{"Name":"Post
-																							// Check Refund Error
-																							// List","PrintOrder":1}]},"Messages":[{"Enabled":1,"Info":"Posting
-																							// validation warning found.
-																							// Refer to posting error
-																							// report.","Level":2},{"Enabled":1,"Info":"csmApi_spCheckPostingReceivableCreate
-																							// - Cannot insert the value
-																							// NULL into column
-																							// 'umTotalTaxes', table
-																							// 'TWO.dbo.UTX'; column
-																							// does not allow nulls.
-																							// INSERT
-																							// fails.","Level":3}]}}
-
-			if (!result.contains(expected)) {
-				AssertJUnit.fail();
-			}
+			String expected = "{\"Check\":{\"Success\":false,\"Data\":{\"DocumentNumber\":\"CHEQ00000000009\",\"Receivable\":null,\"PostingReport\":false,\"PostingError\":false,\"ReportList\":[],\"ReportErrorList\":[]},\"Messages\":[{\"Enabled\":1,\"Info\":\"Check must be sent to AP before posting.\",\"Level\":3}]}}";
+			Assert.assertEquals(result, expected);
 
 		}
 
