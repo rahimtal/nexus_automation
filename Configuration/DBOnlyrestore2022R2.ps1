@@ -15,7 +15,7 @@ param (
 	[string]$BackupDestination = "C:\Program Files (x86)\Jenkins\workspace\Backup\", # Path to Nexus_Api backup
     [string]$Nexus_APIDistPathToDelete = $Nexus_APIPath+"dist\server\*", # Path to DIST folder for Nexus_Api
     [string]$Nexus_APIPathToSQL = $Nexus_APIPath+"src\server\db scripts\", # Path to SQL in Nexus_Api folder
-    [string]$SQLServerInstance = "DESKTOP-QU86F3Q\MSSQLSERVER2019", # SQL Server Instance
+    [string]$SQLServerInstance = "DESKTOP-QU86F3Q", # SQL Server Instance
     [string]$SQLCompanyDB = "TWO", # CSM Company Database
     [string]$SQLApiDB = "NEXUS_API", # Nexus Api Database
 	[string]$Nexus_APIPathToSQLpatch = $Nexus_APIPathToSQL+"\Patches\" # Nexus Api Patches

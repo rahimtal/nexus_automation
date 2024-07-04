@@ -48,7 +48,7 @@ public class CashieringPostV3 {
 		String columnName = "umDocumentNumber";
 		String Command1 = "select top 1 umDocumentNumber from TWO.dbo.UMRM102 order by umDocumentNumber desc";
 		String Result = "";
-		ConnectionString = "jdbc:sqlserver://DESKTOP-QU86F3Q\\MSSQLSERVER2019;DB= databaseName=TWO;user=sa;password=Admin2019;";
+		ConnectionString = "jdbc:sqlserver://DESKTOP-QU86F3Q;DB= databaseName=TWO;user=sa;password=cogs;";
 		Result = CommonMethods.selectFromDb(Command1, ConnectionString, columnName);
 		if (Result != "") {
 			adjustRecieptPre(Result);

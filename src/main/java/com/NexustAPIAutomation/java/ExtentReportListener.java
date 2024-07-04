@@ -1,19 +1,9 @@
 package com.NexustAPIAutomation.java;
 
+public class ExtentReportListener  {
+    
 
-import org.testng.ITestContext;
-import org.testng.ITestListener;
-import org.testng.ITestResult;
-
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-
-public class ExtentReportListener implements ITestListener {
-    private ExtentReports extent;
-    private ExtentTest test;
-
-    @Override
+ /*   @Override
     public void onStart(ITestContext context) {
         String reportFileName = "ExtentReport.html";
         String reportPath = System.getProperty("user.dir") + "/test-output/" + reportFileName;
@@ -49,5 +39,5 @@ public class ExtentReportListener implements ITestListener {
     @Override
     public void onTestSkipped(ITestResult result) {
         test.skip("Test skipped");
-    }
+    }*/
 }

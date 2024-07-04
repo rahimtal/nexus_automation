@@ -1215,15 +1215,15 @@ public class CommonMethods {
 	 * Returns a minimal set of characters that have to be removed from (or added
 	 * to) the respective strings to make the strings equal.
 	 */
-	public static Pair<String> diff(String a, String b) {
-		return diffHelper(a, b, new HashMap<>());
-	}
+//	public static Pair<String> diff(String a, String b) {
+	//	return diffHelper(a, b, new HashMap<>());
+//	}
 
 	/**
 	 * Recursively compute a minimal set of characters while remembering already
 	 * computed substrings. Runs in O(n^2).
 	 */
-	private static Pair<String> diffHelper(String a, String b, Map<Long, Pair<String>> lookup) {
+/*	private static Pair<String> diffHelper(String a, String b, Map<Long, Pair<String>> lookup) {
 		long key = ((long) a.length()) << 32 | b.length();
 		if (!lookup.containsKey(key)) {
 			Pair<String> value;
@@ -1257,7 +1257,7 @@ public class CommonMethods {
 			return "(" + first + "," + second + ")";
 		}
 	}
-
+*/
 	public static String deleteMethod(String uri, String version, String jpath)
 			throws InterruptedException, IOException {
 		switch (version) {
