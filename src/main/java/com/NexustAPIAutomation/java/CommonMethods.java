@@ -783,7 +783,7 @@ public class CommonMethods {
 				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
 				.body(payload);
 		Response response = httpRequest.put();
-		AssertJUnit.assertEquals(response.getBody().asString(),
+		Assert.assertEquals(response.getBody().asString(),
 				new String(Files.readAllBytes(Paths.get(jsonDataInFile))));
 
 		System.out.println("** PUT call Response **");

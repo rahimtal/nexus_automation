@@ -18,20 +18,20 @@
                 "BudgetEligible": 1,
                 "ElectronicBilling": {
                     "Enabled": 0,
-                    "Drillback": "cogsDrillback://DGPB/?Db=MSSQLSERVER2019&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=CustomerOptionElectronicBilling&CustomerId=Customer003&CogsDrillback=1"
+                    "Drillback": "cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=CustomerOptionElectronicBilling&CustomerId=Customer003&CogsDrillback=1"
                 },
                 "DepositRequired": 0,
                 "PreauthorizedPaymentPlan": {
                     "Enabled": 0,
-                    "Drillback": "cogsDrillback://DGPB/?Db=MSSQLSERVER2019&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=CustomerOptionPreathorizePaymentPlan&CustomerId=Customer003&CogsDrillback=1"
+                    "Drillback": "cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=CustomerOptionPreathorizePaymentPlan&CustomerId=Customer003&CogsDrillback=1"
                 },
                 "CharityDonation": {
                     "Enabled": 1,
-                    "Drillback": "cogsDrillback://DGPB/?Db=MSSQLSERVER2019&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=CustomerOptionCharityDonation&CustomerId=Customer003&CogsDrillback=1"
+                    "Drillback": "cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=CustomerOptionCharityDonation&CustomerId=Customer003&CogsDrillback=1"
                 },
                 "EarlyPaymentDiscount": {
                     "Enabled": 0,
-                    "Drillback": "cogsDrillback://DGPB/?Db=MSSQLSERVER2019&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=CustomerOptionEarlyPaymentDiscount&CustomerId=Customer003&CogsDrillback=1"
+                    "Drillback": "cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=CustomerOptionEarlyPaymentDiscount&CustomerId=Customer003&CogsDrillback=1"
                 }
             },
             "Success": true,

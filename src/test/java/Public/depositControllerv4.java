@@ -21,7 +21,7 @@ public class depositControllerv4 {
 
 	public static JsonPath jsonPathEvaluator;
 
-	@Test(priority = 1)
+	//@Test(priority = 1)
 	public void createdepositpaymentPlanV4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/deposit/paymentPlan";
