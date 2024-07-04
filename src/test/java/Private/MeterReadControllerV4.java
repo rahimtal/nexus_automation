@@ -16,10 +16,11 @@ import com.NexustAPIAutomation.java.CommonMethods;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
+import junit.framework.Assert;
 
 public class MeterReadControllerV4 {
 
-	@Test(priority = 1, groups = "MeterRead")
+	@Test(priority = 1, groups = "MeterRead", dependsOnMethods = "putMeterReadinginWorkV4")
 	public void deletemeterReadingvalidv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -27,12 +28,8 @@ public class MeterReadControllerV4 {
 		String ver = "4.0";
 		String expected = "{\"MeterReading\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Meter Reading successfully Deleted!\",\"Level\":1}]}}";
 		String result = CommonMethods.deleteMethodasString(uri, ver);
-
-		if (!result.contains(expected)) {
-			System.out.println("MeterRead Already deleted" + result);
-			AssertJUnit.fail();
-		}
-		System.out.println(result);
+		Assert.assertEquals(expected, result);
+				
 	}
 
 	@Test(priority = 2, groups = "MeterRead", dependsOnMethods = "deletemeterReadingvalidv4")
