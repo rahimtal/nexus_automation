@@ -1,7 +1,7 @@
 {
-    "LocationId": "ELECWAT001",
+    "LocationId": "000000000532001",
     "ServiceOrder": {
-        "Id": "SORD00000008990",
+        "Id": "SORD00000000152",
         "Task": {
             "Sequence": 1000
         }

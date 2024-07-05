@@ -29,7 +29,7 @@ public class MeterReadControllerV4 {
 		String expected = "{\"MeterReading\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Meter Reading successfully Deleted!\",\"Level\":1}]}}";
 		String result = CommonMethods.deleteMethodasString(uri, ver);
 		Assert.assertEquals(expected, result);
-				
+
 	}
 
 	@Test(priority = 2, groups = "MeterRead", dependsOnMethods = "deletemeterReadingvalidv4")
@@ -219,8 +219,7 @@ public class MeterReadControllerV4 {
 			System.out.print(jsonPathEvaluator.prettyPrint());
 		}
 	}
-	
-	
+
 	@Test(priority = 100, groups = "MeterRead", dependsOnMethods = "PostMeterReadv4")
 	public static void postmoveOpenToHistoryv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
@@ -228,9 +227,11 @@ public class MeterReadControllerV4 {
 		String uri = "/meterReading/moveOpenToHistory";
 		String ver = "4.0";
 		String payload = "./\\TestData\\PostmoveOpenToHistoryv4.json";
-		String exResponse ="{\"MeterReading\":{\"Success\":true,\"Data\":{\"Data\":[{}]},\"Messages\":[{\"Enabled\":1,\"Info\":\"Meter Reading successfully moved.\",\"Level\":1}]}}";
+		// changes String exResponse
+		// ="{\"MeterReading\":{\"Success\":true,\"Data\":{\"Data\":[{}]},\"Messages\":[{\"Enabled\":1,\"Info\":\"Meter
+		// Reading successfully moved.\",\"Level\":1}]}}";
+		String exResponse = "{\"MeterReading\":{\"Success\":true,\"Data\":{\"Data\":[{\"Document\":[{\"Number\":\"READ00000000704\"},{\"Number\":\"READ00000000705\"}]}]},\"Messages\":[{\"Enabled\":1,\"Info\":\"Meter Reading successfully moved.\",\"Level\":1}]}}";
 		CommonMethods.postcall(uri, payload, ver, exResponse);
 	}
-
 
 }
