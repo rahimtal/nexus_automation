@@ -14,6 +14,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.aventstack.extentreports.model.Log;
+
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
@@ -118,7 +120,6 @@ public class checkControllerv4 {
 
 		String uri = "/check";
 		String ver = "4.0";
-		// String jpath = "./\\TestData\\putCheckv4.json";
 		String params = "{\"Check\": {\"DocumentNumber\": \"" + str
 				+ "\",\"CheckDate\": \"2023-07-13\",\"CreatedDate\": \"2023-07-13\",\"CheckAmount\": 120.50,\"CheckbookId\": \"FIRST NATIONAL\",    \"Comment\": \"Example Comment Example\" }}";
 		String expected = "{\"Check\":{\"Success\":true,\"Data\":{\"DocumentNumber\":\"" + str
@@ -131,10 +132,11 @@ public class checkControllerv4 {
 
 	}
 
-	//@Test(priority = 7, groups = "check")
+	@Test(priority = 7, groups = "check")
 	public static void putChecksendtoAPv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
+		CommonMethods.Bug("CPDEV-18547");
 		String uri = "/check/sendtoAP";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\putChecksendtoAPv4.json";
@@ -144,55 +146,26 @@ public class checkControllerv4 {
 
 	}
 
-	@Test(priority = 8, groups = "check")
-	public static void postingReceivable4Error()
+	@Test(priority = 8, groups = "check", dependsOnMethods = "putChecksendtoAPv4")
+	public static void postingReceivable()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/check/postingReceivable";
 		String ver = "4.0";
 		String nextCheck = "CHEQ00000000009";
 		if (nextCheck != null) {
-			// String payload = "{\"Check\":{\"DocumentNumber\":
-			// \""+nextCheck+"\",\"CheckDate\":\"2023-07-13\",\"CreatedDate\":\"2023-07-13\",\"CheckAmount\":120.50,\"LocationId\":\"WATER005\",\"CustomerId\":\"500300\",\"IssuedToCustomerId\":\"500200\",\"CheckbookId\":\"FIRST
-			// NATIONAL\",\"MiscChargeId\":\"CHEQUE\",\"BatchId\":\"Test
-			// Batch\",\"Comment\":\"Example Comment\"}}";
 			String payload = "{\"Check\":{\"DocumentNumber\": \"CHEQ00000000009\"}}";
 			String filepath = "./\\TestData\\postingReceivablev4.json";
 			FileWriter file = new FileWriter(filepath);
 			file.write(payload);
 			file.close();
-			// jsonPathEvaluator = CommonMethods.postMethodResponseasString(filepath, uri,
-			// ver);
+
 			Response response = CommonMethods.postMethodResponseasString(filepath, uri, ver);
 			String result = response.asString();
 			// result.replaceAll("\\s", "");
 			System.out.println("Response " + result);
-			String expected = "Cannot insert the value NULL into column 'umTotalTaxes', table 'TWO.dbo.UTX'; column does not allow nulls. INSERT fails";
-
-			if (!result.contains(expected)) {
-				AssertJUnit.fail();
-			}
-
-			expected = "Success\":false,\"Data\":{\"DocumentNumber\":\"CHEQ00000000009\""; // ,"Receivable":[{"ChargeDocument":"MISC00000000391","Posted":false}],"PostingReport":true,"PostingError":true,"ReportList":[{"Name":"Post
-																							// Check Refund Edit
-																							// List","PrintOrder":1}],"ReportErrorList":[{"Name":"Post
-																							// Check Refund Error
-																							// List","PrintOrder":1}]},"Messages":[{"Enabled":1,"Info":"Posting
-																							// validation warning found.
-																							// Refer to posting error
-																							// report.","Level":2},{"Enabled":1,"Info":"csmApi_spCheckPostingReceivableCreate
-																							// - Cannot insert the value
-																							// NULL into column
-																							// 'umTotalTaxes', table
-																							// 'TWO.dbo.UTX'; column
-																							// does not allow nulls.
-																							// INSERT
-																							// fails.","Level":3}]}}
-
-			if (!result.contains(expected)) {
-				AssertJUnit.fail();
-			}
-
+			String expected = "Success\":false,\"Data\":{\"DocumentNumber\":\"CHEQ00000000009\"";
+			Assert.assertEquals(expected, result);
 		}
 
 	}
@@ -233,7 +206,7 @@ public class checkControllerv4 {
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		// PostCheckv4();
-		postingReceivable4RefundError();
+		// postingReceivable4RefundError();
 
 	}
 

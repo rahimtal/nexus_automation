@@ -783,8 +783,7 @@ public class CommonMethods {
 				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
 				.body(payload);
 		Response response = httpRequest.put();
-		Assert.assertEquals(response.getBody().asString(),
-				new String(Files.readAllBytes(Paths.get(jsonDataInFile))));
+		Assert.assertEquals(response.getBody().asString(), new String(Files.readAllBytes(Paths.get(jsonDataInFile))));
 
 		System.out.println("** PUT call Response **");
 		return response;
@@ -1216,48 +1215,33 @@ public class CommonMethods {
 	 * to) the respective strings to make the strings equal.
 	 */
 //	public static Pair<String> diff(String a, String b) {
-	//	return diffHelper(a, b, new HashMap<>());
+	// return diffHelper(a, b, new HashMap<>());
 //	}
 
 	/**
 	 * Recursively compute a minimal set of characters while remembering already
 	 * computed substrings. Runs in O(n^2).
 	 */
-/*	private static Pair<String> diffHelper(String a, String b, Map<Long, Pair<String>> lookup) {
-		long key = ((long) a.length()) << 32 | b.length();
-		if (!lookup.containsKey(key)) {
-			Pair<String> value;
-			if (a.isEmpty() || b.isEmpty()) {
-				value = new Pair<>(a, b);
-			} else if (a.charAt(0) == b.charAt(0)) {
-				value = diffHelper(a.substring(1), b.substring(1), lookup);
-			} else {
-				Pair<String> aa = diffHelper(a.substring(1), b, lookup);
-				Pair<String> bb = diffHelper(a, b.substring(1), lookup);
-				if (aa.first.length() + aa.second.length() < bb.first.length() + bb.second.length()) {
-					value = new Pair<>(a.charAt(0) + aa.first, aa.second);
-				} else {
-					value = new Pair<>(bb.first, b.charAt(0) + bb.second);
-				}
-			}
-			lookup.put(key, value);
-		}
-		return lookup.get(key);
-	}
-
-	public static class Pair<T> {
-		public Pair(T first, T second) {
-			this.first = first;
-			this.second = second;
-		}
-
-		public final T first, second;
-
-		public String toString() {
-			return "(" + first + "," + second + ")";
-		}
-	}
-*/
+	/*
+	 * private static Pair<String> diffHelper(String a, String b, Map<Long,
+	 * Pair<String>> lookup) { long key = ((long) a.length()) << 32 | b.length(); if
+	 * (!lookup.containsKey(key)) { Pair<String> value; if (a.isEmpty() ||
+	 * b.isEmpty()) { value = new Pair<>(a, b); } else if (a.charAt(0) ==
+	 * b.charAt(0)) { value = diffHelper(a.substring(1), b.substring(1), lookup); }
+	 * else { Pair<String> aa = diffHelper(a.substring(1), b, lookup); Pair<String>
+	 * bb = diffHelper(a, b.substring(1), lookup); if (aa.first.length() +
+	 * aa.second.length() < bb.first.length() + bb.second.length()) { value = new
+	 * Pair<>(a.charAt(0) + aa.first, aa.second); } else { value = new
+	 * Pair<>(bb.first, b.charAt(0) + bb.second); } } lookup.put(key, value); }
+	 * return lookup.get(key); }
+	 * 
+	 * public static class Pair<T> { public Pair(T first, T second) { this.first =
+	 * first; this.second = second; }
+	 * 
+	 * public final T first, second;
+	 * 
+	 * public String toString() { return "(" + first + "," + second + ")"; } }
+	 */
 	public static String deleteMethod(String uri, String version, String jpath)
 			throws InterruptedException, IOException {
 		switch (version) {
@@ -1379,15 +1363,7 @@ public class CommonMethods {
 	}
 
 	public static void main(String args[]) {
-		String str1 = "{\"MiscellaneousCharge\":{\"Success\":true,\"Data\":{\"DocumentNumber\":\"MISC00000000382\",\"BatchId\":\"auto\",\"LocationId\":\"TRANSACTION001\",\"CustomerId\":\"TRS0001\"},\"Messages\":[{\"Enabled\":1,\"Info\":\"Miscellaneous Charge Saved Successfully\",\"Level\":1}]}}";
-		String str2 = "{\"MiscellaneousCharge\":{\"Success\":true,\"Data\":{\"DocumentNumber\":\"MISC00000000382\",\"BatchId\":\"auto\",\"LocationId\":\"TRANSACTION001\",\"CustomerId\":\"TRS0001\"},\"Messages\":[{\"Enabled\":1,\"Info\":\"Miscellaneous Charge Saved Successfully\",\"Level\":1}]}}";
 
-		try {
-			Match(str1, str2);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 
 	public static void Bug(String str1) {

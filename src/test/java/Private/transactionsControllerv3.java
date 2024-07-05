@@ -21,16 +21,14 @@ public class transactionsControllerv3 {
 		String uri = "/transactions/getTransactions";
 		String ver = "3.0";
 		String jpath = "./\\TestData\\getTransactionsv2.json";
-				
 	
 		HashMap<String, String> params = new HashMap<String, String>();
-		 params.put("CustomerId", "500001"); 
-		 params.put("LocationId", "100001"); 
+		 params.put("LocationId", "LOCATION002"); 
+		 params.put("CustomerId", "MASTER001"); 
 		 params.put("MeterReads", "true");
 		 params.put("MiscCharges", "true");
 		 params.put("Penalty", "true");
 		 params.put("Payment", "true");
-		 params.put("Bill", "true");
 		 params.put("Check", "true");
 		 params.put("Ticket", "true");
 		 params.put("License", "true");
@@ -46,7 +44,11 @@ public class transactionsControllerv3 {
 		 params.put("LocalGov", "true");
 		 params.put("Electric", "true");
 		 params.put("Water", "true");
+		 params.put("Sewer", "false");
+		 params.put("Gas", "false");
+		 params.put("Phone", "true");
 		 params.put("OtherCharge", "true");
+		 params.put("Other", "true");
 		 String result = CommonMethods.getMethod(uri, ver, params, jpath);
 		 System.out.println(result);
 
