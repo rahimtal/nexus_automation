@@ -575,12 +575,8 @@ public class CommonMethods {
 				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
 				.queryParams(params);
 
-		System.out.println();
-		// ValidatableResponse response = httpRequest.get().then().assertThat()
-		// .body(Matchers.equalTo(new String(Files.readAllBytes(Paths.get(jpath)))));
-
 		Response response = httpRequest.get();
-		AssertJUnit.assertEquals(new String(Files.readAllBytes(Paths.get(jpath))), response.asString());
+		Assert.assertEquals(new String(Files.readAllBytes(Paths.get(jpath))), response.asString());
 		return response.asString();
 	}
 

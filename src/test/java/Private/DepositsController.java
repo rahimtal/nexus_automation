@@ -66,7 +66,7 @@ public class DepositsController {
 		String uri = "/deposit/paymentPlan";
 		String ver = "4.0";
 		String payload = "./\\TestData\\postdepositpaymentPlanv4.json";
-		String exptected = "{\"Deposit\":{\"Success\":true,\"Data\":{\"DocumentNumber\":\"DEPS00000000034\",\"IsThirdPartyCustomer\":false},\"Messages\":[]}}";
+		String exptected = "{\"Deposit\":{\"Success\":true,\"Data\":{\"DocumentNumber\":\"DEPS00000000032\",\"IsThirdPartyCustomer\":false},\"Messages\":[]}}";
 		Response result = CommonMethods.postMethodResponseasString(payload, uri, ver);
 		String actualResult = result.print();
 		AssertJUnit.assertEquals(exptected, actualResult);

@@ -69,8 +69,8 @@ public class DisconnectFromStarttoFinish {
 				+ "        \"Confirm\": {\n" + "            \"IgnoreDisconnectMeterReadValidation\": true,\n"
 				+ "            \"IgnoreDisconnectToActiveValidation\": false,\n"
 				+ "            \"IgnoreEquipmentReinstallValidation\": false\n" + "        },\n"
-				+ "        \"ServiceOrder\":{\n" + "            \"Id\": \"SORD00000008989\",\n"
-				+ "            \"Task\":{\n" + "                \"Sequence\": 1100\n" + "            }\n"
+				+ "        \"ServiceOrder\":{\n" + "            \"Id\": \"SORD00000008990\",\n"
+				+ "            \"Task\":{\n" + "                \"Sequence\": 1000\n" + "            }\n"
 				+ "        }\n" + "	}\n" + "}";
 
 		CommonMethods.putMethod(uri, ver, payload, exResponse);

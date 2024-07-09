@@ -56,7 +56,7 @@ public class contactLogController {
 	}
 
 	@Test(priority = 4, groups = "contactLogController")
-	public void getgetContactLogDetail()
+	public void getContactLogDetail()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/contactLog/getContactLogDetail";
