@@ -24,11 +24,15 @@ public class transactionsControllerv3 {
 	
 		HashMap<String, String> params = new HashMap<String, String>();
 		 params.put("LocationId", "LOCATION002"); 
-		 params.put("CustomerId", "MASTER001"); 
+		 params.put("CustomerId", "MASTER001");
+		 params.put("Payment", "true");
+		 params.put("History", "true");
+		 params.put("CSM", "true");
+		 /*		 
 		 params.put("MeterReads", "true");
 		 params.put("MiscCharges", "true");
 		 params.put("Penalty", "true");
-		 params.put("Payment", "true");
+		
 		 params.put("Check", "true");
 		 params.put("Ticket", "true");
 		 params.put("License", "true");
@@ -38,8 +42,7 @@ public class transactionsControllerv3 {
 		 params.put("Invoice", "true");
 		 params.put("Work", "true");
 		 params.put("Open", "true");
-		 params.put("History", "true");
-		 params.put("CSM", "true");
+		
 		 params.put("Void", "true");
 		 params.put("LocalGov", "true");
 		 params.put("Electric", "true");
@@ -48,7 +51,7 @@ public class transactionsControllerv3 {
 		 params.put("Gas", "false");
 		 params.put("Phone", "true");
 		 params.put("OtherCharge", "true");
-		 params.put("Other", "true");
+		 params.put("Other", "true");*/
 		 String result = CommonMethods.getMethod(uri, ver, params, expected);
 		 System.out.println(result);
 
