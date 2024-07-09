@@ -26,9 +26,9 @@ public class AlertPanelController {
 
 	@Test(priority = 2, groups = "AlertPanelController")
 	public void getalertaccountAttributes_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		String uri = "/alert/accountAttributes/CUSTOMER002/SEWER003";
+		String uri = "/alert/accountAttributes/500001/100001";
 		String ver = "4.0";
-		String expected = "{\"Alert\":[{\"Messgage\":[],\"Success\":true,\"Messages\":[{\"Enabled\":0,\"Info\":\"\",\"Level\":0}]}]}";
+		String expected = "{\"result\":[{\"AttributeType\":\"deposits\",\"DrillbackLink\":\"cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=Deposits&CustomerID=500001&LocationID=100001&Deposits=1&CogsDrillback=1\"}]}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		// params.put("CustomerId", "CUSTOMER002");
 		// params.put("LocationId", "SEWER003");
