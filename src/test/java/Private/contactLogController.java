@@ -44,8 +44,7 @@ public class contactLogController {
 	@Test(priority = 3, groups = "contactLogController")
 	public static void putcontactLogv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-
-		
+		CommonMethods.Bug("CPDEV-18576");
 		String uri = "/contactLog";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\putContactLog.json";
@@ -56,9 +55,8 @@ public class contactLogController {
 	}
 
 	@Test(priority = 4, groups = "contactLogController")
-	public void getContactLogDetail()
-			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-
+	public void getContactLogDetail() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		CommonMethods.Bug("CPDEV-18571");
 		String uri = "/contactLog/getContactLogDetail";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\ContactLogDetailv4.json";
@@ -99,10 +97,9 @@ public class contactLogController {
 		System.out.println(result);
 
 	}
-	
+
 	@Test(priority = 6, groups = "contactLogController")
-	public void getContactLogMethods()
-			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+	public void getContactLogMethods() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/contactLog/getContactLogMethods";
 		String ver = "4.0";
@@ -112,8 +109,7 @@ public class contactLogController {
 		System.out.println(result);
 
 	}
-	
-	
+
 	@Test(priority = 8, groups = "contactLogController")
 	public void getContactLogServiceOrderRequest()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
