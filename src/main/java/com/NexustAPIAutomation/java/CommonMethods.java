@@ -576,7 +576,7 @@ public class CommonMethods {
 				.queryParams(params);
 
 		Response response = httpRequest.get();
-		Assert.assertEquals(new String(Files.readAllBytes(Paths.get(jpath))), response.asString());
+		Assert.assertEquals(response.asString(), new String(Files.readAllBytes(Paths.get(jpath))));
 		return response.asString();
 	}
 

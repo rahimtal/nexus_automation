@@ -1,0 +1,17 @@
+{
+	"CustomerId": "CUSTOMER009",
+	"LocationId": "LOcATION008",
+    "ActionCode": "4",
+	"FirstContactDateTime": "2022-01-01T12:15:14Z",
+	"ContactMethod": 1,
+	"Description": "Request to read meter again",
+	"CompletedDateTime": "2022-04-09T16:01:05Z",
+	"NextContactDateTime": "2022-01-21T11:11:12Z",
+	"ResolutionText": "",
+	"AdditionalText": "",
+	"FollowUpEmployeeId": "ZAID0001",
+	"ServiceOrder": {
+		"RequestId": "DISCONNECT",
+		"RequestDate": "2023-02-28"
+	}
+}

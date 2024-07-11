@@ -48,10 +48,10 @@ public class contactLogController {
 		
 		String uri = "/contactLog";
 		String ver = "4.0";
-		String jpath = "./\\TestData\\putContactLogv4.json";
+		String jpath = "./\\TestData\\putContactLog.json";
 		String params = new String(Files.readAllBytes(Paths.get(jpath)));
 		String expected = "./\\TestData\\putCheckexpectedsendtoApi_v4.json";
-		Response result = CommonMethods.putMethod(uri, ver, params, expected);
+		CommonMethods.putMethod(uri, ver, params, expected);
 
 	}
 
