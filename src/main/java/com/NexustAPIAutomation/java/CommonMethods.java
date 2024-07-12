@@ -342,7 +342,9 @@ public class CommonMethods {
 		case "3.0":
 			RestAssured.baseURI = urlv3;
 			break;
-
+		case "4.0":
+			RestAssured.baseURI = urlv4;
+			break;	
 		default:
 			version = "Invalid version";
 			break;
@@ -359,7 +361,7 @@ public class CommonMethods {
 
 		response = httpRequest.post();
 		System.out.println(response.asString());
-		AssertJUnit.assertEquals(response.asString(), expected);
+		Assert.assertEquals(response.asString(), expected);
 
 	}
 
