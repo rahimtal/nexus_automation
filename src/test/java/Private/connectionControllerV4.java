@@ -164,6 +164,66 @@ public class connectionControllerV4 {
 		CommonMethods.postMethodString(payload,uri, ver, exResponse);
 
 	}
+
+	@Test(priority = 7, groups = "connectionController", dependsOnMethods ="postconnectionmeterv4" )
+	public void putconnectionmeterv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// JsonPath jsonPathEvaluator;
+
+		String uri = "/connection/meter";
+		String ver = "4.0";
+		String payload = "{\r\n" + 
+				"    \"Connection\": {\r\n" + 
+				"        \"ConnectionDate\": \"1900-01-01\",\r\n" + 
+				"        \"DisconnectionDate\": \"1900-01-01\",\r\n" + 
+				"        \"DiscountRate\": \"\",\r\n" + 
+				"        \"EquipmentId\": \"EQUIPMENT006\",\r\n" + 
+				"        \"InstallationDate\": \"2023-01-01\",\r\n" + 
+				"        \"IsSubtractConnection\": false,\r\n" + 
+				"        \"LocationId\": \"AUTO1001\",\r\n" + 
+				"        \"Multiplier\": {\r\n" + 
+				"            \"Rate\": 1,\r\n" + 
+				"            \"Fixed\": 1,\r\n" + 
+				"            \"Loss\": 1,\r\n" + 
+				"            \"Consumption\": 1,\r\n" + 
+				"            \"RangeAndMinimum\": 1\r\n" + 
+				"        },\r\n" + 
+				"        \"NetMeterDeliveryMeter\": \"\",\r\n" + 
+				"        \"Rate\": [\r\n" + 
+				"            {\r\n" + 
+				"                \"Consumption\": \"RATE001-FIXED\",\r\n" + 
+				"                \"KVA\": \"\",\r\n" + 
+				"                \"KW\": \"\",\r\n" + 
+				"                \"NetMeterReceived\": \"\",\r\n" + 
+				"                \"PeriodIndex\": 1\r\n" + 
+				"            }\r\n" + 
+				"        ],\r\n" + 
+				"        \"RouteId\": \"001\",\r\n" + 
+				"        \"SequenceNumber\": 0,\r\n" + 
+				"        \"ServiceTypeId\": \"ELECTRIC\",\r\n" + 
+				"        \"Status\": \"1\",\r\n" + 
+				"        \"SubtractBaseConnectionSequence\": 0,\r\n" + 
+				"        \"TaxDiscountPercent\": 1.00000,\r\n" + 
+				"        \"Confirm\": {\r\n" + 
+				"            \"IgnoreEquipmentReinstallValidation\": false,\r\n" + 
+				"            \"EquipmentReinstall\": false\r\n" + 
+				"        }\r\n" + 
+				"    }\r\n" + 
+				"}";
+		String exResponse = "{\"Connection\":{\"Success\":true,\"Data\":{\"LocationId\":\"AUTO1001\",\"ConnectionSequence\":3},\"Messages\":[{\"Enabled\":1,\"Info\":\"Created\",\"Level\":1}]}}";
+		CommonMethods.postMethodString(payload,uri, ver, exResponse);
+
+	}
 	
+	@Test(priority = 8, groups = "connectionController")
+	public void postconnectionmetergrpv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// JsonPath jsonPathEvaluator;
+		
+		String uri = "/connection/meterGroup";
+		String version = "4.0";
+		String payload = "./\\TestData\\/postconnectionv4.json";
+		String exResponse = "{\"Connection\":{\"Success\":true,\"Data\":{\"LocationId\":\"LOCATION001\",\"ConnectionSequence\":3},\"Messages\":[{\"Enabled\":1,\"Info\":\"Created\",\"Level\":1}]}}";
+		CommonMethods.postMethodString(payload, uri, version, exResponse);
+
+	}
 
 }
