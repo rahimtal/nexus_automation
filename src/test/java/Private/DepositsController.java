@@ -28,11 +28,11 @@ public class DepositsController {
 
 	}
 
-	@Test(priority = 2, groups = "Deposits")
+	@Test(priority = 4, groups = "Deposits" , dependsOnMethods = "postdepositpaymentPlanv4")
 	public void getdepositpaymentPlan()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
-		String uri = "/deposit/DEPS00000000026/paymentPlan";
+		String uri = "/deposit/DEPS00000000032/paymentPlan";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\depositsPaymentPlanv3.json";
 		HashMap<String, String> params = new HashMap<String, String>();
@@ -59,7 +59,7 @@ public class DepositsController {
 	}
 	
 	
-	@Test(priority = 4, groups = "Deposits")
+	@Test(priority = 1, groups = "Deposits")
 	public void postdepositpaymentPlanv4() throws ClassNotFoundException, SQLException, InterruptedException {
 
 		
