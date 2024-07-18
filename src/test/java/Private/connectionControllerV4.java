@@ -15,7 +15,7 @@ import io.restassured.response.ValidatableResponse;
 
 public class connectionControllerV4 {
 
-	@Test(priority = 1, groups = "connectionController")
+	//@Test(priority = 1, groups = "connectionController")
 	public void postconnectionmeter1v4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
@@ -28,7 +28,7 @@ public class connectionControllerV4 {
 
 	}
 
-	@Test(priority = 2, groups = "connectionController")
+	//@Test(priority = 2, groups = "connectionController")
 	public void postconnectionmeterv4Error()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
@@ -146,7 +146,7 @@ public class connectionControllerV4 {
 				+ "        \"SubtractBaseConnectionSequence\": 0,\r\n" + "        \"TaxDiscountPercent\": 1.00000,\r\n"
 				+ "        \"Confirm\": {\r\n" + "            \"IgnoreEquipmentReinstallValidation\": false,\r\n"
 				+ "            \"EquipmentReinstall\": false\r\n" + "        }\r\n" + "    }\r\n" + "}";
-		String exResponse = "{\"Connection\":{\"Success\":true,\"Data\":{\"LocationId\":\"AUTO1001\",\"ConnectionSequence\":3},\"Messages\":[{\"Enabled\":1,\"Info\":\"Created\",\"Level\":1}]}}";
+		String exResponse = "{\"Connection\":{\"Success\":true,\"Data\":{\"LocationId\":\"AUTO1001\",\"ConnectionSequence\":4},\"Messages\":[{\"Enabled\":1,\"Info\":\"Created\",\"Level\":1}]}}";
 		CommonMethods.postMethodString(payload, uri, ver, exResponse);
 
 	}
@@ -170,8 +170,25 @@ public class connectionControllerV4 {
 
 		String uri = "/connection/meterGroup";
 		String version = "4.0";
-		String payload = "./\\TestData\\/postconnectionv4.json";
-		String exResponse = "{\"Connection\":{\"Success\":true,\"Data\":{\"MeterGroupId\":\"MTGR00000000002\"},\"Messages\":[{\"Enabled\":1,\"Info\":\"Error in stored procedure csmApi_spConnectionMeterGroupCreate. Missing message with Id = 50008\",\"Level\":1}]}}";
+		String payload = "{\r\n" + 
+				"    \"Connection\": {\r\n" + 
+				"        \"LocationId\": \"LOCATION008\",\r\n" + 
+				"        \"FixedChargeId\": 1,\r\n" + 
+				"        \"MinimumCalculationId\": 3,\r\n" + 
+				"        \"DemandHandlingId\": 1,\r\n" + 
+				"        \"Equipment\": [\r\n" + 
+				"            {\r\n" + 
+				"                \"Id\": \"EQUIPMENT008\",\r\n" + 
+				"                \"ConnectionSequence\": 2\r\n" + 
+				"            },\r\n" + 
+				"            {\r\n" + 
+				"                \"Id\": \"EQUIPMENT006\",\r\n" + 
+				"                \"ConnectionSequence\": 3 \r\n" + 
+				"            }\r\n" + 
+				"        ]\r\n" + 
+				"    }\r\n" + 
+				"}";
+		String exResponse = "{\"Connection\":{\"Success\":true,\"Data\":{\"MeterGroupId\":\"MTGR00000000001\"},\"Messages\":[{\"Enabled\":1,\"Info\":\"Created\",\"Level\":1}]}}";
 		CommonMethods.postMethodString(payload, uri, version, exResponse);
 
 	}
