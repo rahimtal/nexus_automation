@@ -1,5 +1,6 @@
 package Private;
 
+import org.testng.Assert;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 import java.io.IOException;
@@ -20,11 +21,11 @@ public class DepositsController {
 
 		String uri = "/deposit";
 		String ver = "4.0";
-		String jpath = "./\\TestData\\depositsv3.json";
+		String expected = "{\"Deposit\":{\"Success\":true,\"Data\":{\"LocationId\":\"WATER001\",\"CustomerId\":\"CUSTOMER001\",\"DocumentNumber\":\"DEPS00000000032\",\"TotalAmount\":100,\"InitialInstallmentAmount\":25,\"StartDate\":\"2022-01-01\",\"NumberOfInstallments\":4,\"NumberOfDays\":30,\"Installment\":[{\"BillDate\":\"2022-01-01\",\"DueDate\":\"2022-01-01\",\"Amount\":25,\"OutstandingAmount\":25,\"AmountReceived\":0,\"ChargeDocument\":\"\",\"Posted\":false},{\"BillDate\":\"2022-01-01\",\"DueDate\":\"2022-01-02\",\"Amount\":25,\"OutstandingAmount\":25,\"AmountReceived\":0,\"ChargeDocument\":\"\",\"Posted\":false},{\"BillDate\":\"2022-02-01\",\"DueDate\":\"2022-02-01\",\"Amount\":25,\"OutstandingAmount\":25,\"AmountReceived\":0,\"ChargeDocument\":\"\",\"Posted\":false},{\"BillDate\":\"2022-03-01\",\"DueDate\":\"2022-03-01\",\"Amount\":25,\"OutstandingAmount\":25,\"AmountReceived\":0,\"ChargeDocument\":\"\",\"Posted\":false}]},\"Messages\":[]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("LocationId", "SPALOCATION1");
-		String result = CommonMethods.getMethod(uri, ver, params, jpath);
-		System.out.println(result);
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		Assert.assertEquals(actual, expected);
 
 	}
 

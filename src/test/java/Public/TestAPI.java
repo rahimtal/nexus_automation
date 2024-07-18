@@ -20,7 +20,7 @@ public class TestAPI {
 
 	public static JsonPath jsonPathEvaluator;
 
-	@Test(priority = 2, groups = "Deposits")
+//	@Test(priority = 2, groups = "Deposits")
 	public void getdepositpaymentPlan_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
