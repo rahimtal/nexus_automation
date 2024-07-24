@@ -240,5 +240,116 @@ public class CashieringController extends BaseClass {
 		}
 
 	}
+	
+	
+	@Test(priority = 8, groups = "Cashering")
+	public void saveReciept_4_prepaymentExistingCustomer()
+			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
+		
+		String uri = "/cashiering/receipt";
+		String ver = "4.0";
+		String payload = "{\r\n" + 
+				"   \"Receipt\":{\r\n" + 
+				"      \"ReceiptNumber\":\"004240724000005\",\r\n" + 
+				"      \"OriginatingReceiptNumber\":\"\",\r\n" + 
+				"      \"Void\":false,\r\n" + 
+				"      \"CustomerId\":\"customer001\",\r\n" + 
+				"      \"LocationId\":\"water001\",\r\n" + 
+				"      \"PaymentOrigin\":\"API\",\r\n" + 
+				"      \"CheckbookId\":\"FIRST NATIONAL\",\r\n" + 
+				"      \"PaidBy\":{\r\n" + 
+				"         \"Type\":1,\r\n" + 
+				"         \"Description\": \"customer001\",\r\n" + 
+				"         \"Id\":\"customer001\"\r\n" + 
+				"      },\r\n" + 
+				"      \"Cash\":10,\r\n" + 
+				"      \"Check\":{\r\n" + 
+				"         \"Amount\":0,\r\n" + 
+				"         \"Number\":\"\"\r\n" + 
+				"      },\r\n" + 
+				"      \"CreditCard\": {\r\n" + 
+				"          \"Amount\": 0\r\n" + 
+				"      },\r\n" + 
+				"      \"Unapplied\":{\r\n" + 
+				"         \"Amount\":10,\r\n" + 
+				"         \"Account\":\"000-2115-00\",\r\n" + 
+				"         \"LocationId\":\"water001\"\r\n" + 
+				"      },\r\n" + 
+				"      \"Change\":0,\r\n" + 
+				"      \"Comment\":\"This is a comment to be saved into comment in UMRM102\",\r\n" + 
+				"      \"Document\":[\r\n" + 
+				"         \r\n" + 
+				"      ],\r\n" + 
+				"      \"ServiceOrder\": {\r\n" + 
+				"            \"Id\": \"SORD00000008996\",\r\n" + 
+				"            \"Task\": {\r\n" + 
+				"                \"Sequence\": \"1000\",\r\n" + 
+				"                \"EmployeeId\":\"sa\"\r\n" + 
+				"            }\r\n" + 
+				"        }\r\n" + 
+				"    }\r\n" + 
+				"}\r\n" + 
+				" ";
+		
+		String expected = "{\"Receipt\":{\"Success\":true,\"Data\":{\"ReturnValues\":[{\"Name\":\"ReceiptNumber\",\"Value\":\"004240724000005\"}]},\"Messages\":[]}}";
+		CommonMethods.postMethodString(payload, uri, ver, expected);
+		
+	}
+	
+	
+	@Test(priority = 9, groups = "Cashering")
+	public void saveReciept_4_prepaymentNewCustomer()
+			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
+		
+		String uri = "/cashiering/receipt";
+		String ver = "4.0";
+		String payload = "{\r\n" + 
+				"   \"Receipt\":{\r\n" + 
+				"      \"ReceiptNumber\":\"004240724000009\",\r\n" + 
+				"      \"OriginatingReceiptNumber\":\"\",\r\n" + 
+				"      \"Void\":false,\r\n" + 
+				"      \"CustomerId\":\"SUBCUSTOMER\",\r\n" + 
+				"      \"LocationId\":\"MOVEIN\",\r\n" + 
+				"      \"PaymentOrigin\":\"API\",\r\n" + 
+				"      \"CheckbookId\":\"FIRST NATIONAL\",\r\n" + 
+				"      \"PaidBy\":{\r\n" + 
+				"         \"Type\":1,\r\n" + 
+				"         \"Description\": \"SUBCUSTOMER\",\r\n" + 
+				"         \"Id\":\"SUBCUSTOMER\"\r\n" + 
+				"      },\r\n" + 
+				"      \"Cash\":10,\r\n" + 
+				"      \"Check\":{\r\n" + 
+				"         \"Amount\":0,\r\n" + 
+				"         \"Number\":\"\"\r\n" + 
+				"      },\r\n" + 
+				"      \"CreditCard\": {\r\n" + 
+				"          \"Amount\": 0\r\n" + 
+				"      },\r\n" + 
+				"      \"Unapplied\":{\r\n" + 
+				"         \"Amount\":10,\r\n" + 
+				"         \"Account\":\"000-2115-00\",\r\n" + 
+				"         \"LocationId\":\"MOVEIN\"\r\n" + 
+				"      },\r\n" + 
+				"      \"Change\":0,\r\n" + 
+				"      \"Comment\":\"This is a comment to be saved into comment in UMRM102\",\r\n" + 
+				"      \"Document\":[\r\n" + 
+				"         \r\n" + 
+				"      ],\r\n" + 
+				"      \"ServiceOrder\": {\r\n" + 
+				"            \"Id\": \"SORD00000008998\",\r\n" + 
+				"            \"Task\": {\r\n" + 
+				"                \"Sequence\": \"1000\",\r\n" + 
+				"                \"EmployeeId\":\"sa\"\r\n" + 
+				"            }\r\n" + 
+				"        }\r\n" + 
+				"    }\r\n" + 
+				"}\r\n" + 
+				"";
+		
+		String expected = "{\"Receipt\":{\"Success\":true,\"Data\":{\"ReturnValues\":[{\"Name\":\"ReceiptNumber\",\"Value\":\"004240724000009\"}]},\"Messages\":[]}}";
+		CommonMethods.postMethodString(payload, uri, ver, expected);
+		
+	}
+
 
 }
