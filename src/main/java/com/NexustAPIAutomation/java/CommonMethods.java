@@ -1343,7 +1343,7 @@ public class CommonMethods {
 		Response jsonPathResponse;
 		jsonPathResponse = CommonMethods.postMethodResponseasString(payload, uri, ver);
 		System.out.println(jsonPathResponse.asString());
-		AssertJUnit.assertTrue(jsonPathResponse.asString().contains(exResult));
+		Assert.assertTrue(jsonPathResponse.asString().contains(exResult));
 
 	}
 

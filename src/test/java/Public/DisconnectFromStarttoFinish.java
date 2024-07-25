@@ -69,7 +69,7 @@ public class DisconnectFromStarttoFinish {
 				+ "        \"Confirm\": {\n" + "            \"IgnoreDisconnectMeterReadValidation\": true,\n"
 				+ "            \"IgnoreDisconnectToActiveValidation\": false,\n"
 				+ "            \"IgnoreEquipmentReinstallValidation\": false\n" + "        },\n"
-				+ "        \"ServiceOrder\":{\n" + "            \"Id\": \"SORD00000008990\",\n"
+				+ "        \"ServiceOrder\":{\n" + "            \"Id\": \"SORD00000009002\",\n"
 				+ "            \"Task\":{\n" + "                \"Sequence\": 1000\n" + "            }\n"
 				+ "        }\n" + "	}\n" + "}";
 
