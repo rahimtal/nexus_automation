@@ -79,7 +79,7 @@ public class PaymentControllerV4 {
 		System.out.println(result.toString());
 
 	}
-	
+
 	@Test(priority = 6, groups = "Payment")
 	public void gettPaymentNextOpenv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
@@ -92,7 +92,7 @@ public class PaymentControllerV4 {
 		System.out.println(result);
 
 	}
-	
+
 	@Test(priority = 7, groups = "Payment")
 	public void gettPaymentNextHistv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
@@ -104,11 +104,11 @@ public class PaymentControllerV4 {
 		String result = CommonMethods.getMethodContains(uri, ver, params, expected);
 		expected = "./\\TestData\\getpaymentNextHistv4_1.json";
 		result = CommonMethods.getMethodContains(uri, ver, params, expected);
-		
+
 		System.out.println(result);
 
 	}
-	
+
 	@Test(priority = 8, groups = "Payment")
 	public void gettPaymentNextAllv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
@@ -121,12 +121,10 @@ public class PaymentControllerV4 {
 		System.out.println(result);
 
 	}
-	
-	
-	@Test(priority = 9, groups = "Payment")
-	public void putputPaymentV4()
-			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
+	@Test(priority = 9, groups = "Payment")
+	public void putputPaymentV4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		CommonMethods.Bug("You've created CPDEV-18776 issue");
 		String uri = "/Payment";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\putPaymentV4.json";

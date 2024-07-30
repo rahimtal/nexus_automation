@@ -76,7 +76,7 @@ public class PaymentControllerV4 {
 	@Test(priority = 5, groups = "Payment")
 	public void postPaymentMiscv4() throws ClassNotFoundException, SQLException, InterruptedException {
 		// CommonMethods.CompanyDBRestore();
-		CommonMethods.Bug("CPDEV-18766");
+		//CommonMethods.Bug("CPDEV-18766");
 		String uri = "/payment";
 		String ver = "4.0";
 		String payload = "./\\TestData\\PostPaymentMiscv4.json";

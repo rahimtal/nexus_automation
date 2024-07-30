@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Jul 29 06:21:25 PDT 2024</td>
+<td>Started on:</td><td>Tue Jul 30 02:00:53 PDT 2024</td>
 </tr>
-<tr><td>Total time:</td><td>2 seconds (2300 ms)</td>
+<tr><td>Total time:</td><td>1 seconds (1490 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,14 +76,16 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='Public.PaymentControllerV4.postPaymentMiscv4()'><b>postPaymentMiscv4</b><br>Test class: Public.PaymentControllerV4</td>
-<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+<td title='Private.PaymentControllerV4.putputPaymentV4()'><b>putputPaymentV4</b><br>Test class: Private.PaymentControllerV4</td>
+<td><div><pre>java.lang.AssertionError: expected [{&quot;Payment&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;DocumentNumber&quot;:&quot;PYMT00000000530&quot;,&quot;BatchId&quot;:&quot;___api_CR&quot;,&quot;LocationId&quot;:&quot;BUDGETLOC02&quot;,&quot;CustomerId&quot;:&quot;03332301204&quot;},&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Updated&quot;,&quot;Level&quot;:1}]}}] but found [{&quot;Payment&quot;:{&quot;Success&quot;:false,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Checkbook is not allowed&quot;,&quot;Level&quot;:3}]}}]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1578)
-	at org.testng.Assert.assertTrue(Assert.java:57)
-	at org.testng.Assert.assertTrue(Assert.java:67)
-	at com.NexustAPIAutomation.java.CommonMethods.postcallcontains(CommonMethods.java:1346)
-	at Public.PaymentControllerV4.postPaymentMiscv4(PaymentControllerV4.java:84)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at org.testng.Assert.assertEquals(Assert.java:666)
+	at com.NexustAPIAutomation.java.CommonMethods.putMethod(CommonMethods.java:784)
+	at Private.PaymentControllerV4.putputPaymentV4(PaymentControllerV4.java:135)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -112,14 +114,16 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1806547472", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1806547472'><pre>java.lang.AssertionError: expected [true] but found [false]
+</pre></div><a href='#' onClick='toggleBox("stack-trace379972461", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace379972461'><pre>java.lang.AssertionError: expected [{&quot;Payment&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;DocumentNumber&quot;:&quot;PYMT00000000530&quot;,&quot;BatchId&quot;:&quot;___api_CR&quot;,&quot;LocationId&quot;:&quot;BUDGETLOC02&quot;,&quot;CustomerId&quot;:&quot;03332301204&quot;},&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Updated&quot;,&quot;Level&quot;:1}]}}] but found [{&quot;Payment&quot;:{&quot;Success&quot;:false,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Checkbook is not allowed&quot;,&quot;Level&quot;:3}]}}]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1578)
-	at org.testng.Assert.assertTrue(Assert.java:57)
-	at org.testng.Assert.assertTrue(Assert.java:67)
-	at com.NexustAPIAutomation.java.CommonMethods.postcallcontains(CommonMethods.java:1346)
-	at Public.PaymentControllerV4.postPaymentMiscv4(PaymentControllerV4.java:84)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at org.testng.Assert.assertEquals(Assert.java:666)
+	at com.NexustAPIAutomation.java.CommonMethods.putMethod(CommonMethods.java:784)
+	at Private.PaymentControllerV4.putputPaymentV4(PaymentControllerV4.java:135)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -149,8 +153,8 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
-<td>2</td>
-<td>Public.PaymentControllerV4@645aa696</td></tr>
+<td>1</td>
+<td>Private.PaymentControllerV4@1a75e76a</td></tr>
 </table><p>
 </body>
 </html>

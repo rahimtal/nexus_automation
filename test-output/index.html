@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\Admin\AppData\Local\Temp\testng-eclipse--167534051\testng-customsuite.xml</span>
+                    <span>C:\Users\Admin\AppData\Local\Temp\testng-eclipse-2045349749\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -103,7 +103,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Public.PaymentControllerV4" class="method navigator-link" hash-for-method="postPaymentMiscv4">postPaymentMiscv4</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="Private.PaymentControllerV4" class="method navigator-link" hash-for-method="putputPaymentV4">putputPaymentV4</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -121,21 +121,23 @@
           <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">Public.PaymentControllerV4</span>
+              <span class="class-name">Private.PaymentControllerV4</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="postPaymentMiscv4">
-                  </a> <!-- postPaymentMiscv4 -->
-                  <span class="method-name">postPaymentMiscv4</span>
-                  <div class="stack-trace">java.lang.AssertionError: expected [true] but found [false]
+                  <a name="putputPaymentV4">
+                  </a> <!-- putputPaymentV4 -->
+                  <span class="method-name">putputPaymentV4</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [{&quot;Payment&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;DocumentNumber&quot;:&quot;PYMT00000000530&quot;,&quot;BatchId&quot;:&quot;___api_CR&quot;,&quot;LocationId&quot;:&quot;BUDGETLOC02&quot;,&quot;CustomerId&quot;:&quot;03332301204&quot;},&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Updated&quot;,&quot;Level&quot;:1}]}}] but found [{&quot;Payment&quot;:{&quot;Success&quot;:false,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Checkbook is not allowed&quot;,&quot;Level&quot;:3}]}}]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1578)
-	at org.testng.Assert.assertTrue(Assert.java:57)
-	at org.testng.Assert.assertTrue(Assert.java:67)
-	at com.NexustAPIAutomation.java.CommonMethods.postcallcontains(CommonMethods.java:1346)
-	at Public.PaymentControllerV4.postPaymentMiscv4(PaymentControllerV4.java:84)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at org.testng.Assert.assertEquals(Assert.java:666)
+	at com.NexustAPIAutomation.java.CommonMethods.putMethod(CommonMethods.java:784)
+	at Private.PaymentControllerV4.putputPaymentV4(PaymentControllerV4.java:135)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -173,7 +175,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Admin\AppData\Local\Temp\testng-eclipse--167534051\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Admin\AppData\Local\Temp\testng-eclipse-2045349749\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -182,11 +184,11 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;Public.PaymentControllerV4&quot;&gt;
+      &lt;class name=&quot;Private.PaymentControllerV4&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;postPaymentMiscv4&quot;/&gt;
+          &lt;include name=&quot;putputPaymentV4&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- Public.PaymentControllerV4 --&gt;
+      &lt;/class&gt; &lt;!-- Private.PaymentControllerV4 --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -214,7 +216,7 @@
               <span class="test-group-name">Payment</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">postPaymentMiscv4</span>
+                <span class="method-in-group-name">putputPaymentV4</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -236,14 +238,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'postPaymentMiscv4')
-data.setCell(0, 2, 'Public.PaymentControllerV4')
-data.setCell(0, 3, 2255);
+data.setCell(0, 1, 'putputPaymentV4')
+data.setCell(0, 2, 'Private.PaymentControllerV4')
+data.setCell(0, 3, 1449);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 seconds</span>
+              <span class="suite-total-time">Total running time: 1 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -258,17 +260,27 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">3 ignored methods</span>
+            <span class="header-content">8 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
-              <span class="ignored-class-name">Public.PaymentControllerV4</span>
+              <span class="ignored-class-name">Private.PaymentControllerV4</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">postPaymentv4</span>
+                <span class="ignored-method-name">postPaymentSimulatev4</span>
                 <br/>
-                <span class="ignored-method-name">postPaymentBatchtruev4</span>
+                <span class="ignored-method-name">delPaymentv4CreditNote</span>
                 <br/>
-                <span class="ignored-method-name">postPaymentBatchv4</span>
+                <span class="ignored-method-name">gettPaymentNextv4</span>
+                <br/>
+                <span class="ignored-method-name">gettPaymentNextHistv4</span>
+                <br/>
+                <span class="ignored-method-name">gettPaymentNextAllv4</span>
+                <br/>
+                <span class="ignored-method-name">gettPaymentNextOpenv4</span>
+                <br/>
+                <span class="ignored-method-name">delPaymentv4Err</span>
+                <br/>
+                <span class="ignored-method-name">delPaymentv4</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -280,11 +292,11 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">Public.PaymentControllerV4</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">Private.PaymentControllerV4</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">postPaymentMiscv4</span>
+                <span class="method-name">putputPaymentV4</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
