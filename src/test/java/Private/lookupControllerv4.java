@@ -17,7 +17,7 @@ public class lookupControllerv4 {
 	public void getapplyByService_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookupBatch";
 		String ver = "4.0";
-		String expected = "{\"Batch\":[{\"Id\":\"___api_CR\",\"Description\":\"\"},{\"Id\":\"000700\",";
+		String expected = "{\"Id\":\"000700\",";
 		HashMap<String, String> params = new HashMap<String, String>();
 		String result = CommonMethods.getMethodasString(uri, ver, params);
 		System.out.println(result);

@@ -819,20 +819,23 @@ public class CommonMethods {
 		case "4.0":
 			RestAssured.baseURI = urlv4;
 			break;
+		case "4":
+			RestAssured.baseURI = urlv4;
+			break;
 
 		default:
 			version = "Invalid version";
 			break;
 		}
 
-		File body = new File(payload);
+		//File body = new File(payload);
 		RestAssured.baseURI = RestAssured.baseURI + uri;
 		System.out.println(RestAssured.baseURI.toString());
 		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
 				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
-				.body(body);
+				.body(payload);
 		Response response = httpRequest.put();
-		AssertJUnit.assertEquals(response.getBody().asString(), expected);
+		Assert.assertEquals(response.getBody().asString(), expected);
 
 		System.out.println("** PUT call Response **");
 		return response.getBody().asString();
