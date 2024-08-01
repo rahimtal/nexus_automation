@@ -1,6 +1,7 @@
 package Private;
 
 import org.testng.annotations.Test;
+import org.testng.Assert;
 import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -19,11 +20,8 @@ public class lookupControllerv4 {
 		String expected = "{\"Batch\":[{\"Id\":\"___api_CR\",\"Description\":\"\"},{\"Id\":\"000700\",";
 		HashMap<String, String> params = new HashMap<String, String>();
 		String result = CommonMethods.getMethodasString(uri, ver, params);
-
-		if (!result.contains(expected)) {
-			AssertJUnit.fail("Actual Result " + result);
-		}
 		System.out.println(result);
+		Assert.assertTrue(result.contains(expected));
 	}
 
 	@Test(priority = 2, groups = "lookup")
@@ -297,7 +295,7 @@ public class lookupControllerv4 {
 		String result = CommonMethods.getMethod(uri, ver, params, jpath);
 		System.out.println(result);
 	}
-	
+
 	@Test(priority = 25, groups = "lookup")
 	public void lookupserviceOrderOrigin()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
@@ -308,7 +306,7 @@ public class lookupControllerv4 {
 		String result = CommonMethods.getMethod(uri, ver, params, jpath);
 		System.out.println(result);
 	}
-	
+
 	@Test(priority = 26, groups = "lookup")
 	public void lookupserviceOrderStatus()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
@@ -319,8 +317,7 @@ public class lookupControllerv4 {
 		String result = CommonMethods.getMethod(uri, ver, params, jpath);
 		System.out.println(result);
 	}
-	
-	
+
 	@Test(priority = 27, groups = "lookup")
 	public void lookupserviceOrderTask()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
@@ -332,8 +329,7 @@ public class lookupControllerv4 {
 		String result = CommonMethods.getMethod(uri, ver, params, jpath);
 		System.out.println(result);
 	}
-	
-	
+
 	@Test(priority = 28, groups = "lookup")
 	public void lookupserviceOrderRequestedBy()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
@@ -344,6 +340,5 @@ public class lookupControllerv4 {
 		String result = CommonMethods.getMethod(uri, ver, params, jpath);
 		System.out.println(result);
 	}
-
 
 }
