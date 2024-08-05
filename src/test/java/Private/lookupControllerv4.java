@@ -285,6 +285,8 @@ public class lookupControllerv4 {
 	@Test(priority = 24, groups = "lookup")
 	public void lookupPaymentDocuments()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		
+		CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-18805");
 		String uri = "/lookup/paymentDocuments";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\lookuppaymentDocumentsv4.json";

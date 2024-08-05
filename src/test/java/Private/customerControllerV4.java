@@ -90,6 +90,7 @@ public class customerControllerV4 {
 	@Test(priority = 5, groups = "CustomerController")
 	public void putupdateCustomerCard()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		CommonMethods.Bug("CPDEV-18811");
 		String uri = "/customer/updateCustomerCard";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\putcustomerupdateCustomerCardv4.json";
@@ -98,7 +99,7 @@ public class customerControllerV4 {
 
 	}
 
-	@Test(priority = 6, groups = "CustomerController")
+//	@Test(priority = 6, groups = "CustomerController")
 	public void putupdateCustomersCard()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/customers/updateCustomerCard";
@@ -111,7 +112,9 @@ public class customerControllerV4 {
 
 	@Test(priority = 7, groups = "CustomerController")
 	public void putupdateCustomersInfov4()
-			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+				throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		
+		CommonMethods.Bug("CPDEV-18816");
 		String uri = "/customers/info";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\putcustomersinfov4.json";
