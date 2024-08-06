@@ -350,6 +350,61 @@ public class CashieringController extends BaseClass {
 		CommonMethods.postMethodString(payload, uri, ver, expected);
 		
 	}
+	
+	
+	@Test(priority = 10, groups = "Cashering")
+	public void saveReciept_4_SOTaskCompleteDepositPayment()
+			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
+		
+		String uri = "/cashiering/receipt";
+		String ver = "4.0";
+		String payload = "{\r\n" + 
+				"   \"Receipt\":{\r\n" + 
+				"      \"ReceiptNumber\":\"004240805000004\",\r\n" + 
+				"      \"OriginatingReceiptNumber\":\"\",\r\n" + 
+				"      \"Void\":false,\r\n" + 
+				"      \"CustomerId\":\"500002\",\r\n" + 
+				"      \"LocationId\":\"100002\",\r\n" + 
+				"      \"PaymentOrigin\":\"API\",\r\n" + 
+				"      \"CheckbookId\":\"FIRST NATIONAL\",\r\n" + 
+				"      \"PaidBy\":{\r\n" + 
+				"         \"Type\":1,\r\n" + 
+				"         \"Description\": \"500002\",\r\n" + 
+				"         \"Id\":\"500002\"\r\n" + 
+				"      },\r\n" + 
+				"      \"Cash\":10,\r\n" + 
+				"      \"Check\":{\r\n" + 
+				"         \"Amount\":0,\r\n" + 
+				"         \"Number\":\"\"\r\n" + 
+				"      },\r\n" + 
+				"      \"CreditCard\": {\r\n" + 
+				"          \"Amount\": 0\r\n" + 
+				"      },\r\n" + 
+				"      \"Unapplied\":{\r\n" + 
+				"         \"Amount\":10,\r\n" + 
+				"         \"Account\":\"000-2115-00\",\r\n" + 
+				"         \"LocationId\":\"100002\"\r\n" + 
+				"      },\r\n" + 
+				"      \"Change\":0,\r\n" + 
+				"      \"Comment\":\"This is a comment to be saved into comment in UMRM102\",\r\n" + 
+				"      \"Document\":[\r\n" + 
+				"         \r\n" + 
+				"      ],\r\n" + 
+				"      \"ServiceOrder\": {\r\n" + 
+				"            \"Id\": \"SORD00000009002\",\r\n" + 
+				"            \"Task\": {\r\n" + 
+				"                \"Sequence\": \"1100\",\r\n" + 
+				"                \"EmployeeId\":\"sa\"\r\n" + 
+				"            }\r\n" + 
+				"        }\r\n" + 
+				"    }\r\n" + 
+				"}\r\n" + 
+				"";
+		
+		String expected = "{\"Receipt\":{\"Success\":true,\"Data\":{\"ReturnValues\":[{\"Name\":\"ReceiptNumber\",\"Value\":\"004240805000004\"}]},\"Messages\":[]}}";
+		CommonMethods.postMethodString(payload, uri, ver, expected);
+		
+	}
 
 
 }
