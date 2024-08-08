@@ -6,8 +6,9 @@
                 "Id": 1,
                 "Description": "Individual"
             },
-            "CustomerClass": {
-                "Id": "RES-METERED",
+            "Inactive":true,
+               "CustomerClass": {
+               "Id": "RES-METERED",
                 "Description": "Residental Metered"
             },
             "Name": {

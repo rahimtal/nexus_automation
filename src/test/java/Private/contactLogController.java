@@ -1,5 +1,6 @@
 package Private;
 
+import org.junit.Assert;
 import org.testng.annotations.Test;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -115,11 +116,11 @@ public class contactLogController {
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/contactLog/getContactLogServiceOrderRequest";
-		String ver = "4.0";
-		String jpath = "./\\TestData\\getContactLogServiceOrderRequest.json";
+		String version = "4.0";
+		String expected = "{\"result\":[{\"RequestID\":\"TRANSFER2\",\"ServiceOrderDescription\":\"\"},{\"RequestID\":\"REQ-NSF\",\"ServiceOrderDescription\":\"Collection for NSF cheque\"},{\"RequestID\":\"REQ-COLL\",\"ServiceOrderDescription\":\"Collection request\"},{\"RequestID\":\"DEP-REQ-NEW\",\"ServiceOrderDescription\":\"deposit for new customer\"},{\"RequestID\":\"REQ-DEP-WATER\",\"ServiceOrderDescription\":\"Deposit request\"},{\"RequestID\":\"REQ-DISCON-ELE\",\"ServiceOrderDescription\":\"Disaconnection-electric meter\"},{\"RequestID\":\"DISCONNECT\",\"ServiceOrderDescription\":\"Disconnected connection\"},{\"RequestID\":\"REQ-DISCON-S\",\"ServiceOrderDescription\":\"Disconnection-sewer meter\"},{\"RequestID\":\"REQ-DISCON-W\",\"ServiceOrderDescription\":\"Disconnection-water meter\"},{\"RequestID\":\"REQ-INSTALL-E\",\"ServiceOrderDescription\":\"Installation of a new mwter - electric\"},{\"RequestID\":\"REQ-EST-ELE\",\"ServiceOrderDescription\":\"Meter reading for estimate electric\"},{\"RequestID\":\"REQ-EST-GAS\",\"ServiceOrderDescription\":\"Meter reading for estimate gas\"},{\"RequestID\":\"REQ-EST-SEWER\",\"ServiceOrderDescription\":\"Meter reading for estimate sewer\"},{\"RequestID\":\"REQ-EST-WATER\",\"ServiceOrderDescription\":\"meter reading for estimate water\"},{\"RequestID\":\"REQ-SWITCH-E\",\"ServiceOrderDescription\":\"Meter switch - electric\"},{\"RequestID\":\"MOVEIN\",\"ServiceOrderDescription\":\"Move In Customer\"},{\"RequestID\":\"REQ-EST-PH\",\"ServiceOrderDescription\":\"Phone estimate\"},{\"RequestID\":\"REQ-EST-INT\",\"ServiceOrderDescription\":\"Request for internet service\"},{\"RequestID\":\"TRANSFER\",\"ServiceOrderDescription\":\"Transfer location\"}]}";
 		HashMap<String, String> params = new HashMap<String, String>();
-		String result = CommonMethods.getMethod(uri, ver, params, jpath);
-		System.out.println(result);
+		String result = CommonMethods.getMethodasString(uri, version, params);
+		Assert.assertEquals(expected, result);
 
 	}
 

@@ -114,13 +114,137 @@ public class customerControllerV4 {
 	public void putupdateCustomersInfov4()
 				throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		
-		CommonMethods.Bug("CPDEV-18816");
+		//CommonMethods.Bug("CPDEV-18816");
 		String uri = "/customers/info";
 		String ver = "4.0";
-		String jpath = "./\\TestData\\putcustomersinfov4.json";
+		String jpath = "{\r\n" + 
+				"    \"Customer\": [\r\n" + 
+				"        {\r\n" + 
+				"            \"CustomerId\": \"CUSTOMER009\",\r\n" + 
+				"            \"CustomerType\": {\r\n" + 
+				"                \"Id\": 1,\r\n" + 
+				"                \"Description\": \"Individual\"\r\n" + 
+				"            },\r\n" + 
+				"            \"Inactive\":true,\r\n" + 
+				"               \"CustomerClass\": {\r\n" + 
+				"               \"Id\": \"RES-METERED\",\r\n" + 
+				"                \"Description\": \"Residental Metered\"\r\n" + 
+				"            },\r\n" + 
+				"            \"Name\": {\r\n" + 
+				"                \"Title\": {\r\n" + 
+				"                    \"Id\": \"2\",\r\n" + 
+				"                    \"Description\": \"Mr.\"\r\n" + 
+				"                },\r\n" + 
+				"                \"FirstName\": \"Anthony\",\r\n" + 
+				"                \"MiddleName\": \"W\",\r\n" + 
+				"                \"LastName\": \"Bendetto\",\r\n" + 
+				"                \"NameSuffix\": \"\",\r\n" + 
+				"                \"MaidenName\": \"\"\r\n" + 
+				"            },\r\n" + 
+				"            \"PlaceOfWork\": {\r\n" + 
+				"                \"Value\": \"\",\r\n" + 
+				"                \"IsDirty\": false\r\n" + 
+				"            },\r\n" + 
+				"            \"PrimaryLanguage\": \"\",\r\n" + 
+				"            \"EmailAddress\": \"uCustomer009@cogsdale.com\",\r\n" + 
+				"            \"SSN\": {\r\n" + 
+				"                \"Value\": \"765765\",\r\n" + 
+				"                \"IsDirty\": false\r\n" + 
+				"            },\r\n" + 
+				"            \"DateOfBirth\": {\r\n" + 
+				"                \"Value\": \"2031-04-11\",\r\n" + 
+				"                \"IsDirty\": false\r\n" + 
+				"            },\r\n" + 
+				"            \"AlternateId\": {\r\n" + 
+				"                \"Value\": \"\",\r\n" + 
+				"                \"IssuedBy\": \"\",\r\n" + 
+				"                \"Country\": \"USA\",\r\n" + 
+				"                \"IsDirty\": false\r\n" + 
+				"            },\r\n" + 
+				"            \"BusinessAs\": \"\",\r\n" + 
+				"            \"Confirm\": 0,\r\n" + 
+				"            \"Success\": true,\r\n" + 
+				"            \"Messages\": [\r\n" + 
+				"                {\r\n" + 
+				"                    \"Enabled\": 0,\r\n" + 
+				"                    \"Info\": \"\"\r\n" + 
+				"                }\r\n" + 
+				"            ]\r\n" + 
+				"        }\r\n" + 
+				"    ]\r\n" + 
+				"}";
+		String response = "{\"Customer\":[{\"Acknowledge\":0,\"Success\":false,\"Messages\":[{\"Enabled\":1,\"Info\":\"Customer is the current customer for one or more locations and cannot be marked inactive.\"}]}]}";
+		CommonMethods.putMethodstring(uri, ver, jpath, response);
+
+	}
+	
+	@Test(priority = 8, groups = "CustomerController")
+	public void putupdateCustomersInfov4Pos()
+				throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		
+		//CommonMethods.Bug("CPDEV-18816");
+		String uri = "/customers/info";
+		String ver = "4.0";
+		String jpath = "{\r\n" + 
+				"    \"Customer\": [\r\n" + 
+				"        {\r\n" + 
+				"            \"CustomerId\": \"TESTCUSTOMER1\",\r\n" + 
+				"            \"CustomerType\": {\r\n" + 
+				"                \"Id\": 1,\r\n" + 
+				"                \"Description\": \"Individual\"\r\n" + 
+				"            },\r\n" + 
+				"            \"Inactive\":true,\r\n" + 
+				"               \"CustomerClass\": {\r\n" + 
+				"               \"Id\": \"RES-METERED\",\r\n" + 
+				"                \"Description\": \"Residental Metered\"\r\n" + 
+				"            },\r\n" + 
+				"            \"Name\": {\r\n" + 
+				"                \"Title\": {\r\n" + 
+				"                    \"Id\": \"2\",\r\n" + 
+				"                    \"Description\": \"Mr.\"\r\n" + 
+				"                },\r\n" + 
+				"                \"FirstName\": \"Anthony\",\r\n" + 
+				"                \"MiddleName\": \"W\",\r\n" + 
+				"                \"LastName\": \"Bendetto\",\r\n" + 
+				"                \"NameSuffix\": \"\",\r\n" + 
+				"                \"MaidenName\": \"\"\r\n" + 
+				"            },\r\n" + 
+				"            \"PlaceOfWork\": {\r\n" + 
+				"                \"Value\": \"\",\r\n" + 
+				"                \"IsDirty\": false\r\n" + 
+				"            },\r\n" + 
+				"            \"PrimaryLanguage\": \"\",\r\n" + 
+				"            \"EmailAddress\": \"uCustomer009@cogsdale.com\",\r\n" + 
+				"            \"SSN\": {\r\n" + 
+				"                \"Value\": \"765765\",\r\n" + 
+				"                \"IsDirty\": false\r\n" + 
+				"            },\r\n" + 
+				"            \"DateOfBirth\": {\r\n" + 
+				"                \"Value\": \"2031-04-11\",\r\n" + 
+				"                \"IsDirty\": false\r\n" + 
+				"            },\r\n" + 
+				"            \"AlternateId\": {\r\n" + 
+				"                \"Value\": \"\",\r\n" + 
+				"                \"IssuedBy\": \"\",\r\n" + 
+				"                \"Country\": \"USA\",\r\n" + 
+				"                \"IsDirty\": false\r\n" + 
+				"            },\r\n" + 
+				"            \"BusinessAs\": \"\",\r\n" + 
+				"            \"Confirm\": 0,\r\n" + 
+				"            \"Success\": true,\r\n" + 
+				"            \"Messages\": [\r\n" + 
+				"                {\r\n" + 
+				"                    \"Enabled\": 0,\r\n" + 
+				"                    \"Info\": \"\"\r\n" + 
+				"                }\r\n" + 
+				"            ]\r\n" + 
+				"        }\r\n" + 
+				"    ]\r\n" + 
+				"}";
 		String response = "{\"Customer\":[{\"Acknowledge\":0,\"Success\":true,\"Messages\":[{\"Enabled\":1,\"Info\":\"Customer updated.\"}]}]}";
 		CommonMethods.putMethodstring(uri, ver, jpath, response);
 
 	}
+
 
 }
