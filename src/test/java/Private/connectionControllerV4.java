@@ -227,4 +227,62 @@ public class connectionControllerV4 {
 
 	}
 
+	@Test(priority = 11, groups = "ConnectionController")
+	public void postconnectionMeterInstallMeter() 		throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// JsonPath jsonPathEvaluator;
+		String uri = "/connection/meter";
+		String version = "4.0";
+		String payload = "{\r\n" + 
+				"    \"Connection\": {\r\n" + 
+				"        \"ConnectionDate\": \"2023-01-01\",\r\n" + 
+				"        \"DisconnectionDate\": \"1900-01-01\",\r\n" + 
+				"        \"DiscountRate\": \"\",\r\n" + 
+				"        \"EquipmentId\": \"KVARMETER01\",\r\n" + 
+				"        \"InstallationDate\": \"2034-01-01\",\r\n" + 
+				"        \"IsSubtractConnection\": false,\r\n" + 
+				"        \"LocationId\": \"LOCATION003\",\r\n" + 
+				"        \"Multiplier\": {\r\n" + 
+				"            \"Rate\": 0,\r\n" + 
+				"            \"Fixed\": 0,\r\n" + 
+				"            \"Loss\": 0,\r\n" + 
+				"            \"Consumption\": 0,\r\n" + 
+				"            \"RangeAndMinimum\": 0\r\n" + 
+				"        },\r\n" + 
+				"        \"NetMeterDeliveryMeter\": \"\",\r\n" + 
+				"        \"Rate\": [\r\n" + 
+				"            {\r\n" + 
+				"                \"Consumption\": \"\",\r\n" + 
+				"                \"KVA\": \"res-elec\",\r\n" + 
+				"                \"KW\": \"\",\r\n" + 
+				"                \"NetMeterReceived\": \"\",\r\n" + 
+				"                \"PeriodIndex\": 1\r\n" + 
+				"            }\r\n" + 
+				"        ],\r\n" + 
+				"        \r\n" + 
+				"        \"RouteId\": \"ROUTEE001\",\r\n" + 
+				"        \"SequenceNumber\": 0,\r\n" + 
+				"        \"ServiceTypeId\": \"ELECTRIC\",\r\n" + 
+				"        \"Status\": \"2\",\r\n" + 
+				"        \"SubtractBaseConnectionSequence\": 0,\r\n" + 
+				"        \"TaxDiscountPercent\": 10.00000,\r\n" + 
+				"        \"Confirm\": {\r\n" + 
+				"            \"IgnoreEquipmentReinstallValidation\": false,\r\n" + 
+				"            \"EquipmentReinstall\": false\r\n" + 
+				"        },\r\n" + 
+				"     \"ServiceOrder\": {\r\n" + 
+				"         \"Id\": \"SORD00000009016\",\r\n" + 
+				"         \"EmployeeId\": \"sa\",\r\n" + 
+				"         \"OverrideServiceType\": true,\r\n" + 
+				"         \"Task\": {\r\n" + 
+				"             \"Sequence\": 1000\r\n" + 
+				"         }\r\n" + 
+				"     }\r\n" + 
+				"    }\r\n" + 
+				"}\r\n" + 
+				"";
+		String exResponse = "{\"Connection\":{\"Success\":true,\"Data\":{\"LocationId\":\"LOCATION003\",\"ConnectionSequence\":2},\"Messages\":[{\"Enabled\":1,\"Info\":\"Created\",\"Level\":1}]}}";
+		CommonMethods.postMethodString(payload, uri, version, exResponse);
+
+	}
+	
 }

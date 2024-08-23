@@ -30,7 +30,8 @@ public class searchControllerV4 {
 	}
 
 	@Test(priority = 2, groups = "Search", dependsOnMethods = "elascticsearchcreateindex_v_4")
-	public void searchMatchPhrasePrefixv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+	public void searchMatchPhrasePrefixv4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/search";
 		String ver = "4.0";
@@ -44,10 +45,10 @@ public class searchControllerV4 {
 		System.out.println(result);
 
 	}
-	
-	
+
 	@Test(priority = 3, groups = "Search", dependsOnMethods = "searchMatchPhrasePrefixv4")
-	public void part_searchMatchPhrasePrefixv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+	public void part_searchMatchPhrasePrefixv4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/search";
 		String ver = "4.0";
@@ -61,13 +62,13 @@ public class searchControllerV4 {
 		System.out.println(result);
 
 	}
-	
+
 	@Test(priority = 4, groups = "Search", dependsOnMethods = "part_searchMatchPhrasePrefixv4")
-	public void part4_searchMatchPhrasePrefixv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+	public void part4_searchMatchPhrasePrefixv4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/search";
 		String ver = "4.0";
-
 		String jpath = "./\\TestData\\searchMatchPhrasePrefixv4.json";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("index", "accounts");
@@ -77,12 +78,13 @@ public class searchControllerV4 {
 		System.out.println(result);
 
 	}
+
 	@Test(priority = 4, groups = "Search", dependsOnMethods = "part4_searchMatchPhrasePrefixv4")
-	public void part2_searchMatchPhrasePrefixv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+	public void part2_searchMatchPhrasePrefixv4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/search";
 		String ver = "4.0";
-
 		String jpath = "./\\TestData\\2searchMatchPhrasePrefixv4.json";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("index", "accounts");
@@ -92,7 +94,5 @@ public class searchControllerV4 {
 		System.out.println(result);
 
 	}
-	
-	
 
 }
