@@ -1,6 +1,6 @@
 {
     "Connection": {
-        "MeterGroupId": "MTGR00000000001",
+        "MeterGroupId": "MTGR00000000003",
         "FixedChargeId": 1,
         "MinimumCalculationId": 3,
         "DemandHandlingId": 2,
