@@ -198,7 +198,7 @@ public class connectionControllerV4 {
 				+ "            },\r\n" + "            {\r\n" + "                \"Id\": \"EQUIPMENT006\",\r\n"
 				+ "                \"ConnectionSequence\": 3 \r\n" + "            }\r\n" + "        ]\r\n" + "    }\r\n"
 				+ "}";
-		String exResponse = "{\"Connection\":{\"Success\":true,\"Data\":{\"MeterGroupId\":\"MTGR00000000001\"},\"Messages\":[{\"Enabled\":1,\"Info\":\"Created\",\"Level\":1}]}}";
+		String exResponse = "{\"Connection\":{\"Success\":true,\"Data\":{\"MeterGroupId\":\"MTGR00000000003\"},\"Messages\":[{\"Enabled\":1,\"Info\":\"Created\",\"Level\":1}]}}";
 		CommonMethods.postMethodString(payload, uri, version, exResponse);
 
 	}
