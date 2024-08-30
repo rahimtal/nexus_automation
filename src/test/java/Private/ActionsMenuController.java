@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-import org.junit.Assert;
+import org.testng.*;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;

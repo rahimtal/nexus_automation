@@ -138,7 +138,7 @@ public class PaymentControllerV4 {
 	@Test(priority = 2, groups = "Payment")
 	public void postPaymentSimulateExt() throws ClassNotFoundException, SQLException, InterruptedException {
 
-		//CommonMethods.Bug("CPDEV-17140");
+		CommonMethods.Bug("CPDEV-17140");
 		String uri = "/payment/simulate";
 		String version = "4.0";
 		String payload = "./\\TestData\\paymentsimulatev4.json";
