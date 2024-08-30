@@ -96,7 +96,7 @@ public class lookupControllerv4 {
 
 	@Test(priority = 8, groups = "lookup")
 	public void lookupMeterReadv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		CommonMethods.Bug("CPDEV-17166");
+		// Bug is cancelled by Dev CommonMethods.Bug("CPDEV-17166");
 		String uri3 = "/lookupMeterRead";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\lookupMeterRead_v4.json";
@@ -285,7 +285,7 @@ public class lookupControllerv4 {
 	@Test(priority = 24, groups = "lookup")
 	public void lookupPaymentDocuments()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		
+
 		CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-18805");
 		String uri = "/lookup/paymentDocuments";
 		String ver = "4.0";
@@ -341,6 +341,16 @@ public class lookupControllerv4 {
 		HashMap<String, String> params = new HashMap<String, String>();
 		String result = CommonMethods.getMethod(uri, ver, params, jpath);
 		System.out.println(result);
+	}
+
+	@Test(priority = 29, groups = "lookup")
+	public void lookuplocationClass() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/lookup/locationClass";
+		String version = "4.0";
+		String expected = "{\"LocationClass\":[{\"Id\":\"NONCUST-LOC\",\"Description\":\"Non customer Location\"},{\"Id\":\"PERM-NON ACCUM\",\"Description\":\"Permanent Non Accumulated\"},{\"Id\":\"TEST001\",\"Description\":\"temporaty customer\"}]}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, version, params);
+		Assert.assertEquals(result, expected);
 	}
 
 }
