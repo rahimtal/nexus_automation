@@ -1,12 +1,12 @@
 {
     "MeterReading": {
-        "DocumentNumber": "READ00000000905",
-        "BatchId": "NAPIMR~20230815",
+        "DocumentNumber": "READ00000000930",
+        "BatchId": "Bat12",
         "EmployeeId": "BANK0001",
         "Description": "Meter Read from street",
         "AdjustedDate": "2028-03-13T10:50:42",
         "ReadingType": 1,
-        "ReadingDateTime": "2028-02-14T10:11:23",
+        "ReadingDateTime": "2024-03-03T10:11:23",
         "ReasonCode": "ELECTRICREAD",
         "Periods": [
             {
