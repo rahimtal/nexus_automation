@@ -782,8 +782,7 @@ public class CommonMethods {
 				.body(payload);
 		Response response = httpRequest.put();
 		Assert.assertEquals(response.getBody().asString(), new String(Files.readAllBytes(Paths.get(jsonDataInFile))));
-
-		System.out.println("** PUT call Response **");
+		System.out.println("** PUT call Response ** " + response.asString());
 		return response;
 
 	}
