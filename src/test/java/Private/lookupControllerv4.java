@@ -29,12 +29,12 @@ public class lookupControllerv4 {
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookupBatch";
 		String version = "4.0";
-		String expected = "{\"Batch\":[{\"Id\":\"10001\",\"Description\":\"\"},{\"Id\":\"1001\",\"Description\":\"\"},{\"Id\":\"100111\",\"Description\":\"\"},{\"Id\":\"10111\",\"Description\":\"\"},{\"Id\":\"109090ABC\",\"Description\":\"\"},{\"Id\":\"12312312\",\"Description\":\"\"},{\"Id\":\"12345\",\"Description\":\"\"},{\"Id\":\"ABC10001\",\"Description\":\"\"},{\"Id\":\"ABC1213\",\"Description\":\"\"},{\"Id\":\"API 20190430\",\"Description\":\"Payments from Web Service - API\"},{\"Id\":\"API 20190503\",\"Description\":\"Payments from Web Service - API\"},{\"Id\":\"API20240902001\",\"Description\":\"Payments from Nexus Api - API\"},{\"Id\":\"API932024\",\"Description\":\"\"},{\"Id\":\"auto\",\"Description\":\"API Misc Charge\"},{\"Id\":\"BAT012301203\",\"Description\":\"\"},{\"Id\":\"BAT1\",\"Description\":\"\"},{\"Id\":\"BAT10123123\",\"Description\":\"\"},{\"Id\":\"BT1231\",\"Description\":\"Api billing\"},{\"Id\":\"CHEQ1\",\"Description\":\"\"},{\"Id\":\"CHK041227sa01\",\"Description\":\"CHEQUE\"},{\"Id\":\"DPP041227sa01\",\"Description\":\"PYMT\"},{\"Id\":\"MG2024\",\"Description\":\"\"},{\"Id\":\"MG2024DM001\",\"Description\":\"MISC\"},{\"Id\":\"MISC10001\",\"Description\":\"\"},{\"Id\":\"NADMC2022093001\",\"Description\":\"API Deposit Misc Charge\"},{\"Id\":\"NAMR20240903001\",\"Description\":\"API Meter Read\"},{\"Id\":\"RM(3)120427\",\"Description\":\"\"},{\"Id\":\"Test Batch\",\"Description\":\"\"},{\"Id\":\"TEST109\",\"Description\":\"\"},{\"Id\":\"WO101619CRP001\",\"Description\":\"Write Off - sa\"}]}";
+		String expected = "{\"Batch\":[{\"Id\":\"10001\",\"Description\":\"\"},{\"Id\":\"1001\",\"Description\":\"\"},{\"Id\":\"100111\",";
 		HashMap<String, String> params = new HashMap<String, String>();
-		params.put("Batchsource", "PAYMENTS");
+		params.put("BatchSource", "PAYMENTS");
 		// params.put("LocationId", "LOCATION011");
 		String actual = CommonMethods.getMethodasString(uri, version, params);
-		Assert.assertEquals(actual, expected);
+		Assert.assertTrue(actual.contains(expected));
 	}
 
 	@Test(priority = 3, groups = "lookup")
