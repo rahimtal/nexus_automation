@@ -344,7 +344,7 @@ public class CommonMethods {
 			break;
 		case "4.0":
 			RestAssured.baseURI = urlv4;
-			break;	
+			break;
 		default:
 			version = "Invalid version";
 			break;
@@ -827,7 +827,7 @@ public class CommonMethods {
 			break;
 		}
 
-		//File body = new File(payload);
+		// File body = new File(payload);
 		RestAssured.baseURI = RestAssured.baseURI + uri;
 		System.out.println(RestAssured.baseURI.toString());
 		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
@@ -1287,6 +1287,54 @@ public class CommonMethods {
 		response = httpRequest.delete().then().assertThat().body(Matchers.containsString(validate));
 		System.out.println(response.extract().asString());
 		return response.extract().asString();
+
+	}
+
+	public static void deleteMethodvoid(String uri, String version, String expected)
+			throws InterruptedException, IOException {
+		switch (version) {
+		case "1":
+			RestAssured.baseURI = urlv1;
+			break;
+		case "2":
+			RestAssured.baseURI = urlv2;
+			break;
+		case "2.1":
+			RestAssured.baseURI = urlv210;
+			break;
+		case "2.2":
+			RestAssured.baseURI = urlv220;
+			break;
+		case "2.3":
+			RestAssured.baseURI = urlv230;
+			break;
+		case "2.3.1":
+			RestAssured.baseURI = urlv231;
+			break;
+		case "2.4":
+			RestAssured.baseURI = urlv240;
+			break;
+		case "3.0":
+			RestAssured.baseURI = urlv3;
+			break;
+		case "4.0":
+			RestAssured.baseURI = urlv4;
+			break;
+		default:
+			version = "Invalid version";
+			break;
+		}
+		RestAssured.baseURI = RestAssured.baseURI + uri;
+		System.out.println(RestAssured.baseURI.toString());
+		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
+				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br");
+
+		Response response;
+
+		response = httpRequest.delete();
+		System.out.println(response.asString());
+		Assert.assertEquals(response.asString(), expected);
+		
 
 	}
 
