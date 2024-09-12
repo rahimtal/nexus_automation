@@ -90,10 +90,36 @@ public class customerControllerV4 {
 	@Test(priority = 5, groups = "CustomerController")
 	public void putupdateCustomerCard()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		CommonMethods.Bug("CPDEV-18811");
+		//CommonMethods.Bug("CPDEV-18811");
 		String uri = "/customer/updateCustomerCard";
 		String ver = "4.0";
-		String jpath = "./\\TestData\\putcustomerupdateCustomerCardv4.json";
+		String jpath = "{\r\n" + 
+				"	\"CustomerId\": \"CUSTOMER003\",\r\n" + 
+				"	\"AddressLine1\": \"6 JIM BLVD\",\r\n" + 
+				"	\"AddressCity\": \"NEW YORK\",\r\n" + 
+				"	\"AddressState\": \"NY\",\r\n" + 
+				"	\"AddressZipCode\": \"65422\",\r\n" + 
+				"	\"AddressCountry\": \"USA\",\r\n" + 
+				"	\"EmailAddress\": \"cmacdonald@gmail.com\",\r\n" + 
+				"	\"PhoneNumber\": [\r\n" + 
+				"		{\r\n" + 
+				"			\"Number\": \"9028888888\",\r\n" + 
+				"			\"TypeID\":\"1\",\r\n" + 
+				"			\"Description\": \"Phone 1\"\r\n" + 
+				"		},\r\n" + 
+				"		{\r\n" + 
+				"			\"Number\": \"\",\r\n" + 
+				"			\"TypeID\":\"2\",\r\n" + 
+				"			\"Description\": \"Phone 2\"\r\n" + 
+				"		},\r\n" + 
+				"		{\r\n" + 
+				"			\"Number\": \"\",\r\n" + 
+				"			\"TypeID\":\"3\",\r\n" + 
+				"			\"Description\": \"Phone 3\"\r\n" + 
+				"		}\r\n" + 
+				"	]\r\n" + 
+				"}\r\n" + 
+				"";
 		String response = "{\"result\":[{\"success\":true,\"message\":\"Customer Card Updated.\"}]}";
 		CommonMethods.putMethodstring(uri, ver, jpath, response);
 

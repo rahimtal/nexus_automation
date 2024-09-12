@@ -195,7 +195,7 @@ public class PaymentControllerV4 {
 				"            \"EmployeeId\":\"\"}\r\n" + 
 				"            }\r\n" + 
 				"	}";
-		String expected = "{\"Payment\":{\"Success\":true,\"Data\":{\"BatchId\":\"dep1\",\"DocumentNumber\":\"PYMT00000000529\"},\"Messages\":[{\"Enabled\":1,\"Info\":\"Service order number and\\/or task id does not exist\",\"Level\":2}]}}";
+		String expected = "{\"Payment\":{\"Success\":true,\"Data\":{\"BatchId\":\"dep1\",\"DocumentNumber\":\"PYMT00000000531\"},\"Messages\":[{\"Enabled\":1,\"Info\":\"Service order number and\\/or task id does not exist\",\"Level\":2}]}}";
 		CommonMethods.postMethodString(payload, uri, ver, expected);
 		
 

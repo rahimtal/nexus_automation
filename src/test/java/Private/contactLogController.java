@@ -76,13 +76,13 @@ public class contactLogController {
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/contactLog";
-		String ver = "4.0";
-		String jpath = "./\\TestData\\getContactLogv4.json";
+		String version = "4.0";
+		String expected = "{\"ContactLog\":{\"Success\":true,\"Data\":{\"Detail\":[{\"ActionCode\":\"2\",\"AdditionalText\":\"\",\"ContactMethod\":1,\"Description\":\"Request to read meter\",\"FirstContactDateTime\":\"2022-01-01T12:15:14\",\"NextContactDateTime\":\"2022-01-21T11:11:12\",\"CompletedDateTime\":\"2022-04-09T16:01:05\",\"IsCompleted\":true,\"ResolutionText\":\"\",\"ServiceOrder\":{\"Number\":\"SORD00000009025\",\"StatusDescription\":\"Pending\",\"RequestId\":\"DISCONNECT\",\"RequestDescription\":\"Disconnected connection\"},\"FollowUpEmployee\":{\"Id\":\"ZAID0001\",\"FirstName\":\"Syed\",\"MiddleName\":\"M.\",\"LastName\":\"Zaidi\"},\"User\":{\"Id\":\"sa\",\"FirstName\":\"Sam\",\"MiddleName\":\"M.\",\"LastName\":\"Arsenault\"}}]},\"Messages\":[]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("LocationId", "LOCATION008");
 		params.put("CustomerId", "CUSTOMER009");
-		String result = CommonMethods.getMethod(uri, ver, params, jpath);
-		System.out.println(result);
+		String actual = CommonMethods.getMethodasString(uri, version, params);
+		Assert.assertEquals(expected, actual);
 
 	}
 
