@@ -352,4 +352,15 @@ public class lookupControllerv4 {
 		Assert.assertEquals(result, expected);
 	}
 
+	@Test(priority = 30, groups = "lookup")
+	public void lookuplocation() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/lookupLocation";
+		String version = "4.0";
+		String expected = "{\"Locations\":[{\"LocationId\":\"LOCATION001\"}]}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("LocationId", "LOCATION001");
+		String result = CommonMethods.getMethodasString(uri, version, params);
+		Assert.assertEquals(result, expected);
+	}
+
 }
