@@ -33,8 +33,21 @@ public class DepositsController {
 	@Test(priority = 4, groups = "Deposits", dependsOnMethods = "postdepositpaymentPlanv4")
 	public void getdepositpaymentPlan() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
-		String uri = "/deposit/DEPS00000000032/paymentPlan";
+		String uri = "/deposit/DEPS00000000035/paymentPlan";
 		String ver = "4.0";
+		String jpath = "./\\TestData\\depositsPaymentPlanv3.json";
+		HashMap<String, String> params = new HashMap<String, String>();
+		// params.put("DocumentNumber", "DEPS00000000026");
+		String result = CommonMethods.getMethod(uri, ver, params, jpath);
+		System.out.println(result);
+
+	}
+	
+	@Test(priority = 5, groups = "Deposits", dependsOnMethods = "postdepositpaymentPlanv4")
+	public void getdepositpaymentPlanv3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/deposit/DEPS00000000035/paymentPlan";
+		String ver = "3.0";
 		String jpath = "./\\TestData\\depositsPaymentPlanv3.json";
 		HashMap<String, String> params = new HashMap<String, String>();
 		// params.put("DocumentNumber", "DEPS00000000026");
@@ -59,7 +72,7 @@ public class DepositsController {
 
 	}
 
-	@Test(priority = 1, groups = "Deposits")
+	@Test(priority = 2, groups = "Deposits")
 	public void postdepositpaymentPlanv4() throws ClassNotFoundException, SQLException, InterruptedException {
 
 		String uri = "/deposit/paymentPlan";
