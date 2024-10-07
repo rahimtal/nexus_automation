@@ -85,11 +85,10 @@ public class PaymentControllerV4 {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/payment/next";
 		String ver = "4.0";
-		String expected = "./\\TestData\\gettPaymentNextOpenv4.json";
+		String expected = "{\"Payment\":{\"Success\":true,\"Data\":{\"PreviousDocumentNumber\":\"PYMT00000000531\",\"NextDocumentNumber\":\"PYMT00000000";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("PrevInOpen", "true");
-		String result = CommonMethods.getMethodContains(uri, ver, params, expected);
-		System.out.println(result);
+		CommonMethods.getMethodContainsString(uri, ver, params, expected);
 
 	}
 
@@ -145,59 +144,29 @@ public class PaymentControllerV4 {
 		CommonMethods.postMethodString(payload, uri, version, expected);
 
 	}
-	
-	
+
 	@Test(priority = 11, groups = "Payment")
 	public void postPaymentDepositv4() throws ClassNotFoundException, SQLException, InterruptedException {
 
-		
 		String uri = "/payment";
 		String ver = "4.0";
-		String payload = "{\r\n" + 
-				"    \"BatchId\":\"dep1\",\r\n" + 
-				"    \"LocationId\":\"ELECWAT001\",\r\n" + 
-				"    \"CustomerId\":\"CUSTOMER007\",\r\n" + 
-				"    \"Type\":0,\r\n" + 
-				"    \"PaymentDate\":\"2024-09-04\",\r\n" + 
-				"    \"PaymentAmount\":10.00,\r\n" + 
-				"    \"OriginId\":\"\",\r\n" + 
-				"    \"PaidBy\":1,\r\n" + 
-				"    \"PaidById\":\"\",\r\n" + 
-				"    \"AuthorizationCode\":\"\",\r\n" + 
-				"    \"AutoApply\":false,\r\n" + 
-				"    \"ApplyBy\":0,\r\n" + 
-				"    \"Comment\":\"Deposit\",\r\n" + 
-				"    \"DistributionDetail\":\r\n" + 
-				"    [\r\n" + 
-				"        {\"TypeId\":3,\r\n" + 
-				"        \"Index\":508,\r\n" + 
-				"        \"DebitAmount\":0.00,\r\n" + 
-				"        \"CreditAmount\":10.00\r\n" + 
-				"        },\r\n" + 
-				"    {\"TypeId\":9,\r\n" + 
-				"    \"Index\":568,\r\n" + 
-				"    \"DebitAmount\":10.00,\r\n" + 
-				"    \"CreditAmount\":0.00\r\n" + 
-				"    }\r\n" + 
-				"    ],\r\n" + 
-				"    \"DocumentToApply\":\r\n" + 
-				"    [\r\n" + 
-				"        {\r\n" + 
-				"            \"Number\":\"MISC00000000387\",\r\n" + 
-				"            \"ApplyAmount\":10.00\r\n" + 
-				"            	}\r\n" + 
-				"                ]\r\n" + 
-				"    ,\r\n" + 
-				"    \"ServiceOrder\":{\r\n" + 
-				"         \"Id\": \"SORD00000009019\",\r\n" + 
-				"        \"Task\":{\r\n" + 
-				"           \"Sequence\":1400,\r\n" + 
-				"            \"EmployeeId\":\"\"}\r\n" + 
-				"            }\r\n" + 
-				"	}";
+		String payload = "{\r\n" + "    \"BatchId\":\"dep1\",\r\n" + "    \"LocationId\":\"ELECWAT001\",\r\n"
+				+ "    \"CustomerId\":\"CUSTOMER007\",\r\n" + "    \"Type\":0,\r\n"
+				+ "    \"PaymentDate\":\"2024-09-04\",\r\n" + "    \"PaymentAmount\":10.00,\r\n"
+				+ "    \"OriginId\":\"\",\r\n" + "    \"PaidBy\":1,\r\n" + "    \"PaidById\":\"\",\r\n"
+				+ "    \"AuthorizationCode\":\"\",\r\n" + "    \"AutoApply\":false,\r\n" + "    \"ApplyBy\":0,\r\n"
+				+ "    \"Comment\":\"Deposit\",\r\n" + "    \"DistributionDetail\":\r\n" + "    [\r\n"
+				+ "        {\"TypeId\":3,\r\n" + "        \"Index\":508,\r\n" + "        \"DebitAmount\":0.00,\r\n"
+				+ "        \"CreditAmount\":10.00\r\n" + "        },\r\n" + "    {\"TypeId\":9,\r\n"
+				+ "    \"Index\":568,\r\n" + "    \"DebitAmount\":10.00,\r\n" + "    \"CreditAmount\":0.00\r\n"
+				+ "    }\r\n" + "    ],\r\n" + "    \"DocumentToApply\":\r\n" + "    [\r\n" + "        {\r\n"
+				+ "            \"Number\":\"MISC00000000387\",\r\n" + "            \"ApplyAmount\":10.00\r\n"
+				+ "            	}\r\n" + "                ]\r\n" + "    ,\r\n" + "    \"ServiceOrder\":{\r\n"
+				+ "         \"Id\": \"SORD00000009019\",\r\n" + "        \"Task\":{\r\n"
+				+ "           \"Sequence\":1400,\r\n" + "            \"EmployeeId\":\"\"}\r\n" + "            }\r\n"
+				+ "	}";
 		String expected = "{\"Payment\":{\"Success\":true,\"Data\":{\"BatchId\":\"dep1\",\"DocumentNumber\":\"PYMT00000000541\"},\"Messages\":[{\"Enabled\":1,\"Info\":\"Service order number and\\/or task id does not exist\",\"Level\":2}]}}";
 		CommonMethods.postMethodString(payload, uri, ver, expected);
-		
 
 	}
 

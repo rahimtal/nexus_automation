@@ -1159,6 +1159,59 @@ public class CommonMethods {
 		// Assert.assertEquals(response.asString(), validate);
 		return response.extract().asString();
 	}
+	
+	public static void getMethodContainsString(String uri, String version, HashMap<String, String> params, String expected)
+			throws IOException, InterruptedException {
+		// TODO Auto-generated method stub
+		switch (version) {
+		case "1":
+			RestAssured.baseURI = urlv1;
+			break;
+		case "2":
+			RestAssured.baseURI = urlv2;
+			break;
+		case "2.1":
+			RestAssured.baseURI = urlv210;
+			break;
+		case "2.2":
+			RestAssured.baseURI = urlv220;
+			break;
+		case "2.3":
+			RestAssured.baseURI = urlv230;
+			break;
+		case "2.3.1":
+			RestAssured.baseURI = urlv231;
+			break;
+		case "2.4":
+			RestAssured.baseURI = urlv240;
+			break;
+		case "3.0":
+			RestAssured.baseURI = urlv3;
+			break;
+		case "4.0":
+			RestAssured.baseURI = urlv4;
+			break;
+
+		default:
+			version = "Invalid version";
+			AssertJUnit.fail("Invalid version");
+			break;
+		}
+
+		RestAssured.baseURI = RestAssured.baseURI + uri;
+		System.out.println(RestAssured.baseURI.toString());
+		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
+				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
+				.queryParams(params);
+
+		ValidatableResponse response;
+		
+		
+		System.out.println("Veriying String =" + expected);
+		response = httpRequest.get().then().assertThat().body(Matchers.containsString(expected));
+		System.out.println("Response  =" + response);
+		
+	}
 
 	public static String getMethodasString(String uri, String version, HashMap<String, String> params)
 			throws IOException, InterruptedException {
