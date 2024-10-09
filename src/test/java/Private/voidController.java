@@ -12,6 +12,8 @@ import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
+import junit.framework.Assert;
+
 public class voidController {
 
 	// @Test(priority = 1, groups = "void")
@@ -68,10 +70,7 @@ public class voidController {
 		String expected = "{\"Void\":{\"Success\":true,\"Data\":{\"LinkedDocument\":{\"Spa\":null,\"Penalty\":null,\"WriteOffExport\":[{\"Number\":\"PYMT00000000505\"}],\"CollectionImport\":null,\"DepositReceivable\":null,\"NegativeBill\":null,\"BillCreditNote\":null,\"TransferBalanceDocument\":null,\"CashieringCheckCreditCard\":null}},\"Messages\":[]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		String result = CommonMethods.getMethodasString(uri, ver, params);
-		if (!result.contentEquals(expected)) {
-			AssertJUnit.fail(result);
-		}
-		System.out.println(result);
+		Assert.assertEquals(expected, result);
 
 	}
 
