@@ -30,14 +30,13 @@ public class contactLogController {
 	}
 
 	@Test(priority = 2, groups = "contactLogController")
-	public void postcontactLogControllerv4()
+	public void postcontactLogControllerv4datevaldiation()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		// JsonPath jsonPathEvaluator;
-		// CommonMethods.Bug("CPDEV-17054");
+	
 		String uri = "/contactLog";
 		String ver = "4.0";
 		String payload = "./\\TestData\\/PostcontactLog2v4.json";
-		String exResponse = "{\"ContactLog\":{\"Success\":true,\"Data\":{\"ServiceOrderNumber\":\"SORD000000";
+		String exResponse = "{\"ContactLog\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Next contact time";
 		CommonMethods.postcallcontains(uri, payload, ver, exResponse);
 
 	}
@@ -121,6 +120,18 @@ public class contactLogController {
 		HashMap<String, String> params = new HashMap<String, String>();
 		String result = CommonMethods.getMethodasString(uri, version, params);
 		Assert.assertEquals(expected, result);
+
+	}
+	
+	@Test(priority = 9, groups = "contactLogController")
+	public void postcontactLogControllerv4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+	
+		String uri = "/contactLog";
+		String ver = "4.0";
+		String payload = "./\\TestData\\/PostcontactLog3v4.json";
+		String exResponse = "{\"ContactLog\":{\"Success\":true,\"Data\":{\"ServiceOrderNumber\":\"SORD";
+		CommonMethods.postcallcontains(uri, payload, ver, exResponse);
 
 	}
 
