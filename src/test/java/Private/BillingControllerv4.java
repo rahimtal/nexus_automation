@@ -1,6 +1,7 @@
 package Private;
 
 import org.testng.annotations.Test;
+import org.testng.Assert;
 import org.testng.AssertJUnit;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,8 +18,7 @@ import io.restassured.response.ValidatableResponse;
 public class BillingControllerv4 {
 
 	@Test(priority = 1, groups = "billing")
-	public static void delBatv4()
-			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+	public static void delBatv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/billing/delete/BT1231";
 		String ver = "4.0";
@@ -27,10 +27,9 @@ public class BillingControllerv4 {
 		System.out.println(result.toString());
 
 	}
-	
+
 	@Test(priority = 2, groups = "billing")
-	public static void delBatv4Err()
-			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+	public static void delBatv4Err() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/billing/delete/BT1231";
 		String ver = "4.0";
@@ -59,9 +58,9 @@ public class BillingControllerv4 {
 		Boolean Result = jsonPathEvaluator.get("Billing.Success");
 		System.out.println(jsonPathEvaluator.prettyPrint());
 		if (!Result) {
-	
+
 			AssertJUnit.fail("Bill Posting Failed \n" + jsonPathEvaluator.prettyPrint());
-	
+
 		}
 	}
 
@@ -87,9 +86,9 @@ public class BillingControllerv4 {
 		Boolean Result = jsonPathEvaluator.get("Billing.Success");
 		System.out.println(Result);
 		if (!Result) {
-	
+
 			AssertJUnit.fail("Bill Calculation Failed");
-	
+
 		}
 	}
 
@@ -109,7 +108,7 @@ public class BillingControllerv4 {
 		System.out.println(jsonPathEvaluator.prettyPrint());
 		if (!Result) {
 			AssertJUnit.fail(jsonPathEvaluator.prettyPrint());
-	
+
 		}
 	}
 
@@ -130,9 +129,9 @@ public class BillingControllerv4 {
 		Boolean Result = jsonPathEvaluator.get("Billing.Success");
 		System.out.println(Result);
 		if (!Result) {
-	
+
 			AssertJUnit.fail("Bill Posting Failed \n" + jsonPathEvaluator.prettyPrint());
-	
+
 		}
 	}
 
@@ -151,9 +150,9 @@ public class BillingControllerv4 {
 		Boolean Result = jsonPathEvaluator.get("Billing.Success");
 		System.out.println(Result);
 		if (!Result) {
-	
+
 			AssertJUnit.fail("Bill Calculation Failed");
-	
+
 		}
 	}
 
@@ -172,7 +171,7 @@ public class BillingControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 10, groups = "Billing",  dependsOnMethods = "postBillingv4")
+	@Test(priority = 10, groups = "Billing", dependsOnMethods = "postBillingv4")
 	public void printcsvbillingStatements()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// extent.createTest("Test", "");
@@ -210,7 +209,17 @@ public class BillingControllerv4 {
 		System.out.println(result);
 	}
 
-	
+	@Test(priority = 11, groups = "Billing")
+	public void getbillingtransferProgress()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// extent.createTest("Test", "");
+		String uri = "/billing/transfer/progress";
+		String ver = "4.0";
+		String expected = "{\"Billing\":{\"Success\":true,\"Data\":{\"BatchId\":\"\",\"Summary\":{\"BillingStartDate\":\"2000-04-17\",\"BillingEndDate\":\"2000-04-17\",\"PeriodStartDate\":\"2000-04-01\",\"PeriodEndDate\":\"2000-04-17\",\"TransferStartDate\":\"2000-04-17\",\"TransferEndDate\":\"2000-04-17\"},\"Detail\":[{\"ServiceOrder\":{\"Number\":\"SORD00000000044\",\"BillingDate\":\"2000-04-17\",\"PeriodStartDate\":\"2000-04-01\",\"PeriodEndDate\":\"2000-04-17\",\"LocationId\":\"LOCATION009\",\"CustomerId\":\"CUSTOMER010\",\"TransferDate\":\"2000-04-17\",\"EmployeeId\":\"CARN0001\",\"BillToCustomerDeposit\":{\"Id\":2,\"Description\":\"Refund of Difference\"},\"ThirdPartyDeposit\":{\"Id\":1,\"Description\":\"Transfer\"}}}]},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("ServiceOrderNumber", "SORD00000000044");
+		String actual = CommonMethods.getMethodasString(uri, ver, params);// (uri, ver, params, jpath);
+		Assert.assertEquals(actual, expected);
+	}
 
-	
 }
