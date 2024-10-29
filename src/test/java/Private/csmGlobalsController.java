@@ -9,12 +9,13 @@ import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.Retry;
 
 import io.restassured.response.Response;
 
 public class csmGlobalsController {
 
-	@Test(priority = 1, groups = "csmGlobalsController")
+	@Test(priority = 1, groups = "csmGlobalsController", retryAnalyzer = Retry.class)
 	public void csmSetupautoGeneratenextIdv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/csmSetup/autoGenerate/nextId/3";
@@ -36,7 +37,7 @@ public class csmGlobalsController {
 
 	}
 
-	@Test(priority = 2, groups = "csmGlobalsController")
+	@Test(priority = 2, groups = "csmGlobalsController", retryAnalyzer = Retry.class)
 	public void getCsmGlobalBySettingNamev4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/csmGlobals/getCsmGlobalBy";

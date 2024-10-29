@@ -11,12 +11,13 @@ import java.util.HashMap;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.Retry;
 
 import io.restassured.response.Response;
 
 public class contactLogController {
 
-	@Test(priority = 1, groups = "contactLogController")
+	@Test(priority = 1, groups = "contactLogController", retryAnalyzer = Retry.class)
 	public void postcontactLogSimplev4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
@@ -29,7 +30,7 @@ public class contactLogController {
 
 	}
 
-	@Test(priority = 2, groups = "contactLogController")
+	@Test(priority = 2, groups = "contactLogController", retryAnalyzer = Retry.class)
 	public void postcontactLogControllerv4datevaldiation()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -41,7 +42,7 @@ public class contactLogController {
 
 	}
 
-	@Test(priority = 3, groups = "contactLogController")
+	@Test(priority = 3, groups = "contactLogController", retryAnalyzer = Retry.class)
 	public static void putcontactLogv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		CommonMethods.Bug("CPDEV-18576");
@@ -54,7 +55,7 @@ public class contactLogController {
 
 	}
 
-	@Test(priority = 4, groups = "contactLogController")
+	@Test(priority = 4, groups = "contactLogController", retryAnalyzer = Retry.class)
 	public void getContactLogDetail() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		CommonMethods.Bug("CPDEV-18571");
 		String uri = "/contactLog/getContactLogDetail";
@@ -70,7 +71,7 @@ public class contactLogController {
 
 	}
 
-	@Test(priority = 5, groups = "contactLogController")
+	@Test(priority = 5, groups = "contactLogController", retryAnalyzer = Retry.class)
 	public void getgetContactLogDetail2()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -85,7 +86,7 @@ public class contactLogController {
 
 	}
 
-	@Test(priority = 7, groups = "contactLogController")
+	@Test(priority = 7, groups = "contactLogController", retryAnalyzer = Retry.class)
 	public void contactLoggetContactLogActionCodes()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -98,7 +99,7 @@ public class contactLogController {
 
 	}
 
-	@Test(priority = 6, groups = "contactLogController")
+	@Test(priority = 6, groups = "contactLogController", retryAnalyzer = Retry.class)
 	public void getContactLogMethods() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/contactLog/getContactLogMethods";
@@ -110,7 +111,7 @@ public class contactLogController {
 
 	}
 
-	@Test(priority = 8, groups = "contactLogController")
+	@Test(priority = 8, groups = "contactLogController", retryAnalyzer = Retry.class)
 	public void getContactLogServiceOrderRequest()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -123,7 +124,7 @@ public class contactLogController {
 
 	}
 
-	@Test(priority = 9, groups = "contactLogController")
+	@Test(priority = 9, groups = "contactLogController", retryAnalyzer = Retry.class)
 	public void postcontactLogControllerv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 

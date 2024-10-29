@@ -8,10 +8,11 @@ import org.junit.Assert;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.Retry;
 
 public class AlertPanelController {
 
-	@Test(priority = 1, groups = "AlertPanelController")
+	@Test(priority = 1, groups = "AlertPanelController", retryAnalyzer = Retry.class)
 	public void getalert_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/alert/CUSTOMER002/SEWER003";
 		String ver = "4.0";
@@ -24,7 +25,7 @@ public class AlertPanelController {
 	}
 	
 
-	@Test(priority = 2, groups = "AlertPanelController")
+	@Test(priority = 2, groups = "AlertPanelController", retryAnalyzer = Retry.class)
 	public void getalertaccountAttributes_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/alert/accountAttributes/500001/100001";
 		String ver = "4.0";

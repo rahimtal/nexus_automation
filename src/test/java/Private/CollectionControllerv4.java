@@ -9,12 +9,13 @@ import java.util.HashMap;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.Retry;
 
 import io.restassured.response.ValidatableResponse;
 
 public class CollectionControllerv4 {
 
-	@Test(priority = 1, groups = "Collection")
+	@Test(priority = 1, groups = "Collection", retryAnalyzer = Retry.class)
 	public void getcollectionsetupv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/collection/setup";
 		String ver = "4.0";
@@ -26,7 +27,7 @@ public class CollectionControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 2, groups = "Collection")
+	@Test(priority = 2, groups = "Collection", retryAnalyzer = Retry.class)
 	public void getcollectionv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/collection";
 		String ver = "4.0";
@@ -38,7 +39,7 @@ public class CollectionControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 3, groups = "Collection")
+	@Test(priority = 3, groups = "Collection", retryAnalyzer = Retry.class)
 	public void postcollectionGeneratev4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
@@ -50,7 +51,7 @@ public class CollectionControllerv4 {
 
 	}
 
-	@Test(priority = 4, groups = "Collection")
+	@Test(priority = 4, groups = "Collection", retryAnalyzer = Retry.class)
 	public void putcollectionapplyDisconnectDatev4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
@@ -63,7 +64,7 @@ public class CollectionControllerv4 {
 
 	}
 
-	@Test(priority = 5, groups = "Collection")
+	@Test(priority = 5, groups = "Collection", retryAnalyzer = Retry.class)
 	public void postcollectionprocessv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
@@ -74,7 +75,7 @@ public class CollectionControllerv4 {
 		CommonMethods.postcall(uri, payload, ver, exResponse);
 	}
 
-	@Test(priority = 6, groups = "Collection")
+	@Test(priority = 6, groups = "Collection", retryAnalyzer = Retry.class)
 	public void postcollectionprintv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
 		String uri = "/collection/print";
@@ -85,7 +86,7 @@ public class CollectionControllerv4 {
 
 	}
 
-	@Test(priority = 7, groups = "Collection")
+	@Test(priority = 7, groups = "Collection", retryAnalyzer = Retry.class)
 	public void getcollectionMessagesv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/collection/textMessage";
@@ -98,7 +99,7 @@ public class CollectionControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 8, groups = "Collection")
+	@Test(priority = 8, groups = "Collection", retryAnalyzer = Retry.class)
 	public void getcollectionNoticeTypev4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/collection/noticeType";
@@ -111,7 +112,7 @@ public class CollectionControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 8, groups = "Collection")
+	@Test(priority = 8, groups = "Collection", retryAnalyzer = Retry.class)
 	public void confirmNoticev4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		// Postman: Private > collectionController > generateCollectionNotice
@@ -161,7 +162,7 @@ public class CollectionControllerv4 {
 		// endpoint.
 	}
 
-	@Test(priority = 9, groups = "Collection")
+	@Test(priority = 9, groups = "Collection", retryAnalyzer = Retry.class)
 	public void getcollectioncriteriav4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/collection/criteria";
