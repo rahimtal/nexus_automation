@@ -12,6 +12,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.Retry;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -23,7 +24,7 @@ public class accountBalancesv4 {
 
 	public static JsonPath jsonPathEvaluator;
 
-	@Test(priority = 1, groups = "AccountBalances")
+	@Test(priority = 1, groups = "AccountBalances", retryAnalyzer = Retry.class)
 	public void getAccountBalancesV4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/accountBalance/getAccountBalances";

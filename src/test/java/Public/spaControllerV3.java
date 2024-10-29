@@ -1,6 +1,5 @@
 package Public;
 
-import org.testng.annotations.Test;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -9,13 +8,13 @@ import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
-
+import com.NexustAPIAutomation.java.Retry;
 
 import io.restassured.response.ValidatableResponse;
 
 public class spaControllerV3 {
 
-	@Test(priority = 1, groups = "SPA")
+	@Test(priority = 1, groups = "SPA", retryAnalyzer = Retry.class)
 	public void getoutstandingDocuments_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 	//	CommonMethods.CompanyDBRestore();
@@ -35,7 +34,7 @@ public class spaControllerV3 {
 
 	}
 
-	@Test(priority = 2, groups = "SPA")
+	@Test(priority = 2, groups = "SPA", retryAnalyzer = Retry.class)
 	public void getheaderInfo_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/spa/CUSTOMER002";
@@ -53,7 +52,7 @@ public class spaControllerV3 {
 
 	}
 
-	@Test(priority = 3, groups = "SPA")
+	@Test(priority = 3, groups = "SPA", retryAnalyzer = Retry.class)
 	public void getspadetails_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/spa/CUSTOMER002/details/1";
@@ -71,7 +70,7 @@ public class spaControllerV3 {
 
 	}
 
-	@Test(priority = 4, groups = "SPA")
+	@Test(priority = 4, groups = "SPA", retryAnalyzer = Retry.class)
 	public void getspadocuments_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/spa/CUSTOMER002/documents/1/1";
@@ -86,7 +85,7 @@ public class spaControllerV3 {
 
 	}
 
-	@Test(priority = 5, groups = "SPA")
+	@Test(priority = 5, groups = "SPA", retryAnalyzer = Retry.class)
 	public void putcalculatedocuments_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -102,7 +101,7 @@ public class spaControllerV3 {
 
 	}
 
-	@Test(priority = 6, groups = "SPA", dependsOnMethods = "putcalculatedocuments_v_3")
+	@Test(priority = 6, groups = "SPA", retryAnalyzer = Retry.class, dependsOnMethods = "putcalculatedocuments_v_3")
 	public void getcalculatedocuments_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -116,7 +115,7 @@ public class spaControllerV3 {
 
 	}
 
-	@Test(priority = 7, groups = "SPA")
+	@Test(priority = 7, groups = "SPA", retryAnalyzer = Retry.class)
 	public void getspaAccountBalances_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 

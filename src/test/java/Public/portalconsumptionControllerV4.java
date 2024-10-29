@@ -1,6 +1,5 @@
 package Public;
 
-import org.testng.annotations.Test;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -8,12 +7,11 @@ import java.util.HashMap;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
-
-import io.restassured.response.ValidatableResponse;
+import com.NexustAPIAutomation.java.Retry;
 
 public class portalconsumptionControllerV4 {
 
-	@Test(priority = 1, groups = "portalConsumption")
+	@Test(priority = 1, groups = "portalConsumption", retryAnalyzer = Retry.class)
 	public void getconsumptionHistoryController()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -31,7 +29,7 @@ public class portalconsumptionControllerV4 {
 
 	}
 
-	@Test(priority = 2, groups = "portalConsumption")
+	@Test(priority = 2, groups = "portalConsumption", retryAnalyzer = Retry.class)
 	public void getserviceByLocation() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/portal/serviceByLocation";

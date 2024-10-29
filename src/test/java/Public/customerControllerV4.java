@@ -1,6 +1,7 @@
 package Public;
 
 import org.testng.annotations.Test;
+import com.NexustAPIAutomation.java.Retry;
 import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -16,7 +17,7 @@ import io.restassured.response.ValidatableResponse;
 
 public class customerControllerV4 {
 
-	@Test(priority = 1, groups = "CustomerController")
+	@Test(priority = 1, groups = "CustomerController", retryAnalyzer = Retry.class)
 	public static void getlocationsByCustomerv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 

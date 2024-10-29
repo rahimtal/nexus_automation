@@ -8,6 +8,7 @@ import java.util.HashMap;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.Retry;
 
 import io.restassured.response.ValidatableResponse;
 
@@ -15,7 +16,7 @@ public class consumptionHistoryControllerV3 {
 
 	public static ValidatableResponse jsonPathEvaluator;
 
-	@Test(priority = 1, groups = "ConsumptionHistoryController")
+	@Test(priority = 1, groups = "ConsumptionHistoryController", retryAnalyzer = Retry.class)
 	public void getconsumptionHistoryController() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/consumptionHistory/getConsumptionHistory";

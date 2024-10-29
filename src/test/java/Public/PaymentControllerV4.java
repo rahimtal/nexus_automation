@@ -1,24 +1,23 @@
 package Public;
 
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 
 import org.testng.Assert;
+import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.Retry;
 
 import io.restassured.path.json.JsonPath;
-import io.restassured.response.Response;
 
 public class PaymentControllerV4 {
 
 	public static JsonPath jsonPathEvaluator;
 
-	@Test(priority = 1, groups = "Payment")
+	@Test(priority = 1, groups = "Payment", retryAnalyzer = Retry.class)
 	public void postPaymentv4() throws ClassNotFoundException, SQLException, InterruptedException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/payment";
@@ -29,7 +28,7 @@ public class PaymentControllerV4 {
 		CommonMethods.postcallcontains(uri, payload, ver, exresult);
 		}
 
-	@Test(priority = 2, groups = "Payment")
+	@Test(priority = 2, groups = "Payment", retryAnalyzer = Retry.class)
 	public void postPaymentBatchv4() throws ClassNotFoundException, SQLException, InterruptedException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/payment/paymentBatch";
@@ -44,7 +43,7 @@ public class PaymentControllerV4 {
 		// System.out.println(jsonPathEvaluator.toString());
 	}
 
-	//@Test(priority = 3, groups = "Payment")
+	//@Test(priority = 3, groups = "Payment", retryAnalyzer = Retry.class)
 	public void gettPaymentNextv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/payment/next";
@@ -57,7 +56,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 4, groups = "Payment")
+	@Test(priority = 4, groups = "Payment", retryAnalyzer = Retry.class)
 	public void postPaymentBatchtruev4() throws ClassNotFoundException, SQLException, InterruptedException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/payment/paymentBatch";
@@ -73,7 +72,7 @@ public class PaymentControllerV4 {
 	}
 	
 	
-	@Test(priority = 5, groups = "Payment")
+	@Test(priority = 5, groups = "Payment", retryAnalyzer = Retry.class)
 	public void postPaymentMiscv4() throws ClassNotFoundException, SQLException, InterruptedException {
 		// CommonMethods.CompanyDBRestore();
 		CommonMethods.Bug("CPDEV-18766");

@@ -10,6 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.Retry;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.ValidatableResponse;
@@ -18,7 +19,7 @@ public class customerControllerV3 {
 
 	public static ValidatableResponse jsonPathEvaluator;
 
-	//@Test(priority = 6, groups = "CustomerController")
+	//@Test(priority = 6, groups = "CustomerController", retryAnalyzer = Retry.class)
 	public static void getlocationsByCustomerv_2_4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		
@@ -39,7 +40,7 @@ public class customerControllerV3 {
 	}
 	
 	
-	@Test(priority = 6, groups = "CustomerController")
+	@Test(priority = 6, groups = "CustomerController", retryAnalyzer = Retry.class)
 	public static void getlocationsByCustomerv_2_4_ExcludeFormer()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -61,7 +62,7 @@ public class customerControllerV3 {
 	}
 	
 	
-	//@Test(priority = 1, groups = "CustomerController")
+	//@Test(priority = 1, groups = "CustomerController", retryAnalyzer = Retry.class)
 	public static void getCustomerDetail_v_2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/customer/getCustomerDetail";
@@ -76,7 +77,7 @@ public class customerControllerV3 {
 
 	}
 
-	//@Test(priority = 2, groups = "CustomerController")
+	//@Test(priority = 2, groups = "CustomerController", retryAnalyzer = Retry.class)
 	public void getCustomerbylocation_v_2()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -92,7 +93,7 @@ public class customerControllerV3 {
 
 	}
 
-	@Test(priority = 3, groups = "CustomerController")
+	@Test(priority = 3, groups = "CustomerController", retryAnalyzer = Retry.class)
 	public void getCustomerBillingOptions_v3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/customers/Customer003/billingoptions";
@@ -105,7 +106,7 @@ public class customerControllerV3 {
 
 	}
 
-	@Test(priority = 4, groups = "CustomerController")
+	@Test(priority = 4, groups = "CustomerController", retryAnalyzer = Retry.class)
 	public void getCollectionsoptions_v2()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/customers/customer003/collectionsoptions";
@@ -118,7 +119,7 @@ public class customerControllerV3 {
 
 	}
 
-	@Test(priority = 5, groups = "CustomerController")
+	@Test(priority = 5, groups = "CustomerController", retryAnalyzer = Retry.class)
 	public void getOtheroptions_v2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/customers/CUSTOMER003/otheroptions";
 		String ver = "3.0";
@@ -130,7 +131,7 @@ public class customerControllerV3 {
 
 	}
 
-	@Test(priority = 6, groups = "CustomerController")
+	@Test(priority = 6, groups = "CustomerController", retryAnalyzer = Retry.class)
 	public void getinfolabels_v2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/customers/infoLabels";
 		String ver = "3.0";
@@ -143,7 +144,7 @@ public class customerControllerV3 {
 
 	}
 
-	@Test(priority = 7, groups = "CustomerController")
+	@Test(priority = 7, groups = "CustomerController", retryAnalyzer = Retry.class)
 	public static void getLocationsByCustomer_v3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		CommonMethods.Bug("CPDEV-18800");
@@ -163,7 +164,7 @@ public class customerControllerV3 {
 
 	}
 
-	@Test(priority = 7, groups = "CustomerController")
+	@Test(priority = 7, groups = "CustomerController", retryAnalyzer = Retry.class)
 	public void getnextCustomerId_v2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/customers/nextCustomerId";
 		String ver = "3.0";
@@ -190,7 +191,7 @@ public class customerControllerV3 {
 
 	}
 
-	@Test(priority = 8, groups = "CustomerController")
+	@Test(priority = 8, groups = "CustomerController", retryAnalyzer = Retry.class)
 	public static void getCustomerDetail_v3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		CommonMethods.Bug("CPDEV-18795");
 		String uri = "/customer/getCustomerDetail";
@@ -202,7 +203,7 @@ public class customerControllerV3 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 9, groups = "CustomerController")
+	@Test(priority = 9, groups = "CustomerController", retryAnalyzer = Retry.class)
 	public void getpreauthorizepaymentplan_v2()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/customers/103900/preauthorizedPaymentPlan/external";
@@ -220,7 +221,7 @@ public class customerControllerV3 {
 
 	}
 
-	@Test(priority = 10, groups = "CustomerController")
+	@Test(priority = 10, groups = "CustomerController", retryAnalyzer = Retry.class)
 	public void putcustomersaddressv2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/customers/address";
 		String ver = "3.0";
@@ -231,7 +232,7 @@ public class customerControllerV3 {
 
 	}
 	
-	@Test(priority = 11, groups = "CustomerController")
+	@Test(priority = 11, groups = "CustomerController", retryAnalyzer = Retry.class)
 	public void putcustomerbillingoptionv2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/customers/billingOptions";
 		String ver = "3.0";
@@ -242,7 +243,7 @@ public class customerControllerV3 {
 
 	}
 	
-	@Test(priority = 12, groups = "CustomerController")
+	@Test(priority = 12, groups = "CustomerController", retryAnalyzer = Retry.class)
 	public void putcustomerscollectionsOptionsv2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/customers/collectionsOptions";
 		String ver = "3.0";
@@ -253,7 +254,7 @@ public class customerControllerV3 {
 
 	}
 	
-	@Test(priority = 13, groups = "CustomerController")
+	@Test(priority = 13, groups = "CustomerController", retryAnalyzer = Retry.class)
 	public void putcustomersotherOptionsv2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/customers/otherOptions";
 		String ver = "3.0";
@@ -264,7 +265,7 @@ public class customerControllerV3 {
 
 	}
 	
-	@Test(priority = 14, groups = "CustomerController")
+	@Test(priority = 14, groups = "CustomerController", retryAnalyzer = Retry.class)
 	public void putcustomersrolldownAddressCodev2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/customers/rolldownAddressCode";
 		String ver = "3.0";

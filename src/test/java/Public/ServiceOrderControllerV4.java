@@ -12,6 +12,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.Retry;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -23,7 +24,7 @@ public class ServiceOrderControllerV4 {
 	public static JsonPath jsonPathEvaluator;
 	public static String ServiceOrderNumber;
 
-	@Test
+	@Test(priority = 1, groups = "ServiceOrder", retryAnalyzer = Retry.class)
 	public static void getServiceOrderdetails_v4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		//CommonMethods.Bug("CPDEV-17883");

@@ -1,24 +1,22 @@
 package Public;
 
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 
+import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.Retry;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import io.restassured.response.ValidatableResponse;
-import org.testng.Assert;
 
 public class searchController {
 
 	// This will create elastic search index if not already
-	@Test(priority = 1, groups = "Search")
+	@Test(priority = 1, groups = "Search", retryAnalyzer = Retry.class)
 	public void elascticsearchcreateindex_v_2()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -32,7 +30,7 @@ public class searchController {
 
 	// This will create elastic search index if not already
 	//Depreciated
-	//@Test(priority = 1, groups = "Search")
+	//@Test(priority = 1, groups = "Search", retryAnalyzer = Retry.class)
 	public void getAccounts_v_2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		AssertJUnit.fail("Bug Reported 8700");
@@ -53,7 +51,7 @@ public class searchController {
 	// {{urlv2}}/search/getAccountsAdvanced?SearchCustomerName=sally&SearchAccountNumber=&SearchServiceAddress=&SearchPhoneNumber=&SearchEmailAddress=&SortOrder=1&SortDescending=0&ShowAll=0
 	// This will create elastic search index if not already
 	//Depreciated
-	//@Test(priority = 1, groups = "Search")
+	//@Test(priority = 1, groups = "Search", retryAnalyzer = Retry.class)
 	public void getAccountsAdvanced_v_2()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -78,7 +76,7 @@ public class searchController {
 
 	// {{urlv2}}/search/getCustomer?SearchQuery=Sally
 
-	@Test(priority = 1, groups = "Search")
+	@Test(priority = 1, groups = "Search", retryAnalyzer = Retry.class)
 	public void getCustomer_v2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/search/getCustomer";
@@ -95,7 +93,7 @@ public class searchController {
 
 	// {{urlv2}}/search?index=accounts&searchQuery=success&pageNum=1&numPerPage=10
 
-	@Test(priority = 1, groups = "Search")
+	@Test(priority = 1, groups = "Search", retryAnalyzer = Retry.class)
 	public void getindex_v2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/search";

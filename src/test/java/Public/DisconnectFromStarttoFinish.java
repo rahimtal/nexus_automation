@@ -1,29 +1,21 @@
 package Public;
 
-import org.testng.annotations.Test;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.HashMap;
 
-import org.hamcrest.Matcher;
-import org.hamcrest.Matchers;
-import org.testng.Assert;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.Retry;
 
 import io.restassured.path.json.JsonPath;
-import io.restassured.response.Response;
-import io.restassured.response.ResponseBody;
-import io.restassured.response.ValidatableResponse;
 
 public class DisconnectFromStarttoFinish {
 
 	public static JsonPath jsonPathEvaluator;
 	public static String ServiceOrderNumber;
 
-	@Test(priority = 1, groups = "DisconnectFromStarttoFinish")
+	@Test(priority = 1, groups = "DisconnectFromStarttoFinish", retryAnalyzer = Retry.class)
 	public static void PostServiceOrder()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -35,7 +27,7 @@ public class DisconnectFromStarttoFinish {
 
 	}
 
-	@Test(priority = 2, groups = "DisconnectFromStarttoFinish")
+	@Test(priority = 2, groups = "DisconnectFromStarttoFinish", retryAnalyzer = Retry.class)
 	public static void PostMeterReading()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -47,7 +39,7 @@ public class DisconnectFromStarttoFinish {
 
 	}
 
-	@Test(priority = 3, groups = "DisconnectFromStarttoFinish")
+	@Test(priority = 3, groups = "DisconnectFromStarttoFinish", retryAnalyzer = Retry.class)
 	public static void putMeterDisconnect()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 

@@ -1,22 +1,18 @@
 package Public;
 
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
-import org.testng.Assert;
-import org.testng.annotations.Parameters;
+import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.Retry;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import io.restassured.response.ResponseBody;
 import io.restassured.response.ValidatableResponse;
 
 public class ServiceOrderControllerV3 {
@@ -24,7 +20,7 @@ public class ServiceOrderControllerV3 {
 	public static JsonPath jsonPathEvaluator;
 	public static String ServiceOrderNumber;
 
-	@Test(priority = 1, groups = "ServiceOrder")
+	@Test(priority = 1, groups = "ServiceOrder", retryAnalyzer = Retry.class)
 	public static void postcreateServiceOrder_v3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -69,7 +65,7 @@ public class ServiceOrderControllerV3 {
 
 	}
 
-	@Test(priority = 2, groups = "ServiceOrder", dependsOnMethods = "postcreateServiceOrder_v3")
+	@Test(priority = 2, groups = "ServiceOrder", retryAnalyzer = Retry.class, dependsOnMethods = "postcreateServiceOrder_v3")
 	public static void getServiceOrder_v3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -100,7 +96,7 @@ public class ServiceOrderControllerV3 {
 
 	}
 
-	@Test(priority = 3, groups = "ServiceOrder")
+	@Test(priority = 3, groups = "ServiceOrder", retryAnalyzer = Retry.class)
 	public static void getServiceOrderRequestDetails_v3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -118,7 +114,7 @@ public class ServiceOrderControllerV3 {
 
 	}
 
-	@Test(priority = 4, groups = "ServiceOrder")
+	@Test(priority = 4, groups = "ServiceOrder", retryAnalyzer = Retry.class)
 	public static void getServiceOrderRequestDetailsbyOptional_v3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -135,7 +131,7 @@ public class ServiceOrderControllerV3 {
 
 	}
 
-	@Test(priority = 5, groups = "ServiceOrder")
+	@Test(priority = 5, groups = "ServiceOrder", retryAnalyzer = Retry.class)
 	public static void putaddMeterReading_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -153,7 +149,7 @@ public class ServiceOrderControllerV3 {
 
 	}
 
-	@Test(priority = 6, groups = "ServiceOrder")
+	@Test(priority = 6, groups = "ServiceOrder", retryAnalyzer = Retry.class)
 	public static void putupdatecomment_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -168,7 +164,7 @@ public class ServiceOrderControllerV3 {
 
 	}
 
-	@Test(priority = 7, groups = "ServiceOrder")
+	@Test(priority = 7, groups = "ServiceOrder", retryAnalyzer = Retry.class)
 	public static void putaddMiscCharge_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -184,7 +180,7 @@ public class ServiceOrderControllerV3 {
 		System.out.println(result.extract().asString());
 	}
 
-	@Test(priority = 8, groups = "ServiceOrder")
+	@Test(priority = 8, groups = "ServiceOrder", retryAnalyzer = Retry.class)
 	public static void putswitchMeter_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -197,7 +193,7 @@ public class ServiceOrderControllerV3 {
 		System.out.println(result.extract().asString());
 	}
 //DEPRECATED use "Complete service order Task"
-//	@Test(priority = 8, groups = "ServiceOrder")
+//	@Test(priority = 8, groups = "ServiceOrder", retryAnalyzer = Retry.class)
 	public static void putTaskComplete_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -211,7 +207,7 @@ public class ServiceOrderControllerV3 {
 		System.out.println(result.extract().asString());
 	}
 
-	@Test(priority = 9, groups = "ServiceOrder")
+	@Test(priority = 9, groups = "ServiceOrder", retryAnalyzer = Retry.class)
 	public static void putTaskCompleteNocharge_v3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 

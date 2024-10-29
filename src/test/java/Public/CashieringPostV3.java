@@ -9,6 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.Retry;
 
 import io.restassured.path.json.JsonPath;
 
@@ -40,7 +41,7 @@ public class CashieringPostV3 {
 
 	}
 
-	@Test(priority = 1, groups = "Cashering")
+	@Test(priority = 1,groups = "Cashering", retryAnalyzer = Retry.class)
 	public void saveReciept_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
 		// CommonMethods.CompanyDBRestore();
@@ -72,7 +73,7 @@ public class CashieringPostV3 {
 
 	}
 
-	@Test(priority = 2, groups = "Cashering", dependsOnMethods = "saveReciept_v_3")
+	@Test(priority = 2,groups = "Cashering", retryAnalyzer = Retry.class, dependsOnMethods = "saveReciept_v_3")
 	public void TC002_RecieptAdjustment() throws ClassNotFoundException, SQLException, InterruptedException {
 		String uri = "/cashiering/receipt/adjust";
 		String ver = "3.0";

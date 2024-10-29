@@ -13,6 +13,7 @@ import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.Retry;
 import com.aventstack.extentreports.Status;
 
 import io.restassured.RestAssured;
@@ -22,7 +23,7 @@ import io.restassured.specification.RequestSpecification;
 
 public class billingController extends BaseClass {
 
-	@Test(priority = 1, groups = "Billing")
+	@Test(priority = 1, groups = "Billing", retryAnalyzer = Retry.class)
 	public static void billingprintStatementv4true()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -36,7 +37,7 @@ public class billingController extends BaseClass {
 		System.out.println(result);
 	}
 
-	@Test(priority = 2, groups = "Billing")
+	@Test(priority = 2, groups = "Billing", retryAnalyzer = Retry.class)
 	public static void billingprintStatementv4false()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -50,7 +51,7 @@ public class billingController extends BaseClass {
 		System.out.println(result);
 	}
 
-	@Test(priority = 3, groups = "Billing")
+	@Test(priority = 3, groups = "Billing", retryAnalyzer = Retry.class)
 	public static void billingprintStatementv3true()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -64,7 +65,7 @@ public class billingController extends BaseClass {
 		System.out.println(result);
 	}
 
-	@Test(priority = 4, groups = "Billing")
+	@Test(priority = 4, groups = "Billing", retryAnalyzer = Retry.class)
 	public static void billingprintStatementv3false()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 

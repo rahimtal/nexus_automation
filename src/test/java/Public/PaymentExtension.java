@@ -1,14 +1,13 @@
 package Public;
 
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import org.testng.Assert;
+import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.Retry;
 
 import io.restassured.path.json.JsonPath;
 
@@ -16,7 +15,7 @@ public class PaymentExtension {
 
 	public static JsonPath jsonPathEvaluator;
 
-	@Test(priority = 1, groups = "Cashering")
+	@Test(priority = 1, groups = "Cashering", retryAnalyzer = Retry.class)
 	public void postPaymentv2() throws ClassNotFoundException, SQLException, InterruptedException {
 		CommonMethods.Bug("17867");
 		String uri = "/payment";
@@ -27,7 +26,7 @@ public class PaymentExtension {
 
 	}
 
-	@Test(priority = 2, groups = "Cashering")
+	@Test(priority = 2, groups = "Cashering", retryAnalyzer = Retry.class)
 	public void paymentExtensionv2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/paymentextension";
@@ -45,7 +44,7 @@ public class PaymentExtension {
 
 	}
 
-	@Test(priority = 3, groups = "Cashering")
+	@Test(priority = 3, groups = "Cashering", retryAnalyzer = Retry.class)
 	public void postPaymentv2_2() throws ClassNotFoundException, SQLException, InterruptedException {
 
 		CommonMethods.Bug("CPDEV-17867");

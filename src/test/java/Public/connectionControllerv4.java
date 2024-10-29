@@ -10,6 +10,7 @@ import java.util.HashMap;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.Retry;
 
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
@@ -18,7 +19,7 @@ public class connectionControllerv4 {
 
 	public static ValidatableResponse jsonPathEvaluator;
 
-	@Test(priority = 1, groups = "ConnectionController")
+	@Test(priority = 1, groups = "ConnectionController", retryAnalyzer = Retry.class)
 	public void putconnectionmeterGroupV4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -32,7 +33,7 @@ public class connectionControllerv4 {
 
 	}
 
-	@Test(priority = 2, groups = "ConnectionController")
+	@Test(priority = 2, groups = "ConnectionController", retryAnalyzer = Retry.class)
 	public void getconnection_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/connection/ELECWAT003";

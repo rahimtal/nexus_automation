@@ -12,6 +12,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.Retry;
 import com.aventstack.extentreports.Status;
 
 import io.restassured.RestAssured;
@@ -24,7 +25,7 @@ public class CashieringGet extends BaseClass {
 
 	public static JsonPath jsonPathEvaluator;
 
-	@Test(priority = 1, groups = "Cashering")
+	@Test(priority = 1, groups = "Cashering", retryAnalyzer = Retry.class)
 	public void TC003_getCashin() throws ClassNotFoundException, SQLException, InterruptedException {
 		// extent.createTest("Test", "");
 		String uri = "/cashiering/cashIn";
@@ -40,7 +41,7 @@ public class CashieringGet extends BaseClass {
 
 	}
 
-	@Test(priority = 1, groups = "Cashering")
+	@Test(priority = 1, groups = "Cashering", retryAnalyzer = Retry.class)
 	public void TC003_1_getCashin() throws ClassNotFoundException, SQLException, InterruptedException {
 
 		String uri = "/cashiering/cashIn";
@@ -55,7 +56,7 @@ public class CashieringGet extends BaseClass {
 
 	}
 
-	@Test(priority = 2, groups = "Cashering", dependsOnMethods = "TC003_getCashin")
+	@Test(priority = 2, groups = "Cashering", retryAnalyzer = Retry.class, dependsOnMethods = "TC003_getCashin")
 	public void TC004_balances() throws ClassNotFoundException, SQLException, InterruptedException {
 
 		String uri = "/cashiering/balances/customer006/1999-03-24";
@@ -83,7 +84,7 @@ public class CashieringGet extends BaseClass {
 
 	}
 
-	@Test(priority = 3, groups = "Cashering", dependsOnMethods = "TC004_balances")
+	@Test(priority = 3, groups = "Cashering", retryAnalyzer = Retry.class, dependsOnMethods = "TC004_balances")
 	public void TC003_getnextReceipt() throws ClassNotFoundException, SQLException, InterruptedException {
 		// extent.createTest("Test", "");
 		String uri = "/cashiering/receipt/TRREG000001/nextReceipt";
@@ -100,7 +101,7 @@ public class CashieringGet extends BaseClass {
 
 	}
 
-	@Test(priority = 4, groups = "Cashering", dependsOnMethods = "TC003_getnextReceipt")
+	@Test(priority = 4, groups = "Cashering", retryAnalyzer = Retry.class, dependsOnMethods = "TC003_getnextReceipt")
 	public void TC004_getReceipt() throws ClassNotFoundException, SQLException, InterruptedException {
 		String uri = "/cashiering/receipt/004270412000001";
 		String ver = "2.4";
@@ -122,7 +123,7 @@ public class CashieringGet extends BaseClass {
 
 	}
 
-	@Test(priority = 5, groups = "Cashering", dependsOnMethods = "TC004_getReceipt")
+	@Test(priority = 5, groups = "Cashering", retryAnalyzer = Retry.class, dependsOnMethods = "TC004_getReceipt")
 	public void TC005_getRegisterInfo() throws ClassNotFoundException, SQLException, InterruptedException {
 		// extent.createTest("Test", "");
 		String uri = "/cashiering/register/TRREG000001/info";
@@ -145,7 +146,7 @@ public class CashieringGet extends BaseClass {
 
 	}
 
-	@Test(priority = 6, groups = "Cashering", dependsOnMethods = "TC005_getRegisterInfo")
+	@Test(priority = 6, groups = "Cashering", retryAnalyzer = Retry.class, dependsOnMethods = "TC005_getRegisterInfo")
 	public void TC006_gettransactions() throws ClassNotFoundException, SQLException, InterruptedException {
 		// extent.createTest("Test", "");
 		CommonMethods.Bug("CPDEV-16978");
@@ -164,7 +165,7 @@ public class CashieringGet extends BaseClass {
 
 	}
 
-	@Test(priority = 7, groups = "Cashering", dependsOnMethods = "TC006_gettransactions")
+	@Test(priority = 7, groups = "Cashering", retryAnalyzer = Retry.class, dependsOnMethods = "TC006_gettransactions")
 	public void TC007_getAutoApply() throws ClassNotFoundException, SQLException, InterruptedException {
 		// extent.createTest("Test", "");
 		String uri = "/cashiering/autoApply";

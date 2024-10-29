@@ -1,6 +1,5 @@
 package Public;
 
-import org.testng.annotations.Test;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -8,13 +7,12 @@ import java.util.HashMap;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
-
-import io.restassured.response.ValidatableResponse;
+import com.NexustAPIAutomation.java.Retry;
 
 public class ServiceLocationV3{
 
 	
-	@Test(priority = 1, groups = "ServiceLocation")
+	@Test(priority = 1, groups = "ServiceLocation", retryAnalyzer = Retry.class)
 	public void getServicesByLocation_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/servicesByLocation/getServicesByLocation";

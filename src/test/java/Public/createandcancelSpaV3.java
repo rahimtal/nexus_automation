@@ -11,6 +11,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.Retry;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.ValidatableResponse;
@@ -19,7 +20,7 @@ public class createandcancelSpaV3 {
 
 	public static JsonPath jsonPathEvaluator;
 
-	@Test(priority = 1, groups = "SPA")
+	@Test(priority = 1, groups = "SPA", retryAnalyzer = Retry.class)
 	public static void cancelSPA_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String customerId = "500300";
@@ -32,7 +33,7 @@ public class createandcancelSpaV3 {
 		System.out.println(res);
 	}
 
-	@Test(priority = 2, dependsOnMethods = "cancelSPA_v_3", groups = "SPA")
+	@Test(priority = 2, dependsOnMethods = "cancelSPA_v_3", groups = "SPA", retryAnalyzer = Retry.class)
 	public void createSPA_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/spa/create";
@@ -48,7 +49,7 @@ public class createandcancelSpaV3 {
 
 	}
 
-	@Test(priority = 3, dependsOnMethods = "createSPA_v_3", groups = "SPA")
+	@Test(priority = 3, dependsOnMethods = "createSPA_v_3", groups = "SPA", retryAnalyzer = Retry.class)
 	public void putspaCalculate_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/spa/calculate";
@@ -62,7 +63,7 @@ public class createandcancelSpaV3 {
 
 	}
 
-	@Test(priority = 4, dependsOnMethods = "putspaCalculate_v_3", groups = "SPA")
+	@Test(priority = 4, dependsOnMethods = "putspaCalculate_v_3", groups = "SPA", retryAnalyzer = Retry.class)
 	public void recancelSPA_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String customerId = "500300";

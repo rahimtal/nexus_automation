@@ -1,29 +1,21 @@
 package Public;
 
-import org.testng.annotations.Test;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Map.Entry;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.Retry;
 
-import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
-import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 
 public class GetAccountBalancesV3 {
 
 	public static JsonPath jsonPathEvaluator;
 
-	@Test(priority = 1, groups = "Account Balances")
+	@Test(priority = 1, groups = "Account Balances", retryAnalyzer = Retry.class)
 	public void getAccountBalancesV3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/accountBalance/getAccountBalances";
@@ -39,7 +31,7 @@ public class GetAccountBalancesV3 {
 
 	}
 
-	@Test(priority = 3, groups = "Account Balances")
+	@Test(priority = 3, groups = "Account Balances", retryAnalyzer = Retry.class)
 	public void getAccountBalancesPortalv3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/AccountBalance/portal";
@@ -53,7 +45,7 @@ public class GetAccountBalancesV3 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 4, groups = "Account Balances")
+	@Test(priority = 4, groups = "Account Balances", retryAnalyzer = Retry.class)
 	public void getAccountBalancesPortalv3Paymentatwork()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
