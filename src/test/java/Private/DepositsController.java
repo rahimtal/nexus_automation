@@ -11,13 +11,14 @@ import java.util.HashMap;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.Retry;
 
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 
 public class DepositsController {
 
-	@Test(priority = 1, groups = "Deposits")
+	@Test(priority = 1, groups = "Deposits", retryAnalyzer = Retry.class)
 	public void getdeposit() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/deposit";
@@ -30,7 +31,7 @@ public class DepositsController {
 
 	}
 
-	@Test(priority = 4, groups = "Deposits", dependsOnMethods = "postdepositpaymentPlanv4")
+	@Test(priority = 4, groups = "Deposits", retryAnalyzer = Retry.class, dependsOnMethods = "postdepositpaymentPlanv4")
 	public void getdepositpaymentPlan() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/deposit/DEPS00000000035/paymentPlan";
@@ -43,7 +44,7 @@ public class DepositsController {
 
 	}
 	
-	@Test(priority = 5, groups = "Deposits", dependsOnMethods = "postdepositpaymentPlanv4")
+	@Test(priority = 5, groups = "Deposits", retryAnalyzer = Retry.class, dependsOnMethods = "postdepositpaymentPlanv4")
 	public void getdepositpaymentPlanv3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/deposit/DEPS00000000035/paymentPlan";
@@ -56,7 +57,7 @@ public class DepositsController {
 
 	}
 
-	@Test(priority = 3, groups = "Deposits")
+	@Test(priority = 3, groups = "Deposits", retryAnalyzer = Retry.class)
 	public void lookupDepositId() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/lookupDepositId";
@@ -72,7 +73,7 @@ public class DepositsController {
 
 	}
 
-	@Test(priority = 2, groups = "Deposits")
+	@Test(priority = 2, groups = "Deposits", retryAnalyzer = Retry.class)
 	public void postdepositpaymentPlanv4() throws ClassNotFoundException, SQLException, InterruptedException {
 
 		String uri = "/deposit/paymentPlan";

@@ -11,12 +11,13 @@ import java.util.HashMap;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.Retry;
 
 import junit.framework.Assert;
 
 public class voidController {
 
-	// @Test(priority = 1, groups = "void")
+	// @Test(priority = 1, groups = "void", retryAnalyzer = Retry.class)
 	public void putvoidvalidatev4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/void/validate";
 		String ver = "4.0";
@@ -27,7 +28,7 @@ public class voidController {
 
 	}
 
-	// @Test(priority = 2, groups = "void")
+	// @Test(priority = 2, groups = "void", retryAnalyzer = Retry.class)
 	public void putvoidvalidateInvaliddocumentv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/void/validate";
@@ -39,7 +40,7 @@ public class voidController {
 
 	}
 
-	@Test(priority = 1, groups = "void")
+	@Test(priority = 1, groups = "void", retryAnalyzer = Retry.class)
 	public void putvoidv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-17270");
 		String uri = "/void";
@@ -51,7 +52,7 @@ public class voidController {
 
 	}
 
-	@Test(priority = 2, groups = "void")
+	@Test(priority = 2, groups = "void", retryAnalyzer = Retry.class)
 	public void getVoidLaodv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		CommonMethods.Bug("CPDEV-17878");
 		String uri = "/void/load/ELECWAT001/CUSTOMER007";
@@ -63,7 +64,7 @@ public class voidController {
 
 	}
 
-	@Test(priority = 2, groups = "void")
+	@Test(priority = 2, groups = "void", retryAnalyzer = Retry.class)
 	public void getlinkedDocumentv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/void/linkedDocument/BILL00000000496";
 		String ver = "4.0";

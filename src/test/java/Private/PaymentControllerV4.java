@@ -12,13 +12,14 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.Retry;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
 public class PaymentControllerV4 {
 
-	@Test(priority = 1, groups = "Payment")
+	@Test(priority = 1, groups = "Payment", retryAnalyzer = Retry.class)
 	public void gettPaymentNextv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/payment/next";
@@ -31,7 +32,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 2, groups = "Payment")
+	@Test(priority = 2, groups = "Payment", retryAnalyzer = Retry.class)
 	public void postPaymentSimulatev4() throws ClassNotFoundException, SQLException, InterruptedException {
 
 		CommonMethods.Bug("CPDEV-17140");
@@ -45,7 +46,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 3, groups = "Payment")
+	@Test(priority = 3, groups = "Payment", retryAnalyzer = Retry.class)
 	public static void delPaymentv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/payment/PYMT00000000431";
@@ -56,7 +57,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 4, groups = "Payment")
+	@Test(priority = 4, groups = "Payment", retryAnalyzer = Retry.class)
 	public static void delPaymentv4Err()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
@@ -68,7 +69,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 5, groups = "Payment")
+	@Test(priority = 5, groups = "Payment", retryAnalyzer = Retry.class)
 	public static void delPaymentv4CreditNote()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
@@ -80,7 +81,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 6, groups = "Payment")
+	@Test(priority = 6, groups = "Payment", retryAnalyzer = Retry.class)
 	public void gettPaymentNextOpenv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/payment/next";
@@ -92,7 +93,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 7, groups = "Payment")
+	@Test(priority = 7, groups = "Payment", retryAnalyzer = Retry.class)
 	public void gettPaymentNextHistv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/payment/next";
@@ -108,7 +109,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 8, groups = "Payment")
+	@Test(priority = 8, groups = "Payment", retryAnalyzer = Retry.class)
 	public void gettPaymentNextAllv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/payment/next";
@@ -121,7 +122,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 9, groups = "Payment")
+	@Test(priority = 9, groups = "Payment", retryAnalyzer = Retry.class)
 	public void putputPaymentV4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		CommonMethods.Bug("You've created CPDEV-18776 issue");
 		String uri = "/Payment";
@@ -133,7 +134,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 10, groups = "Payment")
+	@Test(priority = 10, groups = "Payment", retryAnalyzer = Retry.class)
 	public void postPaymentSimulateExt() throws ClassNotFoundException, SQLException, InterruptedException {
 
 		CommonMethods.Bug("CPDEV-17140");
@@ -145,7 +146,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 11, groups = "Payment")
+	@Test(priority = 11, groups = "Payment", retryAnalyzer = Retry.class)
 	public void postPaymentDepositv4() throws ClassNotFoundException, SQLException, InterruptedException {
 
 		String uri = "/payment";

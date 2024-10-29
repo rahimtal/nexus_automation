@@ -10,13 +10,14 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.Retry;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.ValidatableResponse;
 
 public class equipmentControllerV4 {
 
-	@Test(priority = 1, groups = "equipmentController")
+	@Test(priority = 1, groups = "equipmentController", retryAnalyzer = Retry.class)
 	public void postequipmentControllerv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		JsonPath jsonPathEvaluator;
@@ -32,7 +33,7 @@ public class equipmentControllerV4 {
 
 	}
 
-	@Test(priority = 2, groups = "equipmentController")
+	@Test(priority = 2, groups = "equipmentController", retryAnalyzer = Retry.class)
 	public void postequipmentControllerv4Error()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		JsonPath jsonPathEvaluator;
@@ -48,7 +49,7 @@ public class equipmentControllerV4 {
 
 	}
 
-	@Test(priority = 3, groups = "equipmentController")
+	@Test(priority = 3, groups = "equipmentController", retryAnalyzer = Retry.class)
 	public void getequipmentControllerClassv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -61,7 +62,7 @@ public class equipmentControllerV4 {
 
 	}
 
-	@Test(priority = 4, groups = "equipmentController")
+	@Test(priority = 4, groups = "equipmentController", retryAnalyzer = Retry.class)
 	public void getequipmentControllerEquipmentDetailv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 

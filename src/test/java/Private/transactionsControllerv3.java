@@ -8,6 +8,7 @@ import java.util.HashMap;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.Retry;
 
 import io.restassured.response.ValidatableResponse;
 
@@ -15,7 +16,7 @@ public class transactionsControllerv3 {
 
 	
 
-	@Test(priority = 1, groups = "Transaction")
+	@Test(priority = 1, groups = "Transaction", retryAnalyzer = Retry.class)
 	public void getTransactions_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/transactions/getTransactions";
@@ -59,7 +60,7 @@ public class transactionsControllerv3 {
 		
 	}
 	
-	@Test(priority = 1, groups = "Transaction")
+	@Test(priority = 1, groups = "Transaction", retryAnalyzer = Retry.class)
 	public void getrecentTransactions_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/transactions/getRecentTransactions";
@@ -75,7 +76,7 @@ public class transactionsControllerv3 {
 		
 	}
 	
-	@Test(priority = 1, groups = "Transaction")
+	@Test(priority = 1, groups = "Transaction", retryAnalyzer = Retry.class)
 	public void getBillInquiry_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/transaction/bill/BILL00000000001";
@@ -92,7 +93,7 @@ public class transactionsControllerv3 {
 	}
 	
 	
-	@Test(priority = 1, groups = "Transaction")
+	@Test(priority = 1, groups = "Transaction", retryAnalyzer = Retry.class)
 	public void getBillInquirychargeSummary_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/transaction/bill/BILL00000000001/chargeSummary";
@@ -107,7 +108,7 @@ public class transactionsControllerv3 {
 	}
 	
 
-	@Test(priority = 1, groups = "Transaction")
+	@Test(priority = 1, groups = "Transaction", retryAnalyzer = Retry.class)
 	public void getBillInquirydistribution_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/transaction/bill/BILL00000000366/distribution";

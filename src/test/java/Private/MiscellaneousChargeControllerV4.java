@@ -10,6 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.Retry;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -17,7 +18,7 @@ import io.restassured.response.ValidatableResponse;
 
 public class MiscellaneousChargeControllerV4 {
 
-	@Test(priority = 1, groups = "misccharge")
+	@Test(priority = 1, groups = "misccharge", retryAnalyzer = Retry.class)
 	public void miscellaneousChargeSimulatev4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -28,7 +29,7 @@ public class MiscellaneousChargeControllerV4 {
 		CommonMethods.postcall(uri, payload, ver, exResponse);
 	}
 
-	@Test(priority = 2, groups = "misccharge")
+	@Test(priority = 2, groups = "misccharge", retryAnalyzer = Retry.class)
 	public void deleteMiscellaneousChargeErr1v4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -42,7 +43,7 @@ public class MiscellaneousChargeControllerV4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 3, groups = "misccharge")
+	@Test(priority = 3, groups = "misccharge", retryAnalyzer = Retry.class)
 	public void deleteMiscellaneousChargeErrv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -56,7 +57,7 @@ public class MiscellaneousChargeControllerV4 {
 		System.out.println(result);
 	}
 
-//	@Test(priority = 4, groups = "misccharge")
+//	@Test(priority = 4, groups = "misccharge", retryAnalyzer = Retry.class)
 	public void deleteMiscellaneousChargev4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -70,7 +71,7 @@ public class MiscellaneousChargeControllerV4 {
 		System.out.println(result);
 	}
 
-	// @Test(priority = 5, groups = "misccharge")
+	// @Test(priority = 5, groups = "misccharge", retryAnalyzer = Retry.class)
 	public void deleteMiscellaneousChargeE2v4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -84,7 +85,7 @@ public class MiscellaneousChargeControllerV4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 6, groups = "misccharge")
+	@Test(priority = 6, groups = "misccharge", retryAnalyzer = Retry.class)
 	public void miscellaneousChargepostv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -95,7 +96,7 @@ public class MiscellaneousChargeControllerV4 {
 		CommonMethods.postcall(uri, payload, ver, exResponse);
 	}
 
-	@Test(priority = 7, groups = "misccharge")
+	@Test(priority = 7, groups = "misccharge", retryAnalyzer = Retry.class)
 	public void putmiscellaneousChargeSimulatev4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -144,7 +145,7 @@ public class MiscellaneousChargeControllerV4 {
 		CommonMethods.putMethod(uri, ver, payload, exResponse);
 	}
 
-	@Test(priority = 8, groups = "misccharge")
+	@Test(priority = 8, groups = "misccharge", retryAnalyzer = Retry.class)
 	public void miscellaneousChargepostv4err()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -155,7 +156,7 @@ public class MiscellaneousChargeControllerV4 {
 		CommonMethods.postcall(uri, payload, ver, exResponse);
 	}
 
-	@Test(priority = 9, groups = "misccharge")
+	@Test(priority = 9, groups = "misccharge", retryAnalyzer = Retry.class)
 	public void postMiscellaneousv4() throws ClassNotFoundException, SQLException, InterruptedException {
 		String uri = "/miscellaneous";
 		String ver = "4.0";

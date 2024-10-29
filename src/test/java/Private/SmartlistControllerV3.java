@@ -10,6 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.Retry;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.ValidatableResponse;
@@ -17,7 +18,7 @@ import io.restassured.response.ValidatableResponse;
 public class SmartlistControllerV3 {
 private boolean  TestAll=true;
 
-	@Test(priority = 2, groups = "SmartList")
+	@Test(priority = 2, groups = "SmartList", retryAnalyzer = Retry.class)
 	public void getsmartList_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		CommonMethods.Bug("CPDEV-14084");
 		String uri = "/smartlist";
@@ -30,7 +31,7 @@ private boolean  TestAll=true;
 
 	}
 
-	@Test(priority = 1, groups = "SmartList")
+	@Test(priority = 1, groups = "SmartList", retryAnalyzer = Retry.class)
 	public void postsmartlistfavorite_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		CommonMethods.Bug("CPDEV-14084");

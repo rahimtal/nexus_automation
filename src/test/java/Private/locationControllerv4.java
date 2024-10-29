@@ -8,10 +8,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.Retry;
 
 public class locationControllerv4 {
 
-	@Test(priority = 1, groups = "locationController")
+	@Test(priority = 1, groups = "locationController", retryAnalyzer = Retry.class)
 	public static void dellocationv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/location/locdeltest";
@@ -21,7 +22,7 @@ public class locationControllerv4 {
 
 	}
 
-	@Test(priority = 2, groups = "locationController")
+	@Test(priority = 2, groups = "locationController", retryAnalyzer = Retry.class)
 	public static void getlocationClassv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();

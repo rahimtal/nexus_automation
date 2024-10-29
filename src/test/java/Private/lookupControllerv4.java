@@ -10,10 +10,11 @@ import java.util.HashMap;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.Retry;
 
 public class lookupControllerv4 {
 
-	@Test(priority = 4, groups = "lookup")
+	@Test(priority = 4, groups = "lookup", retryAnalyzer = Retry.class)
 	public void getapplyByService_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookupBatch";
 		String ver = "4.0";
@@ -23,7 +24,7 @@ public class lookupControllerv4 {
 		Assert.assertTrue(actual.contains(expected));
 	}
 
-	@Test(priority = 2, groups = "lookup")
+	@Test(priority = 2, groups = "lookup", retryAnalyzer = Retry.class)
 	public void getapplyByService_Paymentsv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookupBatch";
@@ -36,7 +37,7 @@ public class lookupControllerv4 {
 		Assert.assertTrue(actual.contains(expected));
 	}
 
-	@Test(priority = 3, groups = "lookup")
+	@Test(priority = 3, groups = "lookup", retryAnalyzer = Retry.class)
 	public void getapplyByService_nonev4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri3 = "/lookupBatch";
@@ -49,7 +50,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 1, groups = "lookup")
+	@Test(priority = 1, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookupMetergroup4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri3 = "/lookupMeterGroup";
 		String ver = "4.0";
@@ -60,7 +61,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 5, groups = "lookup")
+	@Test(priority = 5, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookupCheckBookv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri3 = "/lookupCheckBook";
 		String ver = "4.0";
@@ -71,7 +72,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 6, groups = "lookup")
+	@Test(priority = 6, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookupReadingTypev4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri3 = "/lookupReadingType";
 		String ver = "4.0";
@@ -82,7 +83,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 7, groups = "lookup")
+	@Test(priority = 7, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookupNsfReasonCodev4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri3 = "/lookupNsfReasonCode";
 		String ver = "4.0";
@@ -93,7 +94,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 8, groups = "lookup")
+	@Test(priority = 8, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookupMeterReadv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// Bug is cancelled by Dev CommonMethods.Bug("CPDEV-17166");
 		String uri = "/lookupMeterRead";
@@ -105,7 +106,7 @@ public class lookupControllerv4 {
 
 	}
 
-	@Test(priority = 9, groups = "lookup")
+	@Test(priority = 9, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookupdocumentTypev4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri3 = "/lookup/documentType";
 		String ver = "4.0";
@@ -116,7 +117,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 10, groups = "lookup")
+	@Test(priority = 10, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookupzonev4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri3 = "/lookup/zone";
 		String ver = "4.0";
@@ -125,7 +126,7 @@ public class lookupControllerv4 {
 		String result = CommonMethods.getMethod(uri3, ver, params, jpath);
 	}
 
-	@Test(priority = 11, groups = "lookup")
+	@Test(priority = 11, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookupequipmentModelv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/equipmentModel";
@@ -136,7 +137,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 12, groups = "lookup")
+	@Test(priority = 12, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookupequipmentClassv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/EquipmentClass";
@@ -148,7 +149,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 13, groups = "lookup")
+	@Test(priority = 13, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookupequipmentTypev4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/Lookup/EquipmentType";
 		String ver = "4.0";
@@ -159,7 +160,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 13, groups = "lookup")
+	@Test(priority = 13, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookupequipmentStatusv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/EquipmentStatus";
@@ -171,7 +172,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 14, groups = "lookup")
+	@Test(priority = 14, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookupequipmentNetMetervType4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/equipmentNetMeterType";
@@ -182,7 +183,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 15, groups = "lookup")
+	@Test(priority = 15, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookupEquipmentRegisterCode4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/EquipmentRegisterCode";
@@ -193,7 +194,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 16, groups = "lookup")
+	@Test(priority = 16, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookupEquipmentAttributeProtection4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/EquipmentAttributeProtection";
@@ -204,7 +205,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 17, groups = "lookup")
+	@Test(priority = 17, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookupbillType() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/billType";
 		String ver = "4.0";
@@ -214,7 +215,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 18, groups = "lookup")
+	@Test(priority = 18, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookupbillingPrepareType()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/billingPrepareType";
@@ -225,7 +226,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 19, groups = "lookup")
+	@Test(priority = 19, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookupcollectionnoticeType()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/collection/noticeType";
@@ -236,7 +237,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 20, groups = "lookup")
+	@Test(priority = 20, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookupkvaReadingType() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/kvaReadingType";
 		String ver = "4.0";
@@ -246,7 +247,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 21, groups = "lookup")
+	@Test(priority = 21, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookupchargeType() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.Bug("CPDEV-17064");
 		String uri = "/lookup/chargeType";
@@ -259,7 +260,7 @@ public class lookupControllerv4 {
 
 	}
 
-	@Test(priority = 211, groups = "lookup")
+	@Test(priority = 211, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookupchargeTypeAll() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.Bug("CPDEV-17064");
 		String uri = "/lookup/chargeType";
@@ -272,7 +273,7 @@ public class lookupControllerv4 {
 
 	}
 
-	@Test(priority = 22, groups = "lookup")
+	@Test(priority = 22, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookupbillingCyclePeriod()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/billingCyclePeriod";
@@ -283,7 +284,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 23, groups = "lookup")
+	@Test(priority = 23, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookupMiscChargeDocuments()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		CommonMethods.Bug(" CPDEV-17161 ");
@@ -296,7 +297,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 24, groups = "lookup")
+	@Test(priority = 24, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookupPaymentDocuments()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -312,7 +313,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 25, groups = "lookup")
+	@Test(priority = 25, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookupserviceOrderOrigin()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/serviceOrderOrigin";
@@ -323,7 +324,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 26, groups = "lookup")
+	@Test(priority = 26, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookupserviceOrderStatus()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/serviceOrderStatus";
@@ -334,7 +335,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 27, groups = "lookup")
+	@Test(priority = 27, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookupserviceOrderTask()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-18771");
@@ -346,7 +347,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 28, groups = "lookup")
+	@Test(priority = 28, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookupserviceOrderRequestedBy()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/serviceOrderRequestedBy";
@@ -357,7 +358,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 29, groups = "lookup")
+	@Test(priority = 29, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookuplocationClass() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/locationClass";
 		String version = "4.0";
@@ -367,7 +368,7 @@ public class lookupControllerv4 {
 		Assert.assertEquals(result, expected);
 	}
 
-	@Test(priority = 30, groups = "lookup")
+	@Test(priority = 30, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookuplocation() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookupLocation";
 		String version = "4.0";
