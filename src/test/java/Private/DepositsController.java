@@ -18,7 +18,7 @@ import io.restassured.response.ValidatableResponse;
 
 public class DepositsController {
 
-	@Test(priority = 1, groups = "Deposits", retryAnalyzer = Retry.class)
+	@Test(priority = 2, groups = "Deposits", retryAnalyzer = Retry.class)
 	public void getdeposit() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/deposit";
@@ -31,7 +31,7 @@ public class DepositsController {
 
 	}
 
-	@Test(priority = 4, groups = "Deposits", retryAnalyzer = Retry.class, dependsOnMethods = "postdepositpaymentPlanv4")
+	@Test(priority = 6, groups = "Deposits", retryAnalyzer = Retry.class, dependsOnMethods = "postdepositpaymentPlanv4")
 	public void getdepositpaymentPlan() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/deposit/DEPS00000000035/paymentPlan";
@@ -44,7 +44,7 @@ public class DepositsController {
 
 	}
 	
-	@Test(priority = 5, groups = "Deposits", retryAnalyzer = Retry.class, dependsOnMethods = "postdepositpaymentPlanv4")
+	@Test(priority = 7, groups = "Deposits", retryAnalyzer = Retry.class, dependsOnMethods = "postdepositpaymentPlanv4")
 	public void getdepositpaymentPlanv3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/deposit/DEPS00000000035/paymentPlan";
@@ -73,7 +73,7 @@ public class DepositsController {
 
 	}
 
-	@Test(priority = 2, groups = "Deposits", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "Deposits", retryAnalyzer = Retry.class)
 	public void postdepositpaymentPlanv4() throws ClassNotFoundException, SQLException, InterruptedException {
 
 		String uri = "/deposit/paymentPlan";
