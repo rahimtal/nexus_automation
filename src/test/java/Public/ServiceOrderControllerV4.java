@@ -39,8 +39,9 @@ public class ServiceOrderControllerV4 {
 		System.out.println(result);
 	}
 
+	//If set to true, the service order tasks schedule date will default to schedule date else service order tasks schedule date will be set to requested date.
 	@Test(priority = 2, groups = "ServiceOrder", retryAnalyzer = Retry.class)
-	public void postCreateServiceOrderv4UseScheduleDateForSODetailtrue()
+	public void postCreateServiceOrderv4UseScheduleDateForSODetailfalse()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
 		String uri = "/serviceOrder";
@@ -48,9 +49,9 @@ public class ServiceOrderControllerV4 {
 		String payload = "{\r\n" + "    \"ServiceOrder\": [\r\n" + "        {\r\n"
 				+ "            \"LocationId\": \"ELECWAT001\",\r\n" + "            \"CustomerId\": \"CUSTOMER007\",\r\n"
 				+ "            \"MoveInCustomerId\": \"CUSTOMER006\",\r\n"
-				+ "            \"RequestId\": \"REQ-INSTALL-E\",\r\n" + "            \"Description\": \"\",\r\n"
+				+ "            \"RequestId\": \"REQ-INSTALL-E\",\r\n" + "            \"Description\": \"UseScheduleDateForSODetail FALSE \",\r\n"
 				+ "            \"RequestedDateTime\": \"2019-04-08T10:45:00\",\r\n"
-				+ "            \"ScheduledDateTime\": \"2019-10-08T10:45:00\",\r\n"
+				+ "            \"ScheduledDateTime\": \"2020-10-08T10:45:00\",\r\n"
 				+ "            \"EquipmentId\": \"WATEREQUIP006\",\r\n" + "            \"CommentLine\": [\r\n"
 				+ "                {\r\n" + "                    \"Id\": 2,\r\n"
 				+ "                    \"Description\": \"Line 2\"\r\n" + "                },\r\n"
@@ -72,7 +73,7 @@ public class ServiceOrderControllerV4 {
 	}
 	
 	@Test(priority = 3, groups = "ServiceOrder", retryAnalyzer = Retry.class)
-	public void postCreateServiceOrderv4UseScheduleDateForSODetailfalse()
+	public void postCreateServiceOrderv4UseScheduleDateForSODetailtrue()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
 		String uri = "/serviceOrder";
@@ -80,9 +81,9 @@ public class ServiceOrderControllerV4 {
 		String payload = "{\r\n" + "    \"ServiceOrder\": [\r\n" + "        {\r\n"
 				+ "            \"LocationId\": \"ELECWAT001\",\r\n" + "            \"CustomerId\": \"CUSTOMER007\",\r\n"
 				+ "            \"MoveInCustomerId\": \"CUSTOMER006\",\r\n"
-				+ "            \"RequestId\": \"REQ-INSTALL-E\",\r\n" + "            \"Description\": \"\",\r\n"
+				+ "            \"RequestId\": \"REQ-INSTALL-E\",\r\n" + "            \"Description\": \"UseScheduleDateForSODetail TRUE\",\r\n"
 				+ "            \"RequestedDateTime\": \"2019-04-08T10:45:00\",\r\n"
-				+ "            \"ScheduledDateTime\": \"2019-10-08T10:45:00\",\r\n"
+				+ "            \"ScheduledDateTime\": \"2020-10-08T10:45:00\",\r\n"
 				+ "            \"EquipmentId\": \"WATEREQUIP006\",\r\n" + "            \"CommentLine\": [\r\n"
 				+ "                {\r\n" + "                    \"Id\": 2,\r\n"
 				+ "                    \"Description\": \"Line 2\"\r\n" + "                },\r\n"
