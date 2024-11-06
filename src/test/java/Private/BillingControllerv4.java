@@ -2,7 +2,7 @@ package Private;
 
 import org.testng.annotations.Test;
 import org.testng.Assert;
-import org.testng.AssertJUnit;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -60,7 +60,7 @@ public class BillingControllerv4 {
 		System.out.println(jsonPathEvaluator.prettyPrint());
 		if (!Result) {
 
-			AssertJUnit.fail("Bill Posting Failed \n" + jsonPathEvaluator.prettyPrint());
+			Assert.fail("Bill Posting Failed \n" + jsonPathEvaluator.prettyPrint());
 
 		}
 	}
@@ -88,7 +88,7 @@ public class BillingControllerv4 {
 		System.out.println(Result);
 		if (!Result) {
 
-			AssertJUnit.fail("Bill Calculation Failed");
+			Assert.fail("Bill Calculation Failed");
 
 		}
 	}
@@ -108,7 +108,7 @@ public class BillingControllerv4 {
 		Boolean Result = jsonPathEvaluator.get("Billing.Success");
 		System.out.println(jsonPathEvaluator.prettyPrint());
 		if (!Result) {
-			AssertJUnit.fail(jsonPathEvaluator.prettyPrint());
+			Assert.fail(jsonPathEvaluator.prettyPrint());
 
 		}
 	}
@@ -131,7 +131,7 @@ public class BillingControllerv4 {
 		System.out.println(Result);
 		if (!Result) {
 
-			AssertJUnit.fail("Bill Posting Failed \n" + jsonPathEvaluator.prettyPrint());
+			Assert.fail("Bill Posting Failed \n" + jsonPathEvaluator.prettyPrint());
 
 		}
 	}
@@ -152,7 +152,7 @@ public class BillingControllerv4 {
 		System.out.println(Result);
 		if (!Result) {
 
-			AssertJUnit.fail("Bill Calculation Failed");
+			Assert.fail("Bill Calculation Failed");
 
 		}
 	}
@@ -221,6 +221,27 @@ public class BillingControllerv4 {
 		params.put("ServiceOrderNumber", "SORD00000000044");
 		String actual = CommonMethods.getMethodasString(uri, ver, params);// (uri, ver, params, jpath);
 		Assert.assertEquals(actual, expected);
+	}
+
+	@Test(priority = 12, groups = "billing", retryAnalyzer = Retry.class)
+	public static void billingfinalcalculatev4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// CommonMethods.CompanyDBRestore();
+		// CommonMethods.Bug("CPDEV-16682");
+		String uri = "/billing/final/calculate";
+		String ver = "4.0";
+		String payload = "{\r\n" + "    \"BatchId\": \"BATCHID\",\r\n" + "    \"CheckBatchId\": \"CHECKBATCHID\",\r\n"
+				+ "    \"SingleOption\": {\r\n" + "        \"ServiceOrderNumber\": \"SORD00000009024\",\r\n"
+				+ "        \"Task\": {\r\n" + "            \"Sequence\": 1000,\r\n"
+				+ "            \"EmployeeId\": \"cogsuser\"\r\n" + "        },\r\n"
+				+ "        \"PeriodStartDate\": \"2024-11-01\",\r\n" + "        \"PeriodEndDate\": \"2024-12-01\",\r\n"
+				+ "        \"BillingDate\": \"2024-12-02\",\r\n" + "        \"BillToCustomerDeposit\": 2,\r\n"
+				+ "        \"ThirdPartyDeposit\": 2\r\n" + "    }\r\n" + "}";
+
+		String actual = CommonMethods.postMethodStringPayloadString(payload, uri, ver);
+		String expected = "{\"Billing\":{\"Success\":true,\"Data\":{\"BatchId\":\"BATCHID\",\"NumberOfValidTransaction\":1,\"HasTransferErrorInReport\":false,\"List\":[{\"LocationId\":\"TESTLOC018\",\"CustomerId\":\"50000201\",\"ServiceOrderNumber\":\"SORD00000009024\"}],\"TransferErrorList\":[],\"ReportErrorList\":[]},\"Messages\":[]}}";
+		Assert.assertEquals(actual, expected);
+
 	}
 
 }
