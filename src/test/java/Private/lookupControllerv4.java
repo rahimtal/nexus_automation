@@ -378,5 +378,17 @@ public class lookupControllerv4 {
 		String result = CommonMethods.getMethodasString(uri, version, params);
 		Assert.assertEquals(result, expected);
 	}
+	
+	@Test(priority = 31, groups = "lookup", retryAnalyzer = Retry.class)
+	public void lookupBatch() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/lookupBatch?BatchSource=BILLING&BillingType=Final";
+		String version = "4.0";
+		String expected = "{\"Batch\":[{\"Id\":\"BAT10123123\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"BATCHID\",\"Description\":\"Api billing\",\"HasTransaction\":true}]}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("LocationId", "LOCATION001");
+		String result = CommonMethods.getMethodasString(uri, version, params);
+		Assert.assertEquals(result, expected);
+	}
+
 
 }
