@@ -385,7 +385,8 @@ public class lookupControllerv4 {
 		String version = "4.0";
 		String expected = "{\"Batch\":[{\"Id\":\"BAT10123123\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"BATCHID\",\"Description\":\"Api billing\",\"HasTransaction\":true}]}";
 		HashMap<String, String> params = new HashMap<String, String>();
-		params.put("LocationId", "LOCATION001");
+		params.put("BatchSource", "BILLING");
+		params.put("BillingType", "Final");
 		String result = CommonMethods.getMethodasString(uri, version, params);
 		Assert.assertEquals(result, expected);
 	}
