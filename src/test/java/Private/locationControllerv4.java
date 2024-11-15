@@ -37,4 +37,28 @@ public class locationControllerv4 {
 
 	}
 
+	@Test(priority = 3, groups = "locationController", retryAnalyzer = Retry.class)
+	public void postbillingOptionv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// JsonPath jsonPathEvaluator;
+
+		String uri = "/location/billingOption/validate";
+		String ver = "4.0";
+		String payload = "{\r\n" + "    \"LocationId\":\"WATER005\",\r\n" + "    \"Billing\":{\r\n"
+				+ "        \"AccumulatedBilling\":{\r\n" + "            \"Type\":1,\r\n"
+				+ "            \"MasterId\":\"\"\r\n" + "        }\r\n" + "    },\r\n" + "    \"ServiceOptions\":{\r\n"
+				+ "        \"Service\":[\r\n" + "            {\r\n" + "                \"CategoryId\":1,\r\n"
+				+ "                \"AccountReceivableIndex\":1\r\n" + "            },\r\n" + "            {\r\n"
+				+ "                \"CategoryId\":2,\r\n" + "                \"AccountReceivableIndex\":1\r\n"
+				+ "            },\r\n" + "            {\r\n" + "                \"CategoryId\":3,\r\n"
+				+ "                \"AccountReceivableIndex\":1\r\n" + "            },\r\n" + "                {\r\n"
+				+ "                \"CategoryId\":4,\r\n" + "                \"AccountReceivableIndex\":1\r\n"
+				+ "            },\r\n" + "            {\r\n" + "                \"CategoryId\":5,\r\n"
+				+ "                \"AccountReceivableIndex\":1\r\n" + "            },\r\n" + "            {\r\n"
+				+ "                \"CategoryId\":6,\r\n" + "                \"AccountReceivableIndex\":1\r\n"
+				+ "            }\r\n" + "        ]\r\n" + "    }\r\n" + "}";
+		String exResponse = "{\"Location\":{\"Success\":true,\"Data\":{\"InvalidAccumType\":false,\"InvalidMasterId\":false,\"InvalidServiceAccountIndex\":false,\"MessageIncludeDocument\":true},\"Messages\":[{\"Enabled\":1,\"Info\":\"There are documents for the location\\/customer that are not included in the customer statement. Do you want the documents to be included in the Master Location statement?\",\"Level\":1}]}}";
+		CommonMethods.postMethodString(payload, uri, ver, exResponse);
+
+	}
+
 }
