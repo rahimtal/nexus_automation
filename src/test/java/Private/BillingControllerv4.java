@@ -243,5 +243,33 @@ public class BillingControllerv4 {
 		Assert.assertEquals(actual, expected);
 
 	}
+	
+
+	@Test(priority = 12, groups = "billing", retryAnalyzer = Retry.class)
+	public void getBatchIdValidate()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// extent.createTest("Test", "");
+		String uri = "/billing/batchId/BAT1/validate";
+		String ver = "4.0";
+		String expected = "{\"BILLING\":{\"Success\":false,\"Data\":{\"BatchId\":\"BAT1\",\"isBatchIdValid\":false},\"Messages\":[{\"Enabled\":1,\"Info\":\"The Batch Source for this Batch ID is not BILLING. Select a differenct Batch ID or create a new Batch ID.\",\"Level\":3}]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		//params.put("ServiceOrderNumber", "SORD00000000044");
+		String actual = CommonMethods.getMethodasString(uri, ver, params);// (uri, ver, params, jpath);
+		Assert.assertEquals(actual, expected);
+	}
+	
+	@Test(priority = 13, groups = "billing", retryAnalyzer = Retry.class)
+	public void getBatchIdValidatetrue()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// extent.createTest("Test", "");
+		String uri = "/billing/batchId/BAT10123123/validate";
+		String ver = "4.0";
+		String expected = "{\"BILLING\":{\"Success\":true,\"Data\":{\"BatchId\":\"BAT10123123\",\"isBatchIdValid\":false},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		//params.put("ServiceOrderNumber", "SORD00000000044");
+		String actual = CommonMethods.getMethodasString(uri, ver, params);// (uri, ver, params, jpath);
+		Assert.assertEquals(actual, expected);
+	}
+
 
 }
