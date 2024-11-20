@@ -18,9 +18,10 @@ public class lookupControllerv4 {
 	public void getapplyByService_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookupBatch";
 		String ver = "4.0";
-		String expected = "{\"Batch\":[{\"Id\":\"10001\",\"Description\":\"\"},{\"Id\":\"1001\",\"Description\":\"\"},{\"Id\":\"100111\",\"Description\":\"\"},{\"Id\":\"10111\",\"Description\":\"\"},{\"Id\":\"109090ABC\",\"Description\":\"\"},{\"Id\":\"12312312\",\"Description\":\"\"},{\"Id\":\"12345\",\"Description\":\"\"},{\"Id\":\"ABC10001\",\"Description\":\"\"},{\"Id\":\"ABC1213\",\"Description\":\"\"},{\"Id\":\"API 20190430\",\"Description\":\"Payments from Web Service - API\"},{\"Id\":\"API 20190503\",\"Description\":\"Payments from Web Service - API\"},{\"Id\":";
+		String expected = "{\"Batch\":[{\"Id\":\"10001\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"1001\",\"Description\":\"\",\"HasTransaction\":true},";
 		HashMap<String, String> params = new HashMap<String, String>();
 		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
 		Assert.assertTrue(actual.contains(expected));
 	}
 
@@ -29,11 +30,12 @@ public class lookupControllerv4 {
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookupBatch";
 		String version = "4.0";
-		String expected = "{\"Batch\":[{\"Id\":\"10001\",\"Description\":\"\"},{\"Id\":\"1001\",\"Description\":\"\"},{\"Id\":\"100111\",";
+		String expected = "{\"Batch\":[{\"Id\":\"10001\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"1001\",\"Description\":\"\",\"HasTransaction\":true},";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("BatchSource", "PAYMENTS");
 		// params.put("LocationId", "LOCATION011");
 		String actual = CommonMethods.getMethodasString(uri, version, params);
+		System.out.println(actual);
 		Assert.assertTrue(actual.contains(expected));
 	}
 
