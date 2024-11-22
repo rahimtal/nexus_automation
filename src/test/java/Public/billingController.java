@@ -89,8 +89,9 @@ public class billingController extends BaseClass {
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("ValidateBilling", "Final");
 		String result = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(expected, result);
 		System.out.println(result);
+		Assert.assertEquals(expected, result);
+
 	}
-	
+
 }

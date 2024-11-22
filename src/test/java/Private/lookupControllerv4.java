@@ -380,7 +380,7 @@ public class lookupControllerv4 {
 		String result = CommonMethods.getMethodasString(uri, version, params);
 		Assert.assertEquals(result, expected);
 	}
-	
+
 	@Test(priority = 31, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookupBatch() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookupBatch?BatchSource=BILLING&BillingType=Final";
@@ -393,5 +393,17 @@ public class lookupControllerv4 {
 		Assert.assertEquals(result, expected);
 	}
 
+	@Test(priority = 32, groups = "lookup", retryAnalyzer = Retry.class)
+	public void lookuptranferBillToCustomerDeposit()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/lookup/tranferBillToCustomerDeposit";
+		String version = "4.0";
+		String expected = "{\"TranferBillToCustomerDeposit\":[{\"Id\":2,\"Description\":\"Refund of Difference\"},{\"Id\":3,\"Description\":\"Full Refund\"}]}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		// params.put("BatchSource", "BILLING");
+		// params.put("BillingType", "Final");
+		String result = CommonMethods.getMethodasString(uri, version, params);
+		Assert.assertEquals(result, expected);
+	}
 
 }
