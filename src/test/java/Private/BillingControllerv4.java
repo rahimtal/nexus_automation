@@ -251,7 +251,7 @@ public class BillingControllerv4 {
 		// extent.createTest("Test", "");
 		String uri = "/billing/batchId/BAT1/validate";
 		String ver = "4.0";
-		String expected = "{\"Billing\":{\"Success\":false,\"Data\":{\"BatchId\":\"BAT1\",\"isBatchIdValid\":false},\"Messages\":[{\"Enabled\":1,\"Info\":\"The Batch Source for this Batch ID is not BILLING. Select a differenct Batch ID or create a new Batch ID.\",\"Level\":3}]}}";
+		String expected = "{\"Billing\":{\"Success\":false,\"Data\":{\"BatchId\":\"BAT1\",\"isBatchIdValid\":false},\"Messages\":[{\"Enabled\":1,\"Info\":\"The Batch Source for this Batch Id is not BILLING. Select a differenct Batch Id or create a new Batch Id.\",\"Level\":3}]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		//params.put("ServiceOrderNumber", "SORD00000000044");
 		String actual = CommonMethods.getMethodasString(uri, ver, params);// (uri, ver, params, jpath);
