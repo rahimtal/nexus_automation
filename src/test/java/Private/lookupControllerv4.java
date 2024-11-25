@@ -385,7 +385,7 @@ public class lookupControllerv4 {
 	public void lookupBatch() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookupBatch?BatchSource=BILLING&BillingType=Final";
 		String version = "4.0";
-		String expected = "{\"Batch\":[{\"Id\":\"BAT10123123\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"BATCHID\",\"Description\":\"Api billing\",\"HasTransaction\":true},{\"Id\":\"BT1231\",\"Description\":\"Api billing\",\"HasTransaction\":false}]}";
+		String expected = "{\"Batch\":[{\"Id\":\"BAT10123123\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"BATCHID\",\"Description\":\"Api billing\",\"HasTransaction\":true}]}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("BatchSource", "BILLING");
 		params.put("BillingType", "Final");
