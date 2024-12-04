@@ -61,4 +61,19 @@ public class locationControllerv4 {
 
 	}
 
+	@Test(priority = 4, groups = "locationController", retryAnalyzer = Retry.class)
+	public void lookuptransferThirdPartyDepositv4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// JsonPath jsonPathEvaluator;
+
+		String uri = "/lookup/transferThirdPartyDeposit";
+		// CommonMethods.CompanyDBRestore();
+		String ver = "4.0";
+		String expected = "{\"TransferThirdPartyDeposit\":[{\"Id\":2,\"Description\":\"Refund of Difference\"},{\"Id\":3,\"Description\":\"Full Refund\"}]}";
+		// CommonMethods.deleteMethodvoid(uri, ver, expected);
+		HashMap<String, String> params = new HashMap<String, String>();
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		Assert.assertEquals(actual, expected);
+	}
+
 }
