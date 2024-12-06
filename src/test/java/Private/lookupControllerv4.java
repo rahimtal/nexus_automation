@@ -396,6 +396,8 @@ public class lookupControllerv4 {
 	@Test(priority = 32, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookuptranferBillToCustomerDeposit()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		CommonMethods.Bug("CPDEV-20377");
 		String uri = "/lookup/tranferBillToCustomerDeposit";
 		String version = "4.0";
 		String expected = "{\"TranferBillToCustomerDeposit\":[{\"Id\":2,\"Description\":\"Refund of Difference\"},{\"Id\":3,\"Description\":\"Full Refund\"}]}";

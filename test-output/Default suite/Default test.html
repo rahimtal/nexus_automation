@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>0/1/3</td>
+<td>Tests passed/Failed/Skipped:</td><td>5/2/8</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Dec 06 06:26:50 PST 2024</td>
+<td>Started on:</td><td>Fri Dec 06 06:34:03 PST 2024</td>
 </tr>
-<tr><td>Total time:</td><td>2 seconds (2044 ms)</td>
+<tr><td>Total time:</td><td>3 seconds (3856 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,15 +76,14 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='Private.lookupControllerv4.lookuptranferBillToCustomerDeposit()'><b>lookuptranferBillToCustomerDeposit</b><br>Test class: Private.lookupControllerv4</td>
-<td><div><pre>java.lang.AssertionError: expected [{&quot;TranferBillToCustomerDeposit&quot;:[{&quot;Id&quot;:2,&quot;Description&quot;:&quot;Refund of Difference&quot;},{&quot;Id&quot;:3,&quot;Description&quot;:&quot;Full Refund&quot;}]}] but found [{&quot;result&quot;:{&quot;Success&quot;:false,&quot;Message&quot;:&quot;Not Found&quot;}}]
+<td title='Private.contactLogController.postcontactLogControllerv4()'><b>postcontactLogControllerv4</b><br>Test class: Private.contactLogController</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1578)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
-	at org.testng.Assert.assertEquals(Assert.java:132)
-	at org.testng.Assert.assertEquals(Assert.java:656)
-	at org.testng.Assert.assertEquals(Assert.java:666)
-	at Private.lookupControllerv4.lookuptranferBillToCustomerDeposit(lookupControllerv4.java:406)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at org.testng.Assert.assertTrue(Assert.java:67)
+	at com.NexustAPIAutomation.java.CommonMethods.postcallcontains(CommonMethods.java:1506)
+	at Private.contactLogController.postcontactLogControllerv4(contactLogController.java:136)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -113,15 +112,14 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1457352442", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1457352442'><pre>java.lang.AssertionError: expected [{&quot;TranferBillToCustomerDeposit&quot;:[{&quot;Id&quot;:2,&quot;Description&quot;:&quot;Refund of Difference&quot;},{&quot;Id&quot;:3,&quot;Description&quot;:&quot;Full Refund&quot;}]}] but found [{&quot;result&quot;:{&quot;Success&quot;:false,&quot;Message&quot;:&quot;Not Found&quot;}}]
+</pre></div><a href='#' onClick='toggleBox("stack-trace993343057", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace993343057'><pre>java.lang.AssertionError: expected [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1578)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
-	at org.testng.Assert.assertEquals(Assert.java:132)
-	at org.testng.Assert.assertEquals(Assert.java:656)
-	at org.testng.Assert.assertEquals(Assert.java:666)
-	at Private.lookupControllerv4.lookuptranferBillToCustomerDeposit(lookupControllerv4.java:406)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at org.testng.Assert.assertTrue(Assert.java:67)
+	at com.NexustAPIAutomation.java.CommonMethods.postcallcontains(CommonMethods.java:1506)
+	at Private.contactLogController.postcontactLogControllerv4(contactLogController.java:136)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -152,7 +150,119 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
 <td>0</td>
-<td>Private.lookupControllerv4@231f98ef</td></tr>
+<td>Private.contactLogController@16eb3ea3</td></tr>
+<tr>
+<td title='Private.contactLogController.getContactLogDetail2()'><b>getContactLogDetail2</b><br>Test class: Private.contactLogController</td>
+<td><div><pre>java.lang.AssertionError: expected [{&quot;ContactLog&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;Detail&quot;:[{&quot;ActionCode&quot;:&quot;2&quot;,&quot;AdditionalText&quot;:&quot;&quot;,&quot;ContactMethod&quot;:1,&quot;Description&quot;:&quot;Request to read meter&quot;,&quot;FirstContactDateTime&quot;:&quot;2027-02-01T12:15:14&quot;,&quot;NextContactDateTime&quot;:&quot;2027-03-01T12:15:14&quot;,&quot;CompletedDateTime&quot;:&quot;2022-04-09T16:01:05&quot;,&quot;IsCompleted&quot;:true,&quot;ResolutionText&quot;:&quot;&quot;,&quot;ServiceOrder&quot;:{&quot;Number&quot;:&quot;SORD00000009048&quot;,&quot;StatusDescription&quot;:&quot;Pending&quot;,&quot;RequestId&quot;:&quot;DISCONNECT&quot;,&quot;RequestDescription&quot;:&quot;Disconnected connection&quot;},&quot;FollowUpEmployee&quot;:{&quot;Id&quot;:&quot;ZAID0001&quot;,&quot;FirstName&quot;:&quot;Syed&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Zaidi&quot;},&quot;User&quot;:{&quot;Id&quot;:&quot;sa&quot;,&quot;FirstName&quot;:&quot;Sam&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Arsenault&quot;}}]},&quot;Messages&quot;:[]}}] but found [{&quot;ContactLog&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;Detail&quot;:[{&quot;ActionCode&quot;:&quot;2&quot;,&quot;AdditionalText&quot;:&quot;&quot;,&quot;ContactMethod&quot;:1,&quot;Description&quot;:&quot;Request to read meter&quot;,&quot;FirstContactDateTime&quot;:&quot;2027-02-01T12:15:14&quot;,&quot;NextContactDateTime&quot;:&quot;2027-03-01T12:15:14&quot;,&quot;CompletedDateTime&quot;:&quot;2022-04-09T16:01:05&quot;,&quot;IsCompleted&quot;:true,&quot;ResolutionText&quot;:&quot;&quot;,&quot;ServiceOrder&quot;:{&quot;Number&quot;:&quot;SORD00000009026&quot;,&quot;StatusDescription&quot;:&quot;Pending&quot;,&quot;RequestId&quot;:&quot;DISCONNECT&quot;,&quot;RequestDescription&quot;:&quot;Disconnected connection&quot;},&quot;FollowUpEmployee&quot;:{&quot;Id&quot;:&quot;ZAID0001&quot;,&quot;FirstName&quot;:&quot;Syed&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Zaidi&quot;},&quot;User&quot;:{&quot;Id&quot;:&quot;sa&quot;,&quot;FirstName&quot;:&quot;Sam&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Arsenault&quot;}}]},&quot;Messages&quot;:[]}}]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at org.testng.Assert.assertEquals(Assert.java:666)
+	at Private.contactLogController.getContactLogDetail2(contactLogController.java:86)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.retryFailed(TestInvoker.java:269)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:76)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div><a href='#' onClick='toggleBox("stack-trace118566118", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace118566118'><pre>java.lang.AssertionError: expected [{&quot;ContactLog&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;Detail&quot;:[{&quot;ActionCode&quot;:&quot;2&quot;,&quot;AdditionalText&quot;:&quot;&quot;,&quot;ContactMethod&quot;:1,&quot;Description&quot;:&quot;Request to read meter&quot;,&quot;FirstContactDateTime&quot;:&quot;2027-02-01T12:15:14&quot;,&quot;NextContactDateTime&quot;:&quot;2027-03-01T12:15:14&quot;,&quot;CompletedDateTime&quot;:&quot;2022-04-09T16:01:05&quot;,&quot;IsCompleted&quot;:true,&quot;ResolutionText&quot;:&quot;&quot;,&quot;ServiceOrder&quot;:{&quot;Number&quot;:&quot;SORD00000009048&quot;,&quot;StatusDescription&quot;:&quot;Pending&quot;,&quot;RequestId&quot;:&quot;DISCONNECT&quot;,&quot;RequestDescription&quot;:&quot;Disconnected connection&quot;},&quot;FollowUpEmployee&quot;:{&quot;Id&quot;:&quot;ZAID0001&quot;,&quot;FirstName&quot;:&quot;Syed&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Zaidi&quot;},&quot;User&quot;:{&quot;Id&quot;:&quot;sa&quot;,&quot;FirstName&quot;:&quot;Sam&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Arsenault&quot;}}]},&quot;Messages&quot;:[]}}] but found [{&quot;ContactLog&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;Detail&quot;:[{&quot;ActionCode&quot;:&quot;2&quot;,&quot;AdditionalText&quot;:&quot;&quot;,&quot;ContactMethod&quot;:1,&quot;Description&quot;:&quot;Request to read meter&quot;,&quot;FirstContactDateTime&quot;:&quot;2027-02-01T12:15:14&quot;,&quot;NextContactDateTime&quot;:&quot;2027-03-01T12:15:14&quot;,&quot;CompletedDateTime&quot;:&quot;2022-04-09T16:01:05&quot;,&quot;IsCompleted&quot;:true,&quot;ResolutionText&quot;:&quot;&quot;,&quot;ServiceOrder&quot;:{&quot;Number&quot;:&quot;SORD00000009026&quot;,&quot;StatusDescription&quot;:&quot;Pending&quot;,&quot;RequestId&quot;:&quot;DISCONNECT&quot;,&quot;RequestDescription&quot;:&quot;Disconnected connection&quot;},&quot;FollowUpEmployee&quot;:{&quot;Id&quot;:&quot;ZAID0001&quot;,&quot;FirstName&quot;:&quot;Syed&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Zaidi&quot;},&quot;User&quot;:{&quot;Id&quot;:&quot;sa&quot;,&quot;FirstName&quot;:&quot;Sam&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Arsenault&quot;}}]},&quot;Messages&quot;:[]}}]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at org.testng.Assert.assertEquals(Assert.java:666)
+	at Private.contactLogController.getContactLogDetail2(contactLogController.java:86)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.retryFailed(TestInvoker.java:269)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:76)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>0</td>
+<td>Private.contactLogController@16eb3ea3</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Private.contactLogController.postcontactLogControllerv4datevaldiation()'><b>postcontactLogControllerv4datevaldiation</b><br>Test class: Private.contactLogController</td>
+<td></td>
+<td>0</td>
+<td>Private.contactLogController@16eb3ea3</td></tr>
+<tr>
+<td title='Private.contactLogController.contactLoggetContactLogActionCodes()'><b>contactLoggetContactLogActionCodes</b><br>Test class: Private.contactLogController</td>
+<td></td>
+<td>0</td>
+<td>Private.contactLogController@16eb3ea3</td></tr>
+<tr>
+<td title='Private.contactLogController.getContactLogServiceOrderRequest()'><b>getContactLogServiceOrderRequest</b><br>Test class: Private.contactLogController</td>
+<td></td>
+<td>0</td>
+<td>Private.contactLogController@16eb3ea3</td></tr>
+<tr>
+<td title='Private.contactLogController.postcontactLogSimplev4()'><b>postcontactLogSimplev4</b><br>Test class: Private.contactLogController</td>
+<td></td>
+<td>1</td>
+<td>Private.contactLogController@16eb3ea3</td></tr>
+<tr>
+<td title='Private.contactLogController.getContactLogMethods()'><b>getContactLogMethods</b><br>Test class: Private.contactLogController</td>
+<td></td>
+<td>0</td>
+<td>Private.contactLogController@16eb3ea3</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-skipped'>
 <tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
@@ -163,15 +273,10 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='Private.lookupControllerv4.lookuptranferBillToCustomerDeposit()'><b>lookuptranferBillToCustomerDeposit</b><br>Test class: Private.lookupControllerv4</td>
-<td><div><pre>java.lang.AssertionError: expected [{&quot;TranferBillToCustomerDeposit&quot;:[{&quot;Id&quot;:2,&quot;Description&quot;:&quot;Refund of Difference&quot;},{&quot;Id&quot;:3,&quot;Description&quot;:&quot;Full Refund&quot;}]}] but found [{&quot;result&quot;:{&quot;Success&quot;:false,&quot;Message&quot;:&quot;Not Found&quot;}}]
-	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.failNotEquals(Assert.java:1578)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
-	at org.testng.Assert.assertEquals(Assert.java:132)
-	at org.testng.Assert.assertEquals(Assert.java:656)
-	at org.testng.Assert.assertEquals(Assert.java:666)
-	at Private.lookupControllerv4.lookuptranferBillToCustomerDeposit(lookupControllerv4.java:406)
+<td title='Private.contactLogController.getContactLogDetail()'><b>getContactLogDetail</b><br>Test class: Private.contactLogController</td>
+<td><div><pre>org.testng.SkipException: Skipping this due to bugCPDEV-18571
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1530)
+	at Private.contactLogController.getContactLogDetail(contactLogController.java:60)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -200,15 +305,10 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div><a href='#' onClick='toggleBox("stack-trace740950652", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace740950652'><pre>java.lang.AssertionError: expected [{&quot;TranferBillToCustomerDeposit&quot;:[{&quot;Id&quot;:2,&quot;Description&quot;:&quot;Refund of Difference&quot;},{&quot;Id&quot;:3,&quot;Description&quot;:&quot;Full Refund&quot;}]}] but found [{&quot;result&quot;:{&quot;Success&quot;:false,&quot;Message&quot;:&quot;Not Found&quot;}}]
-	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.failNotEquals(Assert.java:1578)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
-	at org.testng.Assert.assertEquals(Assert.java:132)
-	at org.testng.Assert.assertEquals(Assert.java:656)
-	at org.testng.Assert.assertEquals(Assert.java:666)
-	at Private.lookupControllerv4.lookuptranferBillToCustomerDeposit(lookupControllerv4.java:406)
+</pre></div><a href='#' onClick='toggleBox("stack-trace762708774", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace762708774'><pre>org.testng.SkipException: Skipping this due to bugCPDEV-18571
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1530)
+	at Private.contactLogController.getContactLogDetail(contactLogController.java:60)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -238,18 +338,18 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
-<td>1</td>
-<td>Private.lookupControllerv4@231f98ef</td></tr>
+<td>0</td>
+<td>Private.contactLogController@16eb3ea3</td></tr>
 <tr>
-<td title='Private.lookupControllerv4.lookuptranferBillToCustomerDeposit()'><b>lookuptranferBillToCustomerDeposit</b><br>Test class: Private.lookupControllerv4</td>
-<td><div><pre>java.lang.AssertionError: expected [{&quot;TranferBillToCustomerDeposit&quot;:[{&quot;Id&quot;:2,&quot;Description&quot;:&quot;Refund of Difference&quot;},{&quot;Id&quot;:3,&quot;Description&quot;:&quot;Full Refund&quot;}]}] but found [{&quot;result&quot;:{&quot;Success&quot;:false,&quot;Message&quot;:&quot;Not Found&quot;}}]
+<td title='Private.contactLogController.getContactLogDetail2()'><b>getContactLogDetail2</b><br>Test class: Private.contactLogController</td>
+<td><div><pre>java.lang.AssertionError: expected [{&quot;ContactLog&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;Detail&quot;:[{&quot;ActionCode&quot;:&quot;2&quot;,&quot;AdditionalText&quot;:&quot;&quot;,&quot;ContactMethod&quot;:1,&quot;Description&quot;:&quot;Request to read meter&quot;,&quot;FirstContactDateTime&quot;:&quot;2027-02-01T12:15:14&quot;,&quot;NextContactDateTime&quot;:&quot;2027-03-01T12:15:14&quot;,&quot;CompletedDateTime&quot;:&quot;2022-04-09T16:01:05&quot;,&quot;IsCompleted&quot;:true,&quot;ResolutionText&quot;:&quot;&quot;,&quot;ServiceOrder&quot;:{&quot;Number&quot;:&quot;SORD00000009048&quot;,&quot;StatusDescription&quot;:&quot;Pending&quot;,&quot;RequestId&quot;:&quot;DISCONNECT&quot;,&quot;RequestDescription&quot;:&quot;Disconnected connection&quot;},&quot;FollowUpEmployee&quot;:{&quot;Id&quot;:&quot;ZAID0001&quot;,&quot;FirstName&quot;:&quot;Syed&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Zaidi&quot;},&quot;User&quot;:{&quot;Id&quot;:&quot;sa&quot;,&quot;FirstName&quot;:&quot;Sam&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Arsenault&quot;}}]},&quot;Messages&quot;:[]}}] but found [{&quot;ContactLog&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;Detail&quot;:[{&quot;ActionCode&quot;:&quot;2&quot;,&quot;AdditionalText&quot;:&quot;&quot;,&quot;ContactMethod&quot;:1,&quot;Description&quot;:&quot;Request to read meter&quot;,&quot;FirstContactDateTime&quot;:&quot;2027-02-01T12:15:14&quot;,&quot;NextContactDateTime&quot;:&quot;2027-03-01T12:15:14&quot;,&quot;CompletedDateTime&quot;:&quot;2022-04-09T16:01:05&quot;,&quot;IsCompleted&quot;:true,&quot;ResolutionText&quot;:&quot;&quot;,&quot;ServiceOrder&quot;:{&quot;Number&quot;:&quot;SORD00000009026&quot;,&quot;StatusDescription&quot;:&quot;Pending&quot;,&quot;RequestId&quot;:&quot;DISCONNECT&quot;,&quot;RequestDescription&quot;:&quot;Disconnected connection&quot;},&quot;FollowUpEmployee&quot;:{&quot;Id&quot;:&quot;ZAID0001&quot;,&quot;FirstName&quot;:&quot;Syed&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Zaidi&quot;},&quot;User&quot;:{&quot;Id&quot;:&quot;sa&quot;,&quot;FirstName&quot;:&quot;Sam&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Arsenault&quot;}}]},&quot;Messages&quot;:[]}}]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1578)
 	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
 	at org.testng.Assert.assertEquals(Assert.java:132)
 	at org.testng.Assert.assertEquals(Assert.java:656)
 	at org.testng.Assert.assertEquals(Assert.java:666)
-	at Private.lookupControllerv4.lookuptranferBillToCustomerDeposit(lookupControllerv4.java:406)
+	at Private.contactLogController.getContactLogDetail2(contactLogController.java:86)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -278,15 +378,15 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1386429503", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1386429503'><pre>java.lang.AssertionError: expected [{&quot;TranferBillToCustomerDeposit&quot;:[{&quot;Id&quot;:2,&quot;Description&quot;:&quot;Refund of Difference&quot;},{&quot;Id&quot;:3,&quot;Description&quot;:&quot;Full Refund&quot;}]}] but found [{&quot;result&quot;:{&quot;Success&quot;:false,&quot;Message&quot;:&quot;Not Found&quot;}}]
+</pre></div><a href='#' onClick='toggleBox("stack-trace636575568", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace636575568'><pre>java.lang.AssertionError: expected [{&quot;ContactLog&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;Detail&quot;:[{&quot;ActionCode&quot;:&quot;2&quot;,&quot;AdditionalText&quot;:&quot;&quot;,&quot;ContactMethod&quot;:1,&quot;Description&quot;:&quot;Request to read meter&quot;,&quot;FirstContactDateTime&quot;:&quot;2027-02-01T12:15:14&quot;,&quot;NextContactDateTime&quot;:&quot;2027-03-01T12:15:14&quot;,&quot;CompletedDateTime&quot;:&quot;2022-04-09T16:01:05&quot;,&quot;IsCompleted&quot;:true,&quot;ResolutionText&quot;:&quot;&quot;,&quot;ServiceOrder&quot;:{&quot;Number&quot;:&quot;SORD00000009048&quot;,&quot;StatusDescription&quot;:&quot;Pending&quot;,&quot;RequestId&quot;:&quot;DISCONNECT&quot;,&quot;RequestDescription&quot;:&quot;Disconnected connection&quot;},&quot;FollowUpEmployee&quot;:{&quot;Id&quot;:&quot;ZAID0001&quot;,&quot;FirstName&quot;:&quot;Syed&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Zaidi&quot;},&quot;User&quot;:{&quot;Id&quot;:&quot;sa&quot;,&quot;FirstName&quot;:&quot;Sam&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Arsenault&quot;}}]},&quot;Messages&quot;:[]}}] but found [{&quot;ContactLog&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;Detail&quot;:[{&quot;ActionCode&quot;:&quot;2&quot;,&quot;AdditionalText&quot;:&quot;&quot;,&quot;ContactMethod&quot;:1,&quot;Description&quot;:&quot;Request to read meter&quot;,&quot;FirstContactDateTime&quot;:&quot;2027-02-01T12:15:14&quot;,&quot;NextContactDateTime&quot;:&quot;2027-03-01T12:15:14&quot;,&quot;CompletedDateTime&quot;:&quot;2022-04-09T16:01:05&quot;,&quot;IsCompleted&quot;:true,&quot;ResolutionText&quot;:&quot;&quot;,&quot;ServiceOrder&quot;:{&quot;Number&quot;:&quot;SORD00000009026&quot;,&quot;StatusDescription&quot;:&quot;Pending&quot;,&quot;RequestId&quot;:&quot;DISCONNECT&quot;,&quot;RequestDescription&quot;:&quot;Disconnected connection&quot;},&quot;FollowUpEmployee&quot;:{&quot;Id&quot;:&quot;ZAID0001&quot;,&quot;FirstName&quot;:&quot;Syed&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Zaidi&quot;},&quot;User&quot;:{&quot;Id&quot;:&quot;sa&quot;,&quot;FirstName&quot;:&quot;Sam&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Arsenault&quot;}}]},&quot;Messages&quot;:[]}}]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1578)
 	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
 	at org.testng.Assert.assertEquals(Assert.java:132)
 	at org.testng.Assert.assertEquals(Assert.java:656)
 	at org.testng.Assert.assertEquals(Assert.java:666)
-	at Private.lookupControllerv4.lookuptranferBillToCustomerDeposit(lookupControllerv4.java:406)
+	at Private.contactLogController.getContactLogDetail2(contactLogController.java:86)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -317,17 +417,171 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
 <td>0</td>
-<td>Private.lookupControllerv4@231f98ef</td></tr>
+<td>Private.contactLogController@16eb3ea3</td></tr>
 <tr>
-<td title='Private.lookupControllerv4.lookuptranferBillToCustomerDeposit()'><b>lookuptranferBillToCustomerDeposit</b><br>Test class: Private.lookupControllerv4</td>
-<td><div><pre>java.lang.AssertionError: expected [{&quot;TranferBillToCustomerDeposit&quot;:[{&quot;Id&quot;:2,&quot;Description&quot;:&quot;Refund of Difference&quot;},{&quot;Id&quot;:3,&quot;Description&quot;:&quot;Full Refund&quot;}]}] but found [{&quot;result&quot;:{&quot;Success&quot;:false,&quot;Message&quot;:&quot;Not Found&quot;}}]
+<td title='Private.contactLogController.getContactLogDetail2()'><b>getContactLogDetail2</b><br>Test class: Private.contactLogController</td>
+<td><div><pre>java.lang.AssertionError: expected [{&quot;ContactLog&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;Detail&quot;:[{&quot;ActionCode&quot;:&quot;2&quot;,&quot;AdditionalText&quot;:&quot;&quot;,&quot;ContactMethod&quot;:1,&quot;Description&quot;:&quot;Request to read meter&quot;,&quot;FirstContactDateTime&quot;:&quot;2027-02-01T12:15:14&quot;,&quot;NextContactDateTime&quot;:&quot;2027-03-01T12:15:14&quot;,&quot;CompletedDateTime&quot;:&quot;2022-04-09T16:01:05&quot;,&quot;IsCompleted&quot;:true,&quot;ResolutionText&quot;:&quot;&quot;,&quot;ServiceOrder&quot;:{&quot;Number&quot;:&quot;SORD00000009048&quot;,&quot;StatusDescription&quot;:&quot;Pending&quot;,&quot;RequestId&quot;:&quot;DISCONNECT&quot;,&quot;RequestDescription&quot;:&quot;Disconnected connection&quot;},&quot;FollowUpEmployee&quot;:{&quot;Id&quot;:&quot;ZAID0001&quot;,&quot;FirstName&quot;:&quot;Syed&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Zaidi&quot;},&quot;User&quot;:{&quot;Id&quot;:&quot;sa&quot;,&quot;FirstName&quot;:&quot;Sam&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Arsenault&quot;}}]},&quot;Messages&quot;:[]}}] but found [{&quot;ContactLog&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;Detail&quot;:[{&quot;ActionCode&quot;:&quot;2&quot;,&quot;AdditionalText&quot;:&quot;&quot;,&quot;ContactMethod&quot;:1,&quot;Description&quot;:&quot;Request to read meter&quot;,&quot;FirstContactDateTime&quot;:&quot;2027-02-01T12:15:14&quot;,&quot;NextContactDateTime&quot;:&quot;2027-03-01T12:15:14&quot;,&quot;CompletedDateTime&quot;:&quot;2022-04-09T16:01:05&quot;,&quot;IsCompleted&quot;:true,&quot;ResolutionText&quot;:&quot;&quot;,&quot;ServiceOrder&quot;:{&quot;Number&quot;:&quot;SORD00000009026&quot;,&quot;StatusDescription&quot;:&quot;Pending&quot;,&quot;RequestId&quot;:&quot;DISCONNECT&quot;,&quot;RequestDescription&quot;:&quot;Disconnected connection&quot;},&quot;FollowUpEmployee&quot;:{&quot;Id&quot;:&quot;ZAID0001&quot;,&quot;FirstName&quot;:&quot;Syed&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Zaidi&quot;},&quot;User&quot;:{&quot;Id&quot;:&quot;sa&quot;,&quot;FirstName&quot;:&quot;Sam&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Arsenault&quot;}}]},&quot;Messages&quot;:[]}}]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1578)
 	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
 	at org.testng.Assert.assertEquals(Assert.java:132)
 	at org.testng.Assert.assertEquals(Assert.java:656)
 	at org.testng.Assert.assertEquals(Assert.java:666)
-	at Private.lookupControllerv4.lookuptranferBillToCustomerDeposit(lookupControllerv4.java:406)
+	at Private.contactLogController.getContactLogDetail2(contactLogController.java:86)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1996385500", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1996385500'><pre>java.lang.AssertionError: expected [{&quot;ContactLog&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;Detail&quot;:[{&quot;ActionCode&quot;:&quot;2&quot;,&quot;AdditionalText&quot;:&quot;&quot;,&quot;ContactMethod&quot;:1,&quot;Description&quot;:&quot;Request to read meter&quot;,&quot;FirstContactDateTime&quot;:&quot;2027-02-01T12:15:14&quot;,&quot;NextContactDateTime&quot;:&quot;2027-03-01T12:15:14&quot;,&quot;CompletedDateTime&quot;:&quot;2022-04-09T16:01:05&quot;,&quot;IsCompleted&quot;:true,&quot;ResolutionText&quot;:&quot;&quot;,&quot;ServiceOrder&quot;:{&quot;Number&quot;:&quot;SORD00000009048&quot;,&quot;StatusDescription&quot;:&quot;Pending&quot;,&quot;RequestId&quot;:&quot;DISCONNECT&quot;,&quot;RequestDescription&quot;:&quot;Disconnected connection&quot;},&quot;FollowUpEmployee&quot;:{&quot;Id&quot;:&quot;ZAID0001&quot;,&quot;FirstName&quot;:&quot;Syed&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Zaidi&quot;},&quot;User&quot;:{&quot;Id&quot;:&quot;sa&quot;,&quot;FirstName&quot;:&quot;Sam&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Arsenault&quot;}}]},&quot;Messages&quot;:[]}}] but found [{&quot;ContactLog&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;Detail&quot;:[{&quot;ActionCode&quot;:&quot;2&quot;,&quot;AdditionalText&quot;:&quot;&quot;,&quot;ContactMethod&quot;:1,&quot;Description&quot;:&quot;Request to read meter&quot;,&quot;FirstContactDateTime&quot;:&quot;2027-02-01T12:15:14&quot;,&quot;NextContactDateTime&quot;:&quot;2027-03-01T12:15:14&quot;,&quot;CompletedDateTime&quot;:&quot;2022-04-09T16:01:05&quot;,&quot;IsCompleted&quot;:true,&quot;ResolutionText&quot;:&quot;&quot;,&quot;ServiceOrder&quot;:{&quot;Number&quot;:&quot;SORD00000009026&quot;,&quot;StatusDescription&quot;:&quot;Pending&quot;,&quot;RequestId&quot;:&quot;DISCONNECT&quot;,&quot;RequestDescription&quot;:&quot;Disconnected connection&quot;},&quot;FollowUpEmployee&quot;:{&quot;Id&quot;:&quot;ZAID0001&quot;,&quot;FirstName&quot;:&quot;Syed&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Zaidi&quot;},&quot;User&quot;:{&quot;Id&quot;:&quot;sa&quot;,&quot;FirstName&quot;:&quot;Sam&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Arsenault&quot;}}]},&quot;Messages&quot;:[]}}]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at org.testng.Assert.assertEquals(Assert.java:666)
+	at Private.contactLogController.getContactLogDetail2(contactLogController.java:86)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>0</td>
+<td>Private.contactLogController@16eb3ea3</td></tr>
+<tr>
+<td title='Private.contactLogController.postcontactLogControllerv4()'><b>postcontactLogControllerv4</b><br>Test class: Private.contactLogController</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at org.testng.Assert.assertTrue(Assert.java:67)
+	at com.NexustAPIAutomation.java.CommonMethods.postcallcontains(CommonMethods.java:1506)
+	at Private.contactLogController.postcontactLogControllerv4(contactLogController.java:136)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div><a href='#' onClick='toggleBox("stack-trace581770158", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace581770158'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at org.testng.Assert.assertTrue(Assert.java:67)
+	at com.NexustAPIAutomation.java.CommonMethods.postcallcontains(CommonMethods.java:1506)
+	at Private.contactLogController.postcontactLogControllerv4(contactLogController.java:136)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>0</td>
+<td>Private.contactLogController@16eb3ea3</td></tr>
+<tr>
+<td title='Private.contactLogController.getContactLogDetail2()'><b>getContactLogDetail2</b><br>Test class: Private.contactLogController</td>
+<td><div><pre>java.lang.AssertionError: expected [{&quot;ContactLog&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;Detail&quot;:[{&quot;ActionCode&quot;:&quot;2&quot;,&quot;AdditionalText&quot;:&quot;&quot;,&quot;ContactMethod&quot;:1,&quot;Description&quot;:&quot;Request to read meter&quot;,&quot;FirstContactDateTime&quot;:&quot;2027-02-01T12:15:14&quot;,&quot;NextContactDateTime&quot;:&quot;2027-03-01T12:15:14&quot;,&quot;CompletedDateTime&quot;:&quot;2022-04-09T16:01:05&quot;,&quot;IsCompleted&quot;:true,&quot;ResolutionText&quot;:&quot;&quot;,&quot;ServiceOrder&quot;:{&quot;Number&quot;:&quot;SORD00000009048&quot;,&quot;StatusDescription&quot;:&quot;Pending&quot;,&quot;RequestId&quot;:&quot;DISCONNECT&quot;,&quot;RequestDescription&quot;:&quot;Disconnected connection&quot;},&quot;FollowUpEmployee&quot;:{&quot;Id&quot;:&quot;ZAID0001&quot;,&quot;FirstName&quot;:&quot;Syed&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Zaidi&quot;},&quot;User&quot;:{&quot;Id&quot;:&quot;sa&quot;,&quot;FirstName&quot;:&quot;Sam&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Arsenault&quot;}}]},&quot;Messages&quot;:[]}}] but found [{&quot;ContactLog&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;Detail&quot;:[{&quot;ActionCode&quot;:&quot;2&quot;,&quot;AdditionalText&quot;:&quot;&quot;,&quot;ContactMethod&quot;:1,&quot;Description&quot;:&quot;Request to read meter&quot;,&quot;FirstContactDateTime&quot;:&quot;2027-02-01T12:15:14&quot;,&quot;NextContactDateTime&quot;:&quot;2027-03-01T12:15:14&quot;,&quot;CompletedDateTime&quot;:&quot;2022-04-09T16:01:05&quot;,&quot;IsCompleted&quot;:true,&quot;ResolutionText&quot;:&quot;&quot;,&quot;ServiceOrder&quot;:{&quot;Number&quot;:&quot;SORD00000009026&quot;,&quot;StatusDescription&quot;:&quot;Pending&quot;,&quot;RequestId&quot;:&quot;DISCONNECT&quot;,&quot;RequestDescription&quot;:&quot;Disconnected connection&quot;},&quot;FollowUpEmployee&quot;:{&quot;Id&quot;:&quot;ZAID0001&quot;,&quot;FirstName&quot;:&quot;Syed&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Zaidi&quot;},&quot;User&quot;:{&quot;Id&quot;:&quot;sa&quot;,&quot;FirstName&quot;:&quot;Sam&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Arsenault&quot;}}]},&quot;Messages&quot;:[]}}]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at org.testng.Assert.assertEquals(Assert.java:666)
+	at Private.contactLogController.getContactLogDetail2(contactLogController.java:86)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -356,15 +610,15 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1013364696", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1013364696'><pre>java.lang.AssertionError: expected [{&quot;TranferBillToCustomerDeposit&quot;:[{&quot;Id&quot;:2,&quot;Description&quot;:&quot;Refund of Difference&quot;},{&quot;Id&quot;:3,&quot;Description&quot;:&quot;Full Refund&quot;}]}] but found [{&quot;result&quot;:{&quot;Success&quot;:false,&quot;Message&quot;:&quot;Not Found&quot;}}]
+</pre></div><a href='#' onClick='toggleBox("stack-trace766722027", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace766722027'><pre>java.lang.AssertionError: expected [{&quot;ContactLog&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;Detail&quot;:[{&quot;ActionCode&quot;:&quot;2&quot;,&quot;AdditionalText&quot;:&quot;&quot;,&quot;ContactMethod&quot;:1,&quot;Description&quot;:&quot;Request to read meter&quot;,&quot;FirstContactDateTime&quot;:&quot;2027-02-01T12:15:14&quot;,&quot;NextContactDateTime&quot;:&quot;2027-03-01T12:15:14&quot;,&quot;CompletedDateTime&quot;:&quot;2022-04-09T16:01:05&quot;,&quot;IsCompleted&quot;:true,&quot;ResolutionText&quot;:&quot;&quot;,&quot;ServiceOrder&quot;:{&quot;Number&quot;:&quot;SORD00000009048&quot;,&quot;StatusDescription&quot;:&quot;Pending&quot;,&quot;RequestId&quot;:&quot;DISCONNECT&quot;,&quot;RequestDescription&quot;:&quot;Disconnected connection&quot;},&quot;FollowUpEmployee&quot;:{&quot;Id&quot;:&quot;ZAID0001&quot;,&quot;FirstName&quot;:&quot;Syed&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Zaidi&quot;},&quot;User&quot;:{&quot;Id&quot;:&quot;sa&quot;,&quot;FirstName&quot;:&quot;Sam&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Arsenault&quot;}}]},&quot;Messages&quot;:[]}}] but found [{&quot;ContactLog&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;Detail&quot;:[{&quot;ActionCode&quot;:&quot;2&quot;,&quot;AdditionalText&quot;:&quot;&quot;,&quot;ContactMethod&quot;:1,&quot;Description&quot;:&quot;Request to read meter&quot;,&quot;FirstContactDateTime&quot;:&quot;2027-02-01T12:15:14&quot;,&quot;NextContactDateTime&quot;:&quot;2027-03-01T12:15:14&quot;,&quot;CompletedDateTime&quot;:&quot;2022-04-09T16:01:05&quot;,&quot;IsCompleted&quot;:true,&quot;ResolutionText&quot;:&quot;&quot;,&quot;ServiceOrder&quot;:{&quot;Number&quot;:&quot;SORD00000009026&quot;,&quot;StatusDescription&quot;:&quot;Pending&quot;,&quot;RequestId&quot;:&quot;DISCONNECT&quot;,&quot;RequestDescription&quot;:&quot;Disconnected connection&quot;},&quot;FollowUpEmployee&quot;:{&quot;Id&quot;:&quot;ZAID0001&quot;,&quot;FirstName&quot;:&quot;Syed&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Zaidi&quot;},&quot;User&quot;:{&quot;Id&quot;:&quot;sa&quot;,&quot;FirstName&quot;:&quot;Sam&quot;,&quot;MiddleName&quot;:&quot;M.&quot;,&quot;LastName&quot;:&quot;Arsenault&quot;}}]},&quot;Messages&quot;:[]}}]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1578)
 	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
 	at org.testng.Assert.assertEquals(Assert.java:132)
 	at org.testng.Assert.assertEquals(Assert.java:656)
 	at org.testng.Assert.assertEquals(Assert.java:666)
-	at Private.lookupControllerv4.lookuptranferBillToCustomerDeposit(lookupControllerv4.java:406)
+	at Private.contactLogController.getContactLogDetail2(contactLogController.java:86)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -395,7 +649,227 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
 <td>0</td>
-<td>Private.lookupControllerv4@231f98ef</td></tr>
+<td>Private.contactLogController@16eb3ea3</td></tr>
+<tr>
+<td title='Private.contactLogController.postcontactLogControllerv4()'><b>postcontactLogControllerv4</b><br>Test class: Private.contactLogController</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at org.testng.Assert.assertTrue(Assert.java:67)
+	at com.NexustAPIAutomation.java.CommonMethods.postcallcontains(CommonMethods.java:1506)
+	at Private.contactLogController.postcontactLogControllerv4(contactLogController.java:136)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.retryFailed(TestInvoker.java:269)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:76)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1322907569", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1322907569'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at org.testng.Assert.assertTrue(Assert.java:67)
+	at com.NexustAPIAutomation.java.CommonMethods.postcallcontains(CommonMethods.java:1506)
+	at Private.contactLogController.postcontactLogControllerv4(contactLogController.java:136)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.retryFailed(TestInvoker.java:269)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:76)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>0</td>
+<td>Private.contactLogController@16eb3ea3</td></tr>
+<tr>
+<td title='Private.contactLogController.postcontactLogControllerv4()'><b>postcontactLogControllerv4</b><br>Test class: Private.contactLogController</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at org.testng.Assert.assertTrue(Assert.java:67)
+	at com.NexustAPIAutomation.java.CommonMethods.postcallcontains(CommonMethods.java:1506)
+	at Private.contactLogController.postcontactLogControllerv4(contactLogController.java:136)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.retryFailed(TestInvoker.java:269)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:76)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1082640380", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1082640380'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at org.testng.Assert.assertTrue(Assert.java:67)
+	at com.NexustAPIAutomation.java.CommonMethods.postcallcontains(CommonMethods.java:1506)
+	at Private.contactLogController.postcontactLogControllerv4(contactLogController.java:136)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.retryFailed(TestInvoker.java:269)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:76)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>0</td>
+<td>Private.contactLogController@16eb3ea3</td></tr>
+<tr>
+<td title='Private.contactLogController.putcontactLogv4()'><b>putcontactLogv4</b><br>Test class: Private.contactLogController</td>
+<td><div><pre>org.testng.SkipException: Skipping this due to bugCPDEV-18576
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1530)
+	at Private.contactLogController.putcontactLogv4(contactLogController.java:48)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div><a href='#' onClick='toggleBox("stack-trace223566397", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace223566397'><pre>org.testng.SkipException: Skipping this due to bugCPDEV-18576
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1530)
+	at Private.contactLogController.putcontactLogv4(contactLogController.java:48)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>0</td>
+<td>Private.contactLogController@16eb3ea3</td></tr>
 </table><p>
 </body>
 </html>
