@@ -72,18 +72,17 @@ public class contactLogController {
 	}
 
 	@Test(priority = 5, groups = "contactLogController", retryAnalyzer = Retry.class)
-	public void getContactLogDetail2()
-			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+	public void getContactLogDetail2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/contactLog";
 		String version = "4.0";
 		String expected = "{\"ContactLog\":{\"Success\":true,\"Data\":{\"Detail\":[{\"ActionCode\":\"2\",\"AdditionalText\":\"\",\"ContactMethod\":1,\"Description\":\"Request to read meter\",\"FirstContactDateTime\":\"2027-02-01T12:15:14\",\"NextContactDateTime\":\"2027-03-01T12:15:14\",\"CompletedDateTime\":\"2022-04-09T16:01:05\",\"IsCompleted\":true,\"ResolutionText\":\"\",\"ServiceOrder\":{\"Number\":\"SORD00000009026\",\"StatusDescription\":\"Pending\",\"RequestId\":\"DISCONNECT\",\"RequestDescription\":\"Disconnected connection\"},\"FollowUpEmployee\":{\"Id\":\"ZAID0001\",\"FirstName\":\"Syed\",\"MiddleName\":\"M.\",\"LastName\":\"Zaidi\"},\"User\":{\"Id\":\"sa\",\"FirstName\":\"Sam\",\"MiddleName\":\"M.\",\"LastName\":\"Arsenault\"}}]},\"Messages\":[]}}";
-						
+
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("LocationId", "LOCATION008");
 		params.put("CustomerId", "CUSTOMER009");
 		String actual = CommonMethods.getMethodasString(uri, version, params);
-		Assert.assertEquals(expected, actual);
+		Assert.assertEquals(actual, expected);
 
 	}
 
