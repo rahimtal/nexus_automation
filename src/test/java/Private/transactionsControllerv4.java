@@ -93,7 +93,7 @@ public class transactionsControllerv4 {
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/transaction/payment/PYMT00000000505";
 		String ver = "4.0";
-		String expected = "{\"Payment\":{\"Success\":true,\"Data\":{\"DocumentNumber\":\"PYMT00000000505\",\"BatchId\":\"WO101619CRP001\",\"PaidById\":\"500002\",\"PaymentOrigin\":null,\"Comment\":\"WRITEOFF\",\"Status\":\"Work\",\"CreateDateTime\":\"2019-10-16T12:18:28.053\",\"CreatedBy\":\"sa\",\"PayDetail\":{\"Type\":\"CreditMemo\",\"OtherType\":null,\"TaxSchduleId\":\"\",\"TaxDescription\":null,\"CreditNoteId\":\"WRITEOFF\",\"Date\":\"2027-04-12\",\"SubTotal\":68.96,\"TotalTaxAmount\":0.00,\"Amount\":68.96,\"UnappliedToBill\":0.00,\"CheckbookId\":\"FIRST NATIONAL\",\"CreditCard\":null,\"CreditNoteReasonCode\":\"\",\"TaxDetail\":[]},\"IsVoided\":false,\"Void\":null,\"LocationId\":\"100002\",\"ServiceAddress\":{\"Line1\":\"2 RED MILL RD\",\"City\":\"TROY\",\"State\":\"NY\",\"ZipCode\":\"12144\",\"Country\":\"USA\"},\"Customer\":{\"Id\":\"500002\",\"Type\":\"Individual\",\"Individual\":{\"FullName\":\"Mr. Anthony Chromoczak\",\"Name\":{\"Title\":\"Mr.\",\"First\":\"Anthony\",\"Middle\":\"\",\"Last\":\"Chromoczak\"}},\"Business\":null},\"Prepayment\":[]},\"Messages\":[]}}";
+		String expected = "{\"Payment\":{\"Success\":true,\"Data\":{\"DocumentNumber\":\"PYMT00000000505\",\"BatchId\":\"WO101619CRP001\",\"PaidById\":\"500002\",\"PaidBy\":{\"Id\":0,\"Description\":\"\"},\"PaymentOrigin\":null,\"Comment\":\"WRITEOFF\",\"Status\":\"Work\",\"CreateDateTime\":\"2019-10-16T12:18:28.053\",\"CreatedBy\":\"sa\",\"PayDetail\":{\"Type\":\"CreditMemo\",\"OtherType\":null,\"TaxSchduleId\":\"\",\"TaxDescription\":null,\"CreditNoteId\":\"WRITEOFF\",\"Date\":\"2027-04-12\",\"SubTotal\":68.96,\"TotalTaxAmount\":0.00,\"Amount\":68.96,\"UnappliedToBill\":0.00,\"CheckbookId\":\"FIRST NATIONAL\",\"CreditCard\":null,\"CheckNumber\":\"\",\"CreditNoteReasonCode\":\"\",\"TaxDetail\":[]},\"IsVoided\":false,\"Void\":null,\"LocationId\":\"100002\",\"ServiceAddress\":{\"Line1\":\"2 RED MILL RD\",\"City\":\"TROY\",\"State\":\"NY\",\"ZipCode\":\"12144\",\"Country\":\"USA\"},\"Customer\":{\"Id\":\"500002\",\"Type\":\"Individual\",\"Individual\":{\"FullName\":\"Mr. Anthony Chromoczak\",\"Name\":{\"Title\":\"Mr.\",\"First\":\"Anthony\",\"Middle\":\"\",\"Last\":\"Chromoczak\"}},\"Business\":null},\"Prepayment\":[]},\"Messages\":[]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("HandleCreditMemoMessaging", "true");
 		String result = CommonMethods.getMethodasString(uri, ver, params);
@@ -160,4 +160,19 @@ public class transactionsControllerv4 {
 		AssertJUnit.assertEquals(expected, result);
 		System.out.println(result);
 	}
+	
+
+	@Test(priority = 10, groups = "Transaction", retryAnalyzer = Retry.class)
+	public void gettransactionpayment_v4_false()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/transaction/payment/PYMT00000000505";
+		String ver = "4.0";
+		String expected = "{\"Payment\":{\"Success\":true,\"Data\":{\"DocumentNumber\":\"PYMT00000000505\",\"ApplyToOriginalCharge\":[{\"ApplyToDocument\":\"BILL00000000496\",\"OriginalDocument\":\"\",\"DocumentDate\":\"2000-03-30\",\"DueDate\":\"2000-05-01\",\"OutstandingAmount\":0.00,\"OriginalAmount\":68.96,\"ApplyAmount\":68.96,\"BudgetCollection\":{\"IsLinked\":false,\"DocumentNumber\":[]},\"ServiceType\":[{\"Id\":\"ALL\",\"Description\":\"ALL\",\"Category\":{\"Id\":0,\"Description\":\"\"}}]}],\"TotalApplyToOriginalCharge\":68.96,\"ApplyToBudgetSpa\":[],\"TotalApplyToBudgetSpa\":0.00},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("HandleCreditMemoMessaging", "false");
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		AssertJUnit.assertEquals(result, expected);
+		System.out.println(result);
+	}
+
 }
