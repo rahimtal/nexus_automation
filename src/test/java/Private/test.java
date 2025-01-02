@@ -4,24 +4,14 @@ import org.apache.http.ConnectionClosedException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.NexustAPIAutomation.java.CommonMethods;
-import com.NexustAPIAutomation.java.Retry;
-
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
-public class SmartyStreetValidationrV4 {
-
-	public static String keycloakurl = "http://localhost:8080";
-	public static String apiserverurl = "http://localhost:3000";
-
-	public static String userName = "sa";// Read.ReadFile("username");
-	public static String Password = "cogs1";// Read.ReadFile("PassWord");
-
-	@Test(priority = 1, groups = "SmartyStreet", retryAnalyzer = Retry.class)
+public class test {
+	@Test(priority = 1, groups = "Smarty_Street")
 	public static boolean verifySmartyStreetService() throws ConnectionClosedException, InterruptedException {
 		// CUSTOMER001
 		char q = '"';
@@ -52,15 +42,22 @@ public class SmartyStreetValidationrV4 {
 		return result;
 
 	}
-
+	
 	public static String getToken() throws InterruptedException {
 
+
+		String keycloakurl = "http://localhost:8080";
+		String apiserverurl = "http://localhost:3000";
+		String userName = "sa";// Read.ReadFile("username");
+		String Password = "cogs1";// Read.ReadFile("PassWord");
+		
+		
 		String url = keycloakurl + "/auth/realms/nexus-portal/protocol/openid-connect/token";
 
 		Response response = RestAssured.given().auth().preemptive().basic("nexus-portal", url)
 				.contentType("application/x-www-form-urlencoded").log().all().formParam("grant_type", "password")
 				.formParam("username", userName).formParam("password", Password).when().post(url); // authorization_token
-		CommonMethods.Delay(100); // value is not
+
 		if (response.path("access_token").toString() == "") {
 			Assert.fail("Austhorisation failed");
 		}
@@ -71,5 +68,4 @@ public class SmartyStreetValidationrV4 {
 		return auth_token;
 
 	}
-
 }

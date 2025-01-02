@@ -1,19 +1,16 @@
 package Private;
 
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-import org.testng.Assert;
+import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 import com.NexustAPIAutomation.java.Retry;
 
 import io.restassured.path.json.JsonPath;
-import io.restassured.response.ValidatableResponse;
 
 public class SmartlistControllerV3 {
 private boolean  TestAll=true;
