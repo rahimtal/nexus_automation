@@ -89,7 +89,7 @@ public class CommonMethods {
 
 	}
 
-	private static void Delay(int i) throws InterruptedException {
+	public static void Delay(int i) throws InterruptedException {
 		// TODO Auto-generated method stub
 		Thread.sleep(i);
 
