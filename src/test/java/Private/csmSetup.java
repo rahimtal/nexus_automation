@@ -23,12 +23,25 @@ public class csmSetup {
 		Assert.assertEquals(actual, expected);
 
 	}
-	
+
 	@Test(priority = 2, groups = "csmSetup")
-	public void getcsmSetupserviceOrderv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+	public void getcsmSetupserviceOrderv4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/csmSetup/serviceOrder";
 		String ver = "4.0";
 		String expected = "{\"ServiceOrder\":{\"Success\":true,\"Data\":{\"MoveInDefault\":2},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		Assert.assertEquals(actual, expected);
+
+	}
+
+	@Test(priority = 3, groups = "csmSetup")
+	public void getcsmDefaultCheckbookIdv4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/csmSetup/checkbookId";
+		String ver = "4.0";
+		String expected = "{\"Setup\":{\"Success\":true,\"Data\":{\"CheckbookId\":\"FIRST NATIONAL\"},\"Messages\":[]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		String actual = CommonMethods.getMethodasString(uri, ver, params);
 		Assert.assertEquals(actual, expected);
