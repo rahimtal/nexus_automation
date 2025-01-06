@@ -14,6 +14,7 @@ import com.NexustAPIAutomation.java.CommonMethods;
 import com.NexustAPIAutomation.java.Retry;
 
 import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 
 public class BillingControllerv4 {
@@ -223,6 +224,21 @@ public class BillingControllerv4 {
 		Assert.assertEquals(actual, expected);
 	}
 
+	@Test(priority = 6, groups = "billing", retryAnalyzer = Retry.class, dependsOnMethods = "PostgenerateEditReportv4")
+	public static void postcreateStatementv4_isfinal()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// CommonMethods.CompanyDBRestore();
+		String uri = "/billing/createStatement";
+		String ver = "4.0";
+		String payload = "{\r\n" + "    \"Billing\":{\r\n" + "        \"BatchId\":\"BT1231\",\r\n"
+				+ "        \"IsFinal\": true,\r\n" + "        \"Confirm\": {\r\n"
+				+ "            \"IgnoreMiscChargeOrCreditValidation\": false\r\n" + "        }\r\n" + "    }\r\n" + "}";
+		String expected = "{\"Billing\":{\"Success\":true,\"Data\":[{\"BatchId\":\"BT1231\",\"UserDateTime\":";
+		String actual = CommonMethods.postMethodStringPayloadString(payload, uri, ver);
+		Assert.assertTrue(actual.contains(expected));
+
+	}
+
 	@Test(priority = 12, groups = "billing", retryAnalyzer = Retry.class)
 	public static void billingfinalcalculatev4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
@@ -243,21 +259,19 @@ public class BillingControllerv4 {
 		Assert.assertEquals(actual, expected);
 
 	}
-	
 
 	@Test(priority = 12, groups = "billing", retryAnalyzer = Retry.class)
-	public void getBatchIdValidate()
-			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+	public void getBatchIdValidate() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// extent.createTest("Test", "");
 		String uri = "/billing/batchId/BAT1/validate";
 		String ver = "4.0";
 		String expected = "{\"Billing\":{\"Success\":false,\"Data\":{\"BatchId\":\"BAT1\",\"isBatchIdValid\":false},\"Messages\":[{\"Enabled\":1,\"Info\":\"The Batch Source for this Batch Id is not BILLING. Select a differenct Batch Id or create a new Batch Id.\",\"Level\":3}]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
-		//params.put("ServiceOrderNumber", "SORD00000000044");
+		// params.put("ServiceOrderNumber", "SORD00000000044");
 		String actual = CommonMethods.getMethodasString(uri, ver, params);// (uri, ver, params, jpath);
 		Assert.assertEquals(actual, expected);
 	}
-	
+
 	@Test(priority = 13, groups = "billing", retryAnalyzer = Retry.class)
 	public void getBatchIdValidatetrue()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
@@ -266,10 +280,9 @@ public class BillingControllerv4 {
 		String ver = "4.0";
 		String expected = "{\"Billing\":{\"Success\":true,\"Data\":{\"BatchId\":\"BAT10123123\",\"isBatchIdValid\":false},\"Messages\":[]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
-		//params.put("ServiceOrderNumber", "SORD00000000044");
+		// params.put("ServiceOrderNumber", "SORD00000000044");
 		String actual = CommonMethods.getMethodasString(uri, ver, params);// (uri, ver, params, jpath);
 		Assert.assertEquals(actual, expected);
 	}
-
 
 }
