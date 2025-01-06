@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Default_suite" class="navigator-link">
-              <span class="suite-name border-passed">Default suite</span>
+              <span class="suite-name border-failed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\Admin\AppData\Local\Temp\testng-eclipse-358345955\testng-customsuite.xml</span>
+                    <span>C:\Users\Admin\AppData\Local\Temp\testng-eclipse--1458673703\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,31 +92,45 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods,   3 passed</span>
+                    <span class="method-stats">4 methods, 1 failed,  3 skipped,  </span>
                   </li>
                   <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
-                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
                     </span>
-                    <div class="method-list-content passed suite-Default_suite">
+                    <div class="method-list-content failed suite-Default_suite">
                       <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Private.csmSetup" class="method navigator-link" hash-for-method="getcsmDefaultCheckbookIdv4">getcsmDefaultCheckbookIdv4</a> <!-- method navigator-link -->
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="Private.transactionsControllerv4" class="method navigator-link" hash-for-method="gettransactionpayment_v4">gettransactionpayment_v4</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Default_suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title skipped">Retried methods</span>
+                    <span class="show-or-hide-methods skipped">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods skipped suite-Default_suite"> (hide)</a> <!-- hide-methods skipped suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods skipped suite-Default_suite"> (show)</a> <!-- show-methods skipped suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content skipped suite-Default_suite">
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="Private.transactionsControllerv4" class="method navigator-link" hash-for-method="gettransactionpayment_v4">gettransactionpayment_v4</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Private.csmSetup" class="method navigator-link" hash-for-method="getcsmSetupserviceOrderv4">getcsmSetupserviceOrderv4</a> <!-- method navigator-link -->
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="Private.transactionsControllerv4" class="method navigator-link" hash-for-method="gettransactionpayment_v4">gettransactionpayment_v4</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Private.csmSetup" class="method navigator-link" hash-for-method="getserviceCategoryv4">getserviceCategoryv4</a> <!-- method navigator-link -->
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="Private.transactionsControllerv4" class="method navigator-link" hash-for-method="gettransactionpayment_v4">gettransactionpayment_v4</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content passed suite-Default_suite -->
+                    </div> <!-- method-list-content skipped suite-Default_suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -128,39 +142,190 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-passed">
+          <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">Private.csmSetup</span>
+              <img src="failed.png"/>
+              <span class="class-name">Private.transactionsControllerv4</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="getcsmDefaultCheckbookIdv4">
-                  </a> <!-- getcsmDefaultCheckbookIdv4 -->
-                  <span class="method-name">getcsmDefaultCheckbookIdv4</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="getcsmSetupserviceOrderv4">
-                  </a> <!-- getcsmSetupserviceOrderv4 -->
-                  <span class="method-name">getcsmSetupserviceOrderv4</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="getserviceCategoryv4">
-                  </a> <!-- getserviceCategoryv4 -->
-                  <span class="method-name">getserviceCategoryv4</span>
+                  <a name="gettransactionpayment_v4">
+                  </a> <!-- gettransactionpayment_v4 -->
+                  <span class="method-name">gettransactionpayment_v4</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected:&lt;{&quot;Payment&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;DocumentNumber&quot;:&quot;PYMT00000000505&quot;,&quot;BatchId&quot;:&quot;WO101619CRP001&quot;,&quot;PaidById&quot;:&quot;500002&quot;,&quot;PaidBy&quot;:{&quot;Id&quot;:0,&quot;Description&quot;:&quot;&quot;},&quot;PaymentOrigin&quot;:null,&quot;Comment&quot;:&quot;WRITEOFF&quot;,&quot;Status&quot;:&quot;Work&quot;,&quot;CreateDateTime&quot;:&quot;2019-10-16T12:18:28.053&quot;,&quot;CreatedBy&quot;:&quot;sa&quot;,&quot;PayDetail&quot;:{&quot;Type&quot;:&quot;CreditMemo&quot;,&quot;OtherType&quot;:null,&quot;TaxSchduleId&quot;:&quot;&quot;,&quot;TaxDescription&quot;:null,&quot;CreditNoteId&quot;:&quot;WRITEOFF&quot;,&quot;Date&quot;:&quot;2027-04-12&quot;,&quot;SubTotal&quot;:68.96,&quot;TotalTaxAmount&quot;:0.00,&quot;Amount&quot;:68.96,&quot;UnappliedToBill&quot;:0.00,&quot;CheckbookId&quot;:&quot;FIRST NATIONAL&quot;,&quot;CreditCard&quot;:null,&quot;CheckNumber&quot;:&quot;&quot;,&quot;CreditNoteReasonCode&quot;:&quot;&quot;,&quot;TaxDetail&quot;:[]},&quot;IsVoided&quot;:false,&quot;Void&quot;:null,&quot;LocationId&quot;:&quot;100002&quot;,&quot;ServiceAddress&quot;:{&quot;Line1&quot;:&quot;2 RED MILL RD&quot;,&quot;City&quot;:&quot;TROY&quot;,&quot;State&quot;:&quot;NY&quot;,&quot;ZipCode&quot;:&quot;12144&quot;,&quot;Country&quot;:&quot;USA&quot;},&quot;Customer&quot;:{&quot;Id&quot;:&quot;500002&quot;,&quot;Type&quot;:&quot;Individual&quot;,&quot;Individual&quot;:{&quot;FullName&quot;:&quot;Mr. Anthony Chromoczak&quot;,&quot;Name&quot;:{&quot;Title&quot;:&quot;Mr.&quot;,&quot;First&quot;:&quot;Anthony&quot;,&quot;Middle&quot;:&quot;&quot;,&quot;Last&quot;:&quot;Chromoczak&quot;}},&quot;Business&quot;:null},&quot;Prepayment&quot;:[]},&quot;Messages&quot;:[]}}&gt; but was:&lt;{&quot;Payment&quot;:{&quot;Success&quot;:false,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Invalid document number (PYMT00000000505).&quot;,&quot;Level&quot;:3}]}}&gt;
+	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:115)
+	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:125)
+	at Private.transactionsControllerv4.gettransactionpayment_v4(transactionsControllerv4.java:100)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.retryFailed(TestInvoker.java:269)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:76)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-passed -->
+          </div> <!-- suite-Default_suite-class-failed -->
+          <div class="suite-Default_suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">Private.transactionsControllerv4</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="gettransactionpayment_v4">
+                  </a> <!-- gettransactionpayment_v4 -->
+                  <span class="method-name">gettransactionpayment_v4</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected:&lt;{&quot;Payment&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;DocumentNumber&quot;:&quot;PYMT00000000505&quot;,&quot;BatchId&quot;:&quot;WO101619CRP001&quot;,&quot;PaidById&quot;:&quot;500002&quot;,&quot;PaidBy&quot;:{&quot;Id&quot;:0,&quot;Description&quot;:&quot;&quot;},&quot;PaymentOrigin&quot;:null,&quot;Comment&quot;:&quot;WRITEOFF&quot;,&quot;Status&quot;:&quot;Work&quot;,&quot;CreateDateTime&quot;:&quot;2019-10-16T12:18:28.053&quot;,&quot;CreatedBy&quot;:&quot;sa&quot;,&quot;PayDetail&quot;:{&quot;Type&quot;:&quot;CreditMemo&quot;,&quot;OtherType&quot;:null,&quot;TaxSchduleId&quot;:&quot;&quot;,&quot;TaxDescription&quot;:null,&quot;CreditNoteId&quot;:&quot;WRITEOFF&quot;,&quot;Date&quot;:&quot;2027-04-12&quot;,&quot;SubTotal&quot;:68.96,&quot;TotalTaxAmount&quot;:0.00,&quot;Amount&quot;:68.96,&quot;UnappliedToBill&quot;:0.00,&quot;CheckbookId&quot;:&quot;FIRST NATIONAL&quot;,&quot;CreditCard&quot;:null,&quot;CheckNumber&quot;:&quot;&quot;,&quot;CreditNoteReasonCode&quot;:&quot;&quot;,&quot;TaxDetail&quot;:[]},&quot;IsVoided&quot;:false,&quot;Void&quot;:null,&quot;LocationId&quot;:&quot;100002&quot;,&quot;ServiceAddress&quot;:{&quot;Line1&quot;:&quot;2 RED MILL RD&quot;,&quot;City&quot;:&quot;TROY&quot;,&quot;State&quot;:&quot;NY&quot;,&quot;ZipCode&quot;:&quot;12144&quot;,&quot;Country&quot;:&quot;USA&quot;},&quot;Customer&quot;:{&quot;Id&quot;:&quot;500002&quot;,&quot;Type&quot;:&quot;Individual&quot;,&quot;Individual&quot;:{&quot;FullName&quot;:&quot;Mr. Anthony Chromoczak&quot;,&quot;Name&quot;:{&quot;Title&quot;:&quot;Mr.&quot;,&quot;First&quot;:&quot;Anthony&quot;,&quot;Middle&quot;:&quot;&quot;,&quot;Last&quot;:&quot;Chromoczak&quot;}},&quot;Business&quot;:null},&quot;Prepayment&quot;:[]},&quot;Messages&quot;:[]}}&gt; but was:&lt;{&quot;Payment&quot;:{&quot;Success&quot;:false,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Invalid document number (PYMT00000000505).&quot;,&quot;Level&quot;:3}]}}&gt;
+	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:115)
+	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:125)
+	at Private.transactionsControllerv4.gettransactionpayment_v4(transactionsControllerv4.java:100)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.retryFailed(TestInvoker.java:269)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:76)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="gettransactionpayment_v4">
+                  </a> <!-- gettransactionpayment_v4 -->
+                  <span class="method-name">gettransactionpayment_v4</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected:&lt;{&quot;Payment&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;DocumentNumber&quot;:&quot;PYMT00000000505&quot;,&quot;BatchId&quot;:&quot;WO101619CRP001&quot;,&quot;PaidById&quot;:&quot;500002&quot;,&quot;PaidBy&quot;:{&quot;Id&quot;:0,&quot;Description&quot;:&quot;&quot;},&quot;PaymentOrigin&quot;:null,&quot;Comment&quot;:&quot;WRITEOFF&quot;,&quot;Status&quot;:&quot;Work&quot;,&quot;CreateDateTime&quot;:&quot;2019-10-16T12:18:28.053&quot;,&quot;CreatedBy&quot;:&quot;sa&quot;,&quot;PayDetail&quot;:{&quot;Type&quot;:&quot;CreditMemo&quot;,&quot;OtherType&quot;:null,&quot;TaxSchduleId&quot;:&quot;&quot;,&quot;TaxDescription&quot;:null,&quot;CreditNoteId&quot;:&quot;WRITEOFF&quot;,&quot;Date&quot;:&quot;2027-04-12&quot;,&quot;SubTotal&quot;:68.96,&quot;TotalTaxAmount&quot;:0.00,&quot;Amount&quot;:68.96,&quot;UnappliedToBill&quot;:0.00,&quot;CheckbookId&quot;:&quot;FIRST NATIONAL&quot;,&quot;CreditCard&quot;:null,&quot;CheckNumber&quot;:&quot;&quot;,&quot;CreditNoteReasonCode&quot;:&quot;&quot;,&quot;TaxDetail&quot;:[]},&quot;IsVoided&quot;:false,&quot;Void&quot;:null,&quot;LocationId&quot;:&quot;100002&quot;,&quot;ServiceAddress&quot;:{&quot;Line1&quot;:&quot;2 RED MILL RD&quot;,&quot;City&quot;:&quot;TROY&quot;,&quot;State&quot;:&quot;NY&quot;,&quot;ZipCode&quot;:&quot;12144&quot;,&quot;Country&quot;:&quot;USA&quot;},&quot;Customer&quot;:{&quot;Id&quot;:&quot;500002&quot;,&quot;Type&quot;:&quot;Individual&quot;,&quot;Individual&quot;:{&quot;FullName&quot;:&quot;Mr. Anthony Chromoczak&quot;,&quot;Name&quot;:{&quot;Title&quot;:&quot;Mr.&quot;,&quot;First&quot;:&quot;Anthony&quot;,&quot;Middle&quot;:&quot;&quot;,&quot;Last&quot;:&quot;Chromoczak&quot;}},&quot;Business&quot;:null},&quot;Prepayment&quot;:[]},&quot;Messages&quot;:[]}}&gt; but was:&lt;{&quot;Payment&quot;:{&quot;Success&quot;:false,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Invalid document number (PYMT00000000505).&quot;,&quot;Level&quot;:3}]}}&gt;
+	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:115)
+	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:125)
+	at Private.transactionsControllerv4.gettransactionpayment_v4(transactionsControllerv4.java:100)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.retryFailed(TestInvoker.java:269)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:76)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="gettransactionpayment_v4">
+                  </a> <!-- gettransactionpayment_v4 -->
+                  <span class="method-name">gettransactionpayment_v4</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected:&lt;{&quot;Payment&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;DocumentNumber&quot;:&quot;PYMT00000000505&quot;,&quot;BatchId&quot;:&quot;WO101619CRP001&quot;,&quot;PaidById&quot;:&quot;500002&quot;,&quot;PaidBy&quot;:{&quot;Id&quot;:0,&quot;Description&quot;:&quot;&quot;},&quot;PaymentOrigin&quot;:null,&quot;Comment&quot;:&quot;WRITEOFF&quot;,&quot;Status&quot;:&quot;Work&quot;,&quot;CreateDateTime&quot;:&quot;2019-10-16T12:18:28.053&quot;,&quot;CreatedBy&quot;:&quot;sa&quot;,&quot;PayDetail&quot;:{&quot;Type&quot;:&quot;CreditMemo&quot;,&quot;OtherType&quot;:null,&quot;TaxSchduleId&quot;:&quot;&quot;,&quot;TaxDescription&quot;:null,&quot;CreditNoteId&quot;:&quot;WRITEOFF&quot;,&quot;Date&quot;:&quot;2027-04-12&quot;,&quot;SubTotal&quot;:68.96,&quot;TotalTaxAmount&quot;:0.00,&quot;Amount&quot;:68.96,&quot;UnappliedToBill&quot;:0.00,&quot;CheckbookId&quot;:&quot;FIRST NATIONAL&quot;,&quot;CreditCard&quot;:null,&quot;CheckNumber&quot;:&quot;&quot;,&quot;CreditNoteReasonCode&quot;:&quot;&quot;,&quot;TaxDetail&quot;:[]},&quot;IsVoided&quot;:false,&quot;Void&quot;:null,&quot;LocationId&quot;:&quot;100002&quot;,&quot;ServiceAddress&quot;:{&quot;Line1&quot;:&quot;2 RED MILL RD&quot;,&quot;City&quot;:&quot;TROY&quot;,&quot;State&quot;:&quot;NY&quot;,&quot;ZipCode&quot;:&quot;12144&quot;,&quot;Country&quot;:&quot;USA&quot;},&quot;Customer&quot;:{&quot;Id&quot;:&quot;500002&quot;,&quot;Type&quot;:&quot;Individual&quot;,&quot;Individual&quot;:{&quot;FullName&quot;:&quot;Mr. Anthony Chromoczak&quot;,&quot;Name&quot;:{&quot;Title&quot;:&quot;Mr.&quot;,&quot;First&quot;:&quot;Anthony&quot;,&quot;Middle&quot;:&quot;&quot;,&quot;Last&quot;:&quot;Chromoczak&quot;}},&quot;Business&quot;:null},&quot;Prepayment&quot;:[]},&quot;Messages&quot;:[]}}&gt; but was:&lt;{&quot;Payment&quot;:{&quot;Success&quot;:false,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Invalid document number (PYMT00000000505).&quot;,&quot;Level&quot;:3}]}}&gt;
+	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:115)
+	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:125)
+	at Private.transactionsControllerv4.gettransactionpayment_v4(transactionsControllerv4.java:100)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-skipped -->
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Admin\AppData\Local\Temp\testng-eclipse-358345955\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Admin\AppData\Local\Temp\testng-eclipse--1458673703\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -169,7 +334,11 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;Private.csmSetup&quot;/&gt;
+      &lt;class name=&quot;Private.transactionsControllerv4&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;gettransactionpayment_v4&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- Private.transactionsControllerv4 --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -194,18 +363,10 @@
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="test-group">
-              <span class="test-group-name">csmSetup</span>
+              <span class="test-group-name">Transaction</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">getcsmDefaultCheckbookIdv4</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
-                <span class="method-in-group-name">getcsmSetupserviceOrderv4</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
-                <span class="method-in-group-name">getserviceCategoryv4</span>
+                <span class="method-in-group-name">gettransactionpayment_v4</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -225,19 +386,23 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(3);
+data.addRows(4);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'getserviceCategoryv4')
-data.setCell(0, 2, 'Private.csmSetup')
-data.setCell(0, 3, 1769);
+data.setCell(0, 1, 'gettransactionpayment_v4')
+data.setCell(0, 2, 'Private.transactionsControllerv4')
+data.setCell(0, 3, 1493);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'getcsmSetupserviceOrderv4')
-data.setCell(1, 2, 'Private.csmSetup')
-data.setCell(1, 3, 254);
+data.setCell(1, 1, 'gettransactionpayment_v4')
+data.setCell(1, 2, 'Private.transactionsControllerv4')
+data.setCell(1, 3, 187);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'getcsmDefaultCheckbookIdv4')
-data.setCell(2, 2, 'Private.csmSetup')
-data.setCell(2, 3, 228);
+data.setCell(2, 1, 'gettransactionpayment_v4')
+data.setCell(2, 2, 'Private.transactionsControllerv4')
+data.setCell(2, 3, 174);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'gettransactionpayment_v4')
+data.setCell(3, 2, 'Private.transactionsControllerv4')
+data.setCell(3, 3, 172);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
@@ -257,9 +422,32 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">9 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">Private.transactionsControllerv4</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">gettransactionsWriteoff_v4</span>
+                <br/>
+                <span class="ignored-method-name">gettransactionpayment_v4_false</span>
+                <br/>
+                <span class="ignored-method-name">gettransactionbatch_v4</span>
+                <br/>
+                <span class="ignored-method-name">getMeterReadInquiryWork_v4</span>
+                <br/>
+                <span class="ignored-method-name">gettransactionpaymentInvCred_v4</span>
+                <br/>
+                <span class="ignored-method-name">getapplyByService_v4</span>
+                <br/>
+                <span class="ignored-method-name">getMeterReadInquiryOpen_v4</span>
+                <br/>
+                <span class="ignored-method-name">gettransactionpaymentInv_v4</span>
+                <br/>
+                <span class="ignored-method-name">getMeterReadInquiryHistory_v4</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Default_suite" class="panel">
@@ -268,18 +456,24 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">Private.csmSetup</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">Private.transactionsControllerv4</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">getserviceCategoryv4</span>
+                <span class="method-name">gettransactionpayment_v4</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">getcsmSetupserviceOrderv4</span>
-                <span class="method-start">1769 ms</span>
+                <span class="method-name">gettransactionpayment_v4</span>
+                <span class="method-start">1493 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">getcsmDefaultCheckbookIdv4</span>
-                <span class="method-start">2023 ms</span>
+                <span class="method-name">gettransactionpayment_v4</span>
+                <span class="method-start">1694 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">gettransactionpayment_v4</span>
+                <span class="method-start">1868 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

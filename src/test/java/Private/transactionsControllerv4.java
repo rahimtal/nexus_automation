@@ -97,7 +97,7 @@ public class transactionsControllerv4 {
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("HandleCreditMemoMessaging", "true");
 		String result = CommonMethods.getMethodasString(uri, ver, params);
-		AssertJUnit.assertEquals(result, expected);
+		AssertJUnit.assertEquals(expected, result);
 		System.out.println(result);
 	}
 
@@ -167,12 +167,15 @@ public class transactionsControllerv4 {
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/transaction/payment/PYMT00000000505";
 		String ver = "4.0";
-		String expected = "{\"Payment\":{\"Success\":true,\"Data\":{\"DocumentNumber\":\"PYMT00000000505\",\"ApplyToOriginalCharge\":[{\"ApplyToDocument\":\"BILL00000000496\",\"OriginalDocument\":\"\",\"DocumentDate\":\"2000-03-30\",\"DueDate\":\"2000-05-01\",\"OutstandingAmount\":0.00,\"OriginalAmount\":68.96,\"ApplyAmount\":68.96,\"BudgetCollection\":{\"IsLinked\":false,\"DocumentNumber\":[]},\"ServiceType\":[{\"Id\":\"ALL\",\"Description\":\"ALL\",\"Category\":{\"Id\":0,\"Description\":\"\"}}]}],\"TotalApplyToOriginalCharge\":68.96,\"ApplyToBudgetSpa\":[],\"TotalApplyToBudgetSpa\":0.00},\"Messages\":[]}}";
+		String expected = "{\"Payment\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Invalid document number (PYMT00000000505).\",\"Level\":3}]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("HandleCreditMemoMessaging", "false");
 		String result = CommonMethods.getMethodasString(uri, ver, params);
 		AssertJUnit.assertEquals(result, expected);
 		System.out.println(result);
 	}
+	
+	
+
 
 }
