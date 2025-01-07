@@ -295,4 +295,17 @@ public class BillingControllerv4 {
 		System.out.println(result.toString());
 
 	}
+	
+	@Test(priority = 13, groups = "billing", retryAnalyzer = Retry.class)
+	public static void delBatv4_calculating() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// CommonMethods.CompanyDBRestore();
+		String uri = "/billing/delete/BATCHID";
+		String ver = "4.0";
+		String jpath = "./\\TestData\\delBatv4.json";
+		String result = CommonMethods.deleteMethod(uri, ver, jpath);
+		System.out.println(result.toString());
+
+	}
+	
+	
 }
