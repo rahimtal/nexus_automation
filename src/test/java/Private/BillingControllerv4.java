@@ -285,4 +285,14 @@ public class BillingControllerv4 {
 		Assert.assertEquals(actual, expected);
 	}
 
+	@Test(priority = 12, groups = "billing", retryAnalyzer = Retry.class)
+	public static void delBatv4_EditListPrint() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// CommonMethods.CompanyDBRestore();
+		String uri = "/billing/delete/BAT012301203";
+		String ver = "4.0";
+		String jpath = "./\\TestData\\delBatv4.json";
+		String result = CommonMethods.deleteMethod(uri, ver, jpath);
+		System.out.println(result.toString());
+
+	}
 }
