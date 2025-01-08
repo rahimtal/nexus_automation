@@ -83,7 +83,7 @@ public class billingController extends BaseClass {
 	public static void billingbillBatchStatus()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
-		String uri = "/billing/billBatchStatus/BATCHID?ValidateBilling=Final";
+		String uri = "/billing/billBatchStatus/BAT10123123?ValidateBilling=Final";
 		String ver = "4.0";
 		// String expected =
 		// "{\"BatchStatus\":{\"Success\":true,\"Data\":{\"BatchId\":\"BATCHID\",\"BatchStatus\":1,\"Route\":[],\"BatchDate\":{\"BillPreparationDate\":\"2024-11-12\",\"BillEditDate\":\"1900-01-01\",\"BillPrintDate\":\"1900-01-01\",\"BillPostDate\":\"1900-01-01\",\"BillCreatedDate\"";
