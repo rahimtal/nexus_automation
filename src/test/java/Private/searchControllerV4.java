@@ -54,13 +54,14 @@ public class searchControllerV4 {
 		String uri = "/search";
 		String ver = "4.0";
 
-		String jpath = "./\\TestData\\searchMatchPhrasePrefixv4.json";
+		String expected = "\"Search\":{\"Success\":true,\"Data\"";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("index", "accounts");
 		params.put("searchQuery", "{\"LocationId\":\"Mas\"},{\"CustomerId\":\"Mas\"}");
 		params.put("searchType", "MatchPhrasePrefix");
-		String result = CommonMethods.getMethodContains(uri, ver, params, jpath);
-		System.out.println(result);
+		String expected2 = "id\":\"LOCATION001-MASTER001\"";
+		CommonMethods.getMethodContainsString(uri, ver, params, expected);// ains(uri, ver, params, jpath);
+		CommonMethods.getMethodContainsString(uri, ver, params, expected2);// ains(uri, ver, params, jpath);
 
 	}
 
