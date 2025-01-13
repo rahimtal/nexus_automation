@@ -59,9 +59,11 @@ public class searchControllerV4 {
 		params.put("index", "accounts");
 		params.put("searchQuery", "{\"LocationId\":\"Mas\"},{\"CustomerId\":\"Mas\"}");
 		params.put("searchType", "MatchPhrasePrefix");
-		String expected2 = "id\":\"LOCATION001-MASTER001\"";
+		String expected2 = "MASTER001-MASTER001";
+		String expected3 = "MASTERLOC01-MASTERCUS01";
 		CommonMethods.getMethodContainsString(uri, ver, params, expected);// ains(uri, ver, params, jpath);
 		CommonMethods.getMethodContainsString(uri, ver, params, expected2);// ains(uri, ver, params, jpath);
+		CommonMethods.getMethodContainsString(uri, ver, params, expected3);// ains(uri, ver, params, jpath);
 
 	}
 
