@@ -340,7 +340,8 @@ public class lookupControllerv4 {
 	@Test(priority = 27, groups = "lookup", retryAnalyzer = Retry.class)
 	public void lookupserviceOrderTask()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-18771");
+		//CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-18771");
+		//CPDEV-18771 - developer confirm this is not an issue
 		String uri = "/lookup/serviceOrderTasks";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\lookupserviceOrderTasksv4.json";
