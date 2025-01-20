@@ -45,7 +45,7 @@ public class contactLogController {
 	@Test(priority = 3, groups = "contactLogController", retryAnalyzer = Retry.class)
 	public static void putcontactLogv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		CommonMethods.Bug("CPDEV-18576");
+		//CommonMethods.Bug("CPDEV-18576");
 		String uri = "/contactLog";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\putContactLog.json";
@@ -57,7 +57,7 @@ public class contactLogController {
 
 	@Test(priority = 4, groups = "contactLogController", retryAnalyzer = Retry.class)
 	public void getContactLogDetail() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		CommonMethods.Bug("CPDEV-18571");
+	//	CommonMethods.Bug("CPDEV-18571");
 		String uri = "/contactLog/getContactLogDetail";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\ContactLogDetailv4.json";
@@ -76,7 +76,7 @@ public class contactLogController {
 
 		String uri = "/contactLog";
 		String version = "4.0";
-		String expected = "{\"ContactLog\":{\"Success\":true,\"Data\":{\"Detail\":[{\"ActionCode\":\"2\",\"AdditionalText\":\"\",\"ContactMethod\":1,\"Description\":\"Request to read meter\",\"FirstContactDateTime\":\"2027-02-01T12:15:14\",\"NextContactDateTime\":\"2027-03-01T12:15:14\",\"CompletedDateTime\":\"2022-04-09T16:01:05\",\"IsCompleted\":true,\"ResolutionText\":\"\",\"ServiceOrder\":{\"Number\":\"SORD00000009048\",\"StatusDescription\":\"Pending\",\"RequestId\":\"DISCONNECT\",\"RequestDescription\":\"Disconnected connection\"},\"FollowUpEmployee\":{\"Id\":\"ZAID0001\",\"FirstName\":\"Syed\",\"MiddleName\":\"M.\",\"LastName\":\"Zaidi\"},\"User\":{\"Id\":\"sa\",\"FirstName\":\"Sam\",\"MiddleName\":\"M.\",\"LastName\":\"Arsenault\"}}]},\"Messages\":[]}}";
+		String expected = "{\"ContactLog\":{\"Success\":true,\"Data\":{\"Detail\":[{\"ActionCode\":\"2\",\"AdditionalText\":\"\",\"ContactMethod\":1,\"Description\":\"Request to read meter\",\"FirstContactDateTime\":\"2027-02-01T12:15:14\",\"NextContactDateTime\":\"2027-03-01T12:15:14\",\"CompletedDateTime\":\"2022-04-09T16:01:05\",\"IsCompleted\":true,\"ResolutionText\":\"\",\"ServiceOrder\":{\"Number\":\"SORD00000009044\",\"StatusDescription\":\"Pending\",\"RequestId\":\"DISCONNECT\",\"RequestDescription\":\"Disconnected connection\"},\"FollowUpEmployee\":{\"Id\":\"ZAID0001\",\"FirstName\":\"Syed\",\"MiddleName\":\"M.\",\"LastName\":\"Zaidi\"},\"User\":{\"Id\":\"sa\",\"FirstName\":\"Sam\",\"MiddleName\":\"M.\",\"LastName\":\"Arsenault\"}}]},\"Messages\":[]}}";
 
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("LocationId", "LOCATION008");
