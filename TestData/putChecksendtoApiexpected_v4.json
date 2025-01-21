@@ -1,1 +1,1 @@
-{"Check":{"Success":false,"Data":null,"Messages":[{"Enabled":1,"Info":"Check already sent to AP.","Level":3}]}}
+{"ContactLog":{"Success":true,"Data":{"ServiceOrderNumber":""},"Messages":[{"Enabled":1,"Info":"Service Order (SORD00000009044) already exist for contact log. Not allowed to created another service order.","Level":1}]}}

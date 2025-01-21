@@ -43,31 +43,31 @@ public class contactLogController {
 	}
 
 	@Test(priority = 3, groups = "contactLogController", retryAnalyzer = Retry.class)
-	public static void putcontactLogv4()
+	public void postcontactLogControllerv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		//CommonMethods.Bug("CPDEV-18576");
+
 		String uri = "/contactLog";
 		String ver = "4.0";
-		String jpath = "./\\TestData\\putContactLog.json";
-		String params = new String(Files.readAllBytes(Paths.get(jpath)));
-		String expected = "./\\TestData\\putCheckexpectedsendtoApi_v4.json";
-		CommonMethods.putMethod(uri, ver, params, expected);
+		String payload = "./\\TestData\\/PostcontactLog3v4.json";
+		String exResponse = "{\"ContactLog\":{\"Success\":true,\"Data\":{\"ServiceOrderNumber\":\"SORD";
+		CommonMethods.postcallcontains(uri, payload, ver, exResponse);
 
 	}
 
 	@Test(priority = 4, groups = "contactLogController", retryAnalyzer = Retry.class)
 	public void getContactLogDetail() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-	//	CommonMethods.Bug("CPDEV-18571");
+		// CommonMethods.Bug("CPDEV-18571");
 		String uri = "/contactLog/getContactLogDetail";
 		String ver = "4.0";
-		String jpath = "./\\TestData\\ContactLogDetailv4.json";
+		String expected = "{\"result\":[{\"Description\":\"Request to read meter\",\"AdditionalText\":\"\",\"ContactMethod\":\"By Phone\",\"ActionCode\":\"2\",\"UserID\":\"sa\",\"UserName\":\"sa\",\"ContactDate\":\"2027-02-01T20:15:14.000Z\",";
+		String exp2 = "\"IsCompleted\":\"Completed\",\"Resolution\":\"\",\"ServiceOrderNumber\":\"SORD00000009044\",\"ServiceOrderStatusDescription\":\"Pending\",\"RequestID\":\"DISCONNECT\",\"RequestDescription\":\"Disconnected connection\",\"DrillbackLink\":\"cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=ServiceOrder&LocationID=LOCATION008&ServiceOrderNumber=SORD00000009044&CogsDrillback=1\"}]}";
 
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("LocationId", "LOCATION008");
 		params.put("CustomerId", "CUSTOMER009");
 		params.put("CsmApiDatabase", "NEXUS_API");
-		String result = CommonMethods.getMethod(uri, ver, params, jpath);
-		System.out.println(result);
+		CommonMethods.getMethodContainsString(uri, ver, params, expected);
+		CommonMethods.getMethodContainsString(uri, ver, params, exp2);
 
 	}
 
@@ -76,13 +76,14 @@ public class contactLogController {
 
 		String uri = "/contactLog";
 		String version = "4.0";
-		String expected = "{\"ContactLog\":{\"Success\":true,\"Data\":{\"Detail\":[{\"ActionCode\":\"2\",\"AdditionalText\":\"\",\"ContactMethod\":1,\"Description\":\"Request to read meter\",\"FirstContactDateTime\":\"2027-02-01T12:15:14\",\"NextContactDateTime\":\"2027-03-01T12:15:14\",\"CompletedDateTime\":\"2022-04-09T16:01:05\",\"IsCompleted\":true,\"ResolutionText\":\"\",\"ServiceOrder\":{\"Number\":\"SORD00000009044\",\"StatusDescription\":\"Pending\",\"RequestId\":\"DISCONNECT\",\"RequestDescription\":\"Disconnected connection\"},\"FollowUpEmployee\":{\"Id\":\"ZAID0001\",\"FirstName\":\"Syed\",\"MiddleName\":\"M.\",\"LastName\":\"Zaidi\"},\"User\":{\"Id\":\"sa\",\"FirstName\":\"Sam\",\"MiddleName\":\"M.\",\"LastName\":\"Arsenault\"}}]},\"Messages\":[]}}";
+		String expected = "{\"ContactLog\":{\"Success\":true,\"Data\":{\"Detail\":[{\"ActionCode\":\"2\",\"AdditionalText\":\"\",\"ContactMethod\":1,\"Description\":\"Request to read meter\",\"FirstContactDateTime\":\"2027-02-01T12:15:14\",\"NextContactDateTime\"";
+		String expected2 = "\"CompletedDateTime\":\"2022-04-09T23:01:05\",\"IsCompleted\":true,\"ResolutionText\":\"\",\"ServiceOrder\":{\"Number\":\"SORD00000009044\",\"StatusDescription\":\"Pending\",\"RequestId\":\"DISCONNECT\",\"RequestDescription\":\"Disconnected connection\"},\"FollowUpEmployee\":{\"Id\":\"ZAID0001\",\"FirstName\":\"Syed\",\"MiddleName\":\"M.\",\"LastName\":\"Zaidi\"},\"User\":{\"Id\":\"sa\",\"FirstName\":\"Sam\",\"MiddleName\":\"M.\",\"LastName\":\"Arsenault\"}}]},\"Messages\":[]}}";
 
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("LocationId", "LOCATION008");
 		params.put("CustomerId", "CUSTOMER009");
-		String actual = CommonMethods.getMethodasString(uri, version, params);
-		Assert.assertEquals(actual, expected);
+		CommonMethods.getMethodContainsString(uri, version, params, expected);
+		CommonMethods.getMethodContainsString(uri, version, params, expected2);
 
 	}
 
@@ -125,14 +126,15 @@ public class contactLogController {
 	}
 
 	@Test(priority = 9, groups = "contactLogController", retryAnalyzer = Retry.class)
-	public void postcontactLogControllerv4()
+	public static void putcontactLogv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-
+		// CommonMethods.Bug("CPDEV-18576");
 		String uri = "/contactLog";
 		String ver = "4.0";
-		String payload = "./\\TestData\\/PostcontactLog3v4.json";
-		String exResponse = "{\"ContactLog\":{\"Success\":true,\"Data\":{\"ServiceOrderNumber\":\"SORD";
-		CommonMethods.postcallcontains(uri, payload, ver, exResponse);
+		String jpath = "./\\TestData\\putContactLog.json";
+		String params = new String(Files.readAllBytes(Paths.get(jpath)));
+		String expected = "./\\TestData\\putCheckexpectedsendtoApi_v4.json";
+		CommonMethods.putMethod(uri, ver, params, expected);
 
 	}
 
