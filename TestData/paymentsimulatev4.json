@@ -5,5 +5,8 @@
     "DocumentDate": "2024-02-15",
     "CreditNoteId": "RMGT-OTH-000002",
     "TaxScheduleId": "ONT GST/PST",
-    "BatchId": "PAYMENTBATCH"
+    "BatchId": "PAYMENTBATCH",
+    "AutoApply":true,
+    "AutoApplyBy":2
+
 }
