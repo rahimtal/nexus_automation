@@ -1,0 +1,12 @@
+{
+    "LocationId": "100001",
+    "CustomerId": "500001",
+    "Amount": 5.00,
+    "DocumentDate": "2018-10-10",
+    "CreditNoteId": "RMGT-OTH-000002",
+    "TaxScheduleId": "ONT GST/PST",
+    "BatchId": "PAYMENTBATCH",
+    "AutoApply":true,
+    "AutoApplyBy":2
+
+}

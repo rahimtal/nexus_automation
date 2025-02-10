@@ -1,0 +1,12 @@
+{
+    "LocationId": "SEWER003",
+    "CustomerId": "CUSTOMER002",
+    "Amount": 5.00,
+    "DocumentDate": "1999-03-09",
+    "CreditNoteId": "RMGT-OTH-000002",
+    "TaxScheduleId": "ONT GST/PST",
+    "BatchId": "PAYMENTBATCH",
+    "AutoApply":true,
+    "AutoApplyBy":2
+
+}
