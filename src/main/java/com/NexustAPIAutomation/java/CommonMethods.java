@@ -1502,7 +1502,7 @@ public class CommonMethods {
 			throws InterruptedException {
 		Response jsonPathResponse;
 		jsonPathResponse = CommonMethods.postMethodResponseasString(payload, uri, ver);
-		System.out.println(jsonPathResponse.asString());
+		System.out.println("Response :"+jsonPathResponse.asString());
 		Assert.assertTrue(jsonPathResponse.asString().contains(exResult));
 
 	}

@@ -12,7 +12,7 @@ import com.NexustAPIAutomation.java.Retry;
 
 public class AlertPanelController {
 
-	@Test(priority = 1, groups = "AlertPanelController", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "AlertPanelController" )
 	public void getalert_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/alert/CUSTOMER002/SEWER003";
 		String ver = "4.0";
@@ -25,7 +25,7 @@ public class AlertPanelController {
 	}
 	
 
-	@Test(priority = 2, groups = "AlertPanelController", retryAnalyzer = Retry.class)
+	@Test(priority = 2, groups = "AlertPanelController" )
 	public void getalertaccountAttributes_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/alert/accountAttributes/500001/100001";
 		String ver = "4.0";

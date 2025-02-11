@@ -12,7 +12,7 @@ import com.NexustAPIAutomation.java.Retry;
 public class ServiceOrderController {
 	
 	
-	@Test(priority = 1, groups = "ServiceOrder", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "ServiceOrder" )
 	public static void delBatv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
@@ -24,7 +24,7 @@ public class ServiceOrderController {
 
 	}
 	
-	@Test(priority = 2, groups = "ServiceOrder", retryAnalyzer = Retry.class)
+	@Test(priority = 2, groups = "ServiceOrder" )
 	public static void delBatv4Error()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
@@ -37,7 +37,7 @@ public class ServiceOrderController {
 	}
 	
 	
-	@Test(priority = 3, groups = "ServiceOrder", retryAnalyzer = Retry.class)
+	@Test(priority = 3, groups = "ServiceOrder" )
 	public void putServiceOrderControllerev4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -97,7 +97,7 @@ public class ServiceOrderController {
 	}
 	
 	
-	@Test(priority = 4, groups = "ServiceOrder", retryAnalyzer = Retry.class)
+	@Test(priority = 4, groups = "ServiceOrder" )
 	public static void delServiceOrderv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();

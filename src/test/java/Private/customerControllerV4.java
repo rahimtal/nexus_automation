@@ -16,7 +16,7 @@ import io.restassured.response.ValidatableResponse;
 
 public class customerControllerV4 {
 
-	@Test(priority = 1, groups = "CustomerController", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "CustomerController" )
 	public static void getCustomerBasicInfo4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -35,7 +35,7 @@ public class customerControllerV4 {
 
 	}
 
-	@Test(priority = 2, groups = "CustomerController", retryAnalyzer = Retry.class)
+	@Test(priority = 2, groups = "CustomerController" )
 	public static void getCustomerAddressInfo()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -55,7 +55,7 @@ public class customerControllerV4 {
 
 	}
 
-	@Test(priority = 3, groups = "CustomerController", retryAnalyzer = Retry.class)
+	@Test(priority = 3, groups = "CustomerController" )
 	public static void getSecondaryCustomer()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -72,7 +72,7 @@ public class customerControllerV4 {
 
 	}
 
-	@Test(priority = 4, groups = "CustomerController", retryAnalyzer = Retry.class)
+	@Test(priority = 4, groups = "CustomerController" )
 	public void getSecondaryCustomer2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/customers/Secondary";
@@ -88,7 +88,7 @@ public class customerControllerV4 {
 
 	}
 
-	@Test(priority = 5, groups = "CustomerController", retryAnalyzer = Retry.class)
+	@Test(priority = 5, groups = "CustomerController" )
 	public void putupdateCustomerCard()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		//CommonMethods.Bug("CPDEV-18811");
@@ -126,7 +126,7 @@ public class customerControllerV4 {
 
 	}
 
-//	@Test(priority = 6, groups = "CustomerController", retryAnalyzer = Retry.class)
+//	@Test(priority = 6, groups = "CustomerController" )
 	public void putupdateCustomersCard()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/customers/updateCustomerCard";
@@ -137,7 +137,7 @@ public class customerControllerV4 {
 
 	}
 
-	@Test(priority = 7, groups = "CustomerController", retryAnalyzer = Retry.class)
+	@Test(priority = 7, groups = "CustomerController" )
 	public void putupdateCustomersInfov4()
 				throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		
@@ -205,7 +205,7 @@ public class customerControllerV4 {
 
 	}
 	
-	@Test(priority = 8, groups = "CustomerController", retryAnalyzer = Retry.class)
+	@Test(priority = 8, groups = "CustomerController" )
 	public void putupdateCustomersInfov4Pos()
 				throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		

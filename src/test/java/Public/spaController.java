@@ -14,7 +14,7 @@ import io.restassured.response.ValidatableResponse;
 
 public class spaController {
 
-	@Test(priority = 1, groups = "SPA", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "SPA" )
 	public void getoutstandingDocuments_v_2()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 	//	CommonMethods.CompanyDBRestore();
@@ -34,7 +34,7 @@ public class spaController {
 
 	}
 
-	@Test(priority = 2, groups = "SPA", retryAnalyzer = Retry.class)
+	@Test(priority = 2, groups = "SPA" )
 	public void getheaderInfo_v_2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/spa/CUSTOMER002";
@@ -52,7 +52,7 @@ public class spaController {
 
 	}
 
-	@Test(priority = 3, groups = "SPA", retryAnalyzer = Retry.class)
+	@Test(priority = 3, groups = "SPA" )
 	public void getspadetails_v_2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/spa/CUSTOMER002/details/1";
@@ -70,7 +70,7 @@ public class spaController {
 
 	}
 
-	@Test(priority = 4, groups = "SPA", retryAnalyzer = Retry.class)
+	@Test(priority = 4, groups = "SPA" )
 	public void getspadocuments_v_2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/spa/CUSTOMER002/documents/1/1";
@@ -85,7 +85,7 @@ public class spaController {
 
 	}
 
-	@Test(priority = 5, groups = "SPA", retryAnalyzer = Retry.class)
+	@Test(priority = 5, groups = "SPA" )
 	public void putcalculatedocuments_v_2()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -101,7 +101,7 @@ public class spaController {
 
 	}
 
-	@Test(priority = 6, groups = "SPA", retryAnalyzer = Retry.class, dependsOnMethods = "putcalculatedocuments_v_2")
+	@Test(priority = 6, groups = "SPA" , dependsOnMethods = "putcalculatedocuments_v_2")
 	public void getcalculatedocuments_v_2()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -115,7 +115,7 @@ public class spaController {
 
 	}
 
-	@Test(priority = 7, groups = "SPA", retryAnalyzer = Retry.class)
+	@Test(priority = 7, groups = "SPA" )
 	public void getspaAccountBalances_v_2()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 

@@ -12,7 +12,7 @@ import com.NexustAPIAutomation.java.Retry;
 public class ServiceLocationV3{
 
 	
-	@Test(priority = 1, groups = "ServiceLocation", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "ServiceLocation" )
 	public void getServicesByLocation_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/servicesByLocation/getServicesByLocation";

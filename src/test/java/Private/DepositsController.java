@@ -18,7 +18,7 @@ import io.restassured.response.ValidatableResponse;
 
 public class DepositsController {
 
-	@Test(priority = 2, groups = "Deposits", retryAnalyzer = Retry.class)
+	@Test(priority = 2, groups = "Deposits" )
 	public void getdeposit() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/deposit";
@@ -31,10 +31,10 @@ public class DepositsController {
 
 	}
 
-	@Test(priority = 6, groups = "Deposits", retryAnalyzer = Retry.class, dependsOnMethods = "postdepositpaymentPlanv4")
+	@Test(priority = 6, groups = "Deposits" , dependsOnMethods = "postdepositpaymentPlanv4")
 	public void getdepositpaymentPlan() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
-		String uri = "/deposit/DEPS00000000035/paymentPlan";
+		String uri = "/deposit/DEPS00000000034/paymentPlan";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\depositsPaymentPlanv3.json";
 		HashMap<String, String> params = new HashMap<String, String>();
@@ -44,10 +44,10 @@ public class DepositsController {
 
 	}
 	
-	@Test(priority = 7, groups = "Deposits", retryAnalyzer = Retry.class, dependsOnMethods = "postdepositpaymentPlanv4")
+	@Test(priority = 7, groups = "Deposits" , dependsOnMethods = "postdepositpaymentPlanv4")
 	public void getdepositpaymentPlanv3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
-		String uri = "/deposit/DEPS00000000035/paymentPlan";
+		String uri = "/deposit/DEPS00000000034/paymentPlan";
 		String ver = "3.0";
 		String jpath = "./\\TestData\\depositsPaymentPlanv3.json";
 		HashMap<String, String> params = new HashMap<String, String>();
@@ -57,7 +57,7 @@ public class DepositsController {
 
 	}
 
-	@Test(priority = 3, groups = "Deposits", retryAnalyzer = Retry.class)
+	@Test(priority = 3, groups = "Deposits" )
 	public void lookupDepositId() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/lookupDepositId";
@@ -73,7 +73,7 @@ public class DepositsController {
 
 	}
 
-	@Test(priority = 1, groups = "Deposits", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "Deposits" )
 	public void postdepositpaymentPlanv4() throws ClassNotFoundException, SQLException, InterruptedException {
 
 		String uri = "/deposit/paymentPlan";

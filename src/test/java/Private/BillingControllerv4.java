@@ -19,7 +19,7 @@ import io.restassured.response.ValidatableResponse;
 
 public class BillingControllerv4 {
 
-	@Test(priority = 1, groups = "billing", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "billing" )
 	public static void delBatv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/billing/delete/BT1231";
@@ -30,7 +30,7 @@ public class BillingControllerv4 {
 
 	}
 
-	@Test(priority = 2, groups = "billing", retryAnalyzer = Retry.class)
+	@Test(priority = 2, groups = "billing" )
 	public static void delBatv4Err() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/billing/delete/BT1231";
@@ -41,7 +41,7 @@ public class BillingControllerv4 {
 
 	}
 
-	@Test(priority = 7, groups = "billing", retryAnalyzer = Retry.class)
+	@Test(priority = 7, groups = "billing" )
 	public static void billingprintStatementv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
@@ -66,7 +66,7 @@ public class BillingControllerv4 {
 		}
 	}
 
-	@Test(priority = 3, groups = "billing", retryAnalyzer = Retry.class)
+	@Test(priority = 3, groups = "billing" )
 	public static void PostBillingcalculatev4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
@@ -94,7 +94,7 @@ public class BillingControllerv4 {
 		}
 	}
 
-	@Test(priority = 8, groups = "billing", retryAnalyzer = Retry.class, dependsOnMethods = "billingprintStatementv4")
+	@Test(priority = 8, groups = "billing" , dependsOnMethods = "billingprintStatementv4")
 	public static void postBillingv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/billing/postingBill";
@@ -114,7 +114,7 @@ public class BillingControllerv4 {
 		}
 	}
 
-	@Test(priority = 6, groups = "billing", retryAnalyzer = Retry.class, dependsOnMethods = "PostgenerateEditReportv4")
+	@Test(priority = 6, groups = "billing" , dependsOnMethods = "PostgenerateEditReportv4")
 	public static void postcreateStatementv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
@@ -137,7 +137,7 @@ public class BillingControllerv4 {
 		}
 	}
 
-	@Test(priority = 4, groups = "billing", retryAnalyzer = Retry.class, dependsOnMethods = "PostBillingcalculatev4")
+	@Test(priority = 4, groups = "billing" , dependsOnMethods = "PostBillingcalculatev4")
 	public static void PostgenerateEditReportv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
@@ -160,7 +160,7 @@ public class BillingControllerv4 {
 
 	public static JsonPath jsonPathEvaluator;
 
-	@Test(priority = 5, groups = "billing", retryAnalyzer = Retry.class)
+	@Test(priority = 5, groups = "billing" )
 	public void getbillprintTemplatePath()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// extent.createTest("Test", "");
@@ -173,7 +173,7 @@ public class BillingControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 10, groups = "billing", retryAnalyzer = Retry.class, dependsOnMethods = "postBillingv4")
+	@Test(priority = 10, groups = "billing" , dependsOnMethods = "postBillingv4")
 	public void printcsvbillingStatements()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// extent.createTest("Test", "");
@@ -186,7 +186,7 @@ public class BillingControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 1, groups = "billing", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "billing" )
 	public void TC001_getutilitySetup() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// extent.createTest("Test", "");
 		String uri = "/billing/utilitySetup";
@@ -198,7 +198,7 @@ public class BillingControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 2, groups = "billing", retryAnalyzer = Retry.class)
+	@Test(priority = 2, groups = "billing" )
 	public void TC002_getbillBatchStatus()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// extent.createTest("Test", "");
@@ -211,7 +211,7 @@ public class BillingControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 11, groups = "billing", retryAnalyzer = Retry.class)
+	@Test(priority = 11, groups = "billing" )
 	public void getbillingtransferProgress()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// extent.createTest("Test", "");
@@ -224,7 +224,7 @@ public class BillingControllerv4 {
 		Assert.assertEquals(actual, expected);
 	}
 
-	@Test(priority = 6, groups = "billing", retryAnalyzer = Retry.class, dependsOnMethods = "PostgenerateEditReportv4")
+	@Test(priority = 6, groups = "billing" , dependsOnMethods = "PostgenerateEditReportv4")
 	public static void postcreateStatementv4_isfinal()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
@@ -239,7 +239,7 @@ public class BillingControllerv4 {
 
 	}
 
-	@Test(priority = 12, groups = "billing", retryAnalyzer = Retry.class)
+	@Test(priority = 12, groups = "billing" )
 	public static void billingfinalcalculatev4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
@@ -260,7 +260,7 @@ public class BillingControllerv4 {
 
 	}
 
-	@Test(priority = 12, groups = "billing", retryAnalyzer = Retry.class)
+	@Test(priority = 12, groups = "billing" )
 	public void getBatchIdValidate() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// extent.createTest("Test", "");
 		String uri = "/billing/batchId/BAT1/validate";
@@ -272,7 +272,7 @@ public class BillingControllerv4 {
 		Assert.assertEquals(actual, expected);
 	}
 
-	@Test(priority = 13, groups = "billing", retryAnalyzer = Retry.class)
+	@Test(priority = 13, groups = "billing" )
 	public void getBatchIdValidatetrue()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// extent.createTest("Test", "");
@@ -285,7 +285,7 @@ public class BillingControllerv4 {
 		Assert.assertEquals(actual, expected);
 	}
 
-	@Test(priority = 12, groups = "billing", retryAnalyzer = Retry.class)
+	@Test(priority = 12, groups = "billing" )
 	public static void delBatv4_EditListPrint() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/billing/delete/BAT012301203";
@@ -296,7 +296,7 @@ public class BillingControllerv4 {
 
 	}
 	
-	@Test(priority = 13, groups = "billing", retryAnalyzer = Retry.class)
+	@Test(priority = 13, groups = "billing" )
 	public static void delBatv4_calculating() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/billing/delete/BATCHID";

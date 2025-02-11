@@ -15,7 +15,7 @@ public class PaymentExtension {
 
 	public static JsonPath jsonPathEvaluator;
 
-	@Test(priority = 1, groups = "Cashering", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "Cashering" )
 	public void postPaymentv2() throws ClassNotFoundException, SQLException, InterruptedException {
 		CommonMethods.Bug("17867");
 		String uri = "/payment";
@@ -26,7 +26,7 @@ public class PaymentExtension {
 
 	}
 
-	@Test(priority = 2, groups = "Cashering", retryAnalyzer = Retry.class)
+	@Test(priority = 2, groups = "Cashering" )
 	public void paymentExtensionv2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/paymentextension";
@@ -44,7 +44,7 @@ public class PaymentExtension {
 
 	}
 
-	@Test(priority = 3, groups = "Cashering", retryAnalyzer = Retry.class)
+	@Test(priority = 3, groups = "Cashering" )
 	public void postPaymentv2_2() throws ClassNotFoundException, SQLException, InterruptedException {
 
 		CommonMethods.Bug("CPDEV-17867");

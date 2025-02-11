@@ -21,7 +21,7 @@ import junit.framework.Assert;
 
 public class MeterReadControllerV4 {
 
-	@Test(priority = 1, groups = "MeterRead", retryAnalyzer = Retry.class, dependsOnMethods = "putMeterReadinginWorkV4")
+	@Test(priority = 1, groups = "MeterRead" , dependsOnMethods = "putMeterReadinginWorkV4")
 	public void deletemeterReadingvalidv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -33,7 +33,7 @@ public class MeterReadControllerV4 {
 
 	}
 
-	@Test(priority = 2, groups = "MeterRead", retryAnalyzer = Retry.class, dependsOnMethods = "deletemeterReadingvalidv4")
+	@Test(priority = 2, groups = "MeterRead" , dependsOnMethods = "deletemeterReadingvalidv4")
 	public void deletemeterReadingErrorv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -221,7 +221,7 @@ public class MeterReadControllerV4 {
 		}
 	}
 
-	@Test(priority = 100, groups = "MeterRead", retryAnalyzer = Retry.class, dependsOnMethods = "PostMeterReadv4")
+	@Test(priority = 100, groups = "MeterRead" , dependsOnMethods = "PostMeterReadv4")
 	public static void postmoveOpenToHistoryv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();

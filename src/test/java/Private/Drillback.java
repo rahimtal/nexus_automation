@@ -12,7 +12,7 @@ import com.NexustAPIAutomation.java.Retry;
 
 public class Drillback {
 
-	@Test(priority = 1, groups = "Drillback", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "Drillback" )
 	public void getdrillbackv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/drillback";
 		String ver = "4.0";

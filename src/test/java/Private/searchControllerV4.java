@@ -18,7 +18,7 @@ import org.testng.Assert;
 public class searchControllerV4 {
 
 	// This will create elastic search index if not already
-	@Test(priority = 1, groups = "Search", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "Search" )
 	public void elascticsearchcreateindex_v_4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -30,7 +30,7 @@ public class searchControllerV4 {
 
 	}
 
-	@Test(priority = 2, groups = "Search", retryAnalyzer = Retry.class, dependsOnMethods = "elascticsearchcreateindex_v_4")
+	@Test(priority = 2, groups = "Search" , dependsOnMethods = "elascticsearchcreateindex_v_4")
 	public void searchMatchPhrasePrefixv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -47,7 +47,7 @@ public class searchControllerV4 {
 
 	}
 
-	@Test(priority = 3, groups = "Search", retryAnalyzer = Retry.class, dependsOnMethods = "searchMatchPhrasePrefixv4")
+	@Test(priority = 3, groups = "Search" , dependsOnMethods = "searchMatchPhrasePrefixv4")
 	public void part_searchMatchPhrasePrefixv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -67,7 +67,7 @@ public class searchControllerV4 {
 
 	}
 
-	@Test(priority = 4, groups = "Search", retryAnalyzer = Retry.class, dependsOnMethods = "part_searchMatchPhrasePrefixv4")
+	@Test(priority = 4, groups = "Search" , dependsOnMethods = "part_searchMatchPhrasePrefixv4")
 	public void part4_searchMatchPhrasePrefixv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -83,7 +83,7 @@ public class searchControllerV4 {
 
 	}
 
-	@Test(priority = 4, groups = "Search", retryAnalyzer = Retry.class, dependsOnMethods = "part4_searchMatchPhrasePrefixv4")
+	@Test(priority = 4, groups = "Search" , dependsOnMethods = "part4_searchMatchPhrasePrefixv4")
 	public void part2_searchMatchPhrasePrefixv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 

@@ -20,7 +20,7 @@ public class createandcancelSpaV3 {
 
 	public static JsonPath jsonPathEvaluator;
 
-	@Test(priority = 1, groups = "SPA", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "SPA" )
 	public static void cancelSPA_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String customerId = "500300";
@@ -33,7 +33,7 @@ public class createandcancelSpaV3 {
 		System.out.println(res);
 	}
 
-	@Test(priority = 2, dependsOnMethods = "cancelSPA_v_3", groups = "SPA", retryAnalyzer = Retry.class)
+	@Test(priority = 2, dependsOnMethods = "cancelSPA_v_3", groups = "SPA" )
 	public void createSPA_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/spa/create";
@@ -49,7 +49,7 @@ public class createandcancelSpaV3 {
 
 	}
 
-	@Test(priority = 3, dependsOnMethods = "createSPA_v_3", groups = "SPA", retryAnalyzer = Retry.class)
+	@Test(priority = 3, dependsOnMethods = "createSPA_v_3", groups = "SPA" )
 	public void putspaCalculate_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/spa/calculate";
@@ -63,7 +63,7 @@ public class createandcancelSpaV3 {
 
 	}
 
-	@Test(priority = 4, dependsOnMethods = "putspaCalculate_v_3", groups = "SPA", retryAnalyzer = Retry.class)
+	@Test(priority = 4, dependsOnMethods = "putspaCalculate_v_3", groups = "SPA" )
 	public void recancelSPA_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String customerId = "500300";

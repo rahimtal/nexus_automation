@@ -15,7 +15,7 @@ import io.restassured.response.Response;
 
 public class csmGlobalsController {
 
-	@Test(priority = 1, groups = "csmGlobalsController", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "csmGlobalsController" )
 	public void csmSetupautoGeneratenextIdv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/csmSetup/autoGenerate/nextId/3";
@@ -37,7 +37,7 @@ public class csmGlobalsController {
 
 	}
 
-	@Test(priority = 2, groups = "csmGlobalsController", retryAnalyzer = Retry.class)
+	@Test(priority = 2, groups = "csmGlobalsController" )
 	public void getCsmGlobalBySettingNamev4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/csmGlobals/getCsmGlobalBy";

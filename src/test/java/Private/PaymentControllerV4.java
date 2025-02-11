@@ -19,7 +19,7 @@ import io.restassured.response.Response;
 
 public class PaymentControllerV4 {
 
-	@Test(priority = 1, groups = "Payment", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "Payment" )
 	public void gettPaymentNextv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/payment/next";
@@ -32,7 +32,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 2, groups = "Payment", retryAnalyzer = Retry.class)
+	@Test(priority = 2, groups = "Payment" )
 	public void postPaymentSimulatev4() throws ClassNotFoundException, SQLException, InterruptedException {
 
 		CommonMethods.Bug("CPDEV-20897");
@@ -46,7 +46,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 3, groups = "Payment", retryAnalyzer = Retry.class)
+	@Test(priority = 3, groups = "Payment" )
 	public static void delPaymentv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/payment/PYMT00000000431";
@@ -57,7 +57,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 4, groups = "Payment", retryAnalyzer = Retry.class)
+	@Test(priority = 4, groups = "Payment" )
 	public static void delPaymentv4Err()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
@@ -69,7 +69,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 5, groups = "Payment", retryAnalyzer = Retry.class)
+	@Test(priority = 5, groups = "Payment" )
 	public static void delPaymentv4CreditNote()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
@@ -81,7 +81,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 6, groups = "Payment", retryAnalyzer = Retry.class)
+	@Test(priority = 6, groups = "Payment" )
 	public void gettPaymentNextOpenv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/payment/next";
@@ -93,7 +93,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 7, groups = "Payment", retryAnalyzer = Retry.class)
+	@Test(priority = 7, groups = "Payment" )
 	public void gettPaymentNextHistv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/payment/next";
@@ -109,7 +109,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 8, groups = "Payment", retryAnalyzer = Retry.class)
+	@Test(priority = 8, groups = "Payment" )
 	public void gettPaymentNextAllv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/payment/next";
@@ -122,7 +122,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 9, groups = "Payment", retryAnalyzer = Retry.class)
+	@Test(priority = 9, groups = "Payment" )
 	public void putputPaymentV4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		CommonMethods.Bug("You've created CPDEV-18776 issue");
 		String uri = "/Payment";
@@ -134,7 +134,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 10, groups = "Payment", retryAnalyzer = Retry.class)
+	@Test(priority = 10, groups = "Payment" )
 	public void postPaymentSimulateExt() throws ClassNotFoundException, SQLException, InterruptedException {
 
 		CommonMethods.Bug("CPDEV-17140");
@@ -146,7 +146,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 11, groups = "Payment", retryAnalyzer = Retry.class)
+	@Test(priority = 11, groups = "Payment" )
 	public void postPaymentDepositv4() throws ClassNotFoundException, SQLException, InterruptedException {
 
 		String uri = "/payment";

@@ -7,11 +7,14 @@ import org.testng.annotations.Test;
 import com.NexustAPIAutomation.java.CommonMethods;
 import com.NexustAPIAutomation.java.Retry;
 
+import freemarker.core.BugException;
+
 public class SmartyStreetValidationV4 {
 
-	@Test(priority = 1, groups = "Smarty", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "Smarty")
 	public void postSmartyStreetValidationv4() throws ClassNotFoundException, SQLException, InterruptedException {
 
+		CommonMethods.Bug("CPDEV-20909");
 		String uri = "/customers/validateAddresses";
 		String ver = "4.0";
 		String payload = "{\r\n" + "   \"ValidateAddresses\":[\r\n" + "      {\r\n" + "         \"Address\":[\r\n"

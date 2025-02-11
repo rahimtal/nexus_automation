@@ -17,7 +17,7 @@ public class PaymentControllerV4 {
 
 	public static JsonPath jsonPathEvaluator;
 
-	@Test(priority = 1, groups = "Payment", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "Payment" )
 	public void postPaymentv4() throws ClassNotFoundException, SQLException, InterruptedException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/payment";
@@ -28,7 +28,7 @@ public class PaymentControllerV4 {
 		CommonMethods.postcallcontains(uri, payload, ver, exresult);
 		}
 
-	@Test(priority = 2, groups = "Payment", retryAnalyzer = Retry.class)
+	@Test(priority = 2, groups = "Payment" )
 	public void postPaymentBatchv4() throws ClassNotFoundException, SQLException, InterruptedException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/payment/paymentBatch";
@@ -43,7 +43,7 @@ public class PaymentControllerV4 {
 		// System.out.println(jsonPathEvaluator.toString());
 	}
 
-	//@Test(priority = 3, groups = "Payment", retryAnalyzer = Retry.class)
+	//@Test(priority = 3, groups = "Payment" )
 	public void gettPaymentNextv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/payment/next";
@@ -56,7 +56,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 4, groups = "Payment", retryAnalyzer = Retry.class)
+	@Test(priority = 4, groups = "Payment" )
 	public void postPaymentBatchtruev4() throws ClassNotFoundException, SQLException, InterruptedException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/payment/paymentBatch";
@@ -72,7 +72,7 @@ public class PaymentControllerV4 {
 	}
 	
 	
-	@Test(priority = 5, groups = "Payment", retryAnalyzer = Retry.class)
+	@Test(priority = 5, groups = "Payment" )
 	public void postPaymentMiscv4() throws ClassNotFoundException, SQLException, InterruptedException {
 		// CommonMethods.CompanyDBRestore();
 		CommonMethods.Bug("CPDEV-18766");

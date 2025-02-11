@@ -17,7 +17,7 @@ import io.restassured.response.ValidatableResponse;
 
 public class customerControllerV4 {
 
-	@Test(priority = 1, groups = "CustomerController", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "CustomerController" )
 	public static void getlocationsByCustomerv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 

@@ -12,7 +12,7 @@ import com.NexustAPIAutomation.java.Retry;
 
 public class locationControllerv4 {
 
-	@Test(priority = 1, groups = "locationController", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "locationController" )
 	public static void dellocationv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/location/locdeltest";
@@ -22,7 +22,7 @@ public class locationControllerv4 {
 
 	}
 
-	@Test(priority = 2, groups = "locationController", retryAnalyzer = Retry.class)
+	@Test(priority = 2, groups = "locationController" )
 	public static void getlocationClassv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
@@ -37,7 +37,7 @@ public class locationControllerv4 {
 
 	}
 
-	@Test(priority = 3, groups = "locationController", retryAnalyzer = Retry.class)
+	@Test(priority = 3, groups = "locationController" )
 	public void postbillingOptionv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
 
@@ -61,7 +61,7 @@ public class locationControllerv4 {
 
 	}
 
-	@Test(priority = 4, groups = "locationController", retryAnalyzer = Retry.class)
+	@Test(priority = 4, groups = "locationController" )
 	public void lookuptransferThirdPartyDepositv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;

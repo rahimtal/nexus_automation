@@ -15,7 +15,7 @@ public class GetAccountBalancesV3 {
 
 	public static JsonPath jsonPathEvaluator;
 
-	@Test(priority = 1, groups = "Account Balances", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "Account Balances" )
 	public void getAccountBalancesV3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/accountBalance/getAccountBalances";
@@ -31,7 +31,7 @@ public class GetAccountBalancesV3 {
 
 	}
 
-	@Test(priority = 3, groups = "Account Balances", retryAnalyzer = Retry.class)
+	@Test(priority = 3, groups = "Account Balances" )
 	public void getAccountBalancesPortalv3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/AccountBalance/portal";
@@ -45,7 +45,7 @@ public class GetAccountBalancesV3 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 4, groups = "Account Balances", retryAnalyzer = Retry.class)
+	@Test(priority = 4, groups = "Account Balances" )
 	public void getAccountBalancesPortalv3Paymentatwork()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 

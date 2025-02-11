@@ -9,7 +9,7 @@ import com.NexustAPIAutomation.java.verifyPDFReports;
 public class printControllerV4 {
 
 	/*
-	 * @Test(priority = 300, groups = "printController", retryAnalyzer = Retry.class) public void
+	 * @Test(priority = 300, groups = "printController" ) public void
 	 * getprintreportPaymentPostEditListv3() throws Exception {
 	 * 
 	 * String uri = "/print/report/PaymentPostEditList"; String expected =
@@ -22,7 +22,7 @@ public class printControllerV4 {
 	 * 
 	 * }
 	 */
-	@Test(priority = 1, groups = "printController", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "printController" )
 	public void getstatementAsPDFv3() throws Exception {
 
 		String uri = "/print/statementAsPDF/83";

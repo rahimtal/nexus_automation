@@ -15,7 +15,7 @@ public class PaymentExtensionV3 {
 
 	public static JsonPath jsonPathEvaluator;
 	
-	@Test(priority = 1, groups = "Cashering", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "Cashering" )
 	public void postPaymentv3() throws ClassNotFoundException, SQLException, InterruptedException {
 		//CommonMethods.CompanyDBRestore();
 		String uri = "/payment";
@@ -30,7 +30,7 @@ public class PaymentExtensionV3 {
 		System.out.println(jsonPathEvaluator.toString());
 	}
 
-	@Test(priority = 2, groups = "Cashering", retryAnalyzer = Retry.class)
+	@Test(priority = 2, groups = "Cashering" )
 	public void paymentExtensionv3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 	//	CommonMethods.CompanyDBRestore();
 		String uri = "/paymentextension";

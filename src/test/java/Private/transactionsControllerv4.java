@@ -15,7 +15,7 @@ import io.restassured.response.ValidatableResponse;
 
 public class transactionsControllerv4 {
 
-	@Test(priority = 1, groups = "Transaction", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "Transaction" )
 	public void getapplyByService_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/transaction/payment/PYMT00000000405/MISC00000000311/applyByService";
 		String ver = "4.0";
@@ -27,7 +27,7 @@ public class transactionsControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 2, groups = "Transaction", retryAnalyzer = Retry.class)
+	@Test(priority = 2, groups = "Transaction" )
 	public void getMeterReadInquiryWork_v4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/transaction/read/READ00000000913";
@@ -41,7 +41,7 @@ public class transactionsControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 3, groups = "Transaction", retryAnalyzer = Retry.class)
+	@Test(priority = 3, groups = "Transaction" )
 	public void getMeterReadInquiryOpen_v4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/transaction/read/READ00000000418";
@@ -55,7 +55,7 @@ public class transactionsControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 4, groups = "Transaction", retryAnalyzer = Retry.class)
+	@Test(priority = 4, groups = "Transaction" )
 	public void getMeterReadInquiryHistory_v4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/transaction/read/READ00000000002";
@@ -69,7 +69,7 @@ public class transactionsControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 5, groups = "Transaction", retryAnalyzer = Retry.class)
+	@Test(priority = 5, groups = "Transaction" )
 	public void gettransactionbatch_v4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/transaction/batch/NADMC2022093001";
@@ -88,7 +88,7 @@ public class transactionsControllerv4 {
 		AssertJUnit.assertEquals(result, expected);
 	}
 
-	@Test(priority = 6, groups = "Transaction", retryAnalyzer = Retry.class)
+	@Test(priority = 6, groups = "Transaction" )
 	public void gettransactionpayment_v4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/transaction/payment/PYMT00000000500";
@@ -101,7 +101,7 @@ public class transactionsControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 7, groups = "Transaction", retryAnalyzer = Retry.class)
+	@Test(priority = 7, groups = "Transaction" )
 	public void gettransactionpaymentInv_v4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/transaction/payment/PYMT00000000501";
@@ -114,7 +114,7 @@ public class transactionsControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 8, groups = "Transaction", retryAnalyzer = Retry.class)
+	@Test(priority = 8, groups = "Transaction" )
 	public void gettransactionpaymentInvCred_v4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/transaction/payment/PYMT00000000001";
@@ -127,7 +127,7 @@ public class transactionsControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 9, groups = "Transaction", retryAnalyzer = Retry.class)
+	@Test(priority = 9, groups = "Transaction" )
 	public void gettransactionsWriteoff_v4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/transactions/getTransactions";
@@ -162,7 +162,7 @@ public class transactionsControllerv4 {
 	}
 	
 
-	@Test(priority = 10, groups = "Transaction", retryAnalyzer = Retry.class)
+	@Test(priority = 10, groups = "Transaction" )
 	public void gettransactionpayment_v4_false()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/transaction/payment/PYMT00000000500";

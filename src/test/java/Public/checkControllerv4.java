@@ -25,7 +25,7 @@ public class checkControllerv4 {
 
 	public static JsonPath jsonPathEvaluator;
 
-	@Test(priority = 1, groups = "check", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "check" )
 	public static void PostCheckv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/check";
@@ -54,7 +54,7 @@ public class checkControllerv4 {
 
 	// If an error is thrown then you might need to restore database
 
-	// @Test(priority = 2, groups = "check", retryAnalyzer = Retry.class, dependsOnMethods = "PostCheckv4")
+	// @Test(priority = 2, groups = "check" , dependsOnMethods = "PostCheckv4")
 	public static void getCheckv4(String str)
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
@@ -70,7 +70,7 @@ public class checkControllerv4 {
 
 	}
 
-	// @Test(priority = 3, groups = "check", retryAnalyzer = Retry.class)
+	// @Test(priority = 3, groups = "check" )
 	public static void delCheckv4(String str)
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
@@ -82,7 +82,7 @@ public class checkControllerv4 {
 
 	}
 
-//	@Test(priority = 4, groups = "check", retryAnalyzer = Retry.class)
+//	@Test(priority = 4, groups = "check" )
 	public void getCheckSetupv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/check/setup";
@@ -95,7 +95,7 @@ public class checkControllerv4 {
 		}
 	}
 
-	@Test(priority = 5, groups = "check", retryAnalyzer = Retry.class)
+	@Test(priority = 5, groups = "check" )
 	public static String getNextCheckv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -114,7 +114,7 @@ public class checkControllerv4 {
 		return result.getString("Check.Data.NextDocumentNumber");
 	}
 
-	// @Test(priority = 6, groups = "check", retryAnalyzer = Retry.class)
+	// @Test(priority = 6, groups = "check" )
 	public static void putCheckv4(String str)
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -133,7 +133,7 @@ public class checkControllerv4 {
 
 	}
 
-	@Test(priority = 7, groups = "check", retryAnalyzer = Retry.class)
+	@Test(priority = 7, groups = "check" )
 	public static void putChecksendtoAPv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -147,7 +147,7 @@ public class checkControllerv4 {
 
 	}
 
-	@Test(priority = 8, groups = "check", retryAnalyzer = Retry.class)
+	@Test(priority = 8, groups = "check" )
 	public static void postingReceivable4Error()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
@@ -173,7 +173,7 @@ public class checkControllerv4 {
 
 	}
 
-	@Test(priority = 8, groups = "check", retryAnalyzer = Retry.class)
+	@Test(priority = 8, groups = "check" )
 	public static void postingReceivable4RefundError()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();

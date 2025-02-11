@@ -11,7 +11,7 @@ import com.NexustAPIAutomation.java.Retry;
 
 public class portalconsumptionControllerV4 {
 
-	@Test(priority = 1, groups = "portalConsumption", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "portalConsumption" )
 	public void getconsumptionHistoryController()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -29,7 +29,7 @@ public class portalconsumptionControllerV4 {
 
 	}
 
-	@Test(priority = 2, groups = "portalConsumption", retryAnalyzer = Retry.class)
+	@Test(priority = 2, groups = "portalConsumption" )
 	public void getserviceByLocation() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/portal/serviceByLocation";

@@ -16,7 +16,7 @@ import io.restassured.response.ValidatableResponse;
 
 public class connectionControllerV4 {
 
-	// @Test(priority = 1, groups = "connectionController", retryAnalyzer = Retry.class)
+	// @Test(priority = 1, groups = "connectionController" )
 	public void postconnectionmeter1v4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
@@ -29,7 +29,7 @@ public class connectionControllerV4 {
 
 	}
 
-	// @Test(priority = 2, groups = "connectionController", retryAnalyzer = Retry.class)
+	// @Test(priority = 2, groups = "connectionController" )
 	public void postconnectionmeterv4Error()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
@@ -41,7 +41,7 @@ public class connectionControllerV4 {
 
 	}
 
-	@Test(priority = 3, groups = "connectionController", retryAnalyzer = Retry.class)
+	@Test(priority = 3, groups = "connectionController" )
 	public void getcollectioncriteriav4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/connection/LOCATION011/";
@@ -54,7 +54,7 @@ public class connectionControllerV4 {
 		Assert.assertEquals(expected, actual);
 	}
 
-	@Test(priority = 4, groups = "connectionController", retryAnalyzer = Retry.class)
+	@Test(priority = 4, groups = "connectionController" )
 	public void postconnectionFlatv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
 
@@ -74,7 +74,7 @@ public class connectionControllerV4 {
 
 	}
 
-	@Test(priority = 5, groups = "connectionController", retryAnalyzer = Retry.class)
+	@Test(priority = 5, groups = "connectionController" )
 	public void postconnectionalternatev4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
@@ -98,7 +98,7 @@ public class connectionControllerV4 {
 
 	}
 
-	@Test(priority = 6, groups = "connectionController", retryAnalyzer = Retry.class)
+	@Test(priority = 6, groups = "connectionController" )
 	public void postconnectionmeterv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
 
@@ -125,7 +125,7 @@ public class connectionControllerV4 {
 
 	}
 
-	@Test(priority = 7, groups = "connectionController", retryAnalyzer = Retry.class)
+	@Test(priority = 7, groups = "connectionController" )
 	public void putconnectionmeterv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
 
@@ -173,7 +173,7 @@ public class connectionControllerV4 {
 
 	}
 
-	@Test(priority = 8, groups = "connectionController", retryAnalyzer = Retry.class)
+	@Test(priority = 8, groups = "connectionController" )
 	public void deleteconnectionmetergrpv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
@@ -185,7 +185,7 @@ public class connectionControllerV4 {
 
 	}
 
-	@Test(priority = 9, groups = "connectionController", retryAnalyzer = Retry.class, dependsOnMethods = "deleteconnectionmetergrpv4")
+	@Test(priority = 9, groups = "connectionController" , dependsOnMethods = "deleteconnectionmetergrpv4")
 	public void postconnectionmetergrpv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
@@ -204,7 +204,7 @@ public class connectionControllerV4 {
 
 	}
 
-	@Test(priority = 10, groups = "connectionController", retryAnalyzer = Retry.class)
+	@Test(priority = 10, groups = "connectionController" )
 	public void putconnectionmeterAlternatev4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
@@ -228,7 +228,7 @@ public class connectionControllerV4 {
 
 	}
 
-	@Test(priority = 11, groups = "connectionController", retryAnalyzer = Retry.class)
+	@Test(priority = 11, groups = "connectionController" )
 	public void postconnectionMeterInstallMeter() 		throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
 		String uri = "/connection/meter";

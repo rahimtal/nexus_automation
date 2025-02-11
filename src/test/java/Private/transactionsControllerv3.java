@@ -15,7 +15,7 @@ import io.restassured.response.ValidatableResponse;
 
 public class transactionsControllerv3 {
 
-	@Test(priority = 1, groups = "Transaction", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "Transaction" )
 	public void getTransactions_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/transactions/getTransactions";
@@ -48,7 +48,7 @@ public class transactionsControllerv3 {
 
 	}
 
-	@Test(priority = 1, groups = "Transaction", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "Transaction" )
 	public void getrecentTransactions_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -64,7 +64,7 @@ public class transactionsControllerv3 {
 
 	}
 
-	@Test(priority = 1, groups = "Transaction", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "Transaction" )
 	public void getBillInquiry_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/transaction/bill/BILL00000000001";
@@ -78,7 +78,7 @@ public class transactionsControllerv3 {
 
 	}
 
-	@Test(priority = 1, groups = "Transaction", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "Transaction" )
 	public void getBillInquirychargeSummary_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -93,7 +93,7 @@ public class transactionsControllerv3 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 1, groups = "Transaction", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "Transaction" )
 	public void getBillInquirydistribution_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 

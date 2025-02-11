@@ -16,7 +16,7 @@ import io.restassured.response.Response;
 public class searchControllerV3 {
 
 	// This will create elastic search index if not already
-	@Test(priority = 1, groups = "Search", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "Search" )
 	public void elascticsearchcreateindex_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -31,7 +31,7 @@ public class searchControllerV3 {
 	// This will create elastic search index if not already
 	/* Endpoints Depreciated
 	
-	//@Test(priority = 2, groups = "Search", retryAnalyzer = Retry.class)
+	//@Test(priority = 2, groups = "Search" )
 	public void getAccounts_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		//Assert.fail("Bug Reported CPDEV-8700");
@@ -52,7 +52,7 @@ public class searchControllerV3 {
 	// {{urlv2}}/search/getAccountsAdvanced?SearchCustomerName=sally&SearchAccountNumber=&SearchServiceAddress=&SearchPhoneNumber=&SearchEmailAddress=&SortOrder=1&SortDescending=0&ShowAll=0
 	// This will create elastic search index if not already
 	/*/Depreciated
-	@Test(priority = 3, groups = "Search", retryAnalyzer = Retry.class)
+	@Test(priority = 3, groups = "Search" )
 	public void getAccountsAdvanced_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -78,7 +78,7 @@ public class searchControllerV3 {
 */
 	// {{urlv2}}/search/getCustomer?SearchQuery=Sally
 
-	@Test(priority = 4, groups = "Search", retryAnalyzer = Retry.class)
+	@Test(priority = 4, groups = "Search" )
 	public void getCustomer_v3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/search/getCustomer";
@@ -95,7 +95,7 @@ public class searchControllerV3 {
 
 	// {{urlv2}}/search?index=accounts&searchQuery=success&pageNum=1&numPerPage=10
 
-	@Test(priority = 5, groups = "Search", retryAnalyzer = Retry.class)
+	@Test(priority = 5, groups = "Search" )
 	public void getindex_v3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/search";

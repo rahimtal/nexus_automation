@@ -24,7 +24,7 @@ public class accountBalancesv4 {
 
 	public static JsonPath jsonPathEvaluator;
 
-	@Test(priority = 1, groups = "AccountBalances", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "AccountBalances" )
 	public void getAccountBalancesV4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/accountBalance/getAccountBalances";

@@ -23,7 +23,7 @@ import io.restassured.specification.RequestSpecification;
 
 public class billingController extends BaseClass {
 
-	@Test(priority = 1, groups = "Billing", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "Billing" )
 	public static void billingprintStatementv4true()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -37,7 +37,7 @@ public class billingController extends BaseClass {
 		System.out.println(result);
 	}
 
-	@Test(priority = 2, groups = "Billing", retryAnalyzer = Retry.class)
+	@Test(priority = 2, groups = "Billing" )
 	public static void billingprintStatementv4false()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -51,7 +51,7 @@ public class billingController extends BaseClass {
 		System.out.println(result);
 	}
 
-	@Test(priority = 3, groups = "Billing", retryAnalyzer = Retry.class)
+	@Test(priority = 3, groups = "Billing" )
 	public static void billingprintStatementv3true()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -65,7 +65,7 @@ public class billingController extends BaseClass {
 		System.out.println(result);
 	}
 
-	@Test(priority = 4, groups = "Billing", retryAnalyzer = Retry.class)
+	@Test(priority = 4, groups = "Billing" )
 	public static void billingprintStatementv3false()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -79,7 +79,7 @@ public class billingController extends BaseClass {
 		System.out.println(result);
 	}
 
-	@Test(priority = 5, groups = "Billing", retryAnalyzer = Retry.class)
+	@Test(priority = 5, groups = "Billing" )
 	public static void billingbillBatchStatus()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 

@@ -17,7 +17,7 @@ import io.restassured.response.ValidatableResponse;
 
 public class equipmentControllerV4 {
 
-	@Test(priority = 1, groups = "equipmentController", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "equipmentController" )
 	public void postequipmentControllerv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		JsonPath jsonPathEvaluator;
@@ -33,7 +33,7 @@ public class equipmentControllerV4 {
 
 	}
 
-	@Test(priority = 2, groups = "equipmentController", retryAnalyzer = Retry.class)
+	@Test(priority = 2, groups = "equipmentController" )
 	public void postequipmentControllerv4Error()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		JsonPath jsonPathEvaluator;
@@ -49,7 +49,7 @@ public class equipmentControllerV4 {
 
 	}
 
-	@Test(priority = 3, groups = "equipmentController", retryAnalyzer = Retry.class)
+	@Test(priority = 3, groups = "equipmentController" )
 	public void getequipmentControllerClassv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -62,7 +62,7 @@ public class equipmentControllerV4 {
 
 	}
 
-	@Test(priority = 4, groups = "equipmentController", retryAnalyzer = Retry.class)
+	@Test(priority = 4, groups = "equipmentController" )
 	public void getequipmentControllerEquipmentDetailv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 

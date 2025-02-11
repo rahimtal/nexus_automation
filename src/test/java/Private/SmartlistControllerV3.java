@@ -15,7 +15,7 @@ import io.restassured.path.json.JsonPath;
 public class SmartlistControllerV3 {
 private boolean  TestAll=true;
 
-	@Test(priority = 2, groups = "SmartList", retryAnalyzer = Retry.class)
+	@Test(priority = 2, groups = "SmartList" )
 	public void getsmartList_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		CommonMethods.Bug("CPDEV-14084");
 		String uri = "/smartlist";
@@ -28,7 +28,7 @@ private boolean  TestAll=true;
 
 	}
 
-	@Test(priority = 1, groups = "SmartList", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "SmartList" )
 	public void postsmartlistfavorite_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		CommonMethods.Bug("CPDEV-14084");

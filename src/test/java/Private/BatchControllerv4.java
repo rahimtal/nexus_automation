@@ -20,7 +20,7 @@ import io.restassured.response.ValidatableResponse;
 public class BatchControllerv4 {
 
 
-	@Test(priority = 1, groups = "batch", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "batch" )
 	public static void postBatchtv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
@@ -39,7 +39,7 @@ public class BatchControllerv4 {
 
 	}
 	
-	@Test(priority = 2, groups = "batch", retryAnalyzer = Retry.class)
+	@Test(priority = 2, groups = "batch" )
 	public static void postBatchtv4_err()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();

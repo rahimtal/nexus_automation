@@ -16,7 +16,7 @@ public class consumptionHistoryControllerV3 {
 
 	public static ValidatableResponse jsonPathEvaluator;
 
-	@Test(priority = 1, groups = "ConsumptionHistoryController", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "ConsumptionHistoryController" )
 	public void getconsumptionHistoryController() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/consumptionHistory/getConsumptionHistory";

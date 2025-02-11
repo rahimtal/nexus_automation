@@ -19,7 +19,7 @@ public class connectionControllerv4 {
 
 	public static ValidatableResponse jsonPathEvaluator;
 
-	@Test(priority = 1, groups = "ConnectionController", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "ConnectionController" )
 	public void putconnectionmeterGroupV4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -33,7 +33,7 @@ public class connectionControllerv4 {
 
 	}
 
-	@Test(priority = 2, groups = "ConnectionController", retryAnalyzer = Retry.class)
+	@Test(priority = 2, groups = "ConnectionController" )
 	public void getconnection_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/connection/ELECWAT003";

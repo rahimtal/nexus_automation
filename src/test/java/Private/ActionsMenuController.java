@@ -12,7 +12,7 @@ import com.NexustAPIAutomation.java.Retry;
 
 public class ActionsMenuController {
 
-	@Test(priority = 1, groups = "ActionsMenu", retryAnalyzer = Retry.class)
+	@Test(priority = 1, groups = "ActionsMenu" )
 	public void getActionsMenu_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/actionsMenu/getActionsMenu";
 		String ver = "4.0";
@@ -25,7 +25,7 @@ public class ActionsMenuController {
 	}
 	
 
-	@Test(priority = 2, groups = "ActionsMenu", retryAnalyzer = Retry.class)
+	@Test(priority = 2, groups = "ActionsMenu" )
 	public void getDrillbackLinkCreditInquiry_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/actionsMenu/getDrillbackLinkCreditInquiry";
 		String ver = "4.0";
@@ -38,7 +38,7 @@ public class ActionsMenuController {
 	}
 	
 	
-	@Test(priority = 3, groups = "ActionsMenu", retryAnalyzer = Retry.class)
+	@Test(priority = 3, groups = "ActionsMenu" )
 	public void getDrillbackLinkCustomerMaintenance_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/actionsMenu/getDrillbackLinkCustomerMaintenance";
 		String ver = "4.0";
@@ -51,7 +51,7 @@ public class ActionsMenuController {
 	}
 	
 	
-	@Test(priority = 4, groups = "ActionsMenu", retryAnalyzer = Retry.class)
+	@Test(priority = 4, groups = "ActionsMenu" )
 	public void getDrillbackLink_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/actionsMenu/getDrillbackLinkAccountServices";
 		String ver = "4.0";
