@@ -28,7 +28,7 @@ public class CashieringController extends BaseClass {
 	public static String nextRecieptNumber;
 	public static String ConnectionString;
 
-	@Test(priority = 1, groups = "Cashering" )
+	@Test(priority = 1, groups = "Cashering")
 	public void TC003_1_getCashin() throws ClassNotFoundException, SQLException, InterruptedException {
 
 		String uri = "/cashiering/cashIn";
@@ -43,7 +43,7 @@ public class CashieringController extends BaseClass {
 
 	}
 
-	@Test(priority = 2, groups = "Cashering" , dependsOnMethods = "TC003_1_getCashin")
+	@Test(priority = 2, groups = "Cashering", dependsOnMethods = "TC003_1_getCashin")
 	public void TC004_balances() throws ClassNotFoundException, SQLException, InterruptedException {
 
 		String uri = "/cashiering/balances/customer006/1999-03-24";
@@ -71,7 +71,7 @@ public class CashieringController extends BaseClass {
 
 	}
 
-	@Test(priority = 3, groups = "Cashering" , dependsOnMethods = "TC004_balances")
+	@Test(priority = 3, groups = "Cashering", dependsOnMethods = "TC004_balances")
 	public void TC003_getnextReceipt() throws ClassNotFoundException, SQLException, InterruptedException {
 		// extent.createTest("Test", "");
 		String uri = "/cashiering/receipt/TRREG000001/nextReceipt";
@@ -88,7 +88,7 @@ public class CashieringController extends BaseClass {
 
 	}
 
-	@Test(priority = 4, groups = "Cashering" , dependsOnMethods = "TC003_getnextReceipt")
+	@Test(priority = 4, groups = "Cashering", dependsOnMethods = "TC003_getnextReceipt")
 	public void TC004_getReceipt() throws ClassNotFoundException, SQLException, InterruptedException {
 		String uri = "/cashiering/receipt/004220929000004";
 		String ver = "4";
@@ -110,7 +110,7 @@ public class CashieringController extends BaseClass {
 
 	}
 
-	@Test(priority = 5, groups = "Cashering" , dependsOnMethods = "TC004_getReceipt")
+	@Test(priority = 5, groups = "Cashering", dependsOnMethods = "TC004_getReceipt")
 	public void TC005_getRegisterInfo() throws ClassNotFoundException, SQLException, InterruptedException {
 		// extent.createTest("Test", "");
 		String uri = "/cashiering/register/TRREG000001/info";
@@ -133,7 +133,7 @@ public class CashieringController extends BaseClass {
 
 	}
 
-	@Test(priority = 6, groups = "Cashering" , dependsOnMethods = "TC005_getRegisterInfo")
+	@Test(priority = 6, groups = "Cashering", dependsOnMethods = "TC005_getRegisterInfo")
 	public void TC006_gettransactions() throws ClassNotFoundException, SQLException, InterruptedException {
 		// extent.createTest("Test", "");
 		CommonMethods.Bug("CPDEV-16978");
@@ -152,7 +152,7 @@ public class CashieringController extends BaseClass {
 
 	}
 
-	@Test(priority = 7, groups = "Cashering" , dependsOnMethods = "TC006_gettransactions")
+	@Test(priority = 7, groups = "Cashering", dependsOnMethods = "TC006_gettransactions")
 	public void TC007_getAutoApply() throws ClassNotFoundException, SQLException, InterruptedException {
 		// extent.createTest("Test", "");
 		String uri = "/cashiering/autoApply";
@@ -194,11 +194,12 @@ public class CashieringController extends BaseClass {
 
 	}
 
-	@Test(priority = 1, groups = "Cashering" )
+	
+	@Test(priority = 1, groups = "Cashering")
 	public void saveReciept_2_4()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
 		// CommonMethods.CompanyDBRestore();
-
+		CommonMethods.Bug("CPDEV-20919");
 		String columnName = "umDocumentNumber";
 		String Command1 = "select top 1 umDocumentNumber from TWO.dbo.UMRM102 order by umDocumentNumber desc";
 		String Result = "";
@@ -211,23 +212,31 @@ public class CashieringController extends BaseClass {
 
 		JsonPath next = CommonMethods.getMethod("/cashiering/receipt/TRREG000001/nextReceipt", "4.0");
 		nextRecieptNumber = next.get("Receipt[0].ReceiptNumber");
+		if(nextRecieptNumber==null)
+		{
+			Assert.fail();
+		}
+		System.out.println(nextRecieptNumber);
 		Thread.sleep(5000);
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
 		String payload = "{\"Receipt\":{\"ReceiptNumber\":\"" + nextRecieptNumber
 				+ "\",\"OriginatingReceiptNumber\":\"\",\"Void\":false,\"CustomerId\":\"CUSTOMER008\",\"LocationId\":\"LOCATION007\",\"PaymentOrigin\":\"TEST\",\"CheckbookId\":\"FIRST NATIONAL\",\"PaidBy\":{\"Type\":1,\"Description\":\"\",\"Id\":\"\"},\"Cash\":185.42,\"Check\":{\"Amount\":0,\"Number\":\"\"},\"CreditCard\":{\"Amount\":0},\"Unapplied\":{\"Amount\":0,\"Account\":\"\",\"LocationId\":\"\"},\"Change\":0,\"Comment\":\"ThisisacommenttobesavedintocommentinUMRM102\",\"Document\":[{\"Number\":\"MISC00000000317\",\"LocationId\":\"LOCATION007\",\"StatementNumber\":0,\"ApplyAmount\":185.42,\"OutstandingAmount\":0,\"ReferenceDocumentNumber\":\"\"}]}}";
+
+		System.out.println(payload);
 		jsonPathEvaluator = CommonMethods.postMethodStringPayload(payload, uri, ver);
 		System.out.println(jsonPathEvaluator.prettyPrint());
 		Boolean Result1 = jsonPathEvaluator.get("Receipt.Success");
 		if (Result1 == false) {
-			Assert.fail();
+			System.out.println(jsonPathEvaluator.prettyPrint());
+			Assert.assertTrue(false);
 		} else {
 			System.out.println(jsonPathEvaluator.toString());
 		}
 
 	}
 
-	@Test(priority = 2, groups = "Cashering" , dependsOnMethods = "saveReciept_2_4")
+	@Test(priority = 2, groups = "Cashering", dependsOnMethods = "saveReciept_2_4")
 	public void TC002_RecieptAdjustment() throws ClassNotFoundException, SQLException, InterruptedException {
 		String uri = "/cashiering/receipt/adjust";
 		String ver = "4.0";
@@ -242,7 +251,7 @@ public class CashieringController extends BaseClass {
 
 	}
 
-	@Test(priority = 8, groups = "Cashering" )
+	@Test(priority = 8, groups = "Cashering")
 	public void saveReciept_4_prepaymentExistingCustomer()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
 
@@ -270,7 +279,7 @@ public class CashieringController extends BaseClass {
 
 	}
 
-	@Test(priority = 9, groups = "Cashering" )
+	@Test(priority = 9, groups = "Cashering")
 	public void saveReciept_4_prepaymentNewCustomer()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
 
@@ -298,7 +307,7 @@ public class CashieringController extends BaseClass {
 
 	}
 
-	@Test(priority = 10, groups = "Cashering" )
+	@Test(priority = 10, groups = "Cashering")
 	public void saveReciept_4_SOTaskCompleteDepositPayment()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
 
@@ -326,7 +335,7 @@ public class CashieringController extends BaseClass {
 
 	}
 
-	@Test(priority = 10, groups = "Cashering" )
+	@Test(priority = 10, groups = "Cashering")
 	public void saveReciept_4_SOTaskCompleteDepositPaymenttask2()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
 
@@ -354,7 +363,7 @@ public class CashieringController extends BaseClass {
 
 	}
 
-	@Test(priority = 11, groups = "Cashering" )
+	@Test(priority = 11, groups = "Cashering")
 	public void saveReciept_SOTaskCompleteDepositPaymenttaskNewCustomer()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
 
