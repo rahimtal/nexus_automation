@@ -90,7 +90,7 @@ public class customerControllerV4 {
 
 	@Test(priority = 5, groups = "CustomerController")
 	public void putupdateCustomerCard() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		// CommonMethods.Bug("CPDEV-18811");
+		CommonMethods.Bug("CPDEV-20936");
 		String uri = "/customer/updateCustomerCard";
 		String ver = "4.0";
 		String jpath = "{\r\n" + "	\"CustomerId\": \"CUSTOMER003\",\r\n" + "	\"AddressLine1\": \"6 JIM BLVD\",\r\n"
@@ -123,7 +123,7 @@ public class customerControllerV4 {
 	public void putupdateCustomersInfov4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
-		// CommonMethods.Bug("CPDEV-18816");
+		CommonMethods.Bug("CPDEV-20941");
 		String uri = "/customers/info";
 		String ver = "4.0";
 		String jpath = "{\r\n" + "    \"Customer\": [\r\n" + "        {\r\n"

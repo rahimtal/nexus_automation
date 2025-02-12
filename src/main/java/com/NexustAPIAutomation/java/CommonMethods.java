@@ -890,6 +890,7 @@ public class CommonMethods {
 		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
 				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
 				.body(payload);
+		System.out.println("** PUT call Body **"+payload);
 		Response response = httpRequest.put();
 		Assert.assertEquals(response.getBody().asString(), expected);
 
