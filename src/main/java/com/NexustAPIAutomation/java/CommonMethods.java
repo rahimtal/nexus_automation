@@ -135,7 +135,7 @@ public class CommonMethods {
 
 	}
 
-	public static JsonPath postMethod(String payload, String uri, String version) throws InterruptedException {
+	public static JsonPath postMethod(String fielpath, String uri, String version) throws InterruptedException {
 
 		switch (version) {
 		case "1":
@@ -170,7 +170,7 @@ public class CommonMethods {
 			version = "Invalid version";
 			break;
 		}
-		File jsonDataInFile = new File(payload);
+		File jsonDataInFile = new File(fielpath);
 		JSONObject bodycontent = null;
 		try (FileReader reader = new FileReader(jsonDataInFile)) {
 			// Read JSON file
@@ -189,7 +189,6 @@ public class CommonMethods {
 			e.printStackTrace();
 		}
 
-		System.out.println("Api Payload :" + bodycontent.toString());
 		Response response;
 		JsonPath jsonPathEvaluator;
 		RestAssured.baseURI = RestAssured.baseURI + uri;
@@ -199,8 +198,9 @@ public class CommonMethods {
 						"Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
 				.body(jsonDataInFile);
 
+		System.out.println("Posting call Body :" + bodycontent.toString());
 		response = httpRequest.post();
-		System.out.println(response.asString());
+		System.out.println("Posting call Response :" + response.asString());
 		jsonPathEvaluator = response.jsonPath();
 
 		return jsonPathEvaluator;
@@ -313,8 +313,7 @@ public class CommonMethods {
 		return jsonPathEvaluator;
 
 	}
-	
-	
+
 	public static String postMethodStringPayloadString(String payload, String uri, String version)
 			throws InterruptedException {
 
@@ -890,7 +889,7 @@ public class CommonMethods {
 		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
 				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
 				.body(payload);
-		System.out.println("** PUT call Body **"+payload);
+		System.out.println("** PUT call Body **" + payload);
 		Response response = httpRequest.put();
 		Assert.assertEquals(response.getBody().asString(), expected);
 
@@ -1217,9 +1216,9 @@ public class CommonMethods {
 		// Assert.assertEquals(response.asString(), validate);
 		return response.extract().asString();
 	}
-	
-	public static void getMethodContainsString(String uri, String version, HashMap<String, String> params, String expected)
-			throws IOException, InterruptedException {
+
+	public static void getMethodContainsString(String uri, String version, HashMap<String, String> params,
+			String expected) throws IOException, InterruptedException {
 		// TODO Auto-generated method stub
 		switch (version) {
 		case "1":
@@ -1263,12 +1262,11 @@ public class CommonMethods {
 				.queryParams(params);
 
 		ValidatableResponse response;
-		
-		
+
 		System.out.println("Veriying String =" + expected);
 		response = httpRequest.get().then().assertThat().body(Matchers.containsString(expected));
 		System.out.println("Response  =" + response);
-		
+
 	}
 
 	public static String getMethodasString(String uri, String version, HashMap<String, String> params)
@@ -1445,7 +1443,6 @@ public class CommonMethods {
 		response = httpRequest.delete();
 		System.out.println(response.asString());
 		Assert.assertEquals(response.asString(), expected);
-		
 
 	}
 
@@ -1503,7 +1500,7 @@ public class CommonMethods {
 			throws InterruptedException {
 		Response jsonPathResponse;
 		jsonPathResponse = CommonMethods.postMethodResponseasString(payload, uri, ver);
-		System.out.println("Response :"+jsonPathResponse.asString());
+		System.out.println("Response :" + jsonPathResponse.asString());
 		Assert.assertTrue(jsonPathResponse.asString().contains(exResult));
 
 	}

@@ -160,7 +160,7 @@ public class customerControllerV4 {
 	public void putupdateCustomersInfov4Pos()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
-		// CommonMethods.Bug("CPDEV-18816");
+		CommonMethods.Bug("CPDEV-20941");
 		String uri = "/customers/info";
 		String ver = "4.0";
 		String jpath = "{\r\n" + "    \"Customer\": [\r\n" + "        {\r\n"
