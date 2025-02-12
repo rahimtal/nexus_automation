@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\Admin\AppData\Local\Temp\testng-eclipse--805847363\testng-customsuite.xml</span>
+                    <span>C:\Users\Admin\AppData\Local\Temp\testng-eclipse--782414449\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
+                    <span class="method-stats">1 method, 1 failed,   </span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -103,24 +103,10 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Public.createandcancelSpaV3" class="method navigator-link" hash-for-method="createSPA_v_3">createSPA_v_3</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="Private.customerControllerV4" class="method navigator-link" hash-for-method="getCustomerAddressInfo">getCustomerAddressInfo</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
-                  </li>
-                  <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
-                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
-                    </span>
-                    <div class="method-list-content passed suite-Default_suite">
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Public.createandcancelSpaV3" class="method navigator-link" hash-for-method="cancelSPA_v_3">cancelSPA_v_3</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content passed suite-Default_suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -135,27 +121,23 @@
           <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">Public.createandcancelSpaV3</span>
+              <span class="class-name">Private.customerControllerV4</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="createSPA_v_3">
-                  </a> <!-- createSPA_v_3 -->
-                  <span class="method-name">createSPA_v_3</span>
-                  <div class="stack-trace">java.lang.IllegalArgumentException: Cannot invoke method getAt() on null object
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
-	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:80)
-	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrapNoCoerce.callConstructor(ConstructorSite.java:105)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:257)
-	at io.restassured.internal.path.json.JSONAssertion.getAsJsonObject(JSONAssertion.groovy:57)
-	at io.restassured.internal.path.json.JSONAssertion$getAsJsonObject.callCurrent(Unknown Source)
-	at io.restassured.internal.path.json.JSONAssertion.getResult(JSONAssertion.groovy:28)
-	at io.restassured.path.json.JsonPath.get(JsonPath.java:203)
-	at Public.createandcancelSpaV3.createSPA_v_3(createandcancelSpaV3.java:44)
+                  <a name="getCustomerAddressInfo">
+                  </a> <!-- getCustomerAddressInfo -->
+                  <span class="method-name">getCustomerAddressInfo</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [{&quot;AddressInformation&quot;:[{&quot;CustomerId&quot;:&quot;AUTO1001&quot;,&quot;Address&quot;:[{&quot;AddressId&quot;:&quot;126&quot;,&quot;AddressCode&quot;:&quot;PRIMARY&quot;,&quot;ContactPerson&quot;:&quot;Mr. AUTO1001 AUTO1001&quot;,&quot;AddressLabel&quot;:{&quot;Line1&quot;:&quot;123213 AutoStreet RNCH&quot;,&quot;Line2&quot;:&quot;APT&quot;,&quot;City&quot;:&quot;Cartersville&quot;,&quot;State&quot;:&quot;GA&quot;,&quot;ZipCode&quot;:&quot;123456789&quot;,&quot;Country&quot;:&quot;USA&quot;,&quot;IsDirty&quot;:false},&quot;BillToAddress&quot;:&quot;1&quot;,&quot;Override&quot;:{&quot;Override&quot;:&quot;0&quot;,&quot;AddressCode&quot;:&quot;&quot;,&quot;FromDate&quot;:&quot;1900-01-01&quot;,&quot;ToDate&quot;:&quot;1900-01-01&quot;,&quot;Recurring&quot;:&quot;0&quot;},&quot;PhoneNumber&quot;:[{&quot;Number&quot;:&quot;&quot;,&quot;TypeId&quot;:&quot;1&quot;,&quot;Description&quot;:&quot;Phone 1&quot;,&quot;IsDirty&quot;:false},{&quot;Number&quot;:&quot;&quot;,&quot;TypeId&quot;:&quot;2&quot;,&quot;Description&quot;:&quot;Phone 2&quot;,&quot;IsDirty&quot;:false},{&quot;Number&quot;:&quot;&quot;,&quot;TypeId&quot;:&quot;3&quot;,&quot;Description&quot;:&quot;Phone 3&quot;,&quot;IsDirty&quot;:false}],&quot;FaxNumber&quot;:{&quot;Number&quot;:&quot;&quot;,&quot;IsDirty&quot;:false},&quot;SmartyStreetsMailingAddressCandidate&quot;:{&quot;AddressId&quot;:&quot;126&quot;,&quot;DeliveryLine1&quot;:&quot;&quot;,&quot;DeliveryLine2&quot;:&quot;&quot;,&quot;LastLine&quot;:&quot;&quot;,&quot;StreetNumber&quot;:&quot;123213&quot;,&quot;StreetNumberLng&quot;:123213,&quot;StrNumberSuffix&quot;:&quot;&quot;,&quot;StreetName&quot;:&quot;AutoStreet&quot;,&quot;StreetType&quot;:&quot;RNCH&quot;,&quot;StreetDirectionP&quot;:&quot;&quot;,&quot;StreetDirection&quot;:&quot;&quot;,&quot;AptNumber&quot;:&quot;&quot;,&quot;AptDescription&quot;:&quot;APT&quot;,&quot;UnitDesignation&quot;:&quot;&quot;,&quot;AptNumberPlus&quot;:&quot;&quot;,&quot;CityName&quot;:&quot;Cartersville&quot;,&quot;State&quot;:&quot;GA&quot;,&quot;ZipCode&quot;:&quot;123456789&quot;,&quot;Country&quot;:&quot;USA&quot;,&quot;Success&quot;:true,&quot;MailingAddressMessages&quot;:{&quot;Messages&quot;:[{&quot;Enabled&quot;:0,&quot;Info&quot;:&quot;&quot;,&quot;AddressCode&quot;:&quot;PRIMARY&quot;}]}}}],&quot;Acknowledge&quot;:0,&quot;AddressConfirm&quot;:0,&quot;Success&quot;:true,&quot;Messages&quot;:[{&quot;AddressCode&quot;:&quot;&quot;,&quot;Enabled&quot;:0,&quot;Info&quot;:&quot;&quot;}]}]}] but found [{&quot;AddressInformation&quot;:[{&quot;CustomerId&quot;:&quot;AUTO1001&quot;,&quot;Address&quot;:[{&quot;AddressId&quot;:&quot;126&quot;,&quot;AddressCode&quot;:&quot;PRIMARY&quot;,&quot;ContactPerson&quot;:&quot;Mr. AUTO1001 AUTO1001&quot;,&quot;AddressLabel&quot;:{&quot;Line1&quot;:&quot;123213 AutoStreet RNCH&quot;,&quot;Line2&quot;:&quot;APT&quot;,&quot;City&quot;:&quot;Cartersville&quot;,&quot;State&quot;:&quot;GA&quot;,&quot;ZipCode&quot;:&quot;123456789&quot;,&quot;Country&quot;:&quot;USA&quot;,&quot;IsDirty&quot;:false},&quot;BillToAddress&quot;:&quot;1&quot;,&quot;Override&quot;:{&quot;Override&quot;:&quot;0&quot;,&quot;AddressCode&quot;:&quot;&quot;,&quot;FromDate&quot;:&quot;1900-01-01&quot;,&quot;ToDate&quot;:&quot;1900-01-01&quot;,&quot;Recurring&quot;:&quot;0&quot;},&quot;PhoneNumber&quot;:[{&quot;Number&quot;:&quot;&quot;,&quot;TypeId&quot;:&quot;1&quot;,&quot;Description&quot;:&quot;Phone 1&quot;,&quot;IsDirty&quot;:false},{&quot;Number&quot;:&quot;&quot;,&quot;TypeId&quot;:&quot;2&quot;,&quot;Description&quot;:&quot;Phone 2&quot;,&quot;IsDirty&quot;:false},{&quot;Number&quot;:&quot;&quot;,&quot;TypeId&quot;:&quot;3&quot;,&quot;Description&quot;:&quot;Phone 3&quot;,&quot;IsDirty&quot;:false}],&quot;FaxNumber&quot;:{&quot;Number&quot;:&quot;&quot;,&quot;IsDirty&quot;:false},&quot;SmartyStreetsMailingAddressCandidate&quot;:{&quot;AddressId&quot;:&quot;126&quot;,&quot;DeliveryLine1&quot;:&quot;&quot;,&quot;DeliveryLine2&quot;:&quot;&quot;,&quot;LastLine&quot;:&quot;&quot;,&quot;StreetNumber&quot;:&quot;123213&quot;,&quot;StreetNumberLng&quot;:123213,&quot;StrNumberSuffix&quot;:&quot;&quot;,&quot;StreetName&quot;:&quot;AutoStreet&quot;,&quot;StreetType&quot;:&quot;RNCH&quot;,&quot;StreetDirectionP&quot;:&quot;&quot;,&quot;StreetDirection&quot;:&quot;&quot;,&quot;AptNumber&quot;:&quot;&quot;,&quot;AptDescription&quot;:&quot;APT&quot;,&quot;UnitDesignation&quot;:&quot;&quot;,&quot;AptNumberPlus&quot;:&quot;&quot;,&quot;CityName&quot;:&quot;Cartersville&quot;,&quot;State&quot;:&quot;GA&quot;,&quot;ZipCode&quot;:&quot;12345&quot;,&quot;Plus4Code&quot;:&quot;6789&quot;,&quot;Country&quot;:&quot;USA&quot;,&quot;Success&quot;:true,&quot;MailingAddressMessages&quot;:{&quot;Messages&quot;:[{&quot;Enabled&quot;:0,&quot;Info&quot;:&quot;&quot;,&quot;AddressCode&quot;:&quot;PRIMARY&quot;}]}}}],&quot;Acknowledge&quot;:0,&quot;AddressConfirm&quot;:0,&quot;Success&quot;:true,&quot;Messages&quot;:[{&quot;AddressCode&quot;:&quot;&quot;,&quot;Enabled&quot;:0,&quot;Info&quot;:&quot;&quot;}]}]}]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at org.testng.Assert.assertEquals(Assert.java:666)
+	at com.NexustAPIAutomation.java.CommonMethods.getMethod(CommonMethods.java:638)
+	at Private.customerControllerV4.getCustomerAddressInfo(customerControllerV4.java:53)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -184,62 +166,16 @@
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: java.lang.NullPointerException: Cannot invoke method getAt() on null object
-	at org.codehaus.groovy.runtime.NullObject.invokeMethod(NullObject.java:91)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.call(PogoMetaClassSite.java:43)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
-	at org.codehaus.groovy.runtime.callsite.NullCallSite.call(NullCallSite.java:34)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:115)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:127)
-	at Script1.run(Script1.groovy:1)
-	at groovy.lang.GroovyShell.evaluate(GroovyShell.java:443)
-	at groovy.lang.GroovyShell.evaluate(GroovyShell.java:481)
-	at groovy.lang.GroovyShell.evaluate(GroovyShell.java:452)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrap.invoke(PogoMetaMethodSite.java:179)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.call(PogoMetaMethodSite.java:70)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:127)
-	at io.restassured.internal.path.json.JSONAssertion.eval(JSONAssertion.groovy:80)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:190)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:58)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:184)
-	at io.restassured.internal.path.json.JSONAssertion.getAsJsonObject(JSONAssertion.groovy:46)
-	... 32 more
 
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Default_suite-class-failed -->
-          <div class="suite-Default_suite-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">Public.createandcancelSpaV3</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="cancelSPA_v_3">
-                  </a> <!-- cancelSPA_v_3 -->
-                  <span class="method-name">cancelSPA_v_3</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-passed -->
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Admin\AppData\Local\Temp\testng-eclipse--805847363\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Admin\AppData\Local\Temp\testng-eclipse--782414449\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -248,12 +184,11 @@ Caused by: java.lang.NullPointerException: Cannot invoke method getAt() on null 
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;Public.createandcancelSpaV3&quot;&gt;
+      &lt;class name=&quot;Private.customerControllerV4&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;cancelSPA_v_3&quot;/&gt;
-          &lt;include name=&quot;createSPA_v_3&quot;/&gt;
+          &lt;include name=&quot;getCustomerAddressInfo&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- Public.createandcancelSpaV3 --&gt;
+      &lt;/class&gt; &lt;!-- Private.customerControllerV4 --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -278,14 +213,10 @@ Caused by: java.lang.NullPointerException: Cannot invoke method getAt() on null 
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="test-group">
-              <span class="test-group-name">SPA</span>
+              <span class="test-group-name">CustomerController</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">cancelSPA_v_3</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
-                <span class="method-in-group-name">createSPA_v_3</span>
+                <span class="method-in-group-name">getCustomerAddressInfo</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -305,20 +236,16 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'cancelSPA_v_3')
-data.setCell(0, 2, 'Public.createandcancelSpaV3')
-data.setCell(0, 3, 5094);
-data.setCell(1, 0, 1)
-data.setCell(1, 1, 'createSPA_v_3')
-data.setCell(1, 2, 'Public.createandcancelSpaV3')
-data.setCell(1, 3, 437);
+data.setCell(0, 1, 'getCustomerAddressInfo')
+data.setCell(0, 2, 'Private.customerControllerV4')
+data.setCell(0, 3, 7467);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 5 seconds</span>
+              <span class="suite-total-time">Total running time: 7 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -333,15 +260,23 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">2 ignored methods</span>
+            <span class="header-content">6 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
-              <span class="ignored-class-name">Public.createandcancelSpaV3</span>
+              <span class="ignored-class-name">Private.customerControllerV4</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">recancelSPA_v_3</span>
+                <span class="ignored-method-name">putupdateCustomersInfov4</span>
                 <br/>
-                <span class="ignored-method-name">putspaCalculate_v_3</span>
+                <span class="ignored-method-name">getCustomerBasicInfo4</span>
+                <br/>
+                <span class="ignored-method-name">getSecondaryCustomer</span>
+                <br/>
+                <span class="ignored-method-name">putupdateCustomerCard</span>
+                <br/>
+                <span class="ignored-method-name">getSecondaryCustomer2</span>
+                <br/>
+                <span class="ignored-method-name">putupdateCustomersInfov4Pos</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -353,16 +288,12 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">Public.createandcancelSpaV3</div> <!-- chronological-class-name -->
-              <div class="test-method">
-                <span class="method-name">cancelSPA_v_3</span>
-                <span class="method-start">0 ms</span>
-              </div> <!-- test-method -->
+              <div class="chronological-class-name">Private.customerControllerV4</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">createSPA_v_3</span>
-                <span class="method-start">5126 ms</span>
+                <span class="method-name">getCustomerAddressInfo</span>
+                <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Feb 11 18:51:58 PKT 2025</td>
+<td>Started on:</td><td>Wed Feb 12 14:00:39 PKT 2025</td>
 </tr>
-<tr><td>Total time:</td><td>5 seconds (5688 ms)</td>
+<tr><td>Total time:</td><td>7 seconds (7602 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,20 +76,16 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='Public.createandcancelSpaV3.createSPA_v_3()'><b>createSPA_v_3</b><br>Test class: Public.createandcancelSpaV3</td>
-<td><div><pre>java.lang.IllegalArgumentException: Cannot invoke method getAt() on null object
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
-	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:80)
-	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrapNoCoerce.callConstructor(ConstructorSite.java:105)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:257)
-	at io.restassured.internal.path.json.JSONAssertion.getAsJsonObject(JSONAssertion.groovy:57)
-	at io.restassured.internal.path.json.JSONAssertion$getAsJsonObject.callCurrent(Unknown Source)
-	at io.restassured.internal.path.json.JSONAssertion.getResult(JSONAssertion.groovy:28)
-	at io.restassured.path.json.JsonPath.get(JsonPath.java:203)
-	at Public.createandcancelSpaV3.createSPA_v_3(createandcancelSpaV3.java:44)
+<td title='Private.customerControllerV4.getCustomerAddressInfo()'><b>getCustomerAddressInfo</b><br>Test class: Private.customerControllerV4</td>
+<td><div><pre>java.lang.AssertionError: expected [{&quot;AddressInformation&quot;:[{&quot;CustomerId&quot;:&quot;AUTO1001&quot;,&quot;Address&quot;:[{&quot;AddressId&quot;:&quot;126&quot;,&quot;AddressCode&quot;:&quot;PRIMARY&quot;,&quot;ContactPerson&quot;:&quot;Mr. AUTO1001 AUTO1001&quot;,&quot;AddressLabel&quot;:{&quot;Line1&quot;:&quot;123213 AutoStreet RNCH&quot;,&quot;Line2&quot;:&quot;APT&quot;,&quot;City&quot;:&quot;Cartersville&quot;,&quot;State&quot;:&quot;GA&quot;,&quot;ZipCode&quot;:&quot;123456789&quot;,&quot;Country&quot;:&quot;USA&quot;,&quot;IsDirty&quot;:false},&quot;BillToAddress&quot;:&quot;1&quot;,&quot;Override&quot;:{&quot;Override&quot;:&quot;0&quot;,&quot;AddressCode&quot;:&quot;&quot;,&quot;FromDate&quot;:&quot;1900-01-01&quot;,&quot;ToDate&quot;:&quot;1900-01-01&quot;,&quot;Recurring&quot;:&quot;0&quot;},&quot;PhoneNumber&quot;:[{&quot;Number&quot;:&quot;&quot;,&quot;TypeId&quot;:&quot;1&quot;,&quot;Description&quot;:&quot;Phone 1&quot;,&quot;IsDirty&quot;:false},{&quot;Number&quot;:&quot;&quot;,&quot;TypeId&quot;:&quot;2&quot;,&quot;Description&quot;:&quot;Phone 2&quot;,&quot;IsDirty&quot;:false},{&quot;Number&quot;:&quot;&quot;,&quot;TypeId&quot;:&quot;3&quot;,&quot;Description&quot;:&quot;Phone 3&quot;,&quot;IsDirty&quot;:false}],&quot;FaxNumber&quot;:{&quot;Number&quot;:&quot;&quot;,&quot;IsDirty&quot;:false},&quot;SmartyStreetsMailingAddressCandidate&quot;:{&quot;AddressId&quot;:&quot;126&quot;,&quot;DeliveryLine1&quot;:&quot;&quot;,&quot;DeliveryLine2&quot;:&quot;&quot;,&quot;LastLine&quot;:&quot;&quot;,&quot;StreetNumber&quot;:&quot;123213&quot;,&quot;StreetNumberLng&quot;:123213,&quot;StrNumberSuffix&quot;:&quot;&quot;,&quot;StreetName&quot;:&quot;AutoStreet&quot;,&quot;StreetType&quot;:&quot;RNCH&quot;,&quot;StreetDirectionP&quot;:&quot;&quot;,&quot;StreetDirection&quot;:&quot;&quot;,&quot;AptNumber&quot;:&quot;&quot;,&quot;AptDescription&quot;:&quot;APT&quot;,&quot;UnitDesignation&quot;:&quot;&quot;,&quot;AptNumberPlus&quot;:&quot;&quot;,&quot;CityName&quot;:&quot;Cartersville&quot;,&quot;State&quot;:&quot;GA&quot;,&quot;ZipCode&quot;:&quot;123456789&quot;,&quot;Country&quot;:&quot;USA&quot;,&quot;Success&quot;:true,&quot;MailingAddressMessages&quot;:{&quot;Messages&quot;:[{&quot;Enabled&quot;:0,&quot;Info&quot;:&quot;&quot;,&quot;AddressCode&quot;:&quot;PRIMARY&quot;}]}}}],&quot;Acknowledge&quot;:0,&quot;AddressConfirm&quot;:0,&quot;Success&quot;:true,&quot;Messages&quot;:[{&quot;AddressCode&quot;:&quot;&quot;,&quot;Enabled&quot;:0,&quot;Info&quot;:&quot;&quot;}]}]}] but found [{&quot;AddressInformation&quot;:[{&quot;CustomerId&quot;:&quot;AUTO1001&quot;,&quot;Address&quot;:[{&quot;AddressId&quot;:&quot;126&quot;,&quot;AddressCode&quot;:&quot;PRIMARY&quot;,&quot;ContactPerson&quot;:&quot;Mr. AUTO1001 AUTO1001&quot;,&quot;AddressLabel&quot;:{&quot;Line1&quot;:&quot;123213 AutoStreet RNCH&quot;,&quot;Line2&quot;:&quot;APT&quot;,&quot;City&quot;:&quot;Cartersville&quot;,&quot;State&quot;:&quot;GA&quot;,&quot;ZipCode&quot;:&quot;123456789&quot;,&quot;Country&quot;:&quot;USA&quot;,&quot;IsDirty&quot;:false},&quot;BillToAddress&quot;:&quot;1&quot;,&quot;Override&quot;:{&quot;Override&quot;:&quot;0&quot;,&quot;AddressCode&quot;:&quot;&quot;,&quot;FromDate&quot;:&quot;1900-01-01&quot;,&quot;ToDate&quot;:&quot;1900-01-01&quot;,&quot;Recurring&quot;:&quot;0&quot;},&quot;PhoneNumber&quot;:[{&quot;Number&quot;:&quot;&quot;,&quot;TypeId&quot;:&quot;1&quot;,&quot;Description&quot;:&quot;Phone 1&quot;,&quot;IsDirty&quot;:false},{&quot;Number&quot;:&quot;&quot;,&quot;TypeId&quot;:&quot;2&quot;,&quot;Description&quot;:&quot;Phone 2&quot;,&quot;IsDirty&quot;:false},{&quot;Number&quot;:&quot;&quot;,&quot;TypeId&quot;:&quot;3&quot;,&quot;Description&quot;:&quot;Phone 3&quot;,&quot;IsDirty&quot;:false}],&quot;FaxNumber&quot;:{&quot;Number&quot;:&quot;&quot;,&quot;IsDirty&quot;:false},&quot;SmartyStreetsMailingAddressCandidate&quot;:{&quot;AddressId&quot;:&quot;126&quot;,&quot;DeliveryLine1&quot;:&quot;&quot;,&quot;DeliveryLine2&quot;:&quot;&quot;,&quot;LastLine&quot;:&quot;&quot;,&quot;StreetNumber&quot;:&quot;123213&quot;,&quot;StreetNumberLng&quot;:123213,&quot;StrNumberSuffix&quot;:&quot;&quot;,&quot;StreetName&quot;:&quot;AutoStreet&quot;,&quot;StreetType&quot;:&quot;RNCH&quot;,&quot;StreetDirectionP&quot;:&quot;&quot;,&quot;StreetDirection&quot;:&quot;&quot;,&quot;AptNumber&quot;:&quot;&quot;,&quot;AptDescription&quot;:&quot;APT&quot;,&quot;UnitDesignation&quot;:&quot;&quot;,&quot;AptNumberPlus&quot;:&quot;&quot;,&quot;CityName&quot;:&quot;Cartersville&quot;,&quot;State&quot;:&quot;GA&quot;,&quot;ZipCode&quot;:&quot;12345&quot;,&quot;Plus4Code&quot;:&quot;6789&quot;,&quot;Country&quot;:&quot;USA&quot;,&quot;Success&quot;:true,&quot;MailingAddressMessages&quot;:{&quot;Messages&quot;:[{&quot;Enabled&quot;:0,&quot;Info&quot;:&quot;&quot;,&quot;AddressCode&quot;:&quot;PRIMARY&quot;}]}}}],&quot;Acknowledge&quot;:0,&quot;AddressConfirm&quot;:0,&quot;Success&quot;:true,&quot;Messages&quot;:[{&quot;AddressCode&quot;:&quot;&quot;,&quot;Enabled&quot;:0,&quot;Info&quot;:&quot;&quot;}]}]}]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at org.testng.Assert.assertEquals(Assert.java:666)
+	at com.NexustAPIAutomation.java.CommonMethods.getMethod(CommonMethods.java:638)
+	at Private.customerControllerV4.getCustomerAddressInfo(customerControllerV4.java:53)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -118,51 +114,16 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: java.lang.NullPointerException: Cannot invoke method getAt() on null object
-	at org.codehaus.groovy.runtime.NullObject.invokeMethod(NullObject.java:91)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.call(PogoMetaClassSite.java:43)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
-	at org.codehaus.groovy.runtime.callsite.NullCallSite.call(NullCallSite.java:34)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:115)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:127)
-	at Script1.run(Script1.groovy:1)
-	at groovy.lang.GroovyShell.evaluate(GroovyShell.java:443)
-	at groovy.lang.GroovyShell.evaluate(GroovyShell.java:481)
-	at groovy.lang.GroovyShell.evaluate(GroovyShell.java:452)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrap.invoke(PogoMetaMethodSite.java:179)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.call(PogoMetaMethodSite.java:70)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:127)
-	at io.restassured.internal.path.json.JSONAssertion.eval(JSONAssertion.groovy:80)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:190)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:58)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:184)
-	at io.restassured.internal.path.json.JSONAssertion.getAsJsonObject(JSONAssertion.groovy:46)
-	... 32 more
-</pre></div><a href='#' onClick='toggleBox("stack-trace1282035709", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1282035709'><pre>java.lang.IllegalArgumentException: Cannot invoke method getAt() on null object
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
-	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:80)
-	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrapNoCoerce.callConstructor(ConstructorSite.java:105)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:257)
-	at io.restassured.internal.path.json.JSONAssertion.getAsJsonObject(JSONAssertion.groovy:57)
-	at io.restassured.internal.path.json.JSONAssertion$getAsJsonObject.callCurrent(Unknown Source)
-	at io.restassured.internal.path.json.JSONAssertion.getResult(JSONAssertion.groovy:28)
-	at io.restassured.path.json.JsonPath.get(JsonPath.java:203)
-	at Public.createandcancelSpaV3.createSPA_v_3(createandcancelSpaV3.java:44)
+</pre></div><a href='#' onClick='toggleBox("stack-trace666769352", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace666769352'><pre>java.lang.AssertionError: expected [{&quot;AddressInformation&quot;:[{&quot;CustomerId&quot;:&quot;AUTO1001&quot;,&quot;Address&quot;:[{&quot;AddressId&quot;:&quot;126&quot;,&quot;AddressCode&quot;:&quot;PRIMARY&quot;,&quot;ContactPerson&quot;:&quot;Mr. AUTO1001 AUTO1001&quot;,&quot;AddressLabel&quot;:{&quot;Line1&quot;:&quot;123213 AutoStreet RNCH&quot;,&quot;Line2&quot;:&quot;APT&quot;,&quot;City&quot;:&quot;Cartersville&quot;,&quot;State&quot;:&quot;GA&quot;,&quot;ZipCode&quot;:&quot;123456789&quot;,&quot;Country&quot;:&quot;USA&quot;,&quot;IsDirty&quot;:false},&quot;BillToAddress&quot;:&quot;1&quot;,&quot;Override&quot;:{&quot;Override&quot;:&quot;0&quot;,&quot;AddressCode&quot;:&quot;&quot;,&quot;FromDate&quot;:&quot;1900-01-01&quot;,&quot;ToDate&quot;:&quot;1900-01-01&quot;,&quot;Recurring&quot;:&quot;0&quot;},&quot;PhoneNumber&quot;:[{&quot;Number&quot;:&quot;&quot;,&quot;TypeId&quot;:&quot;1&quot;,&quot;Description&quot;:&quot;Phone 1&quot;,&quot;IsDirty&quot;:false},{&quot;Number&quot;:&quot;&quot;,&quot;TypeId&quot;:&quot;2&quot;,&quot;Description&quot;:&quot;Phone 2&quot;,&quot;IsDirty&quot;:false},{&quot;Number&quot;:&quot;&quot;,&quot;TypeId&quot;:&quot;3&quot;,&quot;Description&quot;:&quot;Phone 3&quot;,&quot;IsDirty&quot;:false}],&quot;FaxNumber&quot;:{&quot;Number&quot;:&quot;&quot;,&quot;IsDirty&quot;:false},&quot;SmartyStreetsMailingAddressCandidate&quot;:{&quot;AddressId&quot;:&quot;126&quot;,&quot;DeliveryLine1&quot;:&quot;&quot;,&quot;DeliveryLine2&quot;:&quot;&quot;,&quot;LastLine&quot;:&quot;&quot;,&quot;StreetNumber&quot;:&quot;123213&quot;,&quot;StreetNumberLng&quot;:123213,&quot;StrNumberSuffix&quot;:&quot;&quot;,&quot;StreetName&quot;:&quot;AutoStreet&quot;,&quot;StreetType&quot;:&quot;RNCH&quot;,&quot;StreetDirectionP&quot;:&quot;&quot;,&quot;StreetDirection&quot;:&quot;&quot;,&quot;AptNumber&quot;:&quot;&quot;,&quot;AptDescription&quot;:&quot;APT&quot;,&quot;UnitDesignation&quot;:&quot;&quot;,&quot;AptNumberPlus&quot;:&quot;&quot;,&quot;CityName&quot;:&quot;Cartersville&quot;,&quot;State&quot;:&quot;GA&quot;,&quot;ZipCode&quot;:&quot;123456789&quot;,&quot;Country&quot;:&quot;USA&quot;,&quot;Success&quot;:true,&quot;MailingAddressMessages&quot;:{&quot;Messages&quot;:[{&quot;Enabled&quot;:0,&quot;Info&quot;:&quot;&quot;,&quot;AddressCode&quot;:&quot;PRIMARY&quot;}]}}}],&quot;Acknowledge&quot;:0,&quot;AddressConfirm&quot;:0,&quot;Success&quot;:true,&quot;Messages&quot;:[{&quot;AddressCode&quot;:&quot;&quot;,&quot;Enabled&quot;:0,&quot;Info&quot;:&quot;&quot;}]}]}] but found [{&quot;AddressInformation&quot;:[{&quot;CustomerId&quot;:&quot;AUTO1001&quot;,&quot;Address&quot;:[{&quot;AddressId&quot;:&quot;126&quot;,&quot;AddressCode&quot;:&quot;PRIMARY&quot;,&quot;ContactPerson&quot;:&quot;Mr. AUTO1001 AUTO1001&quot;,&quot;AddressLabel&quot;:{&quot;Line1&quot;:&quot;123213 AutoStreet RNCH&quot;,&quot;Line2&quot;:&quot;APT&quot;,&quot;City&quot;:&quot;Cartersville&quot;,&quot;State&quot;:&quot;GA&quot;,&quot;ZipCode&quot;:&quot;123456789&quot;,&quot;Country&quot;:&quot;USA&quot;,&quot;IsDirty&quot;:false},&quot;BillToAddress&quot;:&quot;1&quot;,&quot;Override&quot;:{&quot;Override&quot;:&quot;0&quot;,&quot;AddressCode&quot;:&quot;&quot;,&quot;FromDate&quot;:&quot;1900-01-01&quot;,&quot;ToDate&quot;:&quot;1900-01-01&quot;,&quot;Recurring&quot;:&quot;0&quot;},&quot;PhoneNumber&quot;:[{&quot;Number&quot;:&quot;&quot;,&quot;TypeId&quot;:&quot;1&quot;,&quot;Description&quot;:&quot;Phone 1&quot;,&quot;IsDirty&quot;:false},{&quot;Number&quot;:&quot;&quot;,&quot;TypeId&quot;:&quot;2&quot;,&quot;Description&quot;:&quot;Phone 2&quot;,&quot;IsDirty&quot;:false},{&quot;Number&quot;:&quot;&quot;,&quot;TypeId&quot;:&quot;3&quot;,&quot;Description&quot;:&quot;Phone 3&quot;,&quot;IsDirty&quot;:false}],&quot;FaxNumber&quot;:{&quot;Number&quot;:&quot;&quot;,&quot;IsDirty&quot;:false},&quot;SmartyStreetsMailingAddressCandidate&quot;:{&quot;AddressId&quot;:&quot;126&quot;,&quot;DeliveryLine1&quot;:&quot;&quot;,&quot;DeliveryLine2&quot;:&quot;&quot;,&quot;LastLine&quot;:&quot;&quot;,&quot;StreetNumber&quot;:&quot;123213&quot;,&quot;StreetNumberLng&quot;:123213,&quot;StrNumberSuffix&quot;:&quot;&quot;,&quot;StreetName&quot;:&quot;AutoStreet&quot;,&quot;StreetType&quot;:&quot;RNCH&quot;,&quot;StreetDirectionP&quot;:&quot;&quot;,&quot;StreetDirection&quot;:&quot;&quot;,&quot;AptNumber&quot;:&quot;&quot;,&quot;AptDescription&quot;:&quot;APT&quot;,&quot;UnitDesignation&quot;:&quot;&quot;,&quot;AptNumberPlus&quot;:&quot;&quot;,&quot;CityName&quot;:&quot;Cartersville&quot;,&quot;State&quot;:&quot;GA&quot;,&quot;ZipCode&quot;:&quot;12345&quot;,&quot;Plus4Code&quot;:&quot;6789&quot;,&quot;Country&quot;:&quot;USA&quot;,&quot;Success&quot;:true,&quot;MailingAddressMessages&quot;:{&quot;Messages&quot;:[{&quot;Enabled&quot;:0,&quot;Info&quot;:&quot;&quot;,&quot;AddressCode&quot;:&quot;PRIMARY&quot;}]}}}],&quot;Acknowledge&quot;:0,&quot;AddressConfirm&quot;:0,&quot;Success&quot;:true,&quot;Messages&quot;:[{&quot;AddressCode&quot;:&quot;&quot;,&quot;Enabled&quot;:0,&quot;Info&quot;:&quot;&quot;}]}]}]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at org.testng.Assert.assertEquals(Assert.java:666)
+	at com.NexustAPIAutomation.java.CommonMethods.getMethod(CommonMethods.java:638)
+	at Private.customerControllerV4.getCustomerAddressInfo(customerControllerV4.java:53)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -191,54 +152,9 @@ Caused by: java.lang.NullPointerException: Cannot invoke method getAt() on null 
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: java.lang.NullPointerException: Cannot invoke method getAt() on null object
-	at org.codehaus.groovy.runtime.NullObject.invokeMethod(NullObject.java:91)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.call(PogoMetaClassSite.java:43)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
-	at org.codehaus.groovy.runtime.callsite.NullCallSite.call(NullCallSite.java:34)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:115)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:127)
-	at Script1.run(Script1.groovy:1)
-	at groovy.lang.GroovyShell.evaluate(GroovyShell.java:443)
-	at groovy.lang.GroovyShell.evaluate(GroovyShell.java:481)
-	at groovy.lang.GroovyShell.evaluate(GroovyShell.java:452)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrap.invoke(PogoMetaMethodSite.java:179)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.call(PogoMetaMethodSite.java:70)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:127)
-	at io.restassured.internal.path.json.JSONAssertion.eval(JSONAssertion.groovy:80)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:190)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:58)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:184)
-	at io.restassured.internal.path.json.JSONAssertion.getAsJsonObject(JSONAssertion.groovy:46)
-	... 32 more
 </pre></div></td>
-<td>0</td>
-<td>Public.createandcancelSpaV3@16eb3ea3</td></tr>
-</table><p>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td><b>Attribute(s)</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='Public.createandcancelSpaV3.cancelSPA_v_3()'><b>cancelSPA_v_3</b><br>Test class: Public.createandcancelSpaV3</td>
-<td></td>
-<td>5</td>
-<td>Public.createandcancelSpaV3@16eb3ea3</td></tr>
+<td>7</td>
+<td>Private.customerControllerV4@16eb3ea3</td></tr>
 </table><p>
 </body>
 </html>
