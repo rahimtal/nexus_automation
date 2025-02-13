@@ -20,26 +20,23 @@ public class ServiceOrderControllerV3 {
 	public static JsonPath jsonPathEvaluator;
 	public static String ServiceOrderNumber;
 
-	@Test(priority = 1, groups = "ServiceOrder" )
+	@Test(priority = 1, groups = "ServiceOrder")
 	public static void postcreateServiceOrder_v3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-
+		CommonMethods.Bug("CPDEV-20960");
 		String uri = "/serviceOrder";
 		String ver = "3.0";
 		String payload = "./\\TestData\\serviceOrderv3.json";
 		jsonPathEvaluator = CommonMethods.postMethod(payload, uri, ver);
 		String ServiceOrderNumber = jsonPathEvaluator.get("ServiceOrder[0].DocumentNumber");
 		System.out.println(ServiceOrderNumber);
-		if(ServiceOrderNumber==null)
-		{
+		if (ServiceOrderNumber == null) {
 			AssertJUnit.fail("Service Order not created");
-		
-		}
-		else {
-			getServiceOrderdetails_v3(ServiceOrderNumber);	
+
+		} else {
+			getServiceOrderdetails_v3(ServiceOrderNumber);
 		}
 
-		
 	}
 
 	public static void getServiceOrderdetails_v3(String param)
@@ -65,7 +62,7 @@ public class ServiceOrderControllerV3 {
 
 	}
 
-	@Test(priority = 2, groups = "ServiceOrder" , dependsOnMethods = "postcreateServiceOrder_v3")
+	@Test(priority = 2, groups = "ServiceOrder", dependsOnMethods = "postcreateServiceOrder_v3")
 	public static void getServiceOrder_v3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -96,7 +93,7 @@ public class ServiceOrderControllerV3 {
 
 	}
 
-	@Test(priority = 3, groups = "ServiceOrder" )
+	@Test(priority = 3, groups = "ServiceOrder")
 	public static void getServiceOrderRequestDetails_v3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -114,10 +111,10 @@ public class ServiceOrderControllerV3 {
 
 	}
 
-	@Test(priority = 4, groups = "ServiceOrder" )
+	@Test(priority = 4, groups = "ServiceOrder")
 	public static void getServiceOrderRequestDetailsbyOptional_v3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-
+		CommonMethods.Bug("DEV-20975");
 		// ?RequestID=transfer&ShowOnlyTransfers=true
 		String uri = "/serviceOrder/detail";
 		String ver = "3.0";
@@ -131,7 +128,7 @@ public class ServiceOrderControllerV3 {
 
 	}
 
-	@Test(priority = 5, groups = "ServiceOrder" )
+	@Test(priority = 5, groups = "ServiceOrder")
 	public static void putaddMeterReading_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -139,17 +136,18 @@ public class ServiceOrderControllerV3 {
 		String ver = "3.0";
 		String jpath = "./\\TestData\\addMeterReading_v3.json";
 		// String fresponse = "./\\TestData\\addMeterReadingresp_v2.json";
-		// ValidatableResponse result = CommonMethods.putMethodvalidate(uri, ver, jpath,fresponse);
+		// ValidatableResponse result = CommonMethods.putMethodvalidate(uri, ver,
+		// jpath,fresponse);
 		ValidatableResponse result = CommonMethods.putMethod(uri, ver, jpath);
 		result.assertThat().body(Matchers.containsString("true"));
 		result.assertThat().body(Matchers.containsString("READ"));
 		result.assertThat().body(Matchers.containsString("Created"));
-		//System.out.println(result.extract().asString());
+		// System.out.println(result.extract().asString());
 		System.out.println(result.toString());
 
 	}
 
-	@Test(priority = 6, groups = "ServiceOrder" )
+	@Test(priority = 6, groups = "ServiceOrder")
 	public static void putupdatecomment_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -164,7 +162,7 @@ public class ServiceOrderControllerV3 {
 
 	}
 
-	@Test(priority = 7, groups = "ServiceOrder" )
+	@Test(priority = 7, groups = "ServiceOrder")
 	public static void putaddMiscCharge_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -180,7 +178,7 @@ public class ServiceOrderControllerV3 {
 		System.out.println(result.extract().asString());
 	}
 
-	@Test(priority = 8, groups = "ServiceOrder" )
+	@Test(priority = 8, groups = "ServiceOrder")
 	public static void putswitchMeter_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -192,6 +190,7 @@ public class ServiceOrderControllerV3 {
 		result.assertThat().body(Matchers.containsString("true"));
 		System.out.println(result.extract().asString());
 	}
+
 //DEPRECATED use "Complete service order Task"
 //	@Test(priority = 8, groups = "ServiceOrder" )
 	public static void putTaskComplete_v_3()
@@ -207,7 +206,7 @@ public class ServiceOrderControllerV3 {
 		System.out.println(result.extract().asString());
 	}
 
-	@Test(priority = 9, groups = "ServiceOrder" )
+	@Test(priority = 9, groups = "ServiceOrder")
 	public static void putTaskCompleteNocharge_v3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -222,13 +221,10 @@ public class ServiceOrderControllerV3 {
 		System.out.println(result.extract().asString());
 	}
 
-		
-
-	
 	public static void main(String args[])
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		//putaddMeterReading_v_3();
-		
+		// putaddMeterReading_v_3();
+
 		postcreateServiceOrder_v3();
 		// putTaskComplete_v_3_4();
 	}

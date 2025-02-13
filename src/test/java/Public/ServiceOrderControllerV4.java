@@ -24,7 +24,7 @@ public class ServiceOrderControllerV4 {
 	public static JsonPath jsonPathEvaluator;
 	public static String ServiceOrderNumber;
 
-	@Test(priority = 1, groups = "ServiceOrder" )
+	@Test(priority = 1, groups = "ServiceOrder")
 	public static void getServiceOrderdetails_v4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.Bug("CPDEV-17883");
@@ -43,10 +43,11 @@ public class ServiceOrderControllerV4 {
 	// If set to true, the service order tasks schedule date will default to
 	// schedule date else service order tasks schedule date will be set to requested
 	// date.
-	@Test(priority = 2, groups = "ServiceOrder" )
+	@Test(priority = 2, groups = "ServiceOrder")
 	public void postCreateServiceOrderv4UseScheduleDateForSODetailfalse()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
+		CommonMethods.Bug("CPDEV-20960");
 		String uri = "/serviceOrder";
 		String version = "4.0";
 		String payload = "{\r\n" + "    \"ServiceOrder\": [\r\n" + "        {\r\n"
@@ -75,10 +76,11 @@ public class ServiceOrderControllerV4 {
 
 	}
 
-	@Test(priority = 3, groups = "ServiceOrder" )
+	@Test(priority = 3, groups = "ServiceOrder")
 	public void postCreateServiceOrderv4UseScheduleDateForSODetailtrue()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
+		CommonMethods.Bug("CPDEV-20960");
 		String uri = "/serviceOrder";
 		String version = "4.0";
 		String payload = "{\r\n" + "    \"ServiceOrder\": [\r\n" + "        {\r\n"

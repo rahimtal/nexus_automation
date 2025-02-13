@@ -350,7 +350,7 @@ public class CommonMethods {
 			break;
 		}
 		// File jsonDataInFile = new File(payload);
-		System.out.println(payload);
+
 		Response response;
 		JsonPath jsonPathEvaluator;
 		// CharSequence i="\\";
@@ -362,8 +362,10 @@ public class CommonMethods {
 						"Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
 				.body(payload);
 
+		System.out.println("Uri =" + RestAssured.baseURI.toString());
+		System.out.println("Uri Payload =" + payload);
 		response = httpRequest.post();
-		System.out.println(response.asString());
+		System.out.println("Uri Response =" + response.asString());
 		jsonPathEvaluator = response.jsonPath();
 
 		return response.asString();
@@ -836,6 +838,8 @@ public class CommonMethods {
 		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
 				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
 				.body(payload);
+		System.out.println("** PUT call uri ** " + RestAssured.baseURI);
+		System.out.println("** PUT call payload ** " + payload);
 		Response response = httpRequest.put();
 		Assert.assertEquals(response.getBody().asString(), new String(Files.readAllBytes(Paths.get(jsonDataInFile))));
 		System.out.println("** PUT call Response ** " + response.asString());

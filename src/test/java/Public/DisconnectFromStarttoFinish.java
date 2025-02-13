@@ -15,10 +15,10 @@ public class DisconnectFromStarttoFinish {
 	public static JsonPath jsonPathEvaluator;
 	public static String ServiceOrderNumber;
 
-	@Test(priority = 1, groups = "DisconnectFromStarttoFinish" )
+	@Test(priority = 1, groups = "DisconnectFromStarttoFinish")
 	public static void PostServiceOrder()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-
+		CommonMethods.Bug("CPDEV-20960");
 		String uri = "/serviceOrder";
 		String ver = "4.0";
 		String payload = "./\\TestData\\createDcserviceOrderv4.json";
@@ -27,7 +27,7 @@ public class DisconnectFromStarttoFinish {
 
 	}
 
-	@Test(priority = 2, groups = "DisconnectFromStarttoFinish" )
+	@Test(priority = 2, groups = "DisconnectFromStarttoFinish")
 	public static void PostMeterReading()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -36,12 +36,12 @@ public class DisconnectFromStarttoFinish {
 		String ver = "4.0";
 		String payload = "./\\TestData\\PostmeterReadingV4.json";
 		String exResponse = "{\"MeterReading\":[{\"DocumentNumber\":\"READ0000000";
-		
+
 		CommonMethods.postcallcontains(uri, payload, ver, exResponse);
 
 	}
 
-	@Test(priority = 3, groups = "DisconnectFromStarttoFinish" )
+	@Test(priority = 3, groups = "DisconnectFromStarttoFinish")
 	public static void putMeterDisconnect()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
