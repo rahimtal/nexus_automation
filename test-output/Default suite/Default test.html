@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/1</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Feb 18 11:53:05 PKT 2025</td>
+<td>Started on:</td><td>Tue Feb 18 13:21:47 PKT 2025</td>
 </tr>
-<tr><td>Total time:</td><td>5 seconds (5262 ms)</td>
+<tr><td>Total time:</td><td>2 seconds (2961 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -77,15 +77,15 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='Private.SmartyStreetValidationV4.postvalidateAddressesandPostLocation()'><b>postvalidateAddressesandPostLocation</b><br>Test class: Private.SmartyStreetValidationV4</td>
-<td><div><pre>java.lang.AssertionError: expected [{&quot;Location&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Location created successfully&quot;,&quot;Level&quot;:1}]}}] but found [{&quot;Location&quot;:{&quot;Success&quot;:false,&quot;Data&quot;:{&quot;Acknowledge&quot;:false,&quot;AddressConfirm&quot;:true,&quot;Confirm&quot;:true},&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Location Id exist and cannot be created. 2025&quot;,&quot;Level&quot;:3}]}}]
+<td><div><pre>java.lang.AssertionError: expected [{&quot;Location&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Location created successfully&quot;,&quot;Level&quot;:1}]}}] but found [{&quot;Location&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Location updated successfully&quot;,&quot;Level&quot;:1}]}}]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1578)
 	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
 	at org.testng.Assert.assertEquals(Assert.java:132)
 	at org.testng.Assert.assertEquals(Assert.java:656)
 	at org.testng.Assert.assertEquals(Assert.java:666)
-	at com.NexustAPIAutomation.java.CommonMethods.postMethodString(CommonMethods.java:422)
-	at Private.SmartyStreetValidationV4.postvalidateAddressesandPostLocation(SmartyStreetValidationV4.java:410)
+	at com.NexustAPIAutomation.java.CommonMethods.putMethodstring(CommonMethods.java:898)
+	at Private.SmartyStreetValidationV4.postvalidateAddressesandPostLocation(SmartyStreetValidationV4.java:434)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -114,16 +114,16 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1622899093", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1622899093'><pre>java.lang.AssertionError: expected [{&quot;Location&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Location created successfully&quot;,&quot;Level&quot;:1}]}}] but found [{&quot;Location&quot;:{&quot;Success&quot;:false,&quot;Data&quot;:{&quot;Acknowledge&quot;:false,&quot;AddressConfirm&quot;:true,&quot;Confirm&quot;:true},&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Location Id exist and cannot be created. 2025&quot;,&quot;Level&quot;:3}]}}]
+</pre></div><a href='#' onClick='toggleBox("stack-trace705265015", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace705265015'><pre>java.lang.AssertionError: expected [{&quot;Location&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Location created successfully&quot;,&quot;Level&quot;:1}]}}] but found [{&quot;Location&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Location updated successfully&quot;,&quot;Level&quot;:1}]}}]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1578)
 	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
 	at org.testng.Assert.assertEquals(Assert.java:132)
 	at org.testng.Assert.assertEquals(Assert.java:656)
 	at org.testng.Assert.assertEquals(Assert.java:666)
-	at com.NexustAPIAutomation.java.CommonMethods.postMethodString(CommonMethods.java:422)
-	at Private.SmartyStreetValidationV4.postvalidateAddressesandPostLocation(SmartyStreetValidationV4.java:410)
+	at com.NexustAPIAutomation.java.CommonMethods.putMethodstring(CommonMethods.java:898)
+	at Private.SmartyStreetValidationV4.postvalidateAddressesandPostLocation(SmartyStreetValidationV4.java:434)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -153,7 +153,7 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
-<td>5</td>
+<td>2</td>
 <td>Private.SmartyStreetValidationV4@48075da3</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-skipped'>
@@ -168,7 +168,7 @@ function toggleAllBoxes() {
 <td title='Private.SmartyStreetValidationV4.postSmartyStreetValidationv4()'><b>postSmartyStreetValidationv4</b><br>Test class: Private.SmartyStreetValidationV4</td>
 <td><div><pre>org.testng.SkipException: Skipping this due to bugCPDEV-20909
 	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1532)
-	at Private.SmartyStreetValidationV4.postSmartyStreetValidationv4(SmartyStreetValidationV4.java:17)
+	at Private.SmartyStreetValidationV4.postSmartyStreetValidationv4(SmartyStreetValidationV4.java:18)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -200,7 +200,7 @@ function toggleAllBoxes() {
 </pre></div><a href='#' onClick='toggleBox("stack-trace1692885405", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
 <div class='stack-trace' id='stack-trace1692885405'><pre>org.testng.SkipException: Skipping this due to bugCPDEV-20909
 	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1532)
-	at Private.SmartyStreetValidationV4.postSmartyStreetValidationv4(SmartyStreetValidationV4.java:17)
+	at Private.SmartyStreetValidationV4.postSmartyStreetValidationv4(SmartyStreetValidationV4.java:18)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

@@ -1,5 +1,6 @@
 package Private;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 import org.testng.annotations.Test;
@@ -49,33 +50,56 @@ public class SmartyStreetValidationV4 {
 
 	@Test(priority = 1, groups = "Smarty")
 	public void postvalidateAddressesandPostLocation()
-			throws ClassNotFoundException, SQLException, InterruptedException {
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/customers/validateAddresses";
 		String ver = "4.0";
-		String payload = "{\r\n" + "    \"Address\": [\r\n" + "        {\r\n" + "            \"AddressId\": \"\",\r\n"
-				+ "            \"AddressCode\": \"PRIMARY\",\r\n" + "            \"ContactPerson\": \"\",\r\n"
-				+ "            \"AddressLabel\":{\r\n" + "                \"Line1\":\"1119 skylino DR\",\r\n"
-				+ "                \"Line2\":\"\",\r\n" + "                \"City\":\"Griffin\",\r\n"
-				+ "                \"State\":\"GA\",\r\n" + "                \"ZipCode\":\"302824\",\r\n"
-				+ "                \"Country\":\"USA\",\r\n" + "                \"IsDirty\":false\r\n"
-				+ "            },\r\n" + "            \"BillToAddress\": false,\r\n" + "            \"Override\": {\r\n"
-				+ "                \"Override\": false,\r\n" + "                \"AddressCode\": \"\",\r\n"
-				+ "                \"FromDate\": \"1900-01-01\",\r\n"
-				+ "                \"ToDate\": \"1900-01-01\",\r\n" + "                \"Recurring\": false\r\n"
-				+ "            },\r\n" + "            \"PhoneNumber\": [\r\n" + "                {\r\n"
-				+ "                    \"Number\": \"\",\r\n" + "                    \"TypeId\": 0,\r\n"
-				+ "                    \"Description\": \"empty\",\r\n" + "                    \"IsDirty\": false\r\n"
-				+ "                }\r\n" + "            ],\r\n" + "            \"FaxNumber\": {\r\n"
-				+ "                \"Number\": \"\",\r\n" + "                \"IsDirty\": false\r\n"
-				+ "            }\r\n" + "        }\r\n" + "    ]\r\n" + "}\r\n" + "";
+		String payload = "{\r\n" + 
+				"    \"Address\": [\r\n" + 
+				"        {\r\n" + 
+				"            \"AddressId\": \"\",\r\n" + 
+				"            \"AddressCode\": \"PRIMARY\",\r\n" + 
+				"            \"ContactPerson\": \"\",\r\n" + 
+				"            \"AddressLabel\":{\r\n" + 
+				"                \"Line1\":\"1119 skylino DR\",\r\n" + 
+				"                \"Line2\":\"\",\r\n" + 
+				"                \"City\":\"Griffin\",\r\n" + 
+				"                \"State\":\"GA\",\r\n" + 
+				"                \"ZipCode\":\"302824\",\r\n" + 
+				"                \"Country\":\"USA\",\r\n" + 
+				"                \"IsDirty\":false\r\n" + 
+				"            },\r\n" + 
+				"            \"BillToAddress\": false,\r\n" + 
+				"            \"Override\": {\r\n" + 
+				"                \"Override\": false,\r\n" + 
+				"                \"AddressCode\": \"\",\r\n" + 
+				"                \"FromDate\": \"1900-01-01\",\r\n" + 
+				"                \"ToDate\": \"1900-01-01\",\r\n" + 
+				"                \"Recurring\": false\r\n" + 
+				"            },\r\n" + 
+				"            \"PhoneNumber\": [\r\n" + 
+				"                {\r\n" + 
+				"                    \"Number\": \"\",\r\n" + 
+				"                    \"TypeId\": 0,\r\n" + 
+				"                    \"Description\": \"empty\",\r\n" + 
+				"                    \"IsDirty\": false\r\n" + 
+				"                }\r\n" + 
+				"            ],\r\n" + 
+				"            \"FaxNumber\": {\r\n" + 
+				"                \"Number\": \"\",\r\n" + 
+				"                \"IsDirty\": false\r\n" + 
+				"            }\r\n" + 
+				"        }\r\n" + 
+				"    ]\r\n" + 
+				"}\r\n" + 
+				"";
 		String expected = "{ \"ValidateAddresses\": {\"Success\":true,\"Data\":{\"AddressId\":\"\",\"AddressCode\":\"PRIMARY\",\"ContactPerson\":\"\",\"AddressLabel\":{\"Line1\":\"1119 skylino DR\",\"Line2\":\"\",\"City\":\"Griffin\",\"State\":\"GA\",\"ZipCode\":\"302824\",\"Country\":\"USA\",\"IsDirty\":false},\"BillToAddress\":false,\"Override\":{\"Override\":false,\"AddressCode\":\"\",\"FromDate\":\"1900-01-01\",\"ToDate\":\"1900-01-01\",\"Recurring\":false},\"PhoneNumber\":[{\"Number\":\"\",\"TypeId\":0,\"Description\":\"empty\",\"IsDirty\":false}],\"FaxNumber\":{\"Number\":\"\",\"IsDirty\":false},\"SmartyStreetsMailingAddressCandidate\":{\"AddressId\":\"\",\"DeliveryLine1\":\"1119 Skyline Dr\",\"DeliveryLine2\":\"\",\"LastLine\":\"Griffin GA 30224-4958\",\"StreetNumber\":\"1119\",\"StreetNumberLng\":1119,\"StrNumberSuffix\":\"\",\"StreetName\":\"Skyline\",\"StreetType\":\"Dr\",\"StreetDirectionP\":\"\",\"StreetDirection\":\"\",\"AptNumber\":\"\",\"AptDescription\":\"\",\"UnitDesignation\":\"\",\"AptNumberPlus\":\"\",\"CityName\":\"Griffin\",\"State\":\"GA\",\"ZipCode\":\"30224\",\"Plus4Code\":\"4958\",\"Country\":\"USA\",\"Success\":true,\"MailingAddressMessages\":{\"Messages\":[{\"Enabled\":1,\"Info\":\"Confirmed; entire address was Delivery Point Validation confirmed deliverable.\",\"AddressCode\":\"\"},{\"Enabled\":1,\"Info\":\"City/state/ZIP + street are all valid.\",\"AddressCode\":\"\"},{\"Enabled\":1,\"Info\":\"ZIP+4 matched; confirmed entire address; address is valid.\",\"AddressCode\":\"\"}]}}},\"Messages\":[]}}";
 		CommonMethods.postMethodString(payload, uri, ver, expected);
 		
 		uri = "/location";
 		 ver = "4.0";
 		 payload = "{\r\n" + 
-		 		"    \"LocationId\":\"2025\",\r\n" + 
+		 		"    \"LocationId\":\"2026\",\r\n" + 
 		 		"    \"Description\":\"\",\r\n" + 
 		 		"    \"LocationClassId\":\"\",\r\n" + 
 		 		"    \"BillToCustomerId\":\"CUSTOMER013\",\r\n" + 
@@ -244,33 +268,33 @@ public class SmartyStreetValidationV4 {
 		uri = "/location";
 		 ver = "4.0";
 		 payload = "{\r\n" + 
-		 		"    \"LocationId\":\"2025\",\r\n" + 
+		 		"    \"LocationId\":\"2026\",\r\n" + 
 		 		"    \"Description\":\"\",\r\n" + 
 		 		"    \"LocationClassId\":\"\",\r\n" + 
 		 		"    \"BillToCustomerId\":\"CUSTOMER013\",\r\n" + 
 		 		"    \"ZoneId\":\"\",\r\n" + 
 		 		"    \"Address\":\r\n" + 
 		 		"    {\r\n" + 
-		 		"        \"AddressId\": \"\",\r\n" + 
+		 		"        \"AddressId\": \"265\",\r\n" + 
 		 		"        \"AddressCode\":\"PRIMARY\",\r\n" + 
 		 		"        \"AddressLabel\":{\r\n" + 
 		 		"                \"Line1\":\"22 Degroat Rd\",\r\n" + 
 		 		"                \"Line2\":\"Building 15000\",\r\n" + 
 		 		"                \"City\":\"\",\r\n" + 
 		 		"                \"State\":\"NJ\",\r\n" + 
-		 		"                \"ZipCode\":\"07827\",\r\n" + 
+		 		"                \"ZipCode\":\"07822\",\r\n" + 
 		 		"                \"Country\":\"USA\",\r\n" + 
 		 		"                \"IsDirty\":true\r\n" + 
 		 		"        },\r\n" + 
 		 		"              \"SmartyStreetsMailingAddressCandidate\": {\r\n" + 
-		 		"                \"AddressId\": \"\",\r\n" + 
+		 		"                \"AddressId\": \"124\",\r\n" + 
 		 		"                \"DeliveryLine1\": \"1119 Skyline Dr\",\r\n" + 
 		 		"                \"DeliveryLine2\": \"\",\r\n" + 
 		 		"                \"LastLine\": \"Griffin GA 30224-4958\",\r\n" + 
 		 		"                \"StreetNumber\": \"1119\",\r\n" + 
 		 		"                \"StreetNumberLng\": 1119,\r\n" + 
 		 		"                \"StrNumberSuffix\": \"\",\r\n" + 
-		 		"                \"StreetName\": \"Skyline Updated\",\r\n" + 
+		 		"                \"StreetName\": \"Skyline\",\r\n" + 
 		 		"                \"StreetType\": \"Dr\",\r\n" + 
 		 		"                \"StreetDirectionP\": \"\",\r\n" + 
 		 		"                \"StreetDirection\": \"\",\r\n" + 
@@ -406,8 +430,9 @@ public class SmartyStreetValidationV4 {
 		 		"    \"AddressConfirm\":true,\r\n" + 
 		 		"    \"Confirm\":true\r\n" + 
 		 		"}";
-		 expected = "{\"Location\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Location created successfully\",\"Level\":1}]}}";
-		CommonMethods.postMethodString(payload, uri, ver, expected);
+		 expected = "{\"Location\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Location updated successfully\",\"Level\":1}]}}";
+		 CommonMethods.putMethodstring(uri, ver, payload, expected);
+		
 
 	}
 
