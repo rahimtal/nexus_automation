@@ -36,7 +36,7 @@ public class ServiceOrderController {
 	@Test(priority = 3, groups = "ServiceOrder")
 	public void putServiceOrderControllerev4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		CommonMethods.Bug("CPDEV-20965");
+		//CommonMethods.Bug("CPDEV-20965");
 		String uri = "/serviceOrder";
 		String ver = "4.0";
 		String payload = "{\n" + "    \"Number\": \"SORD00000000043\",\n"

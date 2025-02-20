@@ -18,7 +18,7 @@ public class DisconnectFromStarttoFinish {
 	@Test(priority = 1, groups = "DisconnectFromStarttoFinish")
 	public static void PostServiceOrder()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		CommonMethods.Bug("CPDEV-20960");
+		//CommonMethods.Bug("CPDEV-20960");
 		String uri = "/serviceOrder";
 		String ver = "4.0";
 		String payload = "./\\TestData\\createDcserviceOrderv4.json";
