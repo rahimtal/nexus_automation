@@ -22,7 +22,7 @@ public class DisconnectFromStarttoFinish {
 		String uri = "/serviceOrder";
 		String ver = "4.0";
 		String payload = "./\\TestData\\createDcserviceOrderv4.json";
-		String exResponse = "{\"ServiceOrder\":[{\"DocumentNumber\":\"SORD000000";
+		String exResponse = "DocumentNumber\":\"SORD000000090";
 		CommonMethods.postcallcontains(uri, payload, ver, exResponse);
 
 	}

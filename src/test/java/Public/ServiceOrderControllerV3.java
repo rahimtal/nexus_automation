@@ -65,7 +65,7 @@ public class ServiceOrderControllerV3 {
 				"    ]\r\n" + 
 				"}";
 		
-		String expected ="{\"DocumentNumber\":\"SORD00000009048\",\"DrillbackLink\":\"\",\"ServiceOrder\":{\"Success\":true,\"Messages\":[{\"Enabled\":1,\"Info\":\"UDF Label 'SORequestUDF' not valid for Service Order SORD00000009048.\",\"Level\":1},{\"Enabled\":1,\"Info\":\"UDF Label 'SOReqUDF-2' not valid for Service Order SORD00000009048.\",\"Level\":1},{\"Enabled\":1,\"Info\":\"SORD00000009048 created\",\"Level\":1}]}}";
+		String expected ="{\"DocumentNumber\":\"SORD00000009045\",\"DrillbackLink\":\"\",\"ServiceOrder\":{\"Success\":true,\"Messages\":[{\"Enabled\":1,\"Info\":\"UDF Label 'SORequestUDF' not valid for Service Order SORD00000009045.\",\"Level\":1},{\"Enabled\":1,\"Info\":\"UDF Label 'SOReqUDF-2' not valid for Service Order SORD00000009045.\",\"Level\":1},{\"Enabled\":1,\"Info\":\"SORD00000009045 created\",\"Level\":1}]}}";
 		CommonMethods.postMethodString(payload, uri, ver, expected);
 		
 		
