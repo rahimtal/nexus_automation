@@ -18,15 +18,20 @@ public class BaseClass {
 	public static ExtentHtmlReporter htmlReporter;
 	
 	@BeforeSuite
-	void BeforeTest() throws ClassNotFoundException, SQLException, InterruptedException {
-	
-	}
+	public void setupReport() {
+        ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("ExtentReport.html");
+        extent = new ExtentReports();
+        extent.attachReporter(htmlReporter);
+        
+        
+    }
 	@AfterSuite
-	void flush()
-	{
+	 public void tearDownReport() {
+        extent.flush();
+    }
 		
 	}
 	
 	
 
-}
+
