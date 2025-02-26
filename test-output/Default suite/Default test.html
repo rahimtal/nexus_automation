@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>2/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Wed Feb 26 16:25:27 PKT 2025</td>
+<td>Started on:</td><td>Wed Feb 26 16:53:04 PKT 2025</td>
 </tr>
-<tr><td>Total time:</td><td>3 seconds (3813 ms)</td>
+<tr><td>Total time:</td><td>2 seconds (2828 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,159 +67,6 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td><b>Attribute(s)</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='Private.searchControllerV4.searchMatchPhrasePrefixv4()'><b>searchMatchPhrasePrefixv4</b><br>Test class: Private.searchControllerV4</td>
-<td><div><pre>java.lang.AssertionError: 1 expectation failed.
-Response body doesn&apos;t match expectation.
-Expected: a string containing &quot;\&quot;timed_out\&quot;:false,\&quot;_shards\&quot;:{\&quot;total\&quot;:1,\&quot;successful\&quot;:1,\&quot;skipped\&quot;:0,\&quot;failed\&quot;:0},\&quot;hits\&quot;:{\&quot;total\&quot;:{\&quot;value\&quot;:4,\&quot;relation\&quot;:\&quot;eq\&quot;},\&quot;max_score\&quot;:null,\&quot;hits\&quot;:[{\&quot;_index\&quot;:\&quot;accounts\&quot;,\&quot;_type\&quot;:\&quot;_doc\&quot;,\&quot;_id\&quot;:\&quot;ELECWAT001-CUSTOMER007\&quot;,\&quot;_score\&quot;:null,\&quot;_source\&quot;:{\&quot;AccountNumber\&quot;:\&quot;ELECWAT001-CUSTOMER007\&quot;,\&quot;LocationId\&quot;:\&quot;ELECWAT001\&quot;,\&quot;AccumType\&quot;:1,\&quot;AccumTypeDescription\&quot;:\&quot;Not Applicable\&quot;,\&quot;CustomerId\&quot;:\&quot;CUSTOMER007\&quot;,\&quot;ServiceAddressLine1\&quot;:\&quot;12 A GRAFTON HILLS n APT 4\&quot;,\&quot;ServiceAddressCity\&quot;:\&quot;NEW YORK\&quot;,\&quot;ServiceAddressState\&quot;:\&quot;NY\&quot;,\&quot;ServiceAddressZipCode\&quot;:\&quot;12123\&quot;,\&quot;ServiceAddressCountry\&quot;:\&quot;USA\&quot;,\&quot;FreeFormServiceAddressLine1\&quot;:\&quot;\&quot;,\&quot;FreeFormServiceAddressLine2\&quot;:\&quot;\&quot;,\&quot;FreeFormServiceAddressLine3\&quot;:\&quot;\&quot;,\&quot;CustomerName\&quot;:\&quot;MacKenzie, Sally E\&quot;,\&quot;CustomerNameFL\&quot;:\&quot;Sally, MacKenzie E\&quot;,\&quot;Status\&quot;:1,\&quot;CustomerStatus\&quot;:\&quot;Current\&quot;,\&quot;CustomerType\&quot;:\&quot;Individual\&quot;,\&quot;EmailAddress\&quot;:\&quot;\&quot;,\&quot;Phone1\&quot;:\&quot;9028948138\&quot;,\&quot;Phone1Ext\&quot;:\&quot;0000\&quot;,\&quot;Phone2\&quot;:\&quot;\&quot;,\&quot;Phone2Ext\&quot;:\&quot;\&quot;,\&quot;Phone3\&quot;:\&quot;\&quot;,\&quot;Phone3Ext\&quot;:\&quot;\&quot;,\&quot;SsnSin\&quot;:\&quot;111123123\&quot;,\&quot;DateOfBirth\&quot;:\&quot;11/27/1960\&quot;,\&quot;OwnerName\&quot;:\&quot;MacKenzie Sally E\&quot;,\&quot;TenantName\&quot;:\&quot;Name Test\&quot;,\&quot;LandlordName\&quot;:\&quot;\&quot;,\&quot;PrimaryCustomerID\&quot;:\&quot;CUSTOMER007\&quot;,\&quot;AlternateId\&quot;:\&quot;\&quot;,\&quot;SecondaryCustomer\&quot;:[{\&quot;Id\&quot;:\&quot;03332301204\&quot;,\&quot;Name\&quot;:\&quot;Rahim, Talha\&quot;}],\&quot;Connection\&quot;:[{\&quot;EquipmentId\&quot;:\&quot;EQUIP-GAS-1\&quot;,\&quot;RemoteId\&quot;:\&quot;\&quot;},{\&quot;EquipmentId\&quot;:\&quot;EQUIPMENT011\&quot;,\&quot;RemoteId\&quot;:\&quot;\&quot;}]},\&quot;sort\&quot;:[\&quot;current\&quot;,\&quot;ELECWAT001-CUSTOMER007\&quot;]}]}},\&quot;Messages\&quot;:[]}}&quot;
-  Actual: {&quot;Search&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;took&quot;:5,&quot;timed_out&quot;:false,&quot;_shards&quot;:{&quot;total&quot;:1,&quot;successful&quot;:1,&quot;skipped&quot;:0,&quot;failed&quot;:0},&quot;hits&quot;:{&quot;total&quot;:{&quot;value&quot;:2,&quot;relation&quot;:&quot;eq&quot;},&quot;max_score&quot;:null,&quot;hits&quot;:[{&quot;_index&quot;:&quot;accounts&quot;,&quot;_type&quot;:&quot;_doc&quot;,&quot;_id&quot;:&quot;MASTER001-MASTER001&quot;,&quot;_score&quot;:null,&quot;_source&quot;:{&quot;AccountNumber&quot;:&quot;MASTER001-MASTER001&quot;,&quot;LocationId&quot;:&quot;MASTER001&quot;,&quot;AccumType&quot;:2,&quot;AccumTypeDescription&quot;:&quot;Master Location&quot;,&quot;CustomerId&quot;:&quot;MASTER001&quot;,&quot;ServiceAddressLine1&quot;:&quot;100 Water&quot;,&quot;ServiceAddressCity&quot;:&quot;NEW YORK&quot;,&quot;ServiceAddressState&quot;:&quot;NY&quot;,&quot;ServiceAddressZipCode&quot;:&quot;57481&quot;,&quot;ServiceAddressCountry&quot;:&quot;USA&quot;,&quot;FreeFormServiceAddressLine1&quot;:&quot;&quot;,&quot;FreeFormServiceAddressLine2&quot;:&quot;&quot;,&quot;FreeFormServiceAddressLine3&quot;:&quot;&quot;,&quot;CustomerName&quot;:&quot;Dunning, Arthur K&quot;,&quot;CustomerNameFL&quot;:&quot;Arthur, Dunning K&quot;,&quot;Status&quot;:1,&quot;CustomerStatus&quot;:&quot;Current&quot;,&quot;CustomerType&quot;:&quot;Individual&quot;,&quot;EmailAddress&quot;:&quot;auto@cogs.com&quot;,&quot;Phone1&quot;:&quot;9025545600&quot;,&quot;Phone1Ext&quot;:&quot;&quot;,&quot;Phone2&quot;:&quot;&quot;,&quot;Phone2Ext&quot;:&quot;&quot;,&quot;Phone3&quot;:&quot;&quot;,&quot;Phone3Ext&quot;:&quot;&quot;,&quot;SsnSin&quot;:&quot;56756&quot;,&quot;DateOfBirth&quot;:&quot;06/30/1965&quot;,&quot;OwnerName&quot;:&quot;Dunning Arthur K TR&quot;,&quot;TenantName&quot;:&quot;&quot;,&quot;LandlordName&quot;:&quot;&quot;,&quot;PrimaryCustomerID&quot;:&quot;MASTER001&quot;,&quot;AlternateId&quot;:&quot;12000&quot;,&quot;SecondaryCustomer&quot;:null,&quot;Connection&quot;:null},&quot;sort&quot;:[&quot;current&quot;,&quot;MASTER001-MASTER001&quot;]},{&quot;_index&quot;:&quot;accounts&quot;,&quot;_type&quot;:&quot;_doc&quot;,&quot;_id&quot;:&quot;MASTERLOC01-MASTERCUS01&quot;,&quot;_score&quot;:null,&quot;_source&quot;:{&quot;AccountNumber&quot;:&quot;MASTERLOC01-MASTERCUS01&quot;,&quot;LocationId&quot;:&quot;MASTERLOC01&quot;,&quot;AccumType&quot;:2,&quot;AccumTypeDescription&quot;:&quot;Master Location&quot;,&quot;CustomerId&quot;:&quot;MASTERCUS01&quot;,&quot;ServiceAddressLine1&quot;:&quot;3123 123 Brackley ALY 32&quot;,&quot;ServiceAddressCity&quot;:&quot;Troy&quot;,&quot;ServiceAddressState&quot;:&quot;NY&quot;,&quot;ServiceAddressZipCode&quot;:&quot;23432&quot;,&quot;ServiceAddressCountry&quot;:&quot;USA&quot;,&quot;FreeFormServiceAddressLine1&quot;:&quot;&quot;,&quot;FreeFormServiceAddressLine2&quot;:&quot;&quot;,&quot;FreeFormServiceAddressLine3&quot;:&quot;&quot;,&quot;CustomerName&quot;:&quot;Customer, Master&quot;,&quot;CustomerNameFL&quot;:&quot;Master, Customer&quot;,&quot;Status&quot;:1,&quot;CustomerStatus&quot;:&quot;Current&quot;,&quot;CustomerType&quot;:&quot;Individual&quot;,&quot;EmailAddress&quot;:&quot;&quot;,&quot;Phone1&quot;:&quot;0000000000&quot;,&quot;Phone1Ext&quot;:&quot;0000&quot;,&quot;Phone2&quot;:&quot;0000000000&quot;,&quot;Phone2Ext&quot;:&quot;0000&quot;,&quot;Phone3&quot;:&quot;0000000000&quot;,&quot;Phone3Ext&quot;:&quot;0000&quot;,&quot;SsnSin&quot;:&quot;&quot;,&quot;DateOfBirth&quot;:&quot;01/01/1900&quot;,&quot;OwnerName&quot;:&quot;&quot;,&quot;TenantName&quot;:&quot;&quot;,&quot;LandlordName&quot;:&quot;&quot;,&quot;PrimaryCustomerID&quot;:&quot;MASTERCUS01&quot;,&quot;AlternateId&quot;:&quot;&quot;,&quot;SecondaryCustomer&quot;:null,&quot;Connection&quot;:null},&quot;sort&quot;:[&quot;current&quot;,&quot;MASTERLOC01-MASTERCUS01&quot;]}]}},&quot;Messages&quot;:[]}}
-
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
-	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:80)
-	at org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:74)
-	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:59)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:237)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:249)
-	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:493)
-	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
-	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:674)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:190)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:58)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:168)
-	at io.restassured.internal.ResponseSpecificationImpl.body(ResponseSpecificationImpl.groovy:98)
-	at io.restassured.internal.ValidatableResponseOptionsImpl.body(ValidatableResponseOptionsImpl.java:238)
-	at io.restassured.internal.ValidatableResponseImpl.super$2$body(ValidatableResponseImpl.groovy)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:101)
-	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)
-	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1217)
-	at org.codehaus.groovy.runtime.ScriptBytecodeAdapter.invokeMethodOnSuperN(ScriptBytecodeAdapter.java:144)
-	at io.restassured.internal.ValidatableResponseImpl.body(ValidatableResponseImpl.groovy:293)
-	at io.restassured.internal.ValidatableResponseImpl.body(ValidatableResponseImpl.groovy)
-	at com.NexustAPIAutomation.java.CommonMethods.getMethodContainsString(CommonMethods.java:1271)
-	at Private.searchControllerV4.searchMatchPhrasePrefixv4(searchControllerV4.java:46)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-	at org.testng.TestRunner.privateRun(TestRunner.java:739)
-	at org.testng.TestRunner.run(TestRunner.java:614)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-	at org.testng.TestNG.runSuites(TestNG.java:1112)
-	at org.testng.TestNG.run(TestNG.java:1079)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1282100951", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1282100951'><pre>java.lang.AssertionError: 1 expectation failed.
-Response body doesn&apos;t match expectation.
-Expected: a string containing &quot;\&quot;timed_out\&quot;:false,\&quot;_shards\&quot;:{\&quot;total\&quot;:1,\&quot;successful\&quot;:1,\&quot;skipped\&quot;:0,\&quot;failed\&quot;:0},\&quot;hits\&quot;:{\&quot;total\&quot;:{\&quot;value\&quot;:4,\&quot;relation\&quot;:\&quot;eq\&quot;},\&quot;max_score\&quot;:null,\&quot;hits\&quot;:[{\&quot;_index\&quot;:\&quot;accounts\&quot;,\&quot;_type\&quot;:\&quot;_doc\&quot;,\&quot;_id\&quot;:\&quot;ELECWAT001-CUSTOMER007\&quot;,\&quot;_score\&quot;:null,\&quot;_source\&quot;:{\&quot;AccountNumber\&quot;:\&quot;ELECWAT001-CUSTOMER007\&quot;,\&quot;LocationId\&quot;:\&quot;ELECWAT001\&quot;,\&quot;AccumType\&quot;:1,\&quot;AccumTypeDescription\&quot;:\&quot;Not Applicable\&quot;,\&quot;CustomerId\&quot;:\&quot;CUSTOMER007\&quot;,\&quot;ServiceAddressLine1\&quot;:\&quot;12 A GRAFTON HILLS n APT 4\&quot;,\&quot;ServiceAddressCity\&quot;:\&quot;NEW YORK\&quot;,\&quot;ServiceAddressState\&quot;:\&quot;NY\&quot;,\&quot;ServiceAddressZipCode\&quot;:\&quot;12123\&quot;,\&quot;ServiceAddressCountry\&quot;:\&quot;USA\&quot;,\&quot;FreeFormServiceAddressLine1\&quot;:\&quot;\&quot;,\&quot;FreeFormServiceAddressLine2\&quot;:\&quot;\&quot;,\&quot;FreeFormServiceAddressLine3\&quot;:\&quot;\&quot;,\&quot;CustomerName\&quot;:\&quot;MacKenzie, Sally E\&quot;,\&quot;CustomerNameFL\&quot;:\&quot;Sally, MacKenzie E\&quot;,\&quot;Status\&quot;:1,\&quot;CustomerStatus\&quot;:\&quot;Current\&quot;,\&quot;CustomerType\&quot;:\&quot;Individual\&quot;,\&quot;EmailAddress\&quot;:\&quot;\&quot;,\&quot;Phone1\&quot;:\&quot;9028948138\&quot;,\&quot;Phone1Ext\&quot;:\&quot;0000\&quot;,\&quot;Phone2\&quot;:\&quot;\&quot;,\&quot;Phone2Ext\&quot;:\&quot;\&quot;,\&quot;Phone3\&quot;:\&quot;\&quot;,\&quot;Phone3Ext\&quot;:\&quot;\&quot;,\&quot;SsnSin\&quot;:\&quot;111123123\&quot;,\&quot;DateOfBirth\&quot;:\&quot;11/27/1960\&quot;,\&quot;OwnerName\&quot;:\&quot;MacKenzie Sally E\&quot;,\&quot;TenantName\&quot;:\&quot;Name Test\&quot;,\&quot;LandlordName\&quot;:\&quot;\&quot;,\&quot;PrimaryCustomerID\&quot;:\&quot;CUSTOMER007\&quot;,\&quot;AlternateId\&quot;:\&quot;\&quot;,\&quot;SecondaryCustomer\&quot;:[{\&quot;Id\&quot;:\&quot;03332301204\&quot;,\&quot;Name\&quot;:\&quot;Rahim, Talha\&quot;}],\&quot;Connection\&quot;:[{\&quot;EquipmentId\&quot;:\&quot;EQUIP-GAS-1\&quot;,\&quot;RemoteId\&quot;:\&quot;\&quot;},{\&quot;EquipmentId\&quot;:\&quot;EQUIPMENT011\&quot;,\&quot;RemoteId\&quot;:\&quot;\&quot;}]},\&quot;sort\&quot;:[\&quot;current\&quot;,\&quot;ELECWAT001-CUSTOMER007\&quot;]}]}},\&quot;Messages\&quot;:[]}}&quot;
-  Actual: {&quot;Search&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;took&quot;:5,&quot;timed_out&quot;:false,&quot;_shards&quot;:{&quot;total&quot;:1,&quot;successful&quot;:1,&quot;skipped&quot;:0,&quot;failed&quot;:0},&quot;hits&quot;:{&quot;total&quot;:{&quot;value&quot;:2,&quot;relation&quot;:&quot;eq&quot;},&quot;max_score&quot;:null,&quot;hits&quot;:[{&quot;_index&quot;:&quot;accounts&quot;,&quot;_type&quot;:&quot;_doc&quot;,&quot;_id&quot;:&quot;MASTER001-MASTER001&quot;,&quot;_score&quot;:null,&quot;_source&quot;:{&quot;AccountNumber&quot;:&quot;MASTER001-MASTER001&quot;,&quot;LocationId&quot;:&quot;MASTER001&quot;,&quot;AccumType&quot;:2,&quot;AccumTypeDescription&quot;:&quot;Master Location&quot;,&quot;CustomerId&quot;:&quot;MASTER001&quot;,&quot;ServiceAddressLine1&quot;:&quot;100 Water&quot;,&quot;ServiceAddressCity&quot;:&quot;NEW YORK&quot;,&quot;ServiceAddressState&quot;:&quot;NY&quot;,&quot;ServiceAddressZipCode&quot;:&quot;57481&quot;,&quot;ServiceAddressCountry&quot;:&quot;USA&quot;,&quot;FreeFormServiceAddressLine1&quot;:&quot;&quot;,&quot;FreeFormServiceAddressLine2&quot;:&quot;&quot;,&quot;FreeFormServiceAddressLine3&quot;:&quot;&quot;,&quot;CustomerName&quot;:&quot;Dunning, Arthur K&quot;,&quot;CustomerNameFL&quot;:&quot;Arthur, Dunning K&quot;,&quot;Status&quot;:1,&quot;CustomerStatus&quot;:&quot;Current&quot;,&quot;CustomerType&quot;:&quot;Individual&quot;,&quot;EmailAddress&quot;:&quot;auto@cogs.com&quot;,&quot;Phone1&quot;:&quot;9025545600&quot;,&quot;Phone1Ext&quot;:&quot;&quot;,&quot;Phone2&quot;:&quot;&quot;,&quot;Phone2Ext&quot;:&quot;&quot;,&quot;Phone3&quot;:&quot;&quot;,&quot;Phone3Ext&quot;:&quot;&quot;,&quot;SsnSin&quot;:&quot;56756&quot;,&quot;DateOfBirth&quot;:&quot;06/30/1965&quot;,&quot;OwnerName&quot;:&quot;Dunning Arthur K TR&quot;,&quot;TenantName&quot;:&quot;&quot;,&quot;LandlordName&quot;:&quot;&quot;,&quot;PrimaryCustomerID&quot;:&quot;MASTER001&quot;,&quot;AlternateId&quot;:&quot;12000&quot;,&quot;SecondaryCustomer&quot;:null,&quot;Connection&quot;:null},&quot;sort&quot;:[&quot;current&quot;,&quot;MASTER001-MASTER001&quot;]},{&quot;_index&quot;:&quot;accounts&quot;,&quot;_type&quot;:&quot;_doc&quot;,&quot;_id&quot;:&quot;MASTERLOC01-MASTERCUS01&quot;,&quot;_score&quot;:null,&quot;_source&quot;:{&quot;AccountNumber&quot;:&quot;MASTERLOC01-MASTERCUS01&quot;,&quot;LocationId&quot;:&quot;MASTERLOC01&quot;,&quot;AccumType&quot;:2,&quot;AccumTypeDescription&quot;:&quot;Master Location&quot;,&quot;CustomerId&quot;:&quot;MASTERCUS01&quot;,&quot;ServiceAddressLine1&quot;:&quot;3123 123 Brackley ALY 32&quot;,&quot;ServiceAddressCity&quot;:&quot;Troy&quot;,&quot;ServiceAddressState&quot;:&quot;NY&quot;,&quot;ServiceAddressZipCode&quot;:&quot;23432&quot;,&quot;ServiceAddressCountry&quot;:&quot;USA&quot;,&quot;FreeFormServiceAddressLine1&quot;:&quot;&quot;,&quot;FreeFormServiceAddressLine2&quot;:&quot;&quot;,&quot;FreeFormServiceAddressLine3&quot;:&quot;&quot;,&quot;CustomerName&quot;:&quot;Customer, Master&quot;,&quot;CustomerNameFL&quot;:&quot;Master, Customer&quot;,&quot;Status&quot;:1,&quot;CustomerStatus&quot;:&quot;Current&quot;,&quot;CustomerType&quot;:&quot;Individual&quot;,&quot;EmailAddress&quot;:&quot;&quot;,&quot;Phone1&quot;:&quot;0000000000&quot;,&quot;Phone1Ext&quot;:&quot;0000&quot;,&quot;Phone2&quot;:&quot;0000000000&quot;,&quot;Phone2Ext&quot;:&quot;0000&quot;,&quot;Phone3&quot;:&quot;0000000000&quot;,&quot;Phone3Ext&quot;:&quot;0000&quot;,&quot;SsnSin&quot;:&quot;&quot;,&quot;DateOfBirth&quot;:&quot;01/01/1900&quot;,&quot;OwnerName&quot;:&quot;&quot;,&quot;TenantName&quot;:&quot;&quot;,&quot;LandlordName&quot;:&quot;&quot;,&quot;PrimaryCustomerID&quot;:&quot;MASTERCUS01&quot;,&quot;AlternateId&quot;:&quot;&quot;,&quot;SecondaryCustomer&quot;:null,&quot;Connection&quot;:null},&quot;sort&quot;:[&quot;current&quot;,&quot;MASTERLOC01-MASTERCUS01&quot;]}]}},&quot;Messages&quot;:[]}}
-
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
-	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:80)
-	at org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:74)
-	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:59)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:237)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:249)
-	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:493)
-	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
-	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:674)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:190)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:58)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:168)
-	at io.restassured.internal.ResponseSpecificationImpl.body(ResponseSpecificationImpl.groovy:98)
-	at io.restassured.internal.ValidatableResponseOptionsImpl.body(ValidatableResponseOptionsImpl.java:238)
-	at io.restassured.internal.ValidatableResponseImpl.super$2$body(ValidatableResponseImpl.groovy)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:101)
-	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)
-	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1217)
-	at org.codehaus.groovy.runtime.ScriptBytecodeAdapter.invokeMethodOnSuperN(ScriptBytecodeAdapter.java:144)
-	at io.restassured.internal.ValidatableResponseImpl.body(ValidatableResponseImpl.groovy:293)
-	at io.restassured.internal.ValidatableResponseImpl.body(ValidatableResponseImpl.groovy)
-	at com.NexustAPIAutomation.java.CommonMethods.getMethodContainsString(CommonMethods.java:1271)
-	at Private.searchControllerV4.searchMatchPhrasePrefixv4(searchControllerV4.java:46)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-	at org.testng.TestRunner.privateRun(TestRunner.java:739)
-	at org.testng.TestRunner.run(TestRunner.java:614)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-	at org.testng.TestNG.runSuites(TestNG.java:1112)
-	at org.testng.TestNG.run(TestNG.java:1079)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div></td>
-<td>0</td>
-<td>Private.searchControllerV4@413d1baf</td></tr>
-</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -231,7 +78,12 @@ Expected: a string containing &quot;\&quot;timed_out\&quot;:false,\&quot;_shards
 <tr>
 <td title='Private.searchControllerV4.elascticsearchcreateindex_v_4()'><b>elascticsearchcreateindex_v_4</b><br>Test class: Private.searchControllerV4</td>
 <td></td>
-<td>3</td>
+<td>2</td>
+<td>Private.searchControllerV4@413d1baf</td></tr>
+<tr>
+<td title='Private.searchControllerV4.searchMatchPhrasePrefixv4()'><b>searchMatchPhrasePrefixv4</b><br>Test class: Private.searchControllerV4</td>
+<td></td>
+<td>0</td>
 <td>Private.searchControllerV4@413d1baf</td></tr>
 </table><p>
 </body>
