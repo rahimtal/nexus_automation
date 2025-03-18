@@ -12,9 +12,11 @@ import org.testng.annotations.Test;
 import com.NexustAPIAutomation.java.CommonMethods;
 import com.NexustAPIAutomation.java.Retry;
 
+import io.restassured.path.json.JsonPath;
+
 public class lookupControllerv4 {
 
-	@Test(priority = 4, groups = "lookup" )
+	@Test(priority = 4, groups = "lookup")
 	public void getapplyByService_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookupBatch";
 		String ver = "4.0";
@@ -25,7 +27,7 @@ public class lookupControllerv4 {
 		Assert.assertTrue(actual.contains(expected));
 	}
 
-	@Test(priority = 2, groups = "lookup" )
+	@Test(priority = 2, groups = "lookup")
 	public void getapplyByService_Paymentsv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookupBatch";
@@ -39,7 +41,7 @@ public class lookupControllerv4 {
 		Assert.assertTrue(actual.contains(expected));
 	}
 
-	@Test(priority = 3, groups = "lookup" )
+	@Test(priority = 3, groups = "lookup")
 	public void getapplyByService_nonev4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri3 = "/lookupBatch";
@@ -52,7 +54,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 1, groups = "lookup" )
+	@Test(priority = 1, groups = "lookup")
 	public void lookupMetergroup4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri3 = "/lookupMeterGroup";
 		String ver = "4.0";
@@ -63,7 +65,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 5, groups = "lookup" )
+	@Test(priority = 5, groups = "lookup")
 	public void lookupCheckBookv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri3 = "/lookupCheckBook";
 		String ver = "4.0";
@@ -74,7 +76,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 6, groups = "lookup" )
+	@Test(priority = 6, groups = "lookup")
 	public void lookupReadingTypev4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri3 = "/lookupReadingType";
 		String ver = "4.0";
@@ -85,7 +87,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 7, groups = "lookup" )
+	@Test(priority = 7, groups = "lookup")
 	public void lookupNsfReasonCodev4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri3 = "/lookupNsfReasonCode";
 		String ver = "4.0";
@@ -96,7 +98,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 8, groups = "lookup" )
+	@Test(priority = 8, groups = "lookup")
 	public void lookupMeterReadv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		CommonMethods.Bug("CPDEV-20970");
 		String uri = "/lookupMeterRead";
@@ -104,12 +106,12 @@ public class lookupControllerv4 {
 		String expected = "\"EquipmentId\":\"ELECT\",\"BatchId\":\"TEST100\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000834\",\"ReadingDate\":\"2019-09-23\",\"LocationId\":\"SPALOCATION1\",\"EquipmentId\":\"EQUIPMENT018\",\"BatchId\":\"BILL10111\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000862\",\"ReadingDate\":\"2019-08-09\",\"LocationId\":\"BUDGETLOC01\",\"EquipmentId\":\"EQUIPMENT022\",\"BatchId\":\"BILL\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000871\",\"ReadingDate\":\"2019-07-31\",\"LocationId\":\"SPALOCATION1\",\"EquipmentId\":\"AUTOGAS\",\"BatchId\":\"BATGAS1\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000830\",\"ReadingDate\":\"2019-07-31\",\"LocationId\":\"TRANSACTION001\",\"EquipmentId\":\"EQUIPMENT007\",\"BatchId\":\"AC1001\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000890\",\"ReadingDate\":\"2019-07-01\",\"LocationId\":\"BILLGRAPH\",\"EquipmentId\":\"ELECMETER\",\"BatchId\":\"VOID\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000882\",\"ReadingDate\":\"2019-06-01\",\"LocationId\":\"BILLGRAPH\",\"EquipmentId\":\"ELECMETER\",\"BatchId\":\"VOID\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000803\",\"ReadingDate\":\"2019-04-12\",\"LocationId\":\"ELECWAT003\",\"EquipmentId\":\"EQUIPMENT015\",\"BatchId\":\"1\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000805\",\"ReadingDate\":\"2019-04-12\",\"LocationId\":\"ELECWAT002\",\"EquipmentId\":\"EQUIPMENT016\",\"BatchId\":\"001\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000907\",\"ReadingDate\":\"2019-02-28\",\"LocationId\":\"STATEMENTTEST01\",\"EquipmentId\":\"ELEC0001\",\"BatchId\":\"VOID\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000905\",\"ReadingDate\":\"2019-01-30\",\"LocationId\":\"STATEMENTTEST01\",\"EquipmentId\":\"ELEC0001\",\"BatchId\":\"VOID\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000418\",\"ReadingDate\":\"2000-06-30\",\"LocationId\":\"LOCEMP-1\",\"EquipmentId\":\"EQUIPELEC021\",\"BatchId\":\"READ55\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000419\",\"ReadingDate\":\"2000-06-30\",\"LocationId\":\"LOCEMP-1\",\"EquipmentId\":\"EQUIPELEC022\",\"BatchId\":\"READ55\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000420\",\"ReadingDate\":\"2000-06-30\",\"LocationId\":\"LOCATION007\",\"EquipmentId\":\"EQUIPMENT009\",\"BatchId\":\"READ55\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000421\",\"ReadingDate\":\"2000-06-30\",\"LocationId\":\"LOCATION002\",\"EquipmentId\":\"EQUIPMENT001\",\"BatchId\":\"READ55\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000422\",\"ReadingDate\":\"2000-06-30\",\"LocationId\":\"LOCATION003\",\"EquipmentId\":\"EQUIPMENT002\",\"BatchId\":\"READ55\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000423\",\"ReadingDate\":\"2000-06-30\",\"LocationId\":\"LOCATION004\",\"EquipmentId\":\"EQUIPMENT005\",\"BatchId\":\"READ55\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000424\",\"ReadingDate\":\"2000-06-30\",\"LocationId\":\"LOCATION008\",\"EquipmentId\":\"EQUIPMENT006\",\"BatchId\":\"READ55\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000425\",\"ReadingDate\":\"2000-06-30\",\"LocationId\":\"LOCATION008\",\"EquipmentId\":\"EQUIPMENT008\",\"BatchId\":\"READ55\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000428\",\"ReadingDate\":\"2000-06-30\",\"LocationId\":\"LOCATION011\",\"EquipmentId\":\"EQUIPMENT013\",\"BatchId\":\"READ55\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000429\",\"ReadingDate\":\"2000-06-30\",\"LocationId\":\"LOCATION012\",\"EquipmentId\":\"EQUIPMENT014\",\"BatchId\":\"READ55\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000430\",\"ReadingDate\":\"2000-06-30\",\"LocationId\":\"LOCATION013\",\"EquipmentId\":\"EQUIPMENT017\",\"BatchId\":\"READ55\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000675\",\"ReadingDate\":\"2000-04-15\",\"LocationId\":\"LOCATION009\",\"EquipmentId\":\"EQUIPMENT010\",\"BatchId\":\"SOMR00000000004\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000677\",\"ReadingDate\":\"2000-04-15\",\"LocationId\":\"LOCATION010\",\"EquipmentId\":\"EQUIPMENT012\",\"BatchId\":\"SOMR00000000006\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000648\",\"ReadingDate\":\"2000-03-31\",\"LocationId\":\"ELECWAT003\",\"EquipmentId\":\"EQUIP-GAS-2\",\"BatchId\":\"READ55\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000649\",\"ReadingDate\":\"2000-03-31\",\"LocationId\":\"ELECWAT003\",\"EquipmentId\":\"EQUIP-PHONE-1\",\"BatchId\":\"READ55\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000651\",\"ReadingDate\":\"2000-03-31\",\"LocationId\":\"ELECWAT002\",\"EquipmentId\":\"EQUIPMENT016\",\"BatchId\":\"READ55\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000652\",\"ReadingDate\":\"2000-03-31\",\"LocationId\":\"ELECWAT002\",\"EquipmentId\":\"WATEREQUIP003\",\"BatchId\":\"READ55\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000653\",\"ReadingDate\":\"2000-03-31\",\"LocationId\":\"ELECWAT003\",\"EquipmentId\":\"EQUIPMENT015\",\"BatchId\":\"READ55\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000654\",\"ReadingDate\":\"2000-03-31\",\"LocationId\":\"ELECWAT003\",\"EquipmentId\":\"WATEREQUIP004\",\"BatchId\":\"READ55\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000656\",\"ReadingDate\":\"2000-03-31\",\"LocationId\":\"ELECWAT002\",\"EquipmentId\":\"EQUIPPH-1\",\"BatchId\":\"READ55\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000657\",\"ReadingDate\":\"2000-03-31\",\"LocationId\":\"ELECWAT002\",\"EquipmentId\":\"EQUIPPH-1\",\"BatchId\":\"READ55\",\"Status\":\"Open\"},{\"DocumentNumber\":\"READ00000000658\",\"ReadingDate\":\"2000-03-31\",\"LocationId\":\"ELECWAT003\",\"EquipmentId\":\"EQUIP-PHONE-1\",\"BatchId\":\"READ55\",\"Status\":\"Open\"}]}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		String result = CommonMethods.getMethodasString(uri, version, params);
-		//Assert.assertTrue(result.contains(expected),result.toString());
+		// Assert.assertTrue(result.contains(expected),result.toString());
 		Assert.assertEquals(result, expected);
 
 	}
 
-	@Test(priority = 9, groups = "lookup" )
+	@Test(priority = 9, groups = "lookup")
 	public void lookupdocumentTypev4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri3 = "/lookup/documentType";
 		String ver = "4.0";
@@ -120,7 +122,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 10, groups = "lookup" )
+	@Test(priority = 10, groups = "lookup")
 	public void lookupzonev4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri3 = "/lookup/zone";
 		String ver = "4.0";
@@ -129,7 +131,7 @@ public class lookupControllerv4 {
 		String result = CommonMethods.getMethod(uri3, ver, params, jpath);
 	}
 
-	@Test(priority = 11, groups = "lookup" )
+	@Test(priority = 11, groups = "lookup")
 	public void lookupequipmentModelv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/equipmentModel";
@@ -140,7 +142,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 12, groups = "lookup" )
+	@Test(priority = 12, groups = "lookup")
 	public void lookupequipmentClassv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/EquipmentClass";
@@ -152,7 +154,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 13, groups = "lookup" )
+	@Test(priority = 13, groups = "lookup")
 	public void lookupequipmentTypev4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/Lookup/EquipmentType";
 		String ver = "4.0";
@@ -163,7 +165,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 13, groups = "lookup" )
+	@Test(priority = 13, groups = "lookup")
 	public void lookupequipmentStatusv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/EquipmentStatus";
@@ -175,7 +177,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 14, groups = "lookup" )
+	@Test(priority = 14, groups = "lookup")
 	public void lookupequipmentNetMetervType4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/equipmentNetMeterType";
@@ -186,7 +188,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 15, groups = "lookup" )
+	@Test(priority = 15, groups = "lookup")
 	public void lookupEquipmentRegisterCode4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/EquipmentRegisterCode";
@@ -197,7 +199,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 16, groups = "lookup" )
+	@Test(priority = 16, groups = "lookup")
 	public void lookupEquipmentAttributeProtection4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/EquipmentAttributeProtection";
@@ -208,7 +210,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 17, groups = "lookup" )
+	@Test(priority = 17, groups = "lookup")
 	public void lookupbillType() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/billType";
 		String ver = "4.0";
@@ -218,7 +220,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 18, groups = "lookup" )
+	@Test(priority = 18, groups = "lookup")
 	public void lookupbillingPrepareType()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/billingPrepareType";
@@ -229,7 +231,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 19, groups = "lookup" )
+	@Test(priority = 19, groups = "lookup")
 	public void lookupcollectionnoticeType()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/collection/noticeType";
@@ -240,7 +242,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 20, groups = "lookup" )
+	@Test(priority = 20, groups = "lookup")
 	public void lookupkvaReadingType() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/kvaReadingType";
 		String ver = "4.0";
@@ -250,7 +252,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 21, groups = "lookup" )
+	@Test(priority = 21, groups = "lookup")
 	public void lookupchargeType() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.Bug("CPDEV-17064");
 		String uri = "/lookup/chargeType";
@@ -263,7 +265,7 @@ public class lookupControllerv4 {
 
 	}
 
-	@Test(priority = 211, groups = "lookup" )
+	@Test(priority = 211, groups = "lookup")
 	public void lookupchargeTypeAll() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.Bug("CPDEV-17064");
 		String uri = "/lookup/chargeType";
@@ -276,7 +278,7 @@ public class lookupControllerv4 {
 
 	}
 
-	@Test(priority = 22, groups = "lookup" )
+	@Test(priority = 22, groups = "lookup")
 	public void lookupbillingCyclePeriod()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/billingCyclePeriod";
@@ -287,7 +289,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 23, groups = "lookup" )
+	@Test(priority = 23, groups = "lookup")
 	public void lookupMiscChargeDocuments()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		CommonMethods.Bug(" CPDEV-17161 ");
@@ -300,7 +302,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 24, groups = "lookup" )
+	@Test(priority = 24, groups = "lookup")
 	public void lookupPaymentDocuments()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -316,7 +318,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 25, groups = "lookup" )
+	@Test(priority = 25, groups = "lookup")
 	public void lookupserviceOrderOrigin()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/serviceOrderOrigin";
@@ -327,7 +329,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 26, groups = "lookup" )
+	@Test(priority = 26, groups = "lookup")
 	public void lookupserviceOrderStatus()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/serviceOrderStatus";
@@ -338,11 +340,11 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 27, groups = "lookup" )
+	@Test(priority = 27, groups = "lookup")
 	public void lookupserviceOrderTask()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		//CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-18771");
-		//CPDEV-18771 - developer confirm this is not an issue
+		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-18771");
+		// CPDEV-18771 - developer confirm this is not an issue
 		String uri = "/lookup/serviceOrderTasks";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\lookupserviceOrderTasksv4.json";
@@ -351,7 +353,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 28, groups = "lookup" )
+	@Test(priority = 28, groups = "lookup")
 	public void lookupserviceOrderRequestedBy()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/serviceOrderRequestedBy";
@@ -362,7 +364,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 29, groups = "lookup" )
+	@Test(priority = 29, groups = "lookup")
 	public void lookuplocationClass() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/locationClass";
 		String version = "4.0";
@@ -372,7 +374,7 @@ public class lookupControllerv4 {
 		Assert.assertEquals(result, expected);
 	}
 
-	@Test(priority = 30, groups = "lookup" )
+	@Test(priority = 30, groups = "lookup")
 	public void lookuplocation() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookupLocation";
 		String version = "4.0";
@@ -383,7 +385,7 @@ public class lookupControllerv4 {
 		Assert.assertEquals(result, expected);
 	}
 
-	@Test(priority = 31, groups = "lookup" )
+	@Test(priority = 31, groups = "lookup")
 	public void lookupBatch() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookupBatch?BatchSource=BILLING&BillingType=Final";
 		String version = "4.0";
@@ -395,7 +397,7 @@ public class lookupControllerv4 {
 		Assert.assertEquals(result, expected);
 	}
 
-	@Test(priority = 32, groups = "lookup" )
+	@Test(priority = 32, groups = "lookup")
 	public void lookuptranferBillToCustomerDeposit()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -410,7 +412,7 @@ public class lookupControllerv4 {
 		Assert.assertEquals(result, expected);
 	}
 
-	@Test(priority = 211, groups = "lookup" )
+	@Test(priority = 211, groups = "lookup")
 	public void lookupchargeTypeAll2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.Bug("CPDEV-17064");
 		String uri = "/lookup/chargeType";
@@ -423,7 +425,7 @@ public class lookupControllerv4 {
 
 	}
 
-	@Test(priority = 33, groups = "lookup" )
+	@Test(priority = 33, groups = "lookup")
 	public void getlookupcreditCard_v4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/creditCard";
@@ -433,6 +435,35 @@ public class lookupControllerv4 {
 		String actual = CommonMethods.getMethodasString(uri, ver, params);
 		System.out.println(actual);
 		Assert.assertTrue(actual.contains(expected));
+	}
+
+	// This will create elastic search index if not already
+	@Test(priority = 34, groups = "Search")
+	public void elascticsearchcreateindex_v_4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/search/load?index=accounts";
+		String ver = "4.0";
+		String payload = "{\r\n" + "    \"Index\": \"accounts\",\r\n" + "    \"RefreshModifiedOnly\": false\r\n"
+				+ "}\r\n" + "";
+
+		JsonPath result = CommonMethods.postMethodStringPayload(payload, uri, ver);
+		System.out.println(result.prettyPrint());
+
+	}
+
+	@Test(priority = 35, groups = "lookup")
+	public void getserviceAddressLookup_v4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/serviceAddressLookup";
+		String ver = "e";
+		String expected = "{\"result\":{\"statusCode\":\"0\",\"statusMessage\":\"\",\"apiVersionNumber\":\"1.0\"},\"serviceAddresses\":[{\"serviceAddress\":\"130 SAMSULA DR\",\"premiseId\":\"000000000523000\",\"serviceAddressLine2\":\"Address Line 2\"}]}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("serviceAddress", "130");
+		params.put("resultLimit", "50");
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertEquals(actual, expected);
 	}
 
 }
