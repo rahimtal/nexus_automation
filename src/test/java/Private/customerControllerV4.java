@@ -20,6 +20,7 @@ public class customerControllerV4 {
 	public static void getCustomerBasicInfo4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
+		CommonMethods.Bug("CPDEV-21251");
 		String uri = "/customers/AUTO1001/info";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\getCustomerBasicInfo4.json";
