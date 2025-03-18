@@ -8,6 +8,7 @@ import com.NexustAPIAutomation.java.CommonMethods;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
+import freemarker.core.BugException;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
@@ -26,7 +27,7 @@ public class BatchControllerv4 extends BaseClass {
 		switch (type) {
 
 		case "post":
-			CommonMethods.postMethodStringPayloadString(payload, uri, ver);
+			Assert.assertEquals(CommonMethods.postMethodStringPayloadString(payload, uri, ver), expected);
 			break;
 
 		case "pur":
@@ -49,6 +50,7 @@ public class BatchControllerv4 extends BaseClass {
 
 	@Test(priority = 2, groups = "batch")
 	public void postBatchtv4_err() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		CommonMethods.Bug(" CPDEV-21246");
 		runTest("postBatchtv4_err", "/batch", "4.0",
 				"{\"BatchId\": \"Test Batch 2025\", \"BatchType\": 3, \"OriginId\": \"\", \"CheckbookId\": \"FIRST NATIONAL\", \"Comment\": \"Example Comment\"}",
 				"{\"Batch\":{\"Success\":false,\"Messages\":[{\"Enabled\":1,\"Info\":\"Batch Id ( Test Batch 2025 ) already exist.\",\"Level\":3}]}}",
