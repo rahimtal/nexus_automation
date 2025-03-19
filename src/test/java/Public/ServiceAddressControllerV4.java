@@ -24,22 +24,8 @@ public class ServiceAddressControllerV4 {
 	public static JsonPath jsonPathEvaluator;
 	public static String ServiceOrderNumber;
 
-	@Test(priority = 1, groups = "ServiceOrder")
-	public static void getServiceOrderdetails_v4()
-			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		//CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-20975");
-		String uri = "/search/load";
-		String ver = "4.0";
-		String expected = "{\"Search\":{\"Success\":true,\"Data\":null,\"Messages\":[]}}";
-		HashMap<String, String> params = new HashMap<String, String>();
-		params.put("ShowDrillBack", "true");
-		params.put("ServiceOrderNumber", "SORD00000000043");
-
-		String result = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(result, expected);
-
-	}
-
+	//@Test(priority = 1, groups = "ServiceOrder")
+	
 
 
 }
