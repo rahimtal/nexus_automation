@@ -91,7 +91,7 @@ public class customerControllerV4 {
 
 	@Test(priority = 5, groups = "CustomerController")
 	public void putupdateCustomerCard() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		CommonMethods.Bug("CPDEV-20936");
+		//CommonMethods.Bug("CPDEV-20936");
 		String uri = "/customer/updateCustomerCard";
 		String ver = "4.0";
 		String jpath = "{\r\n" + "	\"CustomerId\": \"CUSTOMER003\",\r\n" + "	\"AddressLine1\": \"6 JIM BLVD\",\r\n"

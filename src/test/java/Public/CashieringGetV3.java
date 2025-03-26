@@ -88,7 +88,7 @@ public class CashieringGetV3 {
 	public void TC004_getReceipt() throws ClassNotFoundException, SQLException, InterruptedException {
 		// CommonMethods.CompanyDBRestore();
 
-		CommonMethods.Bug("CPDEV-20951");
+		//CommonMethods.Bug("CPDEV-20951");
 		String uri = "/cashiering/receipt/004270412000001";
 		String ver = "3.0";
 		String payload = "";
