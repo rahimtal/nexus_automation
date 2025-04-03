@@ -245,6 +245,7 @@ public class CommonMethods {
 			break;
 		}
 		File jsonDataInFile = new File(payload);
+
 		Response response;
 		RestAssured.baseURI = RestAssured.baseURI + uri;
 		System.out.println("Posting uri :" + RestAssured.baseURI.toString());

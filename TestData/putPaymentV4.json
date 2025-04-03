@@ -2,7 +2,7 @@
     "LocationId": "BUDGETLOC02",
     "CustomerId": "03332301204",
     "DocumentNumber": "PYMT00000000530",
-    "Checkbook": "PETTY CASH",
+    "Checkbook": "",
     "BatchId": "___api_CR",
     "Type": 3,
     "PaymentDate": "2024-04-20",

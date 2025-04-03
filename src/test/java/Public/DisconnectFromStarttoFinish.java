@@ -31,7 +31,7 @@ public class DisconnectFromStarttoFinish {
 	public static void PostMeterReading()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
-		CommonMethods.Bug("CPDEV-20914");
+		//CommonMethods.Bug("CPDEV-20914");
 		String uri = "/meterReading";
 		String ver = "4.0";
 		String payload = "./\\TestData\\PostmeterReadingV4.json";

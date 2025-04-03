@@ -75,12 +75,12 @@ public class PaymentControllerV4 {
 	@Test(priority = 5, groups = "Payment" )
 	public void postPaymentMiscv4() throws ClassNotFoundException, SQLException, InterruptedException {
 		// CommonMethods.CompanyDBRestore();
-		CommonMethods.Bug("CPDEV-18766");
+	//	CommonMethods.Bug("CPDEV-18766");
 		String uri = "/payment";
 		String ver = "4.0";
 		String payload = "./\\TestData\\PostPaymentMiscv4.json";
 		//String exresult = "{\"Payment\":{\"Success\":true,\"Data\":{\"BatchId\":\"API20240505001\",\"DocumentNumber\":\"PYMT00000000529\"},\"Messages\":[]}}";
-		String exresult = "{\"Payment\":{\"Success\":true,\"Data\":{\"BatchId\":null,\"DocumentNumber\":\"PYMT";
+		String exresult = "{\"Payment\":{\"Success\":true,\"Data\":{\"BatchId\":\"___api_CR\",\"DocumentNumber\":\"PYMT00000000";
 		CommonMethods.postcallcontains(uri, payload, ver, exresult);
 		}
 
