@@ -124,7 +124,7 @@ public class PaymentControllerV4 {
 
 	@Test(priority = 9, groups = "Payment" )
 	public void putputPaymentV4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		CommonMethods.Bug("CPDEV-18776");
+		//CommonMethods.Bug("CPDEV-18776");
 		String uri = "/Payment";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\putPaymentV4.json";

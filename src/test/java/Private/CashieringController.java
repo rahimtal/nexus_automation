@@ -199,7 +199,7 @@ public class CashieringController extends BaseClass {
 	public void saveReciept_2_4()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
 		// CommonMethods.CompanyDBRestore();
-		CommonMethods.Bug("CPDEV-20919");
+		//CommonMethods.Bug("CPDEV-20919");
 		String columnName = "umDocumentNumber";
 		String Command1 = "select top 1 umDocumentNumber from TWO.dbo.UMRM102 order by umDocumentNumber desc";
 		String Result = "";
