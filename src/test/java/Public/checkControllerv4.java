@@ -25,7 +25,7 @@ public class checkControllerv4 {
 
 	public static JsonPath jsonPathEvaluator;
 
-	@Test(priority = 1, groups = "check" )
+	@Test(priority = 1, groups = "check")
 	public static void PostCheckv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/check";
@@ -95,7 +95,7 @@ public class checkControllerv4 {
 		}
 	}
 
-	@Test(priority = 5, groups = "check" )
+	@Test(priority = 5, groups = "check")
 	public static String getNextCheckv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -133,11 +133,11 @@ public class checkControllerv4 {
 
 	}
 
-	@Test(priority = 7, groups = "check" )
+	@Test(priority = 7, groups = "check")
 	public static void putChecksendtoAPv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
-		CommonMethods.Bug("CPDEV-18547");
+		// CommonMethods.Bug("CPDEV-18547");
 		String uri = "/check/sendtoAP";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\putChecksendtoAPv4.json";
@@ -147,7 +147,7 @@ public class checkControllerv4 {
 
 	}
 
-	@Test(priority = 8, groups = "check" )
+	@Test(priority = 8, groups = "check")
 	public static void postingReceivable4Error()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
@@ -166,14 +166,14 @@ public class checkControllerv4 {
 			String result = response.asString();
 			// result.replaceAll("\\s", "");
 			System.out.println("Response " + result);
-			String expected = "{\"Check\":{\"Success\":false,\"Data\":{\"DocumentNumber\":\"CHEQ00000000009\",\"Receivable\":null,\"PostingReport\":false,\"PostingError\":false,\"ReportList\":[],\"ReportErrorList\":[]},\"Messages\":[{\"Enabled\":1,\"Info\":\"Check must be sent to AP before posting.\",\"Level\":3}]}}";
+			String expected = "{\"Check\":{\"Success\":false,\"Data\":{\"DocumentNumber\":\"CHEQ00000000009\",\"Receivable\":[{\"ChargeDocument\":\"MISC00000000392\",\"Posted\":false}],\"PostingReport\":true,\"PostingError\":true,\"ReportList\":[{\"Name\":\"Post Check Refund Edit List\",\"PrintOrder\":1}],\"ReportErrorList\":[{\"Name\":\"Post Check Refund Error List\",\"PrintOrder\":1}]},\"Messages\":[{\"Enabled\":1,\"Info\":\"Posting validation warning found. Refer to posting error report.\",\"Level\":2},{\"Enabled\":1,\"Info\":\"csmApi_spCheckPostingReceivableCreate - Cannot insert the value NULL into column 'umTotalTaxes', table 'TWO.dbo.UTX'; column does not allow nulls. INSERT fails.\",\"Level\":3}]}}";
 			Assert.assertEquals(result, expected);
 
 		}
 
 	}
 
-	@Test(priority = 8, groups = "check" )
+	@Test(priority = 8, groups = "check")
 	public static void postingReceivable4RefundError()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();

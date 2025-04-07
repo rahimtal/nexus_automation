@@ -17,7 +17,7 @@ import io.restassured.response.Response;
 
 public class contactLogController {
 
-	@Test(priority = 1, groups = "contactLogController" )
+	@Test(priority = 1, groups = "contactLogController")
 	public void postcontactLogSimplev4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
@@ -30,7 +30,7 @@ public class contactLogController {
 
 	}
 
-	@Test(priority = 2, groups = "contactLogController" )
+	@Test(priority = 2, groups = "contactLogController")
 	public void postcontactLogControllerv4datevaldiation()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -42,7 +42,7 @@ public class contactLogController {
 
 	}
 
-	@Test(priority = 3, groups = "contactLogController" )
+	@Test(priority = 3, groups = "contactLogController")
 	public void postcontactLogControllerv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -54,40 +54,44 @@ public class contactLogController {
 
 	}
 
-	@Test(priority = 4, groups = "contactLogController" )
+	@Test(priority = 4, groups = "contactLogController")
 	public void getContactLogDetail() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.Bug("CPDEV-18571");
 		String uri = "/contactLog/getContactLogDetail";
 		String ver = "4.0";
 		String expected = "{\"result\":[{\"Description\":\"Visit Customer\",\"AdditionalText\":\"Test\",\"ContactMethod\":\"Email\",\"ActionCode\":\"2\",\"UserID\":\"Admin\",\"UserName\":\"Admin\",\"ContactDate\":\"2020-01-14T02:48:51.000Z\",\"NextDate\":\"2020-01-21\",\"IsCompleted\":\"Outstanding\",\"Resolution\":\"\",\"ServiceOrderNumber\":\"\",\"ServiceOrderStatusDescription\":\"\",\"RequestID\":\"\",\"RequestDescription\":\"\",\"DrillbackLink\":\"\"}]}";
-		//String exp2 = "\"IsCompleted\":\"Completed\",\"Resolution\":\"\",\"ServiceOrderNumber\":\"SORD00000009044\",\"ServiceOrderStatusDescription\":\"Pending\",\"RequestID\":\"DISCONNECT\",\"RequestDescription\":\"Disconnected connection\",\"DrillbackLink\":\"cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=ServiceOrder&LocationID=LOCATION008&ServiceOrderNumber=SORD00000009044&CogsDrillback=1\"}]}";
+		// String exp2 =
+		// "\"IsCompleted\":\"Completed\",\"Resolution\":\"\",\"ServiceOrderNumber\":\"SORD00000009044\",\"ServiceOrderStatusDescription\":\"Pending\",\"RequestID\":\"DISCONNECT\",\"RequestDescription\":\"Disconnected
+		// connection\",\"DrillbackLink\":\"cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=ServiceOrder&LocationID=LOCATION008&ServiceOrderNumber=SORD00000009044&CogsDrillback=1\"}]}";
 
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("LocationId", "ELECWAT001");
 		params.put("CustomerId", "CUSTOMER007");
 		params.put("CsmApiDatabase", "NEXUS_API");
 		CommonMethods.getMethodContainsString(uri, ver, params, expected);
-		//CommonMethods.getMethodContainsString(uri, ver, params, exp2);
+		// CommonMethods.getMethodContainsString(uri, ver, params, exp2);
 
 	}
 
-	@Test(priority = 5, groups = "contactLogController" )
+	@Test(priority = 5, groups = "contactLogController")
 	public void getContactLogDetail2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/contactLog";
 		String version = "4.0";
 		String expected = "{\"ContactLog\":{\"Success\":true,\"Data\":{\"Detail\":[{\"ActionCode\":\"2\",\"AdditionalText\":\"Test\",\"ContactMethod\":3,\"Description\":\"Visit Customer\",\"FirstContactDateTime\":\"2020-01-14T07:48:51\",\"NextContactDateTime\":\"2020-01-21T00:00:00\",\"CompletedDateTime\":\"1900-01-01T00:00:00\",\"IsCompleted\":false,\"ResolutionText\":\"\",\"ServiceOrder\":null,\"FollowUpEmployee\":null,\"User\":null}]},\"Messages\":[]}}";
-		//String expected2 = "\"CompletedDateTime\":\"2022-04-09T23:01:05\",\"IsCompleted\":true,\"ResolutionText\":\"\",\"ServiceOrder\":{\"Number\":\"SORD00000009044\",\"StatusDescription\":\"Pending\",\"RequestId\":\"DISCONNECT\",\"RequestDescription\":\"Disconnected connection\"},\"FollowUpEmployee\":{\"Id\":\"ZAID0001\",\"FirstName\":\"Syed\",\"MiddleName\":\"M.\",\"LastName\":\"Zaidi\"},\"User\":{\"Id\":\"sa\",\"FirstName\":\"Sam\",\"MiddleName\":\"M.\",\"LastName\":\"Arsenault\"}}]},\"Messages\":[]}}";
+		// String expected2 =
+		// "\"CompletedDateTime\":\"2022-04-09T23:01:05\",\"IsCompleted\":true,\"ResolutionText\":\"\",\"ServiceOrder\":{\"Number\":\"SORD00000009044\",\"StatusDescription\":\"Pending\",\"RequestId\":\"DISCONNECT\",\"RequestDescription\":\"Disconnected
+		// connection\"},\"FollowUpEmployee\":{\"Id\":\"ZAID0001\",\"FirstName\":\"Syed\",\"MiddleName\":\"M.\",\"LastName\":\"Zaidi\"},\"User\":{\"Id\":\"sa\",\"FirstName\":\"Sam\",\"MiddleName\":\"M.\",\"LastName\":\"Arsenault\"}}]},\"Messages\":[]}}";
 
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("LocationId", "ELECWAT001");
 		params.put("CustomerId", "CUSTOMER007");
 		CommonMethods.getMethodContainsString(uri, version, params, expected);
-		//CommonMethods.getMethodContainsString(uri, version, params, expected2);
+		// CommonMethods.getMethodContainsString(uri, version, params, expected2);
 
 	}
 
-	@Test(priority = 7, groups = "contactLogController" )
+	@Test(priority = 7, groups = "contactLogController")
 	public void contactLoggetContactLogActionCodes()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -100,7 +104,7 @@ public class contactLogController {
 
 	}
 
-	@Test(priority = 6, groups = "contactLogController" )
+	@Test(priority = 6, groups = "contactLogController")
 	public void getContactLogMethods() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/contactLog/getContactLogMethods";
@@ -112,7 +116,7 @@ public class contactLogController {
 
 	}
 
-	@Test(priority = 8, groups = "contactLogController" )
+	@Test(priority = 8, groups = "contactLogController")
 	public void getContactLogServiceOrderRequest()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -125,16 +129,23 @@ public class contactLogController {
 
 	}
 
-	@Test(priority = 9, groups = "contactLogController" )
+	@Test(priority = 9, groups = "contactLogController")
 	public static void putcontactLogv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.Bug("CPDEV-18576");
 		String uri = "/contactLog";
 		String ver = "4.0";
-		String jpath = "./\\TestData\\putContactLog.json";
-		String params = new String(Files.readAllBytes(Paths.get(jpath)));
-		String expected = "./\\TestData\\putCheckexpectedsendtoApi_v4.json";
-		CommonMethods.putMethod(uri, ver, params, expected);
+		String payload = "{\r\n" + "	\"CustomerId\": \"CUSTOMER007\",\r\n" + "	\"LocationId\": \"ELECWAT001\",\r\n"
+				+ "    \"ActionCode\": \"2\",\r\n" + "	\"FirstContactDateTime\": \"2020-01-14T07:48:51Z\",\r\n"
+				+ "	\"ContactMethod\": 1,\r\n" + "	\"Description\": \"Request to read meter\",\r\n"
+				+ "	\"CompletedDateTime\": \"2022-04-09T16:01:05Z\",\r\n"
+				+ "	\"NextContactDateTime\": \"2022-01-21T11:11:12Z\",\r\n" + "	\"ResolutionText\": \"\",\r\n"
+				+ "	\"AdditionalText\": \"\",\r\n" + "	\"FollowUpEmployeeId\": \"sa\",\r\n"
+				+ "	\"ServiceOrder\": {\r\n" + "		\"RequestId\": \"\",\r\n"
+				+ "		\"RequestDate\": \"2023-02-28\"\r\n" + "	}\r\n" + "}";
+
+		String expected = ".{\"ContactLog\":{\"Success\":true,\"Data\":{\"ServiceOrderNumber\":\"\"},\"Messages\":[]}}";
+		CommonMethods.putMethodstring(uri, ver, payload, expected);
 
 	}
 

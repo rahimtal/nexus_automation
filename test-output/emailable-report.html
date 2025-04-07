@@ -9,13 +9,56 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">12</td><td class="num attn">2</td><td class="num">0</td><td class="num">0</td><td class="num">17,496</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">3,781</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="2">Private.CashieringController</td><td><a href="#m0">TC006_gettransactions</a></td><td rowspan="1">1743765150154</td><td rowspan="1">2</td></tr><tr class="skippedeven"><td><a href="#m1">TC007_getAutoApply</a></td><td rowspan="1">1743765150161</td><td rowspan="1">1</td></tr><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="12">Private.CashieringController</td><td><a href="#m2">TC002_RecieptAdjustment</a></td><td rowspan="1">1743765147876</td><td rowspan="1">281</td></tr><tr class="passedeven"><td><a href="#m3">TC003_1_getCashin</a></td><td rowspan="1">1743765134736</td><td rowspan="1">5691</td></tr><tr class="passedeven"><td><a href="#m4">TC003_getnextReceipt</a></td><td rowspan="1">1743765148921</td><td rowspan="1">277</td></tr><tr class="passedeven"><td><a href="#m5">TC004_balances</a></td><td rowspan="1">1743765148160</td><td rowspan="1">757</td></tr><tr class="passedeven"><td><a href="#m6">TC004_getReceipt</a></td><td rowspan="1">1743765149200</td><td rowspan="1">595</td></tr><tr class="passedeven"><td><a href="#m7">TC005_getRegisterInfo</a></td><td rowspan="1">1743765149799</td><td rowspan="1">352</td></tr><tr class="passedeven"><td><a href="#m8">saveReciept_2_4</a></td><td rowspan="1">1743765140457</td><td rowspan="1">7414</td></tr><tr class="passedeven"><td><a href="#m9">saveReciept_4_SOTaskCompleteDepositPayment</a></td><td rowspan="1">1743765151153</td><td rowspan="1">349</td></tr><tr class="passedeven"><td><a href="#m10">saveReciept_4_SOTaskCompleteDepositPaymenttask2</a></td><td rowspan="1">1743765151505</td><td rowspan="1">307</td></tr><tr class="passedeven"><td><a href="#m11">saveReciept_4_prepaymentExistingCustomer</a></td><td rowspan="1">1743765150167</td><td rowspan="1">551</td></tr><tr class="passedeven"><td><a href="#m12">saveReciept_4_prepaymentNewCustomer</a></td><td rowspan="1">1743765150720</td><td rowspan="1">429</td></tr><tr class="passedeven"><td><a href="#m13">saveReciept_SOTaskCompleteDepositPaymenttaskNewCustomer</a></td><td rowspan="1">1743765151814</td><td rowspan="1">311</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">Public.accountBalancesv4</td><td><a href="#m0">getAccountBalancesV4</a></td><td rowspan="1">1744035270180</td><td rowspan="1">3703</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">Private.CashieringController#TC006_gettransactions</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.testng.SkipException: Skipping this due to bugCPDEV-16978
-	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1537)
-	at Private.CashieringController.TC006_gettransactions(CashieringController.java:139)
+<h2>Default test</h2><h3 id="m0">Public.accountBalancesv4#getAccountBalancesV4</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: 1 expectation failed.
+Response body doesn&apos;t match expectation.
+Expected: a string containing &quot;{\&quot;result\&quot;:[{\&quot;PastDue\&quot;:\&quot;5847.60\&quot;,\&quot;CurrentBalance\&quot;:\&quot;0.00\&quot;,\&quot;UnpostedBalance\&quot;:\&quot;-90.99\&quot;,\&quot;AmountDue\&quot;:\&quot;5756.61\&quot;,\&quot;AccountBalance\&quot;:\&quot;5756.61\&quot;,\&quot;OverShort\&quot;:\&quot;0.00\&quot;,\&quot;DepositAmount\&quot;:\&quot;0.00\&quot;,\&quot;DepositOutstandingAmount\&quot;:\&quot;0.00\&quot;,\&quot;InstallmentBudget\&quot;:\&quot;0.00\&quot;,\&quot;InstallmentSPA\&quot;:\&quot;0.00\&quot;,\&quot;LastPaymentDate\&quot;:\&quot;2020-01-15\&quot;,\&quot;LastPaymentAmount\&quot;:\&quot;90.99\&quot;,\&quot;LastDueDate\&quot;:\&quot;2000-10-02\&quot;,\&quot;LatestStatementDate\&quot;:\&quot;2000-03-31\&quot;,\&quot;LatestStatementAmount\&quot;:\&quot;21.52\&quot;,\&quot;IsMasterLocation\&quot;:false,\&quot;IsIncludedLocation\&quot;:false}]}&quot;
+  Actual: {&quot;AccountBalance&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;PastDue&quot;:21.52,&quot;CurrentBalance&quot;:0.00,&quot;UnpostedBalance&quot;:-90.99,&quot;AmountDue&quot;:-69.47,&quot;AccountBalance&quot;:5756.61,&quot;OverShort&quot;:5826.08,&quot;DepositAmount&quot;:0.00,&quot;DepositOutstandingAmount&quot;:0.00,&quot;InstallmentBudget&quot;:0.00,&quot;InstallmentSPA&quot;:0.00,&quot;LastPaymentDate&quot;:&quot;2020-01-15&quot;,&quot;LastPaymentAmount&quot;:90.99,&quot;LastDueDate&quot;:&quot;2000-10-02&quot;,&quot;LatestStatementDate&quot;:&quot;2000-03-31&quot;,&quot;LatestStatementAmount&quot;:21.52,&quot;IsMasterLocation&quot;:false,&quot;IsIncludedLocation&quot;:false},&quot;Messages&quot;:[]}}
+
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:80)
+	at org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:74)
+	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:59)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:237)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:249)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:493)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:115)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:127)
+	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:674)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:190)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:58)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:51)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:156)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:168)
+	at io.restassured.internal.ResponseSpecificationImpl.body(ResponseSpecificationImpl.groovy:98)
+	at io.restassured.internal.ValidatableResponseOptionsImpl.body(ValidatableResponseOptionsImpl.java:238)
+	at io.restassured.internal.ValidatableResponseImpl.super$2$body(ValidatableResponseImpl.groovy)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:101)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1217)
+	at org.codehaus.groovy.runtime.ScriptBytecodeAdapter.invokeMethodOnSuperN(ScriptBytecodeAdapter.java:144)
+	at io.restassured.internal.ValidatableResponseImpl.body(ValidatableResponseImpl.groovy:293)
+	at io.restassured.internal.ValidatableResponseImpl.body(ValidatableResponseImpl.groovy)
+	at com.NexustAPIAutomation.java.CommonMethods.getMethodContains(CommonMethods.java:1220)
+	at Public.accountBalancesv4.getAccountBalancesV4(accountBalancesv4.java:38)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -45,39 +88,5 @@
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">Private.CashieringController#TC007_getAutoApply</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.Throwable: Method Private.CashieringController.TC007_getAutoApply() on instance Private.CashieringController@5482bcac depends on not successfully finished methods 
-[Private.CashieringController.TC006_gettransactions() on instance Private.CashieringController@5482bcac]
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:159)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-	at org.testng.TestRunner.privateRun(TestRunner.java:739)
-	at org.testng.TestRunner.run(TestRunner.java:614)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-	at org.testng.TestNG.runSuites(TestNG.java:1112)
-	at org.testng.TestNG.run(TestNG.java:1079)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">Private.CashieringController#TC002_RecieptAdjustment</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">Private.CashieringController#TC003_1_getCashin</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">Private.CashieringController#TC003_getnextReceipt</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m5">Private.CashieringController#TC004_balances</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m6">Private.CashieringController#TC004_getReceipt</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m7">Private.CashieringController#TC005_getRegisterInfo</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m8">Private.CashieringController#saveReciept_2_4</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m9">Private.CashieringController#saveReciept_4_SOTaskCompleteDepositPayment</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m10">Private.CashieringController#saveReciept_4_SOTaskCompleteDepositPaymenttask2</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m11">Private.CashieringController#saveReciept_4_prepaymentExistingCustomer</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m12">Private.CashieringController#saveReciept_4_prepaymentNewCustomer</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m13">Private.CashieringController#saveReciept_SOTaskCompleteDepositPaymenttaskNewCustomer</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>
