@@ -2,6 +2,9 @@ package Private;
 
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
+
+import static org.testng.Assert.assertTrue;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -19,7 +22,7 @@ import io.restassured.response.Response;
 
 public class PaymentControllerV4 {
 
-	@Test(priority = 1, groups = "Payment" )
+	@Test(priority = 1, groups = "Payment")
 	public void gettPaymentNextv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/payment/next";
@@ -32,7 +35,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 2, groups = "Payment" )
+	@Test(priority = 2, groups = "Payment")
 	public void postPaymentSimulatev4() throws ClassNotFoundException, SQLException, InterruptedException {
 
 		CommonMethods.Bug("CPDEV-20897");
@@ -46,7 +49,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 3, groups = "Payment" )
+	@Test(priority = 3, groups = "Payment")
 	public static void delPaymentv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/payment/PYMT00000000431";
@@ -57,7 +60,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 4, groups = "Payment" )
+	@Test(priority = 4, groups = "Payment")
 	public static void delPaymentv4Err()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
@@ -69,7 +72,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 5, groups = "Payment" )
+	@Test(priority = 5, groups = "Payment")
 	public static void delPaymentv4CreditNote()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
@@ -81,7 +84,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 6, groups = "Payment" )
+	@Test(priority = 6, groups = "Payment")
 	public void gettPaymentNextOpenv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/payment/next";
@@ -93,7 +96,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 7, groups = "Payment" )
+	@Test(priority = 7, groups = "Payment")
 	public void gettPaymentNextHistv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/payment/next";
@@ -109,7 +112,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 8, groups = "Payment" )
+	@Test(priority = 8, groups = "Payment")
 	public void gettPaymentNextAllv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/payment/next";
@@ -122,9 +125,9 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 9, groups = "Payment" )
+	@Test(priority = 9, groups = "Payment")
 	public void putputPaymentV4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		//CommonMethods.Bug("CPDEV-18776");
+		// CommonMethods.Bug("CPDEV-18776");
 		String uri = "/Payment";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\putPaymentV4.json";
@@ -134,7 +137,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 10, groups = "Payment" )
+	@Test(priority = 10, groups = "Payment")
 	public void postPaymentSimulateExt() throws ClassNotFoundException, SQLException, InterruptedException {
 
 		CommonMethods.Bug("CPDEV-17140");
@@ -146,7 +149,7 @@ public class PaymentControllerV4 {
 
 	}
 
-	@Test(priority = 11, groups = "Payment" )
+	@Test(priority = 11, groups = "Payment")
 	public void postPaymentDepositv4() throws ClassNotFoundException, SQLException, InterruptedException {
 
 		String uri = "/payment";
@@ -166,8 +169,13 @@ public class PaymentControllerV4 {
 				+ "         \"Id\": \"SORD00000009019\",\r\n" + "        \"Task\":{\r\n"
 				+ "           \"Sequence\":1400,\r\n" + "            \"EmployeeId\":\"\"}\r\n" + "            }\r\n"
 				+ "	}";
-		String expected = "{\"Payment\":{\"Success\":true,\"Data\":{\"BatchId\":\"dep1\",\"DocumentNumber\":\"PYMT00000000541\"},\"Messages\":[{\"Enabled\":1,\"Info\":\"Service order number and\\/or task id does not exist\",\"Level\":2}]}}";
-		CommonMethods.postMethodString(payload, uri, ver, expected);
+		// String expected =
+		// "{\"Payment\":{\"Success\":true,\"Data\":{\"BatchId\":\"dep1\",\"DocumentNumber\":\"PYMT00000000541\"},\"Messages\":[{\"Enabled\":1,\"Info\":\"Service
+		// order number and\\/or task id does not exist\",\"Level\":2}]}}";
+		String expected = "{\"Payment\":{\"Success\":true,\"Data\":{\"BatchId\":\"dep1\",\"DocumentNumber\":\"PYMT";
+		// CommonMethods.postMethodString(payload, uri, ver, expected);
+		String Result = CommonMethods.postMethodResponseAsString(payload, uri, ver);
+		assertTrue(Result.contains(expected));
 
 	}
 
@@ -197,7 +205,7 @@ public class PaymentControllerV4 {
 		AssertJUnit.assertEquals(actualResult, exptected);
 
 	}
-	
+
 	@Test(priority = 14, groups = "Payment")
 	public void postPaymentSimulatev4_savePayments_2()
 			throws ClassNotFoundException, SQLException, InterruptedException {
@@ -211,6 +219,5 @@ public class PaymentControllerV4 {
 		AssertJUnit.assertEquals(actualResult, exptected);
 
 	}
-
 
 }

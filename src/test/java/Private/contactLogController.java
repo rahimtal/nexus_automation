@@ -144,7 +144,7 @@ public class contactLogController {
 				+ "	\"ServiceOrder\": {\r\n" + "		\"RequestId\": \"\",\r\n"
 				+ "		\"RequestDate\": \"2023-02-28\"\r\n" + "	}\r\n" + "}";
 
-		String expected = ".{\"ContactLog\":{\"Success\":true,\"Data\":{\"ServiceOrderNumber\":\"\"},\"Messages\":[]}}";
+		String expected = "{\"ContactLog\":{\"Success\":true,\"Data\":{\"ServiceOrderNumber\":\"\"},\"Messages\":[]}}";
 		CommonMethods.putMethodstring(uri, ver, payload, expected);
 
 	}

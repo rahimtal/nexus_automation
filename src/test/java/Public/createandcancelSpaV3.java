@@ -35,7 +35,7 @@ public class createandcancelSpaV3 {
 
 	@Test(priority = 2, dependsOnMethods = "cancelSPA_v_3", groups = "SPA" )
 	public void createSPA_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-        CommonMethods.Bug("CPDEV-20924");
+       // CommonMethods.Bug("CPDEV-20924");
 		String uri = "/spa/create";
 		String ver = "3.0";
 		String payload = "./\\TestData\\spacreatev2.json";
@@ -87,6 +87,23 @@ public class createandcancelSpaV3 {
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		cancelSPA_v_3();
+	}
+
+	
+	@Test(priority = 2, dependsOnMethods = "cancelSPA_v_3", groups = "SPA" )
+	public void createSPA_v_4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+       // CommonMethods.Bug("CPDEV-20924");
+		String uri = "/spa/create";
+		String ver = "4.0";
+		String payload = "./\\TestData\\spacreatev2.json";
+
+		jsonPathEvaluator = CommonMethods.postMethod(payload, uri, ver);
+		Boolean Result = jsonPathEvaluator.get("SpaCreate[0].Success");
+
+		if (Result == false) {
+			AssertJUnit.fail("SPA not created");
+		}
+
 	}
 
 }

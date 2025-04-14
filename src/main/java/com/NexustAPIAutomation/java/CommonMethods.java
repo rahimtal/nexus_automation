@@ -260,6 +260,59 @@ public class CommonMethods {
 
 	}
 
+	
+	public static String postMethodResponseAsString(String payload, String uri, String version)
+			throws InterruptedException {
+
+		switch (version) {
+		case "1":
+			RestAssured.baseURI = urlv1;
+			break;
+		case "2":
+			RestAssured.baseURI = urlv2;
+			break;
+		case "2.1":
+			RestAssured.baseURI = urlv210;
+			break;
+		case "2.2":
+			RestAssured.baseURI = urlv220;
+			break;
+		case "2.3":
+			RestAssured.baseURI = urlv230;
+			break;
+		case "2.3.1":
+			RestAssured.baseURI = urlv231;
+			break;
+		case "2.4":
+			RestAssured.baseURI = urlv240;
+			break;
+		case "3.0":
+			RestAssured.baseURI = urlv3;
+			break;
+		case "4.0":
+			RestAssured.baseURI = urlv4;
+			break;
+		default:
+			AssertJUnit.fail("Invalid version");
+			version = "Invalid version";
+			break;
+		}
+		
+
+		Response response;
+		RestAssured.baseURI = RestAssured.baseURI + uri;
+		System.out.println("Posting uri :" + RestAssured.baseURI.toString());
+		RequestSpecification httpRequest = RestAssured.given()
+				.headers("Authorization", "Bearer " + getToken(), "Content-Type", ContentType.JSON, "Accept", "*/*",
+						"Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
+				.body(payload);
+
+		response = httpRequest.post();
+		System.out.println("Response :" + response.asString());
+		return response.asString();
+
+	}
+
 	public static JsonPath postMethodStringPayload(String payload, String uri, String version)
 			throws InterruptedException {
 

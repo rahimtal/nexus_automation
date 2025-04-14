@@ -20,7 +20,7 @@ public class lookupControllerv4 {
 	public void getapplyByService_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookupBatch";
 		String ver = "4.0";
-		String expected = "{\"Batch\":[{\"Id\":\"10001\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"1001\",\"Description\":\"\",\"HasTransaction\":true},";
+		String expected = "{\"Batch\":[{\"Id\":\"___api_CR\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"10001\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"1001\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"100111\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"10111\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"109090ABC\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"12312312\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"12345\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"ABC10001\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"ABC1213\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"API 20190430\",\"Description\":\"Payments from Web Service - API\",\"HasTransaction\":true},{\"Id\":\"API 20190503\",\"Description\":\"Payments from Web Service - API\",\"HasTransaction\":true},{\"Id\":\"API20250407001\",\"Description\":\"Payments from Nexus Api - API\",\"HasTransaction\":true},{\"Id\":\"API482025\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"auto\",\"Description\":\"API Misc Charge\",\"HasTransaction\":true},{\"Id\":\"BAT1\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"BAT10123123\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"BT1231\",\"Description\":\"Api billing\",\"HasTransaction\":true},{\"Id\":\"CHEQ1\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"CHK041227sa01\",\"Description\":\"CHEQUE\",\"HasTransaction\":false},{\"Id\":\"dep1\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"DPP041227sa01\",\"Description\":\"PYMT\",\"HasTransaction\":true},{\"Id\":\"MG2024\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"MG2024DM001\",\"Description\":\"MISC\",\"HasTransaction\":true},{\"Id\":\"MISC10001\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"MR040825sa01\",\"Description\":\"API Meter Read\",\"HasTransaction\":true},{\"Id\":\"NADMC2022093001\",\"Description\":\"API Deposit Misc Charge\",\"HasTransaction\":true},{\"Id\":\"RM(3)120427\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"Test Batch\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"Test Batch 2025\",\"Description\":\"Example Comment\",\"HasTransaction\":false},{\"Id\":\"TEST109\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"WO101619CRP001\",\"Description\":\"Write Off - sa\",\"HasTransaction\":false},{\"Id\":\"WRITEOFF01\",\"Description\":\"\",\"HasTransaction\":true}]}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		String actual = CommonMethods.getMethodasString(uri, ver, params);
 		System.out.println(actual);
@@ -32,13 +32,13 @@ public class lookupControllerv4 {
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookupBatch";
 		String version = "4.0";
-		String expected = "{\"Batch\":[{\"Id\":\"10001\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"1001\",\"Description\":\"\",\"HasTransaction\":true},";
+		String expected = "{\"Batch\":[{\"Id\":\"___api_CR\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"10001\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"1001\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"100111\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"10111\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"109090ABC\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"12345\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"API 20190430\",\"Description\":\"Payments from Web Service - API\",\"HasTransaction\":true},{\"Id\":\"API 20190503\",\"Description\":\"Payments from Web Service - API\",\"HasTransaction\":true},{\"Id\":\"API";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("BatchSource", "PAYMENTS");
-		// params.put("LocationId", "LOCATION011");
 		String actual = CommonMethods.getMethodasString(uri, version, params);
 		System.out.println(actual);
-		Assert.assertTrue(actual.contains(expected));
+		 Assert.assertTrue(actual.contains(expected));
+		//Assert.assertEquals(actual, expected);
 	}
 
 	@Test(priority = 3, groups = "lookup")
