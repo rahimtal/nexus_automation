@@ -287,10 +287,11 @@ public class BillingControllerv4 extends BaseClass {
 	@Test(priority = 2, groups = "billing")
 	public void TC002_getbillBatchStatus()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// CommonMethods.Bug("CPDEV-21608");
 		ExtentTest test = extent.createTest("TC002_getbillBatchStatus");
 		test.log(Status.INFO, "Starting test: TC002_getbillBatchStatus");
 
-		String uri = "/billing/billBatchStatus/BAT012301203";
+		String uri = "/billing/billBatchStatus/BAT10123123";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\billBatchStatus_v4.json";
 		HashMap<String, String> params = new HashMap<String, String>();
@@ -306,6 +307,8 @@ public class BillingControllerv4 extends BaseClass {
 	@Test(priority = 11, groups = "billing")
 	public void getbillingtransferProgress()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		CommonMethods.Bug("CPDEV-21613");
 		ExtentTest test = extent.createTest("getbillingtransferProgress");
 		test.log(Status.INFO, "Starting test: getbillingtransferProgress");
 
@@ -417,7 +420,7 @@ public class BillingControllerv4 extends BaseClass {
 		ExtentTest test = extent.createTest("delBatv4_EditListPrint");
 		test.log(Status.INFO, "Starting test: delBatv4_EditListPrint");
 
-		String uri = "/billing/delete/BAT012301203";
+		String uri = "/billing/delete/TEST109";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\delBatv4.json";
 		test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
