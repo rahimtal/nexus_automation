@@ -44,7 +44,7 @@
 		<!-- nav-right -->
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<a href='#!'>
-			<span class='label blue darken-3 suite-start-time'>Apr 17, 2025 07:36:43 PM</span>
+			<span class='label blue darken-3 suite-start-time'>Apr 18, 2025 05:39:24 PM</span>
 			</a>
 		</ul>
 	</div>
@@ -102,7 +102,7 @@
                     <canvas id='parent-analysis' width='90' height='70'></canvas>
                 </div>
                 <div class='block text-small'>
-                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>16</span> test(s) passed</span>
+                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>20</span> test(s) passed</span>
                 </div>
                 <div class='block text-small'>
                     <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
@@ -125,15 +125,15 @@
 			<ul id='test-collection' class='test-collection'>
 				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>TC001_getutilitySetup</span>
-						<span class='test-time'>Apr 17, 2025 07:36:43 PM</span>
+						<span class='test-name'>getActionsMenu_v4</span>
+						<span class='test-time'>Apr 18, 2025 05:39:25 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Apr 17, 2025 07:36:43 PM</span>
-	<span class='label end-time'>Apr 17, 2025 07:36:46 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 2s+344ms</span>
+	<span class='label start-time'>Apr 18, 2025 05:39:25 PM</span>
+	<span class='label end-time'>Apr 18, 2025 05:39:28 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 3s+503ms</span>
 </div>
 <div class='test-steps'>
 	<table class='bordered table-results'>
@@ -147,33 +147,41 @@
 		<tbody>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:43 PM</td>
+				<td class='timestamp'>5:39:25 PM</td>
 				<td class='step-details'>
-						Starting test: TC001_getutilitySetup
+						Starting test: getActionsMenu_v4
 					
 				</td>
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:43 PM</td>
+				<td class='timestamp'>5:39:25 PM</td>
 				<td class='step-details'>
-						URI: /billing/utilitySetup, Version: 4.0
+						URI: /actionsMenu/getActionsMenu, Version: 4.0
 					
 				</td>
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:43 PM</td>
+				<td class='timestamp'>5:39:25 PM</td>
 				<td class='step-details'>
-						JSON Path file: ./\TestData\getutilitySetup_v4.json
+						Parameters: {LocationId=SEWER003, CustomerId=CUSTOMER002}
 					
 				</td>
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:46 PM</td>
+				<td class='timestamp'>5:39:28 PM</td>
 				<td class='step-details'>
-						Response: {"UtilitySetup":{"Success":true,"Data":{"PowerFactor":0.90000,"BTUPGADate":"2025-04-17","AddressStyle":3,"IdentificationFormat":0},"Messages":[]}}
+						Response: {"result":[{"MenuID":1,"MenuLevel":1,"MenuName":"Transactions","MenuDisplayName":"Transactions","ParentMenuID":1,"CSMDrillback":false,"URL":"","MouseOverText":""},{"MenuID":23,"MenuLevel":2,"MenuName":"Budget","MenuDisplayName":"Budget","ParentMenuID":1,"CSMDrillback":false,"URL":"BudgetHandler","MouseOverText":""},{"MenuID":13,"MenuLevel":2,"MenuName":"Cashiering","MenuDisplayName":"Cashiering","ParentMenuID":1,"CSMDrillback":false,"URL":"CashieringHandler","MouseOverText":""},{"MenuID":2,"MenuLevel":2,"MenuName":"CreditMemo","MenuDisplayName":"Credit Memo","ParentMenuID":1,"CSMDrillback":false,"URL":"CreditMemoHandler","MouseOverText":""},{"MenuID":3,"MenuLevel":2,"MenuName":"Deposit","MenuDisplayName":"Deposit","ParentMenuID":1,"CSMDrillback":false,"URL":"DepositHandler","MouseOverText":""},{"MenuID":5,"MenuLevel":2,"MenuName":"Misc. Charge","MenuDisplayName":"Miscellaneous Charge","ParentMenuID":1,"CSMDrillback":false,"URL":"MiscChargeHandler","MouseOverText":""},{"MenuID":6,"MenuLevel":2,"MenuName":"Payment","MenuDisplayName":"Payment","ParentMenuID":1,"CSMDrillback":false,"URL":"PaymentHandler","MouseOverText":""},{"MenuID":10,"MenuLevel":2,"MenuName":"Payment Arrangement","MenuDisplayName":"Payment Arrangement","ParentMenuID":1,"CSMDrillback":false,"URL":"PaymentArrangementHandler","MouseOverText":""},{"MenuID":7,"MenuLevel":2,"MenuName":"PaymentExtension","MenuDisplayName":"Payment Extension","ParentMenuID":1,"CSMDrillback":true,"URL":"cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=PaymentExtensions&CustomerID=CUSTOMER002&LocationID=SEWER003&CogsDrillback=1","MouseOverText":""},{"MenuID":11,"MenuLevel":2,"MenuName":"Void Entry","MenuDisplayName":"Void Entry","ParentMenuID":1,"CSMDrillback":false,"URL":"VoidEntryHandler","MouseOverText":""},{"MenuID":4,"MenuLevel":2,"MenuName":"Meter Reading Entry","MenuDisplayName":"Meter Reading Entry","ParentMenuID":1,"CSMDrillback":false,"URL":"MeterReadingEntryHandler","MouseOverText":"Meter Reading Entry"},{"MenuID":24,"MenuLevel":2,"MenuName":"Check Entry","MenuDisplayName":"Check Entry","ParentMenuID":1,"CSMDrillback":false,"URL":"CheckEntryHandler","MouseOverText":"Check Entry"},{"MenuID":12,"MenuLevel":1,"MenuName":"Service","MenuDisplayName":"Service","ParentMenuID":12,"CSMDrillback":false,"URL":"","MouseOverText":""},{"MenuID":8,"MenuLevel":2,"MenuName":"Contactlog","MenuDisplayName":"Contact Log","ParentMenuID":12,"CSMDrillback":false,"URL":"CustomerContactLogHandler","MouseOverText":""},{"MenuID":9,"MenuLevel":2,"MenuName":"ServiceOrder","MenuDisplayName":"Service Order","ParentMenuID":12,"CSMDrillback":false,"URL":"ServiceOrderHandler","MouseOverText":""},{"MenuID":22,"MenuLevel":2,"MenuName":"Transfer Service","MenuDisplayName":"Transfer Service","ParentMenuID":12,"CSMDrillback":false,"URL":"TransferServiceHandler","MouseOverText":""},{"MenuID":30,"MenuLevel":1,"MenuName":"Utilities","MenuDisplayName":"Utilities","ParentMenuID":12,"CSMDrillback":false,"URL":"","MouseOverText":""},{"MenuID":31,"MenuLevel":3,"MenuName":"Rates","MenuDisplayName":"Rates","ParentMenuID":30,"CSMDrillback":true,"URL":"cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=RateSetup&CustomerID=CUSTOMER002&LocationID=SEWER003&CogsDrillback=1","MouseOverText":"Rate Setup"},{"MenuID":32,"MenuLevel":3,"MenuName":"Electronic Meter Reading","MenuDisplayName":"Electronic Meter Reading","ParentMenuID":30,"CSMDrillback":true,"URL":"cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=ElectronicMeterReading&CustomerID=CUSTOMER002&LocationID=SEWER003&CogsDrillback=1","MouseOverText":"Electronic Meter Reading"},{"MenuID":33,"MenuLevel":3,"MenuName":"Notice Processing","MenuDisplayName":"Backflow Processing","ParentMenuID":30,"CSMDrillback":true,"URL":"cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=NoticeProcessing&CustomerID=CUSTOMER002&LocationID=SEWER003&CogsDrillback=1","MouseOverText":"Notice Processing"},{"MenuID":34,"MenuLevel":3,"MenuName":"Summer Sewer Averaging Zone","MenuDisplayName":"Summer Sewer","ParentMenuID":30,"CSMDrillback":true,"URL":"cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=SummerSewerAveragingZone&CustomerID=CUSTOMER002&LocationID=SEWER003&CogsDrillback=1","MouseOverText":"Summer Sewer Averaging Zone"},{"MenuID":35,"MenuLevel":3,"MenuName":"Payment Import","MenuDisplayName":"Payment Import","ParentMenuID":30,"CSMDrillback":true,"URL":"cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=PaymentImport&CustomerID=CUSTOMER002&LocationID=SEWER003&CogsDrillback=1","MouseOverText":"Payment Import"},{"MenuID":36,"MenuLevel":3,"MenuName":"Penalties","MenuDisplayName":"Penalties","ParentMenuID":30,"CSMDrillback":true,"URL":"cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=PenaltyBatchDuePreparationCalculate&CustomerID=CUSTOMER002&LocationID=SEWER003&CogsDrillback=1","MouseOverText":"Penalties"},{"MenuID":37,"MenuLevel":3,"MenuName":"Rebilling","MenuDisplayName":"Rebilling","ParentMenuID":30,"CSMDrillback":true,"URL":"cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=Re_Bill&CustomerID=CUSTOMER002&LocationID=SEWER003&CogsDrillback=1","MouseOverText":"Rebilling"},{"MenuID":38,"MenuLevel":3,"MenuName":"Cash Out","MenuDisplayName":"Cash Out","ParentMenuID":30,"CSMDrillback":true,"URL":"cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=Cash_Out&CustomerID=CUSTOMER002&LocationID=SEWER003&CogsDrillback=1","MouseOverText":"Cash Out"},{"MenuID":39,"MenuLevel":3,"MenuName":"Miscellaneous Charge Import","MenuDisplayName":"Miscellaneous Charge Import","ParentMenuID":30,"CSMDrillback":true,"URL":"cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=MiscChargeImport&CustomerID=CUSTOMER002&LocationID=SEWER003&CogsDrillback=1","MouseOverText":"Miscellaneous Charge Import"},{"MenuID":40,"MenuLevel":3,"MenuName":"Meter Reading Adjustment","MenuDisplayName":"Meter Reading Adjustment","ParentMenuID":30,"CSMDrillback":true,"URL":"cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=MeterReadAdjust&CustomerID=CUSTOMER002&LocationID=SEWER003&CogsDrillback=1","MouseOverText":"Meter Reading Adjustment"},{"MenuID":41,"MenuLevel":3,"MenuName":"Payment Apply","MenuDisplayName":"Payment Apply","ParentMenuID":30,"CSMDrillback":true,"URL":"cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=PaymentApply&CustomerID=CUSTOMER002&LocationID=SEWER003&CogsDrillback=1","MouseOverText":"Payment Apply"}]}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:39:28 PM</td>
+				<td class='step-details'>
+						Response matched expected result.
 					
 				</td>
 			</tr>
@@ -184,15 +192,15 @@
 				</li>
 				<li class='test displayed active  pass' status='pass' bdd='false' test-id='2'>
 					<div class='test-heading'>
-						<span class='test-name'>delBatv4</span>
-						<span class='test-time'>Apr 17, 2025 07:36:46 PM</span>
+						<span class='test-name'>getalert_v4</span>
+						<span class='test-time'>Apr 18, 2025 05:39:28 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Apr 17, 2025 07:36:46 PM</span>
-	<span class='label end-time'>Apr 17, 2025 07:36:46 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+331ms</span>
+	<span class='label start-time'>Apr 18, 2025 05:39:28 PM</span>
+	<span class='label end-time'>Apr 18, 2025 05:39:29 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+338ms</span>
 </div>
 <div class='test-steps'>
 	<table class='bordered table-results'>
@@ -206,33 +214,41 @@
 		<tbody>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:46 PM</td>
+				<td class='timestamp'>5:39:28 PM</td>
 				<td class='step-details'>
-						Starting test: delBatv4
+						Starting test: getalert_v4
 					
 				</td>
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:46 PM</td>
+				<td class='timestamp'>5:39:28 PM</td>
 				<td class='step-details'>
-						URI: /billing/delete/BT1231, Version: 4.0
+						URI: /alert/CUSTOMER002/SEWER003, Version: 4.0
 					
 				</td>
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:46 PM</td>
+				<td class='timestamp'>5:39:28 PM</td>
 				<td class='step-details'>
-						JSON Path file: ./\TestData\delBatv4.json
+						Expected: {"Alert":[{"Messgage":[],"Success":true,"Messages":[{"Enabled":0,"Info":"","Level":0}]}]}
 					
 				</td>
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:46 PM</td>
+				<td class='timestamp'>5:39:29 PM</td>
 				<td class='step-details'>
-						Response: {"Billing":{"Success":true,"Data":null,"Messages":[{"Enabled":1,"Info":"Billing batch deleted.","Level":1}]}}
+						Response: {"Alert":[{"Messgage":[],"Success":true,"Messages":[{"Enabled":0,"Info":"","Level":0}]}]}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:39:29 PM</td>
+				<td class='step-details'>
+						Response matched expected result.
 					
 				</td>
 			</tr>
@@ -243,15 +259,15 @@
 				</li>
 				<li class='test displayed active  pass' status='pass' bdd='false' test-id='3'>
 					<div class='test-heading'>
-						<span class='test-name'>TC002_getbillBatchStatus</span>
-						<span class='test-time'>Apr 17, 2025 07:36:46 PM</span>
+						<span class='test-name'>getalertaccountAttributes_v4</span>
+						<span class='test-time'>Apr 18, 2025 05:39:29 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Apr 17, 2025 07:36:46 PM</span>
-	<span class='label end-time'>Apr 17, 2025 07:36:46 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+378ms</span>
+	<span class='label start-time'>Apr 18, 2025 05:39:29 PM</span>
+	<span class='label end-time'>Apr 18, 2025 05:39:29 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+245ms</span>
 </div>
 <div class='test-steps'>
 	<table class='bordered table-results'>
@@ -265,33 +281,41 @@
 		<tbody>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:46 PM</td>
+				<td class='timestamp'>5:39:29 PM</td>
 				<td class='step-details'>
-						Starting test: TC002_getbillBatchStatus
+						Starting test: getalertaccountAttributes_v4
 					
 				</td>
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:46 PM</td>
+				<td class='timestamp'>5:39:29 PM</td>
 				<td class='step-details'>
-						URI: /billing/billBatchStatus/BAT10123123, Version: 4.0
+						URI: /alert/accountAttributes/500001/100001, Version: 4.0
 					
 				</td>
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:46 PM</td>
+				<td class='timestamp'>5:39:29 PM</td>
 				<td class='step-details'>
-						JSON Path file: ./\TestData\billBatchStatus_v4.json
+						Expected: {"result":[{"AttributeType":"deposits","DrillbackLink":"cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=Deposits&CustomerID=500001&LocationID=100001&Deposits=1&CogsDrillback=1"}]}
 					
 				</td>
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:46 PM</td>
+				<td class='timestamp'>5:39:29 PM</td>
 				<td class='step-details'>
-						Response: {"BatchStatus":{"Success":true,"Data":{"BatchId":"BAT10123123","BatchStatus":2,"Route":[],"BatchDate":{"BillPreparationDate":"2027-04-12","BillEditDate":"2027-04-12","BillPrintDate":"2027-04-12","BillPostDate":"1900-01-01","BillCreatedDate":"2027-04-12","BillModifiedDate":"2027-04-12","BillPeriodStartDate":"2017-04-17","BillPeriodEndDate":"2017-05-17","BillDate":"2017-05-17","ReadingDate":"2017-05-17","StatementDate":"2027-04-12","BTUDate":"2017-05-17"},"BatchDescription":"","BatchTotal":0.00000,"NumberOfTransactions":0,"TotalOnHoldOrWithError":0,"CycleId":"","PrepUserId":"sa","EditListUserId":"sa","PrintUserId":"sa","PostUserId":"","CheckBookId":"","BillType":1,"LocationId":"LOC@0004","PowerFactor":0.90000,"VersionNumber":0,"TransferCheckBatchId":""},"Messages":[]}}
+						Response: {"result":[{"AttributeType":"deposits","DrillbackLink":"cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=Deposits&CustomerID=500001&LocationID=100001&Deposits=1&CogsDrillback=1"}]}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:39:29 PM</td>
+				<td class='step-details'>
+						Response matched expected result.
 					
 				</td>
 			</tr>
@@ -302,15 +326,15 @@
 				</li>
 				<li class='test displayed active  pass' status='pass' bdd='false' test-id='4'>
 					<div class='test-heading'>
-						<span class='test-name'>delBatv4Err</span>
-						<span class='test-time'>Apr 17, 2025 07:36:46 PM</span>
+						<span class='test-name'>postBatchtv4</span>
+						<span class='test-time'>Apr 18, 2025 05:39:30 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Apr 17, 2025 07:36:46 PM</span>
-	<span class='label end-time'>Apr 17, 2025 07:36:47 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+335ms</span>
+	<span class='label start-time'>Apr 18, 2025 05:39:30 PM</span>
+	<span class='label end-time'>Apr 18, 2025 05:39:30 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+0ms</span>
 </div>
 <div class='test-steps'>
 	<table class='bordered table-results'>
@@ -324,33 +348,33 @@
 		<tbody>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:46 PM</td>
+				<td class='timestamp'>5:39:30 PM</td>
 				<td class='step-details'>
-						Starting test: delBatv4Err
+						Starting test: postBatchtv4
 					
 				</td>
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:46 PM</td>
+				<td class='timestamp'>5:39:30 PM</td>
 				<td class='step-details'>
-						URI: /billing/delete/BT1231, Version: 4.0
+						URI: /batch, Version: 4.0
 					
 				</td>
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:46 PM</td>
+				<td class='timestamp'>5:39:30 PM</td>
 				<td class='step-details'>
-						JSON Path file: ./\TestData\delBatv4Err.json
+						Payload: {"BatchId": "Test Batch 2025", "BatchType": 3, "OriginId": "", "CheckbookId": "FIRST NATIONAL", "Comment": "Example Comment"}
 					
 				</td>
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:47 PM</td>
+				<td class='timestamp'>5:39:30 PM</td>
 				<td class='step-details'>
-						Response: {"Billing":{"Success":false,"Data":null,"Messages":[{"Enabled":1,"Info":"Invalid Batch Id BT1231","Level":3}]}}
+						Expected: {"Batch":{"Success":true,"Data":null,"Messages":[{"Enabled":1,"Info":"Created","Level":1}]}}
 					
 				</td>
 			</tr>
@@ -361,15 +385,15 @@
 				</li>
 				<li class='test displayed active  pass' status='pass' bdd='false' test-id='5'>
 					<div class='test-heading'>
-						<span class='test-name'>PostBillingcalculatev4</span>
-						<span class='test-time'>Apr 17, 2025 07:36:47 PM</span>
+						<span class='test-name'>putBatchtv4</span>
+						<span class='test-time'>Apr 18, 2025 05:39:30 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Apr 17, 2025 07:36:47 PM</span>
-	<span class='label end-time'>Apr 17, 2025 07:36:47 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+349ms</span>
+	<span class='label start-time'>Apr 18, 2025 05:39:30 PM</span>
+	<span class='label end-time'>Apr 18, 2025 05:39:30 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+0ms</span>
 </div>
 <div class='test-steps'>
 	<table class='bordered table-results'>
@@ -383,41 +407,33 @@
 		<tbody>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:47 PM</td>
+				<td class='timestamp'>5:39:30 PM</td>
 				<td class='step-details'>
-						Starting test: PostBillingcalculatev4
+						Starting test: putBatchtv4
 					
 				</td>
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:47 PM</td>
+				<td class='timestamp'>5:39:30 PM</td>
 				<td class='step-details'>
-						URI: /billing/calculate, Version: 4.0
+						URI: /batch, Version: 4.0
 					
 				</td>
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:47 PM</td>
+				<td class='timestamp'>5:39:30 PM</td>
 				<td class='step-details'>
-						Payload written to file: ./\TestData\PostBillingcalculatev4.json
+						Payload: {"BatchId": "Test Batch 2025", "OriginId": "", "CheckbookId": "FIRST NATIONAL", "Comment": "Updated Example Comments"}
 					
 				</td>
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:47 PM</td>
+				<td class='timestamp'>5:39:30 PM</td>
 				<td class='step-details'>
-						Billing.Success: true
-					
-				</td>
-			</tr>
-			<tr class='log' status='pass'>
-				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-				<td class='timestamp'>7:36:47 PM</td>
-				<td class='step-details'>
-						Bill Calculation succeeded.
+						Expected: {"Batch":{"Success":true,"Messages":[{"Enabled":1,"Info":"Updated","Level":1}]}}
 					
 				</td>
 			</tr>
@@ -428,15 +444,15 @@
 				</li>
 				<li class='test displayed active  pass' status='pass' bdd='false' test-id='6'>
 					<div class='test-heading'>
-						<span class='test-name'>PostgenerateEditReportv4</span>
-						<span class='test-time'>Apr 17, 2025 07:36:47 PM</span>
+						<span class='test-name'>TC001_getutilitySetup</span>
+						<span class='test-time'>Apr 18, 2025 05:39:32 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Apr 17, 2025 07:36:47 PM</span>
-	<span class='label end-time'>Apr 17, 2025 07:36:47 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+300ms</span>
+	<span class='label start-time'>Apr 18, 2025 05:39:32 PM</span>
+	<span class='label end-time'>Apr 18, 2025 05:39:32 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+321ms</span>
 </div>
 <div class='test-steps'>
 	<table class='bordered table-results'>
@@ -450,41 +466,33 @@
 		<tbody>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:47 PM</td>
+				<td class='timestamp'>5:39:32 PM</td>
 				<td class='step-details'>
-						Starting test: PostgenerateEditReportv4
+						Starting test: TC001_getutilitySetup
 					
 				</td>
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:47 PM</td>
+				<td class='timestamp'>5:39:32 PM</td>
 				<td class='step-details'>
-						URI: /billing/generateEditReport, Version: 4.0
+						URI: /billing/utilitySetup, Version: 4.0
 					
 				</td>
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:47 PM</td>
+				<td class='timestamp'>5:39:32 PM</td>
 				<td class='step-details'>
-						Payload written to file: ./\TestData\PostgenerateEditReportv4.json
+						JSON Path file: ./\TestData\getutilitySetup_v4.json
 					
 				</td>
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:47 PM</td>
+				<td class='timestamp'>5:39:32 PM</td>
 				<td class='step-details'>
-						Billing.Success: true
-					
-				</td>
-			</tr>
-			<tr class='log' status='pass'>
-				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-				<td class='timestamp'>7:36:47 PM</td>
-				<td class='step-details'>
-						Bill Calculation succeeded.
+						Response: {"UtilitySetup":{"Success":true,"Data":{"PowerFactor":0.90000,"BTUPGADate":"2025-04-18","AddressStyle":3,"IdentificationFormat":0},"Messages":[]}}
 					
 				</td>
 			</tr>
@@ -495,15 +503,15 @@
 				</li>
 				<li class='test displayed active  pass' status='pass' bdd='false' test-id='7'>
 					<div class='test-heading'>
-						<span class='test-name'>getbillprintTemplatePath</span>
-						<span class='test-time'>Apr 17, 2025 07:36:47 PM</span>
+						<span class='test-name'>delBatv4</span>
+						<span class='test-time'>Apr 18, 2025 05:39:32 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Apr 17, 2025 07:36:47 PM</span>
-	<span class='label end-time'>Apr 17, 2025 07:36:48 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+235ms</span>
+	<span class='label start-time'>Apr 18, 2025 05:39:32 PM</span>
+	<span class='label end-time'>Apr 18, 2025 05:39:33 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+329ms</span>
 </div>
 <div class='test-steps'>
 	<table class='bordered table-results'>
@@ -517,33 +525,33 @@
 		<tbody>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:47 PM</td>
+				<td class='timestamp'>5:39:32 PM</td>
 				<td class='step-details'>
-						Starting test: getbillprintTemplatePath
+						Starting test: delBatv4
 					
 				</td>
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:47 PM</td>
+				<td class='timestamp'>5:39:32 PM</td>
 				<td class='step-details'>
-						URI: /billing/printTemplatePath, Version: 4.0
+						URI: /billing/delete/BT1231, Version: 4.0
 					
 				</td>
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:47 PM</td>
+				<td class='timestamp'>5:39:32 PM</td>
 				<td class='step-details'>
-						JSON Path file: ./\TestData\printTemplatePathv4.json
+						JSON Path file: ./\TestData\delBatv4.json
 					
 				</td>
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:48 PM</td>
+				<td class='timestamp'>5:39:33 PM</td>
 				<td class='step-details'>
-						Response: {"Billing":{"Success":true,"Data":{"FileName":"E1sa_ver9.rpt","TemplatePathFilename":"C:\\Program Files\\BillPrnt\\E1sa_ver9.rpt","TemplateName":"Template 24","TemplateNumber":27},"Messages":[]}}
+						Response: {"Billing":{"Success":true,"Data":null,"Messages":[{"Enabled":1,"Info":"Billing batch deleted.","Level":1}]}}
 					
 				</td>
 			</tr>
@@ -554,15 +562,15 @@
 				</li>
 				<li class='test displayed active  pass' status='pass' bdd='false' test-id='8'>
 					<div class='test-heading'>
-						<span class='test-name'>postcreateStatementv4</span>
-						<span class='test-time'>Apr 17, 2025 07:36:48 PM</span>
+						<span class='test-name'>TC002_getbillBatchStatus</span>
+						<span class='test-time'>Apr 18, 2025 05:39:33 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Apr 17, 2025 07:36:48 PM</span>
-	<span class='label end-time'>Apr 17, 2025 07:36:48 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+265ms</span>
+	<span class='label start-time'>Apr 18, 2025 05:39:33 PM</span>
+	<span class='label end-time'>Apr 18, 2025 05:39:33 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+254ms</span>
 </div>
 <div class='test-steps'>
 	<table class='bordered table-results'>
@@ -576,41 +584,33 @@
 		<tbody>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:48 PM</td>
+				<td class='timestamp'>5:39:33 PM</td>
 				<td class='step-details'>
-						Starting test: postcreateStatementv4
+						Starting test: TC002_getbillBatchStatus
 					
 				</td>
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:48 PM</td>
+				<td class='timestamp'>5:39:33 PM</td>
 				<td class='step-details'>
-						URI: /billing/createStatement, Version: 4.0
+						URI: /billing/billBatchStatus/BAT10123123, Version: 4.0
 					
 				</td>
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:48 PM</td>
+				<td class='timestamp'>5:39:33 PM</td>
 				<td class='step-details'>
-						Payload written to file: ./\TestData\postBillingStatementv4.json
+						JSON Path file: ./\TestData\billBatchStatus_v4.json
 					
 				</td>
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:48 PM</td>
+				<td class='timestamp'>5:39:33 PM</td>
 				<td class='step-details'>
-						Billing.Success: true
-					
-				</td>
-			</tr>
-			<tr class='log' status='pass'>
-				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-				<td class='timestamp'>7:36:48 PM</td>
-				<td class='step-details'>
-						Bill Posting succeeded.
+						Response: {"BatchStatus":{"Success":true,"Data":{"BatchId":"BAT10123123","BatchStatus":2,"Route":[],"BatchDate":{"BillPreparationDate":"2027-04-12","BillEditDate":"2027-04-12","BillPrintDate":"2027-04-12","BillPostDate":"1900-01-01","BillCreatedDate":"2027-04-12","BillModifiedDate":"2027-04-12","BillPeriodStartDate":"2017-04-17","BillPeriodEndDate":"2017-05-17","BillDate":"2017-05-17","ReadingDate":"2017-05-17","StatementDate":"2027-04-12","BTUDate":"2017-05-17"},"BatchDescription":"","BatchTotal":0.00000,"NumberOfTransactions":0,"TotalOnHoldOrWithError":0,"CycleId":"","PrepUserId":"sa","EditListUserId":"sa","PrintUserId":"sa","PostUserId":"","CheckBookId":"","BillType":1,"LocationId":"LOC@0004","PowerFactor":0.90000,"VersionNumber":0,"TransferCheckBatchId":""},"Messages":[]}}
 					
 				</td>
 			</tr>
@@ -621,15 +621,15 @@
 				</li>
 				<li class='test displayed active  pass' status='pass' bdd='false' test-id='9'>
 					<div class='test-heading'>
-						<span class='test-name'>postcreateStatementv4_isfinal</span>
-						<span class='test-time'>Apr 17, 2025 07:36:48 PM</span>
+						<span class='test-name'>delBatv4Err</span>
+						<span class='test-time'>Apr 18, 2025 05:39:33 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Apr 17, 2025 07:36:48 PM</span>
-	<span class='label end-time'>Apr 17, 2025 07:36:48 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+235ms</span>
+	<span class='label start-time'>Apr 18, 2025 05:39:33 PM</span>
+	<span class='label end-time'>Apr 18, 2025 05:39:33 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+257ms</span>
 </div>
 <div class='test-steps'>
 	<table class='bordered table-results'>
@@ -643,15 +643,267 @@
 		<tbody>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:48 PM</td>
+				<td class='timestamp'>5:39:33 PM</td>
 				<td class='step-details'>
-						Starting test: postcreateStatementv4_isfinal
+						Starting test: delBatv4Err
 					
 				</td>
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:48 PM</td>
+				<td class='timestamp'>5:39:33 PM</td>
+				<td class='step-details'>
+						URI: /billing/delete/BT1231, Version: 4.0
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:39:33 PM</td>
+				<td class='step-details'>
+						JSON Path file: ./\TestData\delBatv4Err.json
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:39:33 PM</td>
+				<td class='step-details'>
+						Response: {"Billing":{"Success":false,"Data":null,"Messages":[{"Enabled":1,"Info":"Invalid Batch Id BT1231","Level":3}]}}
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='10'>
+					<div class='test-heading'>
+						<span class='test-name'>PostBillingcalculatev4</span>
+						<span class='test-time'>Apr 18, 2025 05:39:33 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 18, 2025 05:39:33 PM</span>
+	<span class='label end-time'>Apr 18, 2025 05:39:34 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+531ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:39:33 PM</td>
+				<td class='step-details'>
+						Starting test: PostBillingcalculatev4
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:39:33 PM</td>
+				<td class='step-details'>
+						URI: /billing/calculate, Version: 4.0
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:39:33 PM</td>
+				<td class='step-details'>
+						Payload written to file: ./\TestData\PostBillingcalculatev4.json
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:39:34 PM</td>
+				<td class='step-details'>
+						Billing.Success: true
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:39:34 PM</td>
+				<td class='step-details'>
+						Bill Calculation succeeded.
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='11'>
+					<div class='test-heading'>
+						<span class='test-name'>PostgenerateEditReportv4</span>
+						<span class='test-time'>Apr 18, 2025 05:39:34 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 18, 2025 05:39:34 PM</span>
+	<span class='label end-time'>Apr 18, 2025 05:39:34 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+535ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:39:34 PM</td>
+				<td class='step-details'>
+						Starting test: PostgenerateEditReportv4
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:39:34 PM</td>
+				<td class='step-details'>
+						URI: /billing/generateEditReport, Version: 4.0
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:39:34 PM</td>
+				<td class='step-details'>
+						Payload written to file: ./\TestData\PostgenerateEditReportv4.json
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:39:34 PM</td>
+				<td class='step-details'>
+						Billing.Success: true
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:39:34 PM</td>
+				<td class='step-details'>
+						Bill Calculation succeeded.
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='12'>
+					<div class='test-heading'>
+						<span class='test-name'>getbillprintTemplatePath</span>
+						<span class='test-time'>Apr 18, 2025 05:39:34 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 18, 2025 05:39:34 PM</span>
+	<span class='label end-time'>Apr 18, 2025 05:39:34 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+315ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:39:34 PM</td>
+				<td class='step-details'>
+						Starting test: getbillprintTemplatePath
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:39:34 PM</td>
+				<td class='step-details'>
+						URI: /billing/printTemplatePath, Version: 4.0
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:39:34 PM</td>
+				<td class='step-details'>
+						JSON Path file: ./\TestData\printTemplatePathv4.json
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:39:34 PM</td>
+				<td class='step-details'>
+						Response: {"Billing":{"Success":true,"Data":{"FileName":"E1sa_ver9.rpt","TemplatePathFilename":"C:\\Program Files\\BillPrnt\\E1sa_ver9.rpt","TemplateName":"Template 24","TemplateNumber":27},"Messages":[]}}
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='13'>
+					<div class='test-heading'>
+						<span class='test-name'>postcreateStatementv4</span>
+						<span class='test-time'>Apr 18, 2025 05:39:34 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 18, 2025 05:39:34 PM</span>
+	<span class='label end-time'>Apr 18, 2025 05:39:35 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+404ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:39:34 PM</td>
+				<td class='step-details'>
+						Starting test: postcreateStatementv4
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:39:35 PM</td>
 				<td class='step-details'>
 						URI: /billing/createStatement, Version: 4.0
 					
@@ -659,7 +911,74 @@
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:48 PM</td>
+				<td class='timestamp'>5:39:35 PM</td>
+				<td class='step-details'>
+						Payload written to file: ./\TestData\postBillingStatementv4.json
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:39:35 PM</td>
+				<td class='step-details'>
+						Billing.Success: true
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:39:35 PM</td>
+				<td class='step-details'>
+						Bill Posting succeeded.
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='14'>
+					<div class='test-heading'>
+						<span class='test-name'>postcreateStatementv4_isfinal</span>
+						<span class='test-time'>Apr 18, 2025 05:39:35 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 18, 2025 05:39:35 PM</span>
+	<span class='label end-time'>Apr 18, 2025 05:39:35 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+361ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:39:35 PM</td>
+				<td class='step-details'>
+						Starting test: postcreateStatementv4_isfinal
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:39:35 PM</td>
+				<td class='step-details'>
+						URI: /billing/createStatement, Version: 4.0
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:39:35 PM</td>
 				<td class='step-details'>
 						Payload: {
     "Billing":{
@@ -675,7 +994,7 @@
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:48 PM</td>
+				<td class='timestamp'>5:39:35 PM</td>
 				<td class='step-details'>
 						Expected contains: {"Billing":{"Success":true,"Data":[{"BatchId":"BT1231","UserDateTime":
 					
@@ -683,15 +1002,15 @@
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:48 PM</td>
+				<td class='timestamp'>5:39:35 PM</td>
 				<td class='step-details'>
-						Actual: {"Billing":{"Success":true,"Data":[{"BatchId":"BT1231","UserDateTime":"2025-04-17T19:36:48","UserId":"sa","TransactionCount":0,"FileName":"","Description":"","Selected":true}],"Messages":[]}}
+						Actual: {"Billing":{"Success":true,"Data":[{"BatchId":"BT1231","UserDateTime":"2025-04-18T17:39:35","UserId":"sa","TransactionCount":0,"FileName":"","Description":"","Selected":true}],"Messages":[]}}
 					
 				</td>
 			</tr>
 			<tr class='log' status='pass'>
 				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-				<td class='timestamp'>7:36:48 PM</td>
+				<td class='timestamp'>5:39:35 PM</td>
 				<td class='step-details'>
 						Response contains the expected value.
 					
@@ -702,16 +1021,16 @@
 </div>
 					</div>
 				</li>
-				<li class='test displayed active  pass' status='pass' bdd='false' test-id='10'>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='15'>
 					<div class='test-heading'>
 						<span class='test-name'>billingprintStatementv4</span>
-						<span class='test-time'>Apr 17, 2025 07:36:48 PM</span>
+						<span class='test-time'>Apr 18, 2025 05:39:35 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Apr 17, 2025 07:36:48 PM</span>
-	<span class='label end-time'>Apr 17, 2025 07:36:48 PM</span>
+	<span class='label start-time'>Apr 18, 2025 05:39:35 PM</span>
+	<span class='label end-time'>Apr 18, 2025 05:39:35 PM</span>
 	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+0ms</span>
 </div>
 <div class='test-steps'>
@@ -726,7 +1045,7 @@
 		<tbody>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:48 PM</td>
+				<td class='timestamp'>5:39:35 PM</td>
 				<td class='step-details'>
 						Starting test: billingprintStatementv4
 					
@@ -737,76 +1056,17 @@
 </div>
 					</div>
 				</li>
-				<li class='test displayed active  pass' status='pass' bdd='false' test-id='11'>
-					<div class='test-heading'>
-						<span class='test-name'>getbillingtransferProgress</span>
-						<span class='test-time'>Apr 17, 2025 07:36:48 PM</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-					<div class='test-content hide'>
-<div class='test-time-info'>
-	<span class='label start-time'>Apr 17, 2025 07:36:48 PM</span>
-	<span class='label end-time'>Apr 17, 2025 07:36:48 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+188ms</span>
-</div>
-<div class='test-steps'>
-	<table class='bordered table-results'>
-		<thead>
-			<tr>
-				<th>Status</th>
-				<th>Timestamp</th>
-				<th>Details</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr class='log' status='info'>
-				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:48 PM</td>
-				<td class='step-details'>
-						Starting test: getbillingtransferProgress
-					
-				</td>
-			</tr>
-			<tr class='log' status='info'>
-				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:48 PM</td>
-				<td class='step-details'>
-						URI: /billing/transfer/progress, Version: 4.0
-					
-				</td>
-			</tr>
-			<tr class='log' status='info'>
-				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:48 PM</td>
-				<td class='step-details'>
-						Expected: {"Billing":{"Success":true,"Data":{"BatchId":"","Summary":{"BillingStartDate":"2000-04-17","BillingEndDate":"2000-04-17","PeriodStartDate":"2000-04-01","PeriodEndDate":"2000-04-17","TransferStartDate":"2000-04-17","TransferEndDate":"2000-04-17"},"Detail":[{"ServiceOrder":{"Number":"SORD00000000044","BillingDate":"2000-04-17","PeriodStartDate":"2000-04-01","PeriodEndDate":"2000-04-17","LocationId":"LOCATION009","CustomerId":"CUSTOMER010","TransferDate":"2000-04-17","EmployeeId":"CARN0001","BillToCustomerDeposit":{"Id":2,"Description":"Refund of Difference"},"ThirdPartyDeposit":{"Id":1,"Description":"Transfer"}}}]},"Messages":[]}}
-					
-				</td>
-			</tr>
-			<tr class='log' status='info'>
-				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:48 PM</td>
-				<td class='step-details'>
-						Actual: {"Billing":{"Success":true,"Data":{"BatchId":"","Summary":{"BillingStartDate":"2000-04-17","BillingEndDate":"2000-04-17","PeriodStartDate":"2000-04-01","PeriodEndDate":"2000-04-17","TransferStartDate":"2000-04-17","TransferEndDate":"2000-04-17"},"Detail":[{"ServiceOrder":{"Number":"SORD00000000044","BillingDate":"2000-04-17","PeriodStartDate":"2000-04-01","PeriodEndDate":"2000-04-17","LocationId":"LOCATION009","CustomerId":"CUSTOMER010","TransferDate":"2000-04-17","EmployeeId":"CARN0001","BillToCustomerDeposit":{"Id":2,"Description":"Refund of Difference"},"ThirdPartyDeposit":{"Id":1,"Description":"Transfer"}},"AllowTransferWithoutBill":false}]},"Messages":[]}}
-					
-				</td>
-			</tr>
-		</tbody>
-	</table>
-</div>
-					</div>
-				</li>
-				<li class='test displayed active  pass' status='pass' bdd='false' test-id='12'>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='16'>
 					<div class='test-heading'>
 						<span class='test-name'>billingfinalcalculatev4</span>
-						<span class='test-time'>Apr 17, 2025 07:36:48 PM</span>
+						<span class='test-time'>Apr 18, 2025 05:39:35 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Apr 17, 2025 07:36:48 PM</span>
-	<span class='label end-time'>Apr 17, 2025 07:36:49 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+281ms</span>
+	<span class='label start-time'>Apr 18, 2025 05:39:35 PM</span>
+	<span class='label end-time'>Apr 18, 2025 05:39:36 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+317ms</span>
 </div>
 <div class='test-steps'>
 	<table class='bordered table-results'>
@@ -820,7 +1080,7 @@
 		<tbody>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:48 PM</td>
+				<td class='timestamp'>5:39:35 PM</td>
 				<td class='step-details'>
 						Starting test: billingfinalcalculatev4
 					
@@ -828,7 +1088,7 @@
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:48 PM</td>
+				<td class='timestamp'>5:39:35 PM</td>
 				<td class='step-details'>
 						URI: /billing/final/calculate, Version: 4.0
 					
@@ -836,7 +1096,7 @@
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:48 PM</td>
+				<td class='timestamp'>5:39:35 PM</td>
 				<td class='step-details'>
 						Payload: {
     "BatchId": "BATCHID",
@@ -859,7 +1119,7 @@
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:49 PM</td>
+				<td class='timestamp'>5:39:36 PM</td>
 				<td class='step-details'>
 						Actual: {"Billing":{"Success":true,"Data":{"BatchId":"BATCHID","NumberOfValidTransaction":1,"HasTransferErrorInReport":false,"List":[{"LocationId":"TESTLOC018","CustomerId":"50000201","ServiceOrderNumber":"SORD00000009024"}],"TransferErrorList":[],"ReportErrorList":[]},"Messages":[]}}
 					
@@ -867,7 +1127,7 @@
 			</tr>
 			<tr class='log' status='pass'>
 				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-				<td class='timestamp'>7:36:49 PM</td>
+				<td class='timestamp'>5:39:36 PM</td>
 				<td class='step-details'>
 						Billing Final Calculation succeeded.
 					
@@ -878,17 +1138,17 @@
 </div>
 					</div>
 				</li>
-				<li class='test displayed active  pass' status='pass' bdd='false' test-id='13'>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='17'>
 					<div class='test-heading'>
 						<span class='test-name'>delBatv4_EditListPrint</span>
-						<span class='test-time'>Apr 17, 2025 07:36:49 PM</span>
+						<span class='test-time'>Apr 18, 2025 05:39:36 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Apr 17, 2025 07:36:49 PM</span>
-	<span class='label end-time'>Apr 17, 2025 07:36:49 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+0ms</span>
+	<span class='label start-time'>Apr 18, 2025 05:39:36 PM</span>
+	<span class='label end-time'>Apr 18, 2025 05:39:36 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+1ms</span>
 </div>
 <div class='test-steps'>
 	<table class='bordered table-results'>
@@ -902,7 +1162,7 @@
 		<tbody>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:49 PM</td>
+				<td class='timestamp'>5:39:36 PM</td>
 				<td class='step-details'>
 						Starting test: delBatv4_EditListPrint
 					
@@ -910,7 +1170,7 @@
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:49 PM</td>
+				<td class='timestamp'>5:39:36 PM</td>
 				<td class='step-details'>
 						URI: /billing/delete/TEST109, Version: 4.0
 					
@@ -918,7 +1178,7 @@
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:49 PM</td>
+				<td class='timestamp'>5:39:36 PM</td>
 				<td class='step-details'>
 						JSON Path file: ./\TestData\delBatv4.json
 					
@@ -929,17 +1189,17 @@
 </div>
 					</div>
 				</li>
-				<li class='test displayed active  pass' status='pass' bdd='false' test-id='14'>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='18'>
 					<div class='test-heading'>
 						<span class='test-name'>getBatchIdValidate</span>
-						<span class='test-time'>Apr 17, 2025 07:36:49 PM</span>
+						<span class='test-time'>Apr 18, 2025 05:39:36 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Apr 17, 2025 07:36:49 PM</span>
-	<span class='label end-time'>Apr 17, 2025 07:36:49 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+221ms</span>
+	<span class='label start-time'>Apr 18, 2025 05:39:36 PM</span>
+	<span class='label end-time'>Apr 18, 2025 05:39:36 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+237ms</span>
 </div>
 <div class='test-steps'>
 	<table class='bordered table-results'>
@@ -953,7 +1213,7 @@
 		<tbody>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:49 PM</td>
+				<td class='timestamp'>5:39:36 PM</td>
 				<td class='step-details'>
 						Starting test: getBatchIdValidate
 					
@@ -961,7 +1221,7 @@
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:49 PM</td>
+				<td class='timestamp'>5:39:36 PM</td>
 				<td class='step-details'>
 						URI: /billing/batchId/BAT1/validate, Version: 4.0
 					
@@ -969,7 +1229,7 @@
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:49 PM</td>
+				<td class='timestamp'>5:39:36 PM</td>
 				<td class='step-details'>
 						Expected: {"Billing":{"Success":false,"Data":{"BatchId":"BAT1","isBatchIdValid":false},"Messages":[{"Enabled":1,"Info":"The Batch Source for this Batch Id is not BILLING. Select a differenct Batch Id or create a new Batch Id.","Level":3}]}}
 					
@@ -977,7 +1237,7 @@
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:49 PM</td>
+				<td class='timestamp'>5:39:36 PM</td>
 				<td class='step-details'>
 						Actual: {"Billing":{"Success":false,"Data":{"BatchId":"BAT1","isBatchIdValid":false},"Messages":[{"Enabled":1,"Info":"The Batch Source for this Batch Id is not BILLING. Select a differenct Batch Id or create a new Batch Id.","Level":3}]}}
 					
@@ -985,7 +1245,7 @@
 			</tr>
 			<tr class='log' status='pass'>
 				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-				<td class='timestamp'>7:36:49 PM</td>
+				<td class='timestamp'>5:39:36 PM</td>
 				<td class='step-details'>
 						Batch ID validation returned expected result.
 					
@@ -996,17 +1256,17 @@
 </div>
 					</div>
 				</li>
-				<li class='test displayed active  pass' status='pass' bdd='false' test-id='15'>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='19'>
 					<div class='test-heading'>
 						<span class='test-name'>delBatv4_calculating</span>
-						<span class='test-time'>Apr 17, 2025 07:36:49 PM</span>
+						<span class='test-time'>Apr 18, 2025 05:39:36 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Apr 17, 2025 07:36:49 PM</span>
-	<span class='label end-time'>Apr 17, 2025 07:36:49 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+253ms</span>
+	<span class='label start-time'>Apr 18, 2025 05:39:36 PM</span>
+	<span class='label end-time'>Apr 18, 2025 05:39:36 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+307ms</span>
 </div>
 <div class='test-steps'>
 	<table class='bordered table-results'>
@@ -1020,7 +1280,7 @@
 		<tbody>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:49 PM</td>
+				<td class='timestamp'>5:39:36 PM</td>
 				<td class='step-details'>
 						Starting test: delBatv4_calculating
 					
@@ -1028,7 +1288,7 @@
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:49 PM</td>
+				<td class='timestamp'>5:39:36 PM</td>
 				<td class='step-details'>
 						URI: /billing/delete/BATCHID, Version: 4.0
 					
@@ -1036,7 +1296,7 @@
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:49 PM</td>
+				<td class='timestamp'>5:39:36 PM</td>
 				<td class='step-details'>
 						JSON Path file: ./\TestData\delBatv4.json
 					
@@ -1044,7 +1304,7 @@
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:49 PM</td>
+				<td class='timestamp'>5:39:36 PM</td>
 				<td class='step-details'>
 						Response: {"Billing":{"Success":true,"Data":null,"Messages":[{"Enabled":1,"Info":"Billing batch deleted.","Level":1}]}}
 					
@@ -1055,17 +1315,17 @@
 </div>
 					</div>
 				</li>
-				<li class='test displayed active  pass' status='pass' bdd='false' test-id='16'>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='20'>
 					<div class='test-heading'>
 						<span class='test-name'>getBatchIdValidatetrue</span>
-						<span class='test-time'>Apr 17, 2025 07:36:49 PM</span>
+						<span class='test-time'>Apr 18, 2025 05:39:36 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Apr 17, 2025 07:36:49 PM</span>
-	<span class='label end-time'>Apr 17, 2025 07:36:50 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+239ms</span>
+	<span class='label start-time'>Apr 18, 2025 05:39:36 PM</span>
+	<span class='label end-time'>Apr 18, 2025 05:39:37 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+260ms</span>
 </div>
 <div class='test-steps'>
 	<table class='bordered table-results'>
@@ -1079,7 +1339,7 @@
 		<tbody>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:49 PM</td>
+				<td class='timestamp'>5:39:36 PM</td>
 				<td class='step-details'>
 						Starting test: getBatchIdValidatetrue
 					
@@ -1087,7 +1347,7 @@
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:49 PM</td>
+				<td class='timestamp'>5:39:36 PM</td>
 				<td class='step-details'>
 						URI: /billing/batchId/BAT10123123/validate, Version: 4.0
 					
@@ -1095,7 +1355,7 @@
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:49 PM</td>
+				<td class='timestamp'>5:39:36 PM</td>
 				<td class='step-details'>
 						Expected: {"Billing":{"Success":true,"Data":{"BatchId":"BAT10123123","isBatchIdValid":false},"Messages":[]}}
 					
@@ -1103,7 +1363,7 @@
 			</tr>
 			<tr class='log' status='info'>
 				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-				<td class='timestamp'>7:36:50 PM</td>
+				<td class='timestamp'>5:39:37 PM</td>
 				<td class='step-details'>
 						Actual: {"Billing":{"Success":true,"Data":{"BatchId":"BAT10123123","isBatchIdValid":false},"Messages":[]}}
 					
@@ -1111,7 +1371,7 @@
 			</tr>
 			<tr class='log' status='pass'>
 				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-				<td class='timestamp'>7:36:50 PM</td>
+				<td class='timestamp'>5:39:37 PM</td>
 				<td class='step-details'>
 						Batch ID validation (true) returned expected result.
 					
@@ -1150,7 +1410,7 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Tests
-					<div class='panel-lead'>16</div>
+					<div class='panel-lead'>20</div>
 				</div>
 			</div>
 			<div class='col s2'>
@@ -1162,19 +1422,19 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Apr 17, 2025 07:36:43 PM</div>
+					<div class='panel-lead'>Apr 18, 2025 05:39:24 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Apr 17, 2025 07:36:50 PM</div>
+			 		<div class='panel-lead'>Apr 18, 2025 05:40:49 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>0h 0m 6s+557ms</div>
+					<div class='panel-lead'>0h 1m 24s+524ms</div>
 				</div>
 			</div>
 		</div>
@@ -1185,8 +1445,8 @@
 		<!-- container -->
 		<script>
 			var statusGroup = {
-                parentCount: 16,
-				passParent: 16,
+                parentCount: 20,
+				passParent: 20,
 				failParent: 0,
 				fatalParent: 0,
 				errorParent: 0,
@@ -1217,7 +1477,7 @@
 		</script>
 		<script>
 			var timeline = {
-			        "TC001_getutilitySetup":2.344,"delBatv4":0.331,"TC002_getbillBatchStatus":0.378,"delBatv4Err":0.335,"PostBillingcalculatev4":0.349,"PostgenerateEditReportv4":0.3,"getbillprintTemplatePath":0.235,"postcreateStatementv4":0.265,"postcreateStatementv4_isfinal":0.235,"billingprintStatementv4":0,"getbillingtransferProgress":0.188,"billingfinalcalculatev4":0.281,"delBatv4_EditListPrint":0,"getBatchIdValidate":0.221,"delBatv4_calculating":0.253,"getBatchIdValidatetrue":0.239
+			        "getActionsMenu_v4":3.503,"getalert_v4":0.338,"getalertaccountAttributes_v4":0.245,"postBatchtv4":0,"putBatchtv4":0,"TC001_getutilitySetup":0.321,"delBatv4":0.329,"TC002_getbillBatchStatus":0.254,"delBatv4Err":0.257,"PostBillingcalculatev4":0.531,"PostgenerateEditReportv4":0.535,"getbillprintTemplatePath":0.315,"postcreateStatementv4":0.404,"postcreateStatementv4_isfinal":0.361,"billingprintStatementv4":0,"billingfinalcalculatev4":0.317,"delBatv4_EditListPrint":0.001,"getBatchIdValidate":0.237,"delBatv4_calculating":0.307,"getBatchIdValidatetrue":0.26
 			};
 		</script>
 		<script src='https://cdn.rawgit.com/extent-framework/extent-github-cdn/b65cd69/v3html/js/extent.js' type='text/javascript'></script>
