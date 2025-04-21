@@ -1,15 +1,14 @@
 {
-    "LocationId": "BUDGETLOC02",
-    "CustomerId": "03332301204",
-    "DocumentNumber": "PYMT00000000539",
-    "BatchId": "___api_CR",
+    "LocationId": "LOCATION004",
+    "CustomerId": "MASTER001",
+    "DocumentNumber": "PYMT00000000529",
+    "BatchId": "WRITEOFF01",
     "Type": 3,
-    "OriginId": "TEST",
-    "PaidBy": 2,
-    "PaidById": "CUSTOMER013",
+    "OriginId" : "TEST",
     "PaymentDate": "2024-04-20",
     "PaymentAmount": 10.00,
-    "Comment": "asd",
+     "Comment": "asd",
+     "PaidBy": "1",
     "DistributionDetail": [
           {
            

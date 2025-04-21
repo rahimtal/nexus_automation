@@ -1,1 +1,1 @@
-{"Payment":{"Success":true,"Data":{"DocumentNumber":"PYMT00000000539","BatchId":"___api_CR","LocationId":"BUDGETLOC02","CustomerId":"03332301204"},"Messages":[{"Enabled":1,"Info":"Updated","Level":1}]}}
+{"Payment":{"Success":true,"Data":{"DocumentNumber":"PYMT00000000529","BatchId":"WRITEOFF01","LocationId":"LOCATION004","CustomerId":"MASTER001"},"Messages":[{"Enabled":1,"Info":"Updated","Level":1}]}}

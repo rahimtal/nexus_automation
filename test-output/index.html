@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\Admin\AppData\Local\Temp\testng-eclipse-311348134\testng-customsuite.xml</span>
+                    <span>C:\Users\Admin\AppData\Local\Temp\testng-eclipse-634275054\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">4 methods, 1 failed,  1 skipped,  2 passed</span>
+                    <span class="method-stats">1 method, 1 failed,   </span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -103,43 +103,10 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Private.checkControllerv4" class="method navigator-link" hash-for-method="putChecksendtoAPv4">putChecksendtoAPv4</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="Private.PaymentControllerV4" class="method navigator-link" hash-for-method="putputPaymentV4">putputPaymentV4</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
-                  </li>
-                  <li>
-                    <span class="method-list-title skipped">Skipped methods</span>
-                    <span class="show-or-hide-methods skipped">
-                      <a href="#" panel-name="suite-Default_suite" class="hide-methods skipped suite-Default_suite"> (hide)</a> <!-- hide-methods skipped suite-Default_suite -->
-                      <a href="#" panel-name="suite-Default_suite" class="show-methods skipped suite-Default_suite"> (show)</a> <!-- show-methods skipped suite-Default_suite -->
-                    </span>
-                    <div class="method-list-content skipped suite-Default_suite">
-                      <span>
-                        <img src="skipped.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Private.checkControllerv4" class="method navigator-link" hash-for-method="postingReceivable">postingReceivable</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content skipped suite-Default_suite -->
-                  </li>
-                  <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
-                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
-                    </span>
-                    <div class="method-list-content passed suite-Default_suite">
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Private.checkControllerv4" class="method navigator-link" hash-for-method="PostCheckv4">PostCheckv4</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Private.checkControllerv4" class="method navigator-link" hash-for-method="postingReceivable4RefundError">postingReceivable4RefundError</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content passed suite-Default_suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -154,15 +121,15 @@
           <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">Private.checkControllerv4</span>
+              <span class="class-name">Private.PaymentControllerV4</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="putChecksendtoAPv4">
-                  </a> <!-- putChecksendtoAPv4 -->
-                  <span class="method-name">putChecksendtoAPv4</span>
-                  <div class="stack-trace">java.lang.AssertionError: expected [{&quot;Check&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;FileName&quot;:&quot;C:\\Users\\Admin\\Documents\\\\APCHE0000.TXT&quot;},&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Sent To AP updated&quot;,&quot;Level&quot;:1}]}}] but found [{&quot;Check&quot;:{&quot;Success&quot;:false,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Check already sent to AP.&quot;,&quot;Level&quot;:3}]}}]
+                  <a name="putputPaymentV4">
+                  </a> <!-- putputPaymentV4 -->
+                  <span class="method-name">putputPaymentV4</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [{&quot;Payment&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;DocumentNumber&quot;:&quot;PYMT00000000539&quot;,&quot;BatchId&quot;:&quot;___api_CR&quot;,&quot;LocationId&quot;:&quot;BUDGETLOC02&quot;,&quot;CustomerId&quot;:&quot;03332301204&quot;},&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Updated&quot;,&quot;Level&quot;:1}]}}] but found [{&quot;Payment&quot;:{&quot;Success&quot;:false,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Invalid document number (PYMT00000000539).&quot;,&quot;Level&quot;:3}]}}]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1578)
 	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
@@ -170,7 +137,7 @@
 	at org.testng.Assert.assertEquals(Assert.java:656)
 	at org.testng.Assert.assertEquals(Assert.java:666)
 	at com.NexustAPIAutomation.java.CommonMethods.putMethod(CommonMethods.java:899)
-	at Private.checkControllerv4.putChecksendtoAPv4(checkControllerv4.java:146)
+	at Private.PaymentControllerV4.putputPaymentV4(PaymentControllerV4.java:136)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -205,70 +172,10 @@
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Default_suite-class-failed -->
-          <div class="suite-Default_suite-class-skipped">
-            <div class="main-panel-header rounded-window-top">
-              <img src="skipped.png"/>
-              <span class="class-name">Private.checkControllerv4</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="postingReceivable">
-                  </a> <!-- postingReceivable -->
-                  <span class="method-name">postingReceivable</span>
-                  <div class="stack-trace">java.lang.Throwable: Method Private.checkControllerv4.postingReceivable() on instance Private.checkControllerv4@5032714f depends on not successfully finished methods 
-[Private.checkControllerv4.putChecksendtoAPv4() on instance Private.checkControllerv4@5032714f]
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:159)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-	at org.testng.TestRunner.privateRun(TestRunner.java:739)
-	at org.testng.TestRunner.run(TestRunner.java:614)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-	at org.testng.TestNG.runSuites(TestNG.java:1112)
-	at org.testng.TestNG.run(TestNG.java:1079)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-skipped -->
-          <div class="suite-Default_suite-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">Private.checkControllerv4</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="PostCheckv4">
-                  </a> <!-- PostCheckv4 -->
-                  <span class="method-name">PostCheckv4</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="postingReceivable4RefundError">
-                  </a> <!-- postingReceivable4RefundError -->
-                  <span class="method-name">postingReceivable4RefundError</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-passed -->
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Admin\AppData\Local\Temp\testng-eclipse-311348134\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Admin\AppData\Local\Temp\testng-eclipse-634275054\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -277,7 +184,11 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;Private.checkControllerv4&quot;/&gt;
+      &lt;class name=&quot;Private.PaymentControllerV4&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;putputPaymentV4&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- Private.PaymentControllerV4 --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -302,22 +213,10 @@
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="test-group">
-              <span class="test-group-name">check</span>
+              <span class="test-group-name">Payment</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">PostCheckv4</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
-                <span class="method-in-group-name">postingReceivable</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
-                <span class="method-in-group-name">postingReceivable4RefundError</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
-                <span class="method-in-group-name">putChecksendtoAPv4</span>
+                <span class="method-in-group-name">putputPaymentV4</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -337,28 +236,16 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(4);
+data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'PostCheckv4')
-data.setCell(0, 2, 'Private.checkControllerv4')
-data.setCell(0, 3, 7057);
-data.setCell(1, 0, 1)
-data.setCell(1, 1, 'postingReceivable4RefundError')
-data.setCell(1, 2, 'Private.checkControllerv4')
-data.setCell(1, 3, 909);
-data.setCell(2, 0, 2)
-data.setCell(2, 1, 'putChecksendtoAPv4')
-data.setCell(2, 2, 'Private.checkControllerv4')
-data.setCell(2, 3, 346);
-data.setCell(3, 0, 3)
-data.setCell(3, 1, 'postingReceivable')
-data.setCell(3, 2, 'Private.checkControllerv4')
-data.setCell(3, 3, 0);
+data.setCell(0, 1, 'putputPaymentV4')
+data.setCell(0, 2, 'Private.PaymentControllerV4')
+data.setCell(0, 3, 4586);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 8 seconds</span>
+              <span class="suite-total-time">Total running time: 4 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -373,9 +260,40 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">13 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">Private.PaymentControllerV4</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">postPaymentSimulateExt</span>
+                <br/>
+                <span class="ignored-method-name">gettPaymentNextOpenv4</span>
+                <br/>
+                <span class="ignored-method-name">delPaymentv4Err</span>
+                <br/>
+                <span class="ignored-method-name">postPaymentSimulatev4_savePayments</span>
+                <br/>
+                <span class="ignored-method-name">postPaymentSimulatev4</span>
+                <br/>
+                <span class="ignored-method-name">postPaymentDepositv4</span>
+                <br/>
+                <span class="ignored-method-name">gettPaymentNextAllv4</span>
+                <br/>
+                <span class="ignored-method-name">delPaymentv4</span>
+                <br/>
+                <span class="ignored-method-name">gettPaymentNextHistv4</span>
+                <br/>
+                <span class="ignored-method-name">postPaymentSimulatev4_savePayments_1</span>
+                <br/>
+                <span class="ignored-method-name">delPaymentv4CreditNote</span>
+                <br/>
+                <span class="ignored-method-name">postPaymentSimulatev4_savePayments_2</span>
+                <br/>
+                <span class="ignored-method-name">gettPaymentNextv4</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Default_suite" class="panel">
@@ -384,20 +302,12 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">Private.checkControllerv4</div> <!-- chronological-class-name -->
-              <div class="test-method">
-                <span class="method-name">PostCheckv4</span>
-                <span class="method-start">0 ms</span>
-              </div> <!-- test-method -->
+              <div class="chronological-class-name">Private.PaymentControllerV4</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">putChecksendtoAPv4</span>
-                <span class="method-start">7088 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">postingReceivable4RefundError</span>
-                <span class="method-start">7450 ms</span>
+                <span class="method-name">putputPaymentV4</span>
+                <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
