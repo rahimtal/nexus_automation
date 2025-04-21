@@ -206,7 +206,7 @@ public class checkControllerv4 {
 	public static void main(String args[])
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
-		// PostCheckv4();
+		// putChecksendtoAPv4();
 		// postingReceivable4RefundError();
 
 	}
