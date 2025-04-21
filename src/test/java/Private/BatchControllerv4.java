@@ -50,10 +50,10 @@ public class BatchControllerv4 extends BaseClass {
 
 	@Test(priority = 2, groups = "batch")
 	public void postBatchtv4_err() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		CommonMethods.Bug(" CPDEV-21246");
+		//CommonMethods.Bug(" CPDEV-21246");
 		runTest("postBatchtv4_err", "/batch", "4.0",
 				"{\"BatchId\": \"Test Batch 2025\", \"BatchType\": 3, \"OriginId\": \"\", \"CheckbookId\": \"FIRST NATIONAL\", \"Comment\": \"Example Comment\"}",
-				"{\"Batch\":{\"Success\":false,\"Messages\":[{\"Enabled\":1,\"Info\":\"Batch Id ( Test Batch 2025 ) already exist.\",\"Level\":3}]}}",
+				"{\"Batch\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Batch Id ( Test Batch 2025 ) already exist.\",\"Level\":3}]}}",
 				true, "post");
 	}
 

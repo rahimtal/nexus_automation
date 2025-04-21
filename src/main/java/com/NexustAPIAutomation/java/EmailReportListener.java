@@ -1,5 +1,8 @@
 package com.NexustAPIAutomation.java;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -18,12 +21,21 @@ public class EmailReportListener implements ITestListener {
 		int failedTests = context.getFailedTests().size();
 		int passedTests = context.getPassedTests().size();
 		int skippedTests = context.getSkippedTests().size();
+		// Get the current date and time
+		LocalDateTime now = LocalDateTime.now();
+		// Define the format
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		// Format the current date and time
+		String formattedNow = now.format(formatter);
 
-		String subject = "TestNG Execution Report";
-		String body = String.format("TestNG Execution Summary:\nPassed: %d\nFailed: %d\nSkipped: %d", passedTests,
-				failedTests, skippedTests);
+		String subject = "TestNG Execution Report @" + formattedNow;
+		String body = String.format(
+				"TestNG Execution Summary for Nexus API Latest Build :\nPassed: %d\nFailed: %d\nSkipped: %d",
+				passedTests, failedTests, skippedTests);
 
 		EmailSender.sendEmail("cogsauto@gmail.com", "trahim@cogsdale.com", subject, body);
+		//EmailSender.sendEmail("cogsauto@gmail.com", "RThurairasa@cogsdale.com", subject, body);
+		//EmailSender.sendEmail("cogsauto@gmail.com", "MCausevic@cogsdale.com", subject, body);
 	}
 
 	// Other listener methods (optional to override)
