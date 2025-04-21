@@ -34,8 +34,8 @@ public class EmailReportListener implements ITestListener {
 				passedTests, failedTests, skippedTests);
 
 		EmailSender.sendEmail("cogsauto@gmail.com", "trahim@cogsdale.com", subject, body);
-		//EmailSender.sendEmail("cogsauto@gmail.com", "RThurairasa@cogsdale.com", subject, body);
-		//EmailSender.sendEmail("cogsauto@gmail.com", "MCausevic@cogsdale.com", subject, body);
+		EmailSender.sendEmail("cogsauto@gmail.com", "RThurairasa@cogsdale.com", subject, body);
+		EmailSender.sendEmail("cogsauto@gmail.com", "MCausevic@cogsdale.com", subject, body);
 	}
 
 	// Other listener methods (optional to override)
