@@ -22,7 +22,7 @@ public class BillingControllerv4 extends BaseClass {
 		ExtentTest test = extent.createTest("delBatv4");
 		test.log(Status.INFO, "Starting test: delBatv4");
 
-		String uri = "/billing/delete/BT1231";
+		String uri = "/billing/delete/TEST109";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\delBatv4.json";
 		test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
