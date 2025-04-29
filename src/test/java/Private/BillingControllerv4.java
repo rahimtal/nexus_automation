@@ -420,7 +420,7 @@ public class BillingControllerv4 extends BaseClass {
 		ExtentTest test = extent.createTest("delBatv4_EditListPrint");
 		test.log(Status.INFO, "Starting test: delBatv4_EditListPrint");
 
-		String uri = "/billing/delete/TEST109";
+		String uri = "/billing/delete/BT1231";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\delBatv4.json";
 		test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
@@ -448,4 +448,46 @@ public class BillingControllerv4 extends BaseClass {
 		test.log(Status.INFO, "Response: " + result);
 		System.out.println(result);
 	}
+
+	// Test 15: Get Batch ID Validate (Invalid)
+	@Test(priority = 14, groups = "billing")
+	public void billBatchStatus() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		ExtentTest test = extent.createTest("billBatchStatus");
+		test.log(Status.INFO, "Starting test: billBatchStatus");
+
+		String uri = "/billing/billBatchStatus/FINALBILL";
+		String ver = "4.0";
+		String expected = "{\"BatchStatus\":{\"Success\":true,\"Data\":{\"BatchId\":\"FINALBILL\",\"BatchStatus\":1,\"Route\":[],\"BatchDate\":{\"BillPreparationDate\":\"2027-04-12\",\"BillEditDate\":\"1900-01-01\",\"BillPrintDate\":\"1900-01-01\",\"BillPostDate\":\"1900-01-01\",\"BillCreatedDate\":\"2027-04-12\",\"BillModifiedDate\":\"2027-04-12\",\"BillPeriodStartDate\":\"1900-01-01\",\"BillPeriodEndDate\":\"1900-01-01\",\"BillDate\":\"1900-01-01\",\"ReadingDate\":\"1900-01-01\",\"StatementDate\":\"1900-01-01\",\"BTUDate\":\"1900-01-01\"},\"BatchDescription\":\"\",\"BatchTotal\":66.00000,\"NumberOfTransactions\":1,\"TotalOnHoldOrWithError\":0,\"CycleId\":\"\",\"PrepUserId\":\"sa\",\"EditListUserId\":\"\",\"PrintUserId\":\"\",\"PostUserId\":\"\",\"CheckBookId\":\"\",\"BillType\":0,\"LocationId\":\"\",\"PowerFactor\":0.00000,\"VersionNumber\":0,\"TransferCheckBatchId\":\"CHK041227sa01\"},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
+		test.log(Status.INFO, "Expected: " + expected);
+
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		test.log(Status.INFO, "Actual: " + actual);
+		Assert.assertEquals(actual, expected);
+		test.log(Status.PASS, "Batch ID validation returned expected result.");
+	}
+	
+	
+	@Test(priority = 15, groups = "billing")
+	public void getBilltransferProgress() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		ExtentTest test = extent.createTest("gettransfer");
+		test.log(Status.INFO, "Starting test: gettransfer");
+
+		String uri = "/billing/transfer/progress";
+		String ver = "4.0";
+		String expected = "{\"Billing\":{\"Success\":true,\"Data\":{\"BatchId\":\"FINALBILL\",\"Summary\":{\"BillingStartDate\":\"2027-04-12\",\"BillingEndDate\":\"2027-04-12\",\"PeriodStartDate\":\"2000-03-01\",\"PeriodEndDate\":\"2027-04-12\",\"TransferStartDate\":\"2027-04-12\",\"TransferEndDate\":\"2027-04-12\"},\"Detail\":[{\"ServiceOrder\":{\"Number\":\"SORD00000009044\",\"BillingDate\":\"2027-04-12\",\"PeriodStartDate\":\"2000-03-01\",\"PeriodEndDate\":\"2027-04-12\",\"LocationId\":\"WATER002\",\"CustomerId\":\"CUSTOMER014\",\"TransferDate\":\"2027-04-12\",\"EmployeeId\":\"ALVA0001\",\"BillToCustomerDeposit\":{\"Id\":2,\"Description\":\"Refund of Difference\"},\"ThirdPartyDeposit\":{\"Id\":0,\"Description\":\"\"}},\"AllowTransferWithoutBill\":true}]},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("ServiceOrderNumber","SORD00000009044");
+		test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
+		test.log(Status.INFO, "Expected: " + expected);
+
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		test.log(Status.INFO, "Actual: " + actual);
+		Assert.assertEquals(actual, expected);
+		test.log(Status.PASS, "Batch ID validation returned expected result.");
+	}
+	
+	
+	
 }
