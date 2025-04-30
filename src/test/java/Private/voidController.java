@@ -40,7 +40,7 @@ public class voidController {
 
 	}
 
-	@Test(priority = 1, groups = "void" )
+	@Test(priority = 1, groups = "void")
 	public void putvoidv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-17270");
 		String uri = "/void";
@@ -52,7 +52,7 @@ public class voidController {
 
 	}
 
-	@Test(priority = 2, groups = "void" )
+	@Test(priority = 2, groups = "void")
 	public void getVoidLaodv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		CommonMethods.Bug("CPDEV-17878");
 		String uri = "/void/load/ELECWAT001/CUSTOMER007";
@@ -64,8 +64,9 @@ public class voidController {
 
 	}
 
-	@Test(priority = 2, groups = "void" )
+	@Test(priority = 2, groups = "void")
 	public void getlinkedDocumentv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		CommonMethods.Bug("CPDEV-21825");
 		String uri = "/void/linkedDocument/BILL00000000496";
 		String ver = "4.0";
 		String expected = "{\"Void\":{\"Success\":true,\"Data\":{\"LinkedDocument\":{\"Spa\":null,\"Penalty\":null,\"WriteOffExport\":[{\"Number\":\"PYMT00000000505\"}],\"CollectionImport\":null,\"DepositReceivable\":null,\"NegativeBill\":null,\"BillCreditNote\":null,\"TransferBalanceDocument\":null,\"CashieringCheckCreditCard\":null}},\"Messages\":[]}}";

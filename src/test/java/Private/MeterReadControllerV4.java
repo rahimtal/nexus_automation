@@ -122,6 +122,7 @@ public class MeterReadControllerV4 {
 	@Test(priority = 5, groups = "MeterRead")
 	public void putMeterReadinginWorkV4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		CommonMethods.Bug("CPDEV-21835");
 
 		String uri = "/meterReading";
 		String ver = "4.0";

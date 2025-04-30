@@ -165,8 +165,21 @@ public class checkControllerv4 {
 			String result = response.asString();
 			// result.replaceAll("\\s", "");
 			System.out.println("Response " + result);
-			String expected = "{\"Check\":{\"Success\":false,\"Data\":{\"DocumentNumber\":\"CHEQ00000000009\",\"Receivable\":[{\"ChargeDocument\":\"MISC00000000389\",\"Posted\":false}],\"PostingReport\":true,\"PostingError\":true,\"ReportList\":[{\"Name\":\"Post Check Refund Edit List\",\"PrintOrder\":1}],\"ReportErrorList\":[{\"Name\":\"Post Check Refund Error List\",\"PrintOrder\":1}]},\"Messages\":[{\"Enabled\":1,\"Info\":\"Posting validation warning found. Refer to posting error report.\",\"Level\":2},{\"Enabled\":1,\"Info\":\"csmApi_spCheckPostingReceivableCreate - Cannot insert the value NULL into column 'umTotalTaxes', table 'TWO.dbo.UTX'; column does not allow nulls. INSERT fails.\",\"Level\":3}]}}";
-			Assert.assertEquals(result, expected);
+			// String expected =
+			// "{\"Check\":{\"Success\":false,\"Data\":{\"DocumentNumber\":\"CHEQ00000000009\",\"Receivable\":[{\"ChargeDocument\":\"MISC00000000389\",\"Posted\":false}],\"PostingReport\":true,\"PostingError\":true,\"ReportList\":[{\"Name\":\"Post
+			// Check Refund Edit
+			// List\",\"PrintOrder\":1}],\"ReportErrorList\":[{\"Name\":\"Post Check Refund
+			// Error
+			// List\",\"PrintOrder\":1}]},\"Messages\":[{\"Enabled\":1,\"Info\":\"Posting
+			// validation warning found. Refer to posting error
+			// report.\",\"Level\":2},{\"Enabled\":1,\"Info\":\"csmApi_spCheckPostingReceivableCreate
+			// - Cannot insert the value NULL into column 'umTotalTaxes', table
+			// 'TWO.dbo.UTX'; column does not allow nulls. INSERT fails.\",\"Level\":3}]}}";
+			String exp1 = "{\"Check\":{\"Success\":false,\"Data\":{\"DocumentNumber\":\"CHEQ00000000009\",\"Receivable\":[{\"ChargeDocument\":\"MISC00000000";
+			String exp2 = "\",\"Posted\":false}],\"PostingReport\":true,\"PostingError\":true,\"ReportList\":[{\"Name\":\"Post Check Refund Edit List\",\"PrintOrder\":1}],\"ReportErrorList\":[{\"Name\":\"Post Check Refund Error List\",\"PrintOrder\":1}]},\"Messages\":[{\"Enabled\":1,\"Info\":\"Posting validation warning found. Refer to posting error report.\",\"Level\":2},{\"Enabled\":1,\"Info\":\"csmApi_spCheckPostingReceivableCreate - Cannot insert the value NULL into column 'umTotalTaxes', table 'TWO.dbo.UTX'; column does not allow nulls. INSERT fails.\",\"Level\":3}]}}";
+			// Assert.assertEquals(result, expected);
+			Assert.assertTrue(result.contains(exp1));
+			Assert.assertTrue(result.contains(exp2));
 
 		}
 

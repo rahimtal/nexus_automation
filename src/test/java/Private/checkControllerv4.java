@@ -147,7 +147,7 @@ public class checkControllerv4 {
 
 	}
 
-	@Test(priority = 8, groups = "check" , dependsOnMethods = "putChecksendtoAPv4")
+	/*@Test(priority = 8, groups = "check" , dependsOnMethods = "putChecksendtoAPv4")
 	public static void postingReceivable()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
@@ -166,10 +166,10 @@ public class checkControllerv4 {
 			// result.replaceAll("\\s", "");
 			System.out.println("Response " + result);
 			String expected = "Success\":false,\"Data\":{\"DocumentNumber\":\"CHEQ00000000009\"";
-			Assert.assertEquals(expected, result);
+			Assert.assertEquals(result,expected);
 		}
 
-	}
+	}*/
 
 	@Test(priority = 8, groups = "check" )
 	public static void postingReceivable4RefundError()

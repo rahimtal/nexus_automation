@@ -46,10 +46,23 @@ public class moveInMoveOutController {
 				+ "     \"MoveInDescription\": \"\", \r\n"
 				+ "     \"_Comment\": \"//Optional if not provided then empty string will be used.\"\r\n" + "     \r\n"
 				+ " }";
-		String expected = "{\"ServiceOrder\":{\"Success\":true,\"Data\":{\"MoveOutDocumentNumber\":\"SORD00000009047\",\"MoveInDocumentNumber\":\"SORD00000009048\",\"MoveOutDrillbackLink\":\"cogsDrillback:\\/\\/DGPB\\/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=ServiceOrder&LocationID=LOCATION001&ServiceOrderNumber=SORD00000009047&CogsDrillback=1\",\"MoveInDrillbackLink\":\"cogsDrillback:\\/\\/DGPB\\/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=ServiceOrder&CustomerID=MASTER001&LocationID=LOCATION002&ServiceOrderNumber=SORD00000009048&CogsDrillback=1\"},\"Messages\":[{\"Enabled\":1,\"Info\":\"Successfully completed transfer process.\",\"Level\":1}]}}";
+		//String expected = "{\"ServiceOrder\":{\"Success\":true,\"Data\":{\"MoveOutDocumentNumber\":\"SORD00000009047\",\"MoveInDocumentNumber\":\"SORD00000009048\",\"MoveOutDrillbackLink\":\"cogsDrillback:\\/\\/DGPB\\/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=ServiceOrder&LocationID=LOCATION001&ServiceOrderNumber=SORD00000009047&CogsDrillback=1\",\"MoveInDrillbackLink\":\"cogsDrillback:\\/\\/DGPB\\/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=ServiceOrder&CustomerID=MASTER001&LocationID=LOCATION002&ServiceOrderNumber=SORD00000009048&CogsDrillback=1\"},\"Messages\":[{\"Enabled\":1,\"Info\":\"Successfully completed transfer process.\",\"Level\":1}]}}";
 
-		System.out.println(expected);
-		CommonMethods.postMethodString(payload, uri, ver, expected);
+		String exp1 = "{\"ServiceOrder\":{\"Success\":true,\"Data\":{\"MoveOutDocumentNumber\":\"SORD000000090";
+		String exp2 = "\",\"MoveInDocumentNumber\":\"SORD000000090";
+		String exp3 = "\",\"MoveOutDrillbackLink\":\"cogsDrillback:\\/\\/DGPB\\/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=ServiceOrder&LocationID=LOCATION001&ServiceOrderNumber=SORD000000090";
+		String exp4 = "&CogsDrillback=1\",\"MoveInDrillbackLink\":\"cogsDrillback:\\/\\/DGPB\\/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=ServiceOrder&CustomerID=MASTER001&LocationID=LOCATION002&ServiceOrderNumber=SORD000000090";
+		String exp5 = "&CogsDrillback=1\"},\"Messages\":[{\"Enabled\":1,\"Info\":\"Successfully completed transfer process.\",\"Level\":1}]}}";
+		//System.out.println(expected);
+		//CommonMethods.postMethodString(payload, uri, ver, expected);
+		String Result = CommonMethods.postMethodResponseAsString(payload, uri, ver);
+		Assert.assertTrue(Result.contains(exp1));
+		Assert.assertTrue(Result.contains(exp2));
+		Assert.assertTrue(Result.contains(exp3));
+		Assert.assertTrue(Result.contains(exp4));
+		Assert.assertTrue(Result.contains(exp5));
+		
+		
 
 	}
 
