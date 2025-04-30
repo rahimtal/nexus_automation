@@ -194,12 +194,11 @@ public class CashieringController extends BaseClass {
 
 	}
 
-	
 	@Test(priority = 1, groups = "Cashering")
 	public void saveReciept_2_4()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
 		// CommonMethods.CompanyDBRestore();
-		//CommonMethods.Bug("CPDEV-20919");
+		// CommonMethods.Bug("CPDEV-20919");
 		String columnName = "umDocumentNumber";
 		String Command1 = "select top 1 umDocumentNumber from TWO.dbo.UMRM102 order by umDocumentNumber desc";
 		String Result = "";
@@ -212,8 +211,7 @@ public class CashieringController extends BaseClass {
 
 		JsonPath next = CommonMethods.getMethod("/cashiering/receipt/TRREG000001/nextReceipt", "4.0");
 		nextRecieptNumber = next.get("Receipt[0].ReceiptNumber");
-		if(nextRecieptNumber==null)
-		{
+		if (nextRecieptNumber == null) {
 			Assert.fail();
 		}
 		System.out.println(nextRecieptNumber);
@@ -387,6 +385,20 @@ public class CashieringController extends BaseClass {
 				+ "            }\r\n" + "        }\r\n" + "    }\r\n" + "}\r\n" + "";
 
 		String expected = "{\"Receipt\":{\"Success\":true,\"Data\":{\"ReturnValues\":[{\"Name\":\"ReceiptNumber\",\"Value\":\"004240805000008\"}]},\"Messages\":[]}}";
+		CommonMethods.postMethodString(payload, uri, ver, expected);
+
+	}
+
+	@Test(priority = 12, groups = "Cashering")
+	public void postingFinalBillTransfer()
+			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
+
+		String uri = "/billing/postingFinalBillTransfer";
+		String ver = "4.0";
+		String payload = "{\r\n" + "    \"BatchId\": \"BATCH2025\",\r\n" + "    \"ServiceOrderNumber\": \"\",\r\n"
+				+ "    \"CheckBatchId\": \"CHECKBATCHID\",\r\n" + "    \"SingleOrBatch\": \"BATCH\"\r\n" + "}";
+
+		String expected = "{\"Billing\":{\"Success\":true,\"Data\":{\"BatchId\":\"BATCH2025\",\"ServiceOrderNumber\":\"\",\"HasPostingError\":false},\"Messages\":[]}}";
 		CommonMethods.postMethodString(payload, uri, ver, expected);
 
 	}
