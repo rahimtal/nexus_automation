@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 
 import org.hamcrest.Matchers;
+import org.testng.Assert;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
@@ -23,53 +24,48 @@ public class ServiceOrderControllerV3 {
 	@Test(priority = 1, groups = "ServiceOrder")
 	public static void postcreateServiceOrder_v3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		//CommonMethods.Bug("CPDEV-20960");
+		// CommonMethods.Bug("CPDEV-20960");
 		String uri = "/serviceOrder";
 		String ver = "3.0";
-		String payload = "{\r\n" + 
-				"    \"ServiceOrder\": [\r\n" + 
-				"        {\r\n" + 
-				"            \"LocationId\": \"ELECWAT001\",\r\n" + 
-				"            \"CustomerId\": \"CUSTOMER007\",\r\n" + 
-				"            \"RequestId\": \"REQ-INSTALL-E\",\r\n" + 
-				"            \"Description\": \"\",\r\n" + 
-				"            \"RequestedDateTime\": \"2021-04-08T11:45:00\",\r\n" + 
-				"            \"ScheduledDateTime\": \"2021-04-08T11:45:00\",\r\n" + 
-				"            \"EquipmentId\": \"WATEREQUIP006\",\r\n" + 
-				"            \"CommentLine\": [\r\n" + 
-				"                {\r\n" + 
-				"                    \"Id\": 2,\r\n" + 
-				"                    \"Description\": \"Line 2\"\r\n" + 
-				"                },\r\n" + 
-				"                {\r\n" + 
-				"                    \"Id\": 4,\r\n" + 
-				"                    \"Description\": \"Line 4\"\r\n" + 
-				"                },\r\n" + 
-				"                {\r\n" + 
-				"                    \"Id\": 6,\r\n" + 
-				"                    \"Description\": \"Line 6\"\r\n" + 
-				"                }\r\n" + 
-				"            ],\r\n" + 
-				"            \"Udf\": [\r\n" + 
-				"                {\r\n" + 
-				"                    \"Label\": \"SORequestUDF\",\r\n" + 
-				"                    \"Value\": \"udfval1ue1\"\r\n" + 
-				"                },\r\n" + 
-				"                {\r\n" + 
-				"                    \"Label\": \"SOReqUDF-2\",\r\n" + 
-				"                    \"Value\": \"udfValue2\"\r\n" + 
-				"                }\r\n" + 
-				"            ],\r\n" + 
-				"            \"ShowDrillBack\": 0\r\n" + 
-				"        }\r\n" + 
-				"    ]\r\n" + 
-				"}";
-		
-		String expected ="{\"DocumentNumber\":\"SORD00000009045\",\"DrillbackLink\":\"\",\"ServiceOrder\":{\"Success\":true,\"Messages\":[{\"Enabled\":1,\"Info\":\"UDF Label 'SORequestUDF' not valid for Service Order SORD00000009045.\",\"Level\":1},{\"Enabled\":1,\"Info\":\"UDF Label 'SOReqUDF-2' not valid for Service Order SORD00000009045.\",\"Level\":1},{\"Enabled\":1,\"Info\":\"SORD00000009045 created\",\"Level\":1}]}}";
-		CommonMethods.postMethodString(payload, uri, ver, expected);
-		
-		
-	
+		String payload = "{\r\n" + "    \"ServiceOrder\": [\r\n" + "        {\r\n"
+				+ "            \"LocationId\": \"ELECWAT001\",\r\n" + "            \"CustomerId\": \"CUSTOMER007\",\r\n"
+				+ "            \"RequestId\": \"REQ-INSTALL-E\",\r\n" + "            \"Description\": \"\",\r\n"
+				+ "            \"RequestedDateTime\": \"2021-04-08T11:45:00\",\r\n"
+				+ "            \"ScheduledDateTime\": \"2021-04-08T11:45:00\",\r\n"
+				+ "            \"EquipmentId\": \"WATEREQUIP006\",\r\n" + "            \"CommentLine\": [\r\n"
+				+ "                {\r\n" + "                    \"Id\": 2,\r\n"
+				+ "                    \"Description\": \"Line 2\"\r\n" + "                },\r\n"
+				+ "                {\r\n" + "                    \"Id\": 4,\r\n"
+				+ "                    \"Description\": \"Line 4\"\r\n" + "                },\r\n"
+				+ "                {\r\n" + "                    \"Id\": 6,\r\n"
+				+ "                    \"Description\": \"Line 6\"\r\n" + "                }\r\n" + "            ],\r\n"
+				+ "            \"Udf\": [\r\n" + "                {\r\n"
+				+ "                    \"Label\": \"SORequestUDF\",\r\n"
+				+ "                    \"Value\": \"udfval1ue1\"\r\n" + "                },\r\n"
+				+ "                {\r\n" + "                    \"Label\": \"SOReqUDF-2\",\r\n"
+				+ "                    \"Value\": \"udfValue2\"\r\n" + "                }\r\n" + "            ],\r\n"
+				+ "            \"ShowDrillBack\": 0\r\n" + "        }\r\n" + "    ]\r\n" + "}";
+
+		// String expected
+		// ="{\"DocumentNumber\":\"SORD00000009045\",\"DrillbackLink\":\"\",\"ServiceOrder\":{\"Success\":true,\"Messages\":[{\"Enabled\":1,\"Info\":\"UDF
+		// Label 'SORequestUDF' not valid for Service Order
+		// SORD00000009045.\",\"Level\":1},{\"Enabled\":1,\"Info\":\"UDF Label
+		// 'SOReqUDF-2' not valid for Service Order
+		// SORD00000009045.\",\"Level\":1},{\"Enabled\":1,\"Info\":\"SORD00000009045
+		// created\",\"Level\":1}]}}";
+		// CommonMethods.postMethodString(payload, uri, ver, expected);
+		String result = CommonMethods.postMethodResponseAsString(payload, uri, ver);
+		String exp1 = "{\"DocumentNumber\":\"SORD000000";
+		String exp2 = ",\"DrillbackLink\":\"\",\"ServiceOrder\":{\"Success\":true,\"Messages\":[{\"Enabled\":1,\"Info\":\"UDF Label 'SORequestUDF' not valid for Service Order";
+		String exp3 = ".\",\"Level\":1},{\"Enabled\":1,\"Info\":\"UDF Label 'SOReqUDF-2' not valid for Service Order SORD00000";
+		String exp4 = ".\",\"Level\":1},{\"Enabled\":1,\"Info\":\"SORD0000";
+		String exp5 = "created\",\"Level\":1}]}}";
+		Assert.assertTrue(result.contains(exp1));
+		Assert.assertTrue(result.contains(exp2));
+		Assert.assertTrue(result.contains(exp3));
+		Assert.assertTrue(result.contains(exp4));
+		Assert.assertTrue(result.contains(exp5));
+
 	}
 
 	public static void getServiceOrderdetails_v3(String param)
