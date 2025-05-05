@@ -9,13 +9,13 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">13</td><td class="num attn">2</td><td class="num">0</td><td class="num">0</td><td class="num">16,502</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">1</td><td class="num attn">2</td><td class="num">0</td><td class="num">0</td><td class="num">3,693</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="2">Private.CashieringController</td><td><a href="#m0">TC006_gettransactions</a></td><td rowspan="1">1746022107349</td><td rowspan="1">2</td></tr><tr class="skippedeven"><td><a href="#m1">TC007_getAutoApply</a></td><td rowspan="1">1746022107356</td><td rowspan="1">0</td></tr><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="13">Private.CashieringController</td><td><a href="#m2">TC002_RecieptAdjustment</a></td><td rowspan="1">1746022105519</td><td rowspan="1">256</td></tr><tr class="passedeven"><td><a href="#m3">TC003_1_getCashin</a></td><td rowspan="1">1746022095640</td><td rowspan="1">2252</td></tr><tr class="passedeven"><td><a href="#m4">TC003_getnextReceipt</a></td><td rowspan="1">1746022106248</td><td rowspan="1">215</td></tr><tr class="passedeven"><td><a href="#m5">TC004_balances</a></td><td rowspan="1">1746022105778</td><td rowspan="1">467</td></tr><tr class="passedeven"><td><a href="#m6">TC004_getReceipt</a></td><td rowspan="1">1746022106464</td><td rowspan="1">609</td></tr><tr class="passedeven"><td><a href="#m7">TC005_getRegisterInfo</a></td><td rowspan="1">1746022107076</td><td rowspan="1">271</td></tr><tr class="passedeven"><td><a href="#m8">postingFinalBillTransfer</a></td><td rowspan="1">1746022109042</td><td rowspan="1">3055</td></tr><tr class="passedeven"><td><a href="#m9">saveReciept_2_4</a></td><td rowspan="1">1746022097905</td><td rowspan="1">7611</td></tr><tr class="passedeven"><td><a href="#m10">saveReciept_4_SOTaskCompleteDepositPayment</a></td><td rowspan="1">1746022108233</td><td rowspan="1">257</td></tr><tr class="passedeven"><td><a href="#m11">saveReciept_4_SOTaskCompleteDepositPaymenttask2</a></td><td rowspan="1">1746022108491</td><td rowspan="1">276</td></tr><tr class="passedeven"><td><a href="#m12">saveReciept_4_prepaymentExistingCustomer</a></td><td rowspan="1">1746022107359</td><td rowspan="1">536</td></tr><tr class="passedeven"><td><a href="#m13">saveReciept_4_prepaymentNewCustomer</a></td><td rowspan="1">1746022107897</td><td rowspan="1">334</td></tr><tr class="passedeven"><td><a href="#m14">saveReciept_SOTaskCompleteDepositPaymenttaskNewCustomer</a></td><td rowspan="1">1746022108769</td><td rowspan="1">272</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="2">Private.voidController</td><td><a href="#m0">getVoidLaodv4</a></td><td rowspan="1">1746452491331</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m1">getlinkedDocumentv4</a></td><td rowspan="1">1746452491331</td><td rowspan="1">0</td></tr><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">Private.voidController</td><td><a href="#m2">putvoidv4</a></td><td rowspan="1">1746452487692</td><td rowspan="1">3629</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">Private.CashieringController#TC006_gettransactions</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.testng.SkipException: Skipping this due to bugCPDEV-16978
+<h2>Default test</h2><h3 id="m0">Private.voidController#getVoidLaodv4</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.testng.SkipException: Skipping this due to bugCPDEV-17878
 	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1590)
-	at Private.CashieringController.TC006_gettransactions(CashieringController.java:139)
+	at Private.voidController.getVoidLaodv4(voidController.java:57)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -45,9 +45,19 @@
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">Private.CashieringController#TC007_getAutoApply</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.Throwable: Method Private.CashieringController.TC007_getAutoApply() on instance Private.CashieringController@6e535154 depends on not successfully finished methods 
-[Private.CashieringController.TC006_gettransactions() on instance Private.CashieringController@6e535154]
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:159)
+<h3 id="m1">Private.voidController#getlinkedDocumentv4</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.testng.SkipException: Skipping this due to bugCPDEV-21825
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1590)
+	at Private.voidController.getlinkedDocumentv4(voidController.java:69)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
 	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
 	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
@@ -67,18 +77,6 @@
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">Private.CashieringController#TC002_RecieptAdjustment</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">Private.CashieringController#TC003_1_getCashin</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">Private.CashieringController#TC003_getnextReceipt</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m5">Private.CashieringController#TC004_balances</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m6">Private.CashieringController#TC004_getReceipt</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m7">Private.CashieringController#TC005_getRegisterInfo</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m8">Private.CashieringController#postingFinalBillTransfer</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m9">Private.CashieringController#saveReciept_2_4</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m10">Private.CashieringController#saveReciept_4_SOTaskCompleteDepositPayment</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m11">Private.CashieringController#saveReciept_4_SOTaskCompleteDepositPaymenttask2</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m12">Private.CashieringController#saveReciept_4_prepaymentExistingCustomer</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m13">Private.CashieringController#saveReciept_4_prepaymentNewCustomer</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m14">Private.CashieringController#saveReciept_SOTaskCompleteDepositPaymenttaskNewCustomer</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">Private.voidController#putvoidv4</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>
