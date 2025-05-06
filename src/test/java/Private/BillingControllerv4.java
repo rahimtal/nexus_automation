@@ -308,7 +308,7 @@ public class BillingControllerv4 extends BaseClass {
 	public void getbillingtransferProgress()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
-		CommonMethods.Bug("CPDEV-21613");
+		//CommonMethods.Bug("CPDEV-21613");
 		ExtentTest test = extent.createTest("getbillingtransferProgress");
 		test.log(Status.INFO, "Starting test: getbillingtransferProgress");
 
