@@ -78,7 +78,7 @@ public class CommonMethods {
 			boolean f = (response.path("error").toString()).contains("invalid_grant");
 			if (f == true) {
 				// Comment Following to Test Authorization
-				AssertJUnit.fail("Authorization failed/Invalid Token/Check User Name");
+				Assert.fail("Authorization failed/Invalid Token/Check User Name");
 			}
 		} catch (NullPointerException e) {
 
@@ -115,7 +115,7 @@ public class CommonMethods {
 			System.out.println("Script output:" + response.getCommandOutput());
 		} catch (Exception e) {
 			e.printStackTrace();
-			AssertJUnit.fail("Scripts got error while rinning DB Scripts, please see logs");
+			Assert.fail("Scripts got error while rinning DB Scripts, please see logs");
 
 			System.exit(1);
 		}
@@ -167,7 +167,7 @@ public class CommonMethods {
 			RestAssured.baseURI = urlv4;
 			break;
 		default:
-			AssertJUnit.fail("Invalid version");
+			Assert.fail("Invalid version");
 			version = "Invalid version";
 			break;
 		}
@@ -240,7 +240,7 @@ public class CommonMethods {
 			RestAssured.baseURI = urlv4;
 			break;
 		default:
-			AssertJUnit.fail("Invalid version");
+			Assert.fail("Invalid version");
 			version = "Invalid version";
 			break;
 		}
@@ -293,7 +293,7 @@ public class CommonMethods {
 			RestAssured.baseURI = urlv4;
 			break;
 		default:
-			AssertJUnit.fail("Invalid version");
+			Assert.fail("Invalid version");
 			version = "Invalid version";
 			break;
 		}
@@ -679,7 +679,7 @@ public class CommonMethods {
 			break;
 		default:
 			version = "Invalid version";
-			AssertJUnit.fail("Invalid version");
+			Assert.fail("Invalid version");
 			break;
 		}
 		String expe = new String(Files.readAllBytes(Paths.get(jpath)));
@@ -1170,7 +1170,7 @@ public class CommonMethods {
 
 		} catch (SQLDataException e) {
 			e.printStackTrace();
-			AssertJUnit.fail("Record not found check query");
+			Assert.fail("Record not found check query");
 		}
 
 		finally {
@@ -1256,7 +1256,7 @@ public class CommonMethods {
 
 		default:
 			version = "Invalid version";
-			AssertJUnit.fail("Invalid version");
+			Assert.fail("Invalid version");
 			break;
 		}
 
@@ -1310,7 +1310,7 @@ public class CommonMethods {
 
 		default:
 			version = "Invalid version";
-			AssertJUnit.fail("Invalid version");
+			Assert.fail("Invalid version");
 			break;
 		}
 
@@ -1365,7 +1365,7 @@ public class CommonMethods {
 
 		default:
 			version = "Invalid version";
-			AssertJUnit.fail("Invalid version");
+			Assert.fail("Invalid version");
 			break;
 		}
 
