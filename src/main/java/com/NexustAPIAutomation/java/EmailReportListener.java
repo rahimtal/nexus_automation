@@ -1,5 +1,6 @@
 package com.NexustAPIAutomation.java;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -8,6 +9,8 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 import com.NexustAPIAutomation.java.EmailSender;
+
+import jakarta.mail.MessagingException;
 
 public class EmailReportListener implements ITestListener {
 
@@ -33,9 +36,24 @@ public class EmailReportListener implements ITestListener {
 				"TestNG Execution Summary for Nexus API Latest Build :\nPassed: %d\nFailed: %d\nSkipped: %d",
 				passedTests, failedTests, skippedTests);
 
-		EmailSender.sendEmail("cogsauto@gmail.com", "trahim@cogsdale.com", subject, body);
-		EmailSender.sendEmail("cogsauto@gmail.com", "RThurairasa@cogsdale.com", subject, body);
-		EmailSender.sendEmail("cogsauto@gmail.com", "MCausevic@cogsdale.com", subject, body);
+		try {
+			EmailSender.sendEmail("cogsauto@gmail.com", "trahim@cogsdale.com", subject, body);
+		} catch (MessagingException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			EmailSender.sendEmail("cogsauto@gmail.com", "RThurairasa@cogsdale.com", subject, body);
+		} catch (MessagingException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			EmailSender.sendEmail("cogsauto@gmail.com", "MCausevic@cogsdale.com", subject, body);
+		} catch (MessagingException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	// Other listener methods (optional to override)

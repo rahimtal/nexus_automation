@@ -1,45 +1,59 @@
 package com.NexustAPIAutomation.java;
 
+import java.nio.file.Paths;
 import java.util.Properties;
+import java.io.IOException;
+import java.nio.file.Files;
 import jakarta.mail.*;
 import jakarta.mail.internet.*;
 
 public class EmailSender {
 
-    public static void sendEmail(String from, String to, String subject, String body) {
-        String host = "smtp.gmail.com"; // Replace with your SMTP host
-        final String username = "cogsauto@gmail.com"; // Your email
-        final String password = "ahkalznkxnynhlcz"; // Use app-specific password if Gmail
+	public static void sendEmail(String from, String to, String subject, String body) throws AddressException, MessagingException, IOException {
+		String host = "smtp.gmail.com"; // Replace with your SMTP host
+		final String username = "cogsauto@gmail.com"; // Your email
+		final String password = "ahkalznkxnynhlcz"; // Use app-specific password if Gmail
 
-        Properties props = new Properties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", host);
-        props.put("mail.smtp.port", "587");
+		Properties props = new Properties();
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.starttls.enable", "true");
+		props.put("mail.smtp.host", host);
+		props.put("mail.smtp.port", "587");
 
-        Session session = Session.getInstance(props,
-            new jakarta.mail.Authenticator() {
-                protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication(username, password);
-                }
-            });
+		Session session = Session.getInstance(props, new jakarta.mail.Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(username, password);
+			}
+		});
 
-        try {
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(from));
-            message.setRecipients(
-                    Message.RecipientType.TO,
-                    InternetAddress.parse(to)
-            );
-            message.setSubject(subject);
-            message.setText(body);
+		/*
+		 * try { Message message = new MimeMessage(session); message.setFrom(new
+		 * InternetAddress(from)); message.setRecipients( Message.RecipientType.TO,
+		 * InternetAddress.parse(to) ); message.setSubject(subject);
+		 * message.setText(body);
+		 * 
+		 * Transport.send(message);
+		 * 
+		 * System.out.println("Report sent successfully");
+		 * 
+		 * } catch (MessagingException e) { e.printStackTrace(); }
+		 */
 
-            Transport.send(message);
+		Message message = new MimeMessage(session);
+		message.setFrom(new InternetAddress(from));
+		message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
+		message.setSubject("TestNG API Test Report");
 
-            System.out.println("Report sent successfully");
+		String reportPath = "test-output/emailable-report.html";
+		String htmlContent = new String(Files.readAllBytes(Paths.get(reportPath)));
 
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        }
-    }
+		MimeBodyPart messageBodyPart = new MimeBodyPart();
+		messageBodyPart.setContent(htmlContent, "text/html");
+
+		Multipart multipart = new MimeMultipart();
+		multipart.addBodyPart(messageBodyPart);
+
+		message.setContent(multipart);
+		Transport.send(message);
+	}
 }

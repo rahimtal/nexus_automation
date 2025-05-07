@@ -413,7 +413,8 @@ public class lookupControllerv4 {
 		String version = "4.0";
 		// String expected =
 		// "{\"Batch\":[{\"Id\":\"BAT10123123\",\"Description\":\"\",\"HasTransaction\":false}]}";
-		String expected = "{\"Batch\":[{\"Id\":\"BAT10123123\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"FINALBILL\",\"Description\":\"\",\"HasTransaction\":true}]}";
+		//String expected = "{\"Batch\":[{\"Id\":\"BAT10123123\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"FINALBILL\",\"Description\":\"\",\"HasTransaction\":true}]}";
+		String expected = "{\"Batch\":[{\"Id\":\"BAT10123123\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"BATCHPOSTTRANS\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"BATCHTEST01\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"FINALBILL\",\"Description\":\"\",\"HasTransaction\":true}]}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("BatchSource", "BILLING");
 		params.put("BillingType", "Final");

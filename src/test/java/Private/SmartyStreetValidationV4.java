@@ -52,6 +52,7 @@ public class SmartyStreetValidationV4 {
 	public void postvalidateAddressesandPostLocation()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
+		CommonMethods.Bug("CPDEV-21907");
 		String uri = "/customers/validateAddresses";
 		String ver = "4.0";
 		String payload = "{\r\n" + 
