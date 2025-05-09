@@ -133,19 +133,20 @@ public class checkControllerv4 {
 
 	}
 
-//	@Test(priority = 7, groups = "check")
-	/*
-	 * public static void putChecksendtoAPv4() throws ClassNotFoundException,
-	 * SQLException, InterruptedException, IOException {
-	 * 
-	 * // CommonMethods.Bug("CPDEV-18547"); String uri = "/check/sendtoAP"; String
-	 * ver = "4.0"; String jpath = "./\\TestData\\putChecksendtoAPv4.json"; String
-	 * params = new String(Files.readAllBytes(Paths.get(jpath))); String expected =
-	 * "./\\TestData\\putCheckexpectedsendtoApi_v4.json"; Response result =
-	 * CommonMethods.putMethod(uri, ver, params, expected);
-	 * 
-	 * }
-	 */
+	@Test(priority = 7, groups = "check")
+	public static void putChecksendtoAPv4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		// CommonMethods.Bug("CPDEV-18547");
+		String uri = "/check/sendtoAP";
+		String ver = "4.0";
+		String jpath = "./\\TestData\\putChecksendtoAPv4.json";
+		String params = new String(Files.readAllBytes(Paths.get(jpath)));
+		String expected = "./\\TestData\\putCheckexpectedsendtoApi_v4.json";
+		Response result = CommonMethods.putMethod(uri, ver, params, expected);
+
+	}
+
 	@Test(priority = 8, groups = "check")
 	public static void postingReceivable4Error()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
@@ -165,16 +166,6 @@ public class checkControllerv4 {
 			String result = response.asString();
 			// result.replaceAll("\\s", "");
 			System.out.println("Response " + result);
-			// String expected =
-			// "{\"Check\":{\"Success\":false,\"Data\":{\"DocumentNumber\":\"CHEQ00000000009\",\"Receivable\":[{\"ChargeDocument\":\"MISC00000000389\",\"Posted\":false}],\"PostingReport\":true,\"PostingError\":true,\"ReportList\":[{\"Name\":\"Post
-			// Check Refund Edit
-			// List\",\"PrintOrder\":1}],\"ReportErrorList\":[{\"Name\":\"Post Check Refund
-			// Error
-			// List\",\"PrintOrder\":1}]},\"Messages\":[{\"Enabled\":1,\"Info\":\"Posting
-			// validation warning found. Refer to posting error
-			// report.\",\"Level\":2},{\"Enabled\":1,\"Info\":\"csmApi_spCheckPostingReceivableCreate
-			// - Cannot insert the value NULL into column 'umTotalTaxes', table
-			// 'TWO.dbo.UTX'; column does not allow nulls. INSERT fails.\",\"Level\":3}]}}";
 			String exp1 = "{\"Check\":{\"Success\":false,\"Data\":{\"DocumentNumber\":\"CHEQ00000000009\",\"Receivable\":[{\"ChargeDocument\":\"MISC00000000";
 			String exp2 = "\",\"Posted\":false}],\"PostingReport\":true,\"PostingError\":true,\"ReportList\":[{\"Name\":\"Post Check Refund Edit List\",\"PrintOrder\":1}],\"ReportErrorList\":[{\"Name\":\"Post Check Refund Error List\",\"PrintOrder\":1}]},\"Messages\":[{\"Enabled\":1,\"Info\":\"Posting validation warning found. Refer to posting error report.\",\"Level\":2},{\"Enabled\":1,\"Info\":\"csmApi_spCheckPostingReceivableCreate - Cannot insert the value NULL into column 'umTotalTaxes', table 'TWO.dbo.UTX'; column does not allow nulls. INSERT fails.\",\"Level\":3}]}}";
 			// Assert.assertEquals(result, expected);

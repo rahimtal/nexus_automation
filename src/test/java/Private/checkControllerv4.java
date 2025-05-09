@@ -132,20 +132,20 @@ public class checkControllerv4 {
 		Response result = CommonMethods.putMethod(uri, ver, params, filepath);
 
 	}
-
-	@Test(priority = 7, groups = "check" )
-	public static void putChecksendtoAPv4()
-			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-
-		//CommonMethods.Bug("CPDEV-18547");
-		String uri = "/check/sendtoAP";
-		String ver = "4.0";
-		String jpath = "./\\TestData\\putChecksendtoAPv4.json";
-		String params = new String(Files.readAllBytes(Paths.get(jpath)));
-		String expected = "./\\TestData\\putCheckexpectedsendtoApi_v4.json";
-		Response result = CommonMethods.putMethod(uri, ver, params, expected);
-
-	}
+//
+//	//@Test(priority = 7, groups = "check" )
+//	public static void putChecksendtoAPv4()
+//			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+//
+//		//CommonMethods.Bug("CPDEV-18547");
+//		String uri = "/check/sendtoAP";
+//		String ver = "4.0";
+//		String jpath = "./\\TestData\\putChecksendtoAPv4.json";
+//		String params = new String(Files.readAllBytes(Paths.get(jpath)));
+//		String expected = "./\\TestData\\putCheckexpectedsendtoApi_v4.json";
+//		Response result = CommonMethods.putMethod(uri, ver, params, expected);
+//
+//	}
 
 	/*@Test(priority = 8, groups = "check" , dependsOnMethods = "putChecksendtoAPv4")
 	public static void postingReceivable()

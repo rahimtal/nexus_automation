@@ -6,12 +6,27 @@
 	<packaging>jar</packaging>
 	<name>com.NexusApiAutomation.Java</name>
 	<url>http://maven.apache.org</url>
+	
 	<parent>
 		<groupId>org.sonatype.oss</groupId>
 		<artifactId>oss-parent</artifactId>
 		<version>9</version>
 	</parent>
 
+    <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.2.0</version>
+        <configuration>
+          <includes>
+            <include>com/NexustAPIAutomation/java/**</include>
+          </includes>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 
 	
 	<dependencies>
