@@ -8,26 +8,26 @@ import org.junit.Assert;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
+
+
 
 public class AlertPanelController extends BaseClass {
 
     private void runTest(String testName, String uri, String ver, String expected) throws IOException, ClassNotFoundException, SQLException, InterruptedException {
-        ExtentTest test = extent.createTest(testName);
-        test.log(Status.INFO, "Starting test: " + testName);
-        test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
-        test.log(Status.INFO, "Expected: " + expected);
+      // //ExtentTest test = extent.createTest(testName);
+       //test.log(Status.INFO, "Starting test: " + testName);
+       //test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
+       //test.log(Status.INFO, "Expected: " + expected);
         
         HashMap<String, String> params = new HashMap<>();
         String result = CommonMethods.getMethodasString(uri, ver, params);
-        test.log(Status.INFO, "Response: " + result);
+       //test.log(Status.INFO, "Response: " + result);
         
         try {
             Assert.assertEquals(expected, result);
-            test.log(Status.PASS, "Response matched expected result.");
+           //test.log(Status.PASS, "Response matched expected result.");
         } catch (AssertionError e) {
-            test.log(Status.FAIL, "Response did not match expected result: " + e.getMessage());
+           //test.log(Status.FAIL, "Response did not match expected result: " + e.getMessage());
             throw e;
         }
     }

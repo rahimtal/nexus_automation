@@ -5,10 +5,10 @@ import java.sql.SQLException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.NexustAPIAutomation.java.CommonMethods;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
 
-import freemarker.core.BugException;
+
+
+//import freemarker.core.BugException;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
@@ -17,12 +17,12 @@ public class BatchControllerv4 extends BaseClass {
 	private void runTest(String testName, String uri, String ver, String payload, String expected,
 			boolean containsCheck, String type)
 			throws IOException, SQLException, ClassNotFoundException, InterruptedException {
-		ExtentTest test = extent.createTest(testName);
-		test.log(Status.INFO, "Starting test: " + testName);
+		//ExtentTest test = extent.createTest(testName);
+	//test.log(Status.INFO, "Starting test: " + testName);
 
-		test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
-		test.log(Status.INFO, "Payload: " + payload);
-		test.log(Status.INFO, "Expected: " + expected);
+	//test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
+	//test.log(Status.INFO, "Payload: " + payload);
+	//test.log(Status.INFO, "Expected: " + expected);
 
 		switch (type) {
 

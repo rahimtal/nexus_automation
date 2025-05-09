@@ -5,11 +5,11 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.ExtentTest;
+
+
 
 public class ExtentTestNGITestListener implements ITestListener {
-    private static ThreadLocal<ExtentTest> testThread = new ThreadLocal<>();
+  //  private static ThreadLocal<ExtentTest> testThread = new ThreadLocal<>();
 
    /* @Override
     public void onStart(ITestContext context) {
@@ -23,9 +23,9 @@ public class ExtentTestNGITestListener implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult result) {
-        ExtentTest test = ExtentManager.getInstance().createTest(result.getMethod().getMethodName());
+        //ExtentTest test = ExtentManager.getInstance().createTest(result.getMethod().getMethodName());
         testThread.set(test);
-        test.log(Status.INFO, "Test " + result.getMethod().getMethodName() + " started.");
+       //test.log(Status.INFO, "Test " + result.getMethod().getMethodName() + " started.");
     }
 
     @Override

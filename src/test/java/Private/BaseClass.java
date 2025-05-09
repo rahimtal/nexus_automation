@@ -5,29 +5,29 @@ import java.sql.SQLException;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+//import com.aventstack.extentreports.ExtentReports;
+
+//import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 
 
 public class BaseClass {
 
-	public static ExtentReports extent;
-	public static ExtentTest test;
-	public static ExtentHtmlReporter htmlReporter;
+	//public static ExtentReports extent;
+	//public static //ExtentTest test;
+	//public static ExtentHtmlReporter htmlReporter;
 	
 	@BeforeSuite
 	public void setupReport() {
-        ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("ExtentReport.html");
-        extent = new ExtentReports();
-        extent.attachReporter(htmlReporter);
+   //     ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("ExtentReport.html");
+    //    extent = new ExtentReports();
+     //   extent.attachReporter(htmlReporter);
         
         
     }
 	@AfterSuite
 	 public void tearDownReport() {
-        extent.flush();
+       // extent.flush();
     }
 		
 	}

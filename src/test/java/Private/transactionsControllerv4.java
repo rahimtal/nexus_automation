@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import com.NexustAPIAutomation.java.CommonMethods;
 import com.NexustAPIAutomation.java.Retry;
 
-import freemarker.core.BugException;
+//import freemarker.core.BugException;
 import io.restassured.response.ValidatableResponse;
 
 public class transactionsControllerv4 {

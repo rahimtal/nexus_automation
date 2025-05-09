@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 import com.NexustAPIAutomation.java.Retry;
-import com.aventstack.extentreports.model.Log;
+//import com.aventstack.extentreports.model.Log;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;

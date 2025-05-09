@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 import com.NexustAPIAutomation.java.Retry;
-import com.aventstack.extentreports.Status;
+
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -191,10 +191,10 @@ public class CashieringGet extends BaseClass {
 	//@Test
 	void testStatus(boolean Result) {
 		if (Result == false) {
-			test.log(Status.FAIL, "Test Failed");
+		//test.log(Status.FAIL, "Test Failed");
 			AssertJUnit.fail();
 		}
-		test.log(Status.PASS, "Test Passed");
+	//test.log(Status.PASS, "Test Passed");
 	}
 
 }

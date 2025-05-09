@@ -1,10 +1,10 @@
 package com.NexustAPIAutomation.java;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+//import com.aventstack.extentreports.ExtentReports;
+//import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 public class ExtentManager {
-    private static ExtentReports extent;
+   // private static ExtentReports extent;
 
     //public static ExtentReports getInstance() {
       /*  if (extent == null) {
