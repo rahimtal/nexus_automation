@@ -67,7 +67,7 @@ public class BillingControllerv4 extends BaseClass {
 		//ExtentTest test = extent.createTest("billingprintStatementv4");
 	//test.log(Status.INFO, "Starting test: billingprintStatementv4");
 
-		CommonMethods.Bug("CPDEV-16682");
+		//CommonMethods.Bugs("CPDEV-16682");
 		String uri = "/billing/printStatement";
 		String ver = "4.0";
 		String payload = "{\n" + "    \"Billing\":{\n" + "        \"ExportToCSV\": true,\n"
@@ -287,7 +287,7 @@ public class BillingControllerv4 extends BaseClass {
 	@Test(priority = 2, groups = "billing")
 	public void TC002_getbillBatchStatus()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		// CommonMethods.Bug("CPDEV-21608");
+		// CommonMethods.Bugs("CPDEV-21608");
 		//ExtentTest test = extent.createTest("TC002_getbillBatchStatus");
 	//test.log(Status.INFO, "Starting test: TC002_getbillBatchStatus");
 
@@ -308,7 +308,7 @@ public class BillingControllerv4 extends BaseClass {
 	public void getbillingtransferProgress()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
-		//CommonMethods.Bug("CPDEV-21613");
+		//CommonMethods.Bugs("CPDEV-21613");
 		//ExtentTest test = extent.createTest("getbillingtransferProgress");
 	//test.log(Status.INFO, "Starting test: getbillingtransferProgress");
 

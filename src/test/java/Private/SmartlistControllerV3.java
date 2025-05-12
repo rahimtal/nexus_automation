@@ -17,6 +17,7 @@ private boolean  TestAll=true;
 
 	@Test(priority = 2, groups = "SmartList" )
 	public void getsmartList_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		//Still a Bug (2025)
 		CommonMethods.Bug("CPDEV-14084");
 		String uri = "/smartlist";
 		String ver = "3.0";
@@ -31,6 +32,7 @@ private boolean  TestAll=true;
 	@Test(priority = 1, groups = "SmartList" )
 	public void postsmartlistfavorite_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		//Still a Bug (2025)
 		CommonMethods.Bug("CPDEV-14084");
 		JsonPath jsonPathEvaluator;
 		

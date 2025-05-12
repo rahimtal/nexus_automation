@@ -42,7 +42,7 @@ public class voidController {
 
 	@Test(priority = 1, groups = "void")
 	public void putvoidv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		//CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-17270");
+		//CommonMethods.Bugs("https://cogsdale.atlassian.net/browse/CPDEV-17270");
 		String uri = "/void";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\putvoidv4.json";
@@ -54,6 +54,8 @@ public class voidController {
 
 	@Test(priority = 2, groups = "void")
 	public void getVoidLaodv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		
+		//Verified Bug (2025)
 		CommonMethods.Bug("CPDEV-17878");
 		String uri = "/void/load/ELECWAT001/CUSTOMER007";
 		String ver = "4.0";
@@ -66,6 +68,8 @@ public class voidController {
 
 	@Test(priority = 2, groups = "void")
 	public void getlinkedDocumentv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		
+		//Verified Bug (2025)
 		CommonMethods.Bug("CPDEV-21825");
 		String uri = "/void/linkedDocument/BILL00000000496";
 		String ver = "4.0";

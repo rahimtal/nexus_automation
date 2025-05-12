@@ -26,7 +26,7 @@ public class accountBalancesv4 {
 
 	@Test(priority = 1, groups = "AccountBalances" )
 	public void getAccountBalancesV4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-
+		//Still a Bug (2025)	
 		CommonMethods.Bug("CPDEV-21481");
 		String uri = "/accountBalance/getAccountBalances";
 		String ver = "4.0";

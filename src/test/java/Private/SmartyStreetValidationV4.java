@@ -14,7 +14,7 @@ public class SmartyStreetValidationV4 {
 
 	@Test(priority = 1, groups = "Smarty")
 	public void postSmartyStreetValidationv4() throws ClassNotFoundException, SQLException, InterruptedException {
-
+		//Still a Bug (2025)
 		CommonMethods.Bug("CPDEV-20909");
 		String uri = "/customers/validateAddresses";
 		String ver = "4.0";
@@ -51,7 +51,7 @@ public class SmartyStreetValidationV4 {
 	@Test(priority = 1, groups = "Smarty")
 	public void postvalidateAddressesandPostLocation()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-
+		//Still Bug (2025)
 		CommonMethods.Bug("CPDEV-21907");
 		String uri = "/customers/validateAddresses";
 		String ver = "4.0";

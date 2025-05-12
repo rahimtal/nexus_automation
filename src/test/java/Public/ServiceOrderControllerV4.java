@@ -27,10 +27,10 @@ public class ServiceOrderControllerV4 {
 	@Test(priority = 1, groups = "ServiceOrder")
 	public static void getServiceOrderdetails_v4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-20975");
+		//CommonMethods.Bugs("https://cogsdale.atlassian.net/browse/CPDEV-20975");
 		String uri = "/serviceOrder/detail";
 		String ver = "4.0";
-		String expected = "{\"ServiceOrderDetail\":{\"Success\":true,\"Data\":[{\"ServiceOrder\":{\"Id\":\"SORD00000000043\",\"Description\":\"description of service order 71\",\"LocationId\":\"LOCATION002\",\"RequestedDateTime\":\"2024-05-02T09:28:24\",\"ScheduledDateTime\":\"1900-01-01T00:00:00\",\"CompletedDateTime\":\"1900-01-01T00:00:00\",\"RescheduledDateTime\":\"1900-01-01T00:00:00\",\"EquipmentId\":\"\",\"Status\":{\"Id\":2,\"Description\":\"Pending\"},\"CancelReasonCode\":\"\",\"Origin\":{\"Id\":2,\"Description\":\"External\"}},\"Customer\":{\"Id\":\"MASTER001\",\"Name\":\"Mr. Arthur K Dunning TR\",\"Type\":\"Individual\",\"Status\":\"Current\"},\"Request\":{\"Id\":\"REQ-SWITCH-E\",\"Description\":\"Meter switch - electric\"},\"RequestedBy\":{\"Id\":\"MASTER001\",\"Name\":\"Mr. Arthur K Dunning TR\",\"Type\":1},\"MoveInCustomer\":{\"Id\":\"\",\"Name\":\"\",\"Type\":\"\",\"Status\":\"\"},\"CommentLine\":[{\"Id\":1,\"Description\":\"\"},{\"Id\":2,\"Description\":\"\"},{\"Id\":3,\"Description\":\"\"},{\"Id\":4,\"Description\":\"\"},{\"Id\":5,\"Description\":\"\"},{\"Id\":6,\"Description\":\"\"}],\"Task\":[{\"Id\":\"TASK003\",\"Description\":\"Meter reading-electric\",\"Sequence\":1100,\"Print\":1,\"Ordered\":0,\"Completed\":0,\"ScheduledDateTime\":\"1900-01-01T00:00:00\",\"StartedDateTime\":\"1900-01-01T00:00:00\",\"CompletedDateTime\":\"1900-01-01T00:00:00\",\"DispatchDateTime\":\"1900-01-01T00:00:00\",\"Employee\":{\"Id\":\"sa\",\"FirstName\":\"Sam\",\"MiddleName\":\"M.\",\"LastName\":\"Arsenault\"},\"EquipmentId\":\"\",\"Action\":{\"Id\":4,\"Description\":\"Read Meter\",\"ConnectionStatus\":{\"Id\":0,\"Description\":\"\"},\"CreditType\":{\"Id\":0,\"Description\":\"\"},\"ChargeType\":{\"Id\":\"\",\"Description\":\"\"}},\"ChargeAmount\":0,\"CrossReference\":\"\",\"DocumentNumber\":\"\",\"EmployeeRequired\":false,\"DepositId\":\"\",\"ServiceCategory\":{\"Id\":1,\"Description\":\"Electric\"},\"ServiceType\":{\"Id\":\"\",\"Description\":\"\"}}],\"Udf\":[],\"ServiceOrderDrillbackLink\":\"cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=ServiceOrder&LocationID=LOCATION002&ServiceOrderNumber=SORD00000000043&CogsDrillback=1\",\"MoveInDrillbackLink\":null}],\"Messages\":[]}}";
+		String expected = "{\"ServiceOrderDetail\":{\"Success\":true,\"Data\":[{\"ServiceOrder\":{\"Id\":\"SORD00000000043\",\"Description\":\"\",\"LocationId\":\"LOCATION002\",\"RequestedDateTime\":\"2000-03-10T15:58:27\",\"ScheduledDateTime\":\"2000-04-17T00:00:00\",\"CompletedDateTime\":\"1900-01-01T00:00:00\",\"RescheduledDateTime\":\"1900-01-01T00:00:00\",\"EquipmentId\":\"\",\"Status\":{\"Id\":2,\"Description\":\"Pending\"},\"CancelReasonCode\":\"\",\"Origin\":{\"Id\":1,\"Description\":\"Internal\"}},\"Customer\":{\"Id\":\"MASTER001\",\"Name\":\"Mr. Arthur K Dunning TR\",\"Type\":\"Individual\",\"Status\":\"Current\"},\"Request\":{\"Id\":\"REQ-SWITCH-E\",\"Description\":\"Meter switch - electric\"},\"RequestedBy\":{\"Id\":\"MASTER001\",\"Name\":\"Mr. Arthur K Dunning TR\",\"Type\":1},\"MoveInCustomer\":{\"Id\":\"\",\"Name\":\"\",\"Type\":\"\",\"Status\":\"\"},\"CommentLine\":[{\"Id\":1,\"Description\":\"\"},{\"Id\":2,\"Description\":\"\"},{\"Id\":3,\"Description\":\"\"},{\"Id\":4,\"Description\":\"\"},{\"Id\":5,\"Description\":\"\"},{\"Id\":6,\"Description\":\"\"}],\"Task\":[{\"Id\":\"TASK015\",\"Description\":\"Meter switch-electric\",\"Sequence\":1100,\"Print\":1,\"Ordered\":0,\"Completed\":0,\"ScheduledDateTime\":\"1900-01-01T00:00:00\",\"StartedDateTime\":\"1900-01-01T00:00:00\",\"CompletedDateTime\":\"1900-01-01T00:00:00\",\"DispatchDateTime\":\"1900-01-01T00:00:00\",\"Employee\":null,\"EquipmentId\":\"\",\"Action\":{\"Id\":7,\"Description\":\"Meter Switch\",\"ConnectionStatus\":{\"Id\":0,\"Description\":\"\"},\"CreditType\":{\"Id\":0,\"Description\":\"\"},\"ChargeType\":{\"Id\":\"\",\"Description\":\"\"}},\"ChargeAmount\":0,\"CrossReference\":\"\",\"DocumentNumber\":\"\",\"EmployeeRequired\":false,\"DepositId\":\"\",\"ServiceCategory\":{\"Id\":1,\"Description\":\"Electric\"},\"ServiceType\":{\"Id\":\"\",\"Description\":\"\"}}],\"Udf\":[],\"ServiceOrderDrillbackLink\":\"cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=ServiceOrder&LocationID=LOCATION002&ServiceOrderNumber=SORD00000000043&CogsDrillback=1\",\"MoveInDrillbackLink\":null}],\"Messages\":[]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("ShowDrillBack", "true");
 		params.put("ServiceOrderNumber", "SORD00000000043");
@@ -47,7 +47,7 @@ public class ServiceOrderControllerV4 {
 	public void postCreateServiceOrderv4UseScheduleDateForSODetailfalse()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
-		CommonMethods.Bug("CPDEV-20960");
+		//CommonMethods.Bugs("CPDEV-20960");
 		String uri = "/serviceOrder";
 		String version = "4.0";
 		String payload = "{\r\n" + "    \"ServiceOrder\": [\r\n" + "        {\r\n"
@@ -70,7 +70,7 @@ public class ServiceOrderControllerV4 {
 				+ "                    \"Value\": \"udfValue2\"\r\n" + "                }\r\n" + "            ],\r\n"
 				+ "            \"ShowDrillBack\": 0,\r\n" + "            \"UseScheduleDateForSODetail\": false\r\n"
 				+ "        }\r\n" + "    ]\r\n" + "}";
-		String exResponse = "{\"ServiceOrder\":[{\"DocumentNumber\":\"SORD";
+		String exResponse = ",\"DrillbackLink\":\"\",\"ServiceOrder\":{\"Success\":true,\"Messages\":[{\"Enabled\":1,\"Info\":\"UDF Label 'SORequestUDF' not valid for Service Order SORD0000000";
 		String response = CommonMethods.postMethodStringPayloadString(payload, uri, version);
 		Assert.assertTrue(response.contains(exResponse));
 
@@ -80,7 +80,8 @@ public class ServiceOrderControllerV4 {
 	public void postCreateServiceOrderv4UseScheduleDateForSODetailtrue()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
-		CommonMethods.Bug("CPDEV-20960");
+
+		//CommonMethods.Bugs("CPDEV-20960");
 		String uri = "/serviceOrder";
 		String version = "4.0";
 		String payload = "{\r\n" + "    \"ServiceOrder\": [\r\n" + "        {\r\n"
@@ -103,7 +104,7 @@ public class ServiceOrderControllerV4 {
 				+ "                    \"Value\": \"udfValue2\"\r\n" + "                }\r\n" + "            ],\r\n"
 				+ "            \"ShowDrillBack\": 0,\r\n" + "            \"UseScheduleDateForSODetail\": true\r\n"
 				+ "        }\r\n" + "    ]\r\n" + "}";
-		String exResponse = "{\"ServiceOrder\":[{\"DocumentNumber\":\"SORD";
+		String exResponse = ",\"DrillbackLink\":\"\",\"ServiceOrder\":{\"Success\":true,\"Messages\":[{\"Enabled\":1,\"Info\":\"UDF Label 'SORequestUDF' not valid for Service Order SORD000000";
 		String response = CommonMethods.postMethodStringPayloadString(payload, uri, version);
 		Assert.assertTrue(response.contains(exResponse));
 

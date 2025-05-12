@@ -122,6 +122,7 @@ public class lookupControllerv4 {
 
 	@Test(priority = 8, groups = "lookup")
 	public void lookupMeterReadv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		//Still a Bug (2025)
 		CommonMethods.Bug("CPDEV-20970");
 		String uri = "/lookupMeterRead";
 		String version = "4.0";
@@ -276,7 +277,7 @@ public class lookupControllerv4 {
 
 	@Test(priority = 21, groups = "lookup")
 	public void lookupchargeType() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		// CommonMethods.Bug("CPDEV-17064");
+		// CommonMethods.Bugs("CPDEV-17064");
 		String uri = "/lookup/chargeType";
 		String ver = "4.0";
 		HashMap<String, String> params = new HashMap<String, String>();
@@ -289,7 +290,7 @@ public class lookupControllerv4 {
 
 	@Test(priority = 211, groups = "lookup")
 	public void lookupchargeTypeAll() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		// CommonMethods.Bug("CPDEV-17064");
+		// CommonMethods.Bugs("CPDEV-17064");
 		String uri = "/lookup/chargeType";
 		String ver = "4.0";
 		HashMap<String, String> params = new HashMap<String, String>();
@@ -314,6 +315,7 @@ public class lookupControllerv4 {
 	@Test(priority = 23, groups = "lookup")
 	public void lookupMiscChargeDocuments()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		//Still a Bug (2025)
 		CommonMethods.Bug(" CPDEV-17161 ");
 		String uri = "/lookup/miscChargeDocuments";
 		String ver = "4.0";
@@ -327,8 +329,8 @@ public class lookupControllerv4 {
 	@Test(priority = 24, groups = "lookup")
 	public void lookupPaymentDocuments()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-
-		CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-18805");
+		//Still a Bug (2025)
+		//CommonMethods.Bugs("https://cogsdale.atlassian.net/browse/CPDEV-18805");
 		String uri = "/lookup/paymentDocuments";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\lookuppaymentDocumentsv4.json";
@@ -365,7 +367,7 @@ public class lookupControllerv4 {
 	@Test(priority = 27, groups = "lookup")
 	public void lookupserviceOrderTask()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-18771");
+		// CommonMethods.Bugs("https://cogsdale.atlassian.net/browse/CPDEV-18771");
 		// CPDEV-18771 - developer confirm this is not an issue
 		String uri = "/lookup/serviceOrderTasks";
 		String ver = "4.0";
@@ -426,6 +428,7 @@ public class lookupControllerv4 {
 	public void lookuptranferBillToCustomerDeposit()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
+		//Still a Bug (2025)
 		CommonMethods.Bug("CPDEV-20377");
 		String uri = "/lookup/tranferBillToCustomerDeposit";
 		String version = "4.0";
@@ -439,7 +442,7 @@ public class lookupControllerv4 {
 
 	@Test(priority = 211, groups = "lookup")
 	public void lookupchargeTypeAll2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		// CommonMethods.Bug("CPDEV-17064");
+		// CommonMethods.Bugs("CPDEV-17064");
 		String uri = "/lookup/chargeType";
 		String ver = "4.0";
 		HashMap<String, String> params = new HashMap<String, String>();

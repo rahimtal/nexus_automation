@@ -38,7 +38,7 @@ public class PaymentControllerV4 {
 	@Test(priority = 2, groups = "Payment")
 	public void postPaymentSimulatev4() throws ClassNotFoundException, SQLException, InterruptedException {
 
-		//CommonMethods.Bug("CPDEV-20897");
+		//CommonMethods.Bugs("CPDEV-20897");
 		String uri = "/payment/simulate";
 		String ver = "4.0";
 		String payload = "./\\TestData\\paymentsimulatev4.json";
@@ -127,7 +127,7 @@ public class PaymentControllerV4 {
 
 	@Test(priority = 9, groups = "Payment")
 	public void putputPaymentV4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		// CommonMethods.Bug("CPDEV-18776");
+		// CommonMethods.Bugs("CPDEV-18776");
 		String uri = "/Payment";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\putPaymentV4.json";
@@ -139,7 +139,7 @@ public class PaymentControllerV4 {
 
 	@Test(priority = 10, groups = "Payment")
 	public void postPaymentSimulateExt() throws ClassNotFoundException, SQLException, InterruptedException {
-
+		//Still Bug (2025)
 		CommonMethods.Bug("CPDEV-17140");
 		String uri = "/payment/simulate";
 		String version = "4.0";

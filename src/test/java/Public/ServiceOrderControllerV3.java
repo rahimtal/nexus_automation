@@ -24,7 +24,7 @@ public class ServiceOrderControllerV3 {
 	@Test(priority = 1, groups = "ServiceOrder")
 	public static void postcreateServiceOrder_v3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		// CommonMethods.Bug("CPDEV-20960");
+		// CommonMethods.Bugs("CPDEV-20960");
 		String uri = "/serviceOrder";
 		String ver = "3.0";
 		String payload = "{\r\n" + "    \"ServiceOrder\": [\r\n" + "        {\r\n"
@@ -143,7 +143,7 @@ public class ServiceOrderControllerV3 {
 	@Test(priority = 4, groups = "ServiceOrder")
 	public static void getServiceOrderRequestDetailsbyOptional_v3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		CommonMethods.Bug("DEV-20975");
+		//CommonMethods.Bugs("DEV-20975");
 		// ?RequestID=transfer&ShowOnlyTransfers=true
 		String uri = "/serviceOrder/detail";
 		String ver = "3.0";

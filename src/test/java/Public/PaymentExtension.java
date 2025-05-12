@@ -17,6 +17,7 @@ public class PaymentExtension {
 
 	@Test(priority = 1, groups = "Cashering" )
 	public void postPaymentv2() throws ClassNotFoundException, SQLException, InterruptedException {
+		//Still a Bug (2025)
 		CommonMethods.Bug("17867");
 		String uri = "/payment";
 		String ver = "2";
@@ -46,7 +47,7 @@ public class PaymentExtension {
 
 	@Test(priority = 3, groups = "Cashering" )
 	public void postPaymentv2_2() throws ClassNotFoundException, SQLException, InterruptedException {
-
+		//Still a Bug (2025)
 		CommonMethods.Bug("CPDEV-17867");
 		String uri = "/payment";
 		String ver = "2";

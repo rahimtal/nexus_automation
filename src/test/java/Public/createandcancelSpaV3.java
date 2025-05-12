@@ -35,7 +35,7 @@ public class createandcancelSpaV3 {
 
 	@Test(priority = 2, dependsOnMethods = "cancelSPA_v_3", groups = "SPA")
 	public void createSPA_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		// CommonMethods.Bug("CPDEV-20924");
+		// CommonMethods.Bugs("CPDEV-20924");
 		String uri = "/spa/create";
 		String ver = "3.0";
 		String payload = "./\\TestData\\spacreatev2.json";
@@ -91,7 +91,7 @@ public class createandcancelSpaV3 {
 
 	@Test(priority = 2, dependsOnMethods = "cancelSPA_v_3", groups = "SPA")
 	public void createSPA_v_4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		// CommonMethods.Bug("CPDEV-20924");
+		// CommonMethods.Bugs("CPDEV-20924");
 		String uri = "/spa/create";
 		String ver = "4.0";
 		String payload = "./\\TestData\\spacreatev2.json";

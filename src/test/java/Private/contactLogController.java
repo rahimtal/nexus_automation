@@ -21,7 +21,7 @@ public class contactLogController {
 	public void postcontactLogSimplev4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
-		// CommonMethods.Bug("CPDEV-17054");
+		// CommonMethods.Bugs("CPDEV-17054");
 		String uri = "/contactLogSimple";
 		String ver = "4.0";
 		String payload = "./\\TestData\\/PostcontactLogv4.json";
@@ -56,7 +56,7 @@ public class contactLogController {
 
 	@Test(priority = 4, groups = "contactLogController")
 	public void getContactLogDetail() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		// CommonMethods.Bug("CPDEV-18571");
+		// CommonMethods.Bugs("CPDEV-18571");
 		String uri = "/contactLog/getContactLogDetail";
 		String ver = "4.0";
 		String expected = "{\"result\":[{\"Description\":\"Visit Customer\",\"AdditionalText\":\"Test\",\"ContactMethod\":\"Email\",\"ActionCode\":\"2\",\"UserID\":\"Admin\",\"UserName\":\"Admin\",\"ContactDate\":\"2020-01-14T02:48:51.000Z\",\"NextDate\":\"2020-01-21\",\"IsCompleted\":\"Outstanding\",\"Resolution\":\"\",\"ServiceOrderNumber\":\"\",\"ServiceOrderStatusDescription\":\"\",\"RequestID\":\"\",\"RequestDescription\":\"\",\"DrillbackLink\":\"\"}]}";
@@ -132,7 +132,7 @@ public class contactLogController {
 	@Test(priority = 9, groups = "contactLogController")
 	public static void putcontactLogv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		// CommonMethods.Bug("CPDEV-18576");
+		// CommonMethods.Bugs("CPDEV-18576");
 		String uri = "/contactLog";
 		String ver = "4.0";
 		String payload = "{\r\n" + "	\"CustomerId\": \"CUSTOMER007\",\r\n" + "	\"LocationId\": \"ELECWAT001\",\r\n"

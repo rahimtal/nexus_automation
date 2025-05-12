@@ -24,7 +24,7 @@ public class customerControllerV3 {
 	public static void getlocationsByCustomerv_2_4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		
-		//CommonMethods.Bug("CPDEV-18800");
+		//CommonMethods.Bugs("CPDEV-18800");
 		String uri = "/customers/AUTO1001/locationsByCustomer";
 		String ver = "3.0";
 		String jpath = "./\\TestData\\locationsByCustomerv2_4.json";
@@ -148,7 +148,7 @@ public class customerControllerV3 {
 	@Test(priority = 7, groups = "CustomerController" )
 	public static void getLocationsByCustomer_v3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		//CommonMethods.Bug("CPDEV-18800");
+		//CommonMethods.Bugs("CPDEV-18800");
 		String uri = "/customers/CUSTOMER009/locationsByCustomer";
 		String ver = "3.0";
 		String jpath = "./\\TestData\\getLocationsByCustomerv3.json";
@@ -194,6 +194,7 @@ public class customerControllerV3 {
 
 	@Test(priority = 8, groups = "CustomerController" )
 	public static void getCustomerDetail_v3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		//Still a Bug (2025)
 		CommonMethods.Bug("CPDEV-18795");
 		String uri = "/customer/getCustomerDetail";
 		String ver = "3.0";

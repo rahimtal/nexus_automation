@@ -136,7 +136,7 @@ public class CashieringController extends BaseClass {
 	@Test(priority = 6, groups = "Cashering", dependsOnMethods = "TC005_getRegisterInfo")
 	public void TC006_gettransactions() throws ClassNotFoundException, SQLException, InterruptedException {
 		// extent.createTest("Test", "");
-		CommonMethods.Bug("CPDEV-16978");
+		//CommonMethods.Bugs("CPDEV-16978");
 		String uri = "/cashiering/transactions/customer017";
 		String ver = "4";
 		Map<String, String> responseMap = new HashMap<String, String>();
@@ -198,7 +198,7 @@ public class CashieringController extends BaseClass {
 	public void saveReciept_2_4()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
 		// CommonMethods.CompanyDBRestore();
-		// CommonMethods.Bug("CPDEV-20919");
+		// CommonMethods.Bugs("CPDEV-20919");
 		String columnName = "umDocumentNumber";
 		String Command1 = "select top 1 umDocumentNumber from TWO.dbo.UMRM102 order by umDocumentNumber desc";
 		String Result = "";

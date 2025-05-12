@@ -20,7 +20,7 @@ public class customerControllerV4 {
 	public static void getCustomerBasicInfo4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
-		//CommonMethods.Bug("CPDEV-21251");
+		//CommonMethods.Bugs("CPDEV-21251");
 		String uri = "/customers/AUTO1001/info";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\getCustomerBasicInfo4.json";
@@ -39,6 +39,7 @@ public class customerControllerV4 {
 	@Test(priority = 2, groups = "CustomerController")
 	public static void getCustomerAddressInfo()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		//Still a Bug (2025)
 		CommonMethods.Bug("CPDEV-20931");
 		String uri = "/customers/AUTO1001/address";
 		String ver = "4.0";
@@ -91,7 +92,7 @@ public class customerControllerV4 {
 
 	@Test(priority = 5, groups = "CustomerController")
 	public void putupdateCustomerCard() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		//CommonMethods.Bug("CPDEV-20936");
+		//CommonMethods.Bugs("CPDEV-20936");
 		String uri = "/customer/updateCustomerCard";
 		String ver = "4.0";
 		String jpath = "{\r\n" + "	\"CustomerId\": \"CUSTOMER003\",\r\n" + "	\"AddressLine1\": \"6 JIM BLVD\",\r\n"
@@ -124,7 +125,7 @@ public class customerControllerV4 {
 	public void putupdateCustomersInfov4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
-		CommonMethods.Bug("CPDEV-20941");
+		//CommonMethods.Bugs("CPDEV-20941");
 		String uri = "/customers/info";
 		String ver = "4.0";
 		String jpath = "{\r\n" + "    \"Customer\": [\r\n" + "        {\r\n"
@@ -161,7 +162,7 @@ public class customerControllerV4 {
 	public void putupdateCustomersInfov4Pos()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
-		CommonMethods.Bug("CPDEV-20941");
+		//verified //CommonMethods.Bugs("CPDEV-20941");
 		String uri = "/customers/info";
 		String ver = "4.0";
 		String jpath = "{\r\n" + "    \"Customer\": [\r\n" + "        {\r\n"

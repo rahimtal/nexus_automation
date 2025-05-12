@@ -18,7 +18,7 @@ public class DisconnectFromStarttoFinish {
 	@Test(priority = 1, groups = "DisconnectFromStarttoFinish")
 	public static void PostServiceOrder()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		//CommonMethods.Bug("CPDEV-20960");
+		//CommonMethods.Bugs("CPDEV-20960");
 		String uri = "/serviceOrder";
 		String ver = "4.0";
 		String payload = "./\\TestData\\createDcserviceOrderv4.json";
@@ -31,7 +31,7 @@ public class DisconnectFromStarttoFinish {
 	public static void PostMeterReading()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
-		//CommonMethods.Bug("CPDEV-20914");
+		//CommonMethods.Bugs("CPDEV-20914");
 		String uri = "/meterReading";
 		String ver = "4.0";
 		String payload = "./\\TestData\\PostmeterReadingV4.json";

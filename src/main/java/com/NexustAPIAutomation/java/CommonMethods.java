@@ -1585,8 +1585,7 @@ public class CommonMethods {
 	}
 
 	public static void Bug(String str1) {
-		// TODO Auto-generated method stub
-
+		
 		throw new SkipException("Skipping this method due to bug = " + str1);
 	}
 

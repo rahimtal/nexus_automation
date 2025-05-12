@@ -137,7 +137,7 @@ public class checkControllerv4 {
 //	public static void putChecksendtoAPv4()
 //			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 //
-//		//CommonMethods.Bug("CPDEV-18547");
+//		//CommonMethods.Bugs("CPDEV-18547");
 //		String uri = "/check/sendtoAP";
 //		String ver = "4.0";
 //		String jpath = "./\\TestData\\putChecksendtoAPv4.json";
