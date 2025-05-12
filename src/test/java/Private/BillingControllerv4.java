@@ -61,7 +61,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Test 3: Billing Print Statement
-	@Test(priority = 7, groups = "billing")
+	@Test(priority = 3, groups = "billing")
 	public static void billingprintStatementv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		//ExtentTest test = extent.createTest("billingprintStatementv4");
@@ -95,7 +95,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Test 4: Post Billing Calculate
-	@Test(priority = 3, groups = "billing")
+	@Test(priority = 4, groups = "billing")
 	public static void PostBillingcalculatev4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		//ExtentTest test = extent.createTest("PostBillingcalculatev4");
@@ -132,7 +132,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Test 5: Post Billing
-	@Test(priority = 8, groups = "billing", dependsOnMethods = "billingprintStatementv4")
+	@Test(priority = 5, groups = "billing", dependsOnMethods = "billingprintStatementv4")
 	public static void postBillingv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		//ExtentTest test = extent.createTest("postBillingv4");
 	//test.log(Status.INFO, "Starting test: postBillingv4");
@@ -194,7 +194,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Test 7: Post Generate Edit Report
-	@Test(priority = 4, groups = "billing", dependsOnMethods = "PostBillingcalculatev4")
+	@Test(priority = 7, groups = "billing", dependsOnMethods = "PostBillingcalculatev4")
 	public static void PostgenerateEditReportv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		//ExtentTest test = extent.createTest("PostgenerateEditReportv4");
@@ -227,7 +227,7 @@ public class BillingControllerv4 extends BaseClass {
 	public static JsonPath jsonPathEvaluator;
 
 	// Test 8: Get Bill Print Template Path
-	@Test(priority = 5, groups = "billing")
+	@Test(priority = 8, groups = "billing")
 	public void getbillprintTemplatePath()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		//ExtentTest test = extent.createTest("getbillprintTemplatePath");
@@ -246,7 +246,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Test 9: Print CSV Billing Statements
-	@Test(priority = 10, groups = "billing", dependsOnMethods = "postBillingv4")
+	@Test(priority =9, groups = "billing", dependsOnMethods = "postBillingv4")
 	public void printcsvbillingStatements()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		//ExtentTest test = extent.createTest("printcsvbillingStatements");
@@ -265,7 +265,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Test 10: TC001 Get Utility Setup
-	@Test(priority = 1, groups = "billing")
+	@Test(priority = 10, groups = "billing")
 	public void TC001_getutilitySetup() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		//ExtentTest test = extent.createTest("TC001_getutilitySetup");
 	//test.log(Status.INFO, "Starting test: TC001_getutilitySetup");
@@ -284,7 +284,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Test 11: TC002 Get Bill Batch Status
-	@Test(priority = 2, groups = "billing")
+	@Test(priority = 11, groups = "billing")
 	public void TC002_getbillBatchStatus()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.Bugs("CPDEV-21608");
@@ -304,7 +304,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Test 12: Get Billing Transfer Progress
-	@Test(priority = 11, groups = "billing")
+	@Test(priority = 12, groups = "billing")
 	public void getbillingtransferProgress()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -327,7 +327,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Test 13: Post Create Statement (Is Final)
-	@Test(priority = 6, groups = "billing", dependsOnMethods = "PostgenerateEditReportv4")
+	@Test(priority = 13, groups = "billing", dependsOnMethods = "PostgenerateEditReportv4")
 	public static void postcreateStatementv4_isfinal()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		//ExtentTest test = extent.createTest("postcreateStatementv4_isfinal");
@@ -350,7 +350,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Test 14: Billing Final Calculate
-	@Test(priority = 12, groups = "billing")
+	@Test(priority = 14, groups = "billing")
 	public static void billingfinalcalculatev4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		//ExtentTest test = extent.createTest("billingfinalcalculatev4");
@@ -376,7 +376,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Test 15: Get Batch ID Validate (Invalid)
-	@Test(priority = 12, groups = "billing")
+	@Test(priority = 15, groups = "billing")
 	public void getBatchIdValidate() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		//ExtentTest test = extent.createTest("getBatchIdValidate");
 	//test.log(Status.INFO, "Starting test: getBatchIdValidate");
@@ -395,7 +395,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Test 16: Get Batch ID Validate (Valid)
-	@Test(priority = 13, groups = "billing")
+	@Test(priority = 16, groups = "billing")
 	public void getBatchIdValidatetrue()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		//ExtentTest test = extent.createTest("getBatchIdValidatetrue");
@@ -415,7 +415,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Test 17: Delete Billing (Edit List Print)
-	@Test(priority = 12, groups = "billing")
+	@Test(priority = 17, groups = "billing")
 	public static void delBatv4_EditListPrint()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		//ExtentTest test = extent.createTest("delBatv4_EditListPrint");
@@ -433,7 +433,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Test 18: Delete Billing (Calculating)
-	@Test(priority = 13, groups = "billing")
+	@Test(priority = 18, groups = "billing")
 	public static void delBatv4_calculating()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		//ExtentTest test = extent.createTest("delBatv4_calculating");
@@ -451,7 +451,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Test 15: Get Batch ID Validate (Invalid)
-	@Test(priority = 14, groups = "billing")
+	@Test(priority = 19, groups = "billing")
 	public void billBatchStatus() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		//ExtentTest test = extent.createTest("billBatchStatus");
 	//test.log(Status.INFO, "Starting test: billBatchStatus");
@@ -470,7 +470,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 	
 	
-	@Test(priority = 15, groups = "billing")
+	@Test(priority = 20, groups = "billing")
 	public void getBilltransferProgress() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		//ExtentTest test = extent.createTest("gettransfer");
 	//test.log(Status.INFO, "Starting test: gettransfer");

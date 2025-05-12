@@ -89,7 +89,7 @@ public class createandcancelSpaV3 {
 		cancelSPA_v_3();
 	}
 
-	@Test(priority = 2, dependsOnMethods = "cancelSPA_v_3", groups = "SPA")
+	@Test(priority = 5, dependsOnMethods = "cancelSPA_v_3", groups = "SPA")
 	public void createSPA_v_4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.Bugs("CPDEV-20924");
 		String uri = "/spa/create";
