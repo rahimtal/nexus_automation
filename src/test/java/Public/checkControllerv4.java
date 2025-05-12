@@ -1,7 +1,7 @@
 package Public;
 
 import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
+//import org.testng.AssertJUnit;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -11,6 +11,7 @@ import java.util.HashMap;
 
 import org.apache.hc.core5.http.nio.ssl.SecurePortStrategy;
 import org.testng.Assert;
+//import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
@@ -43,7 +44,7 @@ public class checkControllerv4 {
 			System.out.println(Result);
 			if (Result == null) {
 
-				AssertJUnit.fail("Check Posting Failed");
+				Assert.fail("Check Posting Failed");
 
 			} else {
 				getCheckv4(nextCheck);
@@ -105,10 +106,10 @@ public class checkControllerv4 {
 		System.out.println(result.getString("Check"));
 		String j = result.getString("Check");
 		if (!j.contains("CHEQ000000000")) {
-			AssertJUnit.fail("next Check API is failed");
+			Assert.fail("next Check API is failed");
 		}
 		if (!j.contains("Success:true")) {
-			AssertJUnit.fail("next Check API is failed");
+			Assert.fail("next Check API is failed");
 		}
 		System.out.println(result.getString("Check.Data.NextDocumentNumber"));
 		return result.getString("Check.Data.NextDocumentNumber");
@@ -200,10 +201,13 @@ public class checkControllerv4 {
 			result.replaceAll("\\s", "");
 			System.out.println(result);
 			String expected = "{\"Check\":{\"Success\":false,\"Data\":{\"DocumentNumber\":\"CHEQ00000000013\",\"Receivable\":null,\"PostingReport\":false,\"PostingError\":true,\"ReportList\":[],\"ReportErrorList\":[{\"Name\":\"Post Check Refund Error List\",\"PrintOrder\":1}]},\"Messages\":[{\"Enabled\":1,\"Info\":\"Posting validation error found. Refer to posting error report.\",\"Level\":3}]}}";
+			
 			System.out.println(expected);
-			if (!result.trim().contentEquals(expected.trim())) {
-				AssertJUnit.fail(result);
-			}
+			Assert.assertEquals(result, expected);
+			//if (!result.trim().contentEquals(expected.trim())) {
+				//Assert.fail(result);
+			//}
+			
 		}
 
 	}
