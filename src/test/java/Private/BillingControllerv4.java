@@ -68,6 +68,7 @@ public class BillingControllerv4 extends BaseClass {
 	//test.log(Status.INFO, "Starting test: billingprintStatementv4");
 
 		//CommonMethods.Bugs("CPDEV-16682");
+		CommonMethods.Bug("CPDEV-21966");
 		String uri = "/billing/printStatement";
 		String ver = "4.0";
 		String payload = "{\n" + "    \"Billing\":{\n" + "        \"ExportToCSV\": true,\n"
