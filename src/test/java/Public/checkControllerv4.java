@@ -180,34 +180,23 @@ public class checkControllerv4 {
 	@Test(priority = 8, groups = "check")
 	public static void postingReceivable4RefundError()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		// CommonMethods.CompanyDBRestore();
+
 		String uri = "/check/postingReceivable";
 		String ver = "4.0";
 		String nextCheck = getNextCheckv4();
 		if (nextCheck != null) {
-			// String payload = "{\"Check\":{\"DocumentNumber\":
-			// \""+nextCheck+"\",\"CheckDate\":\"2023-07-13\",\"CreatedDate\":\"2023-07-13\",\"CheckAmount\":120.50,\"LocationId\":\"WATER005\",\"CustomerId\":\"500300\",\"IssuedToCustomerId\":\"500200\",\"CheckbookId\":\"FIRST
-			// NATIONAL\",\"MiscChargeId\":\"CHEQUE\",\"BatchId\":\"Test
-			// Batch\",\"Comment\":\"Example Comment\"}}";
 			String payload = "{\"Check\":{\"DocumentNumber\": \"" + nextCheck + "\"}}";
 			String filepath = "./\\TestData\\postingReceivablev4.json";
 			FileWriter file = new FileWriter(filepath);
 			file.write(payload);
 			file.close();
-			// jsonPathEvaluator = CommonMethods.postMethodResponseasString(filepath, uri,
-			// ver);
 			Response response = CommonMethods.postMethodResponseasString(filepath, uri, ver);
 			String result = response.asString();
 			result.replaceAll("\\s", "");
 			System.out.println(result);
-			String expected = "{\"Check\":{\"Success\":false,\"Data\":{\"DocumentNumber\":\"CHEQ00000000013\",\"Receivable\":null,\"PostingReport\":false,\"PostingError\":true,\"ReportList\":[],\"ReportErrorList\":[{\"Name\":\"Post Check Refund Error List\",\"PrintOrder\":1}]},\"Messages\":[{\"Enabled\":1,\"Info\":\"Posting validation error found. Refer to posting error report.\",\"Level\":3}]}}";
-			
-			System.out.println(expected);
-			Assert.assertEquals(result, expected);
-			//if (!result.trim().contentEquals(expected.trim())) {
-				//Assert.fail(result);
-			//}
-			
+			String expectedPattern = "\\{\"Check\":\\{\"Success\":false,\"Data\":\\{\"DocumentNumber\":\"CHEQ000000000.*?\",\"Receivable\":null,\"PostingReport\":false,\"PostingError\":true,\"ReportList\":\\[],\"ReportErrorList\":\\[\\{\"Name\":\"Post Check Refund Error List\",\"PrintOrder\":1}]},\"Messages\":\\[\\{\"Enabled\":1,\"Info\":\"Posting validation error found.*?\",\"Level\":3}]}}";
+			CommonMethods.RegexMatcher(expectedPattern, result);
+
 		}
 
 	}

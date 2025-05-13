@@ -72,7 +72,7 @@ public class BillingControllerv4 extends BaseClass {
 		String ver = "4.0";
 		String payload = "{\n" + "    \"Billing\":{\n" + "        \"ExportToCSV\": true,\n"
 				+ "        \"IncludeEbills\": true,\n" + "        \"PrintAction\": 1,\n"
-				+ "        \"BatchId\": \"BT1231\",\n" + "        \"Confirm\": {\n"
+				+ "        \"BatchId\": \"10001  \",\n" + "        \"Confirm\": {\n"
 				+ "            \"RefreshBillPrintData\": true\n" + "        }\n" + "    }\n" + "}";
 		String filepath = "./\\TestData\\billingprintStatement.json";
 	//test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);

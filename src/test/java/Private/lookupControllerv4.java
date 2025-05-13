@@ -16,7 +16,7 @@ import io.restassured.path.json.JsonPath;
 
 public class lookupControllerv4 {
 
-	@Test(priority = 4, groups = "lookup")
+	@Test(priority = 1, groups = "lookup")
 	public void getapplyByService_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookupBatch";
 		String ver = "4.0";
@@ -76,7 +76,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 1, groups = "lookup")
+	@Test(priority = 4, groups = "lookup")
 	public void lookupMetergroup4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri3 = "/lookupMeterGroup";
 		String ver = "4.0";
@@ -188,7 +188,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 13, groups = "lookup")
+	@Test(priority = 14, groups = "lookup")
 	public void lookupequipmentStatusv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/EquipmentStatus";
@@ -200,7 +200,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 14, groups = "lookup")
+	@Test(priority = 15, groups = "lookup")
 	public void lookupequipmentNetMetervType4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/equipmentNetMeterType";
@@ -211,7 +211,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 15, groups = "lookup")
+	@Test(priority = 16, groups = "lookup")
 	public void lookupEquipmentRegisterCode4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/EquipmentRegisterCode";
@@ -222,7 +222,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 16, groups = "lookup")
+	@Test(priority = 17, groups = "lookup")
 	public void lookupEquipmentAttributeProtection4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/EquipmentAttributeProtection";
@@ -233,7 +233,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 17, groups = "lookup")
+	@Test(priority = 18, groups = "lookup")
 	public void lookupbillType() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/billType";
 		String ver = "4.0";
@@ -243,7 +243,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 18, groups = "lookup")
+	@Test(priority = 19, groups = "lookup")
 	public void lookupbillingPrepareType()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/billingPrepareType";
@@ -254,7 +254,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 19, groups = "lookup")
+	@Test(priority = 20, groups = "lookup")
 	public void lookupcollectionnoticeType()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/collection/noticeType";
@@ -265,7 +265,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 20, groups = "lookup")
+	@Test(priority = 21, groups = "lookup")
 	public void lookupkvaReadingType() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/kvaReadingType";
 		String ver = "4.0";
@@ -275,7 +275,7 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 21, groups = "lookup")
+	@Test(priority = 22, groups = "lookup")
 	public void lookupchargeType() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.Bugs("CPDEV-17064");
 		String uri = "/lookup/chargeType";
@@ -288,7 +288,7 @@ public class lookupControllerv4 {
 
 	}
 
-	@Test(priority = 211, groups = "lookup")
+	@Test(priority = 23, groups = "lookup")
 	public void lookupchargeTypeAll() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.Bugs("CPDEV-17064");
 		String uri = "/lookup/chargeType";
@@ -301,7 +301,7 @@ public class lookupControllerv4 {
 
 	}
 
-	@Test(priority = 22, groups = "lookup")
+	@Test(priority = 24, groups = "lookup")
 	public void lookupbillingCyclePeriod()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookup/billingCyclePeriod";
@@ -312,35 +312,9 @@ public class lookupControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 23, groups = "lookup")
-	public void lookupMiscChargeDocuments()
-			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		//Still a Bug (2025)
-		CommonMethods.Bug(" CPDEV-17161 ");
-		String uri = "/lookup/miscChargeDocuments";
-		String ver = "4.0";
-		String jpath = "./\\TestData\\lookupMiscChargeDocumentsv4.json";
-		HashMap<String, String> params = new HashMap<String, String>();
-		params.put("DocumentSource", "work");
-		String result = CommonMethods.getMethod(uri, ver, params, jpath);
-		System.out.println(result);
-	}
+	
 
-	@Test(priority = 24, groups = "lookup")
-	public void lookupPaymentDocuments()
-			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		//Still a Bug (2025)
-		//CommonMethods.Bugs("https://cogsdale.atlassian.net/browse/CPDEV-18805");
-		String uri = "/lookup/paymentDocuments";
-		String ver = "4.0";
-		String jpath = "./\\TestData\\lookuppaymentDocumentsv4.json";
-		HashMap<String, String> params = new HashMap<String, String>();
-		params.put("DocumentSource", "work");
-		params.put("PaymentType", "creditmemo");
-
-		String result = CommonMethods.getMethod(uri, ver, params, jpath);
-		System.out.println(result);
-	}
+	
 
 	@Test(priority = 25, groups = "lookup")
 	public void lookupserviceOrderOrigin()
@@ -494,4 +468,33 @@ public class lookupControllerv4 {
 		Assert.assertEquals(actual, expected);
 	}
 
+	@Test(priority = 36, groups = "lookup")
+	public void lookupPaymentDocuments()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		//Still a Bug (2025)
+		//CommonMethods.Bugs("https://cogsdale.atlassian.net/browse/CPDEV-18805");
+		String uri = "/lookup/paymentDocuments";
+		String ver = "4.0";
+		String jpath = "./\\TestData\\lookuppaymentDocumentsv4.json";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("DocumentSource", "work");
+		params.put("PaymentType", "creditmemo");
+
+		String result = CommonMethods.getMethod(uri, ver, params, jpath);
+		System.out.println(result);
+	}
+	
+	@Test(priority = 37, groups = "lookup")
+	public void lookupMiscChargeDocuments()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		//Still a Bug (2025)
+		CommonMethods.Bug(" CPDEV-17161 ");
+		String uri = "/lookup/miscChargeDocuments";
+		String ver = "4.0";
+		String jpath = "./\\TestData\\lookupMiscChargeDocumentsv4.json";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("DocumentSource", "work");
+		String result = CommonMethods.getMethod(uri, ver, params, jpath);
+		System.out.println(result);
+	}
 }

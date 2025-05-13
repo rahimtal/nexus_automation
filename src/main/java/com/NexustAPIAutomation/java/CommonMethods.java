@@ -49,6 +49,8 @@ import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 public class CommonMethods {
 
@@ -1578,6 +1580,18 @@ public class CommonMethods {
 			System.out.printf("%-4s : no match%n", ss);
 		}
 
+	}
+	
+	public static void RegexMatcher (String expectedPattern, String result)
+	{
+		
+		//String expectedPattern = "\\{\"Check\":\\{\"Success\":false,\"Data\":\\{\"DocumentNumber\":\"CHEQ.*?\",\"Receivable\":null,\"PostingReport\":false,\"PostingError\":true,\"ReportList\":\\[],\"ReportErrorList\":\\[\\{\"Name\":\"Post Check Refund Error List\",\"PrintOrder\":1}]},\"Messages\":\\[\\{\"Enabled\":1,\"Info\":\"Posting validation error found.*?\",\"Level\":3}]}}";
+
+		Pattern pattern = Pattern.compile(expectedPattern);
+		Matcher matcher = pattern.matcher(result);
+
+		Assert.assertTrue(matcher.find(), "Result does not match expected pattern.");
+		
 	}
 
 	public static void main(String args[]) {
