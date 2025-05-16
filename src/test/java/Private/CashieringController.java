@@ -402,5 +402,24 @@ public class CashieringController extends BaseClass {
 		CommonMethods.postMethodString(payload, uri, ver, expected);
 
 	}
+	
+	@Test(priority = 13, groups = "Cashering", dependsOnMethods = "TC005_getRegisterInfo")
+	public void TC006_gettransactions_2_4() throws ClassNotFoundException, SQLException, InterruptedException {
+		// extent.createTest("Test", "");
+		//CommonMethods.Bugs("CPDEV-16978");
+		String uri = "/cashiering/transactions/customer017";
+		String ver = "2.4";
+		Map<String, String> responseMap = new HashMap<String, String>();
+	//	responseMap.put("CustomerId", "customer017");
+
+		jsonPathEvaluator = CommonMethods.getMethod(uri, ver, responseMap);
+
+		System.out.println(jsonPathEvaluator.get().toString());
+		String Result = jsonPathEvaluator.get("CashieringTransaction[0].CustomerId");
+		if (!Result.contentEquals("customer017")) {
+			AssertJUnit.fail();
+		}
+
+	}
 
 }
