@@ -123,7 +123,7 @@ public class MeterReadControllerV4 {
 	public void putMeterReadinginWorkV4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		//Still a Bug (2025)
-		CommonMethods.Bug("CPDEV-21835");
+		//CommonMethods.Bug("CPDEV-21835");
 
 		String uri = "/meterReading";
 		String ver = "4.0";
@@ -239,3 +239,5 @@ public class MeterReadControllerV4 {
 	}
 
 }
+
+

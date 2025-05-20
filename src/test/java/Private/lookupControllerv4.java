@@ -277,7 +277,7 @@ public class lookupControllerv4 {
 
 	@Test(priority = 22, groups = "lookup")
 	public void lookupchargeType() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		// CommonMethods.Bugs("CPDEV-17064");
+		//CommonMethods.Bugs("CPDEV-17064");
 		String uri = "/lookup/chargeType";
 		String ver = "4.0";
 		HashMap<String, String> params = new HashMap<String, String>();
