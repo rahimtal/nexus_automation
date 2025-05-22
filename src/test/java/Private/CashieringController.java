@@ -15,7 +15,6 @@ import org.testng.annotations.Test;
 import com.NexustAPIAutomation.java.CommonMethods;
 import com.NexustAPIAutomation.java.Retry;
 
-
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
@@ -136,7 +135,7 @@ public class CashieringController extends BaseClass {
 	@Test(priority = 6, groups = "Cashering", dependsOnMethods = "TC005_getRegisterInfo")
 	public void TC006_gettransactions() throws ClassNotFoundException, SQLException, InterruptedException {
 		// extent.createTest("Test", "");
-		//CommonMethods.Bugs("CPDEV-16978");
+		// CommonMethods.Bugs("CPDEV-16978");
 		String uri = "/cashiering/transactions/customer017";
 		String ver = "4";
 		Map<String, String> responseMap = new HashMap<String, String>();
@@ -389,28 +388,14 @@ public class CashieringController extends BaseClass {
 
 	}
 
-	@Test(priority = 12, groups = "Cashering")
-	public void postingFinalBillTransfer()
-			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
-
-		String uri = "/billing/postingFinalBillTransfer";
-		String ver = "4.0";
-		String payload = "{\r\n" + "    \"BatchId\": \"BATCH2025\",\r\n" + "    \"ServiceOrderNumber\": \"\",\r\n"
-				+ "    \"CheckBatchId\": \"CHECKBATCHID\",\r\n" + "    \"SingleOrBatch\": \"BATCH\"\r\n" + "}";
-
-		String expected = "{\"Billing\":{\"Success\":true,\"Data\":{\"BatchId\":\"BATCH2025\",\"ServiceOrderNumber\":\"\",\"HasPostingError\":false},\"Messages\":[]}}";
-		CommonMethods.postMethodString(payload, uri, ver, expected);
-
-	}
-	
 	@Test(priority = 13, groups = "Cashering", dependsOnMethods = "TC005_getRegisterInfo")
 	public void TC006_gettransactions_2_4() throws ClassNotFoundException, SQLException, InterruptedException {
 		// extent.createTest("Test", "");
-		//CommonMethods.Bugs("CPDEV-16978");
+		// CommonMethods.Bugs("CPDEV-16978");
 		String uri = "/cashiering/transactions/customer017";
 		String ver = "2.4";
 		Map<String, String> responseMap = new HashMap<String, String>();
-	//	responseMap.put("CustomerId", "customer017");
+		// responseMap.put("CustomerId", "customer017");
 
 		jsonPathEvaluator = CommonMethods.getMethod(uri, ver, responseMap);
 

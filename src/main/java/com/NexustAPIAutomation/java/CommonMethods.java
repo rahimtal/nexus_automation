@@ -43,6 +43,8 @@ import com.profesorfalken.jpowershell.PowerShell;
 import com.profesorfalken.jpowershell.PowerShellResponse;
 
 import io.restassured.RestAssured;
+import io.restassured.config.HttpClientConfig;
+import io.restassured.config.RestAssuredConfig;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -192,6 +194,11 @@ public class CommonMethods {
 			e.printStackTrace();
 		}
 
+		RestAssured.config = RestAssuredConfig.config()
+			    .httpClient(HttpClientConfig.httpClientConfig()
+			    .setParam("http.connection.timeout", 30000)
+			    .setParam("http.socket.timeout", 30000)
+			    .setParam("http.connection-manager.timeout", 30000L));
 		Response response;
 		JsonPath jsonPathEvaluator;
 		RestAssured.baseURI = RestAssured.baseURI + uri;
@@ -201,11 +208,12 @@ public class CommonMethods {
 						"Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
 				.body(jsonDataInFile);
 
+		
 		System.out.println("Posting call Body :" + bodycontent.toString());
 		response = httpRequest.post();
 		System.out.println("Posting call Response :" + response.asString());
 		jsonPathEvaluator = response.jsonPath();
-
+		Thread.sleep(10000);
 		return jsonPathEvaluator;
 
 	}
@@ -425,6 +433,7 @@ public class CommonMethods {
 		System.out.println("Uri Response =" + response.asString());
 		jsonPathEvaluator = response.jsonPath();
 
+		Thread.sleep(10000);
 		return response.asString();
 
 	}
@@ -476,6 +485,7 @@ public class CommonMethods {
 
 		response = httpRequest.post();
 		System.out.println(response.asString());
+		Thread.sleep(10000);
 		Assert.assertEquals(response.asString(), expected);
 
 	}
@@ -900,6 +910,8 @@ public class CommonMethods {
 		Response response = httpRequest.put();
 		Assert.assertEquals(response.getBody().asString(), new String(Files.readAllBytes(Paths.get(jsonDataInFile))));
 		System.out.println("** PUT call Response ** " + response.asString());
+		
+		Thread.sleep(10000);
 		return response;
 
 	}

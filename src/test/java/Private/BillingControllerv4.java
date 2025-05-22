@@ -9,6 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.DataBackupRestore;
 
 import io.restassured.path.json.JsonPath;
 
@@ -42,7 +43,7 @@ public class BillingControllerv4 extends BaseClass {
 		// ExtentTest test = extent.createTest("delBatv4Err");
 		// test.log(Status.INFO, "Starting test: delBatv4Err");
 
-		String uri = "/billing/delete/BT1231";
+		String uri = "/billing/delete/BT12312";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\delBatv4Err.json";
 		// test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
@@ -101,6 +102,7 @@ public class BillingControllerv4 extends BaseClass {
 		// ExtentTest test = extent.createTest("PostBillingcalculatev4");
 		// test.log(Status.INFO, "Starting test: PostBillingcalculatev4");
 
+		//CommonMethods.Bug("CPDEV-22133");
 		String uri = "/billing/calculate";
 		String ver = "4.0";
 		String payload = "{\n" + "    \"Billing\": {\n" + "        \"BatchId\": \"BT1231\",\n"
@@ -118,8 +120,13 @@ public class BillingControllerv4 extends BaseClass {
 		FileWriter file = new FileWriter(filepath);
 		file.write(payload);
 		file.close();
-
+		
+		//Calling first time for cold start
+		CommonMethods.postMethodResponseasString(filepath, uri, ver);
+		CommonMethods.Delay(5000);
+		//second call
 		JsonPath jsonPathEvaluator = CommonMethods.postMethod(filepath, uri, ver);
+		
 		Boolean resultFlag = jsonPathEvaluator.get("Billing.Success");
 		// test.log(Status.INFO, "Billing.Success: " + resultFlag);
 		System.out.println(resultFlag);
@@ -160,6 +167,7 @@ public class BillingControllerv4 extends BaseClass {
 		} else {
 			// test.log(Status.PASS, "Billing Post succeeded.");
 		}
+		Thread.sleep(5000);
 	}
 
 	// Test 6: Post Create Statement
@@ -499,19 +507,16 @@ public class BillingControllerv4 extends BaseClass {
 	@Test(priority = 21, groups = "billing")
 	public static void postingFinalBillTransferv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		// ExtentTest test = extent.createTest("billingfinalcalculatev4");
-		// test.log(Status.INFO, "Starting test: billingfinalcalculatev4");
 
 		String uri = "/billing/postingFinalBillTransfer";
 		String ver = "4.0";
 		String payload = "{\r\n" + "    \"BatchId\": \"BATCH2025\",\r\n" + "    \"ServiceOrderNumber\": \"\",\r\n"
 				+ "    \"CheckBatchId\": \"CHK043025sa01\",\r\n" + "    \"SingleOrBatch\": \"BATCH\"\r\n" + "}";
-
 		String actual = CommonMethods.postMethodStringPayloadString(payload, uri, ver);
-		// test.log(Status.INFO, "Actual: " + actual);
+
 		String expected = "{\"Billing\":{\"Success\":true,\"Data\":{\"BatchId\":\"BATCH2025\",\"ServiceOrderNumber\":\"\",\"HasPostingError\":false},\"Messages\":[]}}";
 		Assert.assertEquals(actual, expected);
-		// test.log(Status.PASS, "Billing Final Calculation succeeded.");
+
 	}
 
 	// Test 14: Billing Final posting Final BillTransfer
@@ -519,6 +524,8 @@ public class BillingControllerv4 extends BaseClass {
 	public static void postinggenerateBillingTransferReportv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
+		// DataBackupRestore.CompanyDBRestore();
+		CommonMethods.Bug(" CPDEV-22127");
 		String uri = "/billing/generateBillingTransferReport";
 		String ver = "4.0";
 		String payload = "{\r\n" + "\r\n" + "    \"BatchId\": \"BATCH2025\",\r\n"
