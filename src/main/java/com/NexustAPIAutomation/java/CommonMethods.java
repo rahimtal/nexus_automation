@@ -474,7 +474,7 @@ public class CommonMethods {
 			break;
 		}
 
-		System.out.println(payload);
+		System.out.println("Payload = "+payload);
 		Response response;
 		RestAssured.baseURI = RestAssured.baseURI + uri;
 		System.out.println("Posting uri :" + RestAssured.baseURI.toString());

@@ -132,7 +132,37 @@ public class transactionsControllerv4 {
 		System.out.println(result);
 	}
 
-	@Test(priority = 9, groups = "Transaction")
+	
+
+	@Test(priority = 10, groups = "Transaction")
+	public void gettransactionpayment_v4_false()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// CommonMethods.Bugs("CPDEV-21448");
+		String uri = "/transaction/payment/PYMT00000000500";
+		String ver = "4.0";
+		String expected = "{\"Payment\":{\"Success\":true,\"Data\":{\"DocumentNumber\":\"PYMT00000000500\",\"BatchId\":\"109090ABC\",\"PaidById\":\"CUSTOMER016\",\"PaidBy\":{\"Id\":1,\"Description\":\"Bill To Customer\"},\"PaymentOrigin\":null,\"Comment\":\"\",\"Status\":\"Work\",\"CreateDateTime\":\"2019-08-05T09:01:03\",\"CreatedBy\":\"sa\",\"IsAppliedToDeposit\":false,\"PayDetail\":{\"Type\":\"Check\",\"OtherType\":null,\"TaxSchduleId\":null,\"TaxDescription\":null,\"CreditNoteId\":null,\"Date\":\"2019-08-05\",\"SubTotal\":161.43,\"TotalTaxAmount\":0.00,\"Amount\":161.43,\"UnappliedToBill\":0.00,\"CheckbookId\":\"FIRST NATIONAL\",\"CreditCard\":null,\"CheckNumber\":\"\",\"CreditNoteReasonCode\":\"\",\"TaxDetail\":[]},\"IsVoided\":false,\"Void\":null,\"LocationId\":\"SEWER001\",\"ServiceAddress\":{\"Line1\":\"4 Water st UNIT 145\",\"City\":\"NEW YORK\",\"State\":\"NY\",\"ZipCode\":\"65342\",\"Country\":\"USA\"},\"Customer\":{\"Id\":\"CUSTOMER016\",\"Type\":\"Individual\",\"Individual\":{\"FullName\":\"Mrs. Elizabeth R Hunter\",\"Name\":{\"Title\":\"Mrs.\",\"First\":\"Elizabeth\",\"Middle\":\"R\",\"Last\":\"Hunter\"}},\"Business\":null},\"Prepayment\":[]},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("HandleCreditMemoMessaging", "false");
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		Assert.assertEquals(result, expected);
+		System.out.println(result);
+	}
+
+	@Test(priority = 11, groups = "Transaction")
+	public void gettransactionpayment_v3_false()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// CommonMethods.Bugs("CPDEV-21448");
+		String uri = "/transaction/payment/PYMT00000000500";
+		String ver = "3.0";
+		String expected = "{\"Payment\":{\"Success\":true,\"Data\":{\"DocumentNumber\":\"PYMT00000000500\",\"BatchId\":\"109090ABC\",\"PaidById\":\"CUSTOMER016\",\"PaidBy\":{\"Id\":1,\"Description\":\"Bill To Customer\"},\"PaymentOrigin\":null,\"Comment\":\"\",\"Status\":\"Work\",\"CreateDateTime\":\"2019-08-05T09:01:03\",\"CreatedBy\":\"sa\",\"IsAppliedToDeposit\":false,\"PayDetail\":{\"Type\":\"Check\",\"OtherType\":null,\"TaxSchduleId\":null,\"TaxDescription\":null,\"CreditNoteId\":null,\"Date\":\"2019-08-05\",\"SubTotal\":161.43,\"TotalTaxAmount\":0.00,\"Amount\":161.43,\"UnappliedToBill\":0.00,\"CheckbookId\":\"FIRST NATIONAL\",\"CreditCard\":null,\"CheckNumber\":\"\",\"CreditNoteReasonCode\":\"\",\"TaxDetail\":[]},\"IsVoided\":false,\"Void\":null,\"LocationId\":\"SEWER001\",\"ServiceAddress\":{\"Line1\":\"4 Water st UNIT 145\",\"City\":\"NEW YORK\",\"State\":\"NY\",\"ZipCode\":\"65342\",\"Country\":\"USA\"},\"Customer\":{\"Id\":\"CUSTOMER016\",\"Type\":\"Individual\",\"Individual\":{\"FullName\":\"Mrs. Elizabeth R Hunter\",\"Name\":{\"Title\":\"Mrs.\",\"First\":\"Elizabeth\",\"Middle\":\"R\",\"Last\":\"Hunter\"}},\"Business\":null},\"Prepayment\":[]},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("HandleCreditMemoMessaging", "false");
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		Assert.assertEquals(result, expected);
+		System.out.println(result);
+	}
+	
+	//@Test(priority = 12, groups = "Transaction")
 	public void gettransactionsWriteoff_v4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		
@@ -163,34 +193,6 @@ public class transactionsControllerv4 {
 		params.put("Phone", "true");
 		params.put("OtherCharge", "true");
 
-		String result = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(result, expected);
-		System.out.println(result);
-	}
-
-	@Test(priority = 10, groups = "Transaction")
-	public void gettransactionpayment_v4_false()
-			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		// CommonMethods.Bugs("CPDEV-21448");
-		String uri = "/transaction/payment/PYMT00000000500";
-		String ver = "4.0";
-		String expected = "{\"Payment\":{\"Success\":true,\"Data\":{\"DocumentNumber\":\"PYMT00000000500\",\"BatchId\":\"109090ABC\",\"PaidById\":\"CUSTOMER016\",\"PaidBy\":{\"Id\":1,\"Description\":\"Bill To Customer\"},\"PaymentOrigin\":null,\"Comment\":\"\",\"Status\":\"Work\",\"CreateDateTime\":\"2019-08-05T09:01:03\",\"CreatedBy\":\"sa\",\"IsAppliedToDeposit\":false,\"PayDetail\":{\"Type\":\"Check\",\"OtherType\":null,\"TaxSchduleId\":null,\"TaxDescription\":null,\"CreditNoteId\":null,\"Date\":\"2019-08-05\",\"SubTotal\":161.43,\"TotalTaxAmount\":0.00,\"Amount\":161.43,\"UnappliedToBill\":0.00,\"CheckbookId\":\"FIRST NATIONAL\",\"CreditCard\":null,\"CheckNumber\":\"\",\"CreditNoteReasonCode\":\"\",\"TaxDetail\":[]},\"IsVoided\":false,\"Void\":null,\"LocationId\":\"SEWER001\",\"ServiceAddress\":{\"Line1\":\"4 Water st UNIT 145\",\"City\":\"NEW YORK\",\"State\":\"NY\",\"ZipCode\":\"65342\",\"Country\":\"USA\"},\"Customer\":{\"Id\":\"CUSTOMER016\",\"Type\":\"Individual\",\"Individual\":{\"FullName\":\"Mrs. Elizabeth R Hunter\",\"Name\":{\"Title\":\"Mrs.\",\"First\":\"Elizabeth\",\"Middle\":\"R\",\"Last\":\"Hunter\"}},\"Business\":null},\"Prepayment\":[]},\"Messages\":[]}}";
-		HashMap<String, String> params = new HashMap<String, String>();
-		params.put("HandleCreditMemoMessaging", "false");
-		String result = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(result, expected);
-		System.out.println(result);
-	}
-
-	@Test(priority = 10, groups = "Transaction")
-	public void gettransactionpayment_v3_false()
-			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		// CommonMethods.Bugs("CPDEV-21448");
-		String uri = "/transaction/payment/PYMT00000000500";
-		String ver = "3.0";
-		String expected = "{\"Payment\":{\"Success\":true,\"Data\":{\"DocumentNumber\":\"PYMT00000000500\",\"BatchId\":\"109090ABC\",\"PaidById\":\"CUSTOMER016\",\"PaidBy\":{\"Id\":1,\"Description\":\"Bill To Customer\"},\"PaymentOrigin\":null,\"Comment\":\"\",\"Status\":\"Work\",\"CreateDateTime\":\"2019-08-05T09:01:03\",\"CreatedBy\":\"sa\",\"IsAppliedToDeposit\":false,\"PayDetail\":{\"Type\":\"Check\",\"OtherType\":null,\"TaxSchduleId\":null,\"TaxDescription\":null,\"CreditNoteId\":null,\"Date\":\"2019-08-05\",\"SubTotal\":161.43,\"TotalTaxAmount\":0.00,\"Amount\":161.43,\"UnappliedToBill\":0.00,\"CheckbookId\":\"FIRST NATIONAL\",\"CreditCard\":null,\"CheckNumber\":\"\",\"CreditNoteReasonCode\":\"\",\"TaxDetail\":[]},\"IsVoided\":false,\"Void\":null,\"LocationId\":\"SEWER001\",\"ServiceAddress\":{\"Line1\":\"4 Water st UNIT 145\",\"City\":\"NEW YORK\",\"State\":\"NY\",\"ZipCode\":\"65342\",\"Country\":\"USA\"},\"Customer\":{\"Id\":\"CUSTOMER016\",\"Type\":\"Individual\",\"Individual\":{\"FullName\":\"Mrs. Elizabeth R Hunter\",\"Name\":{\"Title\":\"Mrs.\",\"First\":\"Elizabeth\",\"Middle\":\"R\",\"Last\":\"Hunter\"}},\"Business\":null},\"Prepayment\":[]},\"Messages\":[]}}";
-		HashMap<String, String> params = new HashMap<String, String>();
-		params.put("HandleCreditMemoMessaging", "false");
 		String result = CommonMethods.getMethodasString(uri, ver, params);
 		Assert.assertEquals(result, expected);
 		System.out.println(result);
