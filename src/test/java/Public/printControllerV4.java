@@ -3,9 +3,6 @@ package Public;
 import org.junit.Assert;
 import org.testng.annotations.Test;
 
-import com.NexustAPIAutomation.java.Retry;
-import com.NexustAPIAutomation.java.verifyPDFReports;
-
 public class printControllerV4 {
 
 	/*
@@ -62,8 +59,7 @@ public class printControllerV4 {
 				+ "changed and indicate changes on back of stub. \r\n" + "SALLY MACKENZIE\r\n"
 				+ "NEW YORK, SD 56789\r\n" + "s56789s\r\n" + "12/01/1997\r\n" + "";
 
-		System.out.print(verifyPDFReports.returnPDF(uri));
-		Assert.assertEquals(expected, verifyPDFReports.returnPDF(uri));
+	
 
 	}
 

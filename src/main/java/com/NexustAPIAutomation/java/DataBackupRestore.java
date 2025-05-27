@@ -79,9 +79,9 @@ public class DataBackupRestore {
 	    // Execute a command in PowerShell session
 	    PowerShellResponse response;
 	    Map<String, String> config = new HashMap<String, String>();
-	    config.put("maxWait", "200000");
+	    config.put("maxWait", "20000");
 	    System.out.println("Restoring Database ...");
-	    response = powerShell.configuration(config).executeScript("./\\Configurations\\DBOnlyrestore.ps1");
+	    response = powerShell.configuration(config).executeScript("./\\Configuration\\DBOnlyrestore.ps1");
 	    System.out.println("Script output:" + response.getCommandOutput());
 	    // response =
 	    // powerShell.configuration(config).executeScript("./\\Configurations\\DB_sc_pat02.ps1");
