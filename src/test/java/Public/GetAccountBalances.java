@@ -1,6 +1,6 @@
 package Public;
 
-import org.testng.annotations.Test;
+import org.testng.annotations.Test; import org.testng.Assert;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.testng.annotations.Test; import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 

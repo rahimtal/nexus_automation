@@ -1,14 +1,14 @@
 package Private;
 
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
-import org.testng.annotations.Test;
+import org.testng.annotations.Test; import org.testng.Assert;
+
+import org.testng.annotations.Test; import org.testng.Assert;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 
 import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.testng.annotations.Test; import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
@@ -53,7 +53,7 @@ public class connectionControllerV4 {
 		params.put("ConnectionSequence", "1");
 		// params.put("LocationId", "LOCATION011");
 		String actual = CommonMethods.getMethodasString(uri, version, params);
-		AssertJUnit.assertEquals(expected, actual);
+		Assert.assertEquals(expected, actual);
 	}
 
 	@Test(priority = 4, groups = "connectionController" )
@@ -183,7 +183,7 @@ public class connectionControllerV4 {
 		String uri = "/connection/meterGroup/MTGR00000000001";
 		String version = "4.0";
 		String exResponse = "{\"Connection\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Deleted\",\"Level\":1}]}}";
-		AssertJUnit.assertEquals(CommonMethods.deleteMethodasString(uri, version), exResponse);
+		Assert.assertEquals(CommonMethods.deleteMethodasString(uri, version), exResponse);
 
 	}
 

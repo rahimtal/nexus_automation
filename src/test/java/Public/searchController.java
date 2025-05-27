@@ -1,14 +1,14 @@
 package Public;
 
-import org.testng.annotations.Test;
+import org.testng.annotations.Test; import org.testng.Assert;
 import org.testng.Assert;
-import org.testng.AssertJUnit;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-import org.testng.AssertJUnit;
-import org.testng.annotations.Test;
+
+import org.testng.annotations.Test; import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
@@ -109,7 +109,7 @@ public class searchController {
 		params.put("numPerPage", "10");
 
 		Response result = CommonMethods.getMethod(uri, ver, params);
-		AssertJUnit.assertEquals(result.statusCode(), 200);
+		Assert.assertEquals(result.statusCode(), 200);
 		System.out.println(result);
 
 	}

@@ -1,12 +1,12 @@
 package Public;
 
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
+import org.testng.annotations.Test; import org.testng.Assert;
+
 import java.sql.SQLException;
 
 import org.apache.http.ConnectionClosedException;
 import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.testng.annotations.Test; import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
@@ -65,7 +65,7 @@ public class CashieringPost {
 		System.out.println(jsonPathEvaluator.prettyPrint());
 		Boolean Result1 = jsonPathEvaluator.get("Receipt.Success");
 		if (Result1 == false) {
-			AssertJUnit.fail();
+			Assert.fail();
 		} else {
 			System.out.println(jsonPathEvaluator.toString());
 		}
@@ -82,7 +82,7 @@ public class CashieringPost {
 		Boolean Result = jsonPathEvaluator.get("Receipt.Success");
 		System.out.println(jsonPathEvaluator.toString());
 		if (Result == false) {
-			AssertJUnit.fail();
+			Assert.fail();
 		}
 
 	}

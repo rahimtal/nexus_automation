@@ -1,14 +1,15 @@
 package Private;
 
-import org.testng.annotations.Test;
+import org.testng.annotations.Test; import org.testng.Assert;
 import org.testng.Assert;
-import org.testng.AssertJUnit;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-import org.testng.AssertJUnit;
-import org.testng.annotations.Test;
+
+import org.testng.annotations.Test; 
+import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
@@ -48,7 +49,7 @@ public class csmGlobalsController {
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("SettingName", "AQALTERNATEID");
 		String response = CommonMethods.getMethodasString(uri, ver, params);
-		AssertJUnit.assertEquals(expected, response);
+		Assert.assertEquals(expected, response);
 
 	}
 

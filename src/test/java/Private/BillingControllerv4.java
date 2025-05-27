@@ -1,14 +1,13 @@
 package Private;
 
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
+import org.testng.annotations.Test; import org.testng.Assert;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 
 import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.testng.annotations.Test; import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 import com.NexustAPIAutomation.java.DataBackupRestore;
@@ -91,7 +90,7 @@ public class BillingControllerv4 extends BaseClass {
 		if (!resultFlag) {
 			// test.log(Status.FAIL, "Bill Posting Failed: " +
 			// jsonPathEvaluator.prettyPrint());
-			AssertJUnit.fail("Bill Posting Failed \n" + jsonPathEvaluator.prettyPrint());
+			Assert.fail("Bill Posting Failed \n" + jsonPathEvaluator.prettyPrint());
 		} else {
 			// test.log(Status.PASS, "Bill Posting succeeded.");
 		}
@@ -134,7 +133,7 @@ public class BillingControllerv4 extends BaseClass {
 		System.out.println(resultFlag);
 		if (!resultFlag) {
 			// test.log(Status.FAIL, "Bill Calculation Failed");
-			AssertJUnit.fail("Bill Calculation Failed");
+			Assert.fail("Bill Calculation Failed");
 		} else {
 			// test.log(Status.PASS, "Bill Calculation succeeded.");
 		}
@@ -165,7 +164,7 @@ public class BillingControllerv4 extends BaseClass {
 		if (!resultFlag) {
 			// test.log(Status.FAIL, "Billing Post Failed: " +
 			// jsonPathEvaluator.prettyPrint());
-			AssertJUnit.fail(jsonPathEvaluator.prettyPrint());
+			Assert.fail(jsonPathEvaluator.prettyPrint());
 		} else {
 			// test.log(Status.PASS, "Billing Post succeeded.");
 		}
@@ -199,7 +198,7 @@ public class BillingControllerv4 extends BaseClass {
 		if (!resultFlag) {
 			// test.log(Status.FAIL, "Bill Posting Failed: " +
 			// jsonPathEvaluator.prettyPrint());
-			AssertJUnit.fail("Bill Posting Failed \n" + jsonPathEvaluator.prettyPrint());
+			Assert.fail("Bill Posting Failed \n" + jsonPathEvaluator.prettyPrint());
 		} else {
 			// test.log(Status.PASS, "Bill Posting succeeded.");
 		}
@@ -229,7 +228,7 @@ public class BillingControllerv4 extends BaseClass {
 		System.out.println(resultFlag);
 		if (!resultFlag) {
 			// test.log(Status.FAIL, "Bill Calculation Failed");
-			AssertJUnit.fail("Bill Calculation Failed");
+			Assert.fail("Bill Calculation Failed");
 		} else {
 			// test.log(Status.PASS, "Bill Calculation succeeded.");
 		}
@@ -338,7 +337,7 @@ public class BillingControllerv4 extends BaseClass {
 
 		String actual = CommonMethods.getMethodasString(uri, ver, params);
 		// test.log(Status.INFO, "Actual: " + actual);
-		AssertJUnit.assertEquals(actual, expected);
+		Assert.assertEquals(actual, expected);
 	}
 
 	// Test 13: Post Create Statement (Is Final)
@@ -360,7 +359,7 @@ public class BillingControllerv4 extends BaseClass {
 
 		String actual = CommonMethods.postMethodStringPayloadString(payload, uri, ver);
 		// test.log(Status.INFO, "Actual: " + actual);
-		AssertJUnit.assertTrue(actual.contains(expected));
+		Assert.assertTrue(actual.contains(expected));
 		// test.log(Status.PASS, "Response contains the expected value.");
 	}
 
@@ -386,7 +385,7 @@ public class BillingControllerv4 extends BaseClass {
 		String actual = CommonMethods.postMethodStringPayloadString(payload, uri, ver);
 		// test.log(Status.INFO, "Actual: " + actual);
 		String expected = "{\"Billing\":{\"Success\":true,\"Data\":{\"BatchId\":\"BATCHID\",\"NumberOfValidTransaction\":1,\"HasTransferErrorInReport\":false,\"List\":[{\"LocationId\":\"TESTLOC018\",\"CustomerId\":\"50000201\",\"ServiceOrderNumber\":\"SORD00000009024\"}],\"TransferErrorList\":[],\"ReportErrorList\":[]},\"Messages\":[]}}";
-		AssertJUnit.assertEquals(actual, expected);
+		Assert.assertEquals(actual, expected);
 		// test.log(Status.PASS, "Billing Final Calculation succeeded.");
 	}
 
@@ -405,7 +404,7 @@ public class BillingControllerv4 extends BaseClass {
 
 		String actual = CommonMethods.getMethodasString(uri, ver, params);
 		// test.log(Status.INFO, "Actual: " + actual);
-		AssertJUnit.assertEquals(actual, expected);
+		Assert.assertEquals(actual, expected);
 		// test.log(Status.PASS, "Batch ID validation returned expected result.");
 	}
 
@@ -425,7 +424,7 @@ public class BillingControllerv4 extends BaseClass {
 
 		String actual = CommonMethods.getMethodasString(uri, ver, params);
 		// test.log(Status.INFO, "Actual: " + actual);
-		AssertJUnit.assertEquals(actual, expected);
+		Assert.assertEquals(actual, expected);
 		// test.log(Status.PASS, "Batch ID validation (true) returned expected
 		// result.");
 	}
@@ -481,7 +480,7 @@ public class BillingControllerv4 extends BaseClass {
 
 		String actual = CommonMethods.getMethodasString(uri, ver, params);
 		// test.log(Status.INFO, "Actual: " + actual);
-		AssertJUnit.assertEquals(actual, expected);
+		Assert.assertEquals(actual, expected);
 		// test.log(Status.PASS, "Batch ID validation returned expected result.");
 	}
 
@@ -501,7 +500,7 @@ public class BillingControllerv4 extends BaseClass {
 
 		String actual = CommonMethods.getMethodasString(uri, ver, params);
 		// test.log(Status.INFO, "Actual: " + actual);
-		AssertJUnit.assertEquals(actual, expected);
+		Assert.assertEquals(actual, expected);
 		// test.log(Status.PASS, "Batch ID validation returned expected result.");
 	}
 
@@ -517,7 +516,7 @@ public class BillingControllerv4 extends BaseClass {
 		String actual = CommonMethods.postMethodStringPayloadString(payload, uri, ver);
 
 		String expected = "{\"Billing\":{\"Success\":true,\"Data\":{\"BatchId\":\"BATCH2025\",\"ServiceOrderNumber\":\"\",\"HasPostingError\":false},\"Messages\":[]}}";
-		AssertJUnit.assertEquals(actual, expected);
+		Assert.assertEquals(actual, expected);
 
 	}
 
@@ -539,7 +538,7 @@ public class BillingControllerv4 extends BaseClass {
 		String expected = "{\"Billing\":{\"Success\":true,\"Data\":{\"BillReportList\":[{\"ReportName\":\"Bill Post Batch Summary List\",\"ReportDisplayName\":\"Batch Summary List\",\"PrintOrder\":1,\"printEnabled\":false},{\"ReportName\":\"Bill Post Distribution Breakdown Detail\",\"ReportDisplayName\":\"Bill Distribution Breakdown Detail\",\"PrintOrder\":2,\"printEnabled\":false},{\"ReportName\":\"Bill Post Distribution Breakdown Summary\",\"ReportDisplayName\":\"Bill Distribution Breakdown Summary\",\"PrintOrder\":3,\"printEnabled\":false},{\"ReportName\":\"Bill Post and Pymt Distribution Breakdown Summary\",\"ReportDisplayName\":\"Bill & Payment Distribution Breakdown Summary\",\"PrintOrder\":4,\"printEnabled\":false},{\"ReportName\":\"Bill Post-Payment Distribution Breakdown Detail\",\"ReportDisplayName\":\"Payment Distribution Breakdown Detail\",\"PrintOrder\":5,\"printEnabled\":false},{\"ReportName\":\"Bill Post-Payment Distribution Breakdown Summary\",\"ReportDisplayName\":\"Payment Distribution Breakdown Summary\",\"PrintOrder\":6,\"printEnabled\":false},{\"ReportName\":\"Bill Post Distribution Breakdown Account Detail\",\"ReportDisplayName\":\"Bill Distribution Breakdown Account Detail\",\"PrintOrder\":7,\"printEnabled\":false},{\"ReportName\":\"Bill Post Statement Summary\",\"ReportDisplayName\":\"Bill Statement Summary\",\"PrintOrder\":8,\"printEnabled\":false},{\"ReportName\":\"Bill Post Statement Summary Electronic\",\"ReportDisplayName\":\"Bill Statement Summary Electronic\",\"PrintOrder\":9,\"printEnabled\":false}],\"BillErrorReportList\":[{\"ReportName\":\"Bill Post Distribution Error Post List\",\"ReportDisplayName\":\"Bill Post Distribution Error Post List\",\"PrintOrder\":1,\"printEnabled\":false}],\"ErrorReportList\":[{\"ReportName\":\"Billing Error List\",\"ReportDisplayName\":\"Billing Error List\",\"PrintOrder\":1,\"printEnabled\":true}],\"PaymentReportList\":[{\"ReportName\":\"PaymentPostEditList\",\"ReportDisplayName\":\"Payment Edit List\",\"PrintOrder\":1,\"printEnabled\":true},{\"ReportName\":\"PaymentPostDistributionBreakdownSummary\",\"ReportDisplayName\":\"Payment Distribution Breakdown Summary\",\"PrintOrder\":2,\"printEnabled\":true}],\"PaymentReportErrorList\":[{\"ReportName\":\"PaymentPostErrorList\",\"ReportDisplayName\":\"Payment Error List\",\"PrintOrder\":1,\"printEnabled\":true}],\"CheckReportList\":[{\"ReportName\":\"Post Check Refund Edit List\",\"ReportDisplayName\":\"Post Check Refund Edit List\",\"PrintOrder\":1,\"printEnabled\":true}],\"CheckErrorReportList\":[{\"ReportName\":\"Check Refund Error List\",\"ReportDisplayName\":\"Check Refund Error List\",\"PrintOrder\":1,\"printEnabled\":true}]},\"Messages\":[]}}";
 		
 		
-		AssertJUnit.assertEquals(actual, expected);
+		Assert.assertEquals(actual, expected);
 
 	}
 

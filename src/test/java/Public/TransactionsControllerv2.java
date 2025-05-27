@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 
 import org.hamcrest.Matchers;
-import org.testng.annotations.Test;
+import org.testng.annotations.Test; import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 

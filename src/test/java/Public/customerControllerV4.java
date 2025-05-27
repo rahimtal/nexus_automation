@@ -1,16 +1,16 @@
 package Public;
 
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
-import org.testng.annotations.Test;
+import org.testng.annotations.Test; import org.testng.Assert;
 
-import org.testng.AssertJUnit;
+import org.testng.annotations.Test; import org.testng.Assert;
+
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 
 import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.testng.annotations.Test; import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
@@ -32,7 +32,7 @@ public class customerControllerV4 {
 		params.put("OrderBy", "status, locationId");
 		params.put("IncludeBalance", "false");
 		String actual = CommonMethods.getMethodasString(uri, ver, params);
-		AssertJUnit.assertEquals(actual, expected);
+		Assert.assertEquals(actual, expected);
 
 	}
 

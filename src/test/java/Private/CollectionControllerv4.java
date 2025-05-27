@@ -1,13 +1,13 @@
 package Private;
 
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
-import org.testng.annotations.Test;
+import org.testng.annotations.Test; import org.testng.Assert;
+
+import org.testng.annotations.Test; import org.testng.Assert;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-import org.testng.annotations.Test;
+import org.testng.annotations.Test; import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
@@ -173,7 +173,7 @@ public class CollectionControllerv4 {
 		HashMap<String, String> params = new HashMap<String, String>();
 		// params.put("CustomerId", "CUSTOMER012");
 		String actual = CommonMethods.getMethodasString(uri, version, params);
-		AssertJUnit.assertTrue(actual.contains(expected));
-		AssertJUnit.assertTrue(actual.contains(expected2));
+		Assert.assertTrue(actual.contains(expected));
+		Assert.assertTrue(actual.contains(expected2));
 	}
 }

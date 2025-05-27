@@ -1,10 +1,10 @@
 package Private;
 
-import org.testng.annotations.Test;
+import org.testng.annotations.Test; import org.testng.Assert;
 import org.testng.Assert;
-import org.testng.AssertJUnit;
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
+
+import org.testng.annotations.Test; import org.testng.Assert;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,7 +12,7 @@ import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-import org.testng.annotations.Test;
+import org.testng.annotations.Test; import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
@@ -31,7 +31,7 @@ public class MeterReadControllerV4 {
 		String ver = "4.0";
 		String expected = "{\"MeterReading\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Meter Reading successfully Deleted!\",\"Level\":1}]}}";
 		String result = CommonMethods.deleteMethodasString(uri, ver);
-		AssertJUnit.assertEquals(expected, result);
+		Assert.assertEquals(expected, result);
 
 	}
 

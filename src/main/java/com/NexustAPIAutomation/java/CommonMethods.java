@@ -1,9 +1,10 @@
 package com.NexustAPIAutomation.java;
 
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
+import org.testng.annotations.Test; 
+import org.testng.Assert;
+
+import org.testng.annotations.Test; import org.testng.Assert;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -84,7 +85,7 @@ public class CommonMethods {
 			boolean f = (response.path("error").toString()).contains("invalid_grant");
 			if (f == true) {
 				// Comment Following to Test Authorization
-				AssertJUnit.fail("Authorization failed/Invalid Token/Check User Name");
+				Assert.fail("Authorization failed/Invalid Token/Check User Name");
 			}
 		} catch (NullPointerException e) {
 
@@ -121,7 +122,7 @@ public class CommonMethods {
 			System.out.println("Script output:" + response.getCommandOutput());
 		} catch (Exception e) {
 			e.printStackTrace();
-			AssertJUnit.fail("Scripts got error while rinning DB Scripts, please see logs");
+			Assert.fail("Scripts got error while rinning DB Scripts, please see logs");
 
 			System.exit(1);
 		}
@@ -173,7 +174,7 @@ public class CommonMethods {
 			RestAssured.baseURI = urlv4;
 			break;
 		default:
-			AssertJUnit.fail("Invalid version");
+			Assert.fail("Invalid version");
 			version = "Invalid version";
 			break;
 		}
@@ -252,7 +253,7 @@ public class CommonMethods {
 			RestAssured.baseURI = urlv4;
 			break;
 		default:
-			AssertJUnit.fail("Invalid version");
+			Assert.fail("Invalid version");
 			version = "Invalid version";
 			break;
 		}
@@ -305,7 +306,7 @@ public class CommonMethods {
 			RestAssured.baseURI = urlv4;
 			break;
 		default:
-			AssertJUnit.fail("Invalid version");
+			Assert.fail("Invalid version");
 			version = "Invalid version";
 			break;
 		}
@@ -488,7 +489,7 @@ public class CommonMethods {
 		response = httpRequest.post();
 		System.out.println(response.asString());
 		Thread.sleep(10000);
-		AssertJUnit.assertEquals(response.asString(), expected);
+		Assert.assertEquals(response.asString(), expected);
 
 	}
 
@@ -693,7 +694,7 @@ public class CommonMethods {
 			break;
 		default:
 			version = "Invalid version";
-			AssertJUnit.fail("Invalid version");
+			Assert.fail("Invalid version");
 			break;
 		}
 		String expe = new String(Files.readAllBytes(Paths.get(jpath)));
@@ -705,7 +706,7 @@ public class CommonMethods {
 				.queryParams(params);
 
 		Response response = httpRequest.get();
-		AssertJUnit.assertEquals(response.asString(), new String(Files.readAllBytes(Paths.get(jpath))));
+		Assert.assertEquals(response.asString(), new String(Files.readAllBytes(Paths.get(jpath))));
 		return response.asString();
 	}
 
@@ -910,7 +911,7 @@ public class CommonMethods {
 		System.out.println("** PUT call uri ** " + RestAssured.baseURI);
 		System.out.println("** PUT call payload ** " + payload);
 		Response response = httpRequest.put();
-		AssertJUnit.assertEquals(response.getBody().asString(), new String(Files.readAllBytes(Paths.get(jsonDataInFile))));
+		Assert.assertEquals(response.getBody().asString(), new String(Files.readAllBytes(Paths.get(jsonDataInFile))));
 		System.out.println("** PUT call Response ** " + response.asString());
 		
 		Thread.sleep(10000);
@@ -966,7 +967,7 @@ public class CommonMethods {
 				.body(payload);
 		System.out.println("** PUT call Body **" + payload);
 		Response response = httpRequest.put();
-		AssertJUnit.assertEquals(response.getBody().asString(), expected);
+		Assert.assertEquals(response.getBody().asString(), expected);
 
 		System.out.println("** PUT call Response **");
 		return response.getBody().asString();
@@ -1186,7 +1187,7 @@ public class CommonMethods {
 
 		} catch (SQLDataException e) {
 			e.printStackTrace();
-			AssertJUnit.fail("Record not found check query");
+			Assert.fail("Record not found check query");
 		}
 
 		finally {
@@ -1272,7 +1273,7 @@ public class CommonMethods {
 
 		default:
 			version = "Invalid version";
-			AssertJUnit.fail("Invalid version");
+			Assert.fail("Invalid version");
 			break;
 		}
 
@@ -1326,7 +1327,7 @@ public class CommonMethods {
 
 		default:
 			version = "Invalid version";
-			AssertJUnit.fail("Invalid version");
+			Assert.fail("Invalid version");
 			break;
 		}
 
@@ -1381,7 +1382,7 @@ public class CommonMethods {
 
 		default:
 			version = "Invalid version";
-			AssertJUnit.fail("Invalid version");
+			Assert.fail("Invalid version");
 			break;
 		}
 
@@ -1520,7 +1521,7 @@ public class CommonMethods {
 
 		response = httpRequest.delete();
 		System.out.println(response.asString());
-		AssertJUnit.assertEquals(response.asString(), expected);
+		Assert.assertEquals(response.asString(), expected);
 
 	}
 
@@ -1570,7 +1571,7 @@ public class CommonMethods {
 	public static void postcall(String uri, String payload, String ver, String exResult) throws InterruptedException {
 		Response jsonPathResponse;
 		jsonPathResponse = CommonMethods.postMethodResponseasString(payload, uri, ver);
-		AssertJUnit.assertEquals(jsonPathResponse.asString(), exResult);
+		Assert.assertEquals(jsonPathResponse.asString(), exResult);
 
 	}
 
@@ -1579,7 +1580,7 @@ public class CommonMethods {
 		Response jsonPathResponse;
 		jsonPathResponse = CommonMethods.postMethodResponseasString(payload, uri, ver);
 		System.out.println("Response :" + jsonPathResponse.asString());
-		AssertJUnit.assertTrue(jsonPathResponse.asString().contains(exResult));
+		Assert.assertTrue(jsonPathResponse.asString().contains(exResult));
 
 	}
 

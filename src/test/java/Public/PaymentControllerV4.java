@@ -1,15 +1,15 @@
 package Public;
 
-import org.testng.annotations.Test;
+import org.testng.annotations.Test; import org.testng.Assert;
 import org.testng.Assert;
-import org.testng.AssertJUnit;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 
 import org.testng.Assert;
-import org.testng.AssertJUnit;
-import org.testng.annotations.Test;
+
+import org.testng.annotations.Test; import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
@@ -41,7 +41,7 @@ public class PaymentControllerV4 {
 		Boolean Result = jsonPathEvaluator.get("Payment.Success");
 		if (Result == false) {
 			System.out.println(jsonPathEvaluator.prettyPrint());
-			AssertJUnit.fail(jsonPathEvaluator.prettyPrint());
+			Assert.fail(jsonPathEvaluator.prettyPrint());
 		}
 		// System.out.println(jsonPathEvaluator.toString());
 	}

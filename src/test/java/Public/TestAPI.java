@@ -1,7 +1,7 @@
 package Public;
 
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
+import org.testng.annotations.Test; import org.testng.Assert;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -9,7 +9,7 @@ import java.util.Map;
 
 import org.hamcrest.Matchers;
 import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.testng.annotations.Test; import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
@@ -73,11 +73,11 @@ public class TestAPI {
 		String info = jsonPathEvaluator.get("SmartlistFavorite.Messages[0].Info");
 		System.out.println(jsonPathEvaluator.prettyPrint());
 		if (Result != true) {
-			AssertJUnit.fail(jsonPathEvaluator.prettyPrint());
+			Assert.fail(jsonPathEvaluator.prettyPrint());
 		}
 		if(!info.contains("( 2 ) of the ( 2 ) smartlist favorites have been save."))
 		{
-			AssertJUnit.fail();
+			Assert.fail();
 		}
 		
 

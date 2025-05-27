@@ -1,10 +1,10 @@
 package Private;
 
-import org.testng.annotations.Test;
+import org.testng.annotations.Test; import org.testng.Assert;
 import org.testng.Assert;
-import org.testng.AssertJUnit;
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
+
+import org.testng.annotations.Test; import org.testng.Assert;
+
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -13,7 +13,7 @@ import java.util.Map.Entry;
 
 import org.apache.http.ConnectionClosedException;
 import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.testng.annotations.Test; import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
@@ -214,7 +214,7 @@ public class CashieringController extends BaseClass {
 		JsonPath next = CommonMethods.getMethod("/cashiering/receipt/TRREG000001/nextReceipt", "4.0");
 		nextRecieptNumber = next.get("Receipt[0].ReceiptNumber");
 		if (nextRecieptNumber == null) {
-			AssertJUnit.fail();
+			Assert.fail();
 		}
 		System.out.println(nextRecieptNumber);
 		Thread.sleep(5000);
@@ -229,7 +229,7 @@ public class CashieringController extends BaseClass {
 		Boolean Result1 = jsonPathEvaluator.get("Receipt.Success");
 		if (Result1 == false) {
 			System.out.println(jsonPathEvaluator.prettyPrint());
-			AssertJUnit.assertTrue(false);
+			Assert.assertTrue(false);
 		} else {
 			System.out.println(jsonPathEvaluator.toString());
 		}

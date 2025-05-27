@@ -1,14 +1,14 @@
 package Private;
 
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
+import org.testng.annotations.Test; import org.testng.Assert;
+
 import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.testng.annotations.Test; import org.testng.Assert;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-import org.testng.annotations.Test;
+import org.testng.annotations.Test; import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
@@ -46,7 +46,7 @@ public class transactionsControllerv3 {
 		 */
 		String actual = CommonMethods.getMethodasString(uri, ver, params);// (uri, ver, params, expected);
 		String expected = "{\"result\":[{\"DocumentNumber\":\"PYMT00000000247\",\"DocumentType\":\"Payment\",\"DocumentStatus\":\"History\",\"ConnectionSequence\":\"0\",\"DocumentDate\":\"2000-02-19T19:00:00.000Z\",\"DocVoided\":\"0\",\"DueDate\":\"1899-12-31T19:31:48.000Z\",\"Amount\":\"104.18\",\"OutstandingAmount\":\"0.00\",\"ServiceCategory\":\"0\",\"ServiceCategoryDescription\":\"\",\"ServiceType\":\"\",\"EquipmentID\":\"\",\"Description\":\"Check\",\"DrillbackLink\":\"cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=TransactionPymtOrCreditMemoInquiry&DocumentNumber=PYMT00000000247&CogsDrillback=1\",\"ReferenceDocumentNumber\":\"\",\"ReferenceDocumentDate\":\"1899-12-31T19:31:48.000Z\",\"PaymentOrigin\":\"\",\"ChargeDescription\":\"\"},{\"DocumentNumber\":\"PYMT00000000232\",\"DocumentType\":\"Payment\",\"DocumentStatus\":\"History\",\"ConnectionSequence\":\"0\",\"DocumentDate\":\"1999-10-19T19:00:00.000Z\",\"DocVoided\":\"0\",\"DueDate\":\"1899-12-31T19:31:48.000Z\",\"Amount\":\"51.98\",\"OutstandingAmount\":\"0.00\",\"ServiceCategory\":\"0\",\"ServiceCategoryDescription\":\"\",\"ServiceType\":\"\",\"EquipmentID\":\"\",\"Description\":\"Check\",\"DrillbackLink\":\"cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=TransactionPymtOrCreditMemoInquiry&DocumentNumber=PYMT00000000232&CogsDrillback=1\",\"ReferenceDocumentNumber\":\"\",\"ReferenceDocumentDate\":\"1899-12-31T19:31:48.000Z\",\"PaymentOrigin\":\"\",\"ChargeDescription\":\"\"},{\"DocumentNumber\":\"PYMT00000000217\",\"DocumentType\":\"Payment\",\"DocumentStatus\":\"History\",\"ConnectionSequence\":\"0\",\"DocumentDate\":\"1999-07-09T19:00:00.000Z\",\"DocVoided\":\"0\",\"DueDate\":\"1899-12-31T19:31:48.000Z\",\"Amount\":\"36.70\",\"OutstandingAmount\":\"0.00\",\"ServiceCategory\":\"0\",\"ServiceCategoryDescription\":\"\",\"ServiceType\":\"\",\"EquipmentID\":\"\",\"Description\":\"Check\",\"DrillbackLink\":\"cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=TransactionPymtOrCreditMemoInquiry&DocumentNumber=PYMT00000000217&CogsDrillback=1\",\"ReferenceDocumentNumber\":\"\",\"ReferenceDocumentDate\":\"1899-12-31T19:31:48.000Z\",\"PaymentOrigin\":\"\",\"ChargeDescription\":\"\"},{\"DocumentNumber\":\"PYMT00000000197\",\"DocumentType\":\"Payment\",\"DocumentStatus\":\"History\",\"ConnectionSequence\":\"0\",\"DocumentDate\":\"1999-04-11T19:00:00.000Z\",\"DocVoided\":\"0\",\"DueDate\":\"1899-12-31T19:31:48.000Z\",\"Amount\":\"6.56\",\"OutstandingAmount\":\"0.00\",\"ServiceCategory\":\"0\",\"ServiceCategoryDescription\":\"\",\"ServiceType\":\"\",\"EquipmentID\":\"\",\"Description\":\"Check\",\"DrillbackLink\":\"cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=TransactionPymtOrCreditMemoInquiry&DocumentNumber=PYMT00000000197&CogsDrillback=1\",\"ReferenceDocumentNumber\":\"\",\"ReferenceDocumentDate\":\"1899-12-31T19:31:48.000Z\",\"PaymentOrigin\":\"\",\"ChargeDescription\":\"\"},{\"DocumentNumber\":\"PYMT00000000184\",\"DocumentType\":\"Payment\",\"DocumentStatus\":\"History\",\"ConnectionSequence\":\"0\",\"DocumentDate\":\"1999-01-09T19:00:00.000Z\",\"DocVoided\":\"0\",\"DueDate\":\"1899-12-31T19:31:48.000Z\",\"Amount\":\"17.85\",\"OutstandingAmount\":\"0.00\",\"ServiceCategory\":\"0\",\"ServiceCategoryDescription\":\"\",\"ServiceType\":\"\",\"EquipmentID\":\"\",\"Description\":\"Cash\",\"DrillbackLink\":\"cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=TransactionPymtOrCreditMemoInquiry&DocumentNumber=PYMT00000000184&CogsDrillback=1\",\"ReferenceDocumentNumber\":\"\",\"ReferenceDocumentDate\":\"1899-12-31T19:31:48.000Z\",\"PaymentOrigin\":\"\",\"ChargeDescription\":\"\"},{\"DocumentNumber\":\"PYMT00000000171\",\"DocumentType\":\"Payment\",\"DocumentStatus\":\"History\",\"ConnectionSequence\":\"0\",\"DocumentDate\":\"1998-07-09T19:00:00.000Z\",\"DocVoided\":\"0\",\"DueDate\":\"1899-12-31T19:31:48.000Z\",\"Amount\":\"162.03\",\"OutstandingAmount\":\"0.00\",\"ServiceCategory\":\"0\",\"ServiceCategoryDescription\":\"\",\"ServiceType\":\"\",\"EquipmentID\":\"\",\"Description\":\"Cash\",\"DrillbackLink\":\"cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=TransactionPymtOrCreditMemoInquiry&DocumentNumber=PYMT00000000171&CogsDrillback=1\",\"ReferenceDocumentNumber\":\"\",\"ReferenceDocumentDate\":\"1899-12-31T19:31:48.000Z\",\"PaymentOrigin\":\"\",\"ChargeDescription\":\"\"}]}";
-		AssertJUnit.assertEquals(actual, expected);
+		Assert.assertEquals(actual, expected);
 
 	}
 

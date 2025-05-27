@@ -1,16 +1,16 @@
 package Private;
 
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
+import org.testng.annotations.Test; import org.testng.Assert;
+
 import org.hamcrest.Matchers;
 import org.testng.Assert;
-import org.testng.AssertJUnit;
-import org.testng.annotations.Test;
+
+import org.testng.annotations.Test; import org.testng.Assert;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-import org.testng.annotations.Test;
+import org.testng.annotations.Test; import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
@@ -29,7 +29,7 @@ public class DepositsController {
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("LocationId", "SPALOCATION1");
 		String actual = CommonMethods.getMethodasString(uri, ver, params);
-		AssertJUnit.assertEquals(actual, expected);
+		Assert.assertEquals(actual, expected);
 
 	}
 
@@ -84,7 +84,7 @@ public class DepositsController {
 		String exptected = "{\"Deposit\":{\"Success\":true,\"Data\":{\"DocumentNumber\":\"DEPS";
 		Response result = CommonMethods.postMethodResponseasString(payload, uri, ver);
 		String actualResult = result.asString();
-		AssertJUnit.assertTrue(actualResult.contains(exptected));
+		Assert.assertTrue(actualResult.contains(exptected));
 
 	}
 

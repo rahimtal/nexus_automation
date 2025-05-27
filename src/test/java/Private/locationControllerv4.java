@@ -1,13 +1,13 @@
 package Private;
 
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
+import org.testng.annotations.Test; import org.testng.Assert;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 
 import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.testng.annotations.Test; import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
@@ -35,7 +35,7 @@ public class locationControllerv4 {
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("LocationClassId", "NONCUST-LOC");
 		String actual = CommonMethods.getMethodasString(uri, ver, params);
-		AssertJUnit.assertEquals(actual, expected);
+		Assert.assertEquals(actual, expected);
 
 	}
 
@@ -75,7 +75,7 @@ public class locationControllerv4 {
 		// CommonMethods.deleteMethodvoid(uri, ver, expected);
 		HashMap<String, String> params = new HashMap<String, String>();
 		String actual = CommonMethods.getMethodasString(uri, ver, params);
-		AssertJUnit.assertEquals(actual, expected);
+		Assert.assertEquals(actual, expected);
 	}
 
 }

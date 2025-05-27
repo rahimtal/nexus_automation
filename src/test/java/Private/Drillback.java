@@ -1,12 +1,12 @@
 package Private;
 
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
+import org.testng.annotations.Test; import org.testng.Assert;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-import org.testng.annotations.Test;
+import org.testng.annotations.Test; import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
@@ -21,7 +21,7 @@ public class Drillback {
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("Id", "69");
 		String result = CommonMethods.getMethodasString(uri, ver, params);
-		AssertJUnit.assertEquals(expected, result);
+		Assert.assertEquals(expected, result);
 	}
 
 	public void getdrillbackv4_1() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
@@ -31,7 +31,7 @@ public class Drillback {
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("Id", "70");
 		String result = CommonMethods.getMethodasString(uri, ver, params);
-		AssertJUnit.assertEquals(expected, result);
+		Assert.assertEquals(expected, result);
 	}
 
 	public void getdrillbackv4_2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
@@ -41,7 +41,7 @@ public class Drillback {
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("Id", "71");
 		String result = CommonMethods.getMethodasString(uri, ver, params);
-		AssertJUnit.assertEquals(expected, result);
+		Assert.assertEquals(expected, result);
 	}
 
 	public void getdrillbackv4_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
@@ -51,7 +51,7 @@ public class Drillback {
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("Id", "72");
 		String result = CommonMethods.getMethodasString(uri, ver, params);
-		AssertJUnit.assertEquals(expected, result);
+		Assert.assertEquals(expected, result);
 	}
 
 }
