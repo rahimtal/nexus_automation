@@ -19,7 +19,7 @@ public class lookupControllerv4 {
 
 	@Test(priority = 1, groups = "lookup")
 	public void getlookupBatch_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-	DataBackupRestore.CompanyDBRestore();
+	//DataBackupRestore.CompanyDBRestore();
 	
 	String uri = "/lookupBatch";
 		String ver = "4.0";
