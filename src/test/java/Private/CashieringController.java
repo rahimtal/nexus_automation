@@ -1,6 +1,9 @@
 package Private;
 
 import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -37,7 +40,7 @@ public class CashieringController extends BaseClass {
 		System.out.println(jsonPathEvaluator.get().toString());
 		Boolean Result = jsonPathEvaluator.get("CashedIn[0].IsCashedIn");
 		if (Result == false) {
-			AssertJUnit.fail();
+			Assert.fail();
 		}
 
 	}
@@ -53,19 +56,19 @@ public class CashieringController extends BaseClass {
 		String Result = (jsonPathEvaluator.get("Cashiering[0].Amount[0].TotalBalanceDue")).toString();
 
 		if (!Result.contains("64.57")) {
-			AssertJUnit.fail();
+			Assert.fail();
 		}
 
 		Result = (jsonPathEvaluator.get("Cashiering[0].Amount[0].Current")).toString();
 
 		if (!Result.contains("-115")) {
-			AssertJUnit.fail();
+			Assert.fail();
 		}
 
 		Result = (jsonPathEvaluator.get("Cashiering[0].Amount[0].PastDue")).toString();
 
 		if (!Result.contains("179.57")) {
-			AssertJUnit.fail();
+			Assert.fail();
 		}
 
 	}
@@ -81,7 +84,7 @@ public class CashieringController extends BaseClass {
 		Boolean Result = jsonPathEvaluator.get("Receipt[0].Success");
 
 		if (!Result == true) {
-			AssertJUnit.fail();
+			Assert.fail();
 			// testStatus(false);
 		}
 
@@ -97,13 +100,13 @@ public class CashieringController extends BaseClass {
 		String Result = jsonPathEvaluator.get("Receipt.Data.ReceiptNumber");
 
 		if (!Result.contentEquals("004220929000004")) {
-			AssertJUnit.fail();
+			Assert.fail();
 		}
 
 		Result = jsonPathEvaluator.get("Receipt.Data.PreviousReceiptNumber");
 
 		if (Result.contentEquals("")) {
-			AssertJUnit.fail();
+			Assert.fail();
 
 		}
 
@@ -120,14 +123,14 @@ public class CashieringController extends BaseClass {
 
 		if (!Result.contentEquals("4")) {
 
-			AssertJUnit.fail();
+			Assert.fail();
 		}
 
 		Result = jsonPathEvaluator.get("Register[0].RegisterId");
 
 		if (!Result.contentEquals("TRREG000001")) {
 
-			AssertJUnit.fail();
+			Assert.fail();
 		}
 
 	}
@@ -146,7 +149,7 @@ public class CashieringController extends BaseClass {
 		System.out.println(jsonPathEvaluator.get().toString());
 		String Result = jsonPathEvaluator.get("CashieringTransaction[0].CustomerId");
 		if (!Result.contentEquals("customer017")) {
-			AssertJUnit.fail();
+			Assert.fail();
 		}
 
 	}
@@ -168,10 +171,10 @@ public class CashieringController extends BaseClass {
 		String Result = jsonPathEvaluator.getJsonObject("CashieringTransaction.CustomerId[0]");
 
 		if (!Result.contentEquals("CUSTOMER010"))
-			AssertJUnit.fail();
+			Assert.fail();
 		Result = jsonPathEvaluator.get("CashieringTransaction.Document[0].Number[0]");
 		if (!Result.contentEquals("BILL00000000374"))
-			AssertJUnit.fail();
+			Assert.fail();
 	}
 
 	public static void adjustRecieptPre(String recNum) throws ConnectionClosedException, InterruptedException {
@@ -211,7 +214,7 @@ public class CashieringController extends BaseClass {
 		JsonPath next = CommonMethods.getMethod("/cashiering/receipt/TRREG000001/nextReceipt", "4.0");
 		nextRecieptNumber = next.get("Receipt[0].ReceiptNumber");
 		if (nextRecieptNumber == null) {
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 		System.out.println(nextRecieptNumber);
 		Thread.sleep(5000);
@@ -226,7 +229,7 @@ public class CashieringController extends BaseClass {
 		Boolean Result1 = jsonPathEvaluator.get("Receipt.Success");
 		if (Result1 == false) {
 			System.out.println(jsonPathEvaluator.prettyPrint());
-			Assert.assertTrue(false);
+			AssertJUnit.assertTrue(false);
 		} else {
 			System.out.println(jsonPathEvaluator.toString());
 		}
@@ -243,7 +246,7 @@ public class CashieringController extends BaseClass {
 		Boolean Result = jsonPathEvaluator.get("Receipt.Success");
 		System.out.println(jsonPathEvaluator.toString());
 		if (Result == false) {
-			AssertJUnit.fail();
+			Assert.fail();
 		}
 
 	}
@@ -402,7 +405,7 @@ public class CashieringController extends BaseClass {
 		System.out.println(jsonPathEvaluator.get().toString());
 		String Result = jsonPathEvaluator.get("CashieringTransaction[0].CustomerId");
 		if (!Result.contentEquals("customer017")) {
-			AssertJUnit.fail();
+			Assert.fail();
 		}
 
 	}

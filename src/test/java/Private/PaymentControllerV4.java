@@ -2,6 +2,8 @@ package Private;
 
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 
 import static org.testng.Assert.assertTrue;
 
@@ -183,7 +185,7 @@ public class PaymentControllerV4 {
 		String expected = "{\"Payment\":{\"Success\":true,\"Data\":{\"BatchId\":\"dep1\",\"DocumentNumber\":\"PYMT";
 		// CommonMethods.postMethodString(payload, uri, ver, expected);
 		String Result = CommonMethods.postMethodResponseAsString(payload, uri, ver);
-		assertTrue(Result.contains(expected));
+		AssertJUnit.assertTrue(Result.contains(expected));
 
 	}
 

@@ -1,6 +1,7 @@
 package Private;
 
-import org.junit.Assert;
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -172,7 +173,7 @@ public class CollectionControllerv4 {
 		HashMap<String, String> params = new HashMap<String, String>();
 		// params.put("CustomerId", "CUSTOMER012");
 		String actual = CommonMethods.getMethodasString(uri, version, params);
-		Assert.assertTrue(actual.contains(expected));
-		Assert.assertTrue(actual.contains(expected2));
+		AssertJUnit.assertTrue(actual.contains(expected));
+		AssertJUnit.assertTrue(actual.contains(expected2));
 	}
 }

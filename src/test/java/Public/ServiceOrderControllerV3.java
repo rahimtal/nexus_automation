@@ -1,5 +1,8 @@
 package Public;
 
+import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -60,11 +63,11 @@ public class ServiceOrderControllerV3 {
 		String exp3 = ".\",\"Level\":1},{\"Enabled\":1,\"Info\":\"UDF Label 'SOReqUDF-2' not valid for Service Order SORD00000";
 		String exp4 = ".\",\"Level\":1},{\"Enabled\":1,\"Info\":\"SORD0000";
 		String exp5 = "created\",\"Level\":1}]}}";
-		Assert.assertTrue(result.contains(exp1));
-		Assert.assertTrue(result.contains(exp2));
-		Assert.assertTrue(result.contains(exp3));
-		Assert.assertTrue(result.contains(exp4));
-		Assert.assertTrue(result.contains(exp5));
+		AssertJUnit.assertTrue(result.contains(exp1));
+		AssertJUnit.assertTrue(result.contains(exp2));
+		AssertJUnit.assertTrue(result.contains(exp3));
+		AssertJUnit.assertTrue(result.contains(exp4));
+		AssertJUnit.assertTrue(result.contains(exp5));
 
 	}
 
@@ -85,7 +88,7 @@ public class ServiceOrderControllerV3 {
 		System.out.println(bodyAsString);
 
 		if (!bodyAsString.contains(param)) {
-			AssertJUnit.fail();
+			Assert.fail();
 		}
 		System.out.println(response.prettyPrint());
 

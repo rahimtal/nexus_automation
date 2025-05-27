@@ -1,6 +1,8 @@
 package Private;
 
 import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -51,7 +53,7 @@ public class connectionControllerV4 {
 		params.put("ConnectionSequence", "1");
 		// params.put("LocationId", "LOCATION011");
 		String actual = CommonMethods.getMethodasString(uri, version, params);
-		Assert.assertEquals(expected, actual);
+		AssertJUnit.assertEquals(expected, actual);
 	}
 
 	@Test(priority = 4, groups = "connectionController" )
@@ -181,7 +183,7 @@ public class connectionControllerV4 {
 		String uri = "/connection/meterGroup/MTGR00000000001";
 		String version = "4.0";
 		String exResponse = "{\"Connection\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Deleted\",\"Level\":1}]}}";
-		Assert.assertEquals(CommonMethods.deleteMethodasString(uri, version), exResponse);
+		AssertJUnit.assertEquals(CommonMethods.deleteMethodasString(uri, version), exResponse);
 
 	}
 

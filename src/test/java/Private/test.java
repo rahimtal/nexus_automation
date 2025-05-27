@@ -1,5 +1,7 @@
 package Private;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import org.apache.http.ConnectionClosedException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -59,7 +61,7 @@ public class test {
 				.formParam("username", userName).formParam("password", Password).when().post(url); // authorization_token
 
 		if (response.path("access_token").toString() == "") {
-			Assert.fail("Austhorisation failed");
+			AssertJUnit.fail("Austhorisation failed");
 		}
 		// null - has a value
 		// The auth token could then be set to a string variable

@@ -1,6 +1,9 @@
 package Private;
 
 import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,7 +20,6 @@ import com.NexustAPIAutomation.java.CommonMethods;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
-import junit.framework.Assert;
 
 public class MeterReadControllerV4 {
 
@@ -29,7 +31,7 @@ public class MeterReadControllerV4 {
 		String ver = "4.0";
 		String expected = "{\"MeterReading\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Meter Reading successfully Deleted!\",\"Level\":1}]}}";
 		String result = CommonMethods.deleteMethodasString(uri, ver);
-		Assert.assertEquals(expected, result);
+		AssertJUnit.assertEquals(expected, result);
 
 	}
 
@@ -43,7 +45,7 @@ public class MeterReadControllerV4 {
 		String result = CommonMethods.deleteMethodasString(uri, ver);
 
 		if (!result.contains(expected)) {
-			AssertJUnit.fail();
+			Assert.fail();
 		}
 		System.out.println(result);
 		System.out.println(result);
@@ -61,7 +63,7 @@ public class MeterReadControllerV4 {
 
 		String result = CommonMethods.getMethodasString(uri, ver, params);
 		if (!result.contains(expected) && !result.contains(expected2)) {
-			AssertJUnit.fail();
+			Assert.fail();
 		}
 		System.out.println(result);
 		System.out.println(result);
@@ -111,7 +113,7 @@ public class MeterReadControllerV4 {
 		Boolean Result = jsonPathEvaluator.get("MeterReading[0].Success");
 		if (Result == true) {
 
-			AssertJUnit.fail("Meter Reading posting should not be done ");
+			Assert.fail("Meter Reading posting should not be done ");
 
 		} else {
 
@@ -174,7 +176,7 @@ public class MeterReadControllerV4 {
 
 		String result = CommonMethods.getMethodasString(uri, ver, params);
 		if (!result.contains(expected) && !result.contains(expected2)) {
-			AssertJUnit.fail("actual" + result);
+			Assert.fail("actual" + result);
 		}
 
 		System.out.println(result);
@@ -205,7 +207,7 @@ public class MeterReadControllerV4 {
 		Boolean Result = jsonPathEvaluator.get("MeterReading.Success");
 		if (Result == true) {
 
-			AssertJUnit.fail("Meter Reading posting should not be done.Meter Reading in open or history ");
+			Assert.fail("Meter Reading posting should not be done.Meter Reading in open or history ");
 
 		} else {
 
@@ -216,7 +218,7 @@ public class MeterReadControllerV4 {
 
 		if (!info.contentEquals("Meter Reading in open or history.  Unable to post Meter Reading.")) {
 
-			AssertJUnit.fail("Meter Reading posting should not be done.Meter Reading in open or history ");
+			Assert.fail("Meter Reading posting should not be done.Meter Reading in open or history ");
 
 		} else {
 

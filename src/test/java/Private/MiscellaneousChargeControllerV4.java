@@ -1,6 +1,8 @@
 package Private;
 
 import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -38,7 +40,7 @@ public class MiscellaneousChargeControllerV4 {
 		String expected = "{\"MiscellaneousCharge\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Cannot delete miscellaneous charge document (MISC00000000001) in open\\/history.\",\"Level\":3}]}}";
 		String result = CommonMethods.deleteMethodasString(uri, ver);
 		if (!result.contains(expected)) {
-			AssertJUnit.fail();
+			Assert.fail();
 		}
 		System.out.println(result);
 	}
@@ -52,7 +54,7 @@ public class MiscellaneousChargeControllerV4 {
 		String expected = "{\"MiscellaneousCharge\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Cannot delete miscellaneous charge document (MISC00000000004) in open\\/history.\",\"Level\":3}]}}";
 		String result = CommonMethods.deleteMethodasString(uri, ver);
 		if (!result.contains(expected)) {
-			AssertJUnit.fail();
+			Assert.fail();
 		}
 		System.out.println(result);
 	}
@@ -66,7 +68,7 @@ public class MiscellaneousChargeControllerV4 {
 		String expected = "{\"MiscellaneousCharge\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Miscellaneous charge deleted.\",\"Level\":1}]}}";
 		String result = CommonMethods.deleteMethodasString(uri, ver);
 		if (!result.contains(expected)) {
-			AssertJUnit.fail();
+			Assert.fail();
 		}
 		System.out.println(result);
 	}
@@ -80,7 +82,7 @@ public class MiscellaneousChargeControllerV4 {
 		String expected = "{\"MiscellaneousCharge\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Invalid document number (MISC00000000350).\",\"Level\":3}]}}";
 		String result = CommonMethods.deleteMethodasString(uri, ver);
 		if (!result.contains(expected)) {
-			AssertJUnit.fail();
+			Assert.fail();
 		}
 		System.out.println(result);
 	}

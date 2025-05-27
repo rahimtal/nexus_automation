@@ -1,5 +1,7 @@
 package Public;
 
+import org.testng.annotations.Test;
+import org.testng.Assert;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -38,7 +40,7 @@ public class PaymentExtension {
 		String Result = jsonPathEvaluator.get("PaymentExtension.Messages[0].Info");
 
 		if (Result == "Payment extensions are not allowed. A payment extension already exist or invalid date condition.") {
-			AssertJUnit.fail();
+			Assert.fail();
 		} else {
 			System.out.println(jsonPathEvaluator.toString());
 		}
@@ -56,7 +58,7 @@ public class PaymentExtension {
 		Boolean Result = jsonPathEvaluator.get("result[0].Success");
 		System.out.println(jsonPathEvaluator.toString());
 		if (Result != false) {
-			AssertJUnit.fail();
+			Assert.fail();
 		}
 
 	}

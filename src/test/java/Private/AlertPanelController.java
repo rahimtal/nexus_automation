@@ -1,10 +1,11 @@
 package Private;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-import org.junit.Assert;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
@@ -24,7 +25,7 @@ public class AlertPanelController extends BaseClass {
        //test.log(Status.INFO, "Response: " + result);
         
         try {
-            Assert.assertEquals(expected, result);
+            AssertJUnit.assertEquals(expected, result);
            //test.log(Status.PASS, "Response matched expected result.");
         } catch (AssertionError e) {
            //test.log(Status.FAIL, "Response did not match expected result: " + e.getMessage());

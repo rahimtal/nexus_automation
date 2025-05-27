@@ -1,5 +1,7 @@
 package Private;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import org.hamcrest.Matchers;
 import org.testng.Assert;
 import org.testng.AssertJUnit;
@@ -27,7 +29,7 @@ public class DepositsController {
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("LocationId", "SPALOCATION1");
 		String actual = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(actual, expected);
+		AssertJUnit.assertEquals(actual, expected);
 
 	}
 
@@ -82,7 +84,7 @@ public class DepositsController {
 		String exptected = "{\"Deposit\":{\"Success\":true,\"Data\":{\"DocumentNumber\":\"DEPS";
 		Response result = CommonMethods.postMethodResponseasString(payload, uri, ver);
 		String actualResult = result.asString();
-		Assert.assertTrue(actualResult.contains(exptected));
+		AssertJUnit.assertTrue(actualResult.contains(exptected));
 
 	}
 

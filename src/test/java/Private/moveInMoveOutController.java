@@ -2,6 +2,8 @@ package Private;
 
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -56,11 +58,11 @@ public class moveInMoveOutController {
 		//System.out.println(expected);
 		//CommonMethods.postMethodString(payload, uri, ver, expected);
 		String Result = CommonMethods.postMethodResponseAsString(payload, uri, ver);
-		Assert.assertTrue(Result.contains(exp1));
-		Assert.assertTrue(Result.contains(exp2));
-		Assert.assertTrue(Result.contains(exp3));
-		Assert.assertTrue(Result.contains(exp4));
-		Assert.assertTrue(Result.contains(exp5));
+		AssertJUnit.assertTrue(Result.contains(exp1));
+		AssertJUnit.assertTrue(Result.contains(exp2));
+		AssertJUnit.assertTrue(Result.contains(exp3));
+		AssertJUnit.assertTrue(Result.contains(exp4));
+		AssertJUnit.assertTrue(Result.contains(exp5));
 		
 		
 

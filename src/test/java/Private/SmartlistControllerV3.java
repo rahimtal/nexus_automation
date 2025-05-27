@@ -1,5 +1,7 @@
 package Private;
 
+import org.testng.annotations.Test;
+import org.testng.Assert;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -46,11 +48,11 @@ private boolean  TestAll=true;
 		System.out.println(jsonPathEvaluator.prettyPrint());
 		if (Result != true) {
 			System.out.print("CPDEV-14084");
-			AssertJUnit.fail(jsonPathEvaluator.prettyPrint());
+			Assert.fail(jsonPathEvaluator.prettyPrint());
 		}
 		if(!info.contains("( 2 ) of the ( 2 ) smartlist favorites have been save."))
 		{
-			AssertJUnit.fail();
+			Assert.fail();
 		}
 		
 	}

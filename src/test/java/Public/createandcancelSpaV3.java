@@ -1,6 +1,8 @@
 package Public;
 
 import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -28,7 +30,7 @@ public class createandcancelSpaV3 {
 
 		Boolean res = CommonMethods.cancelSpa(spaIndexfromdb, customerId);
 		if (!res) {
-			AssertJUnit.fail("Not cancelled");
+			Assert.fail("Not cancelled");
 		}
 		System.out.println(res);
 	}
@@ -44,7 +46,7 @@ public class createandcancelSpaV3 {
 		Boolean Result = jsonPathEvaluator.get("SpaCreate[0].Success");
 
 		if (Result == false) {
-			AssertJUnit.fail("SPA not created");
+			Assert.fail("SPA not created");
 		}
 
 	}
@@ -104,7 +106,7 @@ public class createandcancelSpaV3 {
 			if (Result == true) {
 				return;
 			}
-			AssertJUnit.fail("SPA not created");
+			Assert.fail("SPA not created");
 		}
 
 	}

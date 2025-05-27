@@ -1,6 +1,8 @@
 package Public;
 
 import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 //import org.testng.AssertJUnit;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -44,7 +46,7 @@ public class checkControllerv4 {
 			System.out.println(Result);
 			if (Result == null) {
 
-				Assert.fail("Check Posting Failed");
+				AssertJUnit.fail("Check Posting Failed");
 
 			} else {
 				getCheckv4(nextCheck);
@@ -106,10 +108,10 @@ public class checkControllerv4 {
 		System.out.println(result.getString("Check"));
 		String j = result.getString("Check");
 		if (!j.contains("CHEQ000000000")) {
-			Assert.fail("next Check API is failed");
+			AssertJUnit.fail("next Check API is failed");
 		}
 		if (!j.contains("Success:true")) {
-			Assert.fail("next Check API is failed");
+			AssertJUnit.fail("next Check API is failed");
 		}
 		System.out.println(result.getString("Check.Data.NextDocumentNumber"));
 		return result.getString("Check.Data.NextDocumentNumber");
@@ -170,8 +172,8 @@ public class checkControllerv4 {
 			String exp1 = "{\"Check\":{\"Success\":false,\"Data\":{\"DocumentNumber\":\"CHEQ00000000009\",\"Receivable\":[{\"ChargeDocument\":\"MISC00000000";
 			String exp2 = "\",\"Posted\":false}],\"PostingReport\":true,\"PostingError\":true,\"ReportList\":[{\"Name\":\"Post Check Refund Edit List\",\"PrintOrder\":1}],\"ReportErrorList\":[{\"Name\":\"Post Check Refund Error List\",\"PrintOrder\":1}]},\"Messages\":[{\"Enabled\":1,\"Info\":\"Posting validation warning found. Refer to posting error report.\",\"Level\":2},{\"Enabled\":1,\"Info\":\"csmApi_spCheckPostingReceivableCreate - Cannot insert the value NULL into column 'umTotalTaxes', table 'TWO.dbo.UTX'; column does not allow nulls. INSERT fails.\",\"Level\":3}]}}";
 			// Assert.assertEquals(result, expected);
-			Assert.assertTrue(result.contains(exp1));
-			Assert.assertTrue(result.contains(exp2));
+			AssertJUnit.assertTrue(result.contains(exp1));
+			AssertJUnit.assertTrue(result.contains(exp2));
 
 		}
 

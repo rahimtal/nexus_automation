@@ -1,5 +1,7 @@
 package Public;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -8,7 +10,6 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.junit.Assert;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
@@ -33,7 +34,7 @@ public class billingController extends BaseClass {
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("ExcludeInWork", "true");
 		String result = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(expected, result);
+		AssertJUnit.assertEquals(expected, result);
 		System.out.println(result);
 	}
 
@@ -47,7 +48,7 @@ public class billingController extends BaseClass {
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("ExcludeInWork", "false");
 		String result = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(expected, result);
+		AssertJUnit.assertEquals(expected, result);
 		System.out.println(result);
 	}
 
@@ -61,7 +62,7 @@ public class billingController extends BaseClass {
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("ExcludeInWork", "true");
 		String result = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(expected, result);
+		AssertJUnit.assertEquals(expected, result);
 		System.out.println(result);
 	}
 
@@ -75,7 +76,7 @@ public class billingController extends BaseClass {
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("ExcludeInWork", "false");
 		String result = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(expected, result);
+		AssertJUnit.assertEquals(expected, result);
 		System.out.println(result);
 	}
 
@@ -92,7 +93,7 @@ public class billingController extends BaseClass {
 		params.put("ValidateBilling", "Final");
 		String result = CommonMethods.getMethodasString(uri, ver, params);
 		System.out.println(result);
-		Assert.assertTrue(result.contains(expected));
+		AssertJUnit.assertTrue(result.contains(expected));
 
 	}
 

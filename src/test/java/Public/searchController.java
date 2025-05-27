@@ -1,5 +1,8 @@
 package Public;
 
+import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -33,7 +36,7 @@ public class searchController {
 	//@Test(priority = 1, groups = "Search" )
 	public void getAccounts_v_2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
-		AssertJUnit.fail("Bug Reported 8700");
+		Assert.fail("Bug Reported 8700");
 		String uri = "/search/getAccounts";
 		String ver = "2";
 
@@ -55,7 +58,7 @@ public class searchController {
 	public void getAccountsAdvanced_v_2()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
-		AssertJUnit.fail("Bug Reported 8700");
+		Assert.fail("Bug Reported 8700");
 		String uri = "/search/getAccountsAdvanced";
 		String ver = "2";
 

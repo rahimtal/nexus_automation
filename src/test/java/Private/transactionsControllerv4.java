@@ -1,6 +1,8 @@
 package Private;
 
 import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 import org.testng.*;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -37,7 +39,7 @@ public class transactionsControllerv4 {
 		HashMap<String, String> params = new HashMap<String, String>();
 		String result = CommonMethods.getMethodasString(uri, ver, params);
 		if (!result.contentEquals(expected)) {
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 		System.out.println(result);
 	}
@@ -51,7 +53,7 @@ public class transactionsControllerv4 {
 		HashMap<String, String> params = new HashMap<String, String>();
 		String result = CommonMethods.getMethodasString(uri, ver, params);
 		if (!result.contentEquals(expected)) {
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 		System.out.println(result);
 	}
@@ -65,7 +67,7 @@ public class transactionsControllerv4 {
 		HashMap<String, String> params = new HashMap<String, String>();
 		String result = CommonMethods.getMethodasString(uri, ver, params);
 		if (!result.contentEquals(expected)) {
-			Assert.fail();
+			AssertJUnit.fail();
 		}
 		System.out.println(result);
 	}
@@ -79,14 +81,14 @@ public class transactionsControllerv4 {
 
 		HashMap<String, String> params = new HashMap<String, String>();
 		String result = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(result, expected);
+		AssertJUnit.assertEquals(result, expected);
 
 		uri = "/transaction/batch/ABC1213";
 		ver = "4.0";
 		expected = "{\"Batch\":{\"Success\":true,\"Data\":{\"Approved\":false,\"ApprovedDate\":\"1900-01-01\",\"ApprovedUser\":\"\",\"BatchDescription\":\"\",\"BatchId\":\"ABC1213\",\"source\":\"MISC CHARGES\",\"Status\":0,\"Frequency\":0,\"FrequencyDescription\":\"\",\"BatchTotal\":3.82000,\"ControlTotal\":0.00000,\"ControlNumber\":0,\"CreatedDate\":\"1900-01-01\",\"ModifiedDate\":\"1900-01-01\",\"PostedDate\":\"1900-01-01\",\"Marked\":false,\"NumberOfTransactions\":4,\"PostUserId\":\"sa\",\"PostDate\":\"2019-07-31\",\"RecurringPost\":0,\"RecurringLastDate\":\"1900-01-01\",\"NumberOfPosting\":0,\"BatchDaysToIncrement\":0,\"CurrencyId\":\"\",\"CheckBookId\":\"FIRST NATIONAL\",\"PaymentoriginId\":\"\"},\"Messages\":[]}}";
 		params = new HashMap<String, String>();
 		result = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(result, expected);
+		AssertJUnit.assertEquals(result, expected);
 	}
 
 	@Test(priority = 6, groups = "Transaction")
@@ -102,7 +104,7 @@ public class transactionsControllerv4 {
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("HandleCreditMemoMessaging", "true");
 		String result = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(result, expected);
+		AssertJUnit.assertEquals(result, expected);
 		System.out.println(result);
 	}
 
@@ -115,7 +117,7 @@ public class transactionsControllerv4 {
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("HandleCreditMemoMessaging", "true");
 		String result = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(result, expected);
+		AssertJUnit.assertEquals(result, expected);
 		System.out.println(result);
 	}
 
@@ -128,7 +130,7 @@ public class transactionsControllerv4 {
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("HandleCreditMemoMessaging", "true");
 		String result = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(result, expected);
+		AssertJUnit.assertEquals(result, expected);
 		System.out.println(result);
 	}
 
@@ -144,7 +146,7 @@ public class transactionsControllerv4 {
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("HandleCreditMemoMessaging", "false");
 		String result = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(result, expected);
+		AssertJUnit.assertEquals(result, expected);
 		System.out.println(result);
 	}
 
@@ -158,7 +160,7 @@ public class transactionsControllerv4 {
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("HandleCreditMemoMessaging", "false");
 		String result = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(result, expected);
+		AssertJUnit.assertEquals(result, expected);
 		System.out.println(result);
 	}
 	
@@ -194,7 +196,7 @@ public class transactionsControllerv4 {
 		params.put("OtherCharge", "true");
 
 		String result = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(result, expected);
+		AssertJUnit.assertEquals(result, expected);
 		System.out.println(result);
 	}
 

@@ -1,5 +1,6 @@
 package Private;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 import org.testng.annotations.AfterSuite;
@@ -18,10 +19,11 @@ public class BaseClass {
 	//public static ExtentHtmlReporter htmlReporter;
 	
 	@BeforeSuite
-	public void setupReport() {
-   //     ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("ExtentReport.html");
+	public void setupReport() throws IOException {
+    System.out.print("Deleting folder");
+    Runtime.getRuntime().exec("cmd /c rd /s /q C:\\Users\\Admin\\Documents\\GitHub\\nexus_automation\\test-output");
     //    extent = new ExtentReports();
-     //   extent.attachReporter(htmlReporter);
+    //   extent.attachReporter(htmlReporter);
         
         
     }

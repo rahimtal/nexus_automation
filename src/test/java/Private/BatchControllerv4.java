@@ -1,5 +1,7 @@
 package Private;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.sql.SQLException;
 import org.testng.Assert;
@@ -27,7 +29,7 @@ public class BatchControllerv4 extends BaseClass {
 		switch (type) {
 
 		case "post":
-			Assert.assertEquals(CommonMethods.postMethodStringPayloadString(payload, uri, ver), expected);
+			AssertJUnit.assertEquals(CommonMethods.postMethodStringPayloadString(payload, uri, ver), expected);
 			break;
 
 		case "pur":

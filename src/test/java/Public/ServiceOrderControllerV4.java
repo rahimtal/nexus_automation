@@ -1,6 +1,8 @@
 package Public;
 
 import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -36,7 +38,7 @@ public class ServiceOrderControllerV4 {
 		params.put("ServiceOrderNumber", "SORD00000000043");
 
 		String result = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(result, expected);
+		AssertJUnit.assertEquals(result, expected);
 
 	}
 
@@ -72,7 +74,7 @@ public class ServiceOrderControllerV4 {
 				+ "        }\r\n" + "    ]\r\n" + "}";
 		String exResponse = ",\"DrillbackLink\":\"\",\"ServiceOrder\":{\"Success\":true,\"Messages\":[{\"Enabled\":1,\"Info\":\"UDF Label 'SORequestUDF' not valid for Service Order SORD0000000";
 		String response = CommonMethods.postMethodStringPayloadString(payload, uri, version);
-		Assert.assertTrue(response.contains(exResponse));
+		AssertJUnit.assertTrue(response.contains(exResponse));
 
 	}
 
@@ -106,7 +108,7 @@ public class ServiceOrderControllerV4 {
 				+ "        }\r\n" + "    ]\r\n" + "}";
 		String exResponse = ",\"DrillbackLink\":\"\",\"ServiceOrder\":{\"Success\":true,\"Messages\":[{\"Enabled\":1,\"Info\":\"UDF Label 'SORequestUDF' not valid for Service Order SORD000000";
 		String response = CommonMethods.postMethodStringPayloadString(payload, uri, version);
-		Assert.assertTrue(response.contains(exResponse));
+		AssertJUnit.assertTrue(response.contains(exResponse));
 
 	}
 

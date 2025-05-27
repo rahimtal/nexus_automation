@@ -1,10 +1,12 @@
 package Private;
 
+import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-import org.junit.Assert;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
@@ -31,7 +33,7 @@ public class csmGlobalsController {
 		System.out.println(bodyAsString);
 
 		if (!bodyAsString.contains(param) && !bodyAsString.contains(param2)) {
-			AssertJUnit.fail(param + param2 + "Not Found");
+			Assert.fail(param + param2 + "Not Found");
 		}
 		System.out.println(response.prettyPrint());
 
@@ -46,7 +48,7 @@ public class csmGlobalsController {
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("SettingName", "AQALTERNATEID");
 		String response = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(expected, response);
+		AssertJUnit.assertEquals(expected, response);
 
 	}
 

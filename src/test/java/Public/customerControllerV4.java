@@ -1,6 +1,8 @@
 package Public;
 
 import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 
 import org.testng.AssertJUnit;
 import java.io.IOException;
@@ -30,7 +32,7 @@ public class customerControllerV4 {
 		params.put("OrderBy", "status, locationId");
 		params.put("IncludeBalance", "false");
 		String actual = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(actual, expected);
+		AssertJUnit.assertEquals(actual, expected);
 
 	}
 

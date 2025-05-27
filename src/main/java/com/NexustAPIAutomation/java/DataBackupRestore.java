@@ -1,5 +1,7 @@
 package com.NexustAPIAutomation.java;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -41,7 +43,8 @@ public class DataBackupRestore {
     static Connection con;
 
     // @Test
-    public void test() throws ClassNotFoundException, SQLException, InterruptedException {
+    @Test
+	public void test() throws ClassNotFoundException, SQLException, InterruptedException {
 	CompanyDBVersionVerify(csmversion, csmspversion);
     }
 
@@ -89,7 +92,7 @@ public class DataBackupRestore {
 
 	} catch (Exception e) {
 	    e.printStackTrace();
-	    Assert.fail("Scripts got error while rinning DB Scripts, please see logs");
+	    AssertJUnit.fail("Scripts got error while rinning DB Scripts, please see logs");
 	    System.exit(1);
 	}
 
@@ -107,7 +110,7 @@ public class DataBackupRestore {
 	} catch (ClassNotFoundException e1) {
 	    // TODO Auto-generated catch block
 	    e1.printStackTrace();
-	    Assert.fail("Scripts got error, please see logs");
+	    AssertJUnit.fail("Scripts got error, please see logs");
 
 	}
 
@@ -116,7 +119,7 @@ public class DataBackupRestore {
 	} catch (SQLException e1) {
 	    // TODO Auto-generated catch block
 	    e1.printStackTrace();
-	    Assert.fail("Scripts got error, please see logs");
+	    AssertJUnit.fail("Scripts got error, please see logs");
 
 	}
 	Statement st;
@@ -127,7 +130,7 @@ public class DataBackupRestore {
 	} catch (SQLException e1) {
 	    // TODO Auto-generated catch block
 	    e1.printStackTrace();
-	    Assert.fail("Data Restore Scripts got error, please see logs");
+	    AssertJUnit.fail("Data Restore Scripts got error, please see logs");
 
 	}
 
@@ -147,7 +150,7 @@ public class DataBackupRestore {
 
 	} catch (PowerShellNotAvailableException e) {
 	    e.printStackTrace();
-	    Assert.fail("Scripts got error while rinning DB Scripts, please see logs");
+	    AssertJUnit.fail("Scripts got error while rinning DB Scripts, please see logs");
 	    // System.exit(1);
 	}
 
@@ -165,14 +168,14 @@ public class DataBackupRestore {
 	String result = CommonMethods.selectFromDb(getcsmVersion, ConnectionStringcompany, "BuildNumber");
 
 	if (result == "") {
-	    Assert.fail("CSM version Not matched, found please check data");
+	    AssertJUnit.fail("CSM version Not matched, found please check data");
 	    System.exit(1);
 	}
 	result = "";
 	result = CommonMethods.selectFromDb(getcsmSPVersion, ConnectionStringcompany, "umSettingValue");
 
 	if (result == "") {
-	    Assert.fail("CSM Sp version Not matched, please check data");
+	    AssertJUnit.fail("CSM Sp version Not matched, please check data");
 	    System.exit(1);
 	}
 

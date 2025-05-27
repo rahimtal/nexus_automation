@@ -1,6 +1,8 @@
 package Private;
 
 import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -28,7 +30,7 @@ public class equipmentControllerV4 {
 		Boolean Result = jsonPathEvaluator.get("Equipment.Success");
 		System.out.println(jsonPathEvaluator.prettyPrint());
 		if (Result != true) {
-			AssertJUnit.fail(jsonPathEvaluator.prettyPrint());
+			Assert.fail(jsonPathEvaluator.prettyPrint());
 		}
 
 	}
@@ -44,7 +46,7 @@ public class equipmentControllerV4 {
 		Boolean Result = jsonPathEvaluator.get("Equipment.Success");
 		System.out.println(jsonPathEvaluator.prettyPrint());
 		if (Result == true) {
-			AssertJUnit.fail(jsonPathEvaluator.prettyPrint());
+			Assert.fail(jsonPathEvaluator.prettyPrint());
 		}
 
 	}

@@ -1,6 +1,8 @@
 package Public;
 
 import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import java.sql.SQLException;
 
@@ -66,7 +68,7 @@ public class CashieringPostV3 {
 		System.out.println(jsonPathEvaluator.prettyPrint());
 		Boolean Result1 = jsonPathEvaluator.get("Receipt.Success");
 		if (Result1 == false) {
-			AssertJUnit.fail();
+			Assert.fail();
 		} else {
 			System.out.println(jsonPathEvaluator.toString());
 		}
@@ -83,7 +85,7 @@ public class CashieringPostV3 {
 		Boolean Result = jsonPathEvaluator.get("Receipt.Success");
 		System.out.println(jsonPathEvaluator.toString());
 		if (Result == false) {
-			AssertJUnit.fail();
+			Assert.fail();
 		}
 
 	}
