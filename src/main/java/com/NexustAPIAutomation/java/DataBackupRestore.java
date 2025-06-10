@@ -43,8 +43,7 @@ public class DataBackupRestore {
     static Connection con;
 
     // @Test
-    @Test
-	public void test() throws ClassNotFoundException, SQLException, InterruptedException {
+    public void test() throws ClassNotFoundException, SQLException, InterruptedException {
 	CompanyDBVersionVerify(csmversion, csmspversion);
     }
 
@@ -138,7 +137,7 @@ public class DataBackupRestore {
 	    con.close();
 	    CompanyDBVersionVerify(csmversion, csmspversion);
 	}
-	 //CommonMethods.Delay(10000);
+	CommonMethods.Delay(10000);
 
 	try (PowerShell powerShell = PowerShell.openSession()) {
 	    // Execute a command in PowerShell session
