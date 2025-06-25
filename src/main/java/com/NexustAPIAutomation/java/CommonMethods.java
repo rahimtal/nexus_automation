@@ -487,7 +487,8 @@ public class CommonMethods {
 				.body(payload);
 
 		response = httpRequest.post();
-		System.out.println(response.asString());
+		System.out.println("Actual Response ="+ response.asString());
+		System.out.println("Expected Response ="+ expected);
 		Thread.sleep(10000);
 		Assert.assertEquals(response.asString(), expected);
 

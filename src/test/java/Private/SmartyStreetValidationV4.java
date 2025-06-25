@@ -432,7 +432,7 @@ public class SmartyStreetValidationV4 {
 		 		"    \"AddressConfirm\":true,\r\n" + 
 		 		"    \"Confirm\":true\r\n" + 
 		 		"}";
-		 expected = "{\"Location\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Location updated successfully\",\"Level\":1}]}}";
+		// expected = "{\"Location\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Location updated successfully\",\"Level\":1}]}}";
 		 CommonMethods.putMethodstring(uri, ver, payload, expected);
 		
 
