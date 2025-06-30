@@ -201,6 +201,8 @@ public class CashieringController extends BaseClass {
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
 		// CommonMethods.CompanyDBRestore();
 		// CommonMethods.Bugs("CPDEV-20919");
+		
+		
 		String columnName = "umDocumentNumber";
 		String Command1 = "select top 1 umDocumentNumber from TWO.dbo.UMRM102 order by umDocumentNumber desc";
 		String Result = "";
@@ -231,22 +233,24 @@ public class CashieringController extends BaseClass {
 			System.out.println(jsonPathEvaluator.prettyPrint());
 			Assert.assertTrue(false);
 		} else {
-			System.out.println(jsonPathEvaluator.toString());
+			System.out.println(jsonPathEvaluator.prettyPrint());
 		}
+		Thread.sleep(10000);
 
 	}
 
 	@Test(priority = 2, groups = "Cashering", dependsOnMethods = "saveReciept_2_4")
 	public void TC002_RecieptAdjustment() throws ClassNotFoundException, SQLException, InterruptedException {
+		CommonMethods.Bug("CPDEV-22582");
 		String uri = "/cashiering/receipt/adjust";
 		String ver = "4.0";
 		String payload = "{\"Receipt\":{\"ReceiptNumber\":\"" + nextRecieptNumber
 				+ "\",\"Comment\":\"NexusAPIadjustment\"}}";
 		jsonPathEvaluator = CommonMethods.postMethodStringPayload(payload, uri, ver);
 		Boolean Result = jsonPathEvaluator.get("Receipt.Success");
-		System.out.println(jsonPathEvaluator.toString());
+		System.out.println(jsonPathEvaluator.prettyPrint());
 		if (Result == false) {
-			Assert.fail();
+			Assert.fail("Reciept not adjusted "+ jsonPathEvaluator.toString());
 		}
 
 	}

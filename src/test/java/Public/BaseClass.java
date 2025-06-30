@@ -2,7 +2,9 @@ package Public;
 
 import java.sql.SQLException;
 
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 //import com.aventstack.extentreports.ExtentReports;
@@ -21,6 +23,8 @@ public class BaseClass {
 	void BeforeTest() throws ClassNotFoundException, SQLException, InterruptedException {
 	
 	}
+	 
+	 
 	@AfterSuite
 	void flush()
 	{
