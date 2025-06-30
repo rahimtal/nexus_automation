@@ -258,7 +258,7 @@ public class CashieringController extends BaseClass {
 	@Test(priority = 8, groups = "Cashering")
 	public void saveReciept_4_prepaymentExistingCustomer()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
-
+      CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
 		String payload = "{\r\n" + "   \"Receipt\":{\r\n" + "      \"ReceiptNumber\":\"004240724000005\",\r\n"
@@ -286,7 +286,7 @@ public class CashieringController extends BaseClass {
 	@Test(priority = 9, groups = "Cashering")
 	public void saveReciept_4_prepaymentNewCustomer()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
-
+		CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
 		String payload = "{\r\n" + "   \"Receipt\":{\r\n" + "      \"ReceiptNumber\":\"004240724000009\",\r\n"
@@ -314,7 +314,7 @@ public class CashieringController extends BaseClass {
 	@Test(priority = 10, groups = "Cashering")
 	public void saveReciept_4_SOTaskCompleteDepositPayment()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
-
+		CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
 		String payload = "{\r\n" + "   \"Receipt\":{\r\n" + "      \"ReceiptNumber\":\"004240805000004\",\r\n"
@@ -342,7 +342,7 @@ public class CashieringController extends BaseClass {
 	@Test(priority = 10, groups = "Cashering")
 	public void saveReciept_4_SOTaskCompleteDepositPaymenttask2()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
-
+		CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
 		String payload = "{\r\n" + "   \"Receipt\":{\r\n" + "      \"ReceiptNumber\":\"004240805000013\",\r\n"
@@ -370,7 +370,7 @@ public class CashieringController extends BaseClass {
 	@Test(priority = 11, groups = "Cashering")
 	public void saveReciept_SOTaskCompleteDepositPaymenttaskNewCustomer()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
-
+		CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
 		String payload = "{\r\n" + "   \"Receipt\":{\r\n" + "      \"ReceiptNumber\":\"004240805000008\",\r\n"
