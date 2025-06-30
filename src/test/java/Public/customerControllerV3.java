@@ -197,12 +197,12 @@ public class customerControllerV3 {
 	@Test(priority = 8, groups = "CustomerController" )
 	public static void getCustomerDetail_v3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		//Still a Bug (2025)
-		CommonMethods.Bug("CPDEV-18795");
+		//CommonMethods.Bug("CPDEV-18795");
 		String uri = "/customer/getCustomerDetail";
 		String ver = "3.0";
 		String jpath = "./\\TestData\\CustomerDetailsv3.json";
 		HashMap<String, String> params = new HashMap<String, String>();
-		params.put("CustomerId", "customer003");
+		params.put("CustomerId", "customer004");
 		String result = CommonMethods.getMethod(uri, ver, params, jpath);
 		System.out.println(result);
 	}
