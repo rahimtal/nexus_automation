@@ -250,7 +250,7 @@ public class CashieringController extends BaseClass {
 		Boolean Result = jsonPathEvaluator.get("Receipt.Success");
 		System.out.println(jsonPathEvaluator.prettyPrint());
 		if (Result == false) {
-			Assert.fail("Reciept not adjusted "+ jsonPathEvaluator.toString());
+			Assert.fail("Reciept not adjusted "+ jsonPathEvaluator.prettyPrint());
 		}
 
 	}
