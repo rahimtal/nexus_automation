@@ -187,9 +187,33 @@ public class BillingControllerv4 extends BaseClass {
 		}
 		Thread.sleep(5000);
 	}
+	
+	// Test 13: Post Create Statement (Is Final)
+		@Test(priority = 7, groups = "billing", dependsOnMethods = "PostgenerateEditReportv4")
+		public static void postcreateStatementv4_isfinal()
+				throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+			// ExtentTest test = extent.createTest("postcreateStatementv4_isfinal");
+			// test.log(Status.INFO, "Starting test: postcreateStatementv4_isfinal");
+
+			String uri = "/billing/createStatement";
+			String ver = "4.0";
+			String payload = "{\r\n" + "    \"Billing\":{\r\n" + "        \"BatchId\":\"BT1231\",\r\n"
+					+ "        \"IsFinal\": true,\r\n" + "        \"Confirm\": {\r\n"
+					+ "            \"IgnoreMiscChargeOrCreditValidation\": false\r\n" + "        }\r\n" + "    }\r\n" + "}";
+			String expected = "{\"Billing\":{\"Success\":true,\"Data\":[{\"BatchId\":\"BT1231\",\"UserDateTime\":";
+			// test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
+			// test.log(Status.INFO, "Payload: " + payload);
+			// test.log(Status.INFO, "Expected contains: " + expected);
+
+			String actual = CommonMethods.postMethodStringPayloadString(payload, uri, ver);
+			// test.log(Status.INFO, "Actual: " + actual);
+			Assert.assertTrue(actual.contains(expected));
+			// test.log(Status.PASS, "Response contains the expected value.");
+		}
+
 
 	// Test 1: Delete Billing
-	@Test(priority = 1, groups = "billing")
+	@Test(priority = 8, groups = "billing")
 	public void delBatv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// ExtentTest test = extent.createTest("delBatv4");
 		// test.log(Status.INFO, "Starting test: delBatv4");
@@ -211,7 +235,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Test 2: Delete Billing Error
-	@Test(priority = 2, groups = "billing")
+	@Test(priority = 9, groups = "billing")
 	public static void delBatv4Err() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// ExtentTest test = extent.createTest("delBatv4Err");
 		// test.log(Status.INFO, "Starting test: delBatv4Err");
@@ -233,7 +257,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Test 3: Billing Print Statement --- Look Later
-	// @Test(priority = 4, groups = "billing")
+	@Test(priority = 10, groups = "billing")
 	public static void billingprintStatementv4_Error()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// ExtentTest test = extent.createTest("billingprintStatementv4");
@@ -301,7 +325,7 @@ public class BillingControllerv4 extends BaseClass {
 	public static JsonPath jsonPathEvaluator;
 
 	// Test 8: Get Bill Print Template Path
-	@Test(priority = 8, groups = "billing")
+	@Test(priority = 11, groups = "billing")
 	public void getbillprintTemplatePath()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// ExtentTest test = extent.createTest("getbillprintTemplatePath");
@@ -320,7 +344,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Test 9: Print CSV Billing Statements
-	@Test(priority = 9, groups = "billing", dependsOnMethods = "postBillingv4")
+	@Test(priority = 13, groups = "billing", dependsOnMethods = "postBillingv4")
 	public void printcsvbillingStatements()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// ExtentTest test = extent.createTest("printcsvbillingStatements");
@@ -339,7 +363,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Test 10: TC001 Get Utility Setup
-	@Test(priority = 10, groups = "billing")
+	@Test(priority = 14, groups = "billing")
 	public void TC001_getutilitySetup() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// ExtentTest test = extent.createTest("TC001_getutilitySetup");
 		// test.log(Status.INFO, "Starting test: TC001_getutilitySetup");
@@ -358,7 +382,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Test 11: TC002 Get Bill Batch Status
-	@Test(priority = 11, groups = "billing")
+	@Test(priority = 15, groups = "billing")
 	public void TC002_getbillBatchStatus()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.Bugs("CPDEV-21608");
@@ -378,7 +402,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Test 12: Get Billing Transfer Progress
-	@Test(priority = 12, groups = "billing")
+	@Test(priority = 16, groups = "billing")
 	public void getbillingtransferProgress()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -403,31 +427,9 @@ public class BillingControllerv4 extends BaseClass {
 		Assert.assertEquals(actual, expected);
 	}
 
-	// Test 13: Post Create Statement (Is Final)
-	@Test(priority = 13, groups = "billing", dependsOnMethods = "PostgenerateEditReportv4")
-	public static void postcreateStatementv4_isfinal()
-			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		// ExtentTest test = extent.createTest("postcreateStatementv4_isfinal");
-		// test.log(Status.INFO, "Starting test: postcreateStatementv4_isfinal");
-
-		String uri = "/billing/createStatement";
-		String ver = "4.0";
-		String payload = "{\r\n" + "    \"Billing\":{\r\n" + "        \"BatchId\":\"BT1231\",\r\n"
-				+ "        \"IsFinal\": true,\r\n" + "        \"Confirm\": {\r\n"
-				+ "            \"IgnoreMiscChargeOrCreditValidation\": false\r\n" + "        }\r\n" + "    }\r\n" + "}";
-		String expected = "{\"Billing\":{\"Success\":true,\"Data\":[{\"BatchId\":\"BT1231\",\"UserDateTime\":";
-		// test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
-		// test.log(Status.INFO, "Payload: " + payload);
-		// test.log(Status.INFO, "Expected contains: " + expected);
-
-		String actual = CommonMethods.postMethodStringPayloadString(payload, uri, ver);
-		// test.log(Status.INFO, "Actual: " + actual);
-		Assert.assertTrue(actual.contains(expected));
-		// test.log(Status.PASS, "Response contains the expected value.");
-	}
-
+	
 	// Test 14: Billing Final Calculate
-	@Test(priority = 14, groups = "billing")
+	@Test(priority = 17, groups = "billing")
 	public static void billingfinalcalculatev4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// ExtentTest test = extent.createTest("billingfinalcalculatev4");
@@ -453,7 +455,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Test 15: Get Batch ID Validate (Invalid)
-	@Test(priority = 15, groups = "billing")
+	@Test(priority = 18, groups = "billing")
 	public void getBatchIdValidate() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// ExtentTest test = extent.createTest("getBatchIdValidate");
 		// test.log(Status.INFO, "Starting test: getBatchIdValidate");
@@ -472,7 +474,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Test 16: Get Batch ID Validate (Valid)
-	@Test(priority = 16, groups = "billing")
+	@Test(priority = 19, groups = "billing")
 	public void getBatchIdValidatetrue()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// ExtentTest test = extent.createTest("getBatchIdValidatetrue");
@@ -493,7 +495,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Test 17: Delete Billing (Edit List Print)
-	// @Test(priority = 17, groups = "billing")
+	@Test(priority = 20, groups = "billing")
 	public static void delBatv4_EditListPrint()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// ExtentTest test = extent.createTest("delBatv4_EditListPrint");
@@ -511,7 +513,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Test 18: Delete Billing (Calculating)
-	@Test(priority = 18, groups = "billing")
+	@Test(priority = 21, groups = "billing")
 	public static void delBatv4_calculating()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// ExtentTest test = extent.createTest("delBatv4_calculating");
@@ -529,7 +531,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Test 15: Get Batch ID Validate (Invalid)
-	@Test(priority = 19, groups = "billing")
+	@Test(priority = 22, groups = "billing")
 	public void billBatchStatus() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// ExtentTest test = extent.createTest("billBatchStatus");
 		// test.log(Status.INFO, "Starting test: billBatchStatus");
@@ -547,7 +549,7 @@ public class BillingControllerv4 extends BaseClass {
 		// test.log(Status.PASS, "Batch ID validation returned expected result.");
 	}
 
-	@Test(priority = 20, groups = "billing")
+	@Test(priority = 23, groups = "billing")
 	public void getBilltransferProgress()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// ExtentTest test = extent.createTest("gettransfer");
@@ -568,7 +570,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Test 14: Billing Final posting Final BillTransfer
-	@Test(priority = 21, groups = "billing")
+	@Test(priority = 24, groups = "billing")
 	public static void postingFinalBillTransferv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -584,7 +586,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Test 14: Billing Final posting Final BillTransfer
-	@Test(priority = 22, groups = "billing")
+	@Test(priority = 25, groups = "billing")
 	public static void postinggenerateBillingTransferReportv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -594,47 +596,9 @@ public class BillingControllerv4 extends BaseClass {
 		String ver = "4.0";
 		String payload = "{\r\n" + "\r\n" + "    \"BatchId\": \"BATCH2025\",\r\n"
 				+ "    \"ServiceOrderNumber\": \"\"\r\n" + "}";
-
 		String actual = CommonMethods.postMethodStringPayloadString(payload, uri, ver);
-		// changed
-		// String expected =
-		// "{\"Billing\":{\"Success\":true,\"Data\":{\"BillReportList\":[{\"ReportName\":\"Bill
-		// Post Batch Summary List\",\"ReportDisplayName\":\"Batch Summary
-		// List\",\"PrintOrder\":1,\"printEnabled\":false},{\"ReportName\":\"Bill Post
-		// Distribution Breakdown Detail\",\"ReportDisplayName\":\"Bill Distribution
-		// Breakdown
-		// Detail\",\"PrintOrder\":2,\"printEnabled\":false},{\"ReportName\":\"Bill Post
-		// Distribution Breakdown Summary\",\"ReportDisplayName\":\"Bill Distribution
-		// Breakdown
-		// Summary\",\"PrintOrder\":3,\"printEnabled\":false},{\"ReportName\":\"Bill
-		// Post and Pymt Distribution Breakdown Summary\",\"ReportDisplayName\":\"Bill &
-		// Payment Distribution Breakdown
-		// Summary\",\"PrintOrder\":4,\"printEnabled\":false},{\"ReportName\":\"Bill
-		// Post-Payment Distribution Breakdown Detail\",\"ReportDisplayName\":\"Payment
-		// Distribution Breakdown
-		// Detail\",\"PrintOrder\":5,\"printEnabled\":false},{\"ReportName\":\"Bill
-		// Post-Payment Distribution Breakdown Summary\",\"ReportDisplayName\":\"Payment
-		// Distribution Breakdown
-		// Summary\",\"PrintOrder\":6,\"printEnabled\":false},{\"ReportName\":\"Bill
-		// Post Distribution Breakdown Account Detail\",\"ReportDisplayName\":\"Bill
-		// Distribution Breakdown Account
-		// Detail\",\"PrintOrder\":7,\"printEnabled\":false},{\"ReportName\":\"Bill Post
-		// Statement Summary\",\"ReportDisplayName\":\"Bill Statement
-		// Summary\",\"PrintOrder\":8,\"printEnabled\":false},{\"ReportName\":\"Bill
-		// Post Statement Summary Electronic\",\"ReportDisplayName\":\"Bill Statement
-		// Summary
-		// Electronic\",\"PrintOrder\":9,\"printEnabled\":false}],\"BillErrorReportList\":[{\"ReportName\":\"Bill
-		// Post Distribution Error Post List\",\"ReportDisplayName\":\"Bill Post
-		// Distribution Error Post
-		// List\",\"PrintOrder\":1,\"printEnabled\":false}],\"ErrorReportList\":null,\"PaymentReportList\":[{\"ReportName\":\"PaymentPostEditList\",\"ReportDisplayName\":\"Payment
-		// Edit
-		// List\",\"PrintOrder\":1,\"printEnabled\":true},{\"ReportName\":\"PaymentPostDistributionBreakdownSummary\",\"ReportDisplayName\":\"Payment
-		// Distribution Breakdown
-		// Summary\",\"PrintOrder\":2,\"printEnabled\":true}],\"PaymentReportErrorList\":null,\"CheckReportList\":[{\"ReportName\":\"Post
-		// Check Refund Edit List\",\"ReportDisplayName\":\"Post Check Refund Edit
-		// List\",\"PrintOrder\":1,\"printEnabled\":true}]},\"Messages\":[]}}";
-		String expected = "{\"Billing\":{\"Success\":true,\"Data\":{\"BillReportList\":[{\"ReportName\":\"Bill Post Batch Summary List\",\"ReportDisplayName\":\"Batch Summary List\",\"PrintOrder\":1,\"printEnabled\":false},{\"ReportName\":\"Bill Post Distribution Breakdown Detail\",\"ReportDisplayName\":\"Bill Distribution Breakdown Detail\",\"PrintOrder\":2,\"printEnabled\":false},{\"ReportName\":\"Bill Post Distribution Breakdown Summary\",\"ReportDisplayName\":\"Bill Distribution Breakdown Summary\",\"PrintOrder\":3,\"printEnabled\":false},{\"ReportName\":\"Bill Post and Pymt Distribution Breakdown Summary\",\"ReportDisplayName\":\"Bill & Payment Distribution Breakdown Summary\",\"PrintOrder\":4,\"printEnabled\":false},{\"ReportName\":\"Bill Post-Payment Distribution Breakdown Detail\",\"ReportDisplayName\":\"Payment Distribution Breakdown Detail\",\"PrintOrder\":5,\"printEnabled\":false},{\"ReportName\":\"Bill Post-Payment Distribution Breakdown Summary\",\"ReportDisplayName\":\"Payment Distribution Breakdown Summary\",\"PrintOrder\":6,\"printEnabled\":false},{\"ReportName\":\"Bill Post Distribution Breakdown Account Detail\",\"ReportDisplayName\":\"Bill Distribution Breakdown Account Detail\",\"PrintOrder\":7,\"printEnabled\":false},{\"ReportName\":\"Bill Post Statement Summary\",\"ReportDisplayName\":\"Bill Statement Summary\",\"PrintOrder\":8,\"printEnabled\":false},{\"ReportName\":\"Bill Post Statement Summary Electronic\",\"ReportDisplayName\":\"Bill Statement Summary Electronic\",\"PrintOrder\":9,\"printEnabled\":false}],\"BillErrorReportList\":[{\"ReportName\":\"Bill Post Distribution Error Post List\",\"ReportDisplayName\":\"Bill Post Distribution Error Post List\",\"PrintOrder\":1,\"printEnabled\":false}],\"ErrorReportList\":[{\"ReportName\":\"Billing Error List\",\"ReportDisplayName\":\"Billing Error List\",\"PrintOrder\":1,\"printEnabled\":true}],\"PaymentReportList\":[{\"ReportName\":\"PaymentPostEditList\",\"ReportDisplayName\":\"Payment Edit List\",\"PrintOrder\":1,\"printEnabled\":true},{\"ReportName\":\"PaymentPostDistributionBreakdownSummary\",\"ReportDisplayName\":\"Payment Distribution Breakdown Summary\",\"PrintOrder\":2,\"printEnabled\":true}],\"PaymentReportErrorList\":[{\"ReportName\":\"PaymentPostErrorList\",\"ReportDisplayName\":\"Payment Error List\",\"PrintOrder\":1,\"printEnabled\":true}],\"CheckReportList\":[{\"ReportName\":\"Post Check Refund Edit List\",\"ReportDisplayName\":\"Post Check Refund Edit List\",\"PrintOrder\":1,\"printEnabled\":true}],\"CheckErrorReportList\":[{\"ReportName\":\"Check Refund Error List\",\"ReportDisplayName\":\"Check Refund Error List\",\"PrintOrder\":1,\"printEnabled\":true}]},\"Messages\":[]}}";
 
+		String expected = "{\"Billing\":{\"Success\":true,\"Data\":{\"BillReportList\":[{\"ReportName\":\"Bill Post Batch Summary List\",\"ReportDisplayName\":\"Batch Summary List\",\"PrintOrder\":1,\"printEnabled\":false},{\"ReportName\":\"Bill Post Distribution Breakdown Detail\",\"ReportDisplayName\":\"Bill Distribution Breakdown Detail\",\"PrintOrder\":2,\"printEnabled\":false},{\"ReportName\":\"Bill Post Distribution Breakdown Summary\",\"ReportDisplayName\":\"Bill Distribution Breakdown Summary\",\"PrintOrder\":3,\"printEnabled\":false},{\"ReportName\":\"Bill Post and Pymt Distribution Breakdown Summary\",\"ReportDisplayName\":\"Bill & Payment Distribution Breakdown Summary\",\"PrintOrder\":4,\"printEnabled\":false},{\"ReportName\":\"Bill Post-Payment Distribution Breakdown Detail\",\"ReportDisplayName\":\"Payment Distribution Breakdown Detail\",\"PrintOrder\":5,\"printEnabled\":false},{\"ReportName\":\"Bill Post-Payment Distribution Breakdown Summary\",\"ReportDisplayName\":\"Payment Distribution Breakdown Summary\",\"PrintOrder\":6,\"printEnabled\":false},{\"ReportName\":\"Bill Post Distribution Breakdown Account Detail\",\"ReportDisplayName\":\"Bill Distribution Breakdown Account Detail\",\"PrintOrder\":7,\"printEnabled\":false},{\"ReportName\":\"Bill Post Statement Summary\",\"ReportDisplayName\":\"Bill Statement Summary\",\"PrintOrder\":8,\"printEnabled\":false},{\"ReportName\":\"Bill Post Statement Summary Electronic\",\"ReportDisplayName\":\"Bill Statement Summary Electronic\",\"PrintOrder\":9,\"printEnabled\":false}],\"BillErrorReportList\":[{\"ReportName\":\"Bill Post Distribution Error Post List\",\"ReportDisplayName\":\"Bill Post Distribution Error Post List\",\"PrintOrder\":1,\"printEnabled\":false}],\"ErrorReportList\":[{\"ReportName\":\"Billing Error List\",\"ReportDisplayName\":\"Billing Error List\",\"PrintOrder\":1,\"printEnabled\":true}],\"PaymentReportList\":[{\"ReportName\":\"PaymentPostEditList\",\"ReportDisplayName\":\"Payment Edit List\",\"PrintOrder\":1,\"printEnabled\":true},{\"ReportName\":\"PaymentPostDistributionBreakdownSummary\",\"ReportDisplayName\":\"Payment Distribution Breakdown Summary\",\"PrintOrder\":2,\"printEnabled\":true}],\"PaymentReportErrorList\":[{\"ReportName\":\"PaymentPostErrorList\",\"ReportDisplayName\":\"Payment Error List\",\"PrintOrder\":1,\"printEnabled\":true}],\"CheckReportList\":[{\"ReportName\":\"Post Check Refund Edit List\",\"ReportDisplayName\":\"Post Check Refund Edit List\",\"PrintOrder\":1,\"printEnabled\":true}],\"CheckErrorReportList\":[{\"ReportName\":\"Check Refund Error List\",\"ReportDisplayName\":\"Check Refund Error List\",\"PrintOrder\":1,\"printEnabled\":true}]},\"Messages\":[]}}";
 		Assert.assertEquals(actual, expected);
 
 	}
