@@ -1,9 +1,10 @@
 package com.NexustAPIAutomation.java;
 
-import org.testng.annotations.Test; 
+import org.testng.annotations.Test;
 import org.testng.Assert;
 
-import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.Assert;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -77,7 +78,7 @@ public class CommonMethods {
 	public static String getToken() throws InterruptedException {
 		String url = keycloakurl + "/auth/realms/nexus-portal/protocol/openid-connect/token";
 		Response response = RestAssured.given().auth().preemptive().basic("nexus-portal", url)
-				.contentType("application/x-www-form-urlencoded").log().all().formParam("grant_type", "password")
+				.contentType("application/x-www-form-urlencoded").formParam("grant_type", "password")
 				.formParam("username", userName).formParam("password", Password).when().post(url); // authorization_token
 		CommonMethods.Delay(100); // value is not
 		// System.out.println(response.path("error").toString());
@@ -198,25 +199,22 @@ public class CommonMethods {
 		}
 
 		RestAssured.config = RestAssuredConfig.config()
-			    .httpClient(HttpClientConfig.httpClientConfig()
-			    .setParam("http.connection.timeout", 30000)
-			    .setParam("http.socket.timeout", 30000)
-			    .setParam("http.connection-manager.timeout", 30000L));
+				.httpClient(HttpClientConfig.httpClientConfig().setParam("http.connection.timeout", 30000)
+						.setParam("http.socket.timeout", 30000).setParam("http.connection-manager.timeout", 30000L));
 		Response response;
 		JsonPath jsonPathEvaluator;
 		RestAssured.baseURI = RestAssured.baseURI + uri;
-		System.out.println("Posting uri :" + RestAssured.baseURI.toString());
+		System.out.println("Posting uri  = " + version + "   " + uri);
 		RequestSpecification httpRequest = RestAssured.given()
 				.headers("Authorization", "Bearer " + getToken(), "Content-Type", ContentType.JSON, "Accept", "*/*",
 						"Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
 				.body(jsonDataInFile);
 
-		
 		System.out.println("Posting call Body :" + bodycontent.toString());
 		response = httpRequest.post();
 		System.out.println("Posting call Response :" + response.asString());
 		jsonPathEvaluator = response.jsonPath();
-		Thread.sleep(10000);
+		Thread.sleep(1000);
 		return jsonPathEvaluator;
 
 	}
@@ -261,7 +259,7 @@ public class CommonMethods {
 
 		Response response;
 		RestAssured.baseURI = RestAssured.baseURI + uri;
-		System.out.println("Posting uri :" + RestAssured.baseURI.toString());
+		System.out.println("Posting uri  = " + version + "   " + uri);
 		RequestSpecification httpRequest = RestAssured.given()
 				.headers("Authorization", "Bearer " + getToken(), "Content-Type", ContentType.JSON, "Accept", "*/*",
 						"Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
@@ -273,7 +271,6 @@ public class CommonMethods {
 
 	}
 
-	
 	public static String postMethodResponseAsString(String payload, String uri, String version)
 			throws InterruptedException {
 
@@ -310,11 +307,10 @@ public class CommonMethods {
 			version = "Invalid version";
 			break;
 		}
-		
 
 		Response response;
 		RestAssured.baseURI = RestAssured.baseURI + uri;
-		System.out.println("Posting uri :" + RestAssured.baseURI.toString());
+		System.out.println("Posting uri  = " + version + "   " + uri);
 		RequestSpecification httpRequest = RestAssured.given()
 				.headers("Authorization", "Bearer " + getToken(), "Content-Type", ContentType.JSON, "Accept", "*/*",
 						"Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
@@ -368,7 +364,7 @@ public class CommonMethods {
 		// CharSequence i="\\";
 		// payload.replace(i,"");
 		RestAssured.baseURI = RestAssured.baseURI + uri;
-		System.out.println("Posting uri :" + RestAssured.baseURI.toString());
+		System.out.println("Posting uri  = " + version + "   " + uri);
 		RequestSpecification httpRequest = RestAssured.given()
 				.headers("Authorization", "Bearer " + getToken(), "Content-Type", ContentType.JSON, "Accept", "*/*",
 						"Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
@@ -424,13 +420,13 @@ public class CommonMethods {
 		// CharSequence i="\\";
 		// payload.replace(i,"");
 		RestAssured.baseURI = RestAssured.baseURI + uri;
-		System.out.println("Posting uri :" + RestAssured.baseURI.toString());
+		System.out.println("Posting uri  = " + version + "   " + uri);
 		RequestSpecification httpRequest = RestAssured.given()
 				.headers("Authorization", "Bearer " + getToken(), "Content-Type", ContentType.JSON, "Accept", "*/*",
 						"Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
 				.body(payload);
 
-		System.out.println("Uri =" + RestAssured.baseURI.toString());
+		// System.out.println("Uri =" + RestAssured.baseURI.toString());
 		System.out.println("Uri Payload =" + payload);
 		response = httpRequest.post();
 		System.out.println("Uri Response =" + response.asString());
@@ -477,18 +473,18 @@ public class CommonMethods {
 			break;
 		}
 
-		System.out.println("Payload = "+payload);
+		System.out.println("Payload = " + payload);
 		Response response;
 		RestAssured.baseURI = RestAssured.baseURI + uri;
-		System.out.println("Posting uri :" + RestAssured.baseURI.toString());
+		System.out.println("Posting uri  = " + version + "   " + uri);
 		RequestSpecification httpRequest = RestAssured.given()
 				.headers("Authorization", "Bearer " + getToken(), "Content-Type", ContentType.JSON, "Accept", "*/*",
 						"Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
 				.body(payload);
 
 		response = httpRequest.post();
-		System.out.println("Actual Response ="+ response.asString());
-		System.out.println("Expected Response ="+ expected);
+		System.out.println("Actual Response =" + response.asString());
+		System.out.println("Expected Response =" + expected);
 		Thread.sleep(10000);
 		Assert.assertEquals(response.asString(), expected);
 
@@ -914,7 +910,7 @@ public class CommonMethods {
 		Response response = httpRequest.put();
 		Assert.assertEquals(response.getBody().asString(), new String(Files.readAllBytes(Paths.get(jsonDataInFile))));
 		System.out.println("** PUT call Response ** " + response.asString());
-		
+
 		Thread.sleep(10000);
 		return response;
 
@@ -1135,7 +1131,7 @@ public class CommonMethods {
 		Path jsonDataInFile = Paths.get(pathToResponse);
 
 		RestAssured.baseURI = RestAssured.baseURI + uri;
-		System.out.println("Posting uri :" + RestAssured.baseURI.toString());
+		System.out.println("Posting uri  = " + version + "   " + uri);
 		String expe = new String(Files.readAllBytes(Paths.get(pathToResponse)));
 		System.out.println("Expected Response as in file : " + expe);
 		RestAssured.baseURI = RestAssured.baseURI + uri;
@@ -1597,21 +1593,20 @@ public class CommonMethods {
 		}
 
 	}
-	
-public static void RegexMatcher (String expectedPattern, String result)
-{
+
+	public static void RegexMatcher(String expectedPattern, String result) {
 		Pattern pattern = Pattern.compile(expectedPattern);
 		Matcher matcher = pattern.matcher(result);
 		Assert.assertTrue(matcher.find(), "Result does not match expected pattern.");
-		
-}
+
+	}
 
 	public static void main(String args[]) {
 
 	}
 
 	public static void Bug(String str1) {
-		
+
 		throw new SkipException("Skipping this method due to bug = " + str1);
 	}
 
