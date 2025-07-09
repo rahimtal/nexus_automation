@@ -188,8 +188,82 @@ public class BillingControllerv4 extends BaseClass {
 		Thread.sleep(5000);
 	}
 	
+	
+	@Test(priority = 18, groups = "billing")
+	public static void PostBillingcalculate_2_v4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// ExtentTest test = extent.createTest("PostBillingcalculatev4");
+		// test.log(Status.INFO, "Starting test: PostBillingcalculatev4");
+
+		// CommonMethods.Bug("CPDEV-22133");
+		String uri = "/billing/calculate";
+		String ver = "4.0";
+		String payload = "{\n" + "    \"Billing\": {\n" + "        \"BatchId\": \"BT1232\",\n"
+				+ "        \"BillingType\": 1,\n" + "        \"PrepareType\": 1,\n" + "        \"PrepareValue\": [\n"
+				+ "            \"LOCATION002\"\n" + "        ],\n" + "        \"PeriodStartDate\": \"2000-06-01\",\n"
+				+ "        \"PeriodEndDate\": \"2000-06-30\",\n" + "        \"ReadingDate\": \"2000-06-30\",\n"
+				+ "        \"BillingDate\": \"2000-07-01\",\n" + "        \"PowerFactor\": 0,\n"
+				+ "        \"BtuPgaFactorDate\": \"2000-01-01\",\n" + "        \"Cycle\": {\n"
+				+ "            \"Id\": \"\",\n" + "            \"BillingPeriod\": 0\n" + "        }\n" + "    }\n"
+				+ "}";
+		String filepath = "./\\TestData\\PostBillingcalculatev4.json";
+		// test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
+		// test.log(Status.INFO, "Payload written to file: " + filepath);
+
+		FileWriter file = new FileWriter(filepath);
+		file.write(payload);
+		file.close();
+
+		// Calling first time for cold start
+		CommonMethods.postMethodResponseasString(filepath, uri, ver);
+		CommonMethods.Delay(5000);
+		// second call
+		JsonPath jsonPathEvaluator = CommonMethods.postMethod(filepath, uri, ver);
+
+		Boolean resultFlag = jsonPathEvaluator.get("Billing.Success");
+		// test.log(Status.INFO, "Billing.Success: " + resultFlag);
+		System.out.println(resultFlag);
+		if (!resultFlag) {
+			// test.log(Status.FAIL, "Bill Calculation Failed");
+			Assert.fail("Bill Calculation Failed");
+		} else {
+			// test.log(Status.PASS, "Bill Calculation succeeded.");
+		}
+	}
+	
+	
+	// Test 2: Post Generate Edit Report
+		@Test(priority = 2, groups = "billing", dependsOnMethods = "PostBillingcalculate_2_v4")
+		public static void PostgenerateEditReportv4_2()
+				throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+			// ExtentTest test = extent.createTest("PostgenerateEditReportv4");
+			// test.log(Status.INFO, "Starting test: PostgenerateEditReportv4");
+
+			String uri = "/billing/generateEditReport";
+			String ver = "4.0";
+			String payload = "{\n" + "    \"Billing\": {\n" + "        \"BatchId\": \"BT1232\"\n" + "    }\n" + "}";
+			String filepath = "./\\TestData\\PostgenerateEditReportv4.json";
+			// test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
+			// test.log(Status.INFO, "Payload written to file: " + filepath);
+
+			FileWriter file = new FileWriter(filepath);
+			file.write(payload);
+			file.close();
+
+			JsonPath jsonPathEvaluator = CommonMethods.postMethod(filepath, uri, ver);
+			Boolean resultFlag = jsonPathEvaluator.get("Billing.Success");
+			// test.log(Status.INFO, "Billing.Success: " + resultFlag);
+			System.out.println(resultFlag);
+			if (!resultFlag) {
+				// test.log(Status.FAIL, "Bill Calculation Failed");
+				Assert.fail("Bill Calculation Failed");
+			} else {
+				// test.log(Status.PASS, "Bill Calculation succeeded.");
+			}
+		}
+	
 	// Test 13: Post Create Statement (Is Final)
-		@Test(priority = 21, groups = "billing", dependsOnMethods = "postinggenerateBillingTransferReportv4")
+		@Test(priority = 19, groups = "billing", dependsOnMethods = "PostgenerateEditReportv4_2")
 		public static void postcreateStatementv4_isfinal()
 				throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 			// ExtentTest test = extent.createTest("postcreateStatementv4_isfinal");
@@ -197,10 +271,10 @@ public class BillingControllerv4 extends BaseClass {
 
 			String uri = "/billing/createStatement";
 			String ver = "4.0";
-			String payload = "{\r\n" + "    \"Billing\":{\r\n" + "        \"BatchId\":\"BT1231\",\r\n"
+			String payload = "{\r\n" + "    \"Billing\":{\r\n" + "        \"BatchId\":\"BT1232\",\r\n"
 					+ "        \"IsFinal\": true,\r\n" + "        \"Confirm\": {\r\n"
 					+ "            \"IgnoreMiscChargeOrCreditValidation\": false\r\n" + "        }\r\n" + "    }\r\n" + "}";
-			String expected = "{\"Billing\":{\"Success\":true,\"Data\":[{\"BatchId\":\"BT1231\",\"UserDateTime\":";
+			String expected = "{\"Billing\":{\"Success\":true,\"Data\":[{\"BatchId\":\"BT1232\",\"UserDateTime\":";
 			// test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
 			// test.log(Status.INFO, "Payload: " + payload);
 			// test.log(Status.INFO, "Expected contains: " + expected);
@@ -503,7 +577,7 @@ public class BillingControllerv4 extends BaseClass {
 		// ExtentTest test = extent.createTest("delBatv4_EditListPrint");
 		// test.log(Status.INFO, "Starting test: delBatv4_EditListPrint");
 
-		String uri = "/billing/delete/BAT1";
+		String uri = "/billing/delete/BAT10123123    ";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\delBatv4.json";
 		// test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
