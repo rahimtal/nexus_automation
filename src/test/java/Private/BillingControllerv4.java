@@ -187,8 +187,7 @@ public class BillingControllerv4 extends BaseClass {
 		}
 		Thread.sleep(5000);
 	}
-	
-	
+
 	@Test(priority = 18, groups = "billing")
 	public static void PostBillingcalculate_2_v4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
@@ -230,97 +229,95 @@ public class BillingControllerv4 extends BaseClass {
 			// test.log(Status.PASS, "Bill Calculation succeeded.");
 		}
 	}
-	
-	
+
 	// Test 2: Post Generate Edit Report
-		@Test(priority = 2, groups = "billing", dependsOnMethods = "PostBillingcalculate_2_v4")
-		public static void PostgenerateEditReportv4_2()
-				throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-			// ExtentTest test = extent.createTest("PostgenerateEditReportv4");
-			// test.log(Status.INFO, "Starting test: PostgenerateEditReportv4");
+	@Test(priority = 2, groups = "billing", dependsOnMethods = "PostBillingcalculate_2_v4")
+	public static void PostgenerateEditReportv4_2()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// ExtentTest test = extent.createTest("PostgenerateEditReportv4");
+		// test.log(Status.INFO, "Starting test: PostgenerateEditReportv4");
 
-			String uri = "/billing/generateEditReport";
-			String ver = "4.0";
-			String payload = "{\n" + "    \"Billing\": {\n" + "        \"BatchId\": \"BT1232\"\n" + "    }\n" + "}";
-			String filepath = "./\\TestData\\PostgenerateEditReportv4.json";
-			// test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
-			// test.log(Status.INFO, "Payload written to file: " + filepath);
+		String uri = "/billing/generateEditReport";
+		String ver = "4.0";
+		String payload = "{\n" + "    \"Billing\": {\n" + "        \"BatchId\": \"BT1232\"\n" + "    }\n" + "}";
+		String filepath = "./\\TestData\\PostgenerateEditReportv4.json";
+		// test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
+		// test.log(Status.INFO, "Payload written to file: " + filepath);
 
-			FileWriter file = new FileWriter(filepath);
-			file.write(payload);
-			file.close();
+		FileWriter file = new FileWriter(filepath);
+		file.write(payload);
+		file.close();
 
-			JsonPath jsonPathEvaluator = CommonMethods.postMethod(filepath, uri, ver);
-			Boolean resultFlag = jsonPathEvaluator.get("Billing.Success");
-			// test.log(Status.INFO, "Billing.Success: " + resultFlag);
-			System.out.println(resultFlag);
-			if (!resultFlag) {
-				// test.log(Status.FAIL, "Bill Calculation Failed");
-				Assert.fail("Bill Calculation Failed");
-			} else {
-				// test.log(Status.PASS, "Bill Calculation succeeded.");
-			}
+		JsonPath jsonPathEvaluator = CommonMethods.postMethod(filepath, uri, ver);
+		Boolean resultFlag = jsonPathEvaluator.get("Billing.Success");
+		// test.log(Status.INFO, "Billing.Success: " + resultFlag);
+		System.out.println(resultFlag);
+		if (!resultFlag) {
+			// test.log(Status.FAIL, "Bill Calculation Failed");
+			Assert.fail("Bill Calculation Failed");
+		} else {
+			// test.log(Status.PASS, "Bill Calculation succeeded.");
 		}
-	
+	}
+
 	// Test 13: Post Create Statement (Is Final)
-		@Test(priority = 19, groups = "billing", dependsOnMethods = "PostgenerateEditReportv4_2")
-		public static void postcreateStatementv4_isfinal()
-				throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-			// ExtentTest test = extent.createTest("postcreateStatementv4_isfinal");
-			// test.log(Status.INFO, "Starting test: postcreateStatementv4_isfinal");
+	@Test(priority = 19, groups = "billing", dependsOnMethods = "PostgenerateEditReportv4_2")
+	public static void postcreateStatementv4_isfinal()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// ExtentTest test = extent.createTest("postcreateStatementv4_isfinal");
+		// test.log(Status.INFO, "Starting test: postcreateStatementv4_isfinal");
 
-			String uri = "/billing/createStatement";
-			String ver = "4.0";
-			String payload = "{\r\n" + "    \"Billing\":{\r\n" + "        \"BatchId\":\"BT1232\",\r\n"
-					+ "        \"IsFinal\": true,\r\n" + "        \"Confirm\": {\r\n"
-					+ "            \"IgnoreMiscChargeOrCreditValidation\": false\r\n" + "        }\r\n" + "    }\r\n" + "}";
-			String expected = "{\"Billing\":{\"Success\":true,\"Data\":[{\"BatchId\":\"BT1232\",\"UserDateTime\":";
-			// test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
-			// test.log(Status.INFO, "Payload: " + payload);
-			// test.log(Status.INFO, "Expected contains: " + expected);
+		String uri = "/billing/createStatement";
+		String ver = "4.0";
+		String payload = "{\r\n" + "    \"Billing\":{\r\n" + "        \"BatchId\":\"BT1232\",\r\n"
+				+ "        \"IsFinal\": true,\r\n" + "        \"Confirm\": {\r\n"
+				+ "            \"IgnoreMiscChargeOrCreditValidation\": false\r\n" + "        }\r\n" + "    }\r\n" + "}";
+		String expected = "{\"Billing\":{\"Success\":true,\"Data\":[{\"BatchId\":\"BT1232\",\"UserDateTime\":";
+		// test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
+		// test.log(Status.INFO, "Payload: " + payload);
+		// test.log(Status.INFO, "Expected contains: " + expected);
 
-			String actual = CommonMethods.postMethodStringPayloadString(payload, uri, ver);
-			// test.log(Status.INFO, "Actual: " + actual);
-			Assert.assertTrue(actual.contains(expected));
-			// test.log(Status.PASS, "Response contains the expected value.");
+		String actual = CommonMethods.postMethodStringPayloadString(payload, uri, ver);
+		// test.log(Status.INFO, "Actual: " + actual);
+		Assert.assertTrue(actual.contains(expected));
+		// test.log(Status.PASS, "Response contains the expected value.");
+	}
+
+	// Test 3: Billing Print Statement --- Look Later
+	@Test(priority = 7, groups = "billing", dependsOnMethods = "postcreateStatementv4_isfinal")
+	public static void billingprintStatementv4_Error()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// ExtentTest test = extent.createTest("billingprintStatementv4");
+		// test.log(Status.INFO, "Starting test: billingprintStatementv4");
+
+		// CommonMethods.Bugs("CPDEV-16682");
+		// CommonMethods.Bug("CPDEV-21966");
+		String uri = "/billing/printStatement";
+		String ver = "4.0";
+		String payload = "{\n" + "    \"Billing\":{\n" + "        \"ExportToCSV\": true,\n"
+				+ "        \"IncludeEbills\": true,\n" + "        \"PrintAction\": 1,\n"
+				+ "        \"BatchId\": \"10001  \",\n" + "        \"Confirm\": {\n"
+				+ "            \"RefreshBillPrintData\": true\n" + "        }\n" + "    }\n" + "}";
+		String filepath = "./\\TestData\\billingprintStatement.json";
+		// test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
+		// test.log(Status.INFO, "Payload written to file: " + filepath);
+
+		FileWriter file = new FileWriter(filepath);
+		file.write(payload);
+		file.close();
+
+		JsonPath jsonPathEvaluator = CommonMethods.postMethod(filepath, uri, ver);
+		Boolean resultFlag = jsonPathEvaluator.get("Billing.Success");
+		// test.log(Status.INFO, "Response: " + jsonPathEvaluator.prettyPrint());
+		System.out.println(jsonPathEvaluator.prettyPrint());
+		if (!resultFlag) {
+			// test.log(Status.FAIL, "Bill Posting Failed: " +
+			// jsonPathEvaluator.prettyPrint());
+			Assert.fail("Bill Posting Failed \n" + jsonPathEvaluator.prettyPrint());
+		} else {
+			// test.log(Status.PASS, "Bill Posting succeeded.");
 		}
-
-		// Test 3: Billing Print Statement --- Look Later
-		@Test(priority = 7, groups = "billing", dependsOnMethods = "postcreateStatementv4_isfinal")
-		public static void billingprintStatementv4_Error()
-				throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-			// ExtentTest test = extent.createTest("billingprintStatementv4");
-			// test.log(Status.INFO, "Starting test: billingprintStatementv4");
-
-			// CommonMethods.Bugs("CPDEV-16682");
-			// CommonMethods.Bug("CPDEV-21966");
-			String uri = "/billing/printStatement";
-			String ver = "4.0";
-			String payload = "{\n" + "    \"Billing\":{\n" + "        \"ExportToCSV\": true,\n"
-					+ "        \"IncludeEbills\": true,\n" + "        \"PrintAction\": 1,\n"
-					+ "        \"BatchId\": \"10001  \",\n" + "        \"Confirm\": {\n"
-					+ "            \"RefreshBillPrintData\": true\n" + "        }\n" + "    }\n" + "}";
-			String filepath = "./\\TestData\\billingprintStatement.json";
-			// test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
-			// test.log(Status.INFO, "Payload written to file: " + filepath);
-
-			FileWriter file = new FileWriter(filepath);
-			file.write(payload);
-			file.close();
-
-			JsonPath jsonPathEvaluator = CommonMethods.postMethod(filepath, uri, ver);
-			Boolean resultFlag = jsonPathEvaluator.get("Billing.Success");
-			// test.log(Status.INFO, "Response: " + jsonPathEvaluator.prettyPrint());
-			System.out.println(jsonPathEvaluator.prettyPrint());
-			if (!resultFlag) {
-				// test.log(Status.FAIL, "Bill Posting Failed: " +
-				// jsonPathEvaluator.prettyPrint());
-				Assert.fail("Bill Posting Failed \n" + jsonPathEvaluator.prettyPrint());
-			} else {
-				// test.log(Status.PASS, "Bill Posting succeeded.");
-			}
-		}
-		
+	}
 
 	// Test 1: Delete Billing
 	@Test(priority = 8, groups = "billing")
@@ -365,8 +362,6 @@ public class BillingControllerv4 extends BaseClass {
 			e.printStackTrace();
 		}
 	}
-
-	
 
 	/*
 	 * // Test 5: Post Billing
@@ -503,7 +498,6 @@ public class BillingControllerv4 extends BaseClass {
 		Assert.assertEquals(actual, expected);
 	}
 
-	
 	// Test 14: Billing Final Calculate
 	@Test(priority = 17, groups = "billing")
 	public static void billingfinalcalculatev4()

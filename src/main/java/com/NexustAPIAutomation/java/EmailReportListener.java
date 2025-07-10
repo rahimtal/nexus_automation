@@ -17,6 +17,12 @@ public class EmailReportListener implements ITestListener {
 	@Override
 	public void onFinish(ITestContext context) {
 		// Collect results and send email after all tests
+		try {
+			Thread.sleep(20000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		sendEmailReport(context);
 	}
 
@@ -47,7 +53,7 @@ public class EmailReportListener implements ITestListener {
 		} catch (MessagingException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		} 
 		try {
 			EmailSender.sendEmail("cogsauto@gmail.com", "MCausevic@cogsdale.com", subject, body);
 		} catch (MessagingException | IOException e) {

@@ -2,6 +2,9 @@ package com.NexustAPIAutomation.java;
 
 import java.nio.file.Paths;
 import java.util.Properties;
+
+import org.testng.annotations.Test;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import jakarta.mail.*;
@@ -9,7 +12,8 @@ import jakarta.mail.internet.*;
 
 public class EmailSender {
 
-	public static void sendEmail(String from, String to, String subject, String body) throws AddressException, MessagingException, IOException {
+	public static void sendEmail(String from, String to, String subject, String body)
+			throws AddressException, MessagingException, IOException {
 		String host = "smtp.gmail.com"; // Replace with your SMTP host
 		final String username = "cogsauto@gmail.com"; // Your email
 		final String password = "ahkalznkxnynhlcz"; // Use app-specific password if Gmail
@@ -26,25 +30,12 @@ public class EmailSender {
 			}
 		});
 
-		/*
-		 * try { Message message = new MimeMessage(session); message.setFrom(new
-		 * InternetAddress(from)); message.setRecipients( Message.RecipientType.TO,
-		 * InternetAddress.parse(to) ); message.setSubject(subject);
-		 * message.setText(body);
-		 * 
-		 * Transport.send(message);
-		 * 
-		 * System.out.println("Report sent successfully");
-		 * 
-		 * } catch (MessagingException e) { e.printStackTrace(); }
-		 */
-
 		Message message = new MimeMessage(session);
 		message.setFrom(new InternetAddress(from));
 		message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
 		message.setSubject("TestNG API Test Report");
 
-		String reportPath = "test-output/emailable-report.html";
+		String reportPath = System.getProperty("user.dir") + "/test-output/emailable-report.html";
 		String htmlContent = new String(Files.readAllBytes(Paths.get(reportPath)));
 
 		MimeBodyPart messageBodyPart = new MimeBodyPart();
@@ -56,4 +47,12 @@ public class EmailSender {
 		message.setContent(multipart);
 		Transport.send(message);
 	}
+
+	@Test
+	public void testemail() throws AddressException, MessagingException, IOException
+
+	{
+		EmailSender.sendEmail("cogsauto@gmail.com", "trahim@cogsdale.com", "Test", "Test");
+	}
+
 }
