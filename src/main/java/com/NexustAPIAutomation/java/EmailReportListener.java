@@ -1,66 +1,60 @@
 package com.NexustAPIAutomation.java;
 
+import org.testng.ISuite;
+import org.testng.ISuiteListener;
+
+import jakarta.mail.MessagingException;
+
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import org.testng.ITestContext;
-import org.testng.ITestListener;
-import org.testng.ITestResult;
+public class EmailReportListener implements ISuiteListener {
 
-import com.NexustAPIAutomation.java.EmailSender;
+    @Override
+    public void onFinish(ISuite suite) {
+        // Get test results from suite
+        int passedTests = suite.getResults().values().stream()
+                .mapToInt(result -> result.getTestContext().getPassedTests().size())
+                .sum();
+        int failedTests = suite.getResults().values().stream()
+                .mapToInt(result -> result.getTestContext().getFailedTests().size())
+                .sum();
+        int skippedTests = suite.getResults().values().stream()
+                .mapToInt(result -> result.getTestContext().getSkippedTests().size())
+                .sum();
 
-import jakarta.mail.MessagingException;
+        // Current timestamp
+        LocalDateTime now = LocalDateTime.now();
+        String formattedNow = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
-public class EmailReportListener implements ITestListener {
+        // Subject and body
+        String subject = "TestNG Execution Report @ " + formattedNow;
+        String body = String.format(
+                "TestNG Execution Summary for Nexus API Latest Build:\nPassed: %d\nFailed: %d\nSkipped: %d",
+                passedTests, failedTests, skippedTests
+        );
 
-	@Override
-	public void onFinish(ITestContext context) {
-		// Collect results and send email after all tests
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		sendEmailReport(context);
-	}
+        // Wait for report generation (optional)
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-	private void sendEmailReport(ITestContext context) {
-		int failedTests = context.getFailedTests().size();
-		int passedTests = context.getPassedTests().size();
-		int skippedTests = context.getSkippedTests().size();
-		// Get the current date and time
-		LocalDateTime now = LocalDateTime.now();
-		// Define the format
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-		// Format the current date and time
-		String formattedNow = now.format(formatter);
+        // Send email to multiple recipients
+        String[] recipients = {
+            "trahim@cogsdale.com",
+            "RThurairasa@cogsdale.com",
+            "MCausevic@cogsdale.com"
+        };
 
-		String subject = "TestNG Execution Report @" + formattedNow;
-		String body = String.format(
-				"TestNG Execution Summary for Nexus API Latest Build :\nPassed: %d\nFailed: %d\nSkipped: %d",
-				passedTests, failedTests, skippedTests);
-
-		try {
-			EmailSender.sendEmail("cogsauto@gmail.com", "trahim@cogsdale.com", subject, body);
-		} catch (MessagingException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-			EmailSender.sendEmail("cogsauto@gmail.com", "RThurairasa@cogsdale.com", subject, body);
-		} catch (MessagingException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-		try {
-			EmailSender.sendEmail("cogsauto@gmail.com", "MCausevic@cogsdale.com", subject, body);
-		} catch (MessagingException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	// Other listener methods (optional to override)
+        for (String to : recipients) {
+            try {
+                EmailSender.sendEmail("cogsauto@gmail.com", to, subject, body);
+            } catch (MessagingException | IOException | InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

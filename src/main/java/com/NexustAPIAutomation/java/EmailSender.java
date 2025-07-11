@@ -13,7 +13,7 @@ import jakarta.mail.internet.*;
 public class EmailSender {
 
 	public static void sendEmail(String from, String to, String subject, String body)
-			throws AddressException, MessagingException, IOException {
+			throws AddressException, MessagingException, IOException, InterruptedException {
 		String host = "smtp.gmail.com"; // Replace with your SMTP host
 		final String username = "cogsauto@gmail.com"; // Your email
 		final String password = "ahkalznkxnynhlcz"; // Use app-specific password if Gmail
@@ -35,8 +35,10 @@ public class EmailSender {
 		message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
 		message.setSubject("TestNG API Test Report");
 
-		String reportPath = System.getProperty("user.dir") + "/test-output/emailable-report.html";
-		System.out.println("User directory: " + System.getProperty("user.dir"));
+		String reportPath = System.getProperty("user.dir") + "\\test-output\\emailable-report.html";
+		System.out.println(reportPath);
+		
+		Thread.sleep(50000);
 		String htmlContent = new String(Files.readAllBytes(Paths.get(reportPath)));
 
 		MimeBodyPart messageBodyPart = new MimeBodyPart();
@@ -50,7 +52,7 @@ public class EmailSender {
 	}
 
 	@Test
-	public void testemail() throws AddressException, MessagingException, IOException
+	public void testemail() throws AddressException, MessagingException, IOException, InterruptedException
 
 	{
 		EmailSender.sendEmail("cogsauto@gmail.com", "trahim@cogsdale.com", "Test", "Test");

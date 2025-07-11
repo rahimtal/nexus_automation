@@ -21,9 +21,19 @@ public class BaseClass {
 		Runtime.getRuntime().exec("cmd /c rd /s /q C:\\Users\\Admin\\Documents\\GitHub\\nexus_automation\\test-output");
 		}
 
-	@AfterSuite
-	public void tearDownReport() {
-		// extent.flush();
-	}
+	 @AfterSuite
+	    public void sendReportByEmail() throws Exception {
+	        // Delay added just to be safe
+	        Thread.sleep(3000);
+
+	        String from = "cogsauto@gmail.com";
+	        String to = "recipient@example.com";
+	        String subject = "TestNG API Test Report";
+	        String body = "Please find the attached report.";
+
+
+	    }
+
+	   
 
 }
