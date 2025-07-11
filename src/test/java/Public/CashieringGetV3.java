@@ -15,14 +15,14 @@ import org.testng.annotations.Test; import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
-
+import Private.BaseClass;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
-public class CashieringGetV3 {
+public class CashieringGetV3  extends BaseClass{
 
 	public static JsonPath jsonPathEvaluator;
 

@@ -12,10 +12,11 @@ import org.testng.annotations.Test; import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
+import Private.BaseClass;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.ValidatableResponse;
 
-public class createandcancelSpa {
+public class createandcancelSpa  extends BaseClass{
 
 	public static JsonPath jsonPathEvaluator;
 

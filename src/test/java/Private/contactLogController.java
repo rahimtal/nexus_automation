@@ -17,7 +17,7 @@ import com.NexustAPIAutomation.java.CommonMethods;
 
 import io.restassured.response.Response;
 
-public class contactLogController {
+public class contactLogController  extends BaseClass {
 
 	@Test(priority = 1, groups = "contactLogController")
 	public void postcontactLogSimplev4()

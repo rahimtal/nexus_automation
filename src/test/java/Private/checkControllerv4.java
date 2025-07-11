@@ -23,7 +23,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 
-public class checkControllerv4 {
+public class checkControllerv4  extends BaseClass{
 	public static String chq;
 
 	public static JsonPath jsonPathEvaluator;

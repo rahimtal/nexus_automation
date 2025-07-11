@@ -18,7 +18,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 
-public class MiscellaneousChargeControllerV4 {
+public class MiscellaneousChargeControllerV4  extends BaseClass{
 
 	@Test(priority = 1, groups = "misccharge" )
 	public void miscellaneousChargeSimulatev4()

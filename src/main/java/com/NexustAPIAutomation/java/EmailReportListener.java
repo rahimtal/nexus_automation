@@ -18,7 +18,7 @@ public class EmailReportListener implements ITestListener {
 	public void onFinish(ITestContext context) {
 		// Collect results and send email after all tests
 		try {
-			Thread.sleep(20000);
+			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

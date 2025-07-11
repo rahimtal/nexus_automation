@@ -36,6 +36,7 @@ public class EmailSender {
 		message.setSubject("TestNG API Test Report");
 
 		String reportPath = System.getProperty("user.dir") + "/test-output/emailable-report.html";
+		System.out.println("User directory: " + System.getProperty("user.dir"));
 		String htmlContent = new String(Files.readAllBytes(Paths.get(reportPath)));
 
 		MimeBodyPart messageBodyPart = new MimeBodyPart();

@@ -10,9 +10,10 @@ import org.testng.annotations.Test; import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
+import Private.BaseClass;
 import io.restassured.path.json.JsonPath;
 
-public class CashieringPost {
+public class CashieringPost  extends BaseClass{
 
 	public static JsonPath jsonPathEvaluator;
 	public static String nextRecieptNumber;

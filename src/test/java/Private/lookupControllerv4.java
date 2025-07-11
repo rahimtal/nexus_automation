@@ -15,7 +15,7 @@ import com.NexustAPIAutomation.java.CommonMethods;
 
 import io.restassured.path.json.JsonPath;
 
-public class lookupControllerv4 {
+public class lookupControllerv4  extends BaseClass{
 
 	@Test(priority = 1, groups = "lookup")
 	public void getlookupBatch_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {

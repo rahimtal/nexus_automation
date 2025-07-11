@@ -19,7 +19,7 @@ import com.NexustAPIAutomation.java.CommonMethods;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
-public class moveInMoveOutController {
+public class moveInMoveOutController  extends BaseClass {
 
 	@Test(priority = 1, groups = "moveInMoveOutController")
 	public void postTransferv4() throws ClassNotFoundException, SQLException, InterruptedException {

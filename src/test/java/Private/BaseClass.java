@@ -1,17 +1,9 @@
 package Private;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.Collections;
 
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
-
-import io.restassured.RestAssured;
-import io.restassured.config.LogConfig;
-import io.restassured.filter.Filter;
 
 //import com.aventstack.extentreports.ExtentReports;
 
@@ -25,12 +17,9 @@ public class BaseClass {
 	
 	@BeforeSuite
 	public void setupReport() throws IOException {
-		System.out.print("Deleting folder");
+		System.out.println("Deleting folder");
 		Runtime.getRuntime().exec("cmd /c rd /s /q C:\\Users\\Admin\\Documents\\GitHub\\nexus_automation\\test-output");
-		// extent = new ExtentReports();
-		// extent.attachReporter(htmlReporter);
-
-	}
+		}
 
 	@AfterSuite
 	public void tearDownReport() {

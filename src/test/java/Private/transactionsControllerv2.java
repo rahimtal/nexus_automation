@@ -11,7 +11,7 @@ import com.NexustAPIAutomation.java.CommonMethods;
 
 import io.restassured.response.ValidatableResponse;
 
-public class transactionsControllerv2 {
+public class transactionsControllerv2  extends BaseClass{
 
 	
 

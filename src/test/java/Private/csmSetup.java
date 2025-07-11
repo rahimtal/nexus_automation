@@ -13,7 +13,7 @@ import org.testng.annotations.Test; import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
-public class csmSetup {
+public class csmSetup  extends BaseClass {
 
 	@Test(priority = 1, groups = "csmSetup")
 	public void getserviceCategoryv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {

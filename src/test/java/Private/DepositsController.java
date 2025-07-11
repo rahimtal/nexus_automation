@@ -18,7 +18,7 @@ import com.NexustAPIAutomation.java.CommonMethods;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 
-public class DepositsController {
+public class DepositsController  extends BaseClass{
 
 	@Test(priority = 2, groups = "Deposits" )
 	public void getdeposit() throws ClassNotFoundException, SQLException, InterruptedException, IOException {

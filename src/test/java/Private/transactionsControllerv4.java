@@ -16,7 +16,7 @@ import com.NexustAPIAutomation.java.CommonMethods;
 //import freemarker.core.BugException;
 import io.restassured.response.ValidatableResponse;
 
-public class transactionsControllerv4 {
+public class transactionsControllerv4  extends BaseClass{
 
 	@Test(priority = 1, groups = "Transaction")
 	public void getapplyByService_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {

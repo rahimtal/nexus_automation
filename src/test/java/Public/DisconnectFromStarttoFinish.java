@@ -8,10 +8,10 @@ import org.testng.annotations.Test; import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
-
+import Private.BaseClass;
 import io.restassured.path.json.JsonPath;
 
-public class DisconnectFromStarttoFinish {
+public class DisconnectFromStarttoFinish  extends BaseClass{
 
 	public static JsonPath jsonPathEvaluator;
 	public static String ServiceOrderNumber;

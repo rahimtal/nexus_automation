@@ -14,7 +14,7 @@ import com.NexustAPIAutomation.java.CommonMethods;
 
 import io.restassured.response.ValidatableResponse;
 
-public class CollectionControllerv4 {
+public class CollectionControllerv4  extends BaseClass {
 
 	@Test(priority = 1, groups = "Collection" )
 	public void getcollectionsetupv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {

@@ -15,7 +15,7 @@ import com.NexustAPIAutomation.java.CommonMethods;
 
 import io.restassured.response.ValidatableResponse;
 
-public class transactionsControllerv3 {
+public class transactionsControllerv3  extends BaseClass{
 
 	@Test(priority = 1, groups = "Transaction" )
 	public void getTransactions_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {

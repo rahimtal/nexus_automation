@@ -10,10 +10,10 @@ import org.testng.annotations.Test; import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
-
+import Private.BaseClass;
 import io.restassured.response.ValidatableResponse;
 
-public class consumptionHistoryControllerV3 {
+public class consumptionHistoryControllerV3  extends BaseClass {
 
 	public static ValidatableResponse jsonPathEvaluator;
 

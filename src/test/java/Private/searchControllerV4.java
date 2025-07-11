@@ -15,7 +15,7 @@ import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import org.testng.Assert;
 
-public class searchControllerV4 {
+public class searchControllerV4  extends BaseClass{
 
 	// This will create elastic search index if not already
 //	@Test(priority = 1, groups = "Search")

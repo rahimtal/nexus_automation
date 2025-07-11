@@ -10,7 +10,7 @@ import org.testng.annotations.Test; import org.testng.Assert;
 import com.NexustAPIAutomation.java.CommonMethods;
 
 
-public class ServiceOrderController {
+public class ServiceOrderController  extends BaseClass{
 
 	@Test(priority = 1, groups = "ServiceOrder")
 	public static void delBatv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {

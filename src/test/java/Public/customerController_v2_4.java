@@ -8,9 +8,10 @@ import org.testng.annotations.Test; import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
+import Private.BaseClass;
 import io.restassured.response.ValidatableResponse;
 
-public class customerController_v2_4 {
+public class customerController_v2_4  extends BaseClass{
 
 	public static ValidatableResponse jsonPathEvaluator;
 

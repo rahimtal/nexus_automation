@@ -11,7 +11,7 @@ import org.testng.annotations.Test; import org.testng.Assert;
 import com.NexustAPIAutomation.java.CommonMethods;
 
 
-public class Drillback {
+public class Drillback  extends BaseClass{
 
 	@Test(priority = 1, groups = "Drillback" )
 	public void getdrillbackv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {

@@ -12,7 +12,7 @@ import com.NexustAPIAutomation.java.CommonMethods;
 
 //import freemarker.core.BugException;
 
-public class SmartyStreetValidationV4 {
+public class SmartyStreetValidationV4  extends BaseClass{
 
 	
 	@Test(priority = 1, groups = "Smarty")

@@ -13,11 +13,11 @@ import org.testng.annotations.Test; import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
-
+import Private.BaseClass;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.ValidatableResponse;
 
-public class customerControllerV3 {
+public class customerControllerV3  extends BaseClass{
 
 	public static ValidatableResponse jsonPathEvaluator;
 

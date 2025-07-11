@@ -13,7 +13,7 @@ import com.NexustAPIAutomation.java.CommonMethods;
 
 import io.restassured.response.ValidatableResponse;
 
-public class consumptionHistoryController {
+public class consumptionHistoryController  extends BaseClass{
 
 	public static ValidatableResponse jsonPathEvaluator;
 

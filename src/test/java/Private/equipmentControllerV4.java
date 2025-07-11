@@ -17,7 +17,7 @@ import com.NexustAPIAutomation.java.CommonMethods;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.ValidatableResponse;
 
-public class equipmentControllerV4 {
+public class equipmentControllerV4  extends BaseClass {
 
 	@Test(priority = 1, groups = "equipmentController" )
 	public void postequipmentControllerv4()

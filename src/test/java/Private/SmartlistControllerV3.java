@@ -14,7 +14,7 @@ import com.NexustAPIAutomation.java.CommonMethods;
 
 import io.restassured.path.json.JsonPath;
 
-public class SmartlistControllerV3 {
+public class SmartlistControllerV3  extends BaseClass{
 private boolean  TestAll=true;
 
 	@Test(priority = 2, groups = "SmartList" )

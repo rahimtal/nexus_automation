@@ -12,7 +12,7 @@ import org.testng.annotations.Test; import org.testng.Assert;
 import com.NexustAPIAutomation.java.CommonMethods;
 
 
-public class locationControllerv4 {
+public class locationControllerv4  extends BaseClass{
 
 	@Test(priority = 1, groups = "locationController" )
 	public static void dellocationv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {

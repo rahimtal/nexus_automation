@@ -16,7 +16,7 @@ import com.NexustAPIAutomation.java.CommonMethods;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.ValidatableResponse;
 
-public class connectionControllerV4 {
+public class connectionControllerV4  extends BaseClass{
 
 	// @Test(priority = 1, groups = "connectionController" )
 	public void postconnectionmeter1v4()

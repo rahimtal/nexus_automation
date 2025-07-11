@@ -17,7 +17,7 @@ import com.NexustAPIAutomation.java.CommonMethods;
 
 
 
-public class voidController {
+public class voidController  extends BaseClass{
 
 	// @Test(priority = 1, groups = "void" )
 	public void putvoidvalidatev4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {

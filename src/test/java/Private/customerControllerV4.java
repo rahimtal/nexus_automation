@@ -15,7 +15,7 @@ import com.NexustAPIAutomation.java.CommonMethods;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.ValidatableResponse;
 
-public class customerControllerV4 {
+public class customerControllerV4  extends BaseClass {
 
 	@Test(priority = 1, groups = "CustomerController")
 	public static void getCustomerBasicInfo4()

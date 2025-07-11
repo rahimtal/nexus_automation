@@ -16,7 +16,7 @@ import com.NexustAPIAutomation.java.CommonMethods;
 
 import io.restassured.response.Response;
 
-public class csmGlobalsController {
+public class csmGlobalsController  extends BaseClass {
 
 	@Test(priority = 1, groups = "csmGlobalsController" )
 	public void csmSetupautoGeneratenextIdv4()

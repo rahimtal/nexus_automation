@@ -21,7 +21,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 
-public class MeterReadControllerV4 {
+public class MeterReadControllerV4  extends BaseClass{
 
 	@Test(priority = 1, groups = "MeterRead", dependsOnMethods = "putMeterReadinginWorkV4")
 	public void deletemeterReadingvalidv4()

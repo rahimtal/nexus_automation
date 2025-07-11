@@ -21,7 +21,7 @@ import com.NexustAPIAutomation.java.CommonMethods;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
-public class PaymentControllerV4 {
+public class PaymentControllerV4  extends BaseClass{
 
 	@Test(priority = 1, groups = "Payment")
 	public void gettPaymentNextv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
