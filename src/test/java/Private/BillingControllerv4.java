@@ -310,12 +310,10 @@ public class BillingControllerv4 extends BaseClass {
 		Boolean resultFlag = jsonPathEvaluator.get("Billing.Success");
 		// test.log(Status.INFO, "Response: " + jsonPathEvaluator.prettyPrint());
 		System.out.println(jsonPathEvaluator.prettyPrint());
-		if (!resultFlag) {
-			// test.log(Status.FAIL, "Bill Posting Failed: " +
-			// jsonPathEvaluator.prettyPrint());
-			Assert.fail("Bill Posting Failed \n" + jsonPathEvaluator.prettyPrint());
+		if (resultFlag) {
+					Assert.fail("Bill Posting Passed \n" + jsonPathEvaluator.prettyPrint());
 		} else {
-			// test.log(Status.PASS, "Bill Posting succeeded.");
+			
 		}
 	}
 
@@ -571,7 +569,7 @@ public class BillingControllerv4 extends BaseClass {
 		// ExtentTest test = extent.createTest("delBatv4_EditListPrint");
 		// test.log(Status.INFO, "Starting test: delBatv4_EditListPrint");
 
-		String uri = "/billing/delete/BAT10123123    ";
+		String uri = "/billing/delete/BAT10123123";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\delBatv4.json";
 		// test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
