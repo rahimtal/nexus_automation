@@ -49,6 +49,7 @@ public class EmailSender {
 
 		message.setContent(multipart);
 		Transport.send(message);
+		System.out.println("Email Sent to "+ to);
 	}
 
 	@Test
