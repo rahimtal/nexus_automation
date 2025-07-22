@@ -241,7 +241,7 @@ public class CashieringController extends BaseClass {
 
 	@Test(priority = 2, groups = "Cashering", dependsOnMethods = "saveReciept_2_4")
 	public void TC002_RecieptAdjustment() throws ClassNotFoundException, SQLException, InterruptedException {
-		CommonMethods.Bug("CPDEV-22582");
+		//CommonMethods.Bug("CPDEV-22582");
 		String uri = "/cashiering/receipt/adjust";
 		String ver = "4.0";
 		String payload = "{\"Receipt\":{\"ReceiptNumber\":\"" + nextRecieptNumber
