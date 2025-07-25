@@ -72,7 +72,7 @@ Else
 	Write-Host "API path: '$Nexus_APIDistPathToDelete'" 
 	#Read-Host -Prompt "Does that look right? Press any key to continue or CTRL+C to quit" 
 	#Get-ChildItem -Path $Nexus_APIDistPathToDelete -Include * -File -Force -Recurse | foreach { $_.Delete()
-	Remove-Item -path $Nexus_APIDistPathToDelete -Recurse -Force -EA SilentlyContinue -Verbose
+	#Remove-Item -path $Nexus_APIDistPathToDelete -Recurse -Force -EA SilentlyContinue -Verbose
 	#Remove-Item -Path $Nexus_APIDistPathToDelete -Force
 
 }

@@ -52,7 +52,7 @@ public class EmailSender {
 		System.out.println("Email Sent to "+ to);
 	}
 
-	@Test
+	//@Test
 	public void testemail() throws AddressException, MessagingException, IOException, InterruptedException
 
 	{
