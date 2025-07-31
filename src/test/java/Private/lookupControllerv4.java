@@ -2,7 +2,7 @@ package Private;
 
 import org.testng.annotations.Test; import org.testng.Assert;
 import org.testng.Assert;
-
+import com.NexustAPIAutomation.java.CommonMethods;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -355,8 +355,10 @@ public class lookupControllerv4  extends BaseClass{
 		System.out.println(result);
 	}
 
+	
 	@Test(priority = 29, groups = "lookup")
 	public void lookuplocationClass() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		CommonMethods.Bug(" CPDEV-22862 ");
 		String uri = "/lookup/locationClass";
 		String version = "4.0";
 		String expected = "{\"LocationClass\":[{\"Id\":\"NONCUST-LOC\",\"Description\":\"Non customer Location\"},{\"Id\":\"PERM-NON ACCUM\",\"Description\":\"Permanent Non Accumulated\"},{\"Id\":\"TEST001\",\"Description\":\"temporaty customer\"}]}";
@@ -367,6 +369,7 @@ public class lookupControllerv4  extends BaseClass{
 
 	@Test(priority = 30, groups = "lookup")
 	public void lookuplocation() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		CommonMethods.Bug(" CPDEV-22862 ");
 		String uri = "/lookupLocation";
 		String version = "4.0";
 		String expected = "{\"Locations\":[{\"LocationId\":\"LOCATION001\"}]}";

@@ -17,8 +17,9 @@ public class customerController_v2_4  extends BaseClass{
 
 	//@Test(priority = 6, groups = "CustomerController")
 	public void getlocationsByCustomerv_2_4()
+	
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-
+		CommonMethods.Bug("22857");
 		String uri = "/customers/AUTO1001/locationsByCustomer";
 		String ver = "2.4";
 		String jpath = "./\\TestData\\locationsByCustomerv2_4.json";

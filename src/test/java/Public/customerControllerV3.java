@@ -27,6 +27,7 @@ public class customerControllerV3  extends BaseClass{
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		
 		//CommonMethods.Bugs("CPDEV-18800");
+		CommonMethods.Bug("22857");
 		String uri = "/customers/AUTO1001/locationsByCustomer";
 		String ver = "3.0";
 		String jpath = "./\\TestData\\locationsByCustomerv2_4.json";
