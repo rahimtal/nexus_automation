@@ -1,9 +1,12 @@
 package Public;
 
-import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.annotations.Test;
 import org.testng.Assert;
-import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.Assert;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -11,7 +14,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.testng.Assert;
-import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
@@ -22,7 +26,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
-public class CashieringGetV3  extends BaseClass{
+public class CashieringGetV3 extends BaseClass {
 
 	public static JsonPath jsonPathEvaluator;
 
@@ -90,7 +94,7 @@ public class CashieringGetV3  extends BaseClass{
 	public void TC004_getReceipt() throws ClassNotFoundException, SQLException, InterruptedException {
 		// CommonMethods.CompanyDBRestore();
 
-		//CommonMethods.Bugs("CPDEV-20951");
+		// CommonMethods.Bugs("CPDEV-20951");
 		String uri = "/cashiering/receipt/004270412000001";
 		String ver = "3.0";
 		String payload = "";
@@ -168,8 +172,24 @@ public class CashieringGetV3  extends BaseClass{
 			Assert.fail(Result);
 	}
 
-	public static void main(String args[]) throws ClassNotFoundException, SQLException, InterruptedException {
-		TC007_getAutoApply();
+	@Test(priority = 8, groups = "Cashering")
+	public static void getReceiptAuthCode() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/cashiering/receipt/004250815000001";
+		String ver = "3.0";
+
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("ReceiptNumber", "004250815000001");
+		String Resp = CommonMethods.getMethodasString(uri, ver, params);
+		String Result = "{\"Receipt\":{\"PreviousReceiptNumber\":\"004240724000001\",\"ReceiptNumber\":\"004250815000001\",\"NextReceiptNumber\":\"004250815000002\",\"OriginatingReceiptNumber\":\"004250815000002\",\"Void\":true,\"CustomerId\":\"CUSTOMER014\",\"LocationId\":\"WATER002\",\"PaymentOrigin\":\"TEST\",\"CheckbookId\":\"FIRST NATIONAL\",\"PaidBy\":{\"Type\":1,\"Description\":\"Bill To Customer\",\"Id\":\"\"},\"Cash\":0,\"Check\":{\"Amount\":0,\"Number\":\"\"},\"CreditCard\":{\"Amount\":1342.92,\"IsAuthorized\":false},\"Unapplied\":{\"Amount\":0,\"Account\":\"\",\"LocationId\":\"\"},\"Change\":0,\"Comment\":\"APPROVED 316626\",\"Document\":[{\"Number\":\"BILL00000000412\",\"LocationId\":\"WATER002       \",\"LocationAddress\":\"100 Water\",\"StatementNumber\":300,\"Type\":[{\"Id\":5,\"Description\":\"Regular Bill\"}],\"Date\":\"1999-10-30\",\"DueDate\":\"1999-11-29\",\"Amount\":254.58,\"OutstandingAmount\":94.92,\"ApplyAmount\":94.92,\"Sequence\":1,\"ReferenceDocumentNumber\":\"BUDG00000001500\",\"ReferenceDocumentDate\":\"\",\"ServiceCategory\":[{\"Id\":2,\"Description\":\"Water\"}],\"Attribute\":[{\"ChargeType\":\"\",\"ChargeDescription\":\"\",\"PaymentOrigin\":\"\",\"SupportAuthorization\":0,\"Service\":[{\"Category\":0,\"Description\":\"\",\"Type\":\"WATER\",\"Amount\":254.58,\"OutstandingAmount\":94.92,\"ApplyAmount\":0}]}]},{\"Number\":\"BUDG00000002301\",\"LocationId\":\"WATER002       \",\"LocationAddress\":\"100 Water\",\"StatementNumber\":0,\"Type\":[{\"Id\":7,\"Description\":\"Budget Document\"}],\"Date\":\"2000-02-28\",\"DueDate\":\"2000-02-28\",\"Amount\":208,\"OutstandingAmount\":208,\"ApplyAmount\":208,\"Sequence\":2,\"ReferenceDocumentNumber\":\"BUDG00000002300\",\"ReferenceDocumentDate\":\"2000-01-01\",\"ServiceCategory\":[{\"Id\":2,\"Description\":\"Water\"}],\"Attribute\":[{\"ChargeType\":\"\",\"ChargeDescription\":\"\",\"PaymentOrigin\":\"\",\"SupportAuthorization\":0,\"Service\":[{\"Category\":0,\"Description\":\"\",\"Type\":\"\",\"Amount\":0,\"OutstandingAmount\":0,\"ApplyAmount\":0}]}]},{\"Number\":\"BUDG00000002302\",\"LocationId\":\"WATER002       \",\"LocationAddress\":\"100 Water\",\"StatementNumber\":0,\"Type\":[{\"Id\":7,\"Description\":\"Budget Document\"}],\"Date\":\"2000-04-28\",\"DueDate\":\"2000-04-28\",\"Amount\":208,\"OutstandingAmount\":208,\"ApplyAmount\":208,\"Sequence\":3,\"ReferenceDocumentNumber\":\"BUDG00000002300\",\"ReferenceDocumentDate\":\"2000-01-01\",\"ServiceCategory\":[{\"Id\":2,\"Description\":\"Water\"}],\"Attribute\":[{\"ChargeType\":\"\",\"ChargeDescription\":\"\",\"PaymentOrigin\":\"\",\"SupportAuthorization\":0,\"Service\":[{\"Category\":0,\"Description\":\"\",\"Type\":\"\",\"Amount\":0,\"OutstandingAmount\":0,\"ApplyAmount\":0}]}]},{\"Number\":\"BUDG00000002303\",\"LocationId\":\"WATER002       \",\"LocationAddress\":\"100 Water\",\"StatementNumber\":0,\"Type\":[{\"Id\":7,\"Description\":\"Budget Document\"}],\"Date\":\"2000-06-27\",\"DueDate\":\"2000-06-27\",\"Amount\":208,\"OutstandingAmount\":208,\"ApplyAmount\":208,\"Sequence\":4,\"ReferenceDocumentNumber\":\"BUDG00000002300\",\"ReferenceDocumentDate\":\"2000-01-01\",\"ServiceCategory\":[{\"Id\":2,\"Description\":\"Water\"}],\"Attribute\":[{\"ChargeType\":\"\",\"ChargeDescription\":\"\",\"PaymentOrigin\":\"\",\"SupportAuthorization\":0,\"Service\":[{\"Category\":0,\"Description\":\"\",\"Type\":\"\",\"Amount\":0,\"OutstandingAmount\":0,\"ApplyAmount\":0}]}]},{\"Number\":\"BUDG00000002304\",\"LocationId\":\"WATER002       \",\"LocationAddress\":\"100 Water\",\"StatementNumber\":0,\"Type\":[{\"Id\":7,\"Description\":\"Budget Document\"}],\"Date\":\"2000-08-28\",\"DueDate\":\"2000-08-28\",\"Amount\":208,\"OutstandingAmount\":208,\"ApplyAmount\":208,\"Sequence\":5,\"ReferenceDocumentNumber\":\"BUDG00000002300\",\"ReferenceDocumentDate\":\"2000-01-01\",\"ServiceCategory\":[{\"Id\":2,\"Description\":\"Water\"}],\"Attribute\":[{\"ChargeType\":\"\",\"ChargeDescription\":\"\",\"PaymentOrigin\":\"\",\"SupportAuthorization\":0,\"Service\":[{\"Category\":0,\"Description\":\"\",\"Type\":\"\",\"Amount\":0,\"OutstandingAmount\":0,\"ApplyAmount\":0}]}]},{\"Number\":\"BUDG00000002305\",\"LocationId\":\"WATER002       \",\"LocationAddress\":\"100 Water\",\"StatementNumber\":0,\"Type\":[{\"Id\":7,\"Description\":\"Budget Document\"}],\"Date\":\"2000-10-25\",\"DueDate\":\"2000-10-25\",\"Amount\":208,\"OutstandingAmount\":208,\"ApplyAmount\":208,\"Sequence\":6,\"ReferenceDocumentNumber\":\"BUDG00000002300\",\"ReferenceDocumentDate\":\"2000-01-01\",\"ServiceCategory\":[{\"Id\":2,\"Description\":\"Water\"}],\"Attribute\":[{\"ChargeType\":\"\",\"ChargeDescription\":\"\",\"PaymentOrigin\":\"\",\"SupportAuthorization\":0,\"Service\":[{\"Category\":0,\"Description\":\"\",\"Type\":\"\",\"Amount\":0,\"OutstandingAmount\":0,\"ApplyAmount\":0}]}]},{\"Number\":\"BUDG00000002306\",\"LocationId\":\"WATER002       \",\"LocationAddress\":\"100 Water\",\"StatementNumber\":0,\"Type\":[{\"Id\":7,\"Description\":\"Budget Document\"}],\"Date\":\"2000-12-25\",\"DueDate\":\"2000-12-25\",\"Amount\":208,\"OutstandingAmount\":208,\"ApplyAmount\":208,\"Sequence\":7,\"ReferenceDocumentNumber\":\"BUDG00000002300\",\"ReferenceDocumentDate\":\"2000-01-01\",\"ServiceCategory\":[{\"Id\":2,\"Description\":\"Water\"}],\"Attribute\":[{\"ChargeType\":\"\",\"ChargeDescription\":\"\",\"PaymentOrigin\":\"\",\"SupportAuthorization\":0,\"Service\":[{\"Category\":0,\"Description\":\"\",\"Type\":\"\",\"Amount\":0,\"OutstandingAmount\":0,\"ApplyAmount\":0}]}]}],\"Success\":true,\"Messages\":[{\"Enabled\":0,\"Info\":\"\",\"Level\":0}]}}";
+
+		if (!Result.contentEquals(Resp)) {
+			Assert.fail(Result);
+		}
+
+	}
+
+	public static void main(String args[]) throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		getReceiptAuthCode();
 	}
 
 }

@@ -152,6 +152,7 @@ public class customerControllerV3  extends BaseClass{
 	public static void getLocationsByCustomer_v3()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		//CommonMethods.Bugs("CPDEV-18800");
+		CommonMethods.Bug("CPDEV-22857");
 		String uri = "/customers/CUSTOMER009/locationsByCustomer";
 		String ver = "3.0";
 		String jpath = "./\\TestData\\getLocationsByCustomerv3.json";
