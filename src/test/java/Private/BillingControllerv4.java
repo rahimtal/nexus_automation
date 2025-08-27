@@ -129,6 +129,8 @@ public class BillingControllerv4 extends BaseClass {
 
 		// CommonMethods.Bugs("CPDEV-16682");
 		// CommonMethods.Bug("CPDEV-21966");
+		CommonMethods.Bug("CPDEV-23208");
+		
 		String uri = "/billing/printStatement";
 		String ver = "4.0";
 		String payload = "{\n" + "    \"Billing\":{\n" + "        \"ExportToCSV\": true,\n"
@@ -458,7 +460,7 @@ public class BillingControllerv4 extends BaseClass {
 		// ExtentTest test = extent.createTest("TC002_getbillBatchStatus");
 		// test.log(Status.INFO, "Starting test: TC002_getbillBatchStatus");
 
-		String uri = "/billing/billBatchStatus/BAT10123123";
+		String uri = "/billing/billBatchStatus/BT1231";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\billBatchStatus_v4.json";
 		HashMap<String, String> params = new HashMap<String, String>();
@@ -485,7 +487,7 @@ public class BillingControllerv4 extends BaseClass {
 		// "{\"Billing\":{\"Success\":true,\"Data\":{\"BatchId\":\"\",\"Summary\":{\"BillingStartDate\":\"2000-04-17\",\"BillingEndDate\":\"2000-04-17\",\"PeriodStartDate\":\"2000-04-01\",\"PeriodEndDate\":\"2000-04-17\",\"TransferStartDate\":\"2000-04-17\",\"TransferEndDate\":\"2000-04-17\"},\"Detail\":[{\"ServiceOrder\":{\"Number\":\"SORD00000000044\",\"BillingDate\":\"2000-04-17\",\"PeriodStartDate\":\"2000-04-01\",\"PeriodEndDate\":\"2000-04-17\",\"LocationId\":\"LOCATION009\",\"CustomerId\":\"CUSTOMER010\",\"TransferDate\":\"2000-04-17\",\"EmployeeId\":\"CARN0001\",\"BillToCustomerDeposit\":{\"Id\":2,\"Description\":\"Refund
 		// of
 		// Difference\"},\"ThirdPartyDeposit\":{\"Id\":1,\"Description\":\"Transfer\"}}}]},\"Messages\":[]}}";
-		String expected = "{\"Billing\":{\"Success\":true,\"Data\":{\"BatchId\":\"\",\"Summary\":{\"BillingStartDate\":\"2000-04-17\",\"BillingEndDate\":\"2000-04-17\",\"PeriodStartDate\":\"2000-04-01\",\"PeriodEndDate\":\"2000-04-17\",\"TransferStartDate\":\"2000-04-17\",\"TransferEndDate\":\"2000-04-17\"},\"Detail\":[{\"ServiceOrder\":{\"Number\":\"SORD00000000044\",\"BillingDate\":\"2000-04-17\",\"PeriodStartDate\":\"2000-04-01\",\"PeriodEndDate\":\"2000-04-17\",\"LocationId\":\"LOCATION009\",\"CustomerId\":\"CUSTOMER010\",\"TransferDate\":\"2000-04-17\",\"EmployeeId\":\"CARN0001\",\"BillToCustomerDeposit\":{\"Id\":2,\"Description\":\"Refund of Difference\"},\"ThirdPartyDeposit\":{\"Id\":1,\"Description\":\"Transfer\"}},\"AllowTransferWithoutBill\":false}]},\"Messages\":[]}}";
+		String expected = "{\"Billing\":{\"Success\":true,\"Data\":{\"BatchId\":\"\",\"Summary\":{\"BillingStartDate\":\"2000-04-17\",\"BillingEndDate\":\"2000-04-17\",\"PeriodStartDate\":\"2000-04-01\",\"PeriodEndDate\":\"2000-04-17\",\"TransferStartDate\":\"2000-04-17\",\"TransferEndDate\":\"2000-04-17\"},\"Detail\":[{\"ServiceOrder\":{\"Number\":\"SORD00000000044\",\"BillingDate\":\"2000-04-17\",\"PeriodStartDate\":\"2000-04-01\",\"PeriodEndDate\":\"2000-04-17\",\"LocationId\":\"LOCATION009\",\"CustomerId\":\"CUSTOMER010\",\"TransferDate\":\"2000-04-17\",\"EmployeeId\":\"CARN0001\",\"BillToCustomerDeposit\":{\"Id\":2,\"Description\":\"Refund of Difference\"},\"ThirdPartyDeposit\":{\"Id\":1,\"Description\":\"Transfer\"}},\"AllowTransferWithoutBill\":false,\"AllowedNonBilledCustomer\":false}]},\"Messages\":[]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("ServiceOrderNumber", "SORD00000000044");
 		// test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
@@ -606,7 +608,7 @@ public class BillingControllerv4 extends BaseClass {
 
 		String uri = "/billing/billBatchStatus/FINALBILL";
 		String ver = "4.0";
-		String expected = "{\"BatchStatus\":{\"Success\":true,\"Data\":{\"BatchId\":\"FINALBILL\",\"BatchStatus\":1,\"Route\":[],\"BatchDate\":{\"BillPreparationDate\":\"2027-04-12\",\"BillEditDate\":\"1900-01-01\",\"BillPrintDate\":\"1900-01-01\",\"BillPostDate\":\"1900-01-01\",\"BillCreatedDate\":\"2027-04-12\",\"BillModifiedDate\":\"2027-04-12\",\"BillPeriodStartDate\":\"1900-01-01\",\"BillPeriodEndDate\":\"1900-01-01\",\"BillDate\":\"1900-01-01\",\"ReadingDate\":\"1900-01-01\",\"StatementDate\":\"1900-01-01\",\"BTUDate\":\"1900-01-01\"},\"BatchDescription\":\"\",\"BatchTotal\":66.00000,\"NumberOfTransactions\":1,\"TotalOnHoldOrWithError\":0,\"CycleId\":\"\",\"PrepUserId\":\"sa\",\"EditListUserId\":\"\",\"PrintUserId\":\"\",\"PostUserId\":\"\",\"CheckBookId\":\"\",\"BillType\":0,\"LocationId\":\"\",\"PowerFactor\":0.00000,\"VersionNumber\":0,\"TransferCheckBatchId\":\"CHK041227sa01\"},\"Messages\":[]}}";
+		String expected = "{\"BatchStatus\":{\"Success\":true,\"Data\":{\"BatchId\":\"FINALBILL\",\"BatchStatus\":1,\"Route\":[],\"BatchDate\":{\"BillPreparationDate\":\"2027-04-12\",\"BillEditDate\":\"1900-01-01\",\"BillPrintDate\":\"1900-01-01\",\"BillPostDate\":\"1900-01-01\",\"BillCreatedDate\":\"2027-04-12\",\"BillModifiedDate\":\"2027-04-12\",\"BillPeriodStartDate\":\"1900-01-01\",\"BillPeriodEndDate\":\"1900-01-01\",\"BillDate\":\"1900-01-01\",\"ReadingDate\":\"1900-01-01\",\"StatementDate\":\"1900-01-01\",\"BTUDate\":\"1900-01-01\"},\"BatchDescription\":\"\",\"BatchTotal\":66.00000,\"NumberOfTransactions\":1,\"TotalOnHoldOrWithError\":0,\"CycleId\":\"\",\"PrepUserId\":\"sa\",\"EditListUserId\":\"\",\"PrintUserId\":\"\",\"PostUserId\":\"\",\"CheckBookId\":\"\",\"BillType\":0,\"LocationId\":\"\",\"PowerFactor\":0.00000,\"VersionNumber\":0,\"TransferCheckBatchId\":\"CHK041227sa01\",\"BillPrintedLast24h\":false},\"Messages\":[]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		// test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
 		// test.log(Status.INFO, "Expected: " + expected);
@@ -625,7 +627,7 @@ public class BillingControllerv4 extends BaseClass {
 
 		String uri = "/billing/transfer/progress";
 		String ver = "4.0";
-		String expected = "{\"Billing\":{\"Success\":true,\"Data\":{\"BatchId\":\"FINALBILL\",\"Summary\":{\"BillingStartDate\":\"2027-04-12\",\"BillingEndDate\":\"2027-04-12\",\"PeriodStartDate\":\"2000-03-01\",\"PeriodEndDate\":\"2027-04-12\",\"TransferStartDate\":\"2027-04-12\",\"TransferEndDate\":\"2027-04-12\"},\"Detail\":[{\"ServiceOrder\":{\"Number\":\"SORD00000009044\",\"BillingDate\":\"2027-04-12\",\"PeriodStartDate\":\"2000-03-01\",\"PeriodEndDate\":\"2027-04-12\",\"LocationId\":\"WATER002\",\"CustomerId\":\"CUSTOMER014\",\"TransferDate\":\"2027-04-12\",\"EmployeeId\":\"ALVA0001\",\"BillToCustomerDeposit\":{\"Id\":2,\"Description\":\"Refund of Difference\"},\"ThirdPartyDeposit\":{\"Id\":0,\"Description\":\"\"}},\"AllowTransferWithoutBill\":true}]},\"Messages\":[]}}";
+		String expected = "{\"Billing\":{\"Success\":true,\"Data\":{\"BatchId\":\"FINALBILL\",\"Summary\":{\"BillingStartDate\":\"2027-04-12\",\"BillingEndDate\":\"2027-04-12\",\"PeriodStartDate\":\"2000-03-01\",\"PeriodEndDate\":\"2027-04-12\",\"TransferStartDate\":\"2027-04-12\",\"TransferEndDate\":\"2027-04-12\"},\"Detail\":[{\"ServiceOrder\":{\"Number\":\"SORD00000009044\",\"BillingDate\":\"2027-04-12\",\"PeriodStartDate\":\"2000-03-01\",\"PeriodEndDate\":\"2027-04-12\",\"LocationId\":\"WATER002\",\"CustomerId\":\"CUSTOMER014\",\"TransferDate\":\"2027-04-12\",\"EmployeeId\":\"ALVA0001\",\"BillToCustomerDeposit\":{\"Id\":2,\"Description\":\"Refund of Difference\"},\"ThirdPartyDeposit\":{\"Id\":0,\"Description\":\"\"}},\"AllowTransferWithoutBill\":true,\"AllowedNonBilledCustomer\":false}]},\"Messages\":[]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("ServiceOrderNumber", "SORD00000009044");
 		// test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);

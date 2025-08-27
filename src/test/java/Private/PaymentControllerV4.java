@@ -90,7 +90,7 @@ public class PaymentControllerV4  extends BaseClass{
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/payment/next";
 		String ver = "4.0";
-		String expected = "{\"Payment\":{\"Success\":true,\"Data\":{\"PreviousDocumentNumber\":\"PYMT00000000531\",\"NextDocumentNumber\":\"PYMT00000000";
+		String expected = "{\"Payment\":{\"Success\":true,\"Data\":{\"PreviousDocumentNumber\":\"PYMT00000000540\",\"NextDocumentNumber\":\"PYMT00000000";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("PrevInOpen", "true");
 		CommonMethods.getMethodContainsString(uri, ver, params, expected);
