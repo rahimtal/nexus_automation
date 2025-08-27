@@ -420,7 +420,7 @@ public class BillingControllerv4 extends BaseClass {
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// ExtentTest test = extent.createTest("printcsvbillingStatements");
 		// test.log(Status.INFO, "Starting test: printcsvbillingStatements");
-		CommonMethods.bug("https://cogsdale.atlassian.net/browse/CPDEV-23215");
+		CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-23215");
 		String uri = "/print/csv/billingStatements";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\printcsvbillingStatementsv4.json";
