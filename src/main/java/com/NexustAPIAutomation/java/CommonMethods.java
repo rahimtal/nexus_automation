@@ -1,6 +1,8 @@
 package com.NexustAPIAutomation.java;
 
 import org.testng.annotations.Test;
+import io.restassured.response.Response;
+import static org.hamcrest.Matchers.*;
 import org.testng.Assert;
 
 import org.testng.annotations.Test;
@@ -1280,14 +1282,21 @@ public class CommonMethods {
 				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
 				.queryParams(params);
 
-		ValidatableResponse response;
+		//ValidatableResponse response;
 		// Response response;
 		String validate = new String(Files.readAllBytes(Paths.get(jpath)));
 		System.out.println("Veriying String =" + validate);
-		response = httpRequest.get().then().assertThat().body(Matchers.containsString(validate));
+		
+		//response = httpRequest.get().then().assertThat().body(Matchers.containsString(validate));
+		
+		Response response = httpRequest.get();
+		System.out.println("Response Body: " + response.getBody().asString());
+
+		// Now validate
+		response.then().assertThat().body(containsString(validate));
 		// System.out.println(response.extract().asString());
 		// Assert.assertEquals(response.asString(), validate);
-		return response.extract().asString();
+		return response.asString();
 	}
 
 	public static void getMethodContainsString(String uri, String version, HashMap<String, String> params,

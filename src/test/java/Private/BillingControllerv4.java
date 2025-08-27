@@ -130,7 +130,7 @@ public class BillingControllerv4 extends BaseClass {
 		// CommonMethods.Bugs("CPDEV-16682");
 		// CommonMethods.Bug("CPDEV-21966");
 		CommonMethods.Bug("CPDEV-23208");
-		
+
 		String uri = "/billing/printStatement";
 		String ver = "4.0";
 		String payload = "{\n" + "    \"Billing\":{\n" + "        \"ExportToCSV\": true,\n"
@@ -313,9 +313,9 @@ public class BillingControllerv4 extends BaseClass {
 		// test.log(Status.INFO, "Response: " + jsonPathEvaluator.prettyPrint());
 		System.out.println(jsonPathEvaluator.prettyPrint());
 		if (resultFlag) {
-					Assert.fail("Bill Posting Passed \n" + jsonPathEvaluator.prettyPrint());
+			Assert.fail("Bill Posting Passed \n" + jsonPathEvaluator.prettyPrint());
 		} else {
-			
+
 		}
 	}
 
@@ -420,14 +420,11 @@ public class BillingControllerv4 extends BaseClass {
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// ExtentTest test = extent.createTest("printcsvbillingStatements");
 		// test.log(Status.INFO, "Starting test: printcsvbillingStatements");
-
+		CommonMethods.bug("https://cogsdale.atlassian.net/browse/CPDEV-23215");
 		String uri = "/print/csv/billingStatements";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\printcsvbillingStatementsv4.json";
 		HashMap<String, String> params = new HashMap<String, String>();
-		// test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
-		// test.log(Status.INFO, "JSON Path file: " + jpath);
-
 		String result = CommonMethods.getMethodContains(uri, ver, params, jpath);
 		// test.log(Status.INFO, "Response: " + result);
 		System.out.println(result);
