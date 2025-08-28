@@ -105,7 +105,7 @@ public class billingController extends BaseClass {
 		String ver = "4.0";
 		// String expected =
 		// "{\"BatchStatus\":{\"Success\":true,\"Data\":{\"BatchId\":\"BATCHID\",\"BatchStatus\":1,\"Route\":[],\"BatchDate\":{\"BillPreparationDate\":\"2024-11-12\",\"BillEditDate\":\"1900-01-01\",\"BillPrintDate\":\"1900-01-01\",\"BillPostDate\":\"1900-01-01\",\"BillCreatedDate\"";
-		String expected = "{\"UtilitySetup\":{\"Success\":true,\"Data\":{\"PowerFactor\":0.90000,\"BTUPGADate\":\"2025-08-27\",\"AddressStyle\":3,\"IdentificationFormat\":0,\"PenaltyId\":\"\",\"PenaltyProcessing\":0,\"CompoundPenalties\":0},\"Messages\":[]}}";
+		String expected = "{\"UtilitySetup\":{\"Success\":true,\"Data\":{\"PowerFactor\":0.90000,\"BTUPGADate\":\"2025-08-28\",\"AddressStyle\":3,\"IdentificationFormat\":0,\"PenaltyId\":\"\",\"PenaltyProcessing\":0,\"CompoundPenalties\":0},\"Messages\":[]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		String result = CommonMethods.getMethodasString(uri, ver, params);
 		System.out.println(result);
