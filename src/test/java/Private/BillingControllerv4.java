@@ -464,7 +464,7 @@ public class BillingControllerv4 extends BaseClass {
 		// test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
 		// test.log(Status.INFO, "JSON Path file: " + jpath);
 
-		String result = CommonMethods.getMethod(uri, ver, params, jpath);
+		String result = CommonMethods.getMethodContains(uri, ver, params, jpath);
 		// test.log(Status.INFO, "Response: " + result);
 		System.out.println(result);
 	}
@@ -643,11 +643,11 @@ public class BillingControllerv4 extends BaseClass {
 
 		String uri = "/billing/postingFinalBillTransfer";
 		String ver = "4.0";
-		String payload = "{\r\n" + "    \"BatchId\": \"BATCH2025\",\r\n" + "    \"ServiceOrderNumber\": \"\",\r\n"
+		String payload = "{\r\n" + "    \"BatchId\": \"BATCHTEST01\",\r\n" + "    \"ServiceOrderNumber\": \"\",\r\n"
 				+ "    \"CheckBatchId\": \"CHK043025sa01\",\r\n" + "    \"SingleOrBatch\": \"BATCH\"\r\n" + "}";
 		String actual = CommonMethods.postMethodStringPayloadString(payload, uri, ver);
 
-		String expected = "{\"Billing\":{\"Success\":true,\"Data\":{\"BatchId\":\"BATCH2025\",\"ServiceOrderNumber\":\"\",\"HasPostingError\":false},\"Messages\":[]}}";
+		String expected = "{\"Billing\":{\"Success\":true,\"Data\":{\"BatchId\":\"BATCHTEST01\",\"ServiceOrderNumber\":\"\",\"HasPostingError\":false,\"PaymentBatchId\":\"\"},\"Messages\":[]}}";
 		Assert.assertEquals(actual, expected);
 
 	}

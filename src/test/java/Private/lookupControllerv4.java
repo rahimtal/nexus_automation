@@ -386,7 +386,7 @@ public class lookupControllerv4  extends BaseClass{
 		// String expected =
 		// "{\"Batch\":[{\"Id\":\"BAT10123123\",\"Description\":\"\",\"HasTransaction\":false}]}";
 		//String expected = "{\"Batch\":[{\"Id\":\"BAT10123123\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"FINALBILL\",\"Description\":\"\",\"HasTransaction\":true}]}";
-		String expected = "{\"Batch\":[{\"Id\":\"BATCHPOSTTRANS\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"BATCHTEST01\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"BT1232\",\"Description\":\"Api billing\",\"HasTransaction\":false},{\"Id\":\"FINALBILL\",\"Description\":\"\",\"HasTransaction\":true}]}";
+		String expected = "{\"Batch\":[{\"Id\":\"BATCH2025\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"BATCHPOSTTRANS\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"BATCHTEST01\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"BT1232\",\"Description\":\"Api billing\",\"HasTransaction\":false},{\"Id\":\"FINALBILL\",\"Description\":\"\",\"HasTransaction\":true}]}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("BatchSource", "BILLING");
 		params.put("BillingType", "Final");
