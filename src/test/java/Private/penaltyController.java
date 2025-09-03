@@ -27,5 +27,16 @@ public class penaltyController {
 		String result = CommonMethods.putMethodstring(uri, ver, body, expected);
 
 	}
+	
+	
+	@Test(priority = 2, groups = "Penalty")
+	public void getpenaltySetup_v_4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/penalty/setup";
+		String ver = "4.0";
+		String expected = "{\"PenaltySetup\":{\"Success\":true,\"Data\":{\"PenaltyId\":\"5%\",\"PenaltyProcessing\":1,\"CompoundPenalties\":true},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		CommonMethods.getMethodContainsString(uri, ver, params, expected);
+	}
 
 }
