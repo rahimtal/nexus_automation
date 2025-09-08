@@ -56,7 +56,8 @@ public class EmailReportListener implements ISuiteListener {
 	            String[] recipients = {
 	                    "trahim@cogsdale.com",
 	                    "RThurairasa@cogsdale.com",
-	                    "MCausevic@cogsdale.com"
+	                   // "MCausevic@cogsdale.com",
+	                    "MAkhlaq@Cogsdale.com"
 	            };
 
 	            for (String to : recipients) {
