@@ -661,7 +661,7 @@ public class BillingControllerv4 extends BaseClass {
 		// CommonMethods.Bug(" CPDEV-22127");
 		String uri = "/billing/generateBillingTransferReport";
 		String ver = "4.0";
-		String payload = "{\r\n" + "\r\n" + "    \"BatchId\": \"BATCH2025\",\r\n"
+		String payload = "{\r\n" + "\r\n" + "    \"BatchId\": \"BATCHTEST01\",\r\n"
 				+ "    \"ServiceOrderNumber\": \"\"\r\n" + "}";
 		String actual = CommonMethods.postMethodStringPayloadString(payload, uri, ver);
 
