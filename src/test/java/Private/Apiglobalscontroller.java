@@ -64,10 +64,11 @@ public class Apiglobalscontroller extends BaseClass {
 				+ "    ]\r\n"
 				+ "}";
 		//String params = new String(Files.readAllBytes(Paths.get(jpath)));
-		String expected = "{\"result\":[{\"success\":true,\"message\":\"API Global Settings Updated.\"}]}";
+		String expected = "{\"ApiGlobal\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"API Global Settings Updated.\",\"Level\":1}]}}";
 		 CommonMethods.putMethodstring(uri, ver, params, expected);
 
 	}
+	
 	
 	
 	@Test(priority = 2, groups = "GlobalSettings")
@@ -82,6 +83,108 @@ public class Apiglobalscontroller extends BaseClass {
 		System.out.println(result);
 
 	}
+	
+	
+	@Test(priority = 3, groups = "GlobalSettings")
+	public void putapiGlobalSettingsV4Error() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		
+		String uri = "/apiGlobalSettings";
+		String ver = "4.0";
+		String params = "{\r\n"
+				+ "    \"Section\": [\r\n"
+				+ "        {\r\n"
+				+ "            \"Id\": 1,\r\n"
+				+ "            \"Name\": \"default\",\r\n"
+				+ "            \"SubSection\": [\r\n"
+				+ "                {\r\n"
+				+ "                            \"Id\": 2011,\r\n"
+				+ "                            \"Name\": \"Penalty\",\r\n"
+				+ "                            \"Setting\": [\r\n"
+				+ "                                {\r\n"
+				+ "                                    \"Id\": 4087,\r\n"
+				+ "                                    \"Name\": \"PenaltyNoOfDays\",\r\n"
+				+ "                                    \"Label\": \"Penalty No. of days\",\r\n"
+				+ "                                    \"Description\": \"Calculate penalty number of days after the document due date.\",\r\n"
+				+ "                                    \"FieldType\": {\r\n"
+				+ "                                        \"Id\": 5,\r\n"
+				+ "                                        \"Value\": \"Int\"\r\n"
+				+ "                                    },\r\n"
+				+ "                                    \"FieldTypeModel\": {\r\n"
+				+ "                                        \"Id\": 1,\r\n"
+				+ "                                        \"Value\": \"Request\"\r\n"
+				+ "                                    },\r\n"
+				+ "                                    \"EndPoint\": \"\",\r\n"
+				+ "                                    \"Required\": false,\r\n"
+				+ "                                    \"CustomValue\": false,\r\n"
+				+ "                                    \"Display\": {\r\n"
+				+ "                                        \"Id\": 1,\r\n"
+				+ "                                        \"Value\": \"Enabled\"\r\n"
+				+ "                                    },\r\n"
+				+ "                                    \"Value\": \"-368\"\r\n"
+				+ "                                }\r\n"
+				+ "                            ]\r\n"
+				+ "                        }\r\n"
+				+ "            ]\r\n"
+				+ "        }\r\n"
+				+ "    ]\r\n"
+				+ "}";
+		//String params = new String(Files.readAllBytes(Paths.get(jpath)));
+		String expected = "{\"ApiGlobal\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Penalty number of days should be numeric value between 0 and 365.\",\"Level\":3}]}}";
+		 CommonMethods.putMethodstring(uri, ver, params, expected);
+
+	}
+	
+	
+	@Test(priority = 4, groups = "GlobalSettings")
+	public void putapiGlobalSettingsV4Error2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		
+		String uri = "/apiGlobalSettings";
+		String ver = "4.0";
+		String params = "{\r\n"
+				+ "    \"Section\": [\r\n"
+				+ "        {\r\n"
+				+ "            \"Id\": 1,\r\n"
+				+ "            \"Name\": \"default\",\r\n"
+				+ "            \"SubSection\": [\r\n"
+				+ "                {\r\n"
+				+ "                            \"Id\": 2011,\r\n"
+				+ "                            \"Name\": \"Penalty\",\r\n"
+				+ "                            \"Setting\": [\r\n"
+				+ "                                {\r\n"
+				+ "                                    \"Id\": 4087,\r\n"
+				+ "                                    \"Name\": \"PenaltyNoOfDays\",\r\n"
+				+ "                                    \"Label\": \"Penalty No. of days\",\r\n"
+				+ "                                    \"Description\": \"Calculate penalty number of days after the document due date.\",\r\n"
+				+ "                                    \"FieldType\": {\r\n"
+				+ "                                        \"Id\": 5,\r\n"
+				+ "                                        \"Value\": \"Int\"\r\n"
+				+ "                                    },\r\n"
+				+ "                                    \"FieldTypeModel\": {\r\n"
+				+ "                                        \"Id\": 1,\r\n"
+				+ "                                        \"Value\": \"Request\"\r\n"
+				+ "                                    },\r\n"
+				+ "                                    \"EndPoint\": \"\",\r\n"
+				+ "                                    \"Required\": false,\r\n"
+				+ "                                    \"CustomValue\": false,\r\n"
+				+ "                                    \"Display\": {\r\n"
+				+ "                                        \"Id\": 1,\r\n"
+				+ "                                        \"Value\": \"Enabled\"\r\n"
+				+ "                                    },\r\n"
+				+ "                                    \"Value\": \"368\"\r\n"
+				+ "                                }\r\n"
+				+ "                            ]\r\n"
+				+ "                        }\r\n"
+				+ "            ]\r\n"
+				+ "        }\r\n"
+				+ "    ]\r\n"
+				+ "}";
+		//String params = new String(Files.readAllBytes(Paths.get(jpath)));
+		String expected = "{\"ApiGlobal\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Penalty number of days should be numeric value between 0 and 365.\",\"Level\":3}]}}";
+		 CommonMethods.putMethodstring(uri, ver, params, expected);
+
+	}
+
+
 
 
    }
