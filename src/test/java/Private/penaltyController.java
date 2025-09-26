@@ -41,7 +41,7 @@ public class penaltyController {
 	
 	
 	@Test(priority = 3, groups = "Penalty")
-	public void posttpenaltyDocuments_v_4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+	public void postpenaltyDocuments_v_4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/penalty/documentPost";
 		String ver = "4.0";
