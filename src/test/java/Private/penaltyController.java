@@ -15,8 +15,8 @@ import com.NexustAPIAutomation.java.CommonMethods;
 import io.restassured.response.ValidatableResponse;
 
 public class penaltyController {
-
-	@Test(priority = 1, groups = "Penalty")
+//Moved to global properties
+	//@Test(priority = 1, groups = "Penalty")
 	public void putpenaltySetup_v_4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/penalty/setup";
@@ -28,8 +28,8 @@ public class penaltyController {
 
 	}
 	
-	
-	@Test(priority = 2, groups = "Penalty")
+	//Moved to global properties
+	//@Test(priority = 2, groups = "Penalty")
 	public void getpenaltySetup_v_4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/penalty/setup";
