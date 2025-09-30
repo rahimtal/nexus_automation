@@ -58,6 +58,35 @@ public class penaltyController {
 		String Result = CommonMethods.postMethodResponseAsString(payload, uri, ver);
 		Assert.assertEquals(Result, expected);
 	}
+	
+	
+	@Test(priority = 4, groups = "Penalty")
+	public void postpenaltycalculate_v_4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/penalty/calculate";
+		String ver = "4.0";
+		String payload ="{\r\n"
+				+ "  \"CalculateBy\": 0,\r\n"
+				+ "  \"BatchId\": \"PENALTY1\",\r\n"
+				+ "  \"PenaltyDocumentDate\": \"2025-01-01\",\r\n"
+				+ "  \"PenaltyDueDate\": \"2025-09-15\",\r\n"
+				+ "  \"ExcludeFormerCustomers\": false,\r\n"
+				+ "  \"IncludeOnlyPrintedDocuments\": false,\r\n"
+				+ "  \"IncludeFormerCustomerstWithLoanBalance\": false,\r\n"
+				+ "  \"Route\": [\r\n"
+				+ "      \"001\",\r\n"
+				+ "      \"002\"\r\n"
+				+ "  ],\r\n"
+				+ "  \"IncludeDocumentsWithDueDate\": \"2025-09-15\",\r\n"
+				+ "  \"IncludeDocumentWithPenaltyProcessingDate\": \"2025-09-15\"\r\n"
+				+ "}\r\n"
+				+ "";
+		String expected = "{\"PenaltyCalculate\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Penalty calculation has been done successfully. 19 penalty document\\/s has been created.\",\"Level\":1}]}}";
+		String Result = CommonMethods.postMethodResponseAsString(payload, uri, ver);
+		Assert.assertEquals(Result, expected);
+	}
+	
+	
 
 
 }
