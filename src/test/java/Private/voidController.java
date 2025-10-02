@@ -44,14 +44,29 @@ public class voidController  extends BaseClass{
 
 	@Test(priority = 1, groups = "void")
 	public void putvoidv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		//CommonMethods.Bugs("https://cogsdale.atlassian.net/browse/CPDEV-17270");
+		//CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-23536");
 		String uri = "/void";
 		String ver = "4.0";
-		String jpath = "./\\TestData\\putvoidv4.json";
-		String params = new String(Files.readAllBytes(Paths.get(jpath)));
-		String expected = "./\\TestData\\expvoidv4.json";
-		io.restassured.response.Response result = CommonMethods.putMethod(uri, ver, params, expected);
-
+		String params = "{\r\n"
+				+ "   \"Void\": {\r\n"
+				+ "       \"LocationId\": \"LOCATION007\",\r\n"
+				+ "       \"CustomerId\": \"CUSTOMER008\",\r\n"
+				+ "       \"BatchId\": \"11111\",\r\n"
+				+ "       \"PostingDate\": \"2023-01-01\",\r\n"
+				+ "       \"ReasonCodeId\": \"ILL\",\r\n"
+				+ "       \"Comment\": \"Void Comment\",\r\n"
+				+ "       \"CancelSpa\": false,\r\n"
+				+ "       \"Document\": [\r\n"
+				+ "            {\r\n"
+				+ "                \"Number\": \"BILL00000000372\",\r\n"
+				+ "                \"VoidStatement\": true\r\n"
+				+ "            }\r\n"
+				+ "        ]\r\n"
+				+ "   }\r\n"
+				+ "}";
+	
+		String expected = "{\"Void\":{\"Success\":true,\"Data\":{\"BatchId\":\"11111\",\"Document\":[{\"Number\":\"BILL00000000372\",\"Void\":true}],\"SpaCanceled\":false,\"ReasonCodeServiceOrderNumber\":\"\",\"PostingReport\":true,\"PostingError\":false,\"ReportList\":[{\"Name\":\"Void Edit List\",\"PrintOrder\":1},{\"Name\":\"Void Dist Breakdown Detail\",\"PrintOrder\":2},{\"Name\":\"Void Dist Breakdown Summary\",\"PrintOrder\":3}],\"ReportErrorList\":[{\"ReportName\":\"Void Posting Error List\",\"PrintOrder\":1}]},\"Messages\":[]}}";
+		CommonMethods.putMethodstring(uri, ver, params, expected);
 	}
 
 	@Test(priority = 2, groups = "void")

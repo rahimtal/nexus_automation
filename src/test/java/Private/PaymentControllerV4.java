@@ -77,7 +77,7 @@ public class PaymentControllerV4  extends BaseClass{
 	public static void delPaymentv4CreditNote()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
-		String uri = "/payment/PYMT00000000505";
+		String uri = "/payment/PYMT00000000543";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\delPaymentCreditNoteV4.json";
 		String result = CommonMethods.deleteMethod(uri, ver, jpath);
