@@ -496,4 +496,63 @@ public class lookupControllerv4  extends BaseClass{
 		String result = CommonMethods.getMethod(uri, ver, params, jpath);
 		System.out.println(result);
 	}
+	
+	
+	@Test(priority = 38, groups = "lookup")
+	public void lookupServiceType()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/lookupServiceType";
+		String ver = "4.0";
+		String body = "{\r\n"
+				+ "    \"MeterSwitchDetails\": [{\r\n"
+				+ "        \"LocationId\": \"WATER002\",\r\n"
+				+ "        \"OldEquipment\": {\r\n"
+				+ "            \"Id\": \"WATEREQUIP002\",\r\n"
+				+ "            \"Connection\": 1,\r\n"
+				+ "            \"RemovalDate\": \"2020-07-15\",\r\n"
+				+ "            \"RemovalReason\": \"Broken\"\r\n"
+				+ "        },\r\n"
+				+ "        \"NewEquipment\": {\r\n"
+				+ "            \"Id\": \"WATEREQUIP005\",\r\n"
+				+ "            \"Status\": 2,\r\n"
+				+ "            \"StatusDescription\": \"Active\",\r\n"
+				+ "            \"InstallDate\": \"2020-07-16\",\r\n"
+				+ "            \"ConnectionDate\": \"2020-07-16\",\r\n"
+				+ "            \"Multiplier\": {\r\n"
+				+ "                \"Rate\": 1.00000,\r\n"
+				+ "                \"Fixed\": 1.00000,\r\n"
+				+ "                \"Loss\": 1.00000,\r\n"
+				+ "                \"Consumption\": 1.00000,\r\n"
+				+ "                \"RangeAndMinimum\": 1.00000\r\n"
+				+ "            },\r\n"
+				+ "            \"DiscountRate\": \"\",\r\n"
+				+ "            \"Rates\": [{\r\n"
+				+ "                    \"Period\": {\r\n"
+				+ "                        \"Index\": 1,\r\n"
+				+ "                        \"Name\": \"ON PEAK\",\r\n"
+				+ "                        \"Description\": \"On Peak Consumption\",\r\n"
+				+ "                        \"Tariff1\": \"WATERMETERED\",\r\n"
+				+ "                        \"Tariff2\": \"\",\r\n"
+				+ "                        \"Tariff3\": \"\",\r\n"
+				+ "                        \"Tariff4\": \"\"\r\n"
+				+ "                    }\r\n"
+				+ "                }\r\n"
+				+ "            ],\r\n"
+				+ "            \"Remote\": [{\r\n"
+				+ "                \"Id\": \"\",\r\n"
+				+ "                \"Type\": \"\",\r\n"
+				+ "                \"InstallDate\": \"\"\r\n"
+				+ "            }]\r\n"
+				+ "        }\r\n"
+				+ "    }]\r\n"
+				+ "}";
+		String expected = "{\"ServiceTypes\":[{\"Id\":\"COMM-ELECTRIC\",\"Description\":\"Commercial electrical accounts\",\"ServiceCategory\":\"1\",\"ServiceCategoryDescription\":\"Electric\"},{\"Id\":\"ELECTRIC\",\"Description\":\"Residential electrical accounts\",\"ServiceCategory\":\"1\",\"ServiceCategoryDescription\":\"Electric\"},{\"Id\":\"GAS\",\"Description\":\"Residential gas accounts\",\"ServiceCategory\":\"4\",\"ServiceCategoryDescription\":\"Gas\"},{\"Id\":\"GC\",\"Description\":\"Garbage (Billed for City 424-2212)\",\"ServiceCategory\":\"1\",\"ServiceCategoryDescription\":\"Electric\"},{\"Id\":\"INTERNET\",\"Description\":\"Internet accounts\",\"ServiceCategory\":\"5\",\"ServiceCategoryDescription\":\"Phone\"},{\"Id\":\"IR\",\"Description\":\"Irrigation Water\",\"ServiceCategory\":\"2\",\"ServiceCategoryDescription\":\"Water\"},{\"Id\":\"IR-A\",\"Description\":\"Sewer service account\",\"ServiceCategory\":\"3\",\"ServiceCategoryDescription\":\"Sewer\"},{\"Id\":\"IS\",\"Description\":\"Internet Service\",\"ServiceCategory\":\"1\",\"ServiceCategoryDescription\":\"Electric\"},{\"Id\":\"PC\",\"Description\":\"Pollution Control\",\"ServiceCategory\":\"3\",\"ServiceCategoryDescription\":\"Sewer\"},{\"Id\":\"PHONE\",\"Description\":\"Phone service\",\"ServiceCategory\":\"5\",\"ServiceCategoryDescription\":\"Phone\"},{\"Id\":\"PROPERTYTAX\",\"Description\":\"Service Type for Property Tax\",\"ServiceCategory\":\"6\",\"ServiceCategoryDescription\":\"Refuse\"},{\"Id\":\"RE_FIX\",\"Description\":\"Residential Electric Fixed\",\"ServiceCategory\":\"1\",\"ServiceCategoryDescription\":\"Electric\"},{\"Id\":\"RE_MR\",\"Description\":\"Residential Electric Consumption\",\"ServiceCategory\":\"1\",\"ServiceCategoryDescription\":\"Electric\"},{\"Id\":\"REFUSE\",\"Description\":\"Refuse Service\",\"ServiceCategory\":\"6\",\"ServiceCategoryDescription\":\"Refuse\"},{\"Id\":\"SEWER\",\"Description\":\"Residential sewer accounts\",\"ServiceCategory\":\"3\",\"ServiceCategoryDescription\":\"Sewer\"},{\"Id\":\"ST-LIGHTS\",\"Description\":\"Street lights\",\"ServiceCategory\":\"1\",\"ServiceCategoryDescription\":\"Electric\"},{\"Id\":\"WATER\",\"Description\":\"Water residential customers\",\"ServiceCategory\":\"2\",\"ServiceCategoryDescription\":\"Water\"},{\"Id\":\"WATER-COMM\",\"Description\":\"Water Commercial accounts\",\"ServiceCategory\":\"2\",\"ServiceCategoryDescription\":\"Water\"},{\"Id\":\"WR\",\"Description\":\"Water\",\"ServiceCategory\":\"2\",\"ServiceCategoryDescription\":\"Water\"},{\"Id\":\"WR-A\",\"Description\":\"Water service account\",\"ServiceCategory\":\"2\",\"ServiceCategoryDescription\":\"Water\"}]}";
+		String actual = CommonMethods.getMethodasString(uri, ver, body);
+		Assert.assertTrue(actual.contains(expected));
+		
+		
+	}
+	
+	
 }
