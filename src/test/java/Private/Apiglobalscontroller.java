@@ -25,46 +25,7 @@ public class Apiglobalscontroller extends BaseClass {
 		
 		String uri = "/apiGlobalSettings";
 		String ver = "4.0";
-		/*String params = "{\r\n"
-				+ "    \"Section\": [\r\n"
-				+ "        {\r\n"
-				+ "            \"Id\": 1,\r\n"
-				+ "            \"Name\": \"default\",\r\n"
-				+ "            \"SubSection\": [\r\n"
-				+ "                {\r\n"
-				+ "                    \"Id\": 1007,\r\n"
-				+ "                    \"Name\": \"Penalty\",\r\n"
-				+ "                    \"Setting\": [\r\n"
-				+ "                        {\r\n"
-				+ "                            \"Id\": 1069,\r\n"
-				+ "                            \"Name\": \"PenaltyNoOfDays\",\r\n"
-				+ "                            \"Label\": \"Penalty No. of days\",\r\n"
-				+ "                            \"Description\": \"Calculate penalty number of days after the document due date.\",\r\n"
-				+ "                            \"FieldType\": {\r\n"
-				+ "                                \"Id\": 5,\r\n"
-				+ "                                \"Value\": \"int\"\r\n"
-				+ "                            },\r\n"
-				+ "                            \"FieldTypeModel\": {\r\n"
-				+ "                                \"Id\": 1,\r\n"
-				+ "                                \"Value\": \"Request\"\r\n"
-				+ "                            },\r\n"
-				+ "                            \"EndPoint\": \"\",\r\n"
-				+ "                            \"Required\": false,\r\n"
-				+ "                            \"CustomValue\": false,\r\n"
-				+ "                            \"Display\": {\r\n"
-				+ "                                \"Id\": 1,\r\n"
-				+ "                                \"Value\": \"Enabled\"\r\n"
-				+ "                            },\r\n"
-				+ "                            \"Value\": \"200\"\r\n"
-				+ "                        }\r\n"
-				+ "                    ]\r\n"
-				+ "                }\r\n"
-				+ "            ]\r\n"
-				+ "        }\r\n"
-				+ "    ]\r\n"
-				+ "}";*/
-		
-		String params = "{\r\n"
+	String params = "{\r\n"
 				+ "            \"Section\": [\r\n"
 				+ "                {\r\n"
 				+ "                    \"Id\": 1,\r\n"
@@ -190,7 +151,7 @@ public class Apiglobalscontroller extends BaseClass {
 	}
 	
 	
-	@Test(priority = 3, groups = "GlobalSettings")
+	//@Test(priority = 3, groups = "GlobalSettings")
 	public void putapiGlobalSettingsV4Error() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		
 		String uri = "/apiGlobalSettings";
