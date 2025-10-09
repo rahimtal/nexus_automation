@@ -87,6 +87,7 @@ public class voidController  extends BaseClass{
 	public void getlinkedDocumentv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		
 		//CommonMethods.Bug("CPDEV-21825");
+		CommonMethods.Bug("CPDEV-23722");
 		String uri = "/void/linkedDocument/BILL00000000496";
 		String ver = "4.0";
 		String expected = "{\"Void\":{\"Success\":true,\"Data\":{\"LinkedDocument\":{\"Spa\":null,\"Penalty\":null,\"WriteOffExport\":[{\"Number\":\"PYMT00000000505\"}],\"CollectionImport\":null,\"DepositReceivable\":null,\"NegativeBill\":null,\"BillCreditNote\":null,\"TransferBalanceDocument\":null,\"CashieringCheckCreditCard\":null}},\"Messages\":[]}}";

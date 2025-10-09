@@ -2,6 +2,9 @@ package Private;
 
 import org.testng.annotations.Test;
 import org.testng.Assert;
+
+import static org.testng.Assert.assertEquals;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -115,6 +118,21 @@ public class penaltyController {
 		String Result = CommonMethods.postMethodResponseAsString(payload, uri, ver);
 		Assert.assertEquals(Result, expected);
 	}
+	
+	
+	@Test(priority = 7, groups = "Penalty" )
+	public void getcalculatedDocuments_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/penalty/calculatedDocuments/ABC1213";
+		String ver = "4.0";
+		String expected = "{\"Penalty\":{\"Success\":true,\"Data\":{\"BatchId\":\"ABC1213\",\"Document\":[{\"PenaltyDocument\":\"PNLT00000000059\",\"SourceDocument\":\"BILL00000000574\",\"LocationId\":\"TRANSACTION001\",\"CustomerId\":\"TRS0001\",\"ServiceType\":\"ELECTRIC\",\"PenaltyId\":\"5%\",\"TaxAmount\":1.40,\"OriginalBalance\":21.40,\"OutstandingAmount\":21.40,\"PenaltyAmount\":1.07},{\"PenaltyDocument\":\"PNLT00000000060\",\"SourceDocument\":\"BILL00000000575\",\"LocationId\":\"TRANSACTION001\",\"CustomerId\":\"TRS0001\",\"ServiceType\":\"GAS\",\"PenaltyId\":\"DEFAULTPYMT\",\"TaxAmount\":0.00,\"OriginalBalance\":10.00,\"OutstandingAmount\":10.00,\"PenaltyAmount\":0.50},{\"PenaltyDocument\":\"PNLT00000000061\",\"SourceDocument\":\"BILL00000000578\",\"LocationId\":\"TRANSACTION001\",\"CustomerId\":\"TRS0001\",\"ServiceType\":\"SEWER\",\"PenaltyId\":\"DEFAULTPYMT\",\"TaxAmount\":0.00,\"OriginalBalance\":15.00,\"OutstandingAmount\":15.00,\"PenaltyAmount\":0.75},{\"PenaltyDocument\":\"PNLT00000000062\",\"SourceDocument\":\"BILL00000000577\",\"LocationId\":\"TRANSACTION001\",\"CustomerId\":\"TRS0001\",\"ServiceType\":\"WATER\",\"PenaltyId\":\"DEFAULTPYMT\",\"TaxAmount\":0.00,\"OriginalBalance\":30.00,\"OutstandingAmount\":30.00,\"PenaltyAmount\":1.50}]},\"Messages\":[]}}";
+		HashMap<String, String> map = new HashMap<String, String>();
+		String Result = CommonMethods.getMethodasString(uri, ver, map);
+		assertEquals(Result, expected);
+	
+	}
+
+
 
 	
 
