@@ -131,7 +131,43 @@ public class penaltyController {
 		assertEquals(Result, expected);
 	
 	}
+	
+	
+	@Test(priority = 8, groups = "Penalty", dependsOnMethods = "getcalculatedDocuments_v4")
+	public void deletecalculatedDocuments_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
+		String uri = "/penalty/documentDelete";
+		String ver = "4.0";
+		String expected = "{\"PenaltyDelete\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Penalties successfully deleted!\",\"Level\":1}]}}";
+		//HashMap<String, String> map = new HashMap<String, String>();
+		String body = "{\r\n"
+				+ "    \"BatchId\": \"ABC1213\",\r\n"
+				+ "    \"Document\": [\r\n"
+				+ "        { \r\n"
+				+ "             \"Number\": \"PNLT00000000059\"\r\n"
+				+ "        },\r\n"
+				+ "        { \r\n"
+				+ "             \"Number\": \"PNLT00000000060\"\r\n"
+				+ "        }\r\n"
+				+ "    ]\r\n"
+				+ "}";
+		String Result = CommonMethods.postMethodStringPayloadString(body, uri, ver);
+		assertEquals(Result, expected);
+	
+	}
+
+
+	@Test(priority = 9, groups = "Penalty" , dependsOnMethods = "deletecalculatedDocuments_v4")
+	public void verifyDeletedtcalculatedDocuments_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/penalty/calculatedDocuments/ABC1213";
+		String ver = "4.0";
+		String expected = "{\"Penalty\":{\"Success\":true,\"Data\":{\"BatchId\":\"ABC1213\",\"Document\":[{\"PenaltyDocument\":\"PNLT00000000061\",\"SourceDocument\":\"BILL00000000578\",\"LocationId\":\"TRANSACTION001\",\"CustomerId\":\"TRS0001\",\"ServiceType\":\"SEWER\",\"PenaltyId\":\"DEFAULTPYMT\",\"TaxAmount\":0.00,\"OriginalBalance\":15.00,\"OutstandingAmount\":15.00,\"PenaltyAmount\":0.75},{\"PenaltyDocument\":\"PNLT00000000062\",\"SourceDocument\":\"BILL00000000577\",\"LocationId\":\"TRANSACTION001\",\"CustomerId\":\"TRS0001\",\"ServiceType\":\"WATER\",\"PenaltyId\":\"DEFAULTPYMT\",\"TaxAmount\":0.00,\"OriginalBalance\":30.00,\"OutstandingAmount\":30.00,\"PenaltyAmount\":1.50}]},\"Messages\":[]}}";
+		HashMap<String, String> map = new HashMap<String, String>();
+		String Result = CommonMethods.getMethodasString(uri, ver, map);
+		assertEquals(Result, expected);
+	
+	}
 
 
 	
