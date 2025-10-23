@@ -192,6 +192,27 @@ public class penaltyController {
 	}
 	
 
+	@Test(priority = 11, groups = "Penalty", dependsOnMethods ="postpenaltydocumentPrint_v4")
+	public void postpenaltydocumentPrintErr_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/penalty/documentPrint";
+		String ver = "4.0";
+		String payload ="{\r\n"
+				+ "    \"BatchId\": \"ABC1213\",\r\n"
+				+ "    \"Documents\": [\r\n"
+				+ "        {\r\n"
+				+ "            \"Number\": \"PNLT00000000059\"\r\n"
+				+ "        },\r\n"
+				+ "        {\r\n"
+				+ "            \"Number\": \"PNLT00000000060\"\r\n"
+				+ "        }\r\n"
+				+ "    ]\r\n"
+				+ "}";
+		String expected = "{\"Penalty\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Invalid Penalty Document\\/s PNLT00000000059, PNLT00000000060 in Batch Id ABC1213.\",\"Level\":3}]}}";
+		String Result = CommonMethods.postMethodResponseAsString(payload, uri, ver);
+		Assert.assertEquals(Result, expected);
+	}
+	
 
 
 	
