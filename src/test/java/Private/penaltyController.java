@@ -168,6 +168,30 @@ public class penaltyController {
 		assertEquals(Result, expected);
 	
 	}
+	
+	
+	@Test(priority = 10, groups = "Penalty")
+	public void postpenaltydocumentPrint_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/penalty/documentPrint";
+		String ver = "4.0";
+		String payload ="{\r\n"
+				+ "    \"BatchId\": \"ABC1213\",\r\n"
+				+ "    \"Documents\": [\r\n"
+				+ "        {\r\n"
+				+ "            \"Number\": \"PNLT00000000059\"\r\n"
+				+ "        },\r\n"
+				+ "        {\r\n"
+				+ "            \"Number\": \"PNLT00000000060\"\r\n"
+				+ "        }\r\n"
+				+ "    ]\r\n"
+				+ "}";
+		String expected = "{\"Penalty\":{\"Success\":true,\"Data\":{\"ReportList\":[{\"Name\":\"PenaltyPreparationDetail\",\"DisplayName\":\"Penalty Preparation Detail\",\"PrintOrder\":1}]},\"Messages\":[]}}";
+		String Result = CommonMethods.postMethodResponseAsString(payload, uri, ver);
+		Assert.assertEquals(Result, expected);
+	}
+	
+
 
 
 	
