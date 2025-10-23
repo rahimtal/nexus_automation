@@ -179,10 +179,10 @@ public class penaltyController {
 				+ "    \"BatchId\": \"ABC1213\",\r\n"
 				+ "    \"Documents\": [\r\n"
 				+ "        {\r\n"
-				+ "            \"Number\": \"PNLT00000000059\"\r\n"
+				+ "            \"Number\": \"PNLT00000000061\"\r\n"
 				+ "        },\r\n"
 				+ "        {\r\n"
-				+ "            \"Number\": \"PNLT00000000060\"\r\n"
+				+ "            \"Number\": \"PNLT00000000062\"\r\n"
 				+ "        }\r\n"
 				+ "    ]\r\n"
 				+ "}";
