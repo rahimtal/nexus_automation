@@ -214,8 +214,16 @@ public class penaltyController {
 	}
 	
 
+	@Test(priority = 11, groups = "Penalty", dependsOnMethods ="postpenaltydocumentPrintErr_v4")
+	public void getpenaltyHeader_v_4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
-	
+		String uri = "/penalty/header/PENALTY1";
+		String ver = "4.0";
+		String expected = "{\"Penalty\":{\"Success\":true,\"Data\":{\"CalculateBy\":\"0\",\"BatchId\":\"PENALTY1\",\"PenaltyDocumentDate\":\"2025-01-01\",\"PenaltyDueDate\":\"2025-09-15\",\"ExcludeFormerCustomers\":\"false\",\"IncludeOnlyPrintedDocuments\":\"false\",\"IncludeFormerCustomerstWithLoanBalance\":\"false\",\"Route\":[\"001\",\"002\"],\"IncludeDocumentsWithDueDate\":\"2025-09-15\",\"IncludeDocumentWithPenaltyProcessingDate\":\"2025-09-15\",\"UserId\":\"sa\",\"Zone\":[],\"Cycle\":[],\"LocationId\":\"\"},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		CommonMethods.getMethodContainsString(uri, ver, params, expected);
+	}
+
 
 	
 
