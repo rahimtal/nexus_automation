@@ -13,15 +13,15 @@ import com.NexustAPIAutomation.java.CommonMethods;
 import Private.BaseClass;
 import io.restassured.response.ValidatableResponse;
 
-public class consumptionHistoryController  extends BaseClass{
+public class consumptionHistoryController_v4  extends BaseClass{
 
 	public static ValidatableResponse jsonPathEvaluator;
 
-	//@Test(priority = 1, groups = "ConsumptionHistoryController" )
+	@Test(priority = 1, groups = "ConsumptionHistoryController" )
 	public void getconsumptionHistoryController() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/consumptionHistory/getConsumptionHistory";
-		String ver = "2.1";
+		String ver = "4.0";
 		String jpath = "./\\TestData\\consumptionHist.json";
 				
 		HashMap<String, String> params = new HashMap<String, String>();

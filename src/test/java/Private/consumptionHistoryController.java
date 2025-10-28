@@ -18,9 +18,9 @@ public class consumptionHistoryController  extends BaseClass{
 	public static ValidatableResponse jsonPathEvaluator;
 
 	@Test(priority = 1, groups = "ConsumptionHistoryController" )
-	public void getconsumptionHistoryController() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+	public void getconsumptionHistoryController_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
-		CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-23531");
+		//CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-23531");
 		String uri = "/consumptionHistory/getConsumptionHistory";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\consumptionHist.json";
