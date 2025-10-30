@@ -14,6 +14,8 @@ import org.testng.annotations.Test;
 import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.DataBackupRestore;
+import com.NexustAPIAutomation.java.ReadProjectProperties;
 
 import io.restassured.response.ValidatableResponse;
 
@@ -176,6 +178,23 @@ public class penaltyController {
 		String expected = "{\"Penalty\":{\"Success\":true,\"Data\":{\"CalculateBy\":\"0\",\"BatchId\":\"PENALTY2\",\"PenaltyDocumentDate\":\"2025-01-01\",\"PenaltyDueDate\":\"2025-09-15\",\"ExcludeFormerCustomers\":\"false\",\"IncludeOnlyPrintedDocuments\":\"false\",\"IncludeFormerCustomerstWithLoanBalance\":\"false\",\"Route\":[\"001\",\"002\"],\"IncludeDocumentsWithDueDate\":\"2025-09-15\",\"IncludeDocumentWithPenaltyProcessingDate\":\"2025-09-15\",\"UserId\":\"sa\",\"Zone\":[],\"Cycle\":[],\"LocationId\":\"\"},\"Messages\":[]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		CommonMethods.getMethodContainsString(uri, ver, params, expected);
+		
+		//Verify Table
+		ReadProjectProperties Read = new ReadProjectProperties();
+		String ConnectionString = Read.ReadFile("ConnectionStringServTWO");
+		
+		
+		String columnName = "BatchId";
+		String Command1 = "select * from Two.dbo.csmApi_PenaltyPreparationHistory ";
+		String Result = "";
+		Result = CommonMethods.selectFromDb(Command1, ConnectionString, columnName);
+		
+		if (Result == "") {
+			Assert.fail("csmApi_PenaltyPreparationHistory is empty " + Result);
+
+		}
+	
+		
 	}
 
 	@Test(priority = 12, groups = "Penalty")
@@ -193,5 +212,38 @@ public class penaltyController {
 		String Result = CommonMethods.postMethodResponseAsString(payload, uri, ver);
 		Assert.assertEquals(Result, expected);
 	}
+	
+	@Test(priority = 13, groups = "Penalty")
+	public void postpenaltyDocumentsPENALTY2_v_4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/penalty/documentPost";
+		String ver = "4.0";
+		String payload = "{\r\n" + "    \"BatchId\": \"PENALTY2\",\r\n" + "    \"PostDate\": \"2025-09-18\"\r\n" + "}";
+		String expected = "{\"Penalty\":{\"Success\":true,\"Data\":{\"UserId\":\"sa\",\"VersionNumber\":\"1.0.0\",\"PostDate\":\"2025-09-18\",\"BatchId\":\"PENALTY2\",\"MiscCharge\":{\"Document\":[{\"DocType\":\"PNLT\",\"DocumentNumber\":\"PNLT00000000098\",\"CustomerId\":\"0000011111\",\"LocationId\":\"LOC@0001\",\"DocumentDate\":\"2025-01-01\",\"TransactionAmount\":5.00,\"TaxAmount\":0.00,\"TotalChargeAmount\":5.00,\"ServiceType\":\"ELECTRIC\",\"OutstandingAmount\":5.00,\"MiscChargeType\":\"RES-OVERDUE\",\"TransactionDescription\":\"Penalty for overdue\",\"TaxSchedule\":\"\"}]},\"MiscChargeDistribution\":{\"DocumentDistribution\":[{\"DocType\":\"PNLT\",\"DocumentNumber\":\"PNLT00000000098\",\"DistributionType\":3,\"DistributionIndex\":611,\"OriginalDebitAmount\":5.00,\"OriginalCreditAmount\":0.00},{\"DocType\":\"PNLT\",\"DocumentNumber\":\"PNLT00000000098\",\"DistributionType\":9,\"DistributionIndex\":612,\"OriginalDebitAmount\":0.00,\"OriginalCreditAmount\":5.00}]},\"Payment\":null,\"PaymentDistribution\":null,\"Bill\":null,\"BillDistribution\":null,\"HasPostingError\":false,\"HasPostingReport\":true,\"Document\":[{\"DocumentNumber\":\"PNLT00000000098\"}],\"ApplyDocument\":[],\"PostedDistribution\":[{\"DocumentNumber\":\"PNLT00000000098\",\"LineSequence\":1,\"DistributionIndex\":611,\"TransactionAmount\":-5.00,\"LocationId\":\"\"},{\"DocumentNumber\":\"PNLT00000000098\",\"LineSequence\":2,\"DistributionIndex\":612,\"TransactionAmount\":5.00,\"LocationId\":\"\"}],\"ReportList\":[{\"Name\":\"Post Misc Charge Edit List\",\"PrintOrder\":1,\"DisplayName\":\"Post Misc Charge Edit List\",\"PrintEnabled\":true},{\"Name\":\"Post Misc Charge Dist Breakdown Summary\",\"PrintOrder\":2,\"DisplayName\":\"Post Misc Charge Dist Breakdown Summary\",\"PrintEnabled\":true},{\"Name\":\"Post Misc Charge Payment Dist Breakdown Detail\",\"PrintOrder\":3,\"DisplayName\":\"Post Misc Charge Payment Dist Breakdown Detail\",\"PrintEnabled\":false},{\"Name\":\"Post Misc Charge Payment Dist Breakdown Summary\",\"PrintOrder\":4,\"DisplayName\":\"Post Misc Charge Payment Dist Breakdown Summary\",\"PrintEnabled\":false}],\"ReportErrorList\":[{\"Name\":\"Post Misc Charge Error List\",\"PrintOrder\":1,\"DisplayName\":\"Post Misc Charge Error List\",\"PrintEnabled\":true}]},\"Messages\":[]}}";
+		String Result = CommonMethods.postMethodResponseAsString(payload, uri, ver);
+		Assert.assertEquals(Result, expected);
+		
+		
+		ReadProjectProperties Read = new ReadProjectProperties();
+		String ConnectionString = Read.ReadFile("ConnectionStringServTWO");
+		String columnName = "Batchid";
+		String Command1 = "select * from Two.dbo.csmApi_PenaltyPreparationHistory where Batchid ='PENALTY2'";
+		Result = "";
+		Result = CommonMethods.selectFromDb(Command1, ConnectionString, columnName);
+
+		if (Result == null) {
+			System.out.println(false);
+		}
+		else{
+			Assert.fail("csmApi_PenaltyPreparationHistory is Not empty " + Result);
+
+		}
+
+	}
+	
+	
+	
+	
 
 }

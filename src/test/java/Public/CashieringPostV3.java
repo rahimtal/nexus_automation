@@ -60,6 +60,8 @@ public class CashieringPostV3  extends BaseClass{
 		JsonPath next = CommonMethods.getMethod("/cashiering/receipt/TRREG000001/nextReceipt", "3.0");
 		nextRecieptNumber = next.get("Receipt[0].ReceiptNumber");
 		Thread.sleep(5000);
+		
+		CommonMethods.Bug("CPDEV-23877");
 		String uri = "/cashiering/receipt";
 		String ver = "3.0";
 		String payload = "{\"Receipt\":{\"ReceiptNumber\":\"" + nextRecieptNumber

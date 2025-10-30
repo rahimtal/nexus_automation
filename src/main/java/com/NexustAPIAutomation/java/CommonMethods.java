@@ -19,6 +19,7 @@ import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLDataException;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -1166,35 +1167,46 @@ public class CommonMethods {
 	}
 
 	public static String selectFromDb(String Command, String ConnectionString, String columnName)
-			throws ClassNotFoundException, SQLException {
-		// Following will created database
-		String Result = "";
-		Connection con = DriverManager.getConnection(ConnectionString);
-		try {
+		    throws ClassNotFoundException, SQLException {
+		    String Result = "";
+		    Connection con = DriverManager.getConnection(ConnectionString);
+		    try {
+		        // Load the SQL Server JDBC driver
+		        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
-			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			// Creating connection to the database
+		        // Execute the SQL query
+		        Statement stmt = con.createStatement();
+		        System.out.println("Executing query: " + Command);  // Debugging
+		        ResultSet rs = stmt.executeQuery(Command);
 
-			// Executing the SQL Query and store the results in ResultSet
-			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery(Command);
-			while (rs.next()) {
-				Result = rs.getString(columnName);
-				// System.out.println(Result);
-			}
-			// While loop to iterate through all data and print results
+		        if (!rs.next()) {
+		            System.out.println("No results found for query: " + Command);
+		            return null;
+		        }
 
-		} catch (SQLDataException e) {
-			e.printStackTrace();
-			Assert.fail("Record not found check query");
+		        // Print all the columns for the first row to check
+		        System.out.println("Column names:");
+		        ResultSetMetaData rsmd = rs.getMetaData();
+		        int columnCount = rsmd.getColumnCount();
+		        for (int i = 1; i <= columnCount; i++) {
+		            System.out.println("Column " + i + ": " + rsmd.getColumnName(i));
+		        }
+
+		        // Fetch and print the BatchId column (or handle as needed)
+		        do {
+		            Result = rs.getString(columnName);
+		            System.out.println("Fetched " + columnName + ": " + Result);  // Debugging
+		        } while (rs.next());
+
+		    } catch (SQLDataException e) {
+		        e.printStackTrace();
+		        Assert.fail("Record not found, check query.");
+		    } finally {
+		        con.close();
+		    }
+
+		    return Result;
 		}
-
-		finally {
-			con.close();
-		}
-		return Result;
-
-	}
 
 	private static void log(String string) {
 
