@@ -154,6 +154,21 @@ public class penaltyController {
 		String expected = "{\"Penalty\":{\"Success\":true,\"Data\":{\"ReportList\":[{\"Name\":\"PenaltyPreparationDetail\",\"DisplayName\":\"Penalty Preparation Detail\",\"PrintOrder\":1}]},\"Messages\":[]}}";
 		String Result = CommonMethods.postMethodResponseAsString(payload, uri, ver);
 		Assert.assertEquals(Result, expected);
+		
+		
+		ReadProjectProperties Read = new ReadProjectProperties();
+		String ConnectionString = Read.ReadFile("ConnectionStringServTWO");
+		String columnName = "DocumentNumber";
+		String Command1 = "select * from csmApi_vwReportPenaltyPreparationDetail";
+		Result = "";
+		Result = CommonMethods.selectFromDb(Command1, ConnectionString, columnName);
+
+		if (Result == null) {
+		
+			Assert.fail("csmApi_vwReportPenaltyPreparationDetail is Not empty " + Result);
+
+		}
+
 	}
 
 	@Test(priority = 11, groups = "Penalty", dependsOnMethods = "postpenaltydocumentPrint_v4")
