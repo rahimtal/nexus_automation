@@ -298,7 +298,7 @@ public class BillingControllerv4 extends BaseClass {
 		String ver = "4.0";
 		String payload = "{\n" + "    \"Billing\":{\n" + "        \"ExportToCSV\": true,\n"
 				+ "        \"IncludeEbills\": true,\n" + "        \"PrintAction\": 1,\n"
-				+ "        \"BatchId\": \"10001  \",\n" + "        \"Confirm\": {\n"
+				+ "        \"BatchId\": \"BT1232  \",\n" + "        \"Confirm\": {\n"
 				+ "            \"RefreshBillPrintData\": true\n" + "        }\n" + "    }\n" + "}";
 		String filepath = "./\\TestData\\billingprintStatement.json";
 		// test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
@@ -347,7 +347,7 @@ public class BillingControllerv4 extends BaseClass {
 		// ExtentTest test = extent.createTest("delBatv4Err");
 		// test.log(Status.INFO, "Starting test: delBatv4Err");
 
-		String uri = "/billing/delete/BT12312";
+		String uri = "/billing/delete/BT10002";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\delBatv4Err.json";
 		// test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
@@ -420,12 +420,12 @@ public class BillingControllerv4 extends BaseClass {
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// ExtentTest test = extent.createTest("printcsvbillingStatements");
 		// test.log(Status.INFO, "Starting test: printcsvbillingStatements");
-		CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-23215");
+		//CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-23215");
 		String uri = "/print/csv/billingStatements";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\printcsvbillingStatementsv4.json";
 		HashMap<String, String> params = new HashMap<String, String>();
-		String result = CommonMethods.getMethodContains(uri, ver, params, jpath);
+		String result = CommonMethods.getMethodasString(uri, ver, jpath);
 		// test.log(Status.INFO, "Response: " + result);
 		System.out.println(result);
 	}
