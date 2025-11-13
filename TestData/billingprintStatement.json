@@ -3,7 +3,7 @@
         "ExportToCSV": true,
         "IncludeEbills": true,
         "PrintAction": 1,
-        "BatchId": "10001  ",
+        "BatchId": "BT1232  ",
         "Confirm": {
             "RefreshBillPrintData": true
         }

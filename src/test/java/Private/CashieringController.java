@@ -1,6 +1,7 @@
 package Private;
 
 import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.SkipException;
 import org.testng.Assert;
 
 import org.testng.annotations.Test; import org.testng.Assert;
@@ -247,7 +248,12 @@ public class CashieringController extends BaseClass {
 		String payload = "{\"Receipt\":{\"ReceiptNumber\":\"" + nextRecieptNumber
 				+ "\",\"Comment\":\"NexusAPIadjustment\"}}";
 		jsonPathEvaluator = CommonMethods.postMethodStringPayload(payload, uri, ver);
+		String Result1 = jsonPathEvaluator.get("Receipt.Messages");
 		Boolean Result = jsonPathEvaluator.get("Receipt.Success");
+		if(Result1.contains("Reciept number already adjusted"))
+		{
+			throw new SkipException("Skipping this method due to DATA, please restore DB = ");
+		}
 		System.out.println(jsonPathEvaluator.prettyPrint());
 		if (Result == false) {
 			Assert.fail("Reciept not adjusted "+ jsonPathEvaluator.prettyPrint());

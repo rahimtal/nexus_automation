@@ -190,6 +190,7 @@ public class BillingControllerv4 extends BaseClass {
 		Thread.sleep(5000);
 	}
 
+	//step 1
 	@Test(priority = 18, groups = "billing")
 	public static void PostBillingcalculate_2_v4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
@@ -232,7 +233,7 @@ public class BillingControllerv4 extends BaseClass {
 		}
 	}
 
-	// Test 2: Post Generate Edit Report
+	// Step 2: Post Generate Edit Report
 	@Test(priority = 2, groups = "billing", dependsOnMethods = "PostBillingcalculate_2_v4")
 	public static void PostgenerateEditReportv4_2()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
@@ -262,7 +263,7 @@ public class BillingControllerv4 extends BaseClass {
 		}
 	}
 
-	// Test 13: Post Create Statement (Is Final)
+	// Spet3: Post Create Statement (Is Final)
 	@Test(priority = 19, groups = "billing", dependsOnMethods = "PostgenerateEditReportv4_2")
 	public static void postcreateStatementv4_isfinal()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
@@ -414,7 +415,7 @@ public class BillingControllerv4 extends BaseClass {
 		System.out.println(result);
 	}
 
-	// Test 9: Print CSV Billing Statements
+	// Step 9: Print CSV Billing Statements
 	@Test(priority = 22, groups = "billing", dependsOnMethods = "postcreateStatementv4_isfinal")
 	public void printcsvbillingStatements()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
