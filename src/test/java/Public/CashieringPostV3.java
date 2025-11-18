@@ -61,7 +61,7 @@ public class CashieringPostV3  extends BaseClass{
 		nextRecieptNumber = next.get("Receipt[0].ReceiptNumber");
 		Thread.sleep(5000);
 		
-		CommonMethods.Bug("CPDEV-23877");
+		//CommonMethods.Bug("CPDEV-23877");
 		String uri = "/cashiering/receipt";
 		String ver = "3.0";
 		String payload = "{\"Receipt\":{\"ReceiptNumber\":\"" + nextRecieptNumber
