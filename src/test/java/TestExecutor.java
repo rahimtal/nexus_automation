@@ -1,16 +1,33 @@
-import org.testng.TestNG;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.testng.TestNG;
 
 public class TestExecutor {
 
     private static final int MAX_RETRIES = 2;
     private static final String projectRoot = System.getProperty("user.dir");
     private static final String MAIN_SUITE_PATH = projectRoot + File.separator + "testng.xml";
-    private static final String FAILED_SUITE_PATH = projectRoot + File.separator + "test-output" + File.separator +
-            "Failed suite (Nexus API Regression)" + File.separator + "testng-failed.xml";
+    private static final String FAILED_SUITE_PATH = findFailedSuitePath();
+
+    private static String findFailedSuitePath() {
+        File testOutputDir = new File(projectRoot, "test-output");
+        if (testOutputDir.exists() && testOutputDir.isDirectory()) {
+            File[] subDirs = testOutputDir.listFiles(File::isDirectory);
+            if (subDirs != null) {
+                for (File subDir : subDirs) {
+                    File failedXml = new File(subDir, "testng-failed.xml");
+                    if (failedXml.exists()) {
+                        return failedXml.getAbsolutePath();
+                    }
+                }
+            }
+        }
+        // Fallback to default (old hardcoded path)
+        return projectRoot + File.separator + "test-output" + File.separator +
+                "Nexus API Regression" + File.separator + "testng-failed.xml";
+    }
 
     public static void main(String[] args) {
         runTestNGSuitesWithRetries(MAIN_SUITE_PATH, FAILED_SUITE_PATH, MAX_RETRIES);

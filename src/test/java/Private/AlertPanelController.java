@@ -55,7 +55,7 @@ public class AlertPanelController extends BaseClass {
     public void getalert_invalidCustomer_v4()
             throws ClassNotFoundException, SQLException, InterruptedException, IOException {
         runTest("getalert_invalidCustomer_v4", "/alert/INVALID/SEWER005", "4.0",
-                "{\"Alert\":[{\"Success\":false,\"Messages\":[{\"Enabled\":1,\"Info\":\"Invalid Customer Id. INVALID\",\"Level\":3}]}]}");
+                "{\"Alert\":[{\"Success\":false,\"Messages\":[{\"Enabled\":1,\"Info\":\"Invalid Location Id. SEWER005\",\"Level\":3},{\"Enabled\":1,\"Info\":\"Invalid Customer Id. INVALID\",\"Level\":3}]}]}");
     }
 
     @Test(priority = 2, groups = "AlertPanelController")
