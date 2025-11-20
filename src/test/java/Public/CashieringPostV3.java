@@ -1,21 +1,24 @@
 package Public;
 
-import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.annotations.Test;
 import org.testng.Assert;
-import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.Assert;
 
 import java.sql.SQLException;
 
 import org.apache.http.ConnectionClosedException;
 import org.testng.Assert;
-import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
 import Private.BaseClass;
 import io.restassured.path.json.JsonPath;
 
-public class CashieringPostV3  extends BaseClass{
+public class CashieringPostV3 extends BaseClass {
 
 	public static JsonPath jsonPathEvaluator;
 	public static String nextRecieptNumber;
@@ -47,7 +50,8 @@ public class CashieringPostV3  extends BaseClass{
 	public void saveReciept_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
 		// CommonMethods.CompanyDBRestore();
-		//CommonMethods.Bugs("CPDEV-20919");
+		// CommonMethods.Bugs("CPDEV-20919");
+		CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-24086");
 		String columnName = "umDocumentNumber";
 		String Command1 = "select top 1 umDocumentNumber from TWO.dbo.UMRM102 order by umDocumentNumber desc";
 		String Result = "";
@@ -60,8 +64,11 @@ public class CashieringPostV3  extends BaseClass{
 		JsonPath next = CommonMethods.getMethod("/cashiering/receipt/TRREG000001/nextReceipt", "3.0");
 		nextRecieptNumber = next.get("Receipt[0].ReceiptNumber");
 		Thread.sleep(5000);
-		
-		//CommonMethods.Bug("CPDEV-23877");
+		if (nextRecieptNumber == null) {
+			Assert.fail("Unable to fetch next reciept number");
+
+		}
+		// CommonMethods.Bug("CPDEV-23877");
 		String uri = "/cashiering/receipt";
 		String ver = "3.0";
 		String payload = "{\"Receipt\":{\"ReceiptNumber\":\"" + nextRecieptNumber
