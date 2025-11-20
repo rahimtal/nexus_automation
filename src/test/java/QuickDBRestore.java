@@ -1,14 +1,19 @@
 
-public class QuickDBRestore {
+import java.io.IOException;
 
-    public static void restoreDatabase() {
+public class QuickDBRestore {
+    public static void main(String[] args) throws IOException {
+        restoreDatabase();
+    }
+
+    public static void restoreDatabase() throws IOException {
         String serverName = "DESKTOP-QU86F3Q";
         String username = "sa";
         String password = "cogs";
         String databaseName = "TWO";
         String backupFilePath = "B:\\DatabaseBackup\\TEST_CSM_58";
         try {
-            // Drop database if exists
+            // Check if sqlcmd is available
             Process dropDb = Runtime.getRuntime().exec(new String[] {
                     "sqlcmd",
                     "-S", serverName,
@@ -20,6 +25,9 @@ public class QuickDBRestore {
                             + " SET OFFLINE WITH ROLLBACK IMMEDIATE; DROP DATABASE "
                             + databaseName + "; END"
             });
+            // Consume output and error streams to prevent deadlocks
+            consumeStream(dropDb.getInputStream());
+            consumeStream(dropDb.getErrorStream());
             dropDb.waitFor();
 
             // Restore database
@@ -30,6 +38,8 @@ public class QuickDBRestore {
                     "-P", password,
                     "-Q", "RESTORE DATABASE " + databaseName + " FROM DISK='" + backupFilePath + "' WITH REPLACE"
             });
+            consumeStream(restoreDb.getInputStream());
+            consumeStream(restoreDb.getErrorStream());
             restoreDb.waitFor();
 
             System.out.println("Restore DB ==============================");
@@ -37,5 +47,17 @@ public class QuickDBRestore {
             e.printStackTrace();
             System.exit(1);
         }
+        System.out.println("Database restore task completed.");
+    }
+
+    // Helper method to consume process streams
+    private static void consumeStream(java.io.InputStream inputStream) {
+        new Thread(() -> {
+            try (java.util.Scanner s = new java.util.Scanner(inputStream)) {
+                while (s.hasNextLine()) {
+                    s.nextLine();
+                }
+            }
+        }).start();
     }
 }

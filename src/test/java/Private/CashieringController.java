@@ -1,10 +1,12 @@
 package Private;
 
-import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.Assert;
 import org.testng.SkipException;
 import org.testng.Assert;
 
-import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.Assert;
 
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -14,10 +16,10 @@ import java.util.Map.Entry;
 
 import org.apache.http.ConnectionClosedException;
 import org.testng.Assert;
-import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
-
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -187,7 +189,7 @@ public class CashieringController extends BaseClass {
 		jsonPathEvaluator = CommonMethods.postMethodStringPayload(payload, uri, ver);
 		Boolean Result = jsonPathEvaluator.get("Receipt.Success");
 		if (Result != null) {
-			if (Result == false) {
+			if (!Result) {
 				System.out.println("Unable to adjust or reciept already adjust, check data");
 
 			}
@@ -202,8 +204,7 @@ public class CashieringController extends BaseClass {
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
 		// CommonMethods.CompanyDBRestore();
 		// CommonMethods.Bugs("CPDEV-20919");
-		
-		
+
 		String columnName = "umDocumentNumber";
 		String Command1 = "select top 1 umDocumentNumber from TWO.dbo.UMRM102 order by umDocumentNumber desc";
 		String Result = "";
@@ -212,6 +213,7 @@ public class CashieringController extends BaseClass {
 		if (Result != "") {
 			System.out.println(Result);
 			adjustRecieptPre(Result);
+			System.out.println("Reciept Adjusted	");
 		}
 
 		JsonPath next = CommonMethods.getMethod("/cashiering/receipt/TRREG000001/nextReceipt", "4.0");
@@ -219,7 +221,11 @@ public class CashieringController extends BaseClass {
 		if (nextRecieptNumber == null) {
 			Assert.fail();
 		}
+		System.out.println("Next Reciept = " + nextRecieptNumber);
 		System.out.println(nextRecieptNumber);
+		System.out.println(" = = = = = = = =");
+		System.out.println(" = = = = = = = =");
+
 		Thread.sleep(5000);
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
@@ -242,21 +248,27 @@ public class CashieringController extends BaseClass {
 
 	@Test(priority = 2, groups = "Cashering", dependsOnMethods = "saveReciept_2_4")
 	public void TC002_RecieptAdjustment() throws ClassNotFoundException, SQLException, InterruptedException {
-		//CommonMethods.Bug("CPDEV-22582");
+		// CommonMethods.Bug("CPDEV-22582");
+		// debug
+		// nextRecieptNumber = "004211209000001";
+		if (nextRecieptNumber == null) {
+			Assert.assertEquals(false, "Reciept is Null");
+		}
 		String uri = "/cashiering/receipt/adjust";
 		String ver = "4.0";
 		String payload = "{\"Receipt\":{\"ReceiptNumber\":\"" + nextRecieptNumber
 				+ "\",\"Comment\":\"NexusAPIadjustment\"}}";
 		jsonPathEvaluator = CommonMethods.postMethodStringPayload(payload, uri, ver);
-		String Result1 = jsonPathEvaluator.get("Receipt.Messages");
+		Assert.assertNotNull(jsonPathEvaluator.get("Receipt.Success"), "Receipt.Success is null");
+		Object messagesObj = jsonPathEvaluator.get("Receipt.Messages");
+		String Result1 = messagesObj != null ? messagesObj.toString() : "";
 		Boolean Result = jsonPathEvaluator.get("Receipt.Success");
-		if(Result1.contains("Reciept number already adjusted"))
-		{
+		if (Result1.contains("Reciept number already adjusted")) {
 			throw new SkipException("Skipping this method due to DATA, please restore DB = ");
 		}
 		System.out.println(jsonPathEvaluator.prettyPrint());
 		if (Result == false) {
-			Assert.fail("Reciept not adjusted "+ jsonPathEvaluator.prettyPrint());
+			Assert.fail("Reciept not adjusted " + jsonPathEvaluator.prettyPrint());
 		}
 
 	}
@@ -264,7 +276,7 @@ public class CashieringController extends BaseClass {
 	@Test(priority = 8, groups = "Cashering")
 	public void saveReciept_4_prepaymentExistingCustomer()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
-     // CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
+		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
 		String payload = "{\r\n" + "   \"Receipt\":{\r\n" + "      \"ReceiptNumber\":\"004240724000005\",\r\n"
@@ -292,7 +304,7 @@ public class CashieringController extends BaseClass {
 	@Test(priority = 9, groups = "Cashering")
 	public void saveReciept_4_prepaymentNewCustomer()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
-		//CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
+		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
 		String payload = "{\r\n" + "   \"Receipt\":{\r\n" + "      \"ReceiptNumber\":\"004240724000009\",\r\n"
@@ -320,7 +332,7 @@ public class CashieringController extends BaseClass {
 	@Test(priority = 10, groups = "Cashering")
 	public void saveReciept_4_SOTaskCompleteDepositPayment()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
-		//CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
+		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
 		String payload = "{\r\n" + "   \"Receipt\":{\r\n" + "      \"ReceiptNumber\":\"004240805000004\",\r\n"
@@ -348,7 +360,7 @@ public class CashieringController extends BaseClass {
 	@Test(priority = 10, groups = "Cashering")
 	public void saveReciept_4_SOTaskCompleteDepositPaymenttask2()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
-		//CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
+		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
 		String payload = "{\r\n" + "   \"Receipt\":{\r\n" + "      \"ReceiptNumber\":\"004240805000013\",\r\n"
@@ -376,7 +388,7 @@ public class CashieringController extends BaseClass {
 	@Test(priority = 11, groups = "Cashering")
 	public void saveReciept_SOTaskCompleteDepositPaymenttaskNewCustomer()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
-		//CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
+		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
 		String payload = "{\r\n" + "   \"Receipt\":{\r\n" + "      \"ReceiptNumber\":\"004240805000008\",\r\n"

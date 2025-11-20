@@ -190,7 +190,7 @@ public class BillingControllerv4 extends BaseClass {
 		Thread.sleep(5000);
 	}
 
-	//step 1
+	// step 1
 	@Test(priority = 18, groups = "billing")
 	public static void PostBillingcalculate_2_v4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
@@ -234,7 +234,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Step 2: Post Generate Edit Report
-	@Test(priority = 2, groups = "billing", dependsOnMethods = "PostBillingcalculate_2_v4")
+	@Test(priority = 20, groups = "billing", dependsOnMethods = "PostBillingcalculate_2_v4")
 	public static void PostgenerateEditReportv4_2()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// ExtentTest test = extent.createTest("PostgenerateEditReportv4");
@@ -342,28 +342,6 @@ public class BillingControllerv4 extends BaseClass {
 		}
 	}
 
-	// Test 2: Delete Billing Error
-	@Test(priority = 9, groups = "billing")
-	public static void delBatv4Err() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		// ExtentTest test = extent.createTest("delBatv4Err");
-		// test.log(Status.INFO, "Starting test: delBatv4Err");
-
-		String uri = "/billing/delete/BT10002";
-		String ver = "4.0";
-		String jpath = "./\\TestData\\delBatv4Err.json";
-		// test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
-		// test.log(Status.INFO, "JSON Path file: " + jpath);
-
-		try {
-			String result = CommonMethods.deleteMethod(uri, ver, jpath);
-			// test.log(Status.INFO, "Response: " + result);
-			System.out.println(result);
-		} catch (Exception e) {
-			// test.log(Status.ERROR, "Error occurred: " + e.getMessage());
-			e.printStackTrace();
-		}
-	}
-
 	/*
 	 * // Test 5: Post Billing
 	 * 
@@ -421,7 +399,7 @@ public class BillingControllerv4 extends BaseClass {
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// ExtentTest test = extent.createTest("printcsvbillingStatements");
 		// test.log(Status.INFO, "Starting test: printcsvbillingStatements");
-		//CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-23215");
+		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-23215");
 		String uri = "/print/csv/billingStatements";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\printcsvbillingStatementsv4.json";
@@ -671,4 +649,17 @@ public class BillingControllerv4 extends BaseClass {
 
 	}
 
+	@Test(priority = 26, groups = "billing")
+	public void deleteBatv4Error()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/billing/delete/BT10002";
+		String ver = "4.0";
+		String jpath = "./\\TestData\\delBatv4Err.json";
+		try {
+			String result = CommonMethods.deleteMethod(uri, ver, jpath);
+			System.out.println(result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
