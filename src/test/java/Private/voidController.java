@@ -1,8 +1,10 @@
 package Private;
 
-import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.Assert;
 
-import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.Assert;
 import org.testng.Assert;
 
 import java.io.IOException;
@@ -11,13 +13,12 @@ import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
-
-
-public class voidController  extends BaseClass{
+public class voidController extends BaseClass {
 
 	// @Test(priority = 1, groups = "void" )
 	public void putvoidvalidatev4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
@@ -44,7 +45,7 @@ public class voidController  extends BaseClass{
 
 	@Test(priority = 1, groups = "void")
 	public void putvoidv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		//CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-23536");
+		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-23536");
 		String uri = "/void";
 		String ver = "4.0";
 		String params = "{\r\n"
@@ -64,15 +65,15 @@ public class voidController  extends BaseClass{
 				+ "        ]\r\n"
 				+ "   }\r\n"
 				+ "}";
-	
+
 		String expected = "{\"Void\":{\"Success\":true,\"Data\":{\"BatchId\":\"11111\",\"Document\":[{\"Number\":\"BILL00000000372\",\"Void\":true}],\"SpaCanceled\":false,\"ReasonCodeServiceOrderNumber\":\"\",\"PostingReport\":true,\"PostingError\":false,\"ReportList\":[{\"Name\":\"Void Edit List\",\"PrintOrder\":1},{\"Name\":\"Void Dist Breakdown Detail\",\"PrintOrder\":2},{\"Name\":\"Void Dist Breakdown Summary\",\"PrintOrder\":3}],\"ReportErrorList\":[{\"ReportName\":\"Void Posting Error List\",\"PrintOrder\":1}]},\"Messages\":[]}}";
 		CommonMethods.putMethodstring(uri, ver, params, expected);
 	}
 
 	@Test(priority = 2, groups = "void")
 	public void getVoidLaodv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		
-		//Verified Bug (2025)
+
+		// Verified Bug (2025)
 		CommonMethods.Bug("CPDEV-17878");
 		String uri = "/void/load/ELECWAT001/CUSTOMER007";
 		String ver = "4.0";
@@ -85,15 +86,15 @@ public class voidController  extends BaseClass{
 
 	@Test(priority = 2, groups = "void")
 	public void getlinkedDocumentv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		
-		//CommonMethods.Bug("CPDEV-21825");
+
+		// CommonMethods.Bug("CPDEV-21825");
 		CommonMethods.Bug("CPDEV-23722");
 		String uri = "/void/linkedDocument/BILL00000000496";
 		String ver = "4.0";
 		String expected = "{\"Void\":{\"Success\":true,\"Data\":{\"LinkedDocument\":{\"Spa\":null,\"Penalty\":null,\"WriteOffExport\":[{\"Number\":\"PYMT00000000505\"}],\"CollectionImport\":null,\"DepositReceivable\":null,\"NegativeBill\":null,\"BillCreditNote\":null,\"TransferBalanceDocument\":null,\"CashieringCheckCreditCard\":null}},\"Messages\":[]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		String result = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(expected, result);
+		Assert.assertEquals(result, expected);
 
 	}
 
