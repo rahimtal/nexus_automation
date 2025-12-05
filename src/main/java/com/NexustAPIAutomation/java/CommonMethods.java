@@ -150,37 +150,37 @@ public class CommonMethods {
 	public static JsonPath postMethod(String fielpath, String uri, String version) throws InterruptedException {
 
 		switch (version) {
-		case "1":
-			RestAssured.baseURI = urlv1;
-			break;
-		case "2":
-			RestAssured.baseURI = urlv2;
-			break;
-		case "2.1":
-			RestAssured.baseURI = urlv210;
-			break;
-		case "2.2":
-			RestAssured.baseURI = urlv220;
-			break;
-		case "2.3":
-			RestAssured.baseURI = urlv230;
-			break;
-		case "2.3.1":
-			RestAssured.baseURI = urlv231;
-			break;
-		case "2.4":
-			RestAssured.baseURI = urlv240;
-			break;
-		case "3.0":
-			RestAssured.baseURI = urlv3;
-			break;
-		case "4.0":
-			RestAssured.baseURI = urlv4;
-			break;
-		default:
-			Assert.fail("Invalid version");
-			version = "Invalid version";
-			break;
+			case "1":
+				RestAssured.baseURI = urlv1;
+				break;
+			case "2":
+				RestAssured.baseURI = urlv2;
+				break;
+			case "2.1":
+				RestAssured.baseURI = urlv210;
+				break;
+			case "2.2":
+				RestAssured.baseURI = urlv220;
+				break;
+			case "2.3":
+				RestAssured.baseURI = urlv230;
+				break;
+			case "2.3.1":
+				RestAssured.baseURI = urlv231;
+				break;
+			case "2.4":
+				RestAssured.baseURI = urlv240;
+				break;
+			case "3.0":
+				RestAssured.baseURI = urlv3;
+				break;
+			case "4.0":
+				RestAssured.baseURI = urlv4;
+				break;
+			default:
+				Assert.fail("Invalid version");
+				version = "Invalid version";
+				break;
 		}
 		File jsonDataInFile = new File(fielpath);
 		JSONObject bodycontent = null;
@@ -226,37 +226,37 @@ public class CommonMethods {
 			throws InterruptedException {
 
 		switch (version) {
-		case "1":
-			RestAssured.baseURI = urlv1;
-			break;
-		case "2":
-			RestAssured.baseURI = urlv2;
-			break;
-		case "2.1":
-			RestAssured.baseURI = urlv210;
-			break;
-		case "2.2":
-			RestAssured.baseURI = urlv220;
-			break;
-		case "2.3":
-			RestAssured.baseURI = urlv230;
-			break;
-		case "2.3.1":
-			RestAssured.baseURI = urlv231;
-			break;
-		case "2.4":
-			RestAssured.baseURI = urlv240;
-			break;
-		case "3.0":
-			RestAssured.baseURI = urlv3;
-			break;
-		case "4.0":
-			RestAssured.baseURI = urlv4;
-			break;
-		default:
-			Assert.fail("Invalid version");
-			version = "Invalid version";
-			break;
+			case "1":
+				RestAssured.baseURI = urlv1;
+				break;
+			case "2":
+				RestAssured.baseURI = urlv2;
+				break;
+			case "2.1":
+				RestAssured.baseURI = urlv210;
+				break;
+			case "2.2":
+				RestAssured.baseURI = urlv220;
+				break;
+			case "2.3":
+				RestAssured.baseURI = urlv230;
+				break;
+			case "2.3.1":
+				RestAssured.baseURI = urlv231;
+				break;
+			case "2.4":
+				RestAssured.baseURI = urlv240;
+				break;
+			case "3.0":
+				RestAssured.baseURI = urlv3;
+				break;
+			case "4.0":
+				RestAssured.baseURI = urlv4;
+				break;
+			default:
+				Assert.fail("Invalid version");
+				version = "Invalid version";
+				break;
 		}
 		File jsonDataInFile = new File(payload);
 
@@ -278,37 +278,37 @@ public class CommonMethods {
 			throws InterruptedException {
 
 		switch (version) {
-		case "1":
-			RestAssured.baseURI = urlv1;
-			break;
-		case "2":
-			RestAssured.baseURI = urlv2;
-			break;
-		case "2.1":
-			RestAssured.baseURI = urlv210;
-			break;
-		case "2.2":
-			RestAssured.baseURI = urlv220;
-			break;
-		case "2.3":
-			RestAssured.baseURI = urlv230;
-			break;
-		case "2.3.1":
-			RestAssured.baseURI = urlv231;
-			break;
-		case "2.4":
-			RestAssured.baseURI = urlv240;
-			break;
-		case "3.0":
-			RestAssured.baseURI = urlv3;
-			break;
-		case "4.0":
-			RestAssured.baseURI = urlv4;
-			break;
-		default:
-			Assert.fail("Invalid version");
-			version = "Invalid version";
-			break;
+			case "1":
+				RestAssured.baseURI = urlv1;
+				break;
+			case "2":
+				RestAssured.baseURI = urlv2;
+				break;
+			case "2.1":
+				RestAssured.baseURI = urlv210;
+				break;
+			case "2.2":
+				RestAssured.baseURI = urlv220;
+				break;
+			case "2.3":
+				RestAssured.baseURI = urlv230;
+				break;
+			case "2.3.1":
+				RestAssured.baseURI = urlv231;
+				break;
+			case "2.4":
+				RestAssured.baseURI = urlv240;
+				break;
+			case "3.0":
+				RestAssured.baseURI = urlv3;
+				break;
+			case "4.0":
+				RestAssured.baseURI = urlv4;
+				break;
+			default:
+				Assert.fail("Invalid version");
+				version = "Invalid version";
+				break;
 		}
 
 		Response response;
@@ -329,36 +329,36 @@ public class CommonMethods {
 			throws InterruptedException {
 
 		switch (version) {
-		case "1":
-			RestAssured.baseURI = urlv1;
-			break;
-		case "2":
-			RestAssured.baseURI = urlv2;
-			break;
-		case "2.1":
-			RestAssured.baseURI = urlv210;
-			break;
-		case "2.2":
-			RestAssured.baseURI = urlv220;
-			break;
-		case "2.3":
-			RestAssured.baseURI = urlv230;
-			break;
-		case "2.3.1":
-			RestAssured.baseURI = urlv231;
-			break;
-		case "2.4":
-			RestAssured.baseURI = urlv240;
-			break;
-		case "3.0":
-			RestAssured.baseURI = urlv3;
-			break;
-		case "4.0":
-			RestAssured.baseURI = urlv4;
-			break;
-		default:
-			version = "Invalid version";
-			break;
+			case "1":
+				RestAssured.baseURI = urlv1;
+				break;
+			case "2":
+				RestAssured.baseURI = urlv2;
+				break;
+			case "2.1":
+				RestAssured.baseURI = urlv210;
+				break;
+			case "2.2":
+				RestAssured.baseURI = urlv220;
+				break;
+			case "2.3":
+				RestAssured.baseURI = urlv230;
+				break;
+			case "2.3.1":
+				RestAssured.baseURI = urlv231;
+				break;
+			case "2.4":
+				RestAssured.baseURI = urlv240;
+				break;
+			case "3.0":
+				RestAssured.baseURI = urlv3;
+				break;
+			case "4.0":
+				RestAssured.baseURI = urlv4;
+				break;
+			default:
+				version = "Invalid version";
+				break;
 		}
 		// File jsonDataInFile = new File(payload);
 		System.out.println(payload);
@@ -385,36 +385,36 @@ public class CommonMethods {
 			throws InterruptedException {
 
 		switch (version) {
-		case "1":
-			RestAssured.baseURI = urlv1;
-			break;
-		case "2":
-			RestAssured.baseURI = urlv2;
-			break;
-		case "2.1":
-			RestAssured.baseURI = urlv210;
-			break;
-		case "2.2":
-			RestAssured.baseURI = urlv220;
-			break;
-		case "2.3":
-			RestAssured.baseURI = urlv230;
-			break;
-		case "2.3.1":
-			RestAssured.baseURI = urlv231;
-			break;
-		case "2.4":
-			RestAssured.baseURI = urlv240;
-			break;
-		case "3.0":
-			RestAssured.baseURI = urlv3;
-			break;
-		case "4.0":
-			RestAssured.baseURI = urlv4;
-			break;
-		default:
-			version = "Invalid version";
-			break;
+			case "1":
+				RestAssured.baseURI = urlv1;
+				break;
+			case "2":
+				RestAssured.baseURI = urlv2;
+				break;
+			case "2.1":
+				RestAssured.baseURI = urlv210;
+				break;
+			case "2.2":
+				RestAssured.baseURI = urlv220;
+				break;
+			case "2.3":
+				RestAssured.baseURI = urlv230;
+				break;
+			case "2.3.1":
+				RestAssured.baseURI = urlv231;
+				break;
+			case "2.4":
+				RestAssured.baseURI = urlv240;
+				break;
+			case "3.0":
+				RestAssured.baseURI = urlv3;
+				break;
+			case "4.0":
+				RestAssured.baseURI = urlv4;
+				break;
+			default:
+				version = "Invalid version";
+				break;
 		}
 		// File jsonDataInFile = new File(payload);
 
@@ -444,36 +444,36 @@ public class CommonMethods {
 			throws InterruptedException {
 
 		switch (version) {
-		case "1":
-			RestAssured.baseURI = urlv1;
-			break;
-		case "2":
-			RestAssured.baseURI = urlv2;
-			break;
-		case "2.1":
-			RestAssured.baseURI = urlv210;
-			break;
-		case "2.2":
-			RestAssured.baseURI = urlv220;
-			break;
-		case "2.3":
-			RestAssured.baseURI = urlv230;
-			break;
-		case "2.3.1":
-			RestAssured.baseURI = urlv231;
-			break;
-		case "2.4":
-			RestAssured.baseURI = urlv240;
-			break;
-		case "3.0":
-			RestAssured.baseURI = urlv3;
-			break;
-		case "4.0":
-			RestAssured.baseURI = urlv4;
-			break;
-		default:
-			version = "Invalid version";
-			break;
+			case "1":
+				RestAssured.baseURI = urlv1;
+				break;
+			case "2":
+				RestAssured.baseURI = urlv2;
+				break;
+			case "2.1":
+				RestAssured.baseURI = urlv210;
+				break;
+			case "2.2":
+				RestAssured.baseURI = urlv220;
+				break;
+			case "2.3":
+				RestAssured.baseURI = urlv230;
+				break;
+			case "2.3.1":
+				RestAssured.baseURI = urlv231;
+				break;
+			case "2.4":
+				RestAssured.baseURI = urlv240;
+				break;
+			case "3.0":
+				RestAssured.baseURI = urlv3;
+				break;
+			case "4.0":
+				RestAssured.baseURI = urlv4;
+				break;
+			default:
+				version = "Invalid version";
+				break;
 		}
 
 		System.out.println("Payload = " + payload);
@@ -495,44 +495,44 @@ public class CommonMethods {
 
 	public static JsonPath getMethod(String uri, String version) throws InterruptedException {
 		switch (version) {
-		case "1":
-			RestAssured.baseURI = urlv1;
-			break;
-		case "1.0":
-			RestAssured.baseURI = urlv1;
-			break;
-		case "2.0":
-			RestAssured.baseURI = urlv2;
-			break;
-		case "2":
-			RestAssured.baseURI = urlv2;
-			break;
-		case "2.1":
-			RestAssured.baseURI = urlv210;
-			break;
-		case "2.2":
-			RestAssured.baseURI = urlv220;
-			break;
-		case "2.3":
-			RestAssured.baseURI = urlv230;
-			break;
-		case "2.3.1":
-			RestAssured.baseURI = urlv231;
-			break;
-		case "2.4":
-			RestAssured.baseURI = urlv240;
-			break;
-		case "3.0":
-			RestAssured.baseURI = urlv3;
-			break;
-		case "4.0":
-			RestAssured.baseURI = urlv4;
-		case "4":
-			RestAssured.baseURI = urlv4;
-			break;
-		default:
-			version = "Invalid version";
-			break;
+			case "1":
+				RestAssured.baseURI = urlv1;
+				break;
+			case "1.0":
+				RestAssured.baseURI = urlv1;
+				break;
+			case "2.0":
+				RestAssured.baseURI = urlv2;
+				break;
+			case "2":
+				RestAssured.baseURI = urlv2;
+				break;
+			case "2.1":
+				RestAssured.baseURI = urlv210;
+				break;
+			case "2.2":
+				RestAssured.baseURI = urlv220;
+				break;
+			case "2.3":
+				RestAssured.baseURI = urlv230;
+				break;
+			case "2.3.1":
+				RestAssured.baseURI = urlv231;
+				break;
+			case "2.4":
+				RestAssured.baseURI = urlv240;
+				break;
+			case "3.0":
+				RestAssured.baseURI = urlv3;
+				break;
+			case "4.0":
+				RestAssured.baseURI = urlv4;
+			case "4":
+				RestAssured.baseURI = urlv4;
+				break;
+			default:
+				version = "Invalid version";
+				break;
 		}
 		// File jsonDataInFile = new File(payload);
 		System.out.println(RestAssured.baseURI);
@@ -551,40 +551,40 @@ public class CommonMethods {
 	public static JsonPath getMethod(String uri, String version, Map<String, String> responseMap)
 			throws InterruptedException {
 		switch (version) {
-		case "1":
-			RestAssured.baseURI = urlv1;
-			break;
-		case "2":
-			RestAssured.baseURI = urlv2;
-			break;
-		case "2.1":
-			RestAssured.baseURI = urlv210;
-			break;
-		case "2.2":
-			RestAssured.baseURI = urlv220;
-			break;
-		case "2.3":
-			RestAssured.baseURI = urlv230;
-			break;
-		case "2.3.1":
-			RestAssured.baseURI = urlv231;
-			break;
-		case "2.4":
-			RestAssured.baseURI = urlv240;
-			break;
-		case "3.0":
-			RestAssured.baseURI = urlv3;
-			break;
-		case "4.0":
-			RestAssured.baseURI = urlv4;
-			break;
-		case "4":
-			RestAssured.baseURI = urlv4;
-			break;
+			case "1":
+				RestAssured.baseURI = urlv1;
+				break;
+			case "2":
+				RestAssured.baseURI = urlv2;
+				break;
+			case "2.1":
+				RestAssured.baseURI = urlv210;
+				break;
+			case "2.2":
+				RestAssured.baseURI = urlv220;
+				break;
+			case "2.3":
+				RestAssured.baseURI = urlv230;
+				break;
+			case "2.3.1":
+				RestAssured.baseURI = urlv231;
+				break;
+			case "2.4":
+				RestAssured.baseURI = urlv240;
+				break;
+			case "3.0":
+				RestAssured.baseURI = urlv3;
+				break;
+			case "4.0":
+				RestAssured.baseURI = urlv4;
+				break;
+			case "4":
+				RestAssured.baseURI = urlv4;
+				break;
 
-		default:
-			version = "Invalid version";
-			break;
+			default:
+				version = "Invalid version";
+				break;
 		}
 		// File jsonDataInFile = new File(payload);
 		RestAssured.baseURI = RestAssured.baseURI + uri;
@@ -616,37 +616,37 @@ public class CommonMethods {
 	public static Response getMethod(String uri, String version, HashMap<String, String> params)
 			throws InterruptedException {
 		switch (version) {
-		case "1":
-			RestAssured.baseURI = urlv1;
-			break;
-		case "2":
-			RestAssured.baseURI = urlv2;
-			break;
-		case "2.1":
-			RestAssured.baseURI = urlv210;
-			break;
-		case "2.2":
-			RestAssured.baseURI = urlv220;
-			break;
-		case "2.3":
-			RestAssured.baseURI = urlv230;
-			break;
-		case "2.3.1":
-			RestAssured.baseURI = urlv231;
-			break;
-		case "2.4":
-			RestAssured.baseURI = urlv240;
-			break;
-		case "3.0":
-			RestAssured.baseURI = urlv3;
-			break;
-		case "4.0":
-			RestAssured.baseURI = urlv4;
-			break;
+			case "1":
+				RestAssured.baseURI = urlv1;
+				break;
+			case "2":
+				RestAssured.baseURI = urlv2;
+				break;
+			case "2.1":
+				RestAssured.baseURI = urlv210;
+				break;
+			case "2.2":
+				RestAssured.baseURI = urlv220;
+				break;
+			case "2.3":
+				RestAssured.baseURI = urlv230;
+				break;
+			case "2.3.1":
+				RestAssured.baseURI = urlv231;
+				break;
+			case "2.4":
+				RestAssured.baseURI = urlv240;
+				break;
+			case "3.0":
+				RestAssured.baseURI = urlv3;
+				break;
+			case "4.0":
+				RestAssured.baseURI = urlv4;
+				break;
 
-		default:
-			version = "Invalid version";
-			break;
+			default:
+				version = "Invalid version";
+				break;
 		}
 		// File jsonDataInFile = new File(payload);
 		RestAssured.baseURI = RestAssured.baseURI + uri;
@@ -665,37 +665,37 @@ public class CommonMethods {
 			throws InterruptedException, IOException {
 
 		switch (version) {
-		case "1":
-			RestAssured.baseURI = urlv1;
-			break;
-		case "2":
-			RestAssured.baseURI = urlv2;
-			break;
-		case "2.1":
-			RestAssured.baseURI = urlv210;
-			break;
-		case "2.2":
-			RestAssured.baseURI = urlv220;
-			break;
-		case "2.3":
-			RestAssured.baseURI = urlv230;
-			break;
-		case "2.3.1":
-			RestAssured.baseURI = urlv231;
-			break;
-		case "2.4":
-			RestAssured.baseURI = urlv240;
-			break;
-		case "3.0":
-			RestAssured.baseURI = urlv3;
-			break;
-		case "4.0":
-			RestAssured.baseURI = urlv4;
-			break;
-		default:
-			version = "Invalid version";
-			Assert.fail("Invalid version");
-			break;
+			case "1":
+				RestAssured.baseURI = urlv1;
+				break;
+			case "2":
+				RestAssured.baseURI = urlv2;
+				break;
+			case "2.1":
+				RestAssured.baseURI = urlv210;
+				break;
+			case "2.2":
+				RestAssured.baseURI = urlv220;
+				break;
+			case "2.3":
+				RestAssured.baseURI = urlv230;
+				break;
+			case "2.3.1":
+				RestAssured.baseURI = urlv231;
+				break;
+			case "2.4":
+				RestAssured.baseURI = urlv240;
+				break;
+			case "3.0":
+				RestAssured.baseURI = urlv3;
+				break;
+			case "4.0":
+				RestAssured.baseURI = urlv4;
+				break;
+			default:
+				version = "Invalid version";
+				Assert.fail("Invalid version");
+				break;
 		}
 		String expe = new String(Files.readAllBytes(Paths.get(jpath)));
 		System.out.println("Expected Response as in file : " + jpath + " = " + expe);
@@ -715,37 +715,37 @@ public class CommonMethods {
 			String responseFile) throws InterruptedException, IOException {
 
 		switch (version) {
-		case "1":
-			RestAssured.baseURI = urlv1;
-			break;
-		case "2":
-			RestAssured.baseURI = urlv2;
-			break;
-		case "2.1":
-			RestAssured.baseURI = urlv210;
-			break;
-		case "2.2":
-			RestAssured.baseURI = urlv220;
-			break;
-		case "2.3":
-			RestAssured.baseURI = urlv230;
-			break;
-		case "2.3.1":
-			RestAssured.baseURI = urlv231;
-			break;
-		case "2.4":
-			RestAssured.baseURI = urlv240;
-			break;
-		case "3.0":
-			RestAssured.baseURI = urlv3;
-			break;
-		case "4.0":
-			RestAssured.baseURI = urlv4;
-			break;
+			case "1":
+				RestAssured.baseURI = urlv1;
+				break;
+			case "2":
+				RestAssured.baseURI = urlv2;
+				break;
+			case "2.1":
+				RestAssured.baseURI = urlv210;
+				break;
+			case "2.2":
+				RestAssured.baseURI = urlv220;
+				break;
+			case "2.3":
+				RestAssured.baseURI = urlv230;
+				break;
+			case "2.3.1":
+				RestAssured.baseURI = urlv231;
+				break;
+			case "2.4":
+				RestAssured.baseURI = urlv240;
+				break;
+			case "3.0":
+				RestAssured.baseURI = urlv3;
+				break;
+			case "4.0":
+				RestAssured.baseURI = urlv4;
+				break;
 
-		default:
-			version = "Invalid version";
-			break;
+			default:
+				version = "Invalid version";
+				break;
 		}
 
 		File jsonDataInFile = new File(payload);
@@ -773,34 +773,34 @@ public class CommonMethods {
 			throws InterruptedException, IOException {
 
 		switch (version) {
-		case "1":
-			RestAssured.baseURI = urlv1;
-			break;
-		case "2":
-			RestAssured.baseURI = urlv2;
-			break;
-		case "2.1":
-			RestAssured.baseURI = urlv210;
-			break;
-		case "2.2":
-			RestAssured.baseURI = urlv220;
-			break;
-		case "2.3":
-			RestAssured.baseURI = urlv230;
-			break;
-		case "2.3.1":
-			RestAssured.baseURI = urlv231;
-			break;
-		case "2.4":
-			RestAssured.baseURI = urlv240;
-			break;
-		case "3.0":
-			RestAssured.baseURI = urlv3;
-			break;
+			case "1":
+				RestAssured.baseURI = urlv1;
+				break;
+			case "2":
+				RestAssured.baseURI = urlv2;
+				break;
+			case "2.1":
+				RestAssured.baseURI = urlv210;
+				break;
+			case "2.2":
+				RestAssured.baseURI = urlv220;
+				break;
+			case "2.3":
+				RestAssured.baseURI = urlv230;
+				break;
+			case "2.3.1":
+				RestAssured.baseURI = urlv231;
+				break;
+			case "2.4":
+				RestAssured.baseURI = urlv240;
+				break;
+			case "3.0":
+				RestAssured.baseURI = urlv3;
+				break;
 
-		default:
-			version = "Invalid version";
-			break;
+			default:
+				version = "Invalid version";
+				break;
 		}
 
 		File jsonDataInFile = new File(payload);
@@ -819,37 +819,37 @@ public class CommonMethods {
 			throws InterruptedException, IOException {
 
 		switch (version) {
-		case "1":
-			RestAssured.baseURI = urlv1;
-			break;
-		case "2":
-			RestAssured.baseURI = urlv2;
-			break;
-		case "2.1":
-			RestAssured.baseURI = urlv210;
-			break;
-		case "2.2":
-			RestAssured.baseURI = urlv220;
-			break;
-		case "2.3":
-			RestAssured.baseURI = urlv230;
-			break;
-		case "2.3.1":
-			RestAssured.baseURI = urlv231;
-			break;
-		case "2.4":
-			RestAssured.baseURI = urlv240;
-			break;
-		case "3.0":
-			RestAssured.baseURI = urlv3;
-			break;
-		case "4.0":
-			RestAssured.baseURI = urlv4;
-			break;
+			case "1":
+				RestAssured.baseURI = urlv1;
+				break;
+			case "2":
+				RestAssured.baseURI = urlv2;
+				break;
+			case "2.1":
+				RestAssured.baseURI = urlv210;
+				break;
+			case "2.2":
+				RestAssured.baseURI = urlv220;
+				break;
+			case "2.3":
+				RestAssured.baseURI = urlv230;
+				break;
+			case "2.3.1":
+				RestAssured.baseURI = urlv231;
+				break;
+			case "2.4":
+				RestAssured.baseURI = urlv240;
+				break;
+			case "3.0":
+				RestAssured.baseURI = urlv3;
+				break;
+			case "4.0":
+				RestAssured.baseURI = urlv4;
+				break;
 
-		default:
-			version = "Invalid version";
-			break;
+			default:
+				version = "Invalid version";
+				break;
 		}
 
 		File jsonDataInFile = new File(payload);
@@ -872,37 +872,37 @@ public class CommonMethods {
 			throws InterruptedException, IOException {
 
 		switch (version) {
-		case "1":
-			RestAssured.baseURI = urlv1;
-			break;
-		case "2":
-			RestAssured.baseURI = urlv2;
-			break;
-		case "2.1":
-			RestAssured.baseURI = urlv210;
-			break;
-		case "2.2":
-			RestAssured.baseURI = urlv220;
-			break;
-		case "2.3":
-			RestAssured.baseURI = urlv230;
-			break;
-		case "2.3.1":
-			RestAssured.baseURI = urlv231;
-			break;
-		case "2.4":
-			RestAssured.baseURI = urlv240;
-			break;
-		case "3.0":
-			RestAssured.baseURI = urlv3;
-			break;
-		case "4.0":
-			RestAssured.baseURI = urlv4;
-			break;
+			case "1":
+				RestAssured.baseURI = urlv1;
+				break;
+			case "2":
+				RestAssured.baseURI = urlv2;
+				break;
+			case "2.1":
+				RestAssured.baseURI = urlv210;
+				break;
+			case "2.2":
+				RestAssured.baseURI = urlv220;
+				break;
+			case "2.3":
+				RestAssured.baseURI = urlv230;
+				break;
+			case "2.3.1":
+				RestAssured.baseURI = urlv231;
+				break;
+			case "2.4":
+				RestAssured.baseURI = urlv240;
+				break;
+			case "3.0":
+				RestAssured.baseURI = urlv3;
+				break;
+			case "4.0":
+				RestAssured.baseURI = urlv4;
+				break;
 
-		default:
-			version = "Invalid version";
-			break;
+			default:
+				version = "Invalid version";
+				break;
 		}
 		RestAssured.baseURI = RestAssured.baseURI + uri;
 		System.out.println(RestAssured.baseURI.toString());
@@ -924,40 +924,40 @@ public class CommonMethods {
 			throws InterruptedException, IOException {
 
 		switch (version) {
-		case "1":
-			RestAssured.baseURI = urlv1;
-			break;
-		case "2":
-			RestAssured.baseURI = urlv2;
-			break;
-		case "2.1":
-			RestAssured.baseURI = urlv210;
-			break;
-		case "2.2":
-			RestAssured.baseURI = urlv220;
-			break;
-		case "2.3":
-			RestAssured.baseURI = urlv230;
-			break;
-		case "2.3.1":
-			RestAssured.baseURI = urlv231;
-			break;
-		case "2.4":
-			RestAssured.baseURI = urlv240;
-			break;
-		case "3.0":
-			RestAssured.baseURI = urlv3;
-			break;
-		case "4.0":
-			RestAssured.baseURI = urlv4;
-			break;
-		case "4":
-			RestAssured.baseURI = urlv4;
-			break;
+			case "1":
+				RestAssured.baseURI = urlv1;
+				break;
+			case "2":
+				RestAssured.baseURI = urlv2;
+				break;
+			case "2.1":
+				RestAssured.baseURI = urlv210;
+				break;
+			case "2.2":
+				RestAssured.baseURI = urlv220;
+				break;
+			case "2.3":
+				RestAssured.baseURI = urlv230;
+				break;
+			case "2.3.1":
+				RestAssured.baseURI = urlv231;
+				break;
+			case "2.4":
+				RestAssured.baseURI = urlv240;
+				break;
+			case "3.0":
+				RestAssured.baseURI = urlv3;
+				break;
+			case "4.0":
+				RestAssured.baseURI = urlv4;
+				break;
+			case "4":
+				RestAssured.baseURI = urlv4;
+				break;
 
-		default:
-			version = "Invalid version";
-			break;
+			default:
+				version = "Invalid version";
+				break;
 		}
 
 		// File body = new File(payload);
@@ -971,6 +971,7 @@ public class CommonMethods {
 		Assert.assertEquals(response.getBody().asString(), expected);
 
 		System.out.println("** PUT call Response **");
+		System.out.println(response.getBody().asString());
 		return response.getBody().asString();
 
 	}
@@ -979,37 +980,37 @@ public class CommonMethods {
 			throws InterruptedException, IOException {
 
 		switch (version) {
-		case "1":
-			RestAssured.baseURI = urlv1;
-			break;
-		case "2":
-			RestAssured.baseURI = urlv2;
-			break;
-		case "2.1":
-			RestAssured.baseURI = urlv210;
-			break;
-		case "2.2":
-			RestAssured.baseURI = urlv220;
-			break;
-		case "2.3":
-			RestAssured.baseURI = urlv230;
-			break;
-		case "2.3.1":
-			RestAssured.baseURI = urlv231;
-			break;
-		case "2.4":
-			RestAssured.baseURI = urlv240;
-			break;
-		case "3.0":
-			RestAssured.baseURI = urlv3;
-			break;
-		case "4.0":
-			RestAssured.baseURI = urlv4;
-			break;
+			case "1":
+				RestAssured.baseURI = urlv1;
+				break;
+			case "2":
+				RestAssured.baseURI = urlv2;
+				break;
+			case "2.1":
+				RestAssured.baseURI = urlv210;
+				break;
+			case "2.2":
+				RestAssured.baseURI = urlv220;
+				break;
+			case "2.3":
+				RestAssured.baseURI = urlv230;
+				break;
+			case "2.3.1":
+				RestAssured.baseURI = urlv231;
+				break;
+			case "2.4":
+				RestAssured.baseURI = urlv240;
+				break;
+			case "3.0":
+				RestAssured.baseURI = urlv3;
+				break;
+			case "4.0":
+				RestAssured.baseURI = urlv4;
+				break;
 
-		default:
-			version = "Invalid version";
-			break;
+			default:
+				version = "Invalid version";
+				break;
 		}
 
 		RestAssured.baseURI = RestAssured.baseURI + uri;
@@ -1031,34 +1032,34 @@ public class CommonMethods {
 
 		String version = "2.4";
 		switch (version) {
-		case "1":
-			RestAssured.baseURI = urlv1;
-			break;
-		case "2":
-			RestAssured.baseURI = urlv2;
-			break;
-		case "2.1":
-			RestAssured.baseURI = urlv210;
-			break;
-		case "2.2":
-			RestAssured.baseURI = urlv220;
-			break;
-		case "2.3":
-			RestAssured.baseURI = urlv230;
-			break;
-		case "2.3.1":
-			RestAssured.baseURI = urlv231;
-			break;
-		case "2.4":
-			RestAssured.baseURI = urlv240;
-			break;
-		case "3.0":
-			RestAssured.baseURI = urlv3;
-			break;
+			case "1":
+				RestAssured.baseURI = urlv1;
+				break;
+			case "2":
+				RestAssured.baseURI = urlv2;
+				break;
+			case "2.1":
+				RestAssured.baseURI = urlv210;
+				break;
+			case "2.2":
+				RestAssured.baseURI = urlv220;
+				break;
+			case "2.3":
+				RestAssured.baseURI = urlv230;
+				break;
+			case "2.3.1":
+				RestAssured.baseURI = urlv231;
+				break;
+			case "2.4":
+				RestAssured.baseURI = urlv240;
+				break;
+			case "3.0":
+				RestAssured.baseURI = urlv3;
+				break;
 
-		default:
-			version = "Invalid version";
-			break;
+			default:
+				version = "Invalid version";
+				break;
 		}
 		// File jsonDataInFile = new File(payload);
 
@@ -1100,37 +1101,37 @@ public class CommonMethods {
 	public static ValidatableResponse getMethod(String uri, String version, String pathToResponse)
 			throws InterruptedException, IOException {
 		switch (version) {
-		case "1":
-			RestAssured.baseURI = urlv1;
-			break;
-		case "2":
-			RestAssured.baseURI = urlv2;
-			break;
-		case "2.1":
-			RestAssured.baseURI = urlv210;
-			break;
-		case "2.2":
-			RestAssured.baseURI = urlv220;
-			break;
-		case "2.3":
-			RestAssured.baseURI = urlv230;
-			break;
-		case "2.3.1":
-			RestAssured.baseURI = urlv231;
-			break;
-		case "2.4":
-			RestAssured.baseURI = urlv240;
-			break;
-		case "3.0":
-			RestAssured.baseURI = urlv3;
-			break;
-		case "4.0":
-			RestAssured.baseURI = urlv4;
-			break;
+			case "1":
+				RestAssured.baseURI = urlv1;
+				break;
+			case "2":
+				RestAssured.baseURI = urlv2;
+				break;
+			case "2.1":
+				RestAssured.baseURI = urlv210;
+				break;
+			case "2.2":
+				RestAssured.baseURI = urlv220;
+				break;
+			case "2.3":
+				RestAssured.baseURI = urlv230;
+				break;
+			case "2.3.1":
+				RestAssured.baseURI = urlv231;
+				break;
+			case "2.4":
+				RestAssured.baseURI = urlv240;
+				break;
+			case "3.0":
+				RestAssured.baseURI = urlv3;
+				break;
+			case "4.0":
+				RestAssured.baseURI = urlv4;
+				break;
 
-		default:
-			version = "Invalid version";
-			break;
+			default:
+				version = "Invalid version";
+				break;
 		}
 		Path jsonDataInFile = Paths.get(pathToResponse);
 
@@ -1168,46 +1169,46 @@ public class CommonMethods {
 	}
 
 	public static String selectFromDb(String Command, String ConnectionString, String columnName)
-		    throws ClassNotFoundException, SQLException {
-		    String Result = "";
-		    Connection con = DriverManager.getConnection(ConnectionString);
-		    try {
-		        // Load the SQL Server JDBC driver
-		        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+			throws ClassNotFoundException, SQLException {
+		String Result = "";
+		Connection con = DriverManager.getConnection(ConnectionString);
+		try {
+			// Load the SQL Server JDBC driver
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
-		        // Execute the SQL query
-		        Statement stmt = con.createStatement();
-		        System.out.println("Executing query: " + Command);  // Debugging
-		        ResultSet rs = stmt.executeQuery(Command);
+			// Execute the SQL query
+			Statement stmt = con.createStatement();
+			System.out.println("Executing query: " + Command); // Debugging
+			ResultSet rs = stmt.executeQuery(Command);
 
-		        if (!rs.next()) {
-		            System.out.println("No results found for query: " + Command);
-		            return null;
-		        }
+			if (!rs.next()) {
+				System.out.println("No results found for query: " + Command);
+				return null;
+			}
 
-		        // Print all the columns for the first row to check
-		        System.out.println("Column names:");
-		        ResultSetMetaData rsmd = rs.getMetaData();
-		        int columnCount = rsmd.getColumnCount();
-		        for (int i = 1; i <= columnCount; i++) {
-		            System.out.println("Column " + i + ": " + rsmd.getColumnName(i));
-		        }
+			// Print all the columns for the first row to check
+			System.out.println("Column names:");
+			ResultSetMetaData rsmd = rs.getMetaData();
+			int columnCount = rsmd.getColumnCount();
+			for (int i = 1; i <= columnCount; i++) {
+				System.out.println("Column " + i + ": " + rsmd.getColumnName(i));
+			}
 
-		        // Fetch and print the BatchId column (or handle as needed)
-		        do {
-		            Result = rs.getString(columnName);
-		            System.out.println("Fetched " + columnName + ": " + Result);  // Debugging
-		        } while (rs.next());
+			// Fetch and print the BatchId column (or handle as needed)
+			do {
+				Result = rs.getString(columnName);
+				System.out.println("Fetched " + columnName + ": " + Result); // Debugging
+			} while (rs.next());
 
-		    } catch (SQLDataException e) {
-		        e.printStackTrace();
-		        Assert.fail("Record not found, check query.");
-		    } finally {
-		        con.close();
-		    }
-
-		    return Result;
+		} catch (SQLDataException e) {
+			e.printStackTrace();
+			Assert.fail("Record not found, check query.");
+		} finally {
+			con.close();
 		}
+
+		return Result;
+	}
 
 	private static void log(String string) {
 
@@ -1255,38 +1256,38 @@ public class CommonMethods {
 			throws IOException, InterruptedException {
 		// TODO Auto-generated method stub
 		switch (version) {
-		case "1":
-			RestAssured.baseURI = urlv1;
-			break;
-		case "2":
-			RestAssured.baseURI = urlv2;
-			break;
-		case "2.1":
-			RestAssured.baseURI = urlv210;
-			break;
-		case "2.2":
-			RestAssured.baseURI = urlv220;
-			break;
-		case "2.3":
-			RestAssured.baseURI = urlv230;
-			break;
-		case "2.3.1":
-			RestAssured.baseURI = urlv231;
-			break;
-		case "2.4":
-			RestAssured.baseURI = urlv240;
-			break;
-		case "3.0":
-			RestAssured.baseURI = urlv3;
-			break;
-		case "4.0":
-			RestAssured.baseURI = urlv4;
-			break;
+			case "1":
+				RestAssured.baseURI = urlv1;
+				break;
+			case "2":
+				RestAssured.baseURI = urlv2;
+				break;
+			case "2.1":
+				RestAssured.baseURI = urlv210;
+				break;
+			case "2.2":
+				RestAssured.baseURI = urlv220;
+				break;
+			case "2.3":
+				RestAssured.baseURI = urlv230;
+				break;
+			case "2.3.1":
+				RestAssured.baseURI = urlv231;
+				break;
+			case "2.4":
+				RestAssured.baseURI = urlv240;
+				break;
+			case "3.0":
+				RestAssured.baseURI = urlv3;
+				break;
+			case "4.0":
+				RestAssured.baseURI = urlv4;
+				break;
 
-		default:
-			version = "Invalid version";
-			Assert.fail("Invalid version");
-			break;
+			default:
+				version = "Invalid version";
+				Assert.fail("Invalid version");
+				break;
 		}
 
 		RestAssured.baseURI = RestAssured.baseURI + uri;
@@ -1295,13 +1296,14 @@ public class CommonMethods {
 				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
 				.queryParams(params);
 
-		//ValidatableResponse response;
+		// ValidatableResponse response;
 		// Response response;
 		String validate = new String(Files.readAllBytes(Paths.get(jpath)));
 		System.out.println("Veriying String =" + validate);
-		
-		//response = httpRequest.get().then().assertThat().body(Matchers.containsString(validate));
-		
+
+		// response =
+		// httpRequest.get().then().assertThat().body(Matchers.containsString(validate));
+
 		Response response = httpRequest.get();
 		System.out.println("Response Body: " + response.getBody().asString());
 
@@ -1316,38 +1318,38 @@ public class CommonMethods {
 			String expected) throws IOException, InterruptedException {
 		// TODO Auto-generated method stub
 		switch (version) {
-		case "1":
-			RestAssured.baseURI = urlv1;
-			break;
-		case "2":
-			RestAssured.baseURI = urlv2;
-			break;
-		case "2.1":
-			RestAssured.baseURI = urlv210;
-			break;
-		case "2.2":
-			RestAssured.baseURI = urlv220;
-			break;
-		case "2.3":
-			RestAssured.baseURI = urlv230;
-			break;
-		case "2.3.1":
-			RestAssured.baseURI = urlv231;
-			break;
-		case "2.4":
-			RestAssured.baseURI = urlv240;
-			break;
-		case "3.0":
-			RestAssured.baseURI = urlv3;
-			break;
-		case "4.0":
-			RestAssured.baseURI = urlv4;
-			break;
+			case "1":
+				RestAssured.baseURI = urlv1;
+				break;
+			case "2":
+				RestAssured.baseURI = urlv2;
+				break;
+			case "2.1":
+				RestAssured.baseURI = urlv210;
+				break;
+			case "2.2":
+				RestAssured.baseURI = urlv220;
+				break;
+			case "2.3":
+				RestAssured.baseURI = urlv230;
+				break;
+			case "2.3.1":
+				RestAssured.baseURI = urlv231;
+				break;
+			case "2.4":
+				RestAssured.baseURI = urlv240;
+				break;
+			case "3.0":
+				RestAssured.baseURI = urlv3;
+				break;
+			case "4.0":
+				RestAssured.baseURI = urlv4;
+				break;
 
-		default:
-			version = "Invalid version";
-			Assert.fail("Invalid version");
-			break;
+			default:
+				version = "Invalid version";
+				Assert.fail("Invalid version");
+				break;
 		}
 
 		RestAssured.baseURI = RestAssured.baseURI + uri;
@@ -1368,41 +1370,41 @@ public class CommonMethods {
 			throws IOException, InterruptedException {
 		// TODO Auto-generated method stub
 		switch (version) {
-		case "1":
-			RestAssured.baseURI = urlv1;
-			break;
-		case "2":
-			RestAssured.baseURI = urlv2;
-			break;
-		case "2.1":
-			RestAssured.baseURI = urlv210;
-			break;
-		case "2.2":
-			RestAssured.baseURI = urlv220;
-			break;
-		case "2.3":
-			RestAssured.baseURI = urlv230;
-			break;
-		case "2.3.1":
-			RestAssured.baseURI = urlv231;
-			break;
-		case "2.4":
-			RestAssured.baseURI = urlv240;
-			break;
-		case "3.0":
-			RestAssured.baseURI = urlv3;
-			break;
-		case "4.0":
-			RestAssured.baseURI = urlv4;
-			break;
-		case "e":
-			RestAssured.baseURI = urle;
-			break;
+			case "1":
+				RestAssured.baseURI = urlv1;
+				break;
+			case "2":
+				RestAssured.baseURI = urlv2;
+				break;
+			case "2.1":
+				RestAssured.baseURI = urlv210;
+				break;
+			case "2.2":
+				RestAssured.baseURI = urlv220;
+				break;
+			case "2.3":
+				RestAssured.baseURI = urlv230;
+				break;
+			case "2.3.1":
+				RestAssured.baseURI = urlv231;
+				break;
+			case "2.4":
+				RestAssured.baseURI = urlv240;
+				break;
+			case "3.0":
+				RestAssured.baseURI = urlv3;
+				break;
+			case "4.0":
+				RestAssured.baseURI = urlv4;
+				break;
+			case "e":
+				RestAssured.baseURI = urle;
+				break;
 
-		default:
-			version = "Invalid version";
-			Assert.fail("Invalid version");
-			break;
+			default:
+				version = "Invalid version";
+				Assert.fail("Invalid version");
+				break;
 		}
 
 		RestAssured.baseURI = RestAssured.baseURI + uri;
@@ -1416,47 +1418,46 @@ public class CommonMethods {
 		System.out.println("Response :" + response);
 		return response;
 	}
-	
-	
+
 	public static String getMethodasString(String uri, String version, String rawbody)
 			throws IOException, InterruptedException {
 		// TODO Auto-generated method stub
 		switch (version) {
-		case "1":
-			RestAssured.baseURI = urlv1;
-			break;
-		case "2":
-			RestAssured.baseURI = urlv2;
-			break;
-		case "2.1":
-			RestAssured.baseURI = urlv210;
-			break;
-		case "2.2":
-			RestAssured.baseURI = urlv220;
-			break;
-		case "2.3":
-			RestAssured.baseURI = urlv230;
-			break;
-		case "2.3.1":
-			RestAssured.baseURI = urlv231;
-			break;
-		case "2.4":
-			RestAssured.baseURI = urlv240;
-			break;
-		case "3.0":
-			RestAssured.baseURI = urlv3;
-			break;
-		case "4.0":
-			RestAssured.baseURI = urlv4;
-			break;
-		case "e":
-			RestAssured.baseURI = urle;
-			break;
+			case "1":
+				RestAssured.baseURI = urlv1;
+				break;
+			case "2":
+				RestAssured.baseURI = urlv2;
+				break;
+			case "2.1":
+				RestAssured.baseURI = urlv210;
+				break;
+			case "2.2":
+				RestAssured.baseURI = urlv220;
+				break;
+			case "2.3":
+				RestAssured.baseURI = urlv230;
+				break;
+			case "2.3.1":
+				RestAssured.baseURI = urlv231;
+				break;
+			case "2.4":
+				RestAssured.baseURI = urlv240;
+				break;
+			case "3.0":
+				RestAssured.baseURI = urlv3;
+				break;
+			case "4.0":
+				RestAssured.baseURI = urlv4;
+				break;
+			case "e":
+				RestAssured.baseURI = urle;
+				break;
 
-		default:
-			version = "Invalid version";
-			Assert.fail("Invalid version");
-			break;
+			default:
+				version = "Invalid version";
+				Assert.fail("Invalid version");
+				break;
 		}
 
 		RestAssured.baseURI = RestAssured.baseURI + uri;
@@ -1471,14 +1472,13 @@ public class CommonMethods {
 		return response;
 	}
 
-
 	/**
 	 * Returns a minimal set of characters that have to be removed from (or added
 	 * to) the respective strings to make the strings equal.
 	 */
-//	public static Pair<String> diff(String a, String b) {
+	// public static Pair<String> diff(String a, String b) {
 	// return diffHelper(a, b, new HashMap<>());
-//	}
+	// }
 
 	/**
 	 * Recursively compute a minimal set of characters while remembering already
@@ -1507,36 +1507,36 @@ public class CommonMethods {
 	public static String deleteMethod(String uri, String version, String jpath)
 			throws InterruptedException, IOException {
 		switch (version) {
-		case "1":
-			RestAssured.baseURI = urlv1;
-			break;
-		case "2":
-			RestAssured.baseURI = urlv2;
-			break;
-		case "2.1":
-			RestAssured.baseURI = urlv210;
-			break;
-		case "2.2":
-			RestAssured.baseURI = urlv220;
-			break;
-		case "2.3":
-			RestAssured.baseURI = urlv230;
-			break;
-		case "2.3.1":
-			RestAssured.baseURI = urlv231;
-			break;
-		case "2.4":
-			RestAssured.baseURI = urlv240;
-			break;
-		case "3.0":
-			RestAssured.baseURI = urlv3;
-			break;
-		case "4.0":
-			RestAssured.baseURI = urlv4;
-			break;
-		default:
-			version = "Invalid version";
-			break;
+			case "1":
+				RestAssured.baseURI = urlv1;
+				break;
+			case "2":
+				RestAssured.baseURI = urlv2;
+				break;
+			case "2.1":
+				RestAssured.baseURI = urlv210;
+				break;
+			case "2.2":
+				RestAssured.baseURI = urlv220;
+				break;
+			case "2.3":
+				RestAssured.baseURI = urlv230;
+				break;
+			case "2.3.1":
+				RestAssured.baseURI = urlv231;
+				break;
+			case "2.4":
+				RestAssured.baseURI = urlv240;
+				break;
+			case "3.0":
+				RestAssured.baseURI = urlv3;
+				break;
+			case "4.0":
+				RestAssured.baseURI = urlv4;
+				break;
+			default:
+				version = "Invalid version";
+				break;
 		}
 		RestAssured.baseURI = RestAssured.baseURI + uri;
 		System.out.println(RestAssured.baseURI.toString());
@@ -1555,36 +1555,36 @@ public class CommonMethods {
 	public static void deleteMethodvoid(String uri, String version, String expected)
 			throws InterruptedException, IOException {
 		switch (version) {
-		case "1":
-			RestAssured.baseURI = urlv1;
-			break;
-		case "2":
-			RestAssured.baseURI = urlv2;
-			break;
-		case "2.1":
-			RestAssured.baseURI = urlv210;
-			break;
-		case "2.2":
-			RestAssured.baseURI = urlv220;
-			break;
-		case "2.3":
-			RestAssured.baseURI = urlv230;
-			break;
-		case "2.3.1":
-			RestAssured.baseURI = urlv231;
-			break;
-		case "2.4":
-			RestAssured.baseURI = urlv240;
-			break;
-		case "3.0":
-			RestAssured.baseURI = urlv3;
-			break;
-		case "4.0":
-			RestAssured.baseURI = urlv4;
-			break;
-		default:
-			version = "Invalid version";
-			break;
+			case "1":
+				RestAssured.baseURI = urlv1;
+				break;
+			case "2":
+				RestAssured.baseURI = urlv2;
+				break;
+			case "2.1":
+				RestAssured.baseURI = urlv210;
+				break;
+			case "2.2":
+				RestAssured.baseURI = urlv220;
+				break;
+			case "2.3":
+				RestAssured.baseURI = urlv230;
+				break;
+			case "2.3.1":
+				RestAssured.baseURI = urlv231;
+				break;
+			case "2.4":
+				RestAssured.baseURI = urlv240;
+				break;
+			case "3.0":
+				RestAssured.baseURI = urlv3;
+				break;
+			case "4.0":
+				RestAssured.baseURI = urlv4;
+				break;
+			default:
+				version = "Invalid version";
+				break;
 		}
 		RestAssured.baseURI = RestAssured.baseURI + uri;
 		System.out.println(RestAssured.baseURI.toString());
@@ -1601,36 +1601,36 @@ public class CommonMethods {
 
 	public static String deleteMethodasString(String uri, String version) throws InterruptedException, IOException {
 		switch (version) {
-		case "1":
-			RestAssured.baseURI = urlv1;
-			break;
-		case "2":
-			RestAssured.baseURI = urlv2;
-			break;
-		case "2.1":
-			RestAssured.baseURI = urlv210;
-			break;
-		case "2.2":
-			RestAssured.baseURI = urlv220;
-			break;
-		case "2.3":
-			RestAssured.baseURI = urlv230;
-			break;
-		case "2.3.1":
-			RestAssured.baseURI = urlv231;
-			break;
-		case "2.4":
-			RestAssured.baseURI = urlv240;
-			break;
-		case "3.0":
-			RestAssured.baseURI = urlv3;
-			break;
-		case "4.0":
-			RestAssured.baseURI = urlv4;
-			break;
-		default:
-			version = "Invalid version";
-			break;
+			case "1":
+				RestAssured.baseURI = urlv1;
+				break;
+			case "2":
+				RestAssured.baseURI = urlv2;
+				break;
+			case "2.1":
+				RestAssured.baseURI = urlv210;
+				break;
+			case "2.2":
+				RestAssured.baseURI = urlv220;
+				break;
+			case "2.3":
+				RestAssured.baseURI = urlv230;
+				break;
+			case "2.3.1":
+				RestAssured.baseURI = urlv231;
+				break;
+			case "2.4":
+				RestAssured.baseURI = urlv240;
+				break;
+			case "3.0":
+				RestAssured.baseURI = urlv3;
+				break;
+			case "4.0":
+				RestAssured.baseURI = urlv4;
+				break;
+			default:
+				version = "Invalid version";
+				break;
 		}
 		RestAssured.baseURI = RestAssured.baseURI + uri;
 		System.out.println(RestAssured.baseURI.toString());

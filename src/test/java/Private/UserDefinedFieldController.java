@@ -64,4 +64,23 @@ public class UserDefinedFieldController extends BaseClass {
 		String result = CommonMethods.getMethodasString(uri, ver, params);
 		Assert.assertTrue(result.contains("\"CustomerId\":\"500001\""));
 	}
+
+	@Test(priority = 6, groups = "void")
+	public void putCustomerUdfs()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/udf/customer";
+		String ver = "4.0";
+		String payload = "{\r\n" + //
+				"  \"CustomerId\": \"CUSTOMER007\",\r\n" + //
+				"  \"Udf\": [\r\n" + //
+				"    {\r\n" + //
+				"      \"Label\": \"Customer UDF - String\",\r\n" + //
+				"      \"Value\": \"customer\"\r\n" + //
+				"    }\r\n" + //
+				"  ]\r\n" + //
+				"}";
+		String expected = "{\"UserDefinedField\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"UDF successfully created.\",\"Level\":1}]}}";
+		String result = CommonMethods.putMethodstring(uri, ver, payload, expected);
+
+	}
 }
