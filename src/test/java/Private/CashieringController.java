@@ -251,6 +251,14 @@ public class CashieringController extends BaseClass {
 		// CommonMethods.Bug("CPDEV-22582");
 		// debug
 		// nextRecieptNumber = "004211209000001";
+		if (nextRecieptNumber == null || nextRecieptNumber.isEmpty()) {
+			// Try to get a new receipt number if the previous one is null or empty
+			JsonPath next = CommonMethods.getMethod("/cashiering/receipt/TRREG000001/nextReceipt", "4.0");
+			nextRecieptNumber = next.get("Receipt[0].ReceiptNumber");
+			if (nextRecieptNumber == null || nextRecieptNumber.isEmpty()) {
+				Assert.fail("Unable to retrieve a valid nextRecieptNumber for adjustment.");
+			}
+		}
 		if (nextRecieptNumber == null) {
 			Assert.assertEquals(false, "Reciept is Null");
 		}
