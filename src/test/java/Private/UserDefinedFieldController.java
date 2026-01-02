@@ -114,4 +114,39 @@ public class UserDefinedFieldController extends BaseClass {
 
 	}
 
+	@Test(priority = 9, groups = "udf")
+	public void putLocationUdfs()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/udf/location";
+		String ver = "4.0";
+		String payload = "{\r\n" + //
+				"  \"LocationId\": \"WATER100\",\r\n" + //
+				"  \"Udf\": [\r\n" + //
+				"    {\r\n" + //
+				"      \"Label\": \"TEST124\",\r\n" + //
+				"      \"Value\": \"String value\"\r\n" + //
+				"    },\r\n" + //
+				"    {\r\n" + //
+				"      \"Label\": \"TEST125\",\r\n" + //
+				"      \"Value\": \"Picklist value\"\r\n" + //
+				"    }\r\n" + //
+				"  ]\r\n" + //
+				"}";
+		String expected = "{\"UserDefinedField\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"UDF successfully created.\",\"Level\":1}]}}";
+		CommonMethods.putMethodstring(uri, ver, payload, expected);
+
+	}
+
+	@Test(priority = 10, groups = "udf")
+	public void getequipmentUdfs()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/udf/equipment/EQUIPMENT008";
+		String ver = "4.0";
+		String params = "";
+		String expected = "{\"UserDefinedField\":{\"Success\":true,\"Data\":{\"EquipmentId\":\"EQUIPMENT008\",\"Udf\":[{\"Order\":\"1\",\"Label\":\"TESTLABEL\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Tooltip\":\"Data Type = String, Length = 100\"},{\"Order\":\"2\",\"Label\":\"TESTLABEL1\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Tooltip\":\"Data Type = String, Length = 100\"},{\"Order\":\"3\",\"Label\":\"TESTLABE2\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Tooltip\":\"Data Type = String, Length = 100\"}]},\"Messages\":[]}}";
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		Assert.assertEquals(result, expected);
+
+	}
+
 }
