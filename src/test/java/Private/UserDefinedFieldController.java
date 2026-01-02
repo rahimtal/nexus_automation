@@ -20,7 +20,7 @@ import com.NexustAPIAutomation.java.CommonMethods;
 
 public class UserDefinedFieldController extends BaseClass {
 
-	@Test(priority = 1, groups = "void")
+	@Test(priority = 1, groups = "udf")
 	public void GetCustomerUdfs() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/udf/customer/500001";
@@ -84,7 +84,7 @@ public class UserDefinedFieldController extends BaseClass {
 
 	}
 
-	@Test(priority = 7, groups = "void")
+	@Test(priority = 7, groups = "udf")
 	public void getCustomerUdfs()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/udf/location/100001";
@@ -93,6 +93,24 @@ public class UserDefinedFieldController extends BaseClass {
 		String expected = "{\"UserDefinedField\":{\"Success\":true,\"Data\":{\"LocationId\":\"100001\",\"Udf\":[{\"Order\":\"1\",\"Label\":\"Location UDF\",\"Value\":\"1000\",\"Description\":\"\",\"Type\":\"String\",\"Tooltip\":\"Data Type = String, Length = 100\"},{\"Order\":\"2\",\"Label\":\"Location UDF 1\",\"Value\":\"2000\",\"Description\":\"\",\"Type\":\"String\",\"Tooltip\":\"Data Type = String, Length = 100\"},{\"Order\":\"3\",\"Label\":\"Location UDF 2\",\"Value\":\"3000\",\"Description\":\"\",\"Type\":\"String\",\"Tooltip\":\"Data Type = String, Length = 100\"}]},\"Messages\":[]}}";
 		String result = CommonMethods.getMethodasString(uri, ver, params);
 		Assert.assertEquals(result, expected);
+
+	}
+
+	@Test(priority = 8, groups = "udf")
+	public void putEquipmentUdfs()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/udf/equipment";
+		String ver = "4.0";
+		String payload = "{\r\n" + //
+				"  \"EquipmentId\": \"EQUIPMENT001\",\r\n" + //
+				"  \"Udf\": [\r\n" + //
+				"    {\r\n" + //
+				"      \"Label\": \"TESTLABEL\",\r\n" + //
+				"      \"Value\": \"String value\"\r\n" + //
+				"    } ]\r\n" + //
+				"}";
+		String expected = "{\"UserDefinedField\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"UDF successfully created.\",\"Level\":1}]}}";
+		CommonMethods.putMethodstring(uri, ver, payload, expected);
 
 	}
 
