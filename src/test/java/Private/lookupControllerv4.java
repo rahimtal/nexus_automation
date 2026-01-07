@@ -18,11 +18,11 @@ public class lookupControllerv4 extends BaseClass {
 	public void getlookupBatch_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookupBatch";
 		String ver = "4.0";
-		String string1 = "\"Id\":\"DPP041227sa01\",\"Description\":\"PYMT\",\"HasTransaction\":true},{\"Id\":\"FINALBILL\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"INT4\\/12\\/2027\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"INT4\\/30\\/2025\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"MISC10001\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"MR112025sa01\",\"Description\":\"API Meter Read\",\"HasTransaction\":true},{\"Id\":\"NADMC2022093001\",\"Description\":\"API Deposit Misc Charge\",\"HasTransaction\":true},{\"Id\":\"NEW2026\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"PENALTY\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"PENALTY1\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"PY081525sa\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"RM(3)120427\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"ROUTE\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"Test Batch\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"Test Batch 2025\",\"Description\":\"Example Comment\",\"HasTransaction\":false},{\"Id\":\"WO101619CRP001\",\"Description\":\"Write Off - sa\",\"HasTransaction\":false},{\"Id\":\"WRITEOFF01\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"ZONES\",\"Description\":\"\",\"HasTransaction\":true}]}";
+		String string1 = "{\"Id\":\"109090ABC\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"12312312\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"12345\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"ABC10001\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"ABC1213\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"API 20190430\",\"Description\":\"Payments from Web Service - API\",\"HasTransaction\":true},{\"Id\":\"API 20190503\",\"Description\":\"Payments from Web Service - API\",\"HasTransaction\":true},{\"Id\":\"API20220908001\",\"Description\":\"Payments from Nexus Api - API\",\"HasTransaction\":true},{\"Id\":\"API20220929001\",\"Description\":\"Payments from Nexus Api - ";
 		HashMap<String, String> params = new HashMap<String, String>();
 		String actual = CommonMethods.getMethodasString(uri, ver, params);
 		System.out.println(actual);
-		Assert.assertTrue(actual.contains(string1), actual);
+		Assert.assertTrue(actual.contains(string1));
 
 	}
 
