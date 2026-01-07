@@ -1,0 +1,882 @@
+<html>
+<head>
+<title>TestNG:  Test(failed)(failed)</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Test(failed)(failed)</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>4/4/14</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Jan 07 16:23:40 PKT 2026</td>
+</tr>
+<tr><td>Total time:</td><td>46 seconds (46146 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Private.lookupControllerv4.getlookupBatch_v4()'><b>getlookupBatch_v4</b><br>Test class: Private.lookupControllerv4</td>
+<td><div><pre>java.lang.AssertionError: {&quot;Batch&quot;:[{&quot;Id&quot;:&quot;10001&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;1001&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;100111&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;10111&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;109090ABC&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;12312312&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;12345&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;ABC10001&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;ABC1213&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;API 20190430&quot;,&quot;Description&quot;:&quot;Payments from Web Service - API&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;API 20190503&quot;,&quot;Description&quot;:&quot;Payments from Web Service - API&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;API20220908001&quot;,&quot;Description&quot;:&quot;Payments from Nexus Api - API&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;API20220929001&quot;,&quot;Description&quot;:&quot;Payments from Nexus Api - API&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;BAT012301203&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;BAT1&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;BAT10123123&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;BATCH2025&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;BATCHPOSTTRANS&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;BATCHTEST01&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;BT1231&quot;,&quot;Description&quot;:&quot;Api billing&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;CHEQ1&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;CHK041227sa01&quot;,&quot;Description&quot;:&quot;CHEQUE&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;CHK043025sa01&quot;,&quot;Description&quot;:&quot;CHEQUE&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;CREDITNOTE&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;DPP041227sa01&quot;,&quot;Description&quot;:&quot;PYMT&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;FINALBILL&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;INT4\/12\/2027&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;INT4\/30\/2025&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;MISC10001&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;NADMC2022093001&quot;,&quot;Description&quot;:&quot;API Deposit Misc Charge&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;NEW2026&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;PENALTY&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;PENALTY1&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;PY081525sa&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;RM(3)120427&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;ROUTE&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;TEST109&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;WO101619CRP001&quot;,&quot;Description&quot;:&quot;Write Off - sa&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;WRITEOFF01&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;ZONES&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true}]} expected [true] but found [false]
+	at Private.lookupControllerv4.getlookupBatch_v4(lookupControllerv4.java:25)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace386153220", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace386153220'><pre>java.lang.AssertionError: {&quot;Batch&quot;:[{&quot;Id&quot;:&quot;10001&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;1001&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;100111&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;10111&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;109090ABC&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;12312312&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;12345&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;ABC10001&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;ABC1213&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;API 20190430&quot;,&quot;Description&quot;:&quot;Payments from Web Service - API&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;API 20190503&quot;,&quot;Description&quot;:&quot;Payments from Web Service - API&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;API20220908001&quot;,&quot;Description&quot;:&quot;Payments from Nexus Api - API&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;API20220929001&quot;,&quot;Description&quot;:&quot;Payments from Nexus Api - API&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;BAT012301203&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;BAT1&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;BAT10123123&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;BATCH2025&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;BATCHPOSTTRANS&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;BATCHTEST01&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;BT1231&quot;,&quot;Description&quot;:&quot;Api billing&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;CHEQ1&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;CHK041227sa01&quot;,&quot;Description&quot;:&quot;CHEQUE&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;CHK043025sa01&quot;,&quot;Description&quot;:&quot;CHEQUE&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;CREDITNOTE&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;DPP041227sa01&quot;,&quot;Description&quot;:&quot;PYMT&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;FINALBILL&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;INT4\/12\/2027&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;INT4\/30\/2025&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;MISC10001&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;NADMC2022093001&quot;,&quot;Description&quot;:&quot;API Deposit Misc Charge&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;NEW2026&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;PENALTY&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;PENALTY1&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;PY081525sa&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;RM(3)120427&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;ROUTE&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;TEST109&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;WO101619CRP001&quot;,&quot;Description&quot;:&quot;Write Off - sa&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;WRITEOFF01&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;ZONES&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true}]} expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at Private.lookupControllerv4.getlookupBatch_v4(lookupControllerv4.java:25)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+</pre></div></td>
+<td>0</td>
+<td>Private.lookupControllerv4@1eb5174b</td></tr>
+<tr>
+<td title='Private.CashieringController.TC002_RecieptAdjustment()'><b>TC002_RecieptAdjustment</b><br>Test class: Private.CashieringController</td>
+<td><div><pre>java.lang.AssertionError: Reciept not adjusted {
+    &quot;Receipt&quot;: {
+        &quot;Success&quot;: false,
+        &quot;Data&quot;: null,
+        &quot;Messages&quot;: [
+            {
+                &quot;Enabled&quot;: 1,
+                &quot;Info&quot;: &quot;Receipt number already adjusted.&quot;,
+                &quot;Level&quot;: 3
+            }
+        ]
+    }
+}
+	at Private.CashieringController.TC002_RecieptAdjustment(CashieringController.java:279)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1983472905", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1983472905'><pre>java.lang.AssertionError: Reciept not adjusted {
+    &quot;Receipt&quot;: {
+        &quot;Success&quot;: false,
+        &quot;Data&quot;: null,
+        &quot;Messages&quot;: [
+            {
+                &quot;Enabled&quot;: 1,
+                &quot;Info&quot;: &quot;Receipt number already adjusted.&quot;,
+                &quot;Level&quot;: 3
+            }
+        ]
+    }
+}
+	at org.testng.Assert.fail(Assert.java:111)
+	at Private.CashieringController.TC002_RecieptAdjustment(CashieringController.java:279)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+</pre></div></td>
+<td>0</td>
+<td>Private.CashieringController@79da8dc5</td></tr>
+<tr>
+<td title='Private.customerControllerV4.getSecondaryCustomer()'><b>getSecondaryCustomer</b><br>Test class: Private.customerControllerV4</td>
+<td><div><pre>java.lang.AssertionError: expected [{&quot;result&quot;:[{&quot;CustomerID&quot;:&quot;03332301204    &quot;,&quot;CustomerStatus&quot;:&quot;Current&quot;,&quot;CustomerType&quot;:&quot;Individual&quot;,&quot;CustomerTitle&quot;:&quot;Mr.&quot;,&quot;CustomerFirstName&quot;:&quot;Talha&quot;,&quot;CustomerMiddleName&quot;:&quot;&quot;,&quot;CustomerLastName&quot;:&quot;Rahim&quot;,&quot;CustomerName&quot;:&quot;Mr. Talha Rahim &quot;,&quot;ssn&quot;:&quot;&quot;,&quot;EffectiveFromDate&quot;:&quot;May 01, 2019&quot;,&quot;EffectiveToDate&quot;:&quot;Current&quot;,&quot;RelationShip&quot;:&quot;&quot;,&quot;RelationShipSsn&quot;:&quot;&quot;,&quot;FinancialResponsible&quot;:&quot;Responsible&quot;,&quot;DrillbackLink&quot;:&quot;cogsDrillback://DGPB/?Db=&amp;Srv=DESKTOP-QU86F3Q&amp;Cmp=TWO&amp;Prod=229&amp;Act=OPEN&amp;Func=SecondaryCustomer&amp;LocationID=ELECWAT001&amp;CustomerID=CUSTOMER007&amp;Address=12 A GRAFTON HILLS n APT 4 NEW YORK NY 12123&amp;CustName=Miss Sally E MacKenzie&amp;CogsDrillback=1&quot;}]}] but found [{&quot;result&quot;:[{&quot;CustomerID&quot;:&quot;03332301204&quot;,&quot;CustomerStatus&quot;:&quot;Current&quot;,&quot;CustomerType&quot;:&quot;Individual&quot;,&quot;CustomerTitle&quot;:&quot;Mr.&quot;,&quot;CustomerFirstName&quot;:&quot;Talha&quot;,&quot;CustomerMiddleName&quot;:&quot;&quot;,&quot;CustomerLastName&quot;:&quot;Rahim&quot;,&quot;CustomerName&quot;:&quot;Mr. Talha Rahim&quot;,&quot;ssn&quot;:&quot;&quot;,&quot;EffectiveFromDate&quot;:&quot;May 01, 2019&quot;,&quot;EffectiveToDate&quot;:&quot;&quot;,&quot;RelationShip&quot;:&quot;&quot;,&quot;RelationShipSsn&quot;:&quot;&quot;,&quot;FinancialResponsible&quot;:&quot;Responsible&quot;,&quot;DrillbackLink&quot;:&quot;cogsDrillback://DGPB/?Db=&amp;Srv=DESKTOP-QU86F3Q&amp;Cmp=TWO&amp;Prod=229&amp;Act=OPEN&amp;Func=SecondaryCustomer&amp;LocationID=ELECWAT001&amp;CustomerID=CUSTOMER007&amp;Address=12 A GRAFTON HILLS n APT 4 NEW YORK NY 12123&amp;CustName=Miss Sally E MacKenzie&amp;CogsDrillback=1&quot;}]}]
+	at com.NexustAPIAutomation.java.CommonMethods.getMethod(CommonMethods.java:710)
+	at Private.customerControllerV4.getSecondaryCustomer(customerControllerV4.java:73)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace145833361", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace145833361'><pre>java.lang.AssertionError: expected [{&quot;result&quot;:[{&quot;CustomerID&quot;:&quot;03332301204    &quot;,&quot;CustomerStatus&quot;:&quot;Current&quot;,&quot;CustomerType&quot;:&quot;Individual&quot;,&quot;CustomerTitle&quot;:&quot;Mr.&quot;,&quot;CustomerFirstName&quot;:&quot;Talha&quot;,&quot;CustomerMiddleName&quot;:&quot;&quot;,&quot;CustomerLastName&quot;:&quot;Rahim&quot;,&quot;CustomerName&quot;:&quot;Mr. Talha Rahim &quot;,&quot;ssn&quot;:&quot;&quot;,&quot;EffectiveFromDate&quot;:&quot;May 01, 2019&quot;,&quot;EffectiveToDate&quot;:&quot;Current&quot;,&quot;RelationShip&quot;:&quot;&quot;,&quot;RelationShipSsn&quot;:&quot;&quot;,&quot;FinancialResponsible&quot;:&quot;Responsible&quot;,&quot;DrillbackLink&quot;:&quot;cogsDrillback://DGPB/?Db=&amp;Srv=DESKTOP-QU86F3Q&amp;Cmp=TWO&amp;Prod=229&amp;Act=OPEN&amp;Func=SecondaryCustomer&amp;LocationID=ELECWAT001&amp;CustomerID=CUSTOMER007&amp;Address=12 A GRAFTON HILLS n APT 4 NEW YORK NY 12123&amp;CustName=Miss Sally E MacKenzie&amp;CogsDrillback=1&quot;}]}] but found [{&quot;result&quot;:[{&quot;CustomerID&quot;:&quot;03332301204&quot;,&quot;CustomerStatus&quot;:&quot;Current&quot;,&quot;CustomerType&quot;:&quot;Individual&quot;,&quot;CustomerTitle&quot;:&quot;Mr.&quot;,&quot;CustomerFirstName&quot;:&quot;Talha&quot;,&quot;CustomerMiddleName&quot;:&quot;&quot;,&quot;CustomerLastName&quot;:&quot;Rahim&quot;,&quot;CustomerName&quot;:&quot;Mr. Talha Rahim&quot;,&quot;ssn&quot;:&quot;&quot;,&quot;EffectiveFromDate&quot;:&quot;May 01, 2019&quot;,&quot;EffectiveToDate&quot;:&quot;&quot;,&quot;RelationShip&quot;:&quot;&quot;,&quot;RelationShipSsn&quot;:&quot;&quot;,&quot;FinancialResponsible&quot;:&quot;Responsible&quot;,&quot;DrillbackLink&quot;:&quot;cogsDrillback://DGPB/?Db=&amp;Srv=DESKTOP-QU86F3Q&amp;Cmp=TWO&amp;Prod=229&amp;Act=OPEN&amp;Func=SecondaryCustomer&amp;LocationID=ELECWAT001&amp;CustomerID=CUSTOMER007&amp;Address=12 A GRAFTON HILLS n APT 4 NEW YORK NY 12123&amp;CustName=Miss Sally E MacKenzie&amp;CogsDrillback=1&quot;}]}]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at org.testng.Assert.assertEquals(Assert.java:666)
+	at com.NexustAPIAutomation.java.CommonMethods.getMethod(CommonMethods.java:710)
+	at Private.customerControllerV4.getSecondaryCustomer(customerControllerV4.java:73)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+</pre></div></td>
+<td>0</td>
+<td>Private.customerControllerV4@11bd0f3b</td></tr>
+<tr>
+<td title='Public.CashieringPostV3.saveReciept_v_3()'><b>saveReciept_v_3</b><br>Test class: Public.CashieringPostV3</td>
+<td><div><pre>java.lang.AssertionError: null
+	at Public.CashieringPostV3.saveReciept_v_3(CashieringPostV3.java:80)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+... Removed 26 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1257058590", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1257058590'><pre>java.lang.AssertionError: null
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.fail(Assert.java:116)
+	at Public.CashieringPostV3.saveReciept_v_3(CashieringPostV3.java:80)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+</pre></div></td>
+<td>5</td>
+<td>Public.CashieringPostV3@69e1dd28</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Private.CashieringController.saveReciept_2_4()'><b>saveReciept_2_4</b><br>Test class: Private.CashieringController</td>
+<td></td>
+<td>16</td>
+<td>Private.CashieringController@79da8dc5</td></tr>
+<tr>
+<td title='Private.BillingControllerv4.PostBillingcalculatev4()'><b>PostBillingcalculatev4</b><br>Test class: Private.BillingControllerv4</td>
+<td></td>
+<td>18</td>
+<td>Private.BillingControllerv4@378542de</td></tr>
+<tr>
+<td title='Private.BillingControllerv4.postcreateStatementv4()'><b>postcreateStatementv4</b><br>Test class: Private.BillingControllerv4</td>
+<td></td>
+<td>2</td>
+<td>Private.BillingControllerv4@378542de</td></tr>
+<tr>
+<td title='Private.BillingControllerv4.PostgenerateEditReportv4()'><b>PostgenerateEditReportv4</b><br>Test class: Private.BillingControllerv4</td>
+<td></td>
+<td>1</td>
+<td>Private.BillingControllerv4@378542de</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Private.customerControllerV4.getCustomerAddressInfo()'><b>getCustomerAddressInfo</b><br>Test class: Private.customerControllerV4</td>
+<td><div><pre>org.testng.SkipException: Skipping this method due to bug = CPDEV-20931
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at Private.customerControllerV4.getCustomerAddressInfo(customerControllerV4.java:44)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1370231468", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1370231468'><pre>org.testng.SkipException: Skipping this method due to bug = CPDEV-20931
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at Private.customerControllerV4.getCustomerAddressInfo(customerControllerV4.java:44)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+</pre></div></td>
+<td>0</td>
+<td>Private.customerControllerV4@11bd0f3b</td></tr>
+<tr>
+<td title='Private.SmartlistControllerV3.postsmartlistfavorite_v_3()'><b>postsmartlistfavorite_v_3</b><br>Test class: Private.SmartlistControllerV3</td>
+<td><div><pre>org.testng.SkipException: Skipping this method due to bug = CPDEV-14084
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at Private.SmartlistControllerV3.postsmartlistfavorite_v_3(SmartlistControllerV3.java:38)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace837981622", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace837981622'><pre>org.testng.SkipException: Skipping this method due to bug = CPDEV-14084
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at Private.SmartlistControllerV3.postsmartlistfavorite_v_3(SmartlistControllerV3.java:38)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+</pre></div></td>
+<td>0</td>
+<td>Private.SmartlistControllerV3@c333c60</td></tr>
+<tr>
+<td title='Public.customerControllerV4.getlocationsByCustomerv4()'><b>getlocationsByCustomerv4</b><br>Test class: Public.customerControllerV4</td>
+<td><div><pre>org.testng.SkipException: Skipping this method due to bug = 22857
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at Public.customerControllerV4.getlocationsByCustomerv4(customerControllerV4.java:27)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1714317354", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1714317354'><pre>org.testng.SkipException: Skipping this method due to bug = 22857
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at Public.customerControllerV4.getlocationsByCustomerv4(customerControllerV4.java:27)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+</pre></div></td>
+<td>0</td>
+<td>Public.customerControllerV4@3738449f</td></tr>
+<tr>
+<td title='Public.accountBalancesv4.getAccountBalancesV4()'><b>getAccountBalancesV4</b><br>Test class: Public.accountBalancesv4</td>
+<td><div><pre>org.testng.SkipException: Skipping this method due to bug = CPDEV-21481
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at Public.accountBalancesv4.getAccountBalancesV4(accountBalancesv4.java:31)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2083951216", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2083951216'><pre>org.testng.SkipException: Skipping this method due to bug = CPDEV-21481
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at Public.accountBalancesv4.getAccountBalancesV4(accountBalancesv4.java:31)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+</pre></div></td>
+<td>0</td>
+<td>Public.accountBalancesv4@346d61be</td></tr>
+<tr>
+<td title='Private.lookupControllerv4.lookuptranferBillToCustomerDeposit()'><b>lookuptranferBillToCustomerDeposit</b><br>Test class: Private.lookupControllerv4</td>
+<td><div><pre>org.testng.SkipException: Skipping this method due to bug = CPDEV-20377
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at Private.lookupControllerv4.lookuptranferBillToCustomerDeposit(lookupControllerv4.java:390)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1745904086", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1745904086'><pre>org.testng.SkipException: Skipping this method due to bug = CPDEV-20377
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at Private.lookupControllerv4.lookuptranferBillToCustomerDeposit(lookupControllerv4.java:390)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+</pre></div></td>
+<td>0</td>
+<td>Private.lookupControllerv4@1eb5174b</td></tr>
+<tr>
+<td title='Private.BillingControllerv4.billingprintStatementv4()'><b>billingprintStatementv4</b><br>Test class: Private.BillingControllerv4</td>
+<td><div><pre>org.testng.SkipException: Skipping this method due to bug = CPDEV-23208
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at Private.BillingControllerv4.billingprintStatementv4(BillingControllerv4.java:133)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace12302064", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace12302064'><pre>org.testng.SkipException: Skipping this method due to bug = CPDEV-23208
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at Private.BillingControllerv4.billingprintStatementv4(BillingControllerv4.java:133)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+</pre></div></td>
+<td>0</td>
+<td>Private.BillingControllerv4@378542de</td></tr>
+<tr>
+<td title='Private.lookupControllerv4.lookuplocation()'><b>lookuplocation</b><br>Test class: Private.lookupControllerv4</td>
+<td><div><pre>org.testng.SkipException: Skipping this method due to bug =  CPDEV-22862 
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at Private.lookupControllerv4.lookuplocation(lookupControllerv4.java:359)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace77215921", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace77215921'><pre>org.testng.SkipException: Skipping this method due to bug =  CPDEV-22862 
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at Private.lookupControllerv4.lookuplocation(lookupControllerv4.java:359)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+</pre></div></td>
+<td>0</td>
+<td>Private.lookupControllerv4@1eb5174b</td></tr>
+<tr>
+<td title='Public.customerControllerV3.getLocationsByCustomer_v3()'><b>getLocationsByCustomer_v3</b><br>Test class: Public.customerControllerV3</td>
+<td><div><pre>org.testng.SkipException: Skipping this method due to bug = CPDEV-22857
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at Public.customerControllerV3.getLocationsByCustomer_v3(customerControllerV3.java:155)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1836765429", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1836765429'><pre>org.testng.SkipException: Skipping this method due to bug = CPDEV-22857
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at Public.customerControllerV3.getLocationsByCustomer_v3(customerControllerV3.java:155)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+</pre></div></td>
+<td>0</td>
+<td>Public.customerControllerV3@67080771</td></tr>
+<tr>
+<td title='Private.lookupControllerv4.lookupMiscChargeDocuments()'><b>lookupMiscChargeDocuments</b><br>Test class: Private.lookupControllerv4</td>
+<td><div><pre>org.testng.SkipException: Skipping this method due to bug =  CPDEV-17161 
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at Private.lookupControllerv4.lookupMiscChargeDocuments(lookupControllerv4.java:478)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1406593369", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1406593369'><pre>org.testng.SkipException: Skipping this method due to bug =  CPDEV-17161 
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at Private.lookupControllerv4.lookupMiscChargeDocuments(lookupControllerv4.java:478)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+</pre></div></td>
+<td>0</td>
+<td>Private.lookupControllerv4@1eb5174b</td></tr>
+<tr>
+<td title='Private.BillingControllerv4.postBillingv4()'><b>postBillingv4</b><br>Test class: Private.BillingControllerv4</td>
+<td><div><pre>java.lang.Throwable: Method Private.BillingControllerv4.postBillingv4() on instance Private.BillingControllerv4@378542de depends on not successfully finished methods 
+[Private.BillingControllerv4.billingprintStatementv4() on instance Private.BillingControllerv4@378542de]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+... Removed 15 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace65465460", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace65465460'><pre>java.lang.Throwable: Method Private.BillingControllerv4.postBillingv4() on instance Private.BillingControllerv4@378542de depends on not successfully finished methods 
+[Private.BillingControllerv4.billingprintStatementv4() on instance Private.BillingControllerv4@378542de]
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:159)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+</pre></div></td>
+<td>0</td>
+<td>Private.BillingControllerv4@378542de</td></tr>
+<tr>
+<td title='Private.SmartlistControllerV3.getsmartList_v_3()'><b>getsmartList_v_3</b><br>Test class: Private.SmartlistControllerV3</td>
+<td><div><pre>org.testng.SkipException: Skipping this method due to bug = CPDEV-14084
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at Private.SmartlistControllerV3.getsmartList_v_3(SmartlistControllerV3.java:23)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2093834526", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2093834526'><pre>org.testng.SkipException: Skipping this method due to bug = CPDEV-14084
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at Private.SmartlistControllerV3.getsmartList_v_3(SmartlistControllerV3.java:23)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+</pre></div></td>
+<td>0</td>
+<td>Private.SmartlistControllerV3@c333c60</td></tr>
+<tr>
+<td title='Public.CashieringPostV3.TC002_RecieptAdjustment()'><b>TC002_RecieptAdjustment</b><br>Test class: Public.CashieringPostV3</td>
+<td><div><pre>java.lang.Throwable: Method Public.CashieringPostV3.TC002_RecieptAdjustment() on instance Public.CashieringPostV3@69e1dd28 depends on not successfully finished methods 
+[Public.CashieringPostV3.saveReciept_v_3() on instance Public.CashieringPostV3@69e1dd28]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+... Removed 15 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1371182382", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1371182382'><pre>java.lang.Throwable: Method Public.CashieringPostV3.TC002_RecieptAdjustment() on instance Public.CashieringPostV3@69e1dd28 depends on not successfully finished methods 
+[Public.CashieringPostV3.saveReciept_v_3() on instance Public.CashieringPostV3@69e1dd28]
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:159)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+</pre></div></td>
+<td>0</td>
+<td>Public.CashieringPostV3@69e1dd28</td></tr>
+<tr>
+<td title='Private.lookupControllerv4.lookuplocationClass()'><b>lookuplocationClass</b><br>Test class: Private.lookupControllerv4</td>
+<td><div><pre>org.testng.SkipException: Skipping this method due to bug =  CPDEV-22862 
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at Private.lookupControllerv4.lookuplocationClass(lookupControllerv4.java:348)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace816576412", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace816576412'><pre>org.testng.SkipException: Skipping this method due to bug =  CPDEV-22862 
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at Private.lookupControllerv4.lookuplocationClass(lookupControllerv4.java:348)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+</pre></div></td>
+<td>0</td>
+<td>Private.lookupControllerv4@1eb5174b</td></tr>
+<tr>
+<td title='Private.voidController.getVoidLaodv4()'><b>getVoidLaodv4</b><br>Test class: Private.voidController</td>
+<td><div><pre>org.testng.SkipException: Skipping this method due to bug = CPDEV-17878
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at Private.voidController.getVoidLaodv4(voidController.java:77)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2073484941", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2073484941'><pre>org.testng.SkipException: Skipping this method due to bug = CPDEV-17878
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at Private.voidController.getVoidLaodv4(voidController.java:77)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at RunFailedTestNG.runTestNGSuitesWithRetries(RunFailedTestNG.java:59)
+	at RunFailedTestNG.main(RunFailedTestNG.java:36)
+</pre></div></td>
+<td>0</td>
+<td>Private.voidController@2e55dd0c</td></tr>
+</table><p>
+</body>
+</html>
