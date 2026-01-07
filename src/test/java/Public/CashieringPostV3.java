@@ -1,17 +1,10 @@
 package Public;
 
-import org.testng.annotations.Test;
-import org.testng.Assert;
-import org.testng.Assert;
-import org.testng.annotations.Test;
-import org.testng.Assert;
-
 import java.sql.SQLException;
 
 import org.apache.http.ConnectionClosedException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
@@ -52,6 +45,7 @@ public class CashieringPostV3 extends BaseClass {
 		// CommonMethods.CompanyDBRestore();
 		// CommonMethods.Bugs("CPDEV-20919");
 		// CommonMethods.Bug("CPDEV-24086");
+		CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-24388");
 		String columnName = "umDocumentNumber";
 		String Command1 = "select top 1 umDocumentNumber from TWO.dbo.UMRM102 order by umDocumentNumber desc";
 		String Result = "";
@@ -73,6 +67,8 @@ public class CashieringPostV3 extends BaseClass {
 		String ver = "3.0";
 		String payload = "{\"Receipt\":{\"ReceiptNumber\":\"" + nextRecieptNumber
 				+ "\",\"OriginatingReceiptNumber\":\"\",\"Void\":false,\"CustomerId\":\"CUSTOMER008\",\"LocationId\":\"LOCATION007\",\"PaymentOrigin\":\"TEST\",\"CheckbookId\":\"FIRST NATIONAL\",\"PaidBy\":{\"Type\":1,\"Description\":\"\",\"Id\":\"\"},\"Cash\":185.42,\"Check\":{\"Amount\":0,\"Number\":\"\"},\"CreditCard\":{\"Amount\":0},\"Unapplied\":{\"Amount\":0,\"Account\":\"\",\"LocationId\":\"\"},\"Change\":0,\"Comment\":\"ThisisacommenttobesavedintocommentinUMRM102\",\"Document\":[{\"Number\":\"MISC00000000317\",\"LocationId\":\"LOCATION007\",\"StatementNumber\":0,\"ApplyAmount\":185.42,\"OutstandingAmount\":0,\"ReferenceDocumentNumber\":\"\"}]}}";
+
+		System.out.println(payload);
 		jsonPathEvaluator = CommonMethods.postMethodStringPayload(payload, uri, ver);
 		System.out.println(jsonPathEvaluator.prettyPrint());
 		Boolean Result1 = jsonPathEvaluator.get("Receipt.Success");
