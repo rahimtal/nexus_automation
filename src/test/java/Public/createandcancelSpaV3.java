@@ -1,16 +1,11 @@
 package Public;
 
-import org.testng.annotations.Test; import org.testng.Assert;
-import org.testng.Assert;
-import org.testng.annotations.Test; import org.testng.Assert;
-
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.HashMap;
 
 import org.hamcrest.Matchers;
 import org.testng.Assert;
-import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
@@ -18,7 +13,7 @@ import Private.BaseClass;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.ValidatableResponse;
 
-public class createandcancelSpaV3  extends BaseClass{
+public class createandcancelSpaV3 extends BaseClass {
 
 	public static JsonPath jsonPathEvaluator;
 
@@ -32,10 +27,12 @@ public class createandcancelSpaV3  extends BaseClass{
 		if (!res) {
 			Assert.fail("Not cancelled");
 		}
+		Thread.sleep(5000);
+
 		System.out.println(res);
 	}
 
-	@Test(priority = 2, dependsOnMethods = "cancelSPA_v_3", groups = "SPA")
+	@Test(priority = 2, groups = "SPA")
 	public void createSPA_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.Bugs("CPDEV-20924");
 		String uri = "/spa/create";
@@ -51,7 +48,7 @@ public class createandcancelSpaV3  extends BaseClass{
 
 	}
 
-	@Test(priority = 3, dependsOnMethods = "createSPA_v_3", groups = "SPA")
+	@Test(priority = 3, groups = "SPA")
 	public void putspaCalculate_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/spa/calculate";
@@ -65,7 +62,7 @@ public class createandcancelSpaV3  extends BaseClass{
 
 	}
 
-	@Test(priority = 4, dependsOnMethods = "putspaCalculate_v_3", groups = "SPA")
+	@Test(priority = 4, groups = "SPA") // dependsOnMethods = "putspaCalculate_v_3")
 	public void recancelSPA_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String customerId = "500300";
@@ -91,7 +88,7 @@ public class createandcancelSpaV3  extends BaseClass{
 		cancelSPA_v_3();
 	}
 
-	@Test(priority = 5, dependsOnMethods = "cancelSPA_v_3", groups = "SPA")
+	@Test(priority = 5, groups = "SPA")
 	public void createSPA_v_4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.Bugs("CPDEV-20924");
 		String uri = "/spa/create";

@@ -39,8 +39,9 @@ public class BillingControllerv4 extends BaseClass {
 		FileWriter file = new FileWriter(filepath);
 		file.write(payload);
 		file.close();
-
+		CommonMethods.Delay(5000);
 		// Calling first time for cold start
+
 		CommonMethods.postMethodResponseasString(filepath, uri, ver);
 		CommonMethods.Delay(5000);
 		// second call
@@ -284,13 +285,14 @@ public class BillingControllerv4 extends BaseClass {
 		// test.log(Status.INFO, "Actual: " + actual);
 		Assert.assertTrue(actual.contains(expected));
 		// test.log(Status.PASS, "Response contains the expected value.");
+		CommonMethods.Delay(20000);
 	}
 
 	// Test 3: Billing Print Statement --- Look Later
 	@Test(priority = 7, groups = "billing", dependsOnMethods = "postcreateStatementv4_isfinal")
 	public static void billingprintStatementv4_Error()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		// ExtentTest test = extent.createTest("billingprintStatementv4");
+		// ExtentTest test = extent.createTest("printcsvbillingStatements");
 		// test.log(Status.INFO, "Starting test: billingprintStatementv4");
 
 		// CommonMethods.Bugs("CPDEV-16682");
@@ -394,7 +396,7 @@ public class BillingControllerv4 extends BaseClass {
 	}
 
 	// Step 9: Print CSV Billing Statements
-	@Test(priority = 22, groups = "billing", dependsOnMethods = "postcreateStatementv4_isfinal")
+	@Test(priority = 22, groups = "billing") // , dependsOnMethods = "postcreateStatementv4_isfinal")
 	public void printcsvbillingStatements()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// ExtentTest test = extent.createTest("printcsvbillingStatements");
