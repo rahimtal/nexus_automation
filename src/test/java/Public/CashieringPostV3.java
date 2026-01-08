@@ -45,7 +45,7 @@ public class CashieringPostV3 extends BaseClass {
 		// CommonMethods.CompanyDBRestore();
 		// CommonMethods.Bugs("CPDEV-20919");
 		// CommonMethods.Bug("CPDEV-24086");
-		CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-24388");
+		CommonMethods.Bug("CPDEV-24388");
 		String columnName = "umDocumentNumber";
 		String Command1 = "select top 1 umDocumentNumber from TWO.dbo.UMRM102 order by umDocumentNumber desc";
 		String Result = "";
