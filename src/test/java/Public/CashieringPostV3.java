@@ -54,7 +54,7 @@ public class CashieringPostV3 extends BaseClass {
 		if (Result != "") {
 			adjustRecieptPre(Result);
 		}
-
+		//
 		JsonPath next = CommonMethods.getMethod("/cashiering/receipt/TRREG000001/nextReceipt", "3.0");
 		nextRecieptNumber = next.get("Receipt[0].ReceiptNumber");
 		Thread.sleep(5000);
