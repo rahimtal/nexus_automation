@@ -149,4 +149,16 @@ public class UserDefinedFieldController extends BaseClass {
 
 	}
 
+	@Test(priority = 11, groups = "udf")
+	public void getlocationUdfs()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/udf/location/LOC@0001";
+		String ver = "4.0";
+		String params = "";
+		String expected = "{\"UserDefinedField\":{\"Success\":true,\"Data\":{\"LocationId\":\"LOC@0001\",\"Udf\":[{\"Order\":\"1\",\"Label\":\"TEST124\",\"Value\":\"Auto\",\"Description\":\"\",\"Type\":\"String\",\"Tooltip\":\"Data Type = String, Length = 100\"},{\"Order\":\"2\",\"Label\":\"TEST125\",\"Value\":\"mation\",\"Description\":\"\",\"Type\":\"String\",\"Tooltip\":\"Data Type = String, Length = 100\"},{\"Order\":\"3\",\"Label\":\"TEST126\",\"Value\":\"UDFAuto\",\"Description\":\"\",\"Type\":\"String\",\"Tooltip\":\"Data Type = String, Length = 100\"}]},\"Messages\":[]}}";
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		Assert.assertEquals(result, expected);
+
+	}
+
 }
