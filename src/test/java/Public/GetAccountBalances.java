@@ -11,9 +11,9 @@ import java.util.Map.Entry;
 import org.testng.Assert;
 import org.testng.annotations.Test; import org.testng.Assert;
 
+import com.NexusAPI.tests.BaseClass;
 import com.NexustAPIAutomation.java.CommonMethods;
 
-import Private.BaseClass;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;

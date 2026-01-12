@@ -12,9 +12,9 @@ import java.util.HashMap;
 import org.testng.Assert;
 import org.testng.annotations.Test; import org.testng.Assert;
 
+import com.NexusAPI.tests.BaseClass;
 import com.NexustAPIAutomation.java.CommonMethods;
 
-import Private.BaseClass;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.ValidatableResponse;
 

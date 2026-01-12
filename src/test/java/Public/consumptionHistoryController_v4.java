@@ -8,9 +8,9 @@ import java.util.HashMap;
 
 import org.testng.annotations.Test; import org.testng.Assert;
 
+import com.NexusAPI.tests.BaseClass;
 import com.NexustAPIAutomation.java.CommonMethods;
 
-import Private.BaseClass;
 import io.restassured.response.ValidatableResponse;
 
 public class consumptionHistoryController_v4  extends BaseClass{

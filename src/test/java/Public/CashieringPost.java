@@ -1,18 +1,14 @@
 package Public;
 
-import org.testng.annotations.Test; import org.testng.Assert;
-
 import java.sql.SQLException;
 
-import org.apache.http.ConnectionClosedException;
+ import org.apache.http.ConnectionClosedException;
 import org.testng.Assert;
-import org.testng.annotations.Test; import org.testng.Assert;
 
+import com.NexusAPI.tests.BaseClass;
 import com.NexustAPIAutomation.java.CommonMethods;
 
-import Private.BaseClass;
 import io.restassured.path.json.JsonPath;
-
 public class CashieringPost  extends BaseClass{
 
 	public static JsonPath jsonPathEvaluator;

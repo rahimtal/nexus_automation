@@ -1,4 +1,4 @@
-package Public;
+package com.NexusAPI.tests;
 
 import org.testng.annotations.Test; import org.testng.Assert;
 import org.testng.annotations.Test; import org.testng.Assert;
@@ -8,20 +8,21 @@ import java.util.HashMap;
 
 import org.testng.annotations.Test; import org.testng.Assert;
 
-import com.NexusAPI.tests.BaseClass;
 import com.NexustAPIAutomation.java.CommonMethods;
+
 
 import io.restassured.response.ValidatableResponse;
 
-public class consumptionHistoryControllerV3  extends BaseClass {
+public class Private_consumptionHistoryController_Test  extends BaseClass{
 
 	public static ValidatableResponse jsonPathEvaluator;
 
 	@Test(priority = 1, groups = "ConsumptionHistoryController" )
-	public void getconsumptionHistoryController() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-	//	CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-23531");
+	public void getconsumptionHistoryController_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		//CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-23531");
 		String uri = "/consumptionHistory/getConsumptionHistory";
-		String ver = "3.0";
+		String ver = "4.0";
 		String jpath = "./\\TestData\\consumptionHist.json";
 				
 		HashMap<String, String> params = new HashMap<String, String>();
