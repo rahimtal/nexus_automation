@@ -1,4 +1,4 @@
-package com.NexusAPI.tests;
+package com.NexusAPI.Tests;
 
 import java.io.IOException;
 import java.sql.SQLException;

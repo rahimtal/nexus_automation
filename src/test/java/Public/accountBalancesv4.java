@@ -12,7 +12,7 @@ import java.util.Map.Entry;
 import org.testng.Assert;
 import org.testng.annotations.Test; import org.testng.Assert;
 
-import com.NexusAPI.tests.BaseClass;
+import com.NexusAPI.Tests.BaseClass;
 import com.NexustAPIAutomation.java.CommonMethods;
 
 import io.restassured.RestAssured;

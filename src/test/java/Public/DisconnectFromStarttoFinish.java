@@ -1,15 +1,14 @@
 package Public;
 
-import org.testng.annotations.Test; import org.testng.Assert;
 import java.io.IOException;
-import java.sql.SQLException;
+ import java.sql.SQLException;
 
-import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.annotations.Test;
 
-import com.NexusAPI.tests.BaseClass;
+import com.NexusAPI.Tests.BaseClass;
 import com.NexustAPIAutomation.java.CommonMethods;
 
-import io.restassured.path.json.JsonPath;
+ import io.restassured.path.json.JsonPath;
 
 public class DisconnectFromStarttoFinish  extends BaseClass{
 

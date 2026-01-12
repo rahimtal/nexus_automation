@@ -6,7 +6,7 @@ import org.apache.http.ConnectionClosedException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.NexusAPI.tests.BaseClass;
+import com.NexusAPI.Tests.BaseClass;
 import com.NexustAPIAutomation.java.CommonMethods;
 
 import io.restassured.path.json.JsonPath;
