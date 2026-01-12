@@ -40,7 +40,8 @@
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
-			<version>7.11.0</version>
+			<version>7.7.0</version>
+			  <scope>test</scope>
 
 		</dependency>
 	
@@ -91,12 +92,7 @@
 			<artifactId>reportng</artifactId>
 			<version>1.1.4</version>
 		
-			<exclusions>
-				<exclusion>
-					<groupId>org.testng</groupId>
-					<artifactId>testng</artifactId>
-				</exclusion>
-			</exclusions>
+			
 		</dependency>
 		<dependency>
 			<groupId>com.google.inject</groupId>
