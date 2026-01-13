@@ -1,6 +1,7 @@
 package com.NexusAPI.Tests;
 
-import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.Assert;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -10,11 +11,12 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
-import Public.BaseClass;
+// import Public.BaseClass;  // Removed invalid import, using BaseClass from same package
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -22,7 +24,7 @@ import io.restassured.specification.RequestSpecification;
 
 public class Public_Test_billingController extends BaseClass {
 
-	@Test(priority = 1, groups = "Billing" )
+	@Test(priority = 1, groups = "Billing")
 	public static void billingprintStatementv4true()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -36,7 +38,7 @@ public class Public_Test_billingController extends BaseClass {
 		System.out.println(result);
 	}
 
-	@Test(priority = 2, groups = "Billing" )
+	@Test(priority = 2, groups = "Billing")
 	public static void billingprintStatementv4false()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -50,7 +52,7 @@ public class Public_Test_billingController extends BaseClass {
 		System.out.println(result);
 	}
 
-	@Test(priority = 3, groups = "Billing" )
+	@Test(priority = 3, groups = "Billing")
 	public static void billingprintStatementv3true()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -64,7 +66,7 @@ public class Public_Test_billingController extends BaseClass {
 		System.out.println(result);
 	}
 
-	@Test(priority = 4, groups = "Billing" )
+	@Test(priority = 4, groups = "Billing")
 	public static void billingprintStatementv3false()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -78,7 +80,7 @@ public class Public_Test_billingController extends BaseClass {
 		System.out.println(result);
 	}
 
-	@Test(priority = 5, groups = "Billing" )
+	@Test(priority = 5, groups = "Billing")
 	public static void billingbillBatchStatus()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -94,9 +96,8 @@ public class Public_Test_billingController extends BaseClass {
 		Assert.assertTrue(result.contains(expected));
 
 	}
-	
-	
-	@Test(priority = 6, groups = "Billing" )
+
+	@Test(priority = 6, groups = "Billing")
 	public static void billingUtilitySetup()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -107,10 +108,9 @@ public class Public_Test_billingController extends BaseClass {
 		String result = CommonMethods.getMethodasString(uri, ver, params);
 		System.out.println(result);
 		Assert.assertTrue(result.contains(expected));
-		expected= "\"AddressStyle\":3,\"IdentificationFormat\":0,\"PenaltyId\":\"\",\"PenaltyProcessing\":0,\"CompoundPenalties\":0},\"Messages\":[]}}";
-		//Assert.assertTrue(result.contains(expected));
+		expected = "\"AddressStyle\":3,\"IdentificationFormat\":0,\"PenaltyId\":\"\",\"PenaltyProcessing\":0,\"CompoundPenalties\":0},\"Messages\":[]}}";
+		// Assert.assertTrue(result.contains(expected));
 
 	}
-
 
 }

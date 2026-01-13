@@ -1,8 +1,10 @@
 package com.NexusAPI.Tests;
 
-import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.annotations.Test;
 import org.testng.Assert;
-import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.Assert;
 
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -11,11 +13,12 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.testng.Assert;
-import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
-import Public.BaseClass;
+// import Public.BaseClass;  // Removed invalid import, using BaseClass from same package
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
@@ -26,7 +29,7 @@ public class Public_Test_CashieringGet extends BaseClass {
 
 	public static JsonPath jsonPathEvaluator;
 
-	@Test(priority = 1, groups = "Cashering" )
+	@Test(priority = 1, groups = "Cashering")
 	public void TC003_getCashin() throws ClassNotFoundException, SQLException, InterruptedException {
 		// extent.createTest("Test", "");
 		String uri = "/cashiering/cashIn";
@@ -42,7 +45,7 @@ public class Public_Test_CashieringGet extends BaseClass {
 
 	}
 
-	@Test(priority = 1, groups = "Cashering" )
+	@Test(priority = 1, groups = "Cashering")
 	public void TC003_1_getCashin() throws ClassNotFoundException, SQLException, InterruptedException {
 
 		String uri = "/cashiering/cashIn";
@@ -57,7 +60,7 @@ public class Public_Test_CashieringGet extends BaseClass {
 
 	}
 
-	@Test(priority = 2, groups = "Cashering" , dependsOnMethods = "TC003_getCashin")
+	@Test(priority = 2, groups = "Cashering", dependsOnMethods = "TC003_getCashin")
 	public void TC004_balances() throws ClassNotFoundException, SQLException, InterruptedException {
 
 		String uri = "/cashiering/balances/customer006/1999-03-24";
@@ -85,7 +88,7 @@ public class Public_Test_CashieringGet extends BaseClass {
 
 	}
 
-	@Test(priority = 3, groups = "Cashering" , dependsOnMethods = "TC004_balances")
+	@Test(priority = 3, groups = "Cashering", dependsOnMethods = "TC004_balances")
 	public void TC003_getnextReceipt() throws ClassNotFoundException, SQLException, InterruptedException {
 		// extent.createTest("Test", "");
 		String uri = "/cashiering/receipt/TRREG000001/nextReceipt";
@@ -102,7 +105,7 @@ public class Public_Test_CashieringGet extends BaseClass {
 
 	}
 
-	@Test(priority = 4, groups = "Cashering" , dependsOnMethods = "TC003_getnextReceipt")
+	@Test(priority = 4, groups = "Cashering", dependsOnMethods = "TC003_getnextReceipt")
 	public void TC004_getReceipt() throws ClassNotFoundException, SQLException, InterruptedException {
 		String uri = "/cashiering/receipt/004270412000001";
 		String ver = "2.4";
@@ -124,7 +127,7 @@ public class Public_Test_CashieringGet extends BaseClass {
 
 	}
 
-	@Test(priority = 5, groups = "Cashering" , dependsOnMethods = "TC004_getReceipt")
+	@Test(priority = 5, groups = "Cashering", dependsOnMethods = "TC004_getReceipt")
 	public void TC005_getRegisterInfo() throws ClassNotFoundException, SQLException, InterruptedException {
 		// extent.createTest("Test", "");
 		String uri = "/cashiering/register/TRREG000001/info";
@@ -147,10 +150,10 @@ public class Public_Test_CashieringGet extends BaseClass {
 
 	}
 
-	@Test(priority = 6, groups = "Cashering" , dependsOnMethods = "TC005_getRegisterInfo")
+	@Test(priority = 6, groups = "Cashering", dependsOnMethods = "TC005_getRegisterInfo")
 	public void TC006_gettransactions() throws ClassNotFoundException, SQLException, InterruptedException {
 		// extent.createTest("Test", "");
-		//CommonMethods.Bugs("CPDEV-16978");
+		// CommonMethods.Bugs("CPDEV-16978");
 		String uri = "/cashiering/transactions/customer017";
 		String ver = "2.4";
 		Map<String, String> responseMap = new HashMap<String, String>();
@@ -166,7 +169,7 @@ public class Public_Test_CashieringGet extends BaseClass {
 
 	}
 
-	@Test(priority = 7, groups = "Cashering" , dependsOnMethods = "TC006_gettransactions")
+	@Test(priority = 7, groups = "Cashering", dependsOnMethods = "TC006_gettransactions")
 	public void TC007_getAutoApply() throws ClassNotFoundException, SQLException, InterruptedException {
 		// extent.createTest("Test", "");
 		String uri = "/cashiering/autoApply";
@@ -189,14 +192,14 @@ public class Public_Test_CashieringGet extends BaseClass {
 			testStatus(false);
 	}
 
-	//@Test
+	// @Test
 
 	void testStatus(boolean Result) {
 		if (Result == false) {
-		//test.log(Status.FAIL, "Test Failed");
+			// test.log(Status.FAIL, "Test Failed");
 			Assert.fail();
 		}
-	//test.log(Status.PASS, "Test Passed");
+		// test.log(Status.PASS, "Test Passed");
 	}
 
 }
