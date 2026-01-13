@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
+import com.NexustAPIAutomation.java.EmailSender;
 import com.NexustAPIAutomation.java.QuickDBRestore;
 
 //import com.aventstack.extentreports.ExtentReports;
@@ -29,11 +30,7 @@ public class BaseClass {
 	public void sendReportByEmail() throws Exception {
 		// Delay added just to be safe
 		Thread.sleep(3000);
-
-		String from = "cogsauto@gmail.com";
-		String to = "recipient@example.com";
-		String subject = "TestNG API Test Report";
-		String body = "Please find the attached report.";
+		EmailSender.sendEmail("cogsauto@gmail.com", "trahim@cogsdale.com", "Test", "Test");
 
 	}
 

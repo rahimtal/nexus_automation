@@ -41,6 +41,7 @@ public class QuickDBRestore {
             consumeStream(restoreDb.getInputStream());
             consumeStream(restoreDb.getErrorStream());
             restoreDb.waitFor();
+            Thread.sleep(10000); // Wait for a few seconds to ensure the restore is complete
 
             System.out.println("Restore DB ==============================");
         } catch (Exception e) {
