@@ -1,20 +1,23 @@
 package com.NexustAPIAutomation.java;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 import org.testng.TestNG;
 
 public class RunFailedTestNG {
 
     private static final int MAX_RETRIES = 2;
-    private static final String projectRoot = System.getProperty("user.dir");
-    private static final String MAIN_SUITE_PATH = projectRoot + File.separator + "testng.xml";
+    private static final String PROJECT_ROOT = System.getProperty("user.dir");
+    private static final String MAIN_SUITE_PATH = PROJECT_ROOT + File.separator + "testng.xml";
 
     private static final String FAILED_SUITE_PATH = findFailedSuitePath();
 
     private static String findFailedSuitePath() {
-        File testOutputDir = new File(projectRoot, "test-output");
+        File testOutputDir = new File(PROJECT_ROOT, "test-output");
         File[] dirs = testOutputDir.listFiles(File::isDirectory);
         if (dirs != null) {
             for (File dir : dirs) {
@@ -33,11 +36,44 @@ public class RunFailedTestNG {
         return testOutputDir + File.separator + "testng-failed.xml";
     }
 
+    private static boolean validateClassesInFailedSuite(String failedSuitePath) {
+        File failedSuite = new File(failedSuitePath);
+        if (!failedSuite.exists()) {
+            System.out.println("❌ Failed suite file not found.");
+            return false;
+        }
+
+        try (Scanner scanner = new Scanner(failedSuite)) {
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                if (line.contains("class name=\"")) {
+                    String className = line.split("class name=\"")[1].split("\"")[0];
+                    try {
+                        Class.forName(className);
+                    } catch (ClassNotFoundException e) {
+                        System.out.println("❌ Class not found: " + className);
+                        return false;
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("❌ Error reading failed suite file: " + e.getMessage());
+            return false;
+        }
+
+        return true;
+    }
+
     public static void main(String[] args) {
         runTestNGSuitesWithRetries(MAIN_SUITE_PATH, FAILED_SUITE_PATH, MAX_RETRIES);
     }
 
     public static void runTestNGSuitesWithRetries(String mainSuite, String failedSuite, int maxRetries) {
+        if (!validateClassesInFailedSuite(failedSuite)) {
+            System.out.println("❌ Validation failed. Aborting execution.");
+            return;
+        }
+
         int attempt = 0;
 
         while (attempt <= maxRetries) {
@@ -65,9 +101,9 @@ public class RunFailedTestNG {
 
             // Wait to ensure testng-failed.xml is written
             try {
-                Thread.sleep(2000);
+                TimeUnit.MILLISECONDS.sleep(2000); // Use TimeUnit for better readability
             } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
+                Thread.currentThread().interrupt(); // Restore interrupted status
             }
 
             // Check if we should retry

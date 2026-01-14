@@ -21,7 +21,8 @@ public class BaseClass {
 	@BeforeSuite
 	public void setupReport() throws IOException {
 		System.out.println("Deleting folder");
-		Runtime.getRuntime().exec("cmd /c rd /s /q C:\\Users\\Admin\\Documents\\GitHub\\nexus_automation\\test-output");
+		Runtime.getRuntime()
+				.exec("cmd /c rd /s /q C:\\Users\\Admin\\Documents\\GitHub\\nexus_automation\\test-output\\");
 		QuickDBRestore.restoreDatabase();
 
 	}

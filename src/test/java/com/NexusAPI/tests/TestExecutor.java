@@ -1,13 +1,16 @@
-package com.NexustAPIAutomation.java;
+package com.NexusAPI.Tests;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.testng.TestNG;
 
 public class TestExecutor {
     private static final int MAX_RETRIES = 2;
-    private static final String projectRoot = System.getProperty("user.dir");
-    private static final String MAIN_SUITE_PATH = projectRoot + File.separator + "testng.xml";
+    private static final String PROJECT_ROOT = System.getProperty("user.dir");
+    private static final String MAIN_SUITE_PATH = PROJECT_ROOT + File.separator + "testng.xml";
+
     public static void main(String[] args) {
         runTestNGSuitesWithRetries(MAIN_SUITE_PATH, MAX_RETRIES);
     }
@@ -18,7 +21,21 @@ public class TestExecutor {
         List<String> suites = new ArrayList<>();
         suites.add(mainSuite);
         testng.setTestSuites(suites);
-        testng.run();
+
+        for (int attempt = 1; attempt <= maxRetries; attempt++) {
+            System.out.println("Attempt " + attempt + " of " + maxRetries);
+            testng.run();
+
+            if (!testng.hasFailure()) {
+                System.out.println("All tests passed on attempt " + attempt);
+                break;
+            }
+
+            if (attempt == maxRetries) {
+                System.out.println("Tests failed after " + maxRetries + " attempts.");
+            }
+        }
+
         // Debug logs
         System.out.println("➡ hasFailure(): " + testng.hasFailure());
         System.out.println("➡ hasSkip(): " + testng.hasSkip());
