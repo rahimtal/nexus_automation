@@ -104,8 +104,10 @@ public class EmailSender {
 	public static void main(String[] args) {
 		try {
 			System.out.println("Waiting for 10 seconds before sending email...");
-			Thread.sleep(10000); // 10-second delay
-			sendEmail("cogsauto@gmail.com", "trahim@cogsdale.com", "Test", "Test");
+			Thread.sleep(5000); // 10-second delay
+			sendEmail("cogsauto@gmail.com", "trahim@cogsdale.com", "Nexus API Regression Test Report ", "Test");
+			sendEmail("cogsauto@gmail.com", "rthurairasa@cogsdale.com", "Nexus API Regression Test Report ", "Test");
+			sendEmail("cogsauto@gmail.com", "makhlaq@cogsdale.com", "Nexus API Regression Test Report ", "Test");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
