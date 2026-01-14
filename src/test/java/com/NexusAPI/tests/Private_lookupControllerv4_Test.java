@@ -442,7 +442,7 @@ public class Private_lookupControllerv4_Test extends BaseClass {
 	public void getserviceAddressLookup_v4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/serviceAddressLookup";
-		String ver = "e";
+		String ver = "4.0";
 		String expected = "{\"result\":{\"statusCode\":\"0\",\"statusMessage\":\"\",\"apiVersionNumber\":\"1.0\"},\"serviceAddresses\":[{\"serviceAddress\":\"130 SAMSULA DR\",\"premiseId\":\"000000000523000\",\"serviceAddressLine2\":\"Address Line 2\"}]}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("serviceAddress", "130");
@@ -538,6 +538,21 @@ public class Private_lookupControllerv4_Test extends BaseClass {
 		String actual = CommonMethods.getMethodasString(uri, ver, body);
 		Assert.assertTrue(actual.contains(expected));
 
+	}
+
+	@Test(priority = 38, groups = "lookup")
+	public void lookupUdfpicklist()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// Still a Bug (2025)
+
+		String uri = "/lookup/udf/picklist";
+		String ver = "4.0";
+		String expected = "{\"Picklist\":[{\"Series\":7,\"Order\":[{\"Id\":\"7\",\"Label\":\"Customer UDF - Picklist\",\"List\":[{\"Value\":\"Picklist1\",\"Description\":\"\"},{\"Value\":\"Picklist2\",\"Description\":\"\"},{\"Value\":\"Picklist3\",\"Description\":\"\"}]}]}]}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("Series", "7");
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertEquals(actual, expected);
 	}
 
 }
