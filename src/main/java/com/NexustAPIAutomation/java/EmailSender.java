@@ -51,7 +51,11 @@ public class EmailSender {
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
 			message.setSubject("TestNG API Test Report");
 
-			String reportPath = System.getProperty("user.dir") + "\\test-output\\emailable-report.html";
+			String reportPath = Files.walk(Paths.get(System.getProperty("user.dir")))
+					.filter(path -> path.getFileName().toString().equals("emailable-report.html"))
+					.findFirst()
+					.orElseThrow(() -> new IOException("emailable-report.html not found in any folder"))
+					.toString();
 			System.out.println("Starting EmailSender...");
 			System.out.println("Report path: " + reportPath);
 
@@ -104,10 +108,13 @@ public class EmailSender {
 	public static void main(String[] args) {
 		try {
 			System.out.println("Waiting for 10 seconds before sending email...");
-			Thread.sleep(5000); // 10-second delay
-			sendEmail("cogsauto@gmail.com", "trahim@cogsdale.com", "Nexus API Regression Tests (Dockers) Report ", "Test");
-			sendEmail("cogsauto@gmail.com", "rthurairasa@cogsdale.com", "Nexus API Regression Tests (Dockers) Report ", "Test");
-			sendEmail("cogsauto@gmail.com", "makhlaq@cogsdale.com", "Nexus API Regression Tests (Dockers) Report ", "Test");
+			Thread.sleep(10000); // 10-second delay
+			sendEmail("cogsauto@gmail.com", "trahim@cogsdale.com", "Nexus API Regression Tests (Dockers) Report ",
+					"Test");
+			sendEmail("cogsauto@gmail.com", "rthurairasa@cogsdale.com", "Nexus API Regression Tests (Dockers) Report ",
+					"Test");
+			sendEmail("cogsauto@gmail.com", "makhlaq@cogsdale.com", "Nexus API Regression Tests (Dockers) Report ",
+					"Test");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

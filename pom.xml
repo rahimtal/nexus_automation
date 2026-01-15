@@ -30,7 +30,15 @@
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>3.1.0</version>
 				<configuration>
-					<mainClass>com.NexustAPIAutomation.java.TestExecutor</mainClass>
+					<mainClass>com.NexustAPIAutomation.java.TestAndEmailExecutor</mainClass>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M7</version>
+				<configuration>
+					<reportsDirectory>${project.build.directory}/test-output</reportsDirectory>
 				</configuration>
 			</plugin>
     </plugins>
