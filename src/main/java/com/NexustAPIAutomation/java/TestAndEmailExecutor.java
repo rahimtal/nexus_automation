@@ -1,5 +1,7 @@
 package com.NexustAPIAutomation.java;
 
+import java.io.IOException;
+
 public class TestAndEmailExecutor {
     public static void main(String[] args) {
         try {
@@ -21,8 +23,13 @@ public class TestAndEmailExecutor {
                 System.err.println("Maven tests failed");
                 EmailSender.main(null); // Call EmailSender to send the email
             }
+        } catch (IOException e) {
+            System.err.println("I/O error occurred: " + e.getMessage());
+        } catch (InterruptedException e) {
+            System.err.println("Thread was interrupted: " + e.getMessage());
+            Thread.currentThread().interrupt();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.err.println("Unexpected error: " + e.getMessage());
         }
     }
 }
