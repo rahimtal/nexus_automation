@@ -1,9 +1,11 @@
 package com.NexusAPI.Tests;
 
-import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.Assert;
 import org.testng.Assert;
 
-import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.Assert;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -12,16 +14,16 @@ import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
-
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 
-public class Private_MeterReadControllerV4_Test  extends BaseClass{
+public class Private_MeterReadControllerV4_Test extends BaseClass {
 
 	@Test(priority = 1, groups = "MeterRead", dependsOnMethods = "putMeterReadinginWorkV4")
 	public void deletemeterReadingvalidv4()
@@ -74,7 +76,7 @@ public class Private_MeterReadControllerV4_Test  extends BaseClass{
 	public static void PostMeterReadv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
-		//CommonMethods.Bugs("CPDEV-20946");
+		// CommonMethods.Bugs("CPDEV-20946");
 		String uri = "/meterReading";
 		String ver = "4.0";
 
@@ -124,15 +126,70 @@ public class Private_MeterReadControllerV4_Test  extends BaseClass{
 	@Test(priority = 5, groups = "MeterRead")
 	public void putMeterReadinginWorkV4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		//Still a Bug (2025)
-		//CommonMethods.Bug("CPDEV-21835");
+		// Still a Bug (2025)
+		// CommonMethods.Bug("CPDEV-21835");
 
 		String uri = "/meterReading";
 		String ver = "4.0";
-		String jpath = "./\\TestData\\putMeterReadingV4.json";
-		String params = new String(Files.readAllBytes(Paths.get(jpath)));
-		String expected = "./\\TestData\\putMeterReadingexpected_v4.json";
-		Response result = CommonMethods.putMethod(uri, ver, params, expected);
+		String params = "{\r\n" + //
+				"    \"MeterReading\": {\r\n" + //
+				"        \"DocumentNumber\": \"READ00000000913\",\r\n" + //
+				"        \"BatchId\": \"NAPIMR~20230815\",\r\n" + //
+				"        \"EmployeeId\": \"BANK0001\",\r\n" + //
+				"        \"Description\": \"Meter Read from street\",\r\n" + //
+				"        \"AdjustedDate\": \"2028-03-13T10:50:42\",\r\n" + //
+				"        \"ReadingType\": 1,\r\n" + //
+				"        \"ReadingDateTime\": \"2028-02-14T10:11:23\",\r\n" + //
+				"        \"ReasonCode\": \"ELECTRICREAD\",\r\n" + //
+				"        \"Periods\": [\r\n" + //
+				"            {\r\n" + //
+				"                \"Index\": 1,\r\n" + //
+				"                \"ConsumptionOverride\": 1,\r\n" + //
+				"                \"Rollover\": 0,\r\n" + //
+				"                \"ConsumptionReading\": 0,\r\n" + //
+				"                \"Consumption\": 0,\r\n" + //
+				"                \"KW\": 0,\r\n" + //
+				"                \"KVA\": 0,\r\n" + //
+				"                \"NetRollover\": 0,\r\n" + //
+				"                \"NetMeterReceived\": 8.000,\r\n" + //
+				"                \"NetMeterPreviousReceived\": 0,\r\n" + //
+				"                \"PowerFactor\": 0,\r\n" + //
+				"                \"LoadFactor\": 0\r\n" + //
+				"            },\r\n" + //
+				"            {\r\n" + //
+				"                \"Index\": 2,\r\n" + //
+				"                \"ConsumptionOverride\": 0,\r\n" + //
+				"                \"Rollover\": 0,\r\n" + //
+				"                \"ConsumptionReading\": 80.00000,\r\n" + //
+				"                \"Consumption\": 0,\r\n" + //
+				"                \"KW\": 0,\r\n" + //
+				"                \"KVA\": 0,\r\n" + //
+				"                \"NetRollover\": 0,\r\n" + //
+				"                \"NetMeterReceived\": 0,\r\n" + //
+				"                \"NetMeterPreviousReceived\": 0,\r\n" + //
+				"                \"PowerFactor\": 0,\r\n" + //
+				"                \"LoadFactor\": 0\r\n" + //
+				"            },\r\n" + //
+				"            {\r\n" + //
+				"                \"Index\": 3,\r\n" + //
+				"                \"ConsumptionOverride\": 0,\r\n" + //
+				"                \"Rollover\": 0,\r\n" + //
+				"                \"ConsumptionReading\": 80,\r\n" + //
+				"                \"Consumption\": 0,\r\n" + //
+				"                \"KW\": 0,\r\n" + //
+				"                \"KVA\": 0,\r\n" + //
+				"                \"NetRollover\": 0,\r\n" + //
+				"                \"NetMeterReceived\": 0,\r\n" + //
+				"                \"NetMeterPreviousReceived\": 0,\r\n" + //
+				"                \"PowerFactor\": 0,\r\n" + //
+				"                \"LoadFactor\": 0\r\n" + //
+				"            }\r\n" + //
+				"        ]\r\n" + //
+				"    }\r\n" + //
+				"}";
+		// String params = new String(Files.readAllBytes(Paths.get(jpath)));
+		String expected = "{\"MeterReading\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Location has bill in work. No adjustment can be made until bill is posted or deleted.\",\"Level\":3}]}}";
+		String result = CommonMethods.putMethodstring(uri, ver, params, expected);
 
 	}
 
@@ -241,5 +298,3 @@ public class Private_MeterReadControllerV4_Test  extends BaseClass{
 	}
 
 }
-
-
