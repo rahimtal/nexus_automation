@@ -1,0 +1,2095 @@
+<html>
+<head>
+<title>TestNG:  Surefire test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Surefire test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>185/11/12</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Jan 15 11:49:05 PKT 2026</td>
+</tr>
+<tr><td>Total time:</td><td>291 seconds (291331 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.getapplyByService_Paymentsv4()'><b>getapplyByService_Paymentsv4</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at com.NexusAPI.Tests.Private_lookupControllerv4_Test.getapplyByService_Paymentsv4(Private_lookupControllerv4_Test.java:39)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 36 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2143419697", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2143419697'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at org.testng.Assert.assertTrue(Assert.java:67)
+	at com.NexusAPI.Tests.Private_lookupControllerv4_Test.getapplyByService_Paymentsv4(Private_lookupControllerv4_Test.java:39)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupBatchFinalBill()'><b>lookupBatchFinalBill</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td><div><pre>java.lang.AssertionError: expected [{&quot;Batch&quot;:[{&quot;Id&quot;:&quot;BATCH2025&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;BATCHPOSTTRANS&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;BATCHTEST01&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;BT1232&quot;,&quot;Description&quot;:&quot;Api billing&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;FINALBILL&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true}]}] but found [{&quot;Batch&quot;:[{&quot;Id&quot;:&quot;BAT10123123&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;BATCH2025&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;BATCHPOSTTRANS&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;BATCHTEST01&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;FINALBILL&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true}]}]
+	at com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupBatchFinalBill(Private_lookupControllerv4_Test.java:382)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 38 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace347238032", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace347238032'><pre>java.lang.AssertionError: expected [{&quot;Batch&quot;:[{&quot;Id&quot;:&quot;BATCH2025&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;BATCHPOSTTRANS&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;BATCHTEST01&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;BT1232&quot;,&quot;Description&quot;:&quot;Api billing&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;FINALBILL&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true}]}] but found [{&quot;Batch&quot;:[{&quot;Id&quot;:&quot;BAT10123123&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;BATCH2025&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;BATCHPOSTTRANS&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;BATCHTEST01&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;FINALBILL&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true}]}]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at org.testng.Assert.assertEquals(Assert.java:666)
+	at com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupBatchFinalBill(Private_lookupControllerv4_Test.java:382)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_penaltyController_Test.postpenaltydocumentPrint_v4()'><b>postpenaltydocumentPrint_v4</b><br>Test class: com.NexusAPI.Tests.Private_penaltyController_Test</td>
+<td><div><pre>com.microsoft.sqlserver.jdbc.SQLServerException: Invalid object name &apos;csmApi_vwReportPenaltyPreparationDetail&apos;.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:254)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1608)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.doExecuteStatement(SQLServerStatement.java:859)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement$StmtExecCmd.doExecute(SQLServerStatement.java:759)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7240)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:2869)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:243)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:218)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeQuery(SQLServerStatement.java:688)
+	at com.NexustAPIAutomation.java.CommonMethods.selectFromDb(CommonMethods.java:1182)
+	at com.NexusAPI.Tests.Private_penaltyController_Test.postpenaltydocumentPrint_v4(Private_penaltyController_Test.java:164)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1741783268", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1741783268'><pre>com.microsoft.sqlserver.jdbc.SQLServerException: Invalid object name &apos;csmApi_vwReportPenaltyPreparationDetail&apos;.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:254)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1608)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.doExecuteStatement(SQLServerStatement.java:859)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement$StmtExecCmd.doExecute(SQLServerStatement.java:759)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7240)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:2869)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:243)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:218)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeQuery(SQLServerStatement.java:688)
+	at com.NexustAPIAutomation.java.CommonMethods.selectFromDb(CommonMethods.java:1182)
+	at com.NexusAPI.Tests.Private_penaltyController_Test.postpenaltydocumentPrint_v4(Private_penaltyController_Test.java:164)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_penaltyController_Test@6c4906d3</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_penaltyController_Test.postCreatemiscellaneousv_4()'><b>postCreatemiscellaneousv_4</b><br>Test class: com.NexusAPI.Tests.Private_penaltyController_Test</td>
+<td><div><pre>java.lang.AssertionError: expected [{&quot;MiscellaneousCharge&quot;:{&quot;Success&quot;:false,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;The Batch ID PENALTY1 contains Penalty documents. Select a different Batch ID or create a new Batch ID.&quot;,&quot;Level&quot;:3}]}}] but found [{&quot;MiscellaneousCharge&quot;:{&quot;Success&quot;:false,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;The Batch Id PENALTY1 contains Penalty documents. Select a different Batch Id or create a new Batch Id.&quot;,&quot;Level&quot;:3}]}}]
+	at com.NexusAPI.Tests.Private_penaltyController_Test.postCreatemiscellaneousv_4(Private_penaltyController_Test.java:228)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 38 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace54411368", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace54411368'><pre>java.lang.AssertionError: expected [{&quot;MiscellaneousCharge&quot;:{&quot;Success&quot;:false,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;The Batch ID PENALTY1 contains Penalty documents. Select a different Batch ID or create a new Batch ID.&quot;,&quot;Level&quot;:3}]}}] but found [{&quot;MiscellaneousCharge&quot;:{&quot;Success&quot;:false,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;The Batch Id PENALTY1 contains Penalty documents. Select a different Batch Id or create a new Batch Id.&quot;,&quot;Level&quot;:3}]}}]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at org.testng.Assert.assertEquals(Assert.java:666)
+	at com.NexusAPI.Tests.Private_penaltyController_Test.postCreatemiscellaneousv_4(Private_penaltyController_Test.java:228)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_penaltyController_Test@6c4906d3</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.getserviceAddressLookup_v4()'><b>getserviceAddressLookup_v4</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td><div><pre>java.lang.AssertionError: expected [{&quot;result&quot;:{&quot;statusCode&quot;:&quot;0&quot;,&quot;statusMessage&quot;:&quot;&quot;,&quot;apiVersionNumber&quot;:&quot;1.0&quot;},&quot;serviceAddresses&quot;:[{&quot;serviceAddress&quot;:&quot;130 SAMSULA DR&quot;,&quot;premiseId&quot;:&quot;000000000523000&quot;,&quot;serviceAddressLine2&quot;:&quot;Address Line 2&quot;}]}] but found [{&quot;result&quot;:{&quot;Success&quot;:false,&quot;Message&quot;:&quot;Not Found&quot;}}]
+	at com.NexusAPI.Tests.Private_lookupControllerv4_Test.getserviceAddressLookup_v4(Private_lookupControllerv4_Test.java:452)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 38 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1599747053", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1599747053'><pre>java.lang.AssertionError: expected [{&quot;result&quot;:{&quot;statusCode&quot;:&quot;0&quot;,&quot;statusMessage&quot;:&quot;&quot;,&quot;apiVersionNumber&quot;:&quot;1.0&quot;},&quot;serviceAddresses&quot;:[{&quot;serviceAddress&quot;:&quot;130 SAMSULA DR&quot;,&quot;premiseId&quot;:&quot;000000000523000&quot;,&quot;serviceAddressLine2&quot;:&quot;Address Line 2&quot;}]}] but found [{&quot;result&quot;:{&quot;Success&quot;:false,&quot;Message&quot;:&quot;Not Found&quot;}}]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at org.testng.Assert.assertEquals(Assert.java:666)
+	at com.NexusAPI.Tests.Private_lookupControllerv4_Test.getserviceAddressLookup_v4(Private_lookupControllerv4_Test.java:452)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_penaltyController_Test.getcalculatedDocuments_v4()'><b>getcalculatedDocuments_v4</b><br>Test class: com.NexusAPI.Tests.Private_penaltyController_Test</td>
+<td><div><pre>java.lang.AssertionError: expected [{&quot;Penalty&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;BatchId&quot;:&quot;ABC1213&quot;,&quot;Document&quot;:[{&quot;PenaltyDocument&quot;:&quot;PNLT00000000059&quot;,&quot;SourceDocument&quot;:&quot;BILL00000000574&quot;,&quot;LocationId&quot;:&quot;TRANSACTION001&quot;,&quot;CustomerId&quot;:&quot;TRS0001&quot;,&quot;ServiceType&quot;:&quot;ELECTRIC&quot;,&quot;PenaltyId&quot;:&quot;5%&quot;,&quot;TaxAmount&quot;:1.40,&quot;OriginalBalance&quot;:21.40,&quot;OutstandingAmount&quot;:21.40,&quot;PenaltyAmount&quot;:1.07},{&quot;PenaltyDocument&quot;:&quot;PNLT00000000060&quot;,&quot;SourceDocument&quot;:&quot;BILL00000000575&quot;,&quot;LocationId&quot;:&quot;TRANSACTION001&quot;,&quot;CustomerId&quot;:&quot;TRS0001&quot;,&quot;ServiceType&quot;:&quot;GAS&quot;,&quot;PenaltyId&quot;:&quot;DEFAULTPYMT&quot;,&quot;TaxAmount&quot;:0.00,&quot;OriginalBalance&quot;:10.00,&quot;OutstandingAmount&quot;:10.00,&quot;PenaltyAmount&quot;:0.50},{&quot;PenaltyDocument&quot;:&quot;PNLT00000000061&quot;,&quot;SourceDocument&quot;:&quot;BILL00000000578&quot;,&quot;LocationId&quot;:&quot;TRANSACTION001&quot;,&quot;CustomerId&quot;:&quot;TRS0001&quot;,&quot;ServiceType&quot;:&quot;SEWER&quot;,&quot;PenaltyId&quot;:&quot;DEFAULTPYMT&quot;,&quot;TaxAmount&quot;:0.00,&quot;OriginalBalance&quot;:15.00,&quot;OutstandingAmount&quot;:15.00,&quot;PenaltyAmount&quot;:0.75},{&quot;PenaltyDocument&quot;:&quot;PNLT00000000062&quot;,&quot;SourceDocument&quot;:&quot;BILL00000000577&quot;,&quot;LocationId&quot;:&quot;TRANSACTION001&quot;,&quot;CustomerId&quot;:&quot;TRS0001&quot;,&quot;ServiceType&quot;:&quot;WATER&quot;,&quot;PenaltyId&quot;:&quot;DEFAULTPYMT&quot;,&quot;TaxAmount&quot;:0.00,&quot;OriginalBalance&quot;:30.00,&quot;OutstandingAmount&quot;:30.00,&quot;PenaltyAmount&quot;:1.50}]},&quot;Messages&quot;:[]}}] but found [{&quot;Penalty&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;BatchId&quot;:&quot;ABC1213&quot;,&quot;Document&quot;:[{&quot;PenaltyDocument&quot;:&quot;PNLT00000000059&quot;,&quot;SourceDocument&quot;:&quot;&quot;,&quot;LocationId&quot;:&quot;TRANSACTION001&quot;,&quot;CustomerId&quot;:&quot;TRS0001&quot;,&quot;ServiceType&quot;:&quot;&quot;,&quot;PenaltyId&quot;:&quot;&quot;,&quot;TaxAmount&quot;:0.00,&quot;OriginalBalance&quot;:0.00,&quot;OutstandingAmount&quot;:0.00,&quot;PenaltyAmount&quot;:0.00},{&quot;PenaltyDocument&quot;:&quot;PNLT00000000060&quot;,&quot;SourceDocument&quot;:&quot;&quot;,&quot;LocationId&quot;:&quot;TRANSACTION001&quot;,&quot;CustomerId&quot;:&quot;TRS0001&quot;,&quot;ServiceType&quot;:&quot;&quot;,&quot;PenaltyId&quot;:&quot;&quot;,&quot;TaxAmount&quot;:0.00,&quot;OriginalBalance&quot;:0.00,&quot;OutstandingAmount&quot;:0.00,&quot;PenaltyAmount&quot;:0.00},{&quot;PenaltyDocument&quot;:&quot;PNLT00000000061&quot;,&quot;SourceDocument&quot;:&quot;&quot;,&quot;LocationId&quot;:&quot;TRANSACTION001&quot;,&quot;CustomerId&quot;:&quot;TRS0001&quot;,&quot;ServiceType&quot;:&quot;&quot;,&quot;PenaltyId&quot;:&quot;&quot;,&quot;TaxAmount&quot;:0.00,&quot;OriginalBalance&quot;:0.00,&quot;OutstandingAmount&quot;:0.00,&quot;PenaltyAmount&quot;:0.00},{&quot;PenaltyDocument&quot;:&quot;PNLT00000000062&quot;,&quot;SourceDocument&quot;:&quot;&quot;,&quot;LocationId&quot;:&quot;TRANSACTION001&quot;,&quot;CustomerId&quot;:&quot;TRS0001&quot;,&quot;ServiceType&quot;:&quot;&quot;,&quot;PenaltyId&quot;:&quot;&quot;,&quot;TaxAmount&quot;:0.00,&quot;OriginalBalance&quot;:0.00,&quot;OutstandingAmount&quot;:0.00,&quot;PenaltyAmount&quot;:0.00}]},&quot;Messages&quot;:[]}}]
+	at com.NexusAPI.Tests.Private_penaltyController_Test.getcalculatedDocuments_v4(Private_penaltyController_Test.java:112)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 38 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1328382325", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1328382325'><pre>java.lang.AssertionError: expected [{&quot;Penalty&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;BatchId&quot;:&quot;ABC1213&quot;,&quot;Document&quot;:[{&quot;PenaltyDocument&quot;:&quot;PNLT00000000059&quot;,&quot;SourceDocument&quot;:&quot;BILL00000000574&quot;,&quot;LocationId&quot;:&quot;TRANSACTION001&quot;,&quot;CustomerId&quot;:&quot;TRS0001&quot;,&quot;ServiceType&quot;:&quot;ELECTRIC&quot;,&quot;PenaltyId&quot;:&quot;5%&quot;,&quot;TaxAmount&quot;:1.40,&quot;OriginalBalance&quot;:21.40,&quot;OutstandingAmount&quot;:21.40,&quot;PenaltyAmount&quot;:1.07},{&quot;PenaltyDocument&quot;:&quot;PNLT00000000060&quot;,&quot;SourceDocument&quot;:&quot;BILL00000000575&quot;,&quot;LocationId&quot;:&quot;TRANSACTION001&quot;,&quot;CustomerId&quot;:&quot;TRS0001&quot;,&quot;ServiceType&quot;:&quot;GAS&quot;,&quot;PenaltyId&quot;:&quot;DEFAULTPYMT&quot;,&quot;TaxAmount&quot;:0.00,&quot;OriginalBalance&quot;:10.00,&quot;OutstandingAmount&quot;:10.00,&quot;PenaltyAmount&quot;:0.50},{&quot;PenaltyDocument&quot;:&quot;PNLT00000000061&quot;,&quot;SourceDocument&quot;:&quot;BILL00000000578&quot;,&quot;LocationId&quot;:&quot;TRANSACTION001&quot;,&quot;CustomerId&quot;:&quot;TRS0001&quot;,&quot;ServiceType&quot;:&quot;SEWER&quot;,&quot;PenaltyId&quot;:&quot;DEFAULTPYMT&quot;,&quot;TaxAmount&quot;:0.00,&quot;OriginalBalance&quot;:15.00,&quot;OutstandingAmount&quot;:15.00,&quot;PenaltyAmount&quot;:0.75},{&quot;PenaltyDocument&quot;:&quot;PNLT00000000062&quot;,&quot;SourceDocument&quot;:&quot;BILL00000000577&quot;,&quot;LocationId&quot;:&quot;TRANSACTION001&quot;,&quot;CustomerId&quot;:&quot;TRS0001&quot;,&quot;ServiceType&quot;:&quot;WATER&quot;,&quot;PenaltyId&quot;:&quot;DEFAULTPYMT&quot;,&quot;TaxAmount&quot;:0.00,&quot;OriginalBalance&quot;:30.00,&quot;OutstandingAmount&quot;:30.00,&quot;PenaltyAmount&quot;:1.50}]},&quot;Messages&quot;:[]}}] but found [{&quot;Penalty&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;BatchId&quot;:&quot;ABC1213&quot;,&quot;Document&quot;:[{&quot;PenaltyDocument&quot;:&quot;PNLT00000000059&quot;,&quot;SourceDocument&quot;:&quot;&quot;,&quot;LocationId&quot;:&quot;TRANSACTION001&quot;,&quot;CustomerId&quot;:&quot;TRS0001&quot;,&quot;ServiceType&quot;:&quot;&quot;,&quot;PenaltyId&quot;:&quot;&quot;,&quot;TaxAmount&quot;:0.00,&quot;OriginalBalance&quot;:0.00,&quot;OutstandingAmount&quot;:0.00,&quot;PenaltyAmount&quot;:0.00},{&quot;PenaltyDocument&quot;:&quot;PNLT00000000060&quot;,&quot;SourceDocument&quot;:&quot;&quot;,&quot;LocationId&quot;:&quot;TRANSACTION001&quot;,&quot;CustomerId&quot;:&quot;TRS0001&quot;,&quot;ServiceType&quot;:&quot;&quot;,&quot;PenaltyId&quot;:&quot;&quot;,&quot;TaxAmount&quot;:0.00,&quot;OriginalBalance&quot;:0.00,&quot;OutstandingAmount&quot;:0.00,&quot;PenaltyAmount&quot;:0.00},{&quot;PenaltyDocument&quot;:&quot;PNLT00000000061&quot;,&quot;SourceDocument&quot;:&quot;&quot;,&quot;LocationId&quot;:&quot;TRANSACTION001&quot;,&quot;CustomerId&quot;:&quot;TRS0001&quot;,&quot;ServiceType&quot;:&quot;&quot;,&quot;PenaltyId&quot;:&quot;&quot;,&quot;TaxAmount&quot;:0.00,&quot;OriginalBalance&quot;:0.00,&quot;OutstandingAmount&quot;:0.00,&quot;PenaltyAmount&quot;:0.00},{&quot;PenaltyDocument&quot;:&quot;PNLT00000000062&quot;,&quot;SourceDocument&quot;:&quot;&quot;,&quot;LocationId&quot;:&quot;TRANSACTION001&quot;,&quot;CustomerId&quot;:&quot;TRS0001&quot;,&quot;ServiceType&quot;:&quot;&quot;,&quot;PenaltyId&quot;:&quot;&quot;,&quot;TaxAmount&quot;:0.00,&quot;OriginalBalance&quot;:0.00,&quot;OutstandingAmount&quot;:0.00,&quot;PenaltyAmount&quot;:0.00}]},&quot;Messages&quot;:[]}}]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at org.testng.Assert.assertEquals(Assert.java:666)
+	at com.NexusAPI.Tests.Private_penaltyController_Test.getcalculatedDocuments_v4(Private_penaltyController_Test.java:112)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_penaltyController_Test@6c4906d3</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_SmartyStreetValidationV4_Test.postvalidateAddresses()'><b>postvalidateAddresses</b><br>Test class: com.NexusAPI.Tests.Private_SmartyStreetValidationV4_Test</td>
+<td><div><pre>java.lang.AssertionError: expected [{ &quot;ValidateAddresses&quot;: {&quot;Success&quot;:true,&quot;Data&quot;:{&quot;AddressId&quot;:&quot;&quot;,&quot;AddressCode&quot;:&quot;PRIMARY&quot;,&quot;ContactPerson&quot;:&quot;&quot;,&quot;AddressLabel&quot;:{&quot;Line1&quot;:&quot;1119 skylino DR&quot;,&quot;Line2&quot;:&quot;&quot;,&quot;City&quot;:&quot;Griffin&quot;,&quot;State&quot;:&quot;GA&quot;,&quot;ZipCode&quot;:&quot;302824&quot;,&quot;Country&quot;:&quot;USA&quot;,&quot;IsDirty&quot;:false},&quot;BillToAddress&quot;:false,&quot;Override&quot;:{&quot;Override&quot;:false,&quot;AddressCode&quot;:&quot;&quot;,&quot;FromDate&quot;:&quot;1900-01-01&quot;,&quot;ToDate&quot;:&quot;1900-01-01&quot;,&quot;Recurring&quot;:false},&quot;PhoneNumber&quot;:[{&quot;Number&quot;:&quot;&quot;,&quot;TypeId&quot;:0,&quot;Description&quot;:&quot;empty&quot;,&quot;IsDirty&quot;:false}],&quot;FaxNumber&quot;:{&quot;Number&quot;:&quot;&quot;,&quot;IsDirty&quot;:false},&quot;SmartyStreetsMailingAddressCandidate&quot;:{&quot;AddressId&quot;:&quot;&quot;,&quot;DeliveryLine1&quot;:&quot;1119 Skyline Dr&quot;,&quot;DeliveryLine2&quot;:&quot;&quot;,&quot;LastLine&quot;:&quot;Griffin GA 30224-4958&quot;,&quot;StreetNumber&quot;:&quot;1119&quot;,&quot;StreetNumberLng&quot;:1119,&quot;StrNumberSuffix&quot;:&quot;&quot;,&quot;StreetName&quot;:&quot;Skyline&quot;,&quot;StreetType&quot;:&quot;Dr&quot;,&quot;StreetDirectionP&quot;:&quot;&quot;,&quot;StreetDirection&quot;:&quot;&quot;,&quot;AptNumber&quot;:&quot;&quot;,&quot;AptDescription&quot;:&quot;&quot;,&quot;UnitDesignation&quot;:&quot;&quot;,&quot;AptNumberPlus&quot;:&quot;&quot;,&quot;CityName&quot;:&quot;Griffin&quot;,&quot;State&quot;:&quot;GA&quot;,&quot;ZipCode&quot;:&quot;30224&quot;,&quot;Plus4Code&quot;:&quot;4958&quot;,&quot;Country&quot;:&quot;USA&quot;,&quot;Success&quot;:true,&quot;MailingAddressMessages&quot;:{&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Confirmed; entire address was Delivery Point Validation confirmed deliverable.&quot;,&quot;AddressCode&quot;:&quot;&quot;},{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;City/state/ZIP + street are all valid.&quot;,&quot;AddressCode&quot;:&quot;&quot;},{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;ZIP+4 matched; confirmed entire address; address is valid.&quot;,&quot;AddressCode&quot;:&quot;&quot;}]}}},&quot;Messages&quot;:[]}}] but found [{ &quot;ValidateAddresses&quot;: {&quot;Success&quot;:false,&quot;Data&quot;:{&quot;AddressId&quot;:&quot;&quot;,&quot;AddressCode&quot;:&quot;PRIMARY&quot;,&quot;ContactPerson&quot;:&quot;&quot;,&quot;AddressLabel&quot;:{&quot;Line1&quot;:&quot;1119 skylino DR&quot;,&quot;Line2&quot;:&quot;&quot;,&quot;City&quot;:&quot;Griffin&quot;,&quot;State&quot;:&quot;GA&quot;,&quot;ZipCode&quot;:&quot;302824&quot;,&quot;Country&quot;:&quot;USA&quot;,&quot;IsDirty&quot;:false},&quot;BillToAddress&quot;:false,&quot;Override&quot;:{&quot;Override&quot;:false,&quot;AddressCode&quot;:&quot;&quot;,&quot;FromDate&quot;:&quot;1900-01-01&quot;,&quot;ToDate&quot;:&quot;1900-01-01&quot;,&quot;Recurring&quot;:false},&quot;PhoneNumber&quot;:[{&quot;Number&quot;:&quot;&quot;,&quot;TypeId&quot;:0,&quot;Description&quot;:&quot;empty&quot;,&quot;IsDirty&quot;:false}],&quot;FaxNumber&quot;:{&quot;Number&quot;:&quot;&quot;,&quot;IsDirty&quot;:false},&quot;SmartyStreetsMailingAddressCandidate&quot;:{&quot;AddressId&quot;:&quot;&quot;,&quot;DeliveryLine1&quot;:&quot;1119 skylino DR&quot;,&quot;DeliveryLine2&quot;:&quot;&quot;,&quot;LastLine&quot;:&quot;Griffin GA 302824&quot;,&quot;StreetNumber&quot;:&quot;&quot;,&quot;StreetNumberLng&quot;:0,&quot;StrNumberSuffix&quot;:&quot;&quot;,&quot;StreetName&quot;:&quot;&quot;,&quot;StreetType&quot;:&quot;&quot;,&quot;StreetDirectionP&quot;:&quot;&quot;,&quot;StreetDirection&quot;:&quot;&quot;,&quot;AptNumber&quot;:&quot;&quot;,&quot;AptDescription&quot;:&quot;&quot;,&quot;UnitDesignation&quot;:&quot;&quot;,&quot;AptNumberPlus&quot;:&quot;&quot;,&quot;ZipCode&quot;:&quot;302824&quot;,&quot;Plus4Code&quot;:&quot;&quot;,&quot;CityName&quot;:&quot;Griffin&quot;,&quot;State&quot;:&quot;GA&quot;,&quot;Country&quot;:&quot;USA&quot;,&quot;Success&quot;:false,&quot;MailingAddressMessages&quot;:{&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;SmartyStreets Message: unexpected error  SmartyStreets HttpStatus: undefined&quot;,&quot;AddressCode&quot;:&quot;Error&quot;}]}}},&quot;Messages&quot;:[]}}]
+	at com.NexustAPIAutomation.java.CommonMethods.postMethodString(CommonMethods.java:492)
+	at com.NexusAPI.Tests.Private_SmartyStreetValidationV4_Test.postvalidateAddresses(Private_SmartyStreetValidationV4_Test.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 38 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace128846374", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace128846374'><pre>java.lang.AssertionError: expected [{ &quot;ValidateAddresses&quot;: {&quot;Success&quot;:true,&quot;Data&quot;:{&quot;AddressId&quot;:&quot;&quot;,&quot;AddressCode&quot;:&quot;PRIMARY&quot;,&quot;ContactPerson&quot;:&quot;&quot;,&quot;AddressLabel&quot;:{&quot;Line1&quot;:&quot;1119 skylino DR&quot;,&quot;Line2&quot;:&quot;&quot;,&quot;City&quot;:&quot;Griffin&quot;,&quot;State&quot;:&quot;GA&quot;,&quot;ZipCode&quot;:&quot;302824&quot;,&quot;Country&quot;:&quot;USA&quot;,&quot;IsDirty&quot;:false},&quot;BillToAddress&quot;:false,&quot;Override&quot;:{&quot;Override&quot;:false,&quot;AddressCode&quot;:&quot;&quot;,&quot;FromDate&quot;:&quot;1900-01-01&quot;,&quot;ToDate&quot;:&quot;1900-01-01&quot;,&quot;Recurring&quot;:false},&quot;PhoneNumber&quot;:[{&quot;Number&quot;:&quot;&quot;,&quot;TypeId&quot;:0,&quot;Description&quot;:&quot;empty&quot;,&quot;IsDirty&quot;:false}],&quot;FaxNumber&quot;:{&quot;Number&quot;:&quot;&quot;,&quot;IsDirty&quot;:false},&quot;SmartyStreetsMailingAddressCandidate&quot;:{&quot;AddressId&quot;:&quot;&quot;,&quot;DeliveryLine1&quot;:&quot;1119 Skyline Dr&quot;,&quot;DeliveryLine2&quot;:&quot;&quot;,&quot;LastLine&quot;:&quot;Griffin GA 30224-4958&quot;,&quot;StreetNumber&quot;:&quot;1119&quot;,&quot;StreetNumberLng&quot;:1119,&quot;StrNumberSuffix&quot;:&quot;&quot;,&quot;StreetName&quot;:&quot;Skyline&quot;,&quot;StreetType&quot;:&quot;Dr&quot;,&quot;StreetDirectionP&quot;:&quot;&quot;,&quot;StreetDirection&quot;:&quot;&quot;,&quot;AptNumber&quot;:&quot;&quot;,&quot;AptDescription&quot;:&quot;&quot;,&quot;UnitDesignation&quot;:&quot;&quot;,&quot;AptNumberPlus&quot;:&quot;&quot;,&quot;CityName&quot;:&quot;Griffin&quot;,&quot;State&quot;:&quot;GA&quot;,&quot;ZipCode&quot;:&quot;30224&quot;,&quot;Plus4Code&quot;:&quot;4958&quot;,&quot;Country&quot;:&quot;USA&quot;,&quot;Success&quot;:true,&quot;MailingAddressMessages&quot;:{&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Confirmed; entire address was Delivery Point Validation confirmed deliverable.&quot;,&quot;AddressCode&quot;:&quot;&quot;},{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;City/state/ZIP + street are all valid.&quot;,&quot;AddressCode&quot;:&quot;&quot;},{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;ZIP+4 matched; confirmed entire address; address is valid.&quot;,&quot;AddressCode&quot;:&quot;&quot;}]}}},&quot;Messages&quot;:[]}}] but found [{ &quot;ValidateAddresses&quot;: {&quot;Success&quot;:false,&quot;Data&quot;:{&quot;AddressId&quot;:&quot;&quot;,&quot;AddressCode&quot;:&quot;PRIMARY&quot;,&quot;ContactPerson&quot;:&quot;&quot;,&quot;AddressLabel&quot;:{&quot;Line1&quot;:&quot;1119 skylino DR&quot;,&quot;Line2&quot;:&quot;&quot;,&quot;City&quot;:&quot;Griffin&quot;,&quot;State&quot;:&quot;GA&quot;,&quot;ZipCode&quot;:&quot;302824&quot;,&quot;Country&quot;:&quot;USA&quot;,&quot;IsDirty&quot;:false},&quot;BillToAddress&quot;:false,&quot;Override&quot;:{&quot;Override&quot;:false,&quot;AddressCode&quot;:&quot;&quot;,&quot;FromDate&quot;:&quot;1900-01-01&quot;,&quot;ToDate&quot;:&quot;1900-01-01&quot;,&quot;Recurring&quot;:false},&quot;PhoneNumber&quot;:[{&quot;Number&quot;:&quot;&quot;,&quot;TypeId&quot;:0,&quot;Description&quot;:&quot;empty&quot;,&quot;IsDirty&quot;:false}],&quot;FaxNumber&quot;:{&quot;Number&quot;:&quot;&quot;,&quot;IsDirty&quot;:false},&quot;SmartyStreetsMailingAddressCandidate&quot;:{&quot;AddressId&quot;:&quot;&quot;,&quot;DeliveryLine1&quot;:&quot;1119 skylino DR&quot;,&quot;DeliveryLine2&quot;:&quot;&quot;,&quot;LastLine&quot;:&quot;Griffin GA 302824&quot;,&quot;StreetNumber&quot;:&quot;&quot;,&quot;StreetNumberLng&quot;:0,&quot;StrNumberSuffix&quot;:&quot;&quot;,&quot;StreetName&quot;:&quot;&quot;,&quot;StreetType&quot;:&quot;&quot;,&quot;StreetDirectionP&quot;:&quot;&quot;,&quot;StreetDirection&quot;:&quot;&quot;,&quot;AptNumber&quot;:&quot;&quot;,&quot;AptDescription&quot;:&quot;&quot;,&quot;UnitDesignation&quot;:&quot;&quot;,&quot;AptNumberPlus&quot;:&quot;&quot;,&quot;ZipCode&quot;:&quot;302824&quot;,&quot;Plus4Code&quot;:&quot;&quot;,&quot;CityName&quot;:&quot;Griffin&quot;,&quot;State&quot;:&quot;GA&quot;,&quot;Country&quot;:&quot;USA&quot;,&quot;Success&quot;:false,&quot;MailingAddressMessages&quot;:{&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;SmartyStreets Message: unexpected error  SmartyStreets HttpStatus: undefined&quot;,&quot;AddressCode&quot;:&quot;Error&quot;}]}}},&quot;Messages&quot;:[]}}]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at org.testng.Assert.assertEquals(Assert.java:666)
+	at com.NexustAPIAutomation.java.CommonMethods.postMethodString(CommonMethods.java:492)
+	at com.NexusAPI.Tests.Private_SmartyStreetValidationV4_Test.postvalidateAddresses(Private_SmartyStreetValidationV4_Test.java:42)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>10</td>
+<td>com.NexusAPI.Tests.Private_SmartyStreetValidationV4_Test@6b695b06</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_penaltyController_Test.postpenaltyDocumentsPENALTY2_v_4()'><b>postpenaltyDocumentsPENALTY2_v_4</b><br>Test class: com.NexusAPI.Tests.Private_penaltyController_Test</td>
+<td><div><pre>java.lang.AssertionError: expected [{&quot;Penalty&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;UserId&quot;:&quot;sa&quot;,&quot;VersionNumber&quot;:&quot;1.0.0&quot;,&quot;PostDate&quot;:&quot;2025-09-18&quot;,&quot;BatchId&quot;:&quot;PENALTY2&quot;,&quot;MiscCharge&quot;:{&quot;Document&quot;:[{&quot;DocType&quot;:&quot;PNLT&quot;,&quot;DocumentNumber&quot;:&quot;PNLT00000000098&quot;,&quot;CustomerId&quot;:&quot;0000011111&quot;,&quot;LocationId&quot;:&quot;LOC@0001&quot;,&quot;DocumentDate&quot;:&quot;2025-01-01&quot;,&quot;TransactionAmount&quot;:5.00,&quot;TaxAmount&quot;:0.00,&quot;TotalChargeAmount&quot;:5.00,&quot;ServiceType&quot;:&quot;ELECTRIC&quot;,&quot;OutstandingAmount&quot;:5.00,&quot;MiscChargeType&quot;:&quot;RES-OVERDUE&quot;,&quot;TransactionDescription&quot;:&quot;Penalty for overdue&quot;,&quot;TaxSchedule&quot;:&quot;&quot;}]},&quot;MiscChargeDistribution&quot;:{&quot;DocumentDistribution&quot;:[{&quot;DocType&quot;:&quot;PNLT&quot;,&quot;DocumentNumber&quot;:&quot;PNLT00000000098&quot;,&quot;DistributionType&quot;:3,&quot;DistributionIndex&quot;:611,&quot;OriginalDebitAmount&quot;:5.00,&quot;OriginalCreditAmount&quot;:0.00},{&quot;DocType&quot;:&quot;PNLT&quot;,&quot;DocumentNumber&quot;:&quot;PNLT00000000098&quot;,&quot;DistributionType&quot;:9,&quot;DistributionIndex&quot;:612,&quot;OriginalDebitAmount&quot;:0.00,&quot;OriginalCreditAmount&quot;:5.00}]},&quot;Payment&quot;:null,&quot;PaymentDistribution&quot;:null,&quot;Bill&quot;:null,&quot;BillDistribution&quot;:null,&quot;HasPostingError&quot;:false,&quot;HasPostingReport&quot;:true,&quot;Document&quot;:[{&quot;DocumentNumber&quot;:&quot;PNLT00000000098&quot;}],&quot;ApplyDocument&quot;:[],&quot;PostedDistribution&quot;:[{&quot;DocumentNumber&quot;:&quot;PNLT00000000098&quot;,&quot;LineSequence&quot;:1,&quot;DistributionIndex&quot;:611,&quot;TransactionAmount&quot;:-5.00,&quot;LocationId&quot;:&quot;&quot;},{&quot;DocumentNumber&quot;:&quot;PNLT00000000098&quot;,&quot;LineSequence&quot;:2,&quot;DistributionIndex&quot;:612,&quot;TransactionAmount&quot;:5.00,&quot;LocationId&quot;:&quot;&quot;}],&quot;ReportList&quot;:[{&quot;Name&quot;:&quot;Post Misc Charge Edit List&quot;,&quot;PrintOrder&quot;:1,&quot;DisplayName&quot;:&quot;Post Misc Charge Edit List&quot;,&quot;PrintEnabled&quot;:true},{&quot;Name&quot;:&quot;Post Misc Charge Dist Breakdown Summary&quot;,&quot;PrintOrder&quot;:2,&quot;DisplayName&quot;:&quot;Post Misc Charge Dist Breakdown Summary&quot;,&quot;PrintEnabled&quot;:true},{&quot;Name&quot;:&quot;Post Misc Charge Payment Dist Breakdown Detail&quot;,&quot;PrintOrder&quot;:3,&quot;DisplayName&quot;:&quot;Post Misc Charge Payment Dist Breakdown Detail&quot;,&quot;PrintEnabled&quot;:false},{&quot;Name&quot;:&quot;Post Misc Charge Payment Dist Breakdown Summary&quot;,&quot;PrintOrder&quot;:4,&quot;DisplayName&quot;:&quot;Post Misc Charge Payment Dist Breakdown Summary&quot;,&quot;PrintEnabled&quot;:false}],&quot;ReportErrorList&quot;:[{&quot;Name&quot;:&quot;Post Misc Charge Error List&quot;,&quot;PrintOrder&quot;:1,&quot;DisplayName&quot;:&quot;Post Misc Charge Error List&quot;,&quot;PrintEnabled&quot;:true}]},&quot;Messages&quot;:[]}}] but found [{&quot;Penalty&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;UserId&quot;:&quot;sa&quot;,&quot;VersionNumber&quot;:&quot;1.0.0&quot;,&quot;PostDate&quot;:&quot;2025-09-18&quot;,&quot;BatchId&quot;:&quot;PENALTY2&quot;,&quot;MiscCharge&quot;:{&quot;Document&quot;:[{&quot;DocType&quot;:&quot;PNLT&quot;,&quot;DocumentNumber&quot;:&quot;PNLT00000000098&quot;,&quot;CustomerId&quot;:&quot;0000011111&quot;,&quot;LocationId&quot;:&quot;LOC@0001&quot;,&quot;DocumentDate&quot;:&quot;2025-01-01&quot;,&quot;TransactionAmount&quot;:1.00,&quot;TaxAmount&quot;:0.00,&quot;TotalChargeAmount&quot;:1.00,&quot;ServiceType&quot;:&quot;ELECTRIC&quot;,&quot;OutstandingAmount&quot;:1.00,&quot;MiscChargeType&quot;:&quot;DEFAULTPYMT&quot;,&quot;TransactionDescription&quot;:&quot;Penalty for late payment&quot;,&quot;TaxSchedule&quot;:&quot;&quot;},{&quot;DocType&quot;:&quot;PNLT&quot;,&quot;DocumentNumber&quot;:&quot;PNLT00000000099&quot;,&quot;CustomerId&quot;:&quot;0000011111&quot;,&quot;LocationId&quot;:&quot;LOC@0001&quot;,&quot;DocumentDate&quot;:&quot;2025-01-01&quot;,&quot;TransactionAmount&quot;:5.00,&quot;TaxAmount&quot;:0.00,&quot;TotalChargeAmount&quot;:5.00,&quot;ServiceType&quot;:&quot;ELECTRIC&quot;,&quot;OutstandingAmount&quot;:5.00,&quot;MiscChargeType&quot;:&quot;RES-OVERDUE&quot;,&quot;TransactionDescription&quot;:&quot;Penalty for overdue&quot;,&quot;TaxSchedule&quot;:&quot;&quot;}]},&quot;MiscChargeDistribution&quot;:{&quot;DocumentDistribution&quot;:[{&quot;DocType&quot;:&quot;PNLT&quot;,&quot;DocumentNumber&quot;:&quot;PNLT00000000098&quot;,&quot;DistributionType&quot;:9,&quot;DistributionIndex&quot;:615,&quot;OriginalDebitAmount&quot;:0.00,&quot;OriginalCreditAmount&quot;:1.00},{&quot;DocType&quot;:&quot;PNLT&quot;,&quot;DocumentNumber&quot;:&quot;PNLT00000000098&quot;,&quot;DistributionType&quot;:3,&quot;DistributionIndex&quot;:618,&quot;OriginalDebitAmount&quot;:1.00,&quot;OriginalCreditAmount&quot;:0.00},{&quot;DocType&quot;:&quot;PNLT&quot;,&quot;DocumentNumber&quot;:&quot;PNLT00000000099&quot;,&quot;DistributionType&quot;:3,&quot;DistributionIndex&quot;:611,&quot;OriginalDebitAmount&quot;:5.00,&quot;OriginalCreditAmount&quot;:0.00},{&quot;DocType&quot;:&quot;PNLT&quot;,&quot;DocumentNumber&quot;:&quot;PNLT00000000099&quot;,&quot;DistributionType&quot;:9,&quot;DistributionIndex&quot;:612,&quot;OriginalDebitAmount&quot;:0.00,&quot;OriginalCreditAmount&quot;:5.00}]},&quot;Payment&quot;:null,&quot;PaymentDistribution&quot;:null,&quot;Bill&quot;:null,&quot;BillDistribution&quot;:null,&quot;HasPostingError&quot;:false,&quot;HasPostingReport&quot;:true,&quot;Document&quot;:[{&quot;DocumentNumber&quot;:&quot;PNLT00000000098&quot;},{&quot;DocumentNumber&quot;:&quot;PNLT00000000099&quot;}],&quot;ApplyDocument&quot;:[],&quot;PostedDistribution&quot;:[{&quot;DocumentNumber&quot;:&quot;PNLT00000000098&quot;,&quot;LineSequence&quot;:1,&quot;DistributionIndex&quot;:615,&quot;TransactionAmount&quot;:1.00,&quot;LocationId&quot;:&quot;&quot;},{&quot;DocumentNumber&quot;:&quot;PNLT00000000098&quot;,&quot;LineSequence&quot;:2,&quot;DistributionIndex&quot;:618,&quot;TransactionAmount&quot;:-1.00,&quot;LocationId&quot;:&quot;&quot;},{&quot;DocumentNumber&quot;:&quot;PNLT00000000099&quot;,&quot;LineSequence&quot;:1,&quot;DistributionIndex&quot;:611,&quot;TransactionAmount&quot;:-5.00,&quot;LocationId&quot;:&quot;&quot;},{&quot;DocumentNumber&quot;:&quot;PNLT00000000099&quot;,&quot;LineSequence&quot;:2,&quot;DistributionIndex&quot;:612,&quot;TransactionAmount&quot;:5.00,&quot;LocationId&quot;:&quot;&quot;}],&quot;ReportList&quot;:[{&quot;Name&quot;:&quot;Post Misc Charge Edit List&quot;,&quot;PrintOrder&quot;:1,&quot;DisplayName&quot;:&quot;Post Misc Charge Edit List&quot;,&quot;PrintEnabled&quot;:true},{&quot;Name&quot;:&quot;Post Misc Charge Dist Breakdown Summary&quot;,&quot;PrintOrder&quot;:2,&quot;DisplayName&quot;:&quot;Post Misc Charge Dist Breakdown Summary&quot;,&quot;PrintEnabled&quot;:true},{&quot;Name&quot;:&quot;Post Misc Charge Payment Dist Breakdown Detail&quot;,&quot;PrintOrder&quot;:3,&quot;DisplayName&quot;:&quot;Post Misc Charge Payment Dist Breakdown Detail&quot;,&quot;PrintEnabled&quot;:false},{&quot;Name&quot;:&quot;Post Misc Charge Payment Dist Breakdown Summary&quot;,&quot;PrintOrder&quot;:4,&quot;DisplayName&quot;:&quot;Post Misc Charge Payment Dist Breakdown Summary&quot;,&quot;PrintEnabled&quot;:false}],&quot;ReportErrorList&quot;:[{&quot;Name&quot;:&quot;Post Misc Charge Error List&quot;,&quot;PrintOrder&quot;:1,&quot;DisplayName&quot;:&quot;Post Misc Charge Error List&quot;,&quot;PrintEnabled&quot;:true}]},&quot;Messages&quot;:[]}}]
+	at com.NexusAPI.Tests.Private_penaltyController_Test.postpenaltyDocumentsPENALTY2_v_4(Private_penaltyController_Test.java:240)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 38 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace294528135", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace294528135'><pre>java.lang.AssertionError: expected [{&quot;Penalty&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;UserId&quot;:&quot;sa&quot;,&quot;VersionNumber&quot;:&quot;1.0.0&quot;,&quot;PostDate&quot;:&quot;2025-09-18&quot;,&quot;BatchId&quot;:&quot;PENALTY2&quot;,&quot;MiscCharge&quot;:{&quot;Document&quot;:[{&quot;DocType&quot;:&quot;PNLT&quot;,&quot;DocumentNumber&quot;:&quot;PNLT00000000098&quot;,&quot;CustomerId&quot;:&quot;0000011111&quot;,&quot;LocationId&quot;:&quot;LOC@0001&quot;,&quot;DocumentDate&quot;:&quot;2025-01-01&quot;,&quot;TransactionAmount&quot;:5.00,&quot;TaxAmount&quot;:0.00,&quot;TotalChargeAmount&quot;:5.00,&quot;ServiceType&quot;:&quot;ELECTRIC&quot;,&quot;OutstandingAmount&quot;:5.00,&quot;MiscChargeType&quot;:&quot;RES-OVERDUE&quot;,&quot;TransactionDescription&quot;:&quot;Penalty for overdue&quot;,&quot;TaxSchedule&quot;:&quot;&quot;}]},&quot;MiscChargeDistribution&quot;:{&quot;DocumentDistribution&quot;:[{&quot;DocType&quot;:&quot;PNLT&quot;,&quot;DocumentNumber&quot;:&quot;PNLT00000000098&quot;,&quot;DistributionType&quot;:3,&quot;DistributionIndex&quot;:611,&quot;OriginalDebitAmount&quot;:5.00,&quot;OriginalCreditAmount&quot;:0.00},{&quot;DocType&quot;:&quot;PNLT&quot;,&quot;DocumentNumber&quot;:&quot;PNLT00000000098&quot;,&quot;DistributionType&quot;:9,&quot;DistributionIndex&quot;:612,&quot;OriginalDebitAmount&quot;:0.00,&quot;OriginalCreditAmount&quot;:5.00}]},&quot;Payment&quot;:null,&quot;PaymentDistribution&quot;:null,&quot;Bill&quot;:null,&quot;BillDistribution&quot;:null,&quot;HasPostingError&quot;:false,&quot;HasPostingReport&quot;:true,&quot;Document&quot;:[{&quot;DocumentNumber&quot;:&quot;PNLT00000000098&quot;}],&quot;ApplyDocument&quot;:[],&quot;PostedDistribution&quot;:[{&quot;DocumentNumber&quot;:&quot;PNLT00000000098&quot;,&quot;LineSequence&quot;:1,&quot;DistributionIndex&quot;:611,&quot;TransactionAmount&quot;:-5.00,&quot;LocationId&quot;:&quot;&quot;},{&quot;DocumentNumber&quot;:&quot;PNLT00000000098&quot;,&quot;LineSequence&quot;:2,&quot;DistributionIndex&quot;:612,&quot;TransactionAmount&quot;:5.00,&quot;LocationId&quot;:&quot;&quot;}],&quot;ReportList&quot;:[{&quot;Name&quot;:&quot;Post Misc Charge Edit List&quot;,&quot;PrintOrder&quot;:1,&quot;DisplayName&quot;:&quot;Post Misc Charge Edit List&quot;,&quot;PrintEnabled&quot;:true},{&quot;Name&quot;:&quot;Post Misc Charge Dist Breakdown Summary&quot;,&quot;PrintOrder&quot;:2,&quot;DisplayName&quot;:&quot;Post Misc Charge Dist Breakdown Summary&quot;,&quot;PrintEnabled&quot;:true},{&quot;Name&quot;:&quot;Post Misc Charge Payment Dist Breakdown Detail&quot;,&quot;PrintOrder&quot;:3,&quot;DisplayName&quot;:&quot;Post Misc Charge Payment Dist Breakdown Detail&quot;,&quot;PrintEnabled&quot;:false},{&quot;Name&quot;:&quot;Post Misc Charge Payment Dist Breakdown Summary&quot;,&quot;PrintOrder&quot;:4,&quot;DisplayName&quot;:&quot;Post Misc Charge Payment Dist Breakdown Summary&quot;,&quot;PrintEnabled&quot;:false}],&quot;ReportErrorList&quot;:[{&quot;Name&quot;:&quot;Post Misc Charge Error List&quot;,&quot;PrintOrder&quot;:1,&quot;DisplayName&quot;:&quot;Post Misc Charge Error List&quot;,&quot;PrintEnabled&quot;:true}]},&quot;Messages&quot;:[]}}] but found [{&quot;Penalty&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:{&quot;UserId&quot;:&quot;sa&quot;,&quot;VersionNumber&quot;:&quot;1.0.0&quot;,&quot;PostDate&quot;:&quot;2025-09-18&quot;,&quot;BatchId&quot;:&quot;PENALTY2&quot;,&quot;MiscCharge&quot;:{&quot;Document&quot;:[{&quot;DocType&quot;:&quot;PNLT&quot;,&quot;DocumentNumber&quot;:&quot;PNLT00000000098&quot;,&quot;CustomerId&quot;:&quot;0000011111&quot;,&quot;LocationId&quot;:&quot;LOC@0001&quot;,&quot;DocumentDate&quot;:&quot;2025-01-01&quot;,&quot;TransactionAmount&quot;:1.00,&quot;TaxAmount&quot;:0.00,&quot;TotalChargeAmount&quot;:1.00,&quot;ServiceType&quot;:&quot;ELECTRIC&quot;,&quot;OutstandingAmount&quot;:1.00,&quot;MiscChargeType&quot;:&quot;DEFAULTPYMT&quot;,&quot;TransactionDescription&quot;:&quot;Penalty for late payment&quot;,&quot;TaxSchedule&quot;:&quot;&quot;},{&quot;DocType&quot;:&quot;PNLT&quot;,&quot;DocumentNumber&quot;:&quot;PNLT00000000099&quot;,&quot;CustomerId&quot;:&quot;0000011111&quot;,&quot;LocationId&quot;:&quot;LOC@0001&quot;,&quot;DocumentDate&quot;:&quot;2025-01-01&quot;,&quot;TransactionAmount&quot;:5.00,&quot;TaxAmount&quot;:0.00,&quot;TotalChargeAmount&quot;:5.00,&quot;ServiceType&quot;:&quot;ELECTRIC&quot;,&quot;OutstandingAmount&quot;:5.00,&quot;MiscChargeType&quot;:&quot;RES-OVERDUE&quot;,&quot;TransactionDescription&quot;:&quot;Penalty for overdue&quot;,&quot;TaxSchedule&quot;:&quot;&quot;}]},&quot;MiscChargeDistribution&quot;:{&quot;DocumentDistribution&quot;:[{&quot;DocType&quot;:&quot;PNLT&quot;,&quot;DocumentNumber&quot;:&quot;PNLT00000000098&quot;,&quot;DistributionType&quot;:9,&quot;DistributionIndex&quot;:615,&quot;OriginalDebitAmount&quot;:0.00,&quot;OriginalCreditAmount&quot;:1.00},{&quot;DocType&quot;:&quot;PNLT&quot;,&quot;DocumentNumber&quot;:&quot;PNLT00000000098&quot;,&quot;DistributionType&quot;:3,&quot;DistributionIndex&quot;:618,&quot;OriginalDebitAmount&quot;:1.00,&quot;OriginalCreditAmount&quot;:0.00},{&quot;DocType&quot;:&quot;PNLT&quot;,&quot;DocumentNumber&quot;:&quot;PNLT00000000099&quot;,&quot;DistributionType&quot;:3,&quot;DistributionIndex&quot;:611,&quot;OriginalDebitAmount&quot;:5.00,&quot;OriginalCreditAmount&quot;:0.00},{&quot;DocType&quot;:&quot;PNLT&quot;,&quot;DocumentNumber&quot;:&quot;PNLT00000000099&quot;,&quot;DistributionType&quot;:9,&quot;DistributionIndex&quot;:612,&quot;OriginalDebitAmount&quot;:0.00,&quot;OriginalCreditAmount&quot;:5.00}]},&quot;Payment&quot;:null,&quot;PaymentDistribution&quot;:null,&quot;Bill&quot;:null,&quot;BillDistribution&quot;:null,&quot;HasPostingError&quot;:false,&quot;HasPostingReport&quot;:true,&quot;Document&quot;:[{&quot;DocumentNumber&quot;:&quot;PNLT00000000098&quot;},{&quot;DocumentNumber&quot;:&quot;PNLT00000000099&quot;}],&quot;ApplyDocument&quot;:[],&quot;PostedDistribution&quot;:[{&quot;DocumentNumber&quot;:&quot;PNLT00000000098&quot;,&quot;LineSequence&quot;:1,&quot;DistributionIndex&quot;:615,&quot;TransactionAmount&quot;:1.00,&quot;LocationId&quot;:&quot;&quot;},{&quot;DocumentNumber&quot;:&quot;PNLT00000000098&quot;,&quot;LineSequence&quot;:2,&quot;DistributionIndex&quot;:618,&quot;TransactionAmount&quot;:-1.00,&quot;LocationId&quot;:&quot;&quot;},{&quot;DocumentNumber&quot;:&quot;PNLT00000000099&quot;,&quot;LineSequence&quot;:1,&quot;DistributionIndex&quot;:611,&quot;TransactionAmount&quot;:-5.00,&quot;LocationId&quot;:&quot;&quot;},{&quot;DocumentNumber&quot;:&quot;PNLT00000000099&quot;,&quot;LineSequence&quot;:2,&quot;DistributionIndex&quot;:612,&quot;TransactionAmount&quot;:5.00,&quot;LocationId&quot;:&quot;&quot;}],&quot;ReportList&quot;:[{&quot;Name&quot;:&quot;Post Misc Charge Edit List&quot;,&quot;PrintOrder&quot;:1,&quot;DisplayName&quot;:&quot;Post Misc Charge Edit List&quot;,&quot;PrintEnabled&quot;:true},{&quot;Name&quot;:&quot;Post Misc Charge Dist Breakdown Summary&quot;,&quot;PrintOrder&quot;:2,&quot;DisplayName&quot;:&quot;Post Misc Charge Dist Breakdown Summary&quot;,&quot;PrintEnabled&quot;:true},{&quot;Name&quot;:&quot;Post Misc Charge Payment Dist Breakdown Detail&quot;,&quot;PrintOrder&quot;:3,&quot;DisplayName&quot;:&quot;Post Misc Charge Payment Dist Breakdown Detail&quot;,&quot;PrintEnabled&quot;:false},{&quot;Name&quot;:&quot;Post Misc Charge Payment Dist Breakdown Summary&quot;,&quot;PrintOrder&quot;:4,&quot;DisplayName&quot;:&quot;Post Misc Charge Payment Dist Breakdown Summary&quot;,&quot;PrintEnabled&quot;:false}],&quot;ReportErrorList&quot;:[{&quot;Name&quot;:&quot;Post Misc Charge Error List&quot;,&quot;PrintOrder&quot;:1,&quot;DisplayName&quot;:&quot;Post Misc Charge Error List&quot;,&quot;PrintEnabled&quot;:true}]},&quot;Messages&quot;:[]}}]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at org.testng.Assert.assertEquals(Assert.java:666)
+	at com.NexusAPI.Tests.Private_penaltyController_Test.postpenaltyDocumentsPENALTY2_v_4(Private_penaltyController_Test.java:240)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_penaltyController_Test@6c4906d3</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupPaymentDocuments()'><b>lookupPaymentDocuments</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupPaymentDocuments(Private_lookupControllerv4_Test.java:468)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 36 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2126273510", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2126273510'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at org.testng.Assert.assertTrue(Assert.java:67)
+	at com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupPaymentDocuments(Private_lookupControllerv4_Test.java:468)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_customerControllerV4_Test.getSecondaryCustomer()'><b>getSecondaryCustomer</b><br>Test class: com.NexusAPI.Tests.Private_customerControllerV4_Test</td>
+<td><div><pre>java.lang.AssertionError: expected [{&quot;result&quot;:[{&quot;CustomerID&quot;:&quot;03332301204    &quot;,&quot;CustomerStatus&quot;:&quot;Current&quot;,&quot;CustomerType&quot;:&quot;Individual&quot;,&quot;CustomerTitle&quot;:&quot;Mr.&quot;,&quot;CustomerFirstName&quot;:&quot;Talha&quot;,&quot;CustomerMiddleName&quot;:&quot;&quot;,&quot;CustomerLastName&quot;:&quot;Rahim&quot;,&quot;CustomerName&quot;:&quot;Mr. Talha Rahim &quot;,&quot;ssn&quot;:&quot;&quot;,&quot;EffectiveFromDate&quot;:&quot;May 01, 2019&quot;,&quot;EffectiveToDate&quot;:&quot;Current&quot;,&quot;RelationShip&quot;:&quot;&quot;,&quot;RelationShipSsn&quot;:&quot;&quot;,&quot;FinancialResponsible&quot;:&quot;Responsible&quot;,&quot;DrillbackLink&quot;:&quot;cogsDrillback://DGPB/?Db=&amp;Srv=DESKTOP-QU86F3Q&amp;Cmp=TWO&amp;Prod=229&amp;Act=OPEN&amp;Func=SecondaryCustomer&amp;LocationID=ELECWAT001&amp;CustomerID=CUSTOMER007&amp;Address=12 A GRAFTON HILLS n APT 4 NEW YORK NY 12123&amp;CustName=Miss Sally E MacKenzie&amp;CogsDrillback=1&quot;}]}] but found [{&quot;result&quot;:[{&quot;CustomerID&quot;:&quot;03332301204&quot;,&quot;CustomerStatus&quot;:&quot;Current&quot;,&quot;CustomerType&quot;:&quot;Individual&quot;,&quot;CustomerTitle&quot;:&quot;Mr.&quot;,&quot;CustomerFirstName&quot;:&quot;Talha&quot;,&quot;CustomerMiddleName&quot;:&quot;&quot;,&quot;CustomerLastName&quot;:&quot;Rahim&quot;,&quot;CustomerName&quot;:&quot;Mr. Talha Rahim&quot;,&quot;ssn&quot;:&quot;&quot;,&quot;EffectiveFromDate&quot;:&quot;May 01, 2019&quot;,&quot;EffectiveToDate&quot;:&quot;&quot;,&quot;RelationShip&quot;:&quot;&quot;,&quot;RelationShipSsn&quot;:&quot;&quot;,&quot;FinancialResponsible&quot;:&quot;Responsible&quot;,&quot;DrillbackLink&quot;:&quot;cogsDrillback://DGPB/?Db=&amp;Srv=DESKTOP-QU86F3Q&amp;Cmp=TWO&amp;Prod=229&amp;Act=OPEN&amp;Func=SecondaryCustomer&amp;LocationID=ELECWAT001&amp;CustomerID=CUSTOMER007&amp;Address=12 A GRAFTON HILLS n APT 4 NEW YORK NY 12123&amp;CustName=Miss Sally E MacKenzie&amp;CogsDrillback=1&quot;}]}]
+	at com.NexustAPIAutomation.java.CommonMethods.getMethod(CommonMethods.java:710)
+	at com.NexusAPI.Tests.Private_customerControllerV4_Test.getSecondaryCustomer(Private_customerControllerV4_Test.java:73)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 38 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1444095102", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1444095102'><pre>java.lang.AssertionError: expected [{&quot;result&quot;:[{&quot;CustomerID&quot;:&quot;03332301204    &quot;,&quot;CustomerStatus&quot;:&quot;Current&quot;,&quot;CustomerType&quot;:&quot;Individual&quot;,&quot;CustomerTitle&quot;:&quot;Mr.&quot;,&quot;CustomerFirstName&quot;:&quot;Talha&quot;,&quot;CustomerMiddleName&quot;:&quot;&quot;,&quot;CustomerLastName&quot;:&quot;Rahim&quot;,&quot;CustomerName&quot;:&quot;Mr. Talha Rahim &quot;,&quot;ssn&quot;:&quot;&quot;,&quot;EffectiveFromDate&quot;:&quot;May 01, 2019&quot;,&quot;EffectiveToDate&quot;:&quot;Current&quot;,&quot;RelationShip&quot;:&quot;&quot;,&quot;RelationShipSsn&quot;:&quot;&quot;,&quot;FinancialResponsible&quot;:&quot;Responsible&quot;,&quot;DrillbackLink&quot;:&quot;cogsDrillback://DGPB/?Db=&amp;Srv=DESKTOP-QU86F3Q&amp;Cmp=TWO&amp;Prod=229&amp;Act=OPEN&amp;Func=SecondaryCustomer&amp;LocationID=ELECWAT001&amp;CustomerID=CUSTOMER007&amp;Address=12 A GRAFTON HILLS n APT 4 NEW YORK NY 12123&amp;CustName=Miss Sally E MacKenzie&amp;CogsDrillback=1&quot;}]}] but found [{&quot;result&quot;:[{&quot;CustomerID&quot;:&quot;03332301204&quot;,&quot;CustomerStatus&quot;:&quot;Current&quot;,&quot;CustomerType&quot;:&quot;Individual&quot;,&quot;CustomerTitle&quot;:&quot;Mr.&quot;,&quot;CustomerFirstName&quot;:&quot;Talha&quot;,&quot;CustomerMiddleName&quot;:&quot;&quot;,&quot;CustomerLastName&quot;:&quot;Rahim&quot;,&quot;CustomerName&quot;:&quot;Mr. Talha Rahim&quot;,&quot;ssn&quot;:&quot;&quot;,&quot;EffectiveFromDate&quot;:&quot;May 01, 2019&quot;,&quot;EffectiveToDate&quot;:&quot;&quot;,&quot;RelationShip&quot;:&quot;&quot;,&quot;RelationShipSsn&quot;:&quot;&quot;,&quot;FinancialResponsible&quot;:&quot;Responsible&quot;,&quot;DrillbackLink&quot;:&quot;cogsDrillback://DGPB/?Db=&amp;Srv=DESKTOP-QU86F3Q&amp;Cmp=TWO&amp;Prod=229&amp;Act=OPEN&amp;Func=SecondaryCustomer&amp;LocationID=ELECWAT001&amp;CustomerID=CUSTOMER007&amp;Address=12 A GRAFTON HILLS n APT 4 NEW YORK NY 12123&amp;CustName=Miss Sally E MacKenzie&amp;CogsDrillback=1&quot;}]}]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at org.testng.Assert.assertEquals(Assert.java:666)
+	at com.NexustAPIAutomation.java.CommonMethods.getMethod(CommonMethods.java:710)
+	at com.NexusAPI.Tests.Private_customerControllerV4_Test.getSecondaryCustomer(Private_customerControllerV4_Test.java:73)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_customerControllerV4_Test@4a8355dd</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_penaltyController_Test.postpenaltycalculate_v_4()'><b>postpenaltycalculate_v_4</b><br>Test class: com.NexusAPI.Tests.Private_penaltyController_Test</td>
+<td><div><pre>java.lang.AssertionError: expected [{&quot;PenaltyCalculate&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Penalty calculation has been done successfully. 1 penalty document\/s has been created.&quot;,&quot;Level&quot;:1}]}}] but found [{&quot;PenaltyCalculate&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Penalty calculation has been done successfully. 2 penalty document\/s has been created.&quot;,&quot;Level&quot;:1}]}}]
+	at com.NexusAPI.Tests.Private_penaltyController_Test.postpenaltycalculate_v_4(Private_penaltyController_Test.java:76)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 38 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1852224664", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1852224664'><pre>java.lang.AssertionError: expected [{&quot;PenaltyCalculate&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Penalty calculation has been done successfully. 1 penalty document\/s has been created.&quot;,&quot;Level&quot;:1}]}}] but found [{&quot;PenaltyCalculate&quot;:{&quot;Success&quot;:true,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;Penalty calculation has been done successfully. 2 penalty document\/s has been created.&quot;,&quot;Level&quot;:1}]}}]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at org.testng.Assert.assertEquals(Assert.java:666)
+	at com.NexusAPI.Tests.Private_penaltyController_Test.postpenaltycalculate_v_4(Private_penaltyController_Test.java:76)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>1</td>
+<td>com.NexusAPI.Tests.Private_penaltyController_Test@6c4906d3</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_PaymentControllerV4_Test.postPaymentSimulatev4()'><b>postPaymentSimulatev4</b><br>Test class: com.NexusAPI.Tests.Private_PaymentControllerV4_Test</td>
+<td></td>
+<td>1</td>
+<td>com.NexusAPI.Tests.Private_PaymentControllerV4_Test@4bdeaabb</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_UserDefinedFieldController_Test.getlocationsUdfs()'><b>getlocationsUdfs</b><br>Test class: com.NexusAPI.Tests.Private_UserDefinedFieldController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_UserDefinedFieldController_Test@7d900ecf</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_csmSetup_Test.getserviceCategoryv4()'><b>getserviceCategoryv4</b><br>Test class: com.NexusAPI.Tests.Private_csmSetup_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_csmSetup_Test@4c163e3</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_CashieringController_Test.TC007_getAutoApply()'><b>TC007_getAutoApply</b><br>Test class: com.NexusAPI.Tests.Private_CashieringController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_CashieringController_Test@533bda92</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_PaymentControllerV4_Test.gettPaymentNextAllv4()'><b>gettPaymentNextAllv4</b><br>Test class: com.NexusAPI.Tests.Private_PaymentControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_PaymentControllerV4_Test@4bdeaabb</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_transactionsControllerv4_Test.gettransactionpaymentInvCred_v4()'><b>gettransactionpaymentInvCred_v4</b><br>Test class: com.NexusAPI.Tests.Private_transactionsControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_transactionsControllerv4_Test@5c80cf32</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_MiscellaneousChargeControllerV4_Test.deleteMiscellaneousChargeErr1v4()'><b>deleteMiscellaneousChargeErr1v4</b><br>Test class: com.NexusAPI.Tests.Private_MiscellaneousChargeControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_MiscellaneousChargeControllerV4_Test@70cf32e3</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_csmSetup_Test.getcsmDefaultCheckbookIdv4()'><b>getcsmDefaultCheckbookIdv4</b><br>Test class: com.NexusAPI.Tests.Private_csmSetup_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_csmSetup_Test@4c163e3</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_ServiceOrderController_Test.putServiceOrderControllerev4()'><b>putServiceOrderControllerev4</b><br>Test class: com.NexusAPI.Tests.Private_ServiceOrderController_Test</td>
+<td></td>
+<td>10</td>
+<td>com.NexusAPI.Tests.Private_ServiceOrderController_Test@71075444</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_Apiglobalscontroller_Test.putapiGlobalSettingsV4()'><b>putapiGlobalSettingsV4</b><br>Test class: com.NexusAPI.Tests.Private_Apiglobalscontroller_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_Apiglobalscontroller_Test@433defed</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupReadingTypev4()'><b>lookupReadingTypev4</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_CashieringController_Test.TC006_gettransactions()'><b>TC006_gettransactions</b><br>Test class: com.NexusAPI.Tests.Private_CashieringController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_CashieringController_Test@533bda92</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_SmartyStreetValidationV4_Test.postvalidLocation()'><b>postvalidLocation</b><br>Test class: com.NexusAPI.Tests.Private_SmartyStreetValidationV4_Test</td>
+<td></td>
+<td>10</td>
+<td>com.NexusAPI.Tests.Private_SmartyStreetValidationV4_Test@6b695b06</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_Drillback_Test.getdrillbackv4()'><b>getdrillbackv4</b><br>Test class: com.NexusAPI.Tests.Private_Drillback_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_Drillback_Test@c430e6c</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_MeterReadControllerV4_Test.postmoveOpenToHistoryv4()'><b>postmoveOpenToHistoryv4</b><br>Test class: com.NexusAPI.Tests.Private_MeterReadControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_MeterReadControllerV4_Test@66982506</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_locationControllerv4_Test.postbillingOptionv4()'><b>postbillingOptionv4</b><br>Test class: com.NexusAPI.Tests.Private_locationControllerv4_Test</td>
+<td></td>
+<td>10</td>
+<td>com.NexusAPI.Tests.Private_locationControllerv4_Test@536f2a7e</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_MiscellaneousChargeControllerV4_Test.miscellaneousChargepostv4()'><b>miscellaneousChargepostv4</b><br>Test class: com.NexusAPI.Tests.Private_MiscellaneousChargeControllerV4_Test</td>
+<td></td>
+<td>1</td>
+<td>com.NexusAPI.Tests.Private_MiscellaneousChargeControllerV4_Test@70cf32e3</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_MeterReadControllerV4_Test.PostMeterReadv4()'><b>PostMeterReadv4</b><br>Test class: com.NexusAPI.Tests.Private_MeterReadControllerV4_Test</td>
+<td></td>
+<td>1</td>
+<td>com.NexusAPI.Tests.Private_MeterReadControllerV4_Test@66982506</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_locationControllerv4_Test.lookuptransferThirdPartyDepositv4()'><b>lookuptransferThirdPartyDepositv4</b><br>Test class: com.NexusAPI.Tests.Private_locationControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_locationControllerv4_Test@536f2a7e</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_connectionControllerV4_Test.postconnectionalternatev4()'><b>postconnectionalternatev4</b><br>Test class: com.NexusAPI.Tests.Private_connectionControllerV4_Test</td>
+<td></td>
+<td>10</td>
+<td>com.NexusAPI.Tests.Private_connectionControllerV4_Test@25be7b63</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_CashieringController_Test.TC003_1_getCashin()'><b>TC003_1_getCashin</b><br>Test class: com.NexusAPI.Tests.Private_CashieringController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_CashieringController_Test@533bda92</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_locationControllerv4_Test.dellocationv4()'><b>dellocationv4</b><br>Test class: com.NexusAPI.Tests.Private_locationControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_locationControllerv4_Test@536f2a7e</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_transactionsControllerv3_Test.getBillInquirychargeSummary_v_3()'><b>getBillInquirychargeSummary_v_3</b><br>Test class: com.NexusAPI.Tests.Private_transactionsControllerv3_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_transactionsControllerv3_Test@6f53b8a</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_CashieringController_Test.saveReciept_4_prepaymentNewCustomer()'><b>saveReciept_4_prepaymentNewCustomer</b><br>Test class: com.NexusAPI.Tests.Private_CashieringController_Test</td>
+<td></td>
+<td>10</td>
+<td>com.NexusAPI.Tests.Private_CashieringController_Test@533bda92</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_penaltyController_Test.postpenaltyDocumentsRoute_v_4()'><b>postpenaltyDocumentsRoute_v_4</b><br>Test class: com.NexusAPI.Tests.Private_penaltyController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_penaltyController_Test@6c4906d3</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_BatchControllerv4_Test.putBatchtv4()'><b>putBatchtv4</b><br>Test class: com.NexusAPI.Tests.Private_BatchControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_BatchControllerv4_Test@2a693f59</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_Apiglobalscontroller_Test.getapiGlobalSettingsv4()'><b>getapiGlobalSettingsv4</b><br>Test class: com.NexusAPI.Tests.Private_Apiglobalscontroller_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_Apiglobalscontroller_Test@433defed</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_BatchControllerv4_Test.postBatchtv4_err()'><b>postBatchtv4_err</b><br>Test class: com.NexusAPI.Tests.Private_BatchControllerv4_Test</td>
+<td></td>
+<td>10</td>
+<td>com.NexusAPI.Tests.Private_BatchControllerv4_Test@2a693f59</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_UserDefinedFieldController_Test.getequipmentUdfs()'><b>getequipmentUdfs</b><br>Test class: com.NexusAPI.Tests.Private_UserDefinedFieldController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_UserDefinedFieldController_Test@7d900ecf</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_PaymentControllerV4_Test.postPaymentSimulatev4_savePayments()'><b>postPaymentSimulatev4_savePayments</b><br>Test class: com.NexusAPI.Tests.Private_PaymentControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_PaymentControllerV4_Test@4bdeaabb</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_PaymentControllerV4_Test.gettPaymentNextHistv4()'><b>gettPaymentNextHistv4</b><br>Test class: com.NexusAPI.Tests.Private_PaymentControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_PaymentControllerV4_Test@4bdeaabb</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_CashieringController_Test.TC006_gettransactions_2_4()'><b>TC006_gettransactions_2_4</b><br>Test class: com.NexusAPI.Tests.Private_CashieringController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_CashieringController_Test@533bda92</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_equipmentControllerV4_Test.getequipmentControllerClassv4()'><b>getequipmentControllerClassv4</b><br>Test class: com.NexusAPI.Tests.Private_equipmentControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_equipmentControllerV4_Test@312aa7c</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupServiceType()'><b>lookupServiceType</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_transactionsControllerv4_Test.gettransactionpayment_v3_false()'><b>gettransactionpayment_v3_false</b><br>Test class: com.NexusAPI.Tests.Private_transactionsControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_transactionsControllerv4_Test@5c80cf32</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_transactionsControllerv3_Test.getrecentTransactions_v_3()'><b>getrecentTransactions_v_3</b><br>Test class: com.NexusAPI.Tests.Private_transactionsControllerv3_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_transactionsControllerv3_Test@6f53b8a</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_CashieringController_Test.saveReciept_2_4()'><b>saveReciept_2_4</b><br>Test class: com.NexusAPI.Tests.Private_CashieringController_Test</td>
+<td></td>
+<td>16</td>
+<td>com.NexusAPI.Tests.Private_CashieringController_Test@533bda92</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_connectionControllerV4_Test.postconnectionFlatv4()'><b>postconnectionFlatv4</b><br>Test class: com.NexusAPI.Tests.Private_connectionControllerV4_Test</td>
+<td></td>
+<td>10</td>
+<td>com.NexusAPI.Tests.Private_connectionControllerV4_Test@25be7b63</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_ServiceOrderController_Test.delServiceOrderv4()'><b>delServiceOrderv4</b><br>Test class: com.NexusAPI.Tests.Private_ServiceOrderController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_ServiceOrderController_Test@71075444</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_transactionsControllerv4_Test.gettransactionpayment_v4_false()'><b>gettransactionpayment_v4_false</b><br>Test class: com.NexusAPI.Tests.Private_transactionsControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_transactionsControllerv4_Test@5c80cf32</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_AlertPanelController_Test.getalert_ver4()'><b>getalert_ver4</b><br>Test class: com.NexusAPI.Tests.Private_AlertPanelController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_AlertPanelController_Test@548a24a</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_transactionsControllerv4_Test.gettransactionpaymentInv_v4()'><b>gettransactionpaymentInv_v4</b><br>Test class: com.NexusAPI.Tests.Private_transactionsControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_transactionsControllerv4_Test@5c80cf32</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_PaymentControllerV4_Test.postPaymentSimulatev4_savePayments_1()'><b>postPaymentSimulatev4_savePayments_1</b><br>Test class: com.NexusAPI.Tests.Private_PaymentControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_PaymentControllerV4_Test@4bdeaabb</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_CollectionControllerv4_Test.postcollectionprocessv4()'><b>postcollectionprocessv4</b><br>Test class: com.NexusAPI.Tests.Private_CollectionControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_CollectionControllerv4_Test@723ca036</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_equipmentControllerV4_Test.postequipmentControllerv4()'><b>postequipmentControllerv4</b><br>Test class: com.NexusAPI.Tests.Private_equipmentControllerV4_Test</td>
+<td></td>
+<td>1</td>
+<td>com.NexusAPI.Tests.Private_equipmentControllerV4_Test@312aa7c</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_AlertPanelController_Test.getalert_v4()'><b>getalert_v4</b><br>Test class: com.NexusAPI.Tests.Private_AlertPanelController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_AlertPanelController_Test@548a24a</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_PaymentControllerV4_Test.gettPaymentNextv4()'><b>gettPaymentNextv4</b><br>Test class: com.NexusAPI.Tests.Private_PaymentControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_PaymentControllerV4_Test@4bdeaabb</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_UserDefinedFieldController_Test.putCustomerUdfs()'><b>putCustomerUdfs</b><br>Test class: com.NexusAPI.Tests.Private_UserDefinedFieldController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_UserDefinedFieldController_Test@7d900ecf</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_PaymentControllerV4_Test.putputPaymentV4()'><b>putputPaymentV4</b><br>Test class: com.NexusAPI.Tests.Private_PaymentControllerV4_Test</td>
+<td></td>
+<td>10</td>
+<td>com.NexusAPI.Tests.Private_PaymentControllerV4_Test@4bdeaabb</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_contactLogController_Test.contactLoggetContactLogActionCodes()'><b>contactLoggetContactLogActionCodes</b><br>Test class: com.NexusAPI.Tests.Private_contactLogController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_contactLogController_Test@45d84a20</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_UserDefinedFieldController_Test.GetCustomerUdfs_EmptyParams()'><b>GetCustomerUdfs_EmptyParams</b><br>Test class: com.NexusAPI.Tests.Private_UserDefinedFieldController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_UserDefinedFieldController_Test@7d900ecf</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_DepositsController_Test.postdepositpaymentPlanv4()'><b>postdepositpaymentPlanv4</b><br>Test class: com.NexusAPI.Tests.Private_DepositsController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_DepositsController_Test@4d0d9fe7</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_ActionsMenuController_Test.getActionsMenu_v4_InvalidCustomerId()'><b>getActionsMenu_v4_InvalidCustomerId</b><br>Test class: com.NexusAPI.Tests.Private_ActionsMenuController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_ActionsMenuController_Test@1972e513</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupchargeTypeAll()'><b>lookupchargeTypeAll</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_ActionsMenuController_Test.getActionsMenu_v4()'><b>getActionsMenu_v4</b><br>Test class: com.NexusAPI.Tests.Private_ActionsMenuController_Test</td>
+<td></td>
+<td>1</td>
+<td>com.NexusAPI.Tests.Private_ActionsMenuController_Test@1972e513</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_contactLogController_Test.postcontactLogControllerv4datevaldiation()'><b>postcontactLogControllerv4datevaldiation</b><br>Test class: com.NexusAPI.Tests.Private_contactLogController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_contactLogController_Test@45d84a20</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_CashieringController_Test.TC002_RecieptAdjustment()'><b>TC002_RecieptAdjustment</b><br>Test class: com.NexusAPI.Tests.Private_CashieringController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_CashieringController_Test@533bda92</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_SmartyStreetValidationV4_Test.putvalidLocation()'><b>putvalidLocation</b><br>Test class: com.NexusAPI.Tests.Private_SmartyStreetValidationV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_SmartyStreetValidationV4_Test@6b695b06</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_CashieringController_Test.TC003_getnextReceipt()'><b>TC003_getnextReceipt</b><br>Test class: com.NexusAPI.Tests.Private_CashieringController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_CashieringController_Test@533bda92</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_checkControllerv4_Test.PostCheckv4()'><b>PostCheckv4</b><br>Test class: com.NexusAPI.Tests.Private_checkControllerv4_Test</td>
+<td></td>
+<td>12</td>
+<td>com.NexusAPI.Tests.Private_checkControllerv4_Test@304bb45b</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_customerControllerV4_Test.getSecondaryCustomer2()'><b>getSecondaryCustomer2</b><br>Test class: com.NexusAPI.Tests.Private_customerControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_customerControllerV4_Test@4a8355dd</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_connectionControllerV4_Test.putconnectionmeterAlternatev4()'><b>putconnectionmeterAlternatev4</b><br>Test class: com.NexusAPI.Tests.Private_connectionControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_connectionControllerV4_Test@25be7b63</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_contactLogController_Test.putcontactLogv4()'><b>putcontactLogv4</b><br>Test class: com.NexusAPI.Tests.Private_contactLogController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_contactLogController_Test@45d84a20</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_Apiglobalscontroller_Test.putapiGlobalSettingsV4Err()'><b>putapiGlobalSettingsV4Err</b><br>Test class: com.NexusAPI.Tests.Private_Apiglobalscontroller_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_Apiglobalscontroller_Test@433defed</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_CashieringController_Test.TC004_balances()'><b>TC004_balances</b><br>Test class: com.NexusAPI.Tests.Private_CashieringController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_CashieringController_Test@533bda92</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_MiscellaneousChargeControllerV4_Test.deleteMiscellaneousChargeErrv4()'><b>deleteMiscellaneousChargeErrv4</b><br>Test class: com.NexusAPI.Tests.Private_MiscellaneousChargeControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_MiscellaneousChargeControllerV4_Test@70cf32e3</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_CashieringController_Test.TC005_getRegisterInfo()'><b>TC005_getRegisterInfo</b><br>Test class: com.NexusAPI.Tests.Private_CashieringController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_CashieringController_Test@533bda92</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupserviceOrderOrigin()'><b>lookupserviceOrderOrigin</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_penaltyController_Test.postpenaltyDocuments_v_4()'><b>postpenaltyDocuments_v_4</b><br>Test class: com.NexusAPI.Tests.Private_penaltyController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_penaltyController_Test@6c4906d3</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupequipmentTypev4()'><b>lookupequipmentTypev4</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_connectionControllerV4_Test.putconnectionmeterv4()'><b>putconnectionmeterv4</b><br>Test class: com.NexusAPI.Tests.Private_connectionControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_connectionControllerV4_Test@25be7b63</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupzonev4()'><b>lookupzonev4</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_PaymentControllerV4_Test.postPaymentSimulatev4_savePayments_2()'><b>postPaymentSimulatev4_savePayments_2</b><br>Test class: com.NexusAPI.Tests.Private_PaymentControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_PaymentControllerV4_Test@4bdeaabb</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_connectionControllerV4_Test.postconnectionmetergrpv4()'><b>postconnectionmetergrpv4</b><br>Test class: com.NexusAPI.Tests.Private_connectionControllerV4_Test</td>
+<td></td>
+<td>10</td>
+<td>com.NexusAPI.Tests.Private_connectionControllerV4_Test@25be7b63</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_transactionsControllerv4_Test.gettransactionpayment_v4_AuthCode()'><b>gettransactionpayment_v4_AuthCode</b><br>Test class: com.NexusAPI.Tests.Private_transactionsControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_transactionsControllerv4_Test@5c80cf32</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_DepositsController_Test.getdeposit()'><b>getdeposit</b><br>Test class: com.NexusAPI.Tests.Private_DepositsController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_DepositsController_Test@4d0d9fe7</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupbillType()'><b>lookupbillType</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_MiscellaneousChargeControllerV4_Test.miscellaneousChargepostv4err()'><b>miscellaneousChargepostv4err</b><br>Test class: com.NexusAPI.Tests.Private_MiscellaneousChargeControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_MiscellaneousChargeControllerV4_Test@70cf32e3</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_UserDefinedFieldController_Test.putLocationUdfs()'><b>putLocationUdfs</b><br>Test class: com.NexusAPI.Tests.Private_UserDefinedFieldController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_UserDefinedFieldController_Test@7d900ecf</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_contactLogController_Test.getContactLogDetail()'><b>getContactLogDetail</b><br>Test class: com.NexusAPI.Tests.Private_contactLogController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_contactLogController_Test@45d84a20</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupchargeType()'><b>lookupchargeType</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupequipmentNetMetervType4()'><b>lookupequipmentNetMetervType4</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_PaymentControllerV4_Test.delPaymentv4()'><b>delPaymentv4</b><br>Test class: com.NexusAPI.Tests.Private_PaymentControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_PaymentControllerV4_Test@4bdeaabb</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_transactionsControllerv4_Test.gettransactionbatch_v4()'><b>gettransactionbatch_v4</b><br>Test class: com.NexusAPI.Tests.Private_transactionsControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_transactionsControllerv4_Test@5c80cf32</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_transactionsControllerv3_Test.getBillInquiry_v_3()'><b>getBillInquiry_v_3</b><br>Test class: com.NexusAPI.Tests.Private_transactionsControllerv3_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_transactionsControllerv3_Test@6f53b8a</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_CollectionControllerv4_Test.getcollectioncriteriav4()'><b>getcollectioncriteriav4</b><br>Test class: com.NexusAPI.Tests.Private_CollectionControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_CollectionControllerv4_Test@723ca036</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupbillingCyclePeriod()'><b>lookupbillingCyclePeriod</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_ServiceOrderController_Test.delBatv4()'><b>delBatv4</b><br>Test class: com.NexusAPI.Tests.Private_ServiceOrderController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_ServiceOrderController_Test@71075444</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_moveInMoveOutController_Test.postTransferv4()'><b>postTransferv4</b><br>Test class: com.NexusAPI.Tests.Private_moveInMoveOutController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_moveInMoveOutController_Test@5a59ca5e</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_customerControllerV4_Test.putupdateCustomersInfov4Pos()'><b>putupdateCustomersInfov4Pos</b><br>Test class: com.NexusAPI.Tests.Private_customerControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_customerControllerV4_Test@4a8355dd</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_CollectionControllerv4_Test.getcollectionNoticeTypev4()'><b>getcollectionNoticeTypev4</b><br>Test class: com.NexusAPI.Tests.Private_CollectionControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_CollectionControllerv4_Test@723ca036</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_DepositsController_Test.lookupDepositId()'><b>lookupDepositId</b><br>Test class: com.NexusAPI.Tests.Private_DepositsController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_DepositsController_Test@4d0d9fe7</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_transactionsControllerv3_Test.getBillInquirydistribution_v_3()'><b>getBillInquirydistribution_v_3</b><br>Test class: com.NexusAPI.Tests.Private_transactionsControllerv3_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_transactionsControllerv3_Test@6f53b8a</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_csmGlobalsController_Test.getCsmGlobalBySettingNamev4()'><b>getCsmGlobalBySettingNamev4</b><br>Test class: com.NexusAPI.Tests.Private_csmGlobalsController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_csmGlobalsController_Test@52f27fbd</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupequipmentClassv4()'><b>lookupequipmentClassv4</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_DepositsController_Test.getdepositpaymentPlan()'><b>getdepositpaymentPlan</b><br>Test class: com.NexusAPI.Tests.Private_DepositsController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_DepositsController_Test@4d0d9fe7</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_contactLogController_Test.postcontactLogSimplev4()'><b>postcontactLogSimplev4</b><br>Test class: com.NexusAPI.Tests.Private_contactLogController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_contactLogController_Test@45d84a20</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupMeterReadv4()'><b>lookupMeterReadv4</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_MiscellaneousChargeControllerV4_Test.postMiscellaneousv4()'><b>postMiscellaneousv4</b><br>Test class: com.NexusAPI.Tests.Private_MiscellaneousChargeControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_MiscellaneousChargeControllerV4_Test@70cf32e3</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_transactionsControllerv4_Test.getMeterReadInquiryWork_v4()'><b>getMeterReadInquiryWork_v4</b><br>Test class: com.NexusAPI.Tests.Private_transactionsControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_transactionsControllerv4_Test@5c80cf32</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_UserDefinedFieldController_Test.GetCustomerUdfs_InvalidCustomer()'><b>GetCustomerUdfs_InvalidCustomer</b><br>Test class: com.NexusAPI.Tests.Private_UserDefinedFieldController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_UserDefinedFieldController_Test@7d900ecf</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_UserDefinedFieldController_Test.GetCustomerUdfs_WithParams()'><b>GetCustomerUdfs_WithParams</b><br>Test class: com.NexusAPI.Tests.Private_UserDefinedFieldController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_UserDefinedFieldController_Test@7d900ecf</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_AlertPanelController_Test.getalertaccountAttributes_v4()'><b>getalertaccountAttributes_v4</b><br>Test class: com.NexusAPI.Tests.Private_AlertPanelController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_AlertPanelController_Test@548a24a</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_customerControllerV4_Test.putupdateCustomersInfov4()'><b>putupdateCustomersInfov4</b><br>Test class: com.NexusAPI.Tests.Private_customerControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_customerControllerV4_Test@4a8355dd</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_MeterReadControllerV4_Test.putMeterReadingnottheLatestreadingV4()'><b>putMeterReadingnottheLatestreadingV4</b><br>Test class: com.NexusAPI.Tests.Private_MeterReadControllerV4_Test</td>
+<td></td>
+<td>10</td>
+<td>com.NexusAPI.Tests.Private_MeterReadControllerV4_Test@66982506</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupdocumentTypev4()'><b>lookupdocumentTypev4</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupserviceOrderStatus()'><b>lookupserviceOrderStatus</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_customerControllerV4_Test.putupdateCustomerCard()'><b>putupdateCustomerCard</b><br>Test class: com.NexusAPI.Tests.Private_customerControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_customerControllerV4_Test@4a8355dd</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_CashieringController_Test.TC004_getReceipt()'><b>TC004_getReceipt</b><br>Test class: com.NexusAPI.Tests.Private_CashieringController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_CashieringController_Test@533bda92</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_transactionsControllerv4_Test.getMeterReadInquiryHistory_v4()'><b>getMeterReadInquiryHistory_v4</b><br>Test class: com.NexusAPI.Tests.Private_transactionsControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_transactionsControllerv4_Test@5c80cf32</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupchargeTypeAll2()'><b>lookupchargeTypeAll2</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_PaymentControllerV4_Test.delPaymentv4CreditNote()'><b>delPaymentv4CreditNote</b><br>Test class: com.NexusAPI.Tests.Private_PaymentControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_PaymentControllerV4_Test@4bdeaabb</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_connectionControllerV4_Test.deleteconnectionmetergrpv4()'><b>deleteconnectionmetergrpv4</b><br>Test class: com.NexusAPI.Tests.Private_connectionControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_connectionControllerV4_Test@25be7b63</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupbillingPrepareType()'><b>lookupbillingPrepareType</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_UserDefinedFieldController_Test.GetCustomerUdfs()'><b>GetCustomerUdfs</b><br>Test class: com.NexusAPI.Tests.Private_UserDefinedFieldController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_UserDefinedFieldController_Test@7d900ecf</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_connectionControllerV4_Test.getcollectioncriteriav4()'><b>getcollectioncriteriav4</b><br>Test class: com.NexusAPI.Tests.Private_connectionControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_connectionControllerV4_Test@25be7b63</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_MiscellaneousChargeControllerV4_Test.miscellaneousChargeSimulatev4()'><b>miscellaneousChargeSimulatev4</b><br>Test class: com.NexusAPI.Tests.Private_MiscellaneousChargeControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_MiscellaneousChargeControllerV4_Test@70cf32e3</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_PaymentControllerV4_Test.delPaymentv4Err()'><b>delPaymentv4Err</b><br>Test class: com.NexusAPI.Tests.Private_PaymentControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_PaymentControllerV4_Test@4bdeaabb</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_voidController_Test.getlinkedDocumentv4()'><b>getlinkedDocumentv4</b><br>Test class: com.NexusAPI.Tests.Private_voidController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_voidController_Test@6f01b95f</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_transactionsControllerv4_Test.getMeterReadInquiryOpen_v4()'><b>getMeterReadInquiryOpen_v4</b><br>Test class: com.NexusAPI.Tests.Private_transactionsControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_transactionsControllerv4_Test@5c80cf32</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupkvaReadingType()'><b>lookupkvaReadingType</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_MeterReadControllerV4_Test.putMeterReadingNetMeterV4()'><b>putMeterReadingNetMeterV4</b><br>Test class: com.NexusAPI.Tests.Private_MeterReadControllerV4_Test</td>
+<td></td>
+<td>10</td>
+<td>com.NexusAPI.Tests.Private_MeterReadControllerV4_Test@66982506</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_AlertPanelController_Test.getalertaccountAttributes_v4_0()'><b>getalertaccountAttributes_v4_0</b><br>Test class: com.NexusAPI.Tests.Private_AlertPanelController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_AlertPanelController_Test@548a24a</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_CashieringController_Test.saveReciept_4_prepaymentExistingCustomer()'><b>saveReciept_4_prepaymentExistingCustomer</b><br>Test class: com.NexusAPI.Tests.Private_CashieringController_Test</td>
+<td></td>
+<td>10</td>
+<td>com.NexusAPI.Tests.Private_CashieringController_Test@533bda92</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_PaymentControllerV4_Test.postPaymentSimulateExt()'><b>postPaymentSimulateExt</b><br>Test class: com.NexusAPI.Tests.Private_PaymentControllerV4_Test</td>
+<td></td>
+<td>10</td>
+<td>com.NexusAPI.Tests.Private_PaymentControllerV4_Test@4bdeaabb</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_CollectionControllerv4_Test.putcollectionapplyDisconnectDatev4()'><b>putcollectionapplyDisconnectDatev4</b><br>Test class: com.NexusAPI.Tests.Private_CollectionControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_CollectionControllerv4_Test@723ca036</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupMetergroup4()'><b>lookupMetergroup4</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_PaymentControllerV4_Test.gettPaymentNextOpenv4()'><b>gettPaymentNextOpenv4</b><br>Test class: com.NexusAPI.Tests.Private_PaymentControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_PaymentControllerV4_Test@4bdeaabb</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_equipmentControllerV4_Test.getequipmentControllerEquipmentDetailv4()'><b>getequipmentControllerEquipmentDetailv4</b><br>Test class: com.NexusAPI.Tests.Private_equipmentControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_equipmentControllerV4_Test@312aa7c</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.elascticsearchcreateindex_v_4()'><b>elascticsearchcreateindex_v_4</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_CollectionControllerv4_Test.getcollectionMessagesv4()'><b>getcollectionMessagesv4</b><br>Test class: com.NexusAPI.Tests.Private_CollectionControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_CollectionControllerv4_Test@723ca036</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_CollectionControllerv4_Test.postcollectionprintv4()'><b>postcollectionprintv4</b><br>Test class: com.NexusAPI.Tests.Private_CollectionControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_CollectionControllerv4_Test@723ca036</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_connectionControllerV4_Test.postconnectionMeterInstallMeter()'><b>postconnectionMeterInstallMeter</b><br>Test class: com.NexusAPI.Tests.Private_connectionControllerV4_Test</td>
+<td></td>
+<td>10</td>
+<td>com.NexusAPI.Tests.Private_connectionControllerV4_Test@25be7b63</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_MeterReadControllerV4_Test.putMeterReadinginWorkV4()'><b>putMeterReadinginWorkV4</b><br>Test class: com.NexusAPI.Tests.Private_MeterReadControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_MeterReadControllerV4_Test@66982506</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupserviceOrderRequestedBy()'><b>lookupserviceOrderRequestedBy</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_MeterReadControllerV4_Test.deletemeterReadingvalidv4()'><b>deletemeterReadingvalidv4</b><br>Test class: com.NexusAPI.Tests.Private_MeterReadControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_MeterReadControllerV4_Test@66982506</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_BatchControllerv4_Test.postBatchtv4()'><b>postBatchtv4</b><br>Test class: com.NexusAPI.Tests.Private_BatchControllerv4_Test</td>
+<td></td>
+<td>10</td>
+<td>com.NexusAPI.Tests.Private_BatchControllerv4_Test@2a693f59</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_ActionsMenuController_Test.getActionsMenu_v4_MissingLocationId()'><b>getActionsMenu_v4_MissingLocationId</b><br>Test class: com.NexusAPI.Tests.Private_ActionsMenuController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_ActionsMenuController_Test@1972e513</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupNsfReasonCodev4()'><b>lookupNsfReasonCodev4</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupequipmentModelv4()'><b>lookupequipmentModelv4</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.getlookupBatch_v4()'><b>getlookupBatch_v4</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_penaltyController_Test.postpenaltyDocumentsZones_v_4()'><b>postpenaltyDocumentsZones_v_4</b><br>Test class: com.NexusAPI.Tests.Private_penaltyController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_penaltyController_Test@6c4906d3</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_csmGlobalsController_Test.csmSetupautoGeneratenextIdv4()'><b>csmSetupautoGeneratenextIdv4</b><br>Test class: com.NexusAPI.Tests.Private_csmGlobalsController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_csmGlobalsController_Test@52f27fbd</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_equipmentControllerV4_Test.postequipmentControllerv4Error()'><b>postequipmentControllerv4Error</b><br>Test class: com.NexusAPI.Tests.Private_equipmentControllerV4_Test</td>
+<td></td>
+<td>1</td>
+<td>com.NexusAPI.Tests.Private_equipmentControllerV4_Test@312aa7c</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_locationControllerv4_Test.getlocationClassv4()'><b>getlocationClassv4</b><br>Test class: com.NexusAPI.Tests.Private_locationControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_locationControllerv4_Test@536f2a7e</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupequipmentStatusv4()'><b>lookupequipmentStatusv4</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_transactionsControllerv4_Test.getapplyByService_v4()'><b>getapplyByService_v4</b><br>Test class: com.NexusAPI.Tests.Private_transactionsControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_transactionsControllerv4_Test@5c80cf32</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_CashieringController_Test.saveReciept_4_SOTaskCompleteDepositPaymenttask2()'><b>saveReciept_4_SOTaskCompleteDepositPaymenttask2</b><br>Test class: com.NexusAPI.Tests.Private_CashieringController_Test</td>
+<td></td>
+<td>10</td>
+<td>com.NexusAPI.Tests.Private_CashieringController_Test@533bda92</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_connectionControllerV4_Test.postconnectionmeterv4()'><b>postconnectionmeterv4</b><br>Test class: com.NexusAPI.Tests.Private_connectionControllerV4_Test</td>
+<td></td>
+<td>10</td>
+<td>com.NexusAPI.Tests.Private_connectionControllerV4_Test@25be7b63</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupCheckBookv4()'><b>lookupCheckBookv4</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_MeterReadControllerV4_Test.deletemeterReadingErrorv4()'><b>deletemeterReadingErrorv4</b><br>Test class: com.NexusAPI.Tests.Private_MeterReadControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_MeterReadControllerV4_Test@66982506</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_MeterReadControllerV4_Test.getmeterReadingnextv4()'><b>getmeterReadingnextv4</b><br>Test class: com.NexusAPI.Tests.Private_MeterReadControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_MeterReadControllerV4_Test@66982506</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_transactionsControllerv3_Test.getTransactions_v_3()'><b>getTransactions_v_3</b><br>Test class: com.NexusAPI.Tests.Private_transactionsControllerv3_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_transactionsControllerv3_Test@6f53b8a</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_contactLogController_Test.postcontactLogControllerv4()'><b>postcontactLogControllerv4</b><br>Test class: com.NexusAPI.Tests.Private_contactLogController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_contactLogController_Test@45d84a20</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.getlookupcreditCard_v4()'><b>getlookupcreditCard_v4</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_voidController_Test.putvoidv4()'><b>putvoidv4</b><br>Test class: com.NexusAPI.Tests.Private_voidController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_voidController_Test@6f01b95f</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_CollectionControllerv4_Test.getcollectionv4()'><b>getcollectionv4</b><br>Test class: com.NexusAPI.Tests.Private_CollectionControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_CollectionControllerv4_Test@723ca036</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_CollectionControllerv4_Test.getcollectionsetupv4()'><b>getcollectionsetupv4</b><br>Test class: com.NexusAPI.Tests.Private_CollectionControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_CollectionControllerv4_Test@723ca036</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_UserDefinedFieldController_Test.putEquipmentUdfs()'><b>putEquipmentUdfs</b><br>Test class: com.NexusAPI.Tests.Private_UserDefinedFieldController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_UserDefinedFieldController_Test@7d900ecf</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_checkControllerv4_Test.postingReceivable4RefundError()'><b>postingReceivable4RefundError</b><br>Test class: com.NexusAPI.Tests.Private_checkControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_checkControllerv4_Test@304bb45b</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_CollectionControllerv4_Test.confirmNoticev4()'><b>confirmNoticev4</b><br>Test class: com.NexusAPI.Tests.Private_CollectionControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_CollectionControllerv4_Test@723ca036</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_contactLogController_Test.getContactLogServiceOrderRequest()'><b>getContactLogServiceOrderRequest</b><br>Test class: com.NexusAPI.Tests.Private_contactLogController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_contactLogController_Test@45d84a20</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_MeterReadControllerV4_Test.getmeterlastDocumentv4()'><b>getmeterlastDocumentv4</b><br>Test class: com.NexusAPI.Tests.Private_MeterReadControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_MeterReadControllerV4_Test@66982506</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_ActionsMenuController_Test.getActionsMenu_v4_EmptyParams()'><b>getActionsMenu_v4_EmptyParams</b><br>Test class: com.NexusAPI.Tests.Private_ActionsMenuController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_ActionsMenuController_Test@1972e513</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_MiscellaneousChargeControllerV4_Test.putmiscellaneousChargeSimulatev4()'><b>putmiscellaneousChargeSimulatev4</b><br>Test class: com.NexusAPI.Tests.Private_MiscellaneousChargeControllerV4_Test</td>
+<td></td>
+<td>10</td>
+<td>com.NexusAPI.Tests.Private_MiscellaneousChargeControllerV4_Test@70cf32e3</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupUdfpicklist()'><b>lookupUdfpicklist</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupEquipmentRegisterCode4()'><b>lookupEquipmentRegisterCode4</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_ServiceOrderController_Test.delBatv4Error()'><b>delBatv4Error</b><br>Test class: com.NexusAPI.Tests.Private_ServiceOrderController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_ServiceOrderController_Test@71075444</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_csmSetup_Test.getcsmSetupserviceOrderv4()'><b>getcsmSetupserviceOrderv4</b><br>Test class: com.NexusAPI.Tests.Private_csmSetup_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_csmSetup_Test@4c163e3</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_contactLogController_Test.getContactLogMethods()'><b>getContactLogMethods</b><br>Test class: com.NexusAPI.Tests.Private_contactLogController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_contactLogController_Test@45d84a20</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_transactionsControllerv4_Test.gettransactionpayment_v4()'><b>gettransactionpayment_v4</b><br>Test class: com.NexusAPI.Tests.Private_transactionsControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_transactionsControllerv4_Test@5c80cf32</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_consumptionHistoryController_Test.getconsumptionHistoryController_v4()'><b>getconsumptionHistoryController_v4</b><br>Test class: com.NexusAPI.Tests.Private_consumptionHistoryController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_consumptionHistoryController_Test@28dcca0c</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_CashieringController_Test.saveReciept_SOTaskCompleteDepositPaymenttaskNewCustomer()'><b>saveReciept_SOTaskCompleteDepositPaymenttaskNewCustomer</b><br>Test class: com.NexusAPI.Tests.Private_CashieringController_Test</td>
+<td></td>
+<td>10</td>
+<td>com.NexusAPI.Tests.Private_CashieringController_Test@533bda92</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_customerControllerV4_Test.getCustomerBasicInfo4()'><b>getCustomerBasicInfo4</b><br>Test class: com.NexusAPI.Tests.Private_customerControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_customerControllerV4_Test@4a8355dd</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_CollectionControllerv4_Test.postcollectionGeneratev4()'><b>postcollectionGeneratev4</b><br>Test class: com.NexusAPI.Tests.Private_CollectionControllerv4_Test</td>
+<td></td>
+<td>2</td>
+<td>com.NexusAPI.Tests.Private_CollectionControllerv4_Test@723ca036</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupcollectionnoticeType()'><b>lookupcollectionnoticeType</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupEquipmentAttributeProtection4()'><b>lookupEquipmentAttributeProtection4</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.getapplyByService_nonev4()'><b>getapplyByService_nonev4</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_MeterReadControllerV4_Test.postMeterReadPostInvalidv4()'><b>postMeterReadPostInvalidv4</b><br>Test class: com.NexusAPI.Tests.Private_MeterReadControllerV4_Test</td>
+<td></td>
+<td>1</td>
+<td>com.NexusAPI.Tests.Private_MeterReadControllerV4_Test@66982506</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_CashieringController_Test.saveReciept_4_SOTaskCompleteDepositPayment()'><b>saveReciept_4_SOTaskCompleteDepositPayment</b><br>Test class: com.NexusAPI.Tests.Private_CashieringController_Test</td>
+<td></td>
+<td>10</td>
+<td>com.NexusAPI.Tests.Private_CashieringController_Test@533bda92</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_DepositsController_Test.getdepositpaymentPlanv3()'><b>getdepositpaymentPlanv3</b><br>Test class: com.NexusAPI.Tests.Private_DepositsController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_DepositsController_Test@4d0d9fe7</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_AlertPanelController_Test.getalert_invalidCustomer_v4()'><b>getalert_invalidCustomer_v4</b><br>Test class: com.NexusAPI.Tests.Private_AlertPanelController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_AlertPanelController_Test@548a24a</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupserviceOrderTask()'><b>lookupserviceOrderTask</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_PaymentControllerV4_Test.postPaymentDepositv4()'><b>postPaymentDepositv4</b><br>Test class: com.NexusAPI.Tests.Private_PaymentControllerV4_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_PaymentControllerV4_Test@4bdeaabb</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_contactLogController_Test.getContactLogDetail2()'><b>getContactLogDetail2</b><br>Test class: com.NexusAPI.Tests.Private_contactLogController_Test</td>
+<td></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_contactLogController_Test@45d84a20</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookuptranferBillToCustomerDeposit()'><b>lookuptranferBillToCustomerDeposit</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td><div><pre>org.testng.SkipException: Skipping this method due to bug = CPDEV-20377
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookuptranferBillToCustomerDeposit(Private_lookupControllerv4_Test.java:390)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace288398804", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace288398804'><pre>org.testng.SkipException: Skipping this method due to bug = CPDEV-20377
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookuptranferBillToCustomerDeposit(Private_lookupControllerv4_Test.java:390)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_penaltyController_Test.getpenaltyHeader_v_4()'><b>getpenaltyHeader_v_4</b><br>Test class: com.NexusAPI.Tests.Private_penaltyController_Test</td>
+<td><div><pre>java.lang.Throwable: Method com.NexusAPI.Tests.Private_penaltyController_Test.getpenaltyHeader_v_4() on instance com.NexusAPI.Tests.Private_penaltyController_Test@6c4906d3 depends on not successfully finished methods 
+[com.NexusAPI.Tests.Private_penaltyController_Test.postpenaltydocumentPrintErr_v4() on instance com.NexusAPI.Tests.Private_penaltyController_Test@6c4906d3]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 23 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace311687383", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace311687383'><pre>java.lang.Throwable: Method com.NexusAPI.Tests.Private_penaltyController_Test.getpenaltyHeader_v_4() on instance com.NexusAPI.Tests.Private_penaltyController_Test@6c4906d3 depends on not successfully finished methods 
+[com.NexusAPI.Tests.Private_penaltyController_Test.postpenaltydocumentPrintErr_v4() on instance com.NexusAPI.Tests.Private_penaltyController_Test@6c4906d3]
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:159)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_penaltyController_Test@6c4906d3</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_voidController_Test.getVoidLaodv4()'><b>getVoidLaodv4</b><br>Test class: com.NexusAPI.Tests.Private_voidController_Test</td>
+<td><div><pre>org.testng.SkipException: Skipping this method due to bug = CPDEV-17878
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at com.NexusAPI.Tests.Private_voidController_Test.getVoidLaodv4(Private_voidController_Test.java:77)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1198077836", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1198077836'><pre>org.testng.SkipException: Skipping this method due to bug = CPDEV-17878
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at com.NexusAPI.Tests.Private_voidController_Test.getVoidLaodv4(Private_voidController_Test.java:77)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_voidController_Test@6f01b95f</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_penaltyController_Test.postpenaltydocumentPrintErr_v4()'><b>postpenaltydocumentPrintErr_v4</b><br>Test class: com.NexusAPI.Tests.Private_penaltyController_Test</td>
+<td><div><pre>java.lang.Throwable: Method com.NexusAPI.Tests.Private_penaltyController_Test.postpenaltydocumentPrintErr_v4() on instance com.NexusAPI.Tests.Private_penaltyController_Test@6c4906d3 depends on not successfully finished methods 
+[com.NexusAPI.Tests.Private_penaltyController_Test.postpenaltydocumentPrint_v4() on instance com.NexusAPI.Tests.Private_penaltyController_Test@6c4906d3]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 23 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1424067142", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1424067142'><pre>java.lang.Throwable: Method com.NexusAPI.Tests.Private_penaltyController_Test.postpenaltydocumentPrintErr_v4() on instance com.NexusAPI.Tests.Private_penaltyController_Test@6c4906d3 depends on not successfully finished methods 
+[com.NexusAPI.Tests.Private_penaltyController_Test.postpenaltydocumentPrint_v4() on instance com.NexusAPI.Tests.Private_penaltyController_Test@6c4906d3]
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:159)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_penaltyController_Test@6c4906d3</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_penaltyController_Test.verifyDeletedtcalculatedDocuments_v4()'><b>verifyDeletedtcalculatedDocuments_v4</b><br>Test class: com.NexusAPI.Tests.Private_penaltyController_Test</td>
+<td><div><pre>java.lang.Throwable: Method com.NexusAPI.Tests.Private_penaltyController_Test.verifyDeletedtcalculatedDocuments_v4() on instance com.NexusAPI.Tests.Private_penaltyController_Test@6c4906d3 depends on not successfully finished methods 
+[com.NexusAPI.Tests.Private_penaltyController_Test.deletecalculatedDocuments_v4() on instance com.NexusAPI.Tests.Private_penaltyController_Test@6c4906d3]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 23 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1516958404", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1516958404'><pre>java.lang.Throwable: Method com.NexusAPI.Tests.Private_penaltyController_Test.verifyDeletedtcalculatedDocuments_v4() on instance com.NexusAPI.Tests.Private_penaltyController_Test@6c4906d3 depends on not successfully finished methods 
+[com.NexusAPI.Tests.Private_penaltyController_Test.deletecalculatedDocuments_v4() on instance com.NexusAPI.Tests.Private_penaltyController_Test@6c4906d3]
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:159)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_penaltyController_Test@6c4906d3</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookuplocation()'><b>lookuplocation</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td><div><pre>org.testng.SkipException: Skipping this method due to bug =  CPDEV-22862 
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookuplocation(Private_lookupControllerv4_Test.java:359)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace725617616", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace725617616'><pre>org.testng.SkipException: Skipping this method due to bug =  CPDEV-22862 
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookuplocation(Private_lookupControllerv4_Test.java:359)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookuplocationClass()'><b>lookuplocationClass</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td><div><pre>org.testng.SkipException: Skipping this method due to bug =  CPDEV-22862 
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookuplocationClass(Private_lookupControllerv4_Test.java:348)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace462349981", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace462349981'><pre>org.testng.SkipException: Skipping this method due to bug =  CPDEV-22862 
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookuplocationClass(Private_lookupControllerv4_Test.java:348)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_SmartlistControllerV3_Test.postsmartlistfavorite_v_3()'><b>postsmartlistfavorite_v_3</b><br>Test class: com.NexusAPI.Tests.Private_SmartlistControllerV3_Test</td>
+<td><div><pre>org.testng.SkipException: Skipping this method due to bug = CPDEV-14084
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at com.NexusAPI.Tests.Private_SmartlistControllerV3_Test.postsmartlistfavorite_v_3(Private_SmartlistControllerV3_Test.java:38)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace403488991", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace403488991'><pre>org.testng.SkipException: Skipping this method due to bug = CPDEV-14084
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at com.NexusAPI.Tests.Private_SmartlistControllerV3_Test.postsmartlistfavorite_v_3(Private_SmartlistControllerV3_Test.java:38)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_SmartlistControllerV3_Test@4f32a3ad</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_customerControllerV4_Test.getCustomerAddressInfo()'><b>getCustomerAddressInfo</b><br>Test class: com.NexusAPI.Tests.Private_customerControllerV4_Test</td>
+<td><div><pre>org.testng.SkipException: Skipping this method due to bug = CPDEV-20931
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at com.NexusAPI.Tests.Private_customerControllerV4_Test.getCustomerAddressInfo(Private_customerControllerV4_Test.java:44)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace392226196", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace392226196'><pre>org.testng.SkipException: Skipping this method due to bug = CPDEV-20931
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at com.NexusAPI.Tests.Private_customerControllerV4_Test.getCustomerAddressInfo(Private_customerControllerV4_Test.java:44)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_customerControllerV4_Test@4a8355dd</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_penaltyController_Test.deletecalculatedDocuments_v4()'><b>deletecalculatedDocuments_v4</b><br>Test class: com.NexusAPI.Tests.Private_penaltyController_Test</td>
+<td><div><pre>java.lang.Throwable: Method com.NexusAPI.Tests.Private_penaltyController_Test.deletecalculatedDocuments_v4() on instance com.NexusAPI.Tests.Private_penaltyController_Test@6c4906d3 depends on not successfully finished methods 
+[com.NexusAPI.Tests.Private_penaltyController_Test.getcalculatedDocuments_v4() on instance com.NexusAPI.Tests.Private_penaltyController_Test@6c4906d3]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 23 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2037375669", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2037375669'><pre>java.lang.Throwable: Method com.NexusAPI.Tests.Private_penaltyController_Test.deletecalculatedDocuments_v4() on instance com.NexusAPI.Tests.Private_penaltyController_Test@6c4906d3 depends on not successfully finished methods 
+[com.NexusAPI.Tests.Private_penaltyController_Test.getcalculatedDocuments_v4() on instance com.NexusAPI.Tests.Private_penaltyController_Test@6c4906d3]
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:159)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_penaltyController_Test@6c4906d3</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupMiscChargeDocuments()'><b>lookupMiscChargeDocuments</b><br>Test class: com.NexusAPI.Tests.Private_lookupControllerv4_Test</td>
+<td><div><pre>org.testng.SkipException: Skipping this method due to bug =  CPDEV-17161 
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupMiscChargeDocuments(Private_lookupControllerv4_Test.java:478)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1177018330", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1177018330'><pre>org.testng.SkipException: Skipping this method due to bug =  CPDEV-17161 
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at com.NexusAPI.Tests.Private_lookupControllerv4_Test.lookupMiscChargeDocuments(Private_lookupControllerv4_Test.java:478)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_lookupControllerv4_Test@72bc6553</td></tr>
+<tr>
+<td title='com.NexusAPI.Tests.Private_SmartlistControllerV3_Test.getsmartList_v_3()'><b>getsmartList_v_3</b><br>Test class: com.NexusAPI.Tests.Private_SmartlistControllerV3_Test</td>
+<td><div><pre>org.testng.SkipException: Skipping this method due to bug = CPDEV-14084
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at com.NexusAPI.Tests.Private_SmartlistControllerV3_Test.getsmartList_v_3(Private_SmartlistControllerV3_Test.java:23)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1693662702", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1693662702'><pre>org.testng.SkipException: Skipping this method due to bug = CPDEV-14084
+	at com.NexustAPIAutomation.java.CommonMethods.Bug(CommonMethods.java:1687)
+	at com.NexusAPI.Tests.Private_SmartlistControllerV3_Test.getsmartList_v_3(Private_SmartlistControllerV3_Test.java:23)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>0</td>
+<td>com.NexusAPI.Tests.Private_SmartlistControllerV3_Test@4f32a3ad</td></tr>
+</table><p>
+</body>
+</html>

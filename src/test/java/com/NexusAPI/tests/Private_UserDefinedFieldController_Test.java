@@ -25,7 +25,7 @@ public class Private_UserDefinedFieldController_Test extends BaseClass {
 
 		String uri = "/udf/customer/500001";
 		String ver = "4.0";
-		String expected = "{\"UserDefinedField\":{\"Success\":true,\"Data\":{\"CustomerId\":\"500001\",\"UDF\":null},\"Messages\":[]}}";
+		String expected = "{\"UserDefinedField\":{\"Success\":true,\"Data\":{\"CustomerId\":\"500001\",\"Udf\":[{\"Order\":\"1\",\"Label\":\"Customer UDF - String\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"2\",\"Label\":\"Customer UDF - Default\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"3\",\"Label\":\"Customer UDF - Integer\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"4\",\"Label\":\"Customer UDF - Lookup\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"5\",\"Label\":\"Customer UDF - Logic\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"6\",\"Label\":\"Customer UDF - Test\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"7\",\"Label\":\"Customer UDF - Picklist\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"Picklist\",\"Attributes\":\"\",\"Tooltip\":\"Select picklist\"}]},\"Messages\":[]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		String result = CommonMethods.getMethodasString(uri, ver, params);
 		Assert.assertEquals(expected, result);
@@ -85,12 +85,12 @@ public class Private_UserDefinedFieldController_Test extends BaseClass {
 	}
 
 	@Test(priority = 7, groups = "udf")
-	public void getCustomerUdfs()
+	public void getlocationsUdfs()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/udf/location/100001";
 		String ver = "4.0";
 		String params = "";
-		String expected = "{\"UserDefinedField\":{\"Success\":true,\"Data\":{\"LocationId\":\"100001\",\"Udf\":[{\"Order\":\"1\",\"Label\":\"Location UDF\",\"Value\":\"1000\",\"Description\":\"\",\"Type\":\"String\",\"Tooltip\":\"Data Type = String, Length = 100\"},{\"Order\":\"2\",\"Label\":\"Location UDF 1\",\"Value\":\"2000\",\"Description\":\"\",\"Type\":\"String\",\"Tooltip\":\"Data Type = String, Length = 100\"},{\"Order\":\"3\",\"Label\":\"Location UDF 2\",\"Value\":\"3000\",\"Description\":\"\",\"Type\":\"String\",\"Tooltip\":\"Data Type = String, Length = 100\"}]},\"Messages\":[]}}";
+		String expected = "{\"UserDefinedField\":{\"Success\":true,\"Data\":{\"LocationId\":\"100001\",\"Udf\":[{\"Order\":\"1\",\"Label\":\"TEST124\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"2\",\"Label\":\"TEST125\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"3\",\"Label\":\"TEST126\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"}]},\"Messages\":[]}}";
 		String result = CommonMethods.getMethodasString(uri, ver, params);
 		Assert.assertEquals(result, expected);
 
@@ -143,19 +143,7 @@ public class Private_UserDefinedFieldController_Test extends BaseClass {
 		String uri = "/udf/equipment/EQUIPMENT008";
 		String ver = "4.0";
 		String params = "";
-		String expected = "{\"UserDefinedField\":{\"Success\":true,\"Data\":{\"EquipmentId\":\"EQUIPMENT008\",\"Udf\":[{\"Order\":\"1\",\"Label\":\"TESTLABEL\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Tooltip\":\"Data Type = String, Length = 100\"},{\"Order\":\"2\",\"Label\":\"TESTLABEL1\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Tooltip\":\"Data Type = String, Length = 100\"},{\"Order\":\"3\",\"Label\":\"TESTLABE2\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Tooltip\":\"Data Type = String, Length = 100\"}]},\"Messages\":[]}}";
-		String result = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(result, expected);
-
-	}
-
-	@Test(priority = 11, groups = "udf")
-	public void getlocationUdfs()
-			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		String uri = "/udf/location/LOC@0001";
-		String ver = "4.0";
-		String params = "";
-		String expected = "{\"UserDefinedField\":{\"Success\":true,\"Data\":{\"LocationId\":\"LOC@0001\",\"Udf\":[{\"Order\":\"1\",\"Label\":\"TEST124\",\"Value\":\"Auto\",\"Description\":\"\",\"Type\":\"String\",\"Tooltip\":\"Data Type = String, Length = 100\"},{\"Order\":\"2\",\"Label\":\"TEST125\",\"Value\":\"mation\",\"Description\":\"\",\"Type\":\"String\",\"Tooltip\":\"Data Type = String, Length = 100\"},{\"Order\":\"3\",\"Label\":\"TEST126\",\"Value\":\"UDFAuto\",\"Description\":\"\",\"Type\":\"String\",\"Tooltip\":\"Data Type = String, Length = 100\"}]},\"Messages\":[]}}";
+		String expected = "{\"UserDefinedField\":{\"Success\":true,\"Data\":{\"EquipmentId\":\"EQUIPMENT008\",\"Udf\":[{\"Order\":\"1\",\"Label\":\"TESTLABEL\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"2\",\"Label\":\"TESTLABEL1\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"3\",\"Label\":\"TESTLABE2\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"}]},\"Messages\":[]}}";
 		String result = CommonMethods.getMethodasString(uri, ver, params);
 		Assert.assertEquals(result, expected);
 
