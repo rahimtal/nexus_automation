@@ -2,7 +2,7 @@ package com.NexustAPIAutomation.java;
 
 import java.io.File;
 
-public class RunSpecificTestNG {
+public class RunFailedTests {
     public static void main(String[] args) {
         try {
             // Define the Maven command explicitly as separate arguments

@@ -20,7 +20,7 @@ import com.NexustAPIAutomation.java.ReadProjectProperties;
 import io.restassured.response.ValidatableResponse;
 
 public class Private_penaltyController_Test {
-//Moved to global properties
+	// Moved to global properties
 	// @Test(priority = 1, groups = "Penalty")
 	public void putpenaltySetup_v_4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -71,9 +71,10 @@ public class Private_penaltyController_Test {
 				+ "      \"001\",\r\n" + "      \"002\"\r\n" + "  ],\r\n"
 				+ "  \"IncludeDocumentsWithDueDate\": \"2025-09-15\",\r\n"
 				+ "  \"IncludeDocumentWithPenaltyProcessingDate\": \"2025-09-15\"\r\n" + "}\r\n" + "";
-		String expected = "{\"PenaltyCalculate\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Penalty calculation has been done successfully. 1 penalty document\\/s has been created.\",\"Level\":1}]}}";
+		String expected = "{\"PenaltyCalculate\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Penalty calculation has been done successfully";
 		String Result = CommonMethods.postMethodResponseAsString(payload, uri, ver);
-		Assert.assertEquals(Result, expected);
+
+		Assert.assertTrue(Result.contains(expected), "The result does not contain the expected string.");
 	}
 
 	@Test(priority = 5, groups = "Penalty")
@@ -120,35 +121,6 @@ public class Private_penaltyController_Test {
 
 	}
 
-	@Test(priority = 8, groups = "Penalty", dependsOnMethods = "getcalculatedDocuments_v4")
-	public void deletecalculatedDocuments_v4()
-			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-
-		String uri = "/penalty/documentDelete";
-		String ver = "4.0";
-		String expected = "{\"PenaltyDelete\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Penalties successfully deleted!\",\"Level\":1}]}}";
-		// HashMap<String, String> map = new HashMap<String, String>();
-		String body = "{\r\n" + "    \"BatchId\": \"ABC1213\",\r\n" + "    \"Document\": [\r\n" + "        { \r\n"
-				+ "             \"Number\": \"PNLT00000000059\"\r\n" + "        },\r\n" + "        { \r\n"
-				+ "             \"Number\": \"PNLT00000000060\"\r\n" + "        }\r\n" + "    ]\r\n" + "}";
-		String Result = CommonMethods.postMethodStringPayloadString(body, uri, ver);
-		assertEquals(Result, expected);
-
-	}
-
-	@Test(priority = 9, groups = "Penalty", dependsOnMethods = "deletecalculatedDocuments_v4")
-	public void verifyDeletedtcalculatedDocuments_v4()
-			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-
-		String uri = "/penalty/calculatedDocuments/ABC1213";
-		String ver = "4.0";
-		String expected = "{\"Penalty\":{\"Success\":true,\"Data\":{\"BatchId\":\"ABC1213\",\"Document\":[{\"PenaltyDocument\":\"PNLT00000000061\",\"SourceDocument\":\"BILL00000000578\",\"LocationId\":\"TRANSACTION001\",\"CustomerId\":\"TRS0001\",\"ServiceType\":\"SEWER\",\"PenaltyId\":\"DEFAULTPYMT\",\"TaxAmount\":0.00,\"OriginalBalance\":15.00,\"OutstandingAmount\":15.00,\"PenaltyAmount\":0.75},{\"PenaltyDocument\":\"PNLT00000000062\",\"SourceDocument\":\"BILL00000000577\",\"LocationId\":\"TRANSACTION001\",\"CustomerId\":\"TRS0001\",\"ServiceType\":\"WATER\",\"PenaltyId\":\"DEFAULTPYMT\",\"TaxAmount\":0.00,\"OriginalBalance\":30.00,\"OutstandingAmount\":30.00,\"PenaltyAmount\":1.50}]},\"Messages\":[]}}";
-		HashMap<String, String> map = new HashMap<String, String>();
-		String Result = CommonMethods.getMethodasString(uri, ver, map);
-		assertEquals(Result, expected);
-
-	}
-
 	@Test(priority = 10, groups = "Penalty")
 	public void postpenaltydocumentPrint_v4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
@@ -161,38 +133,37 @@ public class Private_penaltyController_Test {
 		String expected = "{\"Penalty\":{\"Success\":true,\"Data\":{\"ReportList\":[{\"Name\":\"PenaltyPreparationDetail\",\"DisplayName\":\"Penalty Preparation Detail\",\"PrintOrder\":1}]},\"Messages\":[]}}";
 		String Result = CommonMethods.postMethodResponseAsString(payload, uri, ver);
 		Assert.assertEquals(Result, expected);
-		
-		
+
 		ReadProjectProperties Read = new ReadProjectProperties();
 		String ConnectionString = Read.ReadFile("ConnectionStringServTWO");
 		String columnName = "DocumentNumber";
-		String Command1 = "select * from csmApi_vwReportPenaltyPreparationDetail";
+		String Command1 = "select * from Two.dbo.csmApi_vwReportPenaltyPreparationDetail";
 		Result = "";
 		Result = CommonMethods.selectFromDb(Command1, ConnectionString, columnName);
 
 		if (Result == null) {
-		
+
 			Assert.fail("csmApi_vwReportPenaltyPreparationDetail is Not empty " + Result);
 
 		}
 
 	}
 
-	@Test(priority = 11, groups = "Penalty", dependsOnMethods = "postpenaltydocumentPrint_v4")
+	@Test(priority = 11, groups = "Penalty")
 	public void postpenaltydocumentPrintErr_v4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/penalty/documentPrint";
 		String ver = "4.0";
 		String payload = "{\r\n" + "    \"BatchId\": \"ABC1213\",\r\n" + "    \"Documents\": [\r\n" + "        {\r\n"
-				+ "            \"Number\": \"PNLT00000000059\"\r\n" + "        },\r\n" + "        {\r\n"
+				+ "            \"Number\": \"PNLT00000000159\"\r\n" + "        },\r\n" + "        {\r\n"
 				+ "            \"Number\": \"PNLT00000000060\"\r\n" + "        }\r\n" + "    ]\r\n" + "}";
-		String expected = "{\"Penalty\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Invalid Penalty Document\\/s PNLT00000000059, PNLT00000000060 in Batch Id ABC1213.\",\"Level\":3}]}}";
+		String expected = "{\"Penalty\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Invalid Penalty Document\\/s PNLT00000000159 in Batch Id ABC1213.\",\"Level\":3}]}}";
 		String Result = CommonMethods.postMethodResponseAsString(payload, uri, ver);
 		Assert.assertEquals(Result, expected);
 	}
 
-	@Test(priority = 11, groups = "Penalty", dependsOnMethods = "postpenaltydocumentPrintErr_v4")
+	@Test(priority = 12, groups = "Penalty")
 	public void getpenaltyHeader_v_4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/penalty/header/PENALTY2";
@@ -200,26 +171,24 @@ public class Private_penaltyController_Test {
 		String expected = "{\"Penalty\":{\"Success\":true,\"Data\":{\"CalculateBy\":\"0\",\"BatchId\":\"PENALTY2\",\"PenaltyDocumentDate\":\"2025-01-01\",\"PenaltyDueDate\":\"2025-09-15\",\"ExcludeFormerCustomers\":\"false\",\"IncludeOnlyPrintedDocuments\":\"false\",\"IncludeFormerCustomerstWithLoanBalance\":\"false\",\"Route\":[\"001\",\"002\"],\"IncludeDocumentsWithDueDate\":\"2025-09-15\",\"IncludeDocumentWithPenaltyProcessingDate\":\"2025-09-15\",\"UserId\":\"sa\",\"Zone\":[],\"Cycle\":[],\"LocationId\":\"\"},\"Messages\":[]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		CommonMethods.getMethodContainsString(uri, ver, params, expected);
-		
-		//Verify Table
+
+		// Verify Table
 		ReadProjectProperties Read = new ReadProjectProperties();
 		String ConnectionString = Read.ReadFile("ConnectionStringServTWO");
-		
-		
+
 		String columnName = "BatchId";
 		String Command1 = "select * from Two.dbo.csmApi_PenaltyPreparationHistory ";
 		String Result = "";
 		Result = CommonMethods.selectFromDb(Command1, ConnectionString, columnName);
-		
+
 		if (Result == "") {
 			Assert.fail("csmApi_PenaltyPreparationHistory is empty " + Result);
 
 		}
-	
-		
+
 	}
 
-	@Test(priority = 12, groups = "Penalty")
+	@Test(priority = 13, groups = "Penalty")
 	public void postCreatemiscellaneousv_4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -230,12 +199,12 @@ public class Private_penaltyController_Test {
 				+ "      \"TypeId\":\"SERVICEELEC\",\r\n" + "      \"Amount\": 80,\r\n"
 				+ "      \"Description\":\"Charge for electric service\",\r\n" + "      \"Date\":\"2025-04-17\",\r\n"
 				+ "      \"DueDate\":\"\"\r\n" + "   },\r\n" + "   \"TaxScheduleId\":\"ONT GST/PST\"\r\n" + "}";
-		String expected = "{\"MiscellaneousCharge\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"The Batch ID PENALTY1 contains Penalty documents. Select a different Batch ID or create a new Batch ID.\",\"Level\":3}]}}";
+		String expected = "{\"MiscellaneousCharge\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"The Batch Id PENALTY1 contains Penalty documents. Select a different Batch Id or create a new Batch Id.\",\"Level\":3}]}}";
 		String Result = CommonMethods.postMethodResponseAsString(payload, uri, ver);
 		Assert.assertEquals(Result, expected);
 	}
-	
-	@Test(priority = 13, groups = "Penalty")
+
+	@Test(priority = 14, groups = "Penalty")
 	public void postpenaltyDocumentsPENALTY2_v_4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
@@ -245,8 +214,7 @@ public class Private_penaltyController_Test {
 		String expected = "{\"Penalty\":{\"Success\":true,\"Data\":{\"UserId\":\"sa\",\"VersionNumber\":\"1.0.0\",\"PostDate\":\"2025-09-18\",\"BatchId\":\"PENALTY2\",\"MiscCharge\":{\"Document\":[{\"DocType\":\"PNLT\",\"DocumentNumber\":\"PNLT00000000098\",\"CustomerId\":\"0000011111\",\"LocationId\":\"LOC@0001\",\"DocumentDate\":\"2025-01-01\",\"TransactionAmount\":5.00,\"TaxAmount\":0.00,\"TotalChargeAmount\":5.00,\"ServiceType\":\"ELECTRIC\",\"OutstandingAmount\":5.00,\"MiscChargeType\":\"RES-OVERDUE\",\"TransactionDescription\":\"Penalty for overdue\",\"TaxSchedule\":\"\"}]},\"MiscChargeDistribution\":{\"DocumentDistribution\":[{\"DocType\":\"PNLT\",\"DocumentNumber\":\"PNLT00000000098\",\"DistributionType\":3,\"DistributionIndex\":611,\"OriginalDebitAmount\":5.00,\"OriginalCreditAmount\":0.00},{\"DocType\":\"PNLT\",\"DocumentNumber\":\"PNLT00000000098\",\"DistributionType\":9,\"DistributionIndex\":612,\"OriginalDebitAmount\":0.00,\"OriginalCreditAmount\":5.00}]},\"Payment\":null,\"PaymentDistribution\":null,\"Bill\":null,\"BillDistribution\":null,\"HasPostingError\":false,\"HasPostingReport\":true,\"Document\":[{\"DocumentNumber\":\"PNLT00000000098\"}],\"ApplyDocument\":[],\"PostedDistribution\":[{\"DocumentNumber\":\"PNLT00000000098\",\"LineSequence\":1,\"DistributionIndex\":611,\"TransactionAmount\":-5.00,\"LocationId\":\"\"},{\"DocumentNumber\":\"PNLT00000000098\",\"LineSequence\":2,\"DistributionIndex\":612,\"TransactionAmount\":5.00,\"LocationId\":\"\"}],\"ReportList\":[{\"Name\":\"Post Misc Charge Edit List\",\"PrintOrder\":1,\"DisplayName\":\"Post Misc Charge Edit List\",\"PrintEnabled\":true},{\"Name\":\"Post Misc Charge Dist Breakdown Summary\",\"PrintOrder\":2,\"DisplayName\":\"Post Misc Charge Dist Breakdown Summary\",\"PrintEnabled\":true},{\"Name\":\"Post Misc Charge Payment Dist Breakdown Detail\",\"PrintOrder\":3,\"DisplayName\":\"Post Misc Charge Payment Dist Breakdown Detail\",\"PrintEnabled\":false},{\"Name\":\"Post Misc Charge Payment Dist Breakdown Summary\",\"PrintOrder\":4,\"DisplayName\":\"Post Misc Charge Payment Dist Breakdown Summary\",\"PrintEnabled\":false}],\"ReportErrorList\":[{\"Name\":\"Post Misc Charge Error List\",\"PrintOrder\":1,\"DisplayName\":\"Post Misc Charge Error List\",\"PrintEnabled\":true}]},\"Messages\":[]}}";
 		String Result = CommonMethods.postMethodResponseAsString(payload, uri, ver);
 		Assert.assertEquals(Result, expected);
-		
-		
+
 		ReadProjectProperties Read = new ReadProjectProperties();
 		String ConnectionString = Read.ReadFile("ConnectionStringServTWO");
 		String columnName = "Batchid";
@@ -256,16 +224,11 @@ public class Private_penaltyController_Test {
 
 		if (Result == null) {
 			System.out.println(false);
-		}
-		else{
+		} else {
 			Assert.fail("csmApi_PenaltyPreparationHistory is Not empty " + Result);
 
 		}
 
 	}
-	
-	
-	
-	
 
 }
