@@ -20,7 +20,7 @@ public class BaseClass {
 
 	@BeforeSuite
 	public void setupReport() throws IOException {
-		System.out.println("Deleting folder");
+		// System.out.println("Deleting folder");
 		// Runtime.getRuntime().exec("cmd /c rd /s /q
 		// C:\\Users\\Admin\\Documents\\GitHub\\nexus_automation\\test-output\\");
 		// Runtime.getRuntime().exec("cmd /c rd /s /q
@@ -33,6 +33,7 @@ public class BaseClass {
 	public void sendReportByEmail() throws Exception {
 		// Delay added just to be safe
 		Thread.sleep(3000);
+
 		EmailSender.sendEmail("cogsauto@gmail.com", "trahim@cogsdale.com", "Test", "Test");
 
 	}

@@ -37,6 +37,8 @@ public class EmailSender {
 		System.out.println("From Email: " + from);
 		System.out.println("To Email: " + to);
 
+		Thread.sleep(10000); // 10-second delay
+
 		try {
 			Session session = Session.getInstance(props, new jakarta.mail.Authenticator() {
 				@Override
@@ -108,7 +110,7 @@ public class EmailSender {
 	public static void main(String[] args) {
 		try {
 			System.out.println("Waiting for 10 seconds before sending email...");
-			Thread.sleep(10000); // 10-second delay
+			// Thread.sleep(10000); // 10-second delay
 			sendEmail("cogsauto@gmail.com", "trahim@cogsdale.com", "Nexus API Regression Tests (Dockers) Report ",
 					"Test");
 			sendEmail("cogsauto@gmail.com", "rthurairasa@cogsdale.com", "Nexus API Regression Tests (Dockers) Report ",

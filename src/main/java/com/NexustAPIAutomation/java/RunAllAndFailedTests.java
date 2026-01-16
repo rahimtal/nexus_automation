@@ -20,15 +20,6 @@ public class RunAllAndFailedTests {
                 EmailSender.main(null);
             }
 
-            // Step 3: Run failed tests
-            System.out.println("Running failed tests...");
-            ProcessBuilder failedTestsBuilder = new ProcessBuilder("cmd.exe", "/c",
-                    "mvn exec:java -Dexec.mainClass=com.NexustAPIAutomation.java.RunFailedTestNG");
-            failedTestsBuilder.inheritIO();
-            Process failedTestsProcess = failedTestsBuilder.start();
-            int failedTestsExitCode = failedTestsProcess.waitFor();
-            System.out.println("Failed tests completed with exit code: " + failedTestsExitCode);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
