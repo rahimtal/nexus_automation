@@ -197,9 +197,10 @@ public class Private_penaltyController_Test {
 		String expected = "{\"MiscellaneousCharge\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"The Batch Id PENALTY1 contains Penalty documents. Select a different Batch Id or create a new Batch Id.\",\"Level\":3}]}}";
 		String Result = CommonMethods.postMethodResponseAsString(payload, uri, ver);
 		Assert.assertEquals(Result, expected);
+
 	}
 
-	@Test(priority = 14, groups = "Penalty")
+	@Test(priority = 14, groups = "Penalty", dependsOnMethods = "postCreatemiscellaneousv_4")
 	public void postpenaltyDocumentsPENALTY2_v_4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 

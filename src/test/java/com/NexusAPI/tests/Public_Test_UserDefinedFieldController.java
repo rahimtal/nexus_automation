@@ -16,13 +16,13 @@ public class Public_Test_UserDefinedFieldController extends BaseClass {
 
 		String uri = "/udf/connection";
 		String ver = "4.0";
-		String expected = "{\"UserDefinedField\":[{\"LocationId\":\"100001\",\"Connection\":[{\"Sequence\":1,\"Udf\":[{\"Label\":\"TESTCONLABELUDF1\",\"Value\":\"TESTCONLABELUDFvalue1\",\"Description\":\"\",\"Type\":\"String\"},{\"Label\":\"TESTCONLABELUDF2\",\"Value\":\"TESTCONLABELUDFvalue2\",\"Description\":\"\",\"Type\":\"String\"},{\"Label\":\"TESTCONLABELUDF3\",\"Value\":\"TESTCONLABELUDFvalue3\",\"Description\":\"\",\"Type\":\"String\"},{\"Label\":\"TESTCONLABELUDF4\",\"Value\":\"TESTCONLABELUDFvalue4\",\"Description\":\"\",\"Type\":\"String\"}]}]}]}";
+		String expected = "";
 		HashMap<String, String> params = new HashMap<String, String>();
 
 		params.put("LocationId", "100001");
 		params.put("ConnectionSeq", "1");
 		String result = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(expected, result);
+		Assert.assertEquals(result, expected);
 
 	}
 

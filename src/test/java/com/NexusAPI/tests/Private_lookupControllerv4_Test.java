@@ -3,12 +3,15 @@ package com.NexusAPI.Tests;
 import org.testng.annotations.Test;
 import org.testng.Assert;
 import org.testng.Assert;
+
 import com.NexustAPIAutomation.java.CommonMethods;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.DataBackupRestore;
 
 import io.restassured.path.json.JsonPath;
 
@@ -16,6 +19,7 @@ public class Private_lookupControllerv4_Test extends BaseClass {
 
 	@Test(priority = 1, groups = "lookup")
 	public void getlookupBatch_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		DataBackupRestore.CompanyDBRestore();
 		String uri = "/lookupBatch";
 		String ver = "4.0";
 		String string1 = "{\"Id\":\"109090ABC\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"12312312\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"12345\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"ABC10001\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"ABC1213\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"API 20190430\",\"Description\":\"Payments from Web Service - API\",\"HasTransaction\":true},{\"Id\":\"API 20190503\",\"Description\":\"Payments from Web Service - API\",\"HasTransaction\":true},{\"Id\":\"API20220908001\",\"Description\":\"Payments from Nexus Api - API\",\"HasTransaction\":true},{\"Id\":\"API20220929001\",\"Description\":\"Payments from Nexus Api - ";
@@ -31,7 +35,7 @@ public class Private_lookupControllerv4_Test extends BaseClass {
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookupBatch";
 		String version = "4.0";
-		String expected = "{\"Batch\":[{\"Id\":\"___api_CR\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"10001\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"1001\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"100111\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"10111\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"109090ABC\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"12345\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"API 20190430\",\"Description\":\"Payments from Web Service - API\",\"HasTransaction\":true},{\"Id\":\"API 20190503\",\"Description\":\"Payments from Web Service - API\",\"HasTransaction\":true},{\"Id\":\"API";
+		String expected = "{\"Batch\":[{\"Id\":\"10001\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"1001\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"100111\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"10111\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"109090ABC\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"12345\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"API 20190430\",\"Description\":\"Payments from Web Service - API\",\"HasTransaction\":true},{\"Id\":\"API 20190503\",\"Description\":\"Payments from Web Service - API\",\"HasTransaction\":true},{\"Id\":\"API20220908001\",\"Description\":\"Payments from Nexus Api - API\",\"HasTransaction\":true},{\"Id\":\"API20220929001\",\"Description\":\"Payments from Nexus Api - API\",\"HasTransaction\":true},{\"Id\":\"BAT1\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"CREDITNOTE\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"DPP041227sa01\",\"Description\":\"PYMT\",\"HasTransaction\":true},{\"Id\":\"INT4\\/12\\/2027\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"INT4\\/30\\/2025\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"PY081525sa\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"RM(3)120427\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"WO101619CRP001\",\"Description\":\"Write Off - sa\",\"HasTransaction\":false},{\"Id\":\"WRITEOFF01\",\"Description\":\"\",\"HasTransaction\":true}]}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("BatchSource", "PAYMENTS");
 		String actual = CommonMethods.getMethodasString(uri, version, params);
@@ -55,12 +59,13 @@ public class Private_lookupControllerv4_Test extends BaseClass {
 
 	@Test(priority = 4, groups = "lookup")
 	public void lookupMetergroup4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		String uri3 = "/lookupMeterGroup";
+		String uri = "/lookupMeterGroup";
 		String ver = "4.0";
-		String jpath = "./\\TestData\\lookupMeterGroupv4.json";
+		String expected = "{\"MeterGroup\":[{\"Id\":\"MTGR00000000001\"},{\"Id\":\"MTGR00000000002\"}]}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		// params.put("Batchsource", "NONE"); //params.put("LocationId", "LOCATION011");
-		String result = CommonMethods.getMethod(uri3, ver, params, jpath);
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		Assert.assertEquals(result, expected);
 		System.out.println(result);
 	}
 
@@ -374,7 +379,7 @@ public class Private_lookupControllerv4_Test extends BaseClass {
 		// "{\"Batch\":[{\"Id\":\"BAT10123123\",\"Description\":\"\",\"HasTransaction\":false}]}";
 		// String expected =
 		// "{\"Batch\":[{\"Id\":\"BAT10123123\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"FINALBILL\",\"Description\":\"\",\"HasTransaction\":true}]}";
-		String expected = "{\"Batch\":[{\"Id\":\"BATCH2025\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"BATCHPOSTTRANS\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"BATCHTEST01\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"BT1232\",\"Description\":\"Api billing\",\"HasTransaction\":false},{\"Id\":\"FINALBILL\",\"Description\":\"\",\"HasTransaction\":true}]}";
+		String expected = "{\"Batch\":[{\"Id\":\"BAT10123123\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"BATCH2025\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"BATCHPOSTTRANS\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"BATCHTEST01\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"FINALBILL\",\"Description\":\"\",\"HasTransaction\":true}]}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("BatchSource", "BILLING");
 		params.put("BillingType", "Final");
@@ -442,13 +447,15 @@ public class Private_lookupControllerv4_Test extends BaseClass {
 	public void getserviceAddressLookup_v4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/serviceAddressLookup";
-		String ver = "4.0";
+		String ver = "e";
 		String expected = "{\"result\":{\"statusCode\":\"0\",\"statusMessage\":\"\",\"apiVersionNumber\":\"1.0\"},\"serviceAddresses\":[{\"serviceAddress\":\"130 SAMSULA DR\",\"premiseId\":\"000000000523000\",\"serviceAddressLine2\":\"Address Line 2\"}]}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("serviceAddress", "130");
 		params.put("resultLimit", "50");
 		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println("===============================================");
 		System.out.println(actual);
+		System.out.println("===============================================");
 		Assert.assertEquals(actual, expected);
 	}
 

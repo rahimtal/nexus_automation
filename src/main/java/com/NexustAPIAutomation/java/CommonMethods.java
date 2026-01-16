@@ -1407,12 +1407,16 @@ public class CommonMethods {
 				break;
 		}
 
+		System.out.println("===============================================");
 		RestAssured.baseURI = RestAssured.baseURI + uri;
+		System.out.println(RestAssured.baseURI.toString());
 		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
 				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
 				.queryParams(params);
 
 		String response;
+		System.out.println("===============================================");
+		System.out.println("===============================================");
 		response = httpRequest.get().asString();
 		System.out.println("URI :" + RestAssured.baseURI.toString());
 		System.out.println("Response :" + response);
