@@ -149,4 +149,35 @@ public class Private_UserDefinedFieldController_Test extends BaseClass {
 
 	}
 
+	@Test(priority = 11, groups = "udf")
+	public void putConnectionUdfs()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/udf/connection";
+		String ver = "4.0";
+		String payload = "{\r\n" + //
+				"   \"UserDefinedField\":[\r\n" + //
+				"      {\r\n" + //
+				"         \"LocationId\":\"100001\",\r\n" + //
+				"         \"Connection\":[\r\n" + //
+				"            {\r\n" + //
+				"               \"Sequence\":1,\r\n" + //
+				"               \"Udf\":[\r\n" + //
+				"                  {\r\n" + //
+				"                     \"Label\":\"TESTCONLABELUDF1\",\r\n" + //
+				"                     \"Value\":\"TEST ONE\",\r\n" + //
+				"                     \"Description\":\"\",\r\n" + //
+				"                     \"Type\":\"String\"\r\n" + //
+				"                  }\r\n" + //
+				"               ]\r\n" + //
+				"            }\r\n" + //
+				"         ],\r\n" + //
+				"      \"EmployeeId\": \"sa\"\r\n" + //
+				"      }\r\n" + //
+				"   ]\r\n" + //
+				"}";
+		String expected = "{\"result\":{\"UserDefinedField\":[{\"Success\":true,\"Messages\":[{\"Enabled\":0,\"Info\":\"\",\"Level\":0}]}]}}";
+		CommonMethods.putMethodstring(uri, ver, payload, expected);
+
+	}
+
 }
