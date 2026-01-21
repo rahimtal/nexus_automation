@@ -968,10 +968,9 @@ public class CommonMethods {
 				.body(payload);
 		System.out.println("** PUT call Body **" + payload);
 		Response response = httpRequest.put();
-		Assert.assertEquals(response.getBody().asString(), expected);
-
 		System.out.println("** PUT call Response **");
 		System.out.println(response.getBody().asString());
+		Assert.assertEquals(response.getBody().asString(), expected);
 		return response.getBody().asString();
 
 	}

@@ -145,7 +145,7 @@ public class Private_UserDefinedFieldController_Test extends BaseClass {
 		String params = "";
 		String expected = "{\"UserDefinedField\":{\"Success\":true,\"Data\":{\"EquipmentId\":\"EQUIPMENT008\",\"Udf\":[{\"Order\":\"1\",\"Label\":\"TESTLABEL\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"2\",\"Label\":\"TESTLABEL1\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"3\",\"Label\":\"TESTLABE2\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"}]},\"Messages\":[]}}";
 		String result = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(result, expected);
+		Assert.assertEquals(expected, result);
 
 	}
 
@@ -155,28 +155,56 @@ public class Private_UserDefinedFieldController_Test extends BaseClass {
 		String uri = "/udf/connection";
 		String ver = "4.0";
 		String payload = "{\r\n" + //
-				"   \"UserDefinedField\":[\r\n" + //
-				"      {\r\n" + //
-				"         \"LocationId\":\"100001\",\r\n" + //
-				"         \"Connection\":[\r\n" + //
-				"            {\r\n" + //
-				"               \"Sequence\":1,\r\n" + //
-				"               \"Udf\":[\r\n" + //
-				"                  {\r\n" + //
-				"                     \"Label\":\"TESTCONLABELUDF1\",\r\n" + //
-				"                     \"Value\":\"TEST ONE\",\r\n" + //
-				"                     \"Description\":\"\",\r\n" + //
-				"                     \"Type\":\"String\"\r\n" + //
-				"                  }\r\n" + //
-				"               ]\r\n" + //
-				"            }\r\n" + //
-				"         ],\r\n" + //
-				"      \"EmployeeId\": \"sa\"\r\n" + //
-				"      }\r\n" + //
-				"   ]\r\n" + //
+				"  \"LocationId\": \"100001A\",\r\n" + //
+				"  \"ConnectionSeq\": 1,\r\n" + //
+				"  \"Udf\": [\r\n" + //
+				"    {\r\n" + //
+				"      \"Label\": \"TESTCONLABELUDF1\",\r\n" + //
+				"      \"Value\": \"String value\"\r\n" + //
+				"    },\r\n" + //
+				"    {\r\n" + //
+				"      \"Label\": \"TESTCONLABELUDF4\",\r\n" + //
+				"      \"Value\": \"Picklist value\"\r\n" + //
+				"    },\r\n" + //
+				"    {\r\n" + //
+				"      \"Label\": \"TESTCONLABELUDF3\",\r\n" + //
+				"      \"Value\": \"Numeric value\"\r\n" + //
+				"    },\r\n" + //
+				"    {\r\n" + //
+				"      \"Label\": \"TESTCONLABELUDF2\",\r\n" + //
+				"      \"Value\": \"Logical value\"\r\n" + //
+				"    }\r\n" + //
+				"  ]\r\n" + //
 				"}";
-		String expected = "{\"result\":{\"UserDefinedField\":[{\"Success\":true,\"Messages\":[{\"Enabled\":0,\"Info\":\"\",\"Level\":0}]}]}}";
+		String expected = "{\"UserDefinedField\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"UDF successfully created.\",\"Level\":1}]}}";
 		CommonMethods.putMethodstring(uri, ver, payload, expected);
+
+	}
+
+	@Test(priority = 12, groups = "udf")
+	public void GetConnectionsUdfs() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/udf/connection/100001/1";
+		String ver = "4.0";
+		String expected = "{\"UserDefinedField\":{\"Success\":true,\"Data\":{\"LocationId\":\"100001\",\"ConnectionSeq\":1,\"ServiceType\":\"WR-A\",\"Udf\":[{\"Order\":\"1\",\"Label\":\"TESTCONLABELUDF1\",\"Value\":\"TESTCONLABELUDFvalue1\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"2\",\"Label\":\"TESTCONLABELUDF2\",\"Value\":\"TESTCONLABELUDFvalue2\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"3\",\"Label\":\"TESTCONLABELUDF3\",\"Value\":\"TESTCONLABELUDFvalue3\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"4\",\"Label\":\"TESTCONLABELUDF4\",\"Value\":\"TESTCONLABELUDFvalue4\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"}]},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		// params.put("LocationId", "100001");
+		// params.put("ConnectionSeq", "1");
+		CommonMethods.getMethodContainsString(uri, ver, params, expected);
+
+	}
+
+	@Test(priority = 13, groups = "udf")
+	public void GetConnectionsUdfsNull()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/udf/connection/ELECWAT001/8";
+		String ver = "4.0";
+		String expected = "{\"UserDefinedField\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Connection 8 is invalid on location ELECWAT001.\",\"Level\":3}]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		// params.put("LocationId", "100001");
+		// params.put("ConnectionSeq", "1");
+		CommonMethods.getMethodContainsString(uri, ver, params, expected);
 
 	}
 
