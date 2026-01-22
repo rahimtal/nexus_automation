@@ -1,27 +1,29 @@
 package com.NexusAPI.Tests;
 
-import org.testng.annotations.Test; import org.testng.Assert;
-import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.Assert;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 
 import org.testng.Assert;
-import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
-
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.ValidatableResponse;
 
-public class Private_customerControllerV4_Test  extends BaseClass {
+public class Private_customerControllerV4_Test extends BaseClass {
 
 	@Test(priority = 1, groups = "CustomerController")
 	public static void getCustomerBasicInfo4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
-		//CommonMethods.Bugs("CPDEV-21251");
+		// CommonMethods.Bugs("CPDEV-21251");
 		String uri = "/customers/AUTO1001/info";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\getCustomerBasicInfo4.json";
@@ -40,7 +42,7 @@ public class Private_customerControllerV4_Test  extends BaseClass {
 	@Test(priority = 2, groups = "CustomerController")
 	public static void getCustomerAddressInfo()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		//Still a Bug (2025)
+		// Still a Bug (2025)
 		CommonMethods.Bug("CPDEV-20931");
 		String uri = "/customers/AUTO1001/address";
 		String ver = "4.0";
@@ -59,33 +61,47 @@ public class Private_customerControllerV4_Test  extends BaseClass {
 	}
 
 	@Test(priority = 3, groups = "CustomerController")
-	public static void getSecondaryCustomer()
+	public static void getSecondaryCustomerv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/customers/getSecondaryCustomer";
 		String ver = "4.0";
-		String jpath = "./\\TestData\\getSecondaryCustomerv4.json";
+		String expected = "{\"result\":[{\"CustomerID\":\"03332301204\",\"CustomerStatus\":\"Current\",\"CustomerType\":\"Individual\",\"CustomerTitle\":\"Mr.\",\"CustomerFirstName\":\"Talha\",\"CustomerMiddleName\":\"\",\"CustomerLastName\":\"Rahim\",\"CustomerName\":\"Mr. Talha Rahim\",\"ssn\":\"\",\"EffectiveFromDate\":\"May 01, 2019\",\"EffectiveToDate\":\"\",\"RelationShip\":\"\",\"RelationShipSsn\":\"\",\"FinancialResponsible\":\"Responsible\",\"DrillbackLink\":\"cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=SecondaryCustomer&LocationID=ELECWAT001&CustomerID=CUSTOMER007&Address=12 A GRAFTON HILLS n APT 4 NEW YORK NY 12123&CustName=Miss Sally E MacKenzie&CogsDrillback=1\"}]}";
 
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("CustomerId", "CUSTOMER007");
 		params.put("LocationId", "ELECWAT001");
 
-		String result = CommonMethods.getMethod(uri, ver, params, jpath);
-		System.out.println(result);
+		CommonMethods.getMethodContainsString(uri, ver, params, expected);
+
+	}
+
+	@Test(priority = 3, groups = "CustomerController")
+	public static void getSecondaryCustomerv4All()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/customers/getSecondaryCustomer";
+		String ver = "4.0";
+		String expected = "{\"result\":[{\"CustomerID\":\"03332301204\",\"CustomerStatus\":\"Current\",\"CustomerType\":\"Individual\",\"CustomerTitle\":\"Mr.\",\"CustomerFirstName\":\"Talha\",\"CustomerMiddleName\":\"\",\"CustomerLastName\":\"Rahim\",\"CustomerName\":\"Mr. Talha Rahim\",\"ssn\":\"\",\"EffectiveFromDate\":\"May 01, 2019\",\"EffectiveToDate\":\"\",\"RelationShip\":\"\",\"RelationShipSsn\":\"\",\"FinancialResponsible\":\"Responsible\",\"DrillbackLink\":\"cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=SecondaryCustomer&LocationID=ELECWAT001&CustomerID=CUSTOMER007&Address=12 A GRAFTON HILLS n APT 4 NEW YORK NY 12123&CustName=Miss Sally E MacKenzie&CogsDrillback=1\"}]}";
+
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("CustomerId", "CUSTOMER007");
+		params.put("SecondaryCustomerId", "03332301204");
+		params.put("LocationId", "ELECWAT001");
+
+		CommonMethods.getMethodContainsString(uri, ver, params, expected);
 
 	}
 
 	@Test(priority = 4, groups = "CustomerController")
-	public void getSecondaryCustomer2() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+	public void getSecondaryr4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/customers/Secondary";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\getSecondaryCustomer2v4.json";
-
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("PrimaryCustomerId", "CUSTOMER007");
 		params.put("SecondaryCustomerId", "03332301204");
-
 		String result = CommonMethods.getMethod(uri, ver, params, jpath);
 		System.out.println(result);
 
@@ -93,7 +109,7 @@ public class Private_customerControllerV4_Test  extends BaseClass {
 
 	@Test(priority = 5, groups = "CustomerController")
 	public void putupdateCustomerCard() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		//CommonMethods.Bugs("CPDEV-20936");
+		// CommonMethods.Bugs("CPDEV-20936");
 		String uri = "/customer/updateCustomerCard";
 		String ver = "4.0";
 		String jpath = "{\r\n" + "	\"CustomerId\": \"CUSTOMER003\",\r\n" + "	\"AddressLine1\": \"6 JIM BLVD\",\r\n"
@@ -111,7 +127,7 @@ public class Private_customerControllerV4_Test  extends BaseClass {
 
 	}
 
-//	@Test(priority = 6, groups = "CustomerController" )
+	// @Test(priority = 6, groups = "CustomerController" )
 	public void putupdateCustomersCard()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/customers/updateCustomerCard";
@@ -126,7 +142,7 @@ public class Private_customerControllerV4_Test  extends BaseClass {
 	public void putupdateCustomersInfov4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
-		//CommonMethods.Bugs("CPDEV-20941");
+		// CommonMethods.Bugs("CPDEV-20941");
 		String uri = "/customers/info";
 		String ver = "4.0";
 		String jpath = "{\r\n" + "    \"Customer\": [\r\n" + "        {\r\n"
@@ -163,7 +179,7 @@ public class Private_customerControllerV4_Test  extends BaseClass {
 	public void putupdateCustomersInfov4Pos()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
-		//verified //CommonMethods.Bugs("CPDEV-20941");
+		// verified //CommonMethods.Bugs("CPDEV-20941");
 		String uri = "/customers/info";
 		String ver = "4.0";
 		String jpath = "{\r\n" + "    \"Customer\": [\r\n" + "        {\r\n"
