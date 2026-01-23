@@ -188,8 +188,6 @@ public class Private_UserDefinedFieldController_Test extends BaseClass {
 		String ver = "4.0";
 		String expected = "{\"UserDefinedField\":{\"Success\":true,\"Data\":{\"LocationId\":\"100001\",\"ConnectionSeq\":1,\"ServiceType\":\"WR-A\",\"Udf\":[{\"Order\":\"1\",\"Label\":\"TESTCONLABELUDF1\",\"Value\":\"TESTCONLABELUDFvalue1\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"2\",\"Label\":\"TESTCONLABELUDF2\",\"Value\":\"TESTCONLABELUDFvalue2\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"3\",\"Label\":\"TESTCONLABELUDF3\",\"Value\":\"TESTCONLABELUDFvalue3\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"4\",\"Label\":\"TESTCONLABELUDF4\",\"Value\":\"TESTCONLABELUDFvalue4\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"}]},\"Messages\":[]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
-		// params.put("LocationId", "100001");
-		// params.put("ConnectionSeq", "1");
 		CommonMethods.getMethodContainsString(uri, ver, params, expected);
 
 	}
