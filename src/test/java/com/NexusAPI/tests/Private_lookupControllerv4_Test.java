@@ -565,11 +565,24 @@ public class Private_lookupControllerv4_Test extends BaseClass {
 	@Test(priority = 39, groups = "lookup")
 	public void lookuprateDetailType()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		// Still a Bug (2025)
 
 		String uri = "/lookup/rateDetailType";
 		String ver = "4.0";
 		String expected = "{\"RateDetailType\":[{\"Id\":1,\"Description\":\"Fixed Charge\"},{\"Id\":2,\"Description\":\"Stepped Range\"},{\"Id\":3,\"Description\":\"Variable Stepped Range\"},{\"Id\":4,\"Description\":\"Adjustable Var Stepped Range\"},{\"Id\":5,\"Description\":\"Spot Price\"},{\"Id\":6,\"Description\":\"Percentage\"},{\"Id\":7,\"Description\":\"Fixed Range\"},{\"Id\":8,\"Description\":\"External\"}]}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		// params.put("Series", "7");
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertEquals(actual, expected);
+	}
+
+	@Test(priority = 40, groups = "lookup")
+	public void lookupRateType()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/lookup/rateType";
+		String ver = "4.0";
+		String expected = "{\"RateType\":[{\"Id\":0,\"Description\":\"None\"},{\"Id\":1,\"Description\":\"Consumption\"},{\"Id\":2,\"Description\":\"KW\"},{\"Id\":3,\"Description\":\"KVA\"}]}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		// params.put("Series", "7");
 		String actual = CommonMethods.getMethodasString(uri, ver, params);
