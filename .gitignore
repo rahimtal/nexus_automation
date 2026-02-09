@@ -87,4 +87,6 @@ test-output/old/Default suite/toc.html
 test-output/old/index.html
 allure-results/00112006-4625-418b-b420-0d43752417da-result.json
 /bin/
-Configuration/Project.properties
+
+# Ignore changes to project.properties
+Configurations/Project.properties
