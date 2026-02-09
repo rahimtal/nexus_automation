@@ -1,4 +1,5 @@
 package com.NexustAPIAutomation.java;
+
 import java.io.IOException;
 
 public class QuickDBRestore {
@@ -7,11 +8,22 @@ public class QuickDBRestore {
     }
 
     public static void restoreDatabase() throws IOException {
-        String serverName = "DESKTOP-QU86F3Q";
-        String username = "sa";
-        String password = "cogs";
-        String databaseName = "TWO";
-        String backupFilePath = "B:\\DatabaseBackup\\TEST_CSM_58";
+        java.util.Properties properties = new java.util.Properties();
+        try (java.io.InputStream input = QuickDBRestore.class.getClassLoader()
+                .getResourceAsStream("Project.properties")) {
+            if (input == null) {
+                System.out.println("Sorry, unable to find Project.properties");
+                return;
+            }
+            properties.load(input);
+        }
+
+        String serverName = properties.getProperty("serverName", "DESKTOP-QU86F3Q");
+        String username = properties.getProperty("username", "sa");
+        String password = properties.getProperty("password", "cogs");
+        String databaseName = properties.getProperty("databaseName", "TWO");
+        String backupFilePath = properties.getProperty("backupFilePath", "B:\\DatabaseBackup\\TEST_CSM_58");
+
         try {
             // Check if sqlcmd is available
             Process dropDb = Runtime.getRuntime().exec(new String[] {
