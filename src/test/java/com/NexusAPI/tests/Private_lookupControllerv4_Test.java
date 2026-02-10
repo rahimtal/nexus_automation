@@ -590,4 +590,32 @@ public class Private_lookupControllerv4_Test extends BaseClass {
 		Assert.assertEquals(actual, expected);
 	}
 
+	@Test(priority = 41, groups = "lookup")
+	public void lookuprateApplyDiscountType()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/lookup/rateApplyDiscountType";
+		String ver = "4.0";
+		String expected = "{\"RateApplyDiscountType\":[{\"Id\":1,\"Description\":\"Connection Discount\"},{\"Id\":2,\"Description\":\"Multi Service Discount\"},{\"Id\":3,\"Description\":\"Both\"}]}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		// params.put("Series", "7");
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertEquals(actual, expected);
+	}
+
+	@Test(priority = 42, groups = "lookup")
+	public void lookuprateCustomerChoice()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/lookup/rateCustomerChoice";
+		String ver = "4.0";
+		String expected = "{\"RateCustomerChoice\":[{\"Id\":1,\"Description\":\"Marketer Charge\"},{\"Id\":2,\"Description\":\"Utility Charge\"}]}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		// params.put("Series", "7");
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertEquals(actual, expected);
+	}
+
 }
