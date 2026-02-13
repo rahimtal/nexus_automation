@@ -78,25 +78,49 @@ public class CommonMethods {
 	public static String urlv4 = Read.ReadFile("urlv4");
 	public static String urle = Read.ReadFile("urle");
 
-	public static String getToken() throws InterruptedException {
-		String url = keycloakurl + "/auth/realms/nexus-portal/protocol/openid-connect/token";
-		Response response = RestAssured.given().auth().preemptive().basic("nexus-portal", url)
-				.contentType("application/x-www-form-urlencoded").formParam("grant_type", "password")
-				.formParam("username", userName).formParam("password", Password).when().post(url); // authorization_token
-		CommonMethods.Delay(100); // value is not
-		// System.out.println(response.path("error").toString());
-		try {
-			boolean f = (response.path("error").toString()).contains("invalid_grant");
-			if (f == true) {
-				// Comment Following to Test Authorization
-				Assert.fail("Authorization failed/Invalid Token/Check User Name");
+	public static String getToken() {
+
+		String auth_token = null;
+		java.nio.file.Path propertiesPath = java.nio.file.Paths.get("Configuration", "Project.properties");
+		if (!java.nio.file.Files.exists(propertiesPath)) {
+			System.out.println("Sorry, unable to find Project.properties");
+			Assert.fail("Project.properties file not found in Configuration folder.");
+			return null;
+		}
+
+		java.util.Properties properties = new java.util.Properties();
+
+		ReadProjectProperties readProps = new ReadProjectProperties();
+		String PKCE = readProps.ReadFile("PKCE");
+
+		if (PKCE == "true" || PKCE.equalsIgnoreCase("true")) {
+			System.out.println("PKCE flow is not implemented yet, failing the test");
+			Assert.fail("PKCE flow is not implemented yet, failing the test");
+			return null;
+			// Implement PKCE flow here and set auth_token variable
+
+		} else {
+
+			String url = keycloakurl + "/auth/realms/nexus-portal/protocol/openid-connect/token";
+			Response response = RestAssured.given().auth().preemptive().basic("nexus-portal", url)
+					.contentType("application/x-www-form-urlencoded").formParam("grant_type", "password")
+					.formParam("username", userName).formParam("password", Password).when().post(url); // authorization_token
+
+			// System.out.println(response.path("error").toString());
+			try {
+				boolean f = (response.path("error").toString()).contains("invalid_grant");
+				if (f == true) {
+					// Comment Following to Test Authorization
+					Assert.fail("Authorization failed/Invalid Token/Check User Name");
+				}
+			} catch (NullPointerException e) {
+
 			}
-		} catch (NullPointerException e) {
+			// The auth token could then be set to a string variable
+			auth_token = response.path("access_token").toString();
+			// System.out.println(auth_token);
 
 		}
-		// The auth token could then be set to a string variable
-		String auth_token = response.path("access_token").toString();
-		// System.out.println(auth_token);
 		return auth_token;
 
 	}

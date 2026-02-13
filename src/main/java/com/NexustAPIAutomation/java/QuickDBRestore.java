@@ -23,11 +23,11 @@ public class QuickDBRestore {
             properties.load(input);
         }
 
-        String serverName = properties.getProperty("serverName", "DESKTOP-QU86F3Q");
-        String username = properties.getProperty("username", "sa");
-        String password = properties.getProperty("password", "cogs");
-        String databaseName = properties.getProperty("databaseName", "TWO");
-        String backupFilePath = properties.getProperty("backupFilePath", "B:\\DatabaseBackup\\TEST_CSM_58");
+        String serverName = properties.getProperty("serverName");
+        String username = properties.getProperty("username");
+        String password = properties.getProperty("password");
+        String databaseName = properties.getProperty("databaseName");
+        String backupFilePath = properties.getProperty("backupFilePath");
 
         try {
             // Check if sqlcmd is available
