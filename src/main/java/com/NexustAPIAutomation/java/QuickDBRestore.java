@@ -12,10 +12,16 @@ public class QuickDBRestore {
     public static void restoreDatabase() throws IOException {
         // Load properties from Project.properties file
         String serverName = ReadProjectProperties.ReadFile("serverName");
-        String username = ReadProjectProperties.ReadFile("username");
-        String password = ReadProjectProperties.ReadFile("password");
+        String username = ReadProjectProperties.ReadFile("Dbusername");
+        String password = ReadProjectProperties.ReadFile("Dbpassword");
         String databaseName = ReadProjectProperties.ReadFile("databaseName");
         String backupFilePath = ReadProjectProperties.ReadFile("backupFilePath");
+
+        if (serverName == null || username == null || password == null || databaseName == null
+                || backupFilePath == null) {
+            Assert.fail("One or more required properties are missing in Project.properties file.");
+            return;
+        }
 
         try {
             // Check if sqlcmd is available
@@ -44,7 +50,7 @@ public class QuickDBRestore {
                     "-Q", "RESTORE DATABASE " + databaseName + " FROM DISK='" + backupFilePath + "' WITH REPLACE"
             });
             consumeStream(restoreDb.getInputStream());
-            consumeStream(restoreDb.getErrorStream());
+
             restoreDb.waitFor();
             Thread.sleep(10000); // Wait for a few seconds to ensure the restore is complete
 
