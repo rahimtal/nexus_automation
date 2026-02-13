@@ -11,23 +11,11 @@ public class QuickDBRestore {
 
     public static void restoreDatabase() throws IOException {
         // Load properties from Project.properties file
-        java.nio.file.Path propertiesPath = java.nio.file.Paths.get("Configuration", "Project.properties");
-        if (!java.nio.file.Files.exists(propertiesPath)) {
-            System.out.println("Sorry, unable to find Project.properties");
-            Assert.fail("Project.properties file not found in Configuration folder.");
-            return;
-        }
-
-        java.util.Properties properties = new java.util.Properties();
-        try (java.io.InputStream input = new java.io.FileInputStream("Configuration/Project.properties")) {
-            properties.load(input);
-        }
-
-        String serverName = properties.getProperty("serverName");
-        String username = properties.getProperty("username");
-        String password = properties.getProperty("password");
-        String databaseName = properties.getProperty("databaseName");
-        String backupFilePath = properties.getProperty("backupFilePath");
+        String serverName = ReadProjectProperties.ReadFile("serverName");
+        String username = ReadProjectProperties.ReadFile("username");
+        String password = ReadProjectProperties.ReadFile("password");
+        String databaseName = ReadProjectProperties.ReadFile("databaseName");
+        String backupFilePath = ReadProjectProperties.ReadFile("backupFilePath");
 
         try {
             // Check if sqlcmd is available
@@ -44,7 +32,7 @@ public class QuickDBRestore {
             });
             // Consume output and error streams to prevent deadlocks
             consumeStream(dropDb.getInputStream());
-            consumeStream(dropDb.getErrorStream());
+
             dropDb.waitFor();
 
             // Restore database
