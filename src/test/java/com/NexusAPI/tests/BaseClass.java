@@ -19,7 +19,7 @@ public class BaseClass {
 	// public static ExtentHtmlReporter htmlReporter;
 
 	@BeforeSuite
-	public void setupReport() throws IOException {
+	public void setupReport() throws IOException, InterruptedException {
 		// System.out.println("Deleting folder");
 		// Runtime.getRuntime().exec("cmd /c rd /s /q
 		// C:\\Users\\Admin\\Documents\\GitHub\\nexus_automation\\test-output\\");

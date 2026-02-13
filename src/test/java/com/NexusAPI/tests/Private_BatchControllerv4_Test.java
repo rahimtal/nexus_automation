@@ -63,7 +63,8 @@ public class Private_BatchControllerv4_Test extends BaseClass {
 	public void putBatchtv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		runTest("putBatchtv4", "/batch", "4.0",
 				"{\"BatchId\": \"Test Batch 2025\", \"OriginId\": \"\", \"CheckbookId\": \"FIRST NATIONAL\", \"Comment\": \"Updated Example Comments\"}",
-				"{\"Batch\":{\"Success\":true,\"Messages\":[{\"Enabled\":1,\"Info\":\"Updated\",\"Level\":1}]}}", false,
+				"{\"Batch\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Updated\",\"Level\":1}]}}",
+				false,
 				"put");
 	}
 }

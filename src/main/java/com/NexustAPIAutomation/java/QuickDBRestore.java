@@ -25,6 +25,7 @@ public class QuickDBRestore {
 
         try {
             // Check if sqlcmd is available
+
             Process dropDb = Runtime.getRuntime().exec(new String[] {
                     "sqlcmd",
                     "-S", serverName,
@@ -36,8 +37,9 @@ public class QuickDBRestore {
                             + " SET OFFLINE WITH ROLLBACK IMMEDIATE; DROP DATABASE "
                             + databaseName + "; END"
             });
-            // Consume output and error streams to prevent deadlocks
-            consumeStream(dropDb.getInputStream());
+            // Log output and error streams for debugging
+            logStream(dropDb.getInputStream(), "DROP DB OUTPUT");
+            logStream(dropDb.getErrorStream(), "DROP DB ERROR");
 
             dropDb.waitFor();
 
@@ -47,24 +49,48 @@ public class QuickDBRestore {
                     "-S", serverName,
                     "-U", username,
                     "-P", password,
-                    "-Q", "RESTORE DATABASE " + databaseName + " FROM DISK='" + backupFilePath + "' WITH REPLACE"
+                    "-Q",
+                    "RESTORE DATABASE [" + databaseName + "] FROM DISK=N'" + backupFilePath + "' WITH REPLACE, RECOVERY"
             });
-            consumeStream(restoreDb.getInputStream());
 
-            restoreDb.waitFor();
+            // Log output and error streams for debugging
+            logStream(restoreDb.getInputStream(), "RESTORE DB OUTPUT");
+            logStream(restoreDb.getErrorStream(), "RESTORE DB ERROR");
+
+            int restoreExitCode = restoreDb.waitFor();
+            if (restoreExitCode != 0) {
+                System.out.println("Restore database command failed with exit code: " + restoreExitCode);
+                Assert.fail("Restore database command failed. Check sqlcmd availability and parameters.");
+            } else {
+                System.out.println("Database restored successfully.");
+            }
+
             Thread.sleep(10000); // Wait for a few seconds to ensure the restore is complete
 
             System.out.println("Restore DB ==============================");
+        } catch (InterruptedException | IOException e) {
+            System.out.println("Database restore task INTERRUPTED or IO error occurred.");
+            Assert.fail("Database restore task INTERRUPTED or IO error: " + e.getMessage());
+            System.exit(1);
         } catch (Exception e) {
             System.out.println("Database restore task FAILED.");
             Assert.fail("Database restore task FAILED: " + e.getMessage());
-            e.printStackTrace();
             System.exit(1);
         }
         System.out.println("Database restore task completed.");
     }
 
-    // Helper method to consume process streams
+    // Helper method to log process streams
+    private static void logStream(java.io.InputStream inputStream, String streamName) {
+        new Thread(() -> {
+            try (java.util.Scanner s = new java.util.Scanner(inputStream)) {
+                while (s.hasNextLine()) {
+                    System.out.println(streamName + ": " + s.nextLine());
+                }
+            }
+        }).start();
+    }
+
     private static void consumeStream(java.io.InputStream inputStream) {
         new Thread(() -> {
             try (java.util.Scanner s = new java.util.Scanner(inputStream)) {
