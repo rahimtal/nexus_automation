@@ -2,19 +2,24 @@ package com.NexustAPIAutomation.java;
 
 import java.io.IOException;
 
+import org.testng.Assert;
+
 public class QuickDBRestore {
     public static void main(String[] args) throws IOException {
         restoreDatabase();
     }
 
     public static void restoreDatabase() throws IOException {
+        // Load properties from Project.properties file
+        java.nio.file.Path propertiesPath = java.nio.file.Paths.get("Configuration", "Project.properties");
+        if (!java.nio.file.Files.exists(propertiesPath)) {
+            System.out.println("Sorry, unable to find Project.properties");
+            Assert.fail("Project.properties file not found in Configuration folder.");
+            return;
+        }
+
         java.util.Properties properties = new java.util.Properties();
-        try (java.io.InputStream input = QuickDBRestore.class.getClassLoader()
-                .getResourceAsStream("Project.properties")) {
-            if (input == null) {
-                System.out.println("Sorry, unable to find Project.properties");
-                return;
-            }
+        try (java.io.InputStream input = new java.io.FileInputStream("Configuration/Project.properties")) {
             properties.load(input);
         }
 
@@ -57,6 +62,8 @@ public class QuickDBRestore {
 
             System.out.println("Restore DB ==============================");
         } catch (Exception e) {
+            System.out.println("Database restore task FAILED.");
+            Assert.fail("Database restore task FAILED: " + e.getMessage());
             e.printStackTrace();
             System.exit(1);
         }
