@@ -65,7 +65,7 @@ public class QuickDBRestore {
                 System.out.println("Database restored successfully.");
             }
 
-            Thread.sleep(10000); // Wait for a few seconds to ensure the restore is complete
+            Thread.sleep(6000); // Wait for a few seconds to ensure the restore is complete
 
             System.out.println("Restore DB ==============================");
         } catch (InterruptedException | IOException e) {

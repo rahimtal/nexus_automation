@@ -618,4 +618,18 @@ public class Private_lookupControllerv4_Test extends BaseClass {
 		Assert.assertEquals(actual, expected);
 	}
 
+	@Test(priority = 43, groups = "lookup")
+	public void lookuprateWNADetailType()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/lookup/rateWNADetailType";
+		String ver = "4.0";
+		String expected = "{\"RateWNADetailType\":[{\"Id\":1,\"Description\":\"Base\"},{\"Id\":2,\"Description\":\"Adjustment\"}]}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		// params.put("Series", "7");
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertEquals(actual, expected);
+	}
+
 }
