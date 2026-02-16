@@ -632,4 +632,18 @@ public class Private_lookupControllerv4_Test extends BaseClass {
 		Assert.assertEquals(actual, expected);
 	}
 
+	@Test(priority = 44, groups = "lookup")
+	public void lookupbillingMessageType()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/lookup/billingMessageType";
+		String ver = "4.0";
+		String expected = "{\"BillingMessageType\":[{\"Id\":0,\"Description\":\"Default\"},{\"Id\":1,\"Description\":\"Global\"},{\"Id\":3,\"Description\":\"Customer Specific\"},{\"Id\":4,\"Description\":\"Rate\"},{\"Id\":5,\"Description\":\"Zone\"}]}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		// params.put("Series", "7");
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertEquals(actual, expected);
+	}
+
 }
