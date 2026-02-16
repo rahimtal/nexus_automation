@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.ReadProjectProperties;
 
 import io.restassured.path.json.JsonPath;
 
@@ -41,14 +42,15 @@ public class Public_Test_CashieringPostV3 extends BaseClass {
 	@Test(priority = 1, groups = "Cashering")
 	public void saveReciept_v_3()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
-		// CommonMethods.CompanyDBRestore();
-		// CommonMethods.Bugs("CPDEV-20919");
-		// CommonMethods.Bug("CPDEV-24086");
-		CommonMethods.Bug("CPDEV-24388");
+
+		// CommonMethods.Bug("CPDEV-24388");
 		String columnName = "umDocumentNumber";
 		String Command1 = "select top 1 umDocumentNumber from TWO.dbo.UMRM102 order by umDocumentNumber desc";
 		String Result = "";
-		ConnectionString = "jdbc:sqlserver://DESKTOP-QU86F3Q;DB= databaseName=TWO;user=sa;password=cogs;";
+		ConnectionString = ReadProjectProperties.ReadFile("ConnectionStringServTWO");
+		if (ConnectionString == "") {
+			Assert.fail("Connection string is empty, check properties file");
+		}
 		Result = CommonMethods.selectFromDb(Command1, ConnectionString, columnName);
 		if (Result != "") {
 			adjustRecieptPre(Result);
@@ -72,6 +74,7 @@ public class Public_Test_CashieringPostV3 extends BaseClass {
 		System.out.println(jsonPathEvaluator.prettyPrint());
 		Boolean Result1 = jsonPathEvaluator.get("Receipt.Success");
 		if (Result1 == false) {
+			System.out.println(Result1);
 			Assert.fail();
 		} else {
 			System.out.println(jsonPathEvaluator.toString());
