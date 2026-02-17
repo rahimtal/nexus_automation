@@ -75,4 +75,17 @@ public class Private_Test_rateController extends BaseClass {
 
 	}
 
+	@Test(priority = 6, groups = "rate")
+	public void getrateID4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate/INTERNETFIX";
+		String ver = "4.0";
+		String expected = "{\"Rate\":{\"Success\":true,\"Data\":{\"RateId\":\"INTERNETFIX\",\"Description\":\"\",\"Type\":{\"Id\":0,\"Description\":\"\"},\"ServiceType\":\"INTERNET\",\"RateClassId\":\"\",\"BillingMessageExist\":false,\"Active\":true,\"UseLatestRateEffectivePeriod\":false,\"ConsecutiveEstimatesAllowed\":0,\"BillInAdvance\":false,\"LookupVisible\":false,\"SpecialCondition\":false,\"TimeOfUse\":false,\"ExcludeFromBd\":false,\"RatchetDemand\":false,\"KvarFactor\":0.00000,\"EffectiveDate\":[{\"EffectiveStartDate\":\"2019-06-01\",\"MinimumAmount\":0.00,\"MaximumAmount\":0.00,\"ProrateMinimum\":{\"First\":false,\"Regular\":false,\"Last\":false},\"ProrateMaximum\":{\"First\":false,\"Regular\":false,\"Last\":false}}],\"Detail\":[{\"DetailIndex\":1,\"Detail\":{\"Type\":1,\"Description\":\"Fixed Charge\"},\"EffectiveStartDate\":\"2019-06-01\",\"EffectiveEndDate\":\"1900-01-01\",\"DetailDescription\":\"\",\"TaxSchedule\":\"USAUSSTCITY+6*\",\"ServiceType\":\"INTERNET\",\"BillingFrequency\":30,\"ProrateDetail\":{\"First\":false,\"Regular\":false,\"Last\":false},\"ProrateMinimum\":{\"First\":false,\"Regular\":false,\"Last\":false},\"MinimumCharge\":0.00,\"UnitDescription\":\"\",\"FixedCharge\":10.00000,\"Consumption\":{\"BillingDemandMinimum\":0.00,\"ConsumptionTolerance\":0.00000,\"UseActualDays\":false,\"Reporting\":{\"IncludeUnits\":false,\"IncludeRevenue\":false},\"ExportDetail\":false,\"ApplyDiscountPercentage\":0,\"WinterNormalizationAdjustment\":{\"Type\":0,\"TypeDetail\":0},\"CustomerChoice\":0,\"OldestEstimateUpdateDate\":\"1900-01-01\"},\"RevenueAccount\":{\"Index\":624,\"Number\":\"900-4616-00\",\"Description\":\"Internet Service\"},\"ReceivableAccount\":{\"Index\":623,\"Number\":\"900-1414-00\",\"Description\":\"Customer Account Receivable-Internet service\"},\"DetailSequence\":null,\"MeterSizeMinimum\":[],\"AutomaticEstimates\":null}]},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		Assert.assertEquals(result, expected);
+
+	}
+
 }
