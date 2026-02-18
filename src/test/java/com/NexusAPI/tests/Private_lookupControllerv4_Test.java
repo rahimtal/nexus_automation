@@ -554,7 +554,7 @@ public class Private_lookupControllerv4_Test extends BaseClass {
 
 		String uri = "/lookup/udf/picklist";
 		String ver = "4.0";
-		String expected = "{\"Picklist\":[{\"Series\":7,\"Order\":[{\"Id\":\"7\",\"Label\":\"Customer UDF - Picklist\",\"List\":[{\"Value\":\"Picklist1\",\"Description\":\"\"},{\"Value\":\"Picklist2\",\"Description\":\"\"},{\"Value\":\"Picklist3\",\"Description\":\"\"}]}]}]}";
+		String expected = "{\"Picklist\":[{\"Series\":7,\"Order\":[{\"Id\":\"7\",\"Label\":\"Customer UD - Picklist\",\"List\":[{\"Value\":\"Picllist1\",\"Description\":\"\"},{\"Value\":\"Picllist2\",\"Description\":\"\"},{\"Value\":\"Picllist3\",\"Description\":\"\"},{\"Value\":\"Picllist4\",\"Description\":\"\"}]}]}]}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("Series", "7");
 		String actual = CommonMethods.getMethodasString(uri, ver, params);
