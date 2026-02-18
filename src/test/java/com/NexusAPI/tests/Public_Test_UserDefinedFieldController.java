@@ -15,10 +15,9 @@ public class Public_Test_UserDefinedFieldController extends BaseClass {
 	public void GetCustomerUdfs() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		String uri = "/udf/connection";
-		String ver = "4.0";
-		String expected = "";
+		String ver = "3.0";
+		String expected = "{\"UserDefinedField\":[{\"LocationId\":\"100001\",\"Connection\":[{\"Sequence\":1,\"Udf\":[{\"Label\":\"ConnectionUDF1\",\"Value\":\"1000\",\"Description\":\"\",\"Type\":\"String\"},{\"Label\":\"ConnectionUDF2\",\"Value\":\"2000\",\"Description\":\"\",\"Type\":\"String\"},{\"Label\":\"ConnectionUDF3\",\"Value\":\"3000\",\"Description\":\"\",\"Type\":\"String\"}]}]}]}";
 		HashMap<String, String> params = new HashMap<String, String>();
-
 		params.put("LocationId", "100001");
 		params.put("ConnectionSeq", "1");
 		String result = CommonMethods.getMethodasString(uri, ver, params);
