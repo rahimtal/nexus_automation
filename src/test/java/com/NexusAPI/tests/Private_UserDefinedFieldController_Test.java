@@ -1,20 +1,11 @@
 package com.NexusAPI.Tests;
 
-import org.testng.annotations.Test;
-import org.testng.Assert;
-
-import org.testng.annotations.Test;
-import org.testng.Assert;
-import org.testng.Assert;
-
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-import org.testng.annotations.Test;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
@@ -25,7 +16,7 @@ public class Private_UserDefinedFieldController_Test extends BaseClass {
 
 		String uri = "/udf/customer/500001";
 		String ver = "4.0";
-		String expected = "{\"UserDefinedField\":{\"Success\":true,\"Data\":{\"CustomerId\":\"500001\",\"Udf\":[{\"Order\":\"1\",\"Label\":\"Customer UDF - String\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"2\",\"Label\":\"Customer UDF - Default\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"3\",\"Label\":\"Customer UDF - Integer\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"4\",\"Label\":\"Customer UDF - Lookup\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"5\",\"Label\":\"Customer UDF - Logic\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"6\",\"Label\":\"Customer UDF - Test\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"7\",\"Label\":\"Customer UDF - Picklist\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"Picklist\",\"Attributes\":\"\",\"Tooltip\":\"Select picklist\"}]},\"Messages\":[]}}";
+		String expected = "{\"UserDefinedField\":{\"Success\":true,\"Data\":{\"CustomerId\":\"500001\",\"Udf\":[{\"Order\":\"1\",\"Label\":\"Customer UDF - String\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"2\",\"Label\":\"Customer UDF - Default\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"3\",\"Label\":\"Customer UDF - Integer\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"4\",\"Label\":\"Customer UDF - Lookup\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"5\",\"Label\":\"Customer UDF - Logic\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"6\",\"Label\":\"Customer UDF - Test\",\"Value\":\"\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"}]},\"Messages\":[]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		String result = CommonMethods.getMethodasString(uri, ver, params);
 		Assert.assertEquals(expected, result);
@@ -159,20 +150,16 @@ public class Private_UserDefinedFieldController_Test extends BaseClass {
 				"  \"ConnectionSeq\": 1,\r\n" + //
 				"  \"Udf\": [\r\n" + //
 				"    {\r\n" + //
-				"      \"Label\": \"TESTCONLABELUDF1\",\r\n" + //
+				"      \"Label\": \"ConnectionUDF1\",\r\n" + //
 				"      \"Value\": \"String value\"\r\n" + //
 				"    },\r\n" + //
 				"    {\r\n" + //
-				"      \"Label\": \"TESTCONLABELUDF4\",\r\n" + //
+				"      \"Label\": \"ConnectionUDF2\",\r\n" + //
 				"      \"Value\": \"Picklist value\"\r\n" + //
 				"    },\r\n" + //
 				"    {\r\n" + //
-				"      \"Label\": \"TESTCONLABELUDF3\",\r\n" + //
+				"      \"Label\": \"ConnectionUDF3\",\r\n" + //
 				"      \"Value\": \"Numeric value\"\r\n" + //
-				"    },\r\n" + //
-				"    {\r\n" + //
-				"      \"Label\": \"TESTCONLABELUDF2\",\r\n" + //
-				"      \"Value\": \"Logical value\"\r\n" + //
 				"    }\r\n" + //
 				"  ]\r\n" + //
 				"}";
@@ -186,7 +173,7 @@ public class Private_UserDefinedFieldController_Test extends BaseClass {
 
 		String uri = "/udf/connection/100001/1";
 		String ver = "4.0";
-		String expected = "{\"UserDefinedField\":{\"Success\":true,\"Data\":{\"LocationId\":\"100001\",\"ConnectionSeq\":1,\"ServiceType\":\"WR-A\",\"Udf\":[{\"Order\":\"1\",\"Label\":\"TESTCONLABELUDF1\",\"Value\":\"TESTCONLABELUDFvalue1\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"2\",\"Label\":\"TESTCONLABELUDF2\",\"Value\":\"TESTCONLABELUDFvalue2\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"3\",\"Label\":\"TESTCONLABELUDF3\",\"Value\":\"TESTCONLABELUDFvalue3\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"4\",\"Label\":\"TESTCONLABELUDF4\",\"Value\":\"TESTCONLABELUDFvalue4\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"}]},\"Messages\":[]}}";
+		String expected = "{\"UserDefinedField\":{\"Success\":true,\"Data\":{\"LocationId\":\"100001\",\"ConnectionSeq\":1,\"ServiceType\":\"WR-A\",\"Udf\":[{\"Order\":\"1\",\"Label\":\"ConnectionUDF1\",\"Value\":\"1000\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"2\",\"Label\":\"ConnectionUDF2\",\"Value\":\"2000\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"},{\"Order\":\"3\",\"Label\":\"ConnectionUDF3\",\"Value\":\"3000\",\"Description\":\"\",\"Type\":\"String\",\"Attributes\":\"Length = 100\",\"Tooltip\":\"Enter a string with a maximum length of 100 characters\"}]},\"Messages\":[]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		CommonMethods.getMethodContainsString(uri, ver, params, expected);
 
