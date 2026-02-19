@@ -568,7 +568,7 @@ public class Private_lookupControllerv4_Test extends BaseClass {
 
 		String uri = "/lookup/rateDetailType";
 		String ver = "4.0";
-		String expected = "{\"RateDetailType\":[{\"Id\":1,\"Description\":\"Fixed Charge\"},{\"Id\":2,\"Description\":\"Stepped Range\"},{\"Id\":3,\"Description\":\"Variable Stepped Range\"},{\"Id\":4,\"Description\":\"Adjustable Var Stepped Range\"},{\"Id\":5,\"Description\":\"Spot Price\"},{\"Id\":6,\"Description\":\"Percentage\"},{\"Id\":7,\"Description\":\"Fixed Range\"},{\"Id\":8,\"Description\":\"External\"}]}";
+		String expected = "{\"RateDetailType\":[{\"Id\":1,\"Description\":\"Fixed Charge\"},{\"Id\":2,\"Description\":\"Stepped Ranges\"},{\"Id\":3,\"Description\":\"Variable SR\"},{\"Id\":4,\"Description\":\"Adjustable Var. SR\"},{\"Id\":5,\"Description\":\"Spot Price\"},{\"Id\":6,\"Description\":\"Percentage\"},{\"Id\":7,\"Description\":\"Fixed Range\"},{\"Id\":8,\"Description\":\"External\"}]}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		// params.put("Series", "7");
 		String actual = CommonMethods.getMethodasString(uri, ver, params);
