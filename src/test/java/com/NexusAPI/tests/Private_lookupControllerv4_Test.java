@@ -646,4 +646,17 @@ public class Private_lookupControllerv4_Test extends BaseClass {
 		Assert.assertEquals(actual, expected);
 	}
 
+	@Test(priority = 45, groups = "lookup")
+	public void lookupbrateMeterSizeMethod()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/lookup/rateMeterSizeMethod";
+		String ver = "4.0";
+		String expected = "{\"RateMeterSizeMethod\":[{\"Id\":1,\"Description\":\"Equipment Class\"},{\"Id\":2,\"Description\":\"Equipment Diameter\"}]}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertEquals(actual, expected);
+	}
+
 }
