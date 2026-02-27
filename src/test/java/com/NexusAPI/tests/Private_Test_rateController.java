@@ -1,5 +1,6 @@
 package com.NexusAPI.Tests;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -339,6 +340,276 @@ public class Private_Test_rateController extends BaseClass {
 		String exResponse = "{\"Rate\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Rate (RATE2) successfully saved.\",\"Level\":1}]}}";
 		String response = CommonMethods.postMethodStringPayloadString(payload, uri, version);
 		Assert.assertEquals(exResponse, response);
+	}
+
+	@Test(priority = 8, groups = "rate")
+	public static void putUpdateRatev4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<>();
+		
+		String payload = "{\r\n" + //
+				"    \"RateId\": \"RATE2\",\r\n" + //
+				"    \"Description\": \"Updating COMM Rate Setup\",\r\n" + //
+				"    \"Type\": {\r\n" + //
+				"        \"Id\": 1\r\n" + //
+				"    },\r\n" + //
+				"    \"ServiceType\": \"INTERNET\",\r\n" + //
+				"    \"RateClassId\": \"AUTORATE\",\r\n" + //
+				"    \"Active\": 1,\r\n" + //
+				"    \"UseLatestRateEffectivePeriod\": true,\r\n" + //
+				"    \"ConsecutiveEstimatesAllowed\": 99,\r\n" + //
+				"    \"BillInAdvance\": false,\r\n" + //
+				"    \"LookupVisible\": true,\r\n" + //
+				"    \"SpecialCondition\": true,\r\n" + //
+				"    \"TimeOfUse\": true,\r\n" + //
+				"    \"ExcludeFromBd\": true,\r\n" + //
+				"    \"RatchetDemand\": true,\r\n" + //
+				"    \"KvarFactor\": \"99999999999999.99999\",\r\n" + //
+				"    \"EffectiveDate\": [\r\n" + //
+				"        {\r\n" + //
+				"            \"EffectiveStartDate\": \"2027-02-15\",                  \r\n" + //
+				"            \"MinimumAmount\": \"999999999999.99\",\r\n" + //
+				"            \"MaximumAmount\": \"999999999999.99\",\r\n" + //
+				"            \"ProrateMinimum\": {\r\n" + //
+				"                \"First\": true,\r\n" + //
+				"                \"Regular\": true,\r\n" + //
+				"                \"Last\": true\r\n" + //
+				"            },\r\n" + //
+				"            \"ProrateMaximum\": {\r\n" + //
+				"                \"First\": true,\r\n" + //
+				"                \"Regular\": true,\r\n" + //
+				"                \"Last\": true\r\n" + //
+				"            }\r\n" + //
+				"        }\r\n" + //
+				"    ],\r\n" + //
+				"    \"Detail\": [\r\n" + //
+				"        {\r\n" + //
+				"            \"DetailIndex\": 1,\r\n" + //
+				"            \"Detail\": {\r\n" + //
+				"                \"Type\": 4\r\n" + //
+				"            },\r\n" + //
+				"            \"EffectiveStartDate\": \"2027-02-15\",            \r\n" + //
+				"            \"DetailDescription\": \"Electric Monhtly Charge\",\r\n" + //
+				"            \"TaxSchedule\": \"USASTCITY-6*\",\r\n" + //
+				"            \"ServiceType\": \"INTERNET\",\r\n" + //
+				"            \"BillingFrequency\": 90,\r\n" + //
+				"            \"ProrateDetail\": {\r\n" + //
+				"                \"First\": true,\r\n" + //
+				"                \"Regular\": false,\r\n" + //
+				"                \"Last\": true\r\n" + //
+				"            },\r\n" + //
+				"            \"ProrateMinimum\": {\r\n" + //
+				"                \"First\": false,\r\n" + //
+				"                \"Regular\": false,\r\n" + //
+				"                \"Last\": false\r\n" + //
+				"            },\r\n" + //
+				"            \"MinimumCharge\": \"0.00\",\r\n" + //
+				"            \"UnitDescription\": \"0\",\r\n" + //
+				"            \"FixedCharge\": \"0.00\",\r\n" + //
+				"            \"Consumption\": {\r\n" + //
+				"                \"BillingDemandMinimum\": \"999999999.99\",\r\n" + //
+				"                \"ConsumptionTolerance\": \"123.12345\",\r\n" + //
+				"                \"UseActualDays\": false,\r\n" + //
+				"                \"Reporting\": {\r\n" + //
+				"                    \"IncludeUnits\": true,\r\n" + //
+				"                    \"IncludeRevenue\": true\r\n" + //
+				"                },\r\n" + //
+				"                \"ExportDetail\": false,\r\n" + //
+				"                \"ApplyDiscountPercentage\": 0,\r\n" + //
+				"                \"WinterNormalizationAdjustment\": {\r\n" + //
+				"                    \"Type\": 2,\r\n" + //
+				"                    \"TypeDetail\": 2\r\n" + //
+				"                },\r\n" + //
+				"                \"CustomerChoice\": 0\r\n" + //
+				"            },\r\n" + //
+				"            \"RevenueAccount\": {\r\n" + //
+				"                \"Index\": 515\r\n" + //
+				"            },\r\n" + //
+				"            \"ReceivableAccount\": {\r\n" + //
+				"                \"Index\": 506\r\n" + //
+				"            },\r\n" + //
+				"            \"DetailSequence\": [\r\n" + //
+				"                {\r\n" + //
+				"                    \"DetailIndexSequence\": \"1\",\r\n" + //
+				"                    \"UnitRate\": \"-16.42000\",\r\n" + //
+				"                    \"VolumeLowerLimit\": \"0\",\r\n" + //
+				"                    \"VolumeUpperLimit\": \"0\",\r\n" + //
+				"                    \"VolumeLowerLimitString\": \"0\",\r\n" + //
+				"                    \"VolumeUpperLimitString\": \"20000\"\r\n" + //
+				"                },\r\n" + //
+				"                {\r\n" + //
+				"                    \"DetailIndexSequence\": \"2\",\r\n" + //
+				"                    \"UnitRate\": \"999999999.9999\",\r\n" + //
+				"                    \"VolumeLowerLimit\": \"0\",\r\n" + //
+				"                    \"VolumeUpperLimit\": \"0\",\r\n" + //
+				"                    \"VolumeLowerLimitString\": \"20000+1\",\r\n" + //
+				"                    \"VolumeUpperLimitString\": \"BD*200\"\r\n" + //
+				"                },\r\n" + //
+				"                {\r\n" + //
+				"                    \"DetailIndexSequence\": \"3\",\r\n" + //
+				"                    \"UnitRate\": \"999999999.9999\",\r\n" + //
+				"                    \"VolumeLowerLimit\": \"0\",\r\n" + //
+				"                    \"VolumeUpperLimit\": \"0\",\r\n" + //
+				"                    \"VolumeLowerLimitString\": \"BD*200+1\",\r\n" + //
+				"                    \"VolumeUpperLimitString\": \"999999999\"\r\n" + //
+				"                }\r\n" + //
+				"            ],\r\n" + //
+				"            \"MeterSizeMinimum\": {\r\n" + //
+				"                 \"Method\": {\r\n" + //
+				"                    \"Id\": 1\r\n" + //
+				"                },\r\n" + //
+				"                \"Type\": {\r\n" + //
+				"                    \"Id\": 2\r\n" + //
+				"                },\r\n" + //
+				"                \"MeterSizes\": [\r\n" + //
+				"                {\r\n" + //
+				"                        \"EquipmentClass\": \"\",\r\n" + //
+				"                        \"Diameter\": \"999999999999.99999\",\r\n" + //
+				"                        \"Amount\": \"999999999999.99\",\r\n" + //
+				"                        \"UnitRate\": \"999999999.99999\",\r\n" + //
+				"                        \"VolumeUpperLimit\": \"276447231\"\r\n" + //
+				"                    },\r\n" + //
+				"                    {\r\n" + //
+				"                        \"EquipmentClass\": \"CLASS-PHONE\",\r\n" + //
+				"                        \"Diameter\": \"0.00000\",\r\n" + //
+				"                        \"Amount\": \"1.23\",\r\n" + //
+				"                        \"UnitRate\": \"1.23000\",\r\n" + //
+				"                        \"VolumeUpperLimit\": \"12\"\r\n" + //
+				"                    }\r\n" + //
+				"                ]\r\n" + //
+				"            },\r\n" + //
+				"            \"AutomaticEstimates\": {\r\n" + //
+				"                \"January\": {\r\n" + //
+				"                    \"Consumption\": \"2.50000\",\r\n" + //
+				"                    \"Date\": \"2026-02-25\"\r\n" + //
+				"                },\r\n" + //
+				"                \"February\": {\r\n" + //
+				"                    \"Consumption\": \"2.00000\",\r\n" + //
+				"                    \"Date\": \"2026-02-25\"\r\n" + //
+				"                },\r\n" + //
+				"                \"March\": {\r\n" + //
+				"                    \"Consumption\": \"2.50000\",\r\n" + //
+				"                    \"Date\": \"2026-02-25\"\r\n" + //
+				"                },\r\n" + //
+				"                \"April\": {\r\n" + //
+				"                    \"Consumption\": \"2.88888\",\r\n" + //
+				"                    \"Date\": \"2026-02-25\"\r\n" + //
+				"                },\r\n" + //
+				"                \"May\": {\r\n" + //
+				"                    \"Consumption\": \"3.00000\",\r\n" + //
+				"                    \"Date\": \"2026-02-25\"\r\n" + //
+				"                },\r\n" + //
+				"                \"June\": {\r\n" + //
+				"                    \"Consumption\": \"5.00000\",\r\n" + //
+				"                    \"Date\": \"2026-02-25\"\r\n" + //
+				"                },\r\n" + //
+				"                \"July\": {\r\n" + //
+				"                    \"Consumption\": \"5.00000\",\r\n" + //
+				"                    \"Date\": \"2026-02-25\"\r\n" + //
+				"                },\r\n" + //
+				"                \"August\": {\r\n" + //
+				"                    \"Consumption\": \"5.00000\",\r\n" + //
+				"                    \"Date\": \"2026-02-25\"\r\n" + //
+				"                },\r\n" + //
+				"                \"September\": {\r\n" + //
+				"                    \"Consumption\": \"5.00000\",\r\n" + //
+				"                    \"Date\": \"2026-02-25\"\r\n" + //
+				"                },\r\n" + //
+				"                \"October\": {\r\n" + //
+				"                    \"Consumption\": \"5.00000\",\r\n" + //
+				"                    \"Date\": \"2026-02-25\"\r\n" + //
+				"                },\r\n" + //
+				"                \"November\": {\r\n" + //
+				"                    \"Consumption\": \"5.00000\",\r\n" + //
+				"                    \"Date\": \"2026-02-25\"\r\n" + //
+				"                },\r\n" + //
+				"                \"December\": {\r\n" + //
+				"                    \"Consumption\": \"5.00000\",\r\n" + //
+				"                    \"Date\": \"2026-02-25\"\r\n" + //
+				"                }\r\n" + //
+				"            }\r\n" + //
+				"        },\r\n" + //
+				"        {\r\n" + //
+				"            \"DetailIndex\": 3,\r\n" + //
+				"            \"Detail\": {\r\n" + //
+				"                \"Type\": 2\r\n" + //
+				"            },\r\n" + //
+				"            \"EffectiveStartDate\": \"2027-02-15\",            \r\n" + //
+				"            \"DetailDescription\": \"Electric Monhtly Charge\",\r\n" + //
+				"            \"TaxSchedule\": \"USASTCITY-6*\",\r\n" + //
+				"            \"ServiceType\": \"INTERNET\",\r\n" + //
+				"            \"BillingFrequency\": 90,\r\n" + //
+				"            \"ProrateDetail\": {\r\n" + //
+				"                \"First\": true,\r\n" + //
+				"                \"Regular\": false,\r\n" + //
+				"                \"Last\": true\r\n" + //
+				"            },\r\n" + //
+				"            \"ProrateMinimum\": {\r\n" + //
+				"                \"First\": false,\r\n" + //
+				"                \"Regular\": false,\r\n" + //
+				"                \"Last\": false\r\n" + //
+				"            },\r\n" + //
+				"            \"MinimumCharge\": \"0.00\",\r\n" + //
+				"            \"UnitDescription\": \"0\",\r\n" + //
+				"            \"FixedCharge\": \"99999.991\",\r\n" + //
+				"            \"Consumption\": {\r\n" + //
+				"                \"BillingDemandMinimum\": \"999999999.99\",\r\n" + //
+				"                \"ConsumptionTolerance\": \"123.12345\",\r\n" + //
+				"                \"UseActualDays\": false,\r\n" + //
+				"                \"Reporting\": {\r\n" + //
+				"                    \"IncludeUnits\": true,\r\n" + //
+				"                    \"IncludeRevenue\": true\r\n" + //
+				"                },\r\n" + //
+				"                \"ExportDetail\": false,\r\n" + //
+				"                \"ApplyDiscountPercentage\": 0,\r\n" + //
+				"                \"WinterNormalizationAdjustment\": {\r\n" + //
+				"                    \"Type\": 2,\r\n" + //
+				"                    \"TypeDetail\": 2\r\n" + //
+				"                },\r\n" + //
+				"                \"CustomerChoice\": 0\r\n" + //
+				"            },\r\n" + //
+				"            \"RevenueAccount\": {\r\n" + //
+				"                \"Index\": 1\r\n" + //
+				"            },\r\n" + //
+				"            \"ReceivableAccount\": {\r\n" + //
+				"                \"Index\": 2\r\n" + //
+				"            },\r\n" + //
+				"            \"DetailSequence\": [],\r\n" + //
+				"            \"MeterSizeMinimum\": {\r\n" + //
+				"                 \"Method\": {\r\n" + //
+				"                    \"Id\": 1\r\n" + //
+				"                },\r\n" + //
+				"                \"Type\": {\r\n" + //
+				"                    \"Id\": 1\r\n" + //
+				"                },\r\n" + //
+				"                \"MeterSizes\": [\r\n" + //
+				"                {\r\n" + //
+				"                        \"EquipmentClass\": \"\",\r\n" + //
+				"                        \"Diameter\": \"999999999999.99999\",\r\n" + //
+				"                        \"Amount\": \"999999999999.99\",\r\n" + //
+				"                        \"UnitRate\": \"999999999.99999\",\r\n" + //
+				"                        \"VolumeUpperLimit\": \"276447231\"\r\n" + //
+				"                    },\r\n" + //
+				"                    {\r\n" + //
+				"                        \"EquipmentClass\": \"CLASS-PHONE\",\r\n" + //
+				"                        \"Diameter\": \"0.00000\",\r\n" + //
+				"                        \"Amount\": \"1.23\",\r\n" + //
+				"                        \"UnitRate\": \"1.23000\",\r\n" + //
+				"                        \"VolumeUpperLimit\": \"12\"\r\n" + //
+				"                    }\r\n" + //
+				"                ]\r\n" + //
+				"            },\r\n" + //
+				"            \"AutomaticEstimates\": null\r\n" + //
+				"        }\r\n" + //
+				"    ]\r\n" + //
+				"}\r\n" + //
+				"";
+		String expected = "{\"Rate\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Rate (RATE2) successfully saved.\",\"Level\":1}]}}";
+		String result = CommonMethods.putMethodString(uri, ver, params, payload, expected);
+
 	}
 
 }

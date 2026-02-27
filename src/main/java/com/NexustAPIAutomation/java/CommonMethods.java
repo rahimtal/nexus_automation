@@ -839,6 +839,73 @@ public class CommonMethods {
 
 	}
 
+	public static String putMethodString(String uri, String version, HashMap<String, String> params, String payload,
+			String expectedResponse) throws InterruptedException, IOException {
+
+		switch (version) {
+			case "1":
+				RestAssured.baseURI = urlv1;
+				break;
+			case "2":
+				RestAssured.baseURI = urlv2;
+				break;
+			case "2.1":
+				RestAssured.baseURI = urlv210;
+				break;
+			case "2.2":
+				RestAssured.baseURI = urlv220;
+				break;
+			case "2.3":
+				RestAssured.baseURI = urlv230;
+				break;
+			case "2.3.1":
+				RestAssured.baseURI = urlv231;
+				break;
+			case "2.4":
+				RestAssured.baseURI = urlv240;
+				break;
+			case "3.0":
+				RestAssured.baseURI = urlv3;
+				break;
+			case "4.0":
+				RestAssured.baseURI = urlv4;
+				break;
+			default:
+				version = "Invalid version";
+				Assert.fail("Invalid version provided");
+				break;
+		}
+
+		RestAssured.baseURI = RestAssured.baseURI + uri;
+		System.out.println("PUT URI: " + RestAssured.baseURI.toString());
+		System.out.println("Payload: " + payload);
+		System.out.println("Expected Response: " + expectedResponse);
+
+		RequestSpecification httpRequest = RestAssured.given()
+				.headers("Authorization", "Bearer " + getToken(),
+						"Content-Type", ContentType.JSON,
+						"Connection", "keep-alive",
+						"Accept-Encoding", "gzip, deflate, br")
+				.queryParams(params)
+				.body(payload);
+
+		Response response = httpRequest.put();
+		String actualResponse = response.asString();
+
+		System.out.println("Actual Response: " + actualResponse);
+		System.out.println("Status Code: " + response.getStatusCode());
+
+		// Validate response
+		ValidatableResponse validatableResponse = response.then()
+				.assertThat()
+				.statusCode(200)
+				.body(Matchers.equalTo(expectedResponse));
+
+		System.out.println("Response Validation Passed");
+
+		return validatableResponse.extract().asString();
+	}
+
 	public static ValidatableResponse putMethodvalidate(String uri, String version, String payload, String fresponse)
 			throws InterruptedException, IOException {
 
@@ -892,7 +959,7 @@ public class CommonMethods {
 
 	}
 
-	public static Response putMethod(String uri, String version, String payload, String jsonDataInFile)
+	public static Response putMethod(String uri, String version, String payloadfile, String jsonDataInFile)
 			throws InterruptedException, IOException {
 
 		switch (version) {
@@ -932,9 +999,9 @@ public class CommonMethods {
 		System.out.println(RestAssured.baseURI.toString());
 		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
 				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
-				.body(payload);
+				.body(payloadfile);
 		System.out.println("** PUT call uri ** " + RestAssured.baseURI);
-		System.out.println("** PUT call payload ** " + payload);
+		System.out.println("** PUT call payload ** " + payloadfile);
 		Response response = httpRequest.put();
 		Assert.assertEquals(response.getBody().asString(), new String(Files.readAllBytes(Paths.get(jsonDataInFile))));
 		System.out.println("** PUT call Response ** " + response.asString());
