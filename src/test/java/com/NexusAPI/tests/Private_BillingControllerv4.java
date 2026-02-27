@@ -22,6 +22,7 @@ public class Private_BillingControllerv4 extends BaseClass {
 		// test.log(Status.INFO, "Starting test: PostBillingcalculatev4");
 
 		// CommonMethods.Bug("CPDEV-22133");
+		// consider for performance
 		String uri = "/billing/calculate";
 		String ver = "4.0";
 		String payload = "{\n" + "    \"Billing\": {\n" + "        \"BatchId\": \"BT1231\",\n"
@@ -64,7 +65,7 @@ public class Private_BillingControllerv4 extends BaseClass {
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// ExtentTest test = extent.createTest("PostgenerateEditReportv4");
 		// test.log(Status.INFO, "Starting test: PostgenerateEditReportv4");
-
+		// consider for performance
 		String uri = "/billing/generateEditReport";
 		String ver = "4.0";
 		String payload = "{\n" + "    \"Billing\": {\n" + "        \"BatchId\": \"BT1231\"\n" + "    }\n" + "}";
@@ -130,6 +131,7 @@ public class Private_BillingControllerv4 extends BaseClass {
 
 		// CommonMethods.Bugs("CPDEV-16682");
 		// CommonMethods.Bug("CPDEV-21966");
+
 		CommonMethods.Bug("CPDEV-23208");
 
 		String uri = "/billing/printStatement";
@@ -165,6 +167,7 @@ public class Private_BillingControllerv4 extends BaseClass {
 		// ExtentTest test = extent.createTest("postBillingv4");
 		// test.log(Status.INFO, "Starting test: postBillingv4");
 
+		// consider for performance
 		String uri = "/billing/postingBill";
 		String ver = "4.0";
 		String payload = "{\n" + "    \"Billing\": {\n" + "        \"BatchId\": \"BT1231\",\n"
@@ -327,7 +330,7 @@ public class Private_BillingControllerv4 extends BaseClass {
 	public void delBatv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// ExtentTest test = extent.createTest("delBatv4");
 		// test.log(Status.INFO, "Starting test: delBatv4");
-
+		// consider for performance
 		String uri = "/billing/delete/TEST109";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\delBatv4.json";
