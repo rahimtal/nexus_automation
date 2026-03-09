@@ -667,4 +667,50 @@ public class Private_BillingControllerv4 extends BaseClass {
 			e.printStackTrace();
 		}
 	}
+
+	@Test(priority = 27, groups = "billing")
+	public void postcreatebillingmessagesv4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// ExtentTest test = extent.createTest("postcreateStatementv4_isfinal");
+		// test.log(Status.INFO, "Starting test: postcreateStatementv4_isfinal");
+
+		String uri = "/billing/messages";
+		String ver = "4.0";
+		String payload = "{\r\n" + //
+				"    \"ChangePreviousMessage\": false,\r\n" + //
+				"    \"MessageType\": {\r\n" + //
+				"        \"Id\": 5\r\n" + //
+				"    },\r\n" + //
+				"    \"LocationId\": \"\",\r\n" + //
+				"    \"RateId\": \"EMP-1\",\r\n" + //
+				"    \"ZoneId\": \"\",\r\n" + //
+				"    \"FirstMessage\": {\r\n" + //
+				"        \"Line1\": \"123\",\r\n" + //
+				"        \"Line2\": \"3456\",\r\n" + //
+				"        \"Line3\": \"\",\r\n" + //
+				"        \"Line4\": \"\"\r\n" + //
+				"    },\r\n" + //
+				"    \"SecondMessage\": {\r\n" + //
+				"        \"Line1\": \"new message\",\r\n" + //
+				"        \"Line2\": \"\",\r\n" + //
+				"        \"Line3\": \"\",\r\n" + //
+				"        \"Line4\": \"\"\r\n" + //
+				"    },\r\n" + //
+				"    \"TextMessage\": \"\",\r\n" + //
+				"    \"ElectronicBillingMessage\": \"just checking\",\r\n" + //
+				"    \"ChangeSubjectLine\": \"Change Subject Line\",\r\n" + //
+				"    \"TestSubjectLine\": \"Test Subject Line\",\r\n" + //
+				"    \"BillNotifySubjectLine\": \"Bill Notify Subject Line\"\r\n" + //
+				"}";
+		String expected = "{\"Billing\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Message successfully saved.\",\"Level\":1}]}}";
+		// test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
+		// test.log(Status.INFO, "Payload: " + payload);
+		// test.log(Status.INFO, "Expected contains: " + expected);
+
+		String actual = CommonMethods.postMethodStringPayloadString(payload, uri, ver);
+		// test.log(Status.INFO, "Actual: " + actual);
+		Assert.assertTrue(actual.contains(expected));
+		// test.log(Status.PASS, "Response contains the expected value.");
+		CommonMethods.Delay(20000);
+	}
 }
