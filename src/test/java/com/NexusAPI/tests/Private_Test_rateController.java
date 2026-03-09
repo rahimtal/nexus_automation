@@ -349,7 +349,7 @@ public class Private_Test_rateController extends BaseClass {
 		String uri = "/rate";
 		String ver = "4.0";
 		HashMap<String, String> params = new HashMap<>();
-		
+
 		String payload = "{\r\n" + //
 				"    \"RateId\": \"RATE2\",\r\n" + //
 				"    \"Description\": \"Updating COMM Rate Setup\",\r\n" + //
@@ -609,6 +609,20 @@ public class Private_Test_rateController extends BaseClass {
 				"";
 		String expected = "{\"Rate\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Rate (RATE2) successfully saved.\",\"Level\":1}]}}";
 		String result = CommonMethods.putMethodString(uri, ver, params, payload, expected);
+
+	}
+
+	@Test(priority = 9, groups = "rate")
+	public void getrateFlip()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate/flip/ELECTRATE";
+		String ver = "4.0";
+		String expected = "{\"Rate\":{\"Success\":true,\"Data\":{\"RateClassID\":\"ELECTRATE\",\"RateFlip\":[{\"PeriodID\":\"ON PEAK\",\"PeriodIndex\":1,\"Steps\":[{\"SequenceNumber\":1,\"VolumeLowerLimit\":111,\"VolumeUpperLimit\":999999999,\"TariffID\":\"EPCA-1\",\"KWRate\":\"RATE1\",\"KVARate\":\"RATE1\"}]},{\"PeriodID\":\"OFFPEAK\",\"PeriodIndex\":2,\"Steps\":[{\"SequenceNumber\":1,\"VolumeLowerLimit\":10000,\"VolumeUpperLimit\":23123134,\"TariffID\":\"GS-PK ENERGY\",\"KWRate\":\"RATE1\",\"KVARate\":\"RATE1\"}]}]},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		// params.put("RateId", "ELECTRATE");
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		Assert.assertEquals(result, expected);
 
 	}
 

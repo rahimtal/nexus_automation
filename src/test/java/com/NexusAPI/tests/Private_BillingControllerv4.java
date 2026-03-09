@@ -1,4 +1,4 @@
-package com.NexusAPI.tests;
+package com.NexusAPI.Tests;
 
 import java.io.FileWriter;
 import java.io.IOException;
