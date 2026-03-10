@@ -713,4 +713,51 @@ public class Private_BillingControllerv4 extends BaseClass {
 		// test.log(Status.PASS, "Response contains the expected value.");
 		CommonMethods.Delay(20000);
 	}
+
+	@Test(priority = 28, groups = "billing")
+	public void putcreatebillingmessagesv4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// ExtentTest test = extent.createTest("postcreateStatementv4_isfinal");
+		// test.log(Status.INFO, "Starting test: postcreateStatementv4_isfinal");
+
+		String uri = "/billing/messages";
+		String ver = "4.0";
+		String payload = "{\r\n" + //
+				"   \"ChangePreviousMessage\": false,\r\n" + //
+				"   \"MessageType\": {\r\n" + //
+				"      \"Id\": 1\r\n" + //
+				"   },\r\n" + //
+				"   \"LocationId\": \"LocationId\",\r\n" + //
+				"   \"RateId\": \"RateId\",\r\n" + //
+				"   \"ZoneId\": \"ZoneId\",\r\n" + //
+				"   \"FirstMessage\": {\r\n" + //
+				"      \"Line1\": \"First Message Line 1\",\r\n" + //
+				"      \"Line2\": \"First Message Line 2\",\r\n" + //
+				"      \"Line3\": \"First Message Line 3\",\r\n" + //
+				"      \"Line4\": \"First Message Line 4\"\r\n" + //
+				"   },\r\n" + //
+				"   \"SecondMessage\": {\r\n" + //
+				"      \"Line1\": \"Second Message Line 1\",\r\n" + //
+				"      \"Line2\": \"Second Message Line 2\",\r\n" + //
+				"      \"Line3\": \"Second Message Line 3\",\r\n" + //
+				"      \"Line4\": \"Second Message Line 4\"\r\n" + //
+				"   },\r\n" + //
+				"   \"TextMessage\": \"Global/Default Text Message\",\r\n" + //
+				"   \"ElectronicBillingMessage\": \"Electronic Billing Message\",\r\n" + //
+				"   \"ChangeSubjectLine\": \"Change Subject Line\",\r\n" + //
+				"   \"TestSubjectLine\": \"Test Subject Line\",\r\n" + //
+				"   \"BillNotifySubjectLine\": \"Bill Notify Subject Line\"\r\n" + //
+				"}";
+		String expected = "{\"Billing\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Message successfully saved.\",\"Level\":1}]}}";
+		// test.log(Status.INFO, "URI: " + uri + ", Version: " + ver);
+		// test.log(Status.INFO, "Payload: " + payload);
+		// test.log(Status.INFO, "Expected contains: " + expected);
+
+		String actual = CommonMethods.putmethodString(uri, ver, payload);
+
+		// test.log(Status.INFO, "Actual: " + actual);
+		Assert.assertTrue(actual.contains(expected));
+		// test.log(Status.PASS, "Response contains the expected value.");
+		CommonMethods.Delay(20000);
+	}
 }
