@@ -906,6 +906,72 @@ public class CommonMethods {
 		return validatableResponse.extract().asString();
 	}
 
+	public static String putMethodString(String uri, String version, String payload,
+			String expectedResponse) throws InterruptedException, IOException {
+
+		switch (version) {
+			case "1":
+				RestAssured.baseURI = urlv1;
+				break;
+			case "2":
+				RestAssured.baseURI = urlv2;
+				break;
+			case "2.1":
+				RestAssured.baseURI = urlv210;
+				break;
+			case "2.2":
+				RestAssured.baseURI = urlv220;
+				break;
+			case "2.3":
+				RestAssured.baseURI = urlv230;
+				break;
+			case "2.3.1":
+				RestAssured.baseURI = urlv231;
+				break;
+			case "2.4":
+				RestAssured.baseURI = urlv240;
+				break;
+			case "3.0":
+				RestAssured.baseURI = urlv3;
+				break;
+			case "4.0":
+				RestAssured.baseURI = urlv4;
+				break;
+			default:
+				version = "Invalid version";
+				Assert.fail("Invalid version provided");
+				break;
+		}
+
+		RestAssured.baseURI = RestAssured.baseURI + uri;
+		System.out.println("PUT URI: " + RestAssured.baseURI.toString());
+		System.out.println("Payload: " + payload);
+		System.out.println("Expected Response: " + expectedResponse);
+
+		RequestSpecification httpRequest = RestAssured.given()
+				.headers("Authorization", "Bearer " + getToken(),
+						"Content-Type", ContentType.JSON,
+						"Connection", "keep-alive",
+						"Accept-Encoding", "gzip, deflate, br")
+				.body(payload);
+
+		Response response = httpRequest.put();
+		String actualResponse = response.asString();
+
+		System.out.println("Actual Response: " + actualResponse);
+		System.out.println("Status Code: " + response.getStatusCode());
+
+		// Validate response
+		ValidatableResponse validatableResponse = response.then()
+				.assertThat()
+				.statusCode(200)
+				.body(Matchers.equalTo(expectedResponse));
+
+		System.out.println("Response Validation Passed");
+
+		return validatableResponse.extract().asString();
+	}
+
 	public static ValidatableResponse putMethodvalidate(String uri, String version, String payload, String fresponse)
 			throws InterruptedException, IOException {
 
@@ -1781,57 +1847,59 @@ public class CommonMethods {
 		throw new SkipException("Skipping this method due to bug = " + str1);
 	}
 
-
 	public static String getToken3step() throws InterruptedException {
-	/*/	String url = keycloakurl + "/auth/realms/nexus-portal/protocol/openid-connect/token";
-		Response response = RestAssured.given().auth().preemptive().basic("nexus-portal", url)
-				.contentType("application/x-www-form-urlencoded").formParam("grant_type", "password")
-				.formParam("username", userName).formParam("password", Password).when().post(url); // authorization_token
-		CommonMethods.Delay(100); // value is not
-		// System.out.println(response.path("error").toString());
-		try {
-			boolean f = (response.path("error").toString()).contains("invalid_grant");
-			if (f == true) {
-				// Comment Following to Test Authorization
-				Assert.fail("Authorization failed/Invalid Token/Check User Name");
-			}
-		} catch (NullPointerException e) {
-
-		}
-		// The auth token could then be set to a string variable
-		String auth_token = response.path("access_token").toString();
-		// System.out.println(auth_token);
-		*return auth_token;*/
-		 String kcBase = "http://localhost:8080/realms/nexus";
-        String clientId = "nexus-portal";
-        String redirectUri = "https://oauth.pstmn.io/v1/callback";
-        String username = "cogsuser";
-        String password = "password";
+		/*
+		 * / String url = keycloakurl +
+		 * "/auth/realms/nexus-portal/protocol/openid-connect/token";
+		 * Response response =
+		 * RestAssured.given().auth().preemptive().basic("nexus-portal", url)
+		 * .contentType("application/x-www-form-urlencoded").formParam("grant_type",
+		 * "password")
+		 * .formParam("username", userName).formParam("password",
+		 * Password).when().post(url); // authorization_token
+		 * CommonMethods.Delay(100); // value is not
+		 * // System.out.println(response.path("error").toString());
+		 * try {
+		 * boolean f = (response.path("error").toString()).contains("invalid_grant");
+		 * if (f == true) {
+		 * // Comment Following to Test Authorization
+		 * Assert.fail("Authorization failed/Invalid Token/Check User Name");
+		 * }
+		 * } catch (NullPointerException e) {
+		 * 
+		 * }
+		 * // The auth token could then be set to a string variable
+		 * String auth_token = response.path("access_token").toString();
+		 * // System.out.println(auth_token);
+		 * return auth_token;
+		 */
+		String kcBase = "http://localhost:8080/realms/nexus";
+		String clientId = "nexus-portal";
+		String redirectUri = "https://oauth.pstmn.io/v1/callback";
+		String username = "cogsuser";
+		String password = "password";
 
 		Map<String, Object> context = KeycloakStep1And2And3WithCookies.stage1Auth(kcBase, clientId, redirectUri);
 
-        if ("need_login".equals(context.get("flow_step"))) {
-            context.putAll(KeycloakStep1And2And3WithCookies.step2Login(
-                    (String) context.get("kc_login_action"),
-                    username,
-                    password,
-                    "on",
-                    (Map<String, String>) context.get("cookies")
-            ));
-        }
+		if ("need_login".equals(context.get("flow_step"))) {
+			context.putAll(KeycloakStep1And2And3WithCookies.step2Login(
+					(String) context.get("kc_login_action"),
+					username,
+					password,
+					"on",
+					(Map<String, String>) context.get("cookies")));
+		}
 
-        // Step 3: token exchange
-        Map<String, Object> tokens = KeycloakStep1And2And3WithCookies.step3TokenExchange(
-                kcBase,
-                clientId,
-                redirectUri,
-                (String) context.getOrDefault("auth_code", ""), // might be empty if 302
-                (String) context.get("pkce_verifier"),
-                (Map<String, String>) context.get("cookies")
-        );
+		// Step 3: token exchange
+		Map<String, Object> tokens = KeycloakStep1And2And3WithCookies.step3TokenExchange(
+				kcBase,
+				clientId,
+				redirectUri,
+				(String) context.getOrDefault("auth_code", ""), // might be empty if 302
+				(String) context.get("pkce_verifier"),
+				(Map<String, String>) context.get("cookies"));
 
-        return (String) tokens.get("access_token");
-
+		return (String) tokens.get("access_token");
 
 	}
 

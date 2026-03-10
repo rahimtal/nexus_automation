@@ -753,7 +753,7 @@ public class Private_BillingControllerv4 extends BaseClass {
 		// test.log(Status.INFO, "Payload: " + payload);
 		// test.log(Status.INFO, "Expected contains: " + expected);
 
-		String actual = CommonMethods.putmethodString(uri, ver, payload);
+		String actual = CommonMethods.putMethodString(uri, ver, payload, expected);
 
 		// test.log(Status.INFO, "Actual: " + actual);
 		Assert.assertTrue(actual.contains(expected));
