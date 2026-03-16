@@ -626,4 +626,18 @@ public class Private_Test_rateController extends BaseClass {
 
 	}
 
+	@Test(priority = 10, groups = "rate")
+	public void deleteRate()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate/RATE1";
+		String ver = "4.0";
+		String expected = "{\"Rate\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Rate (RATE1) successfully deleted.\",\"Level\":1}]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		// params.put("RateId", "ELECTRATE");
+		String result = CommonMethods.deleteMethodasString(uri, ver);
+		Assert.assertEquals(result, expected);
+
+	}
+
 }
