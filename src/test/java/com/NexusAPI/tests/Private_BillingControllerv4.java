@@ -760,4 +760,18 @@ public class Private_BillingControllerv4 extends BaseClass {
 		// test.log(Status.PASS, "Response contains the expected value.");
 		CommonMethods.Delay(20000);
 	}
+
+	@Test(priority = 23, groups = "billing")
+	public void getBillingmessages()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/billing/messages/1";
+		String ver = "4.0";
+		String expected = "{\"Billing\":{\"Success\":true,\"Data\":{\"MessageType\":{\"Id\":1,\"Description\":\"Global\"},\"LocationId\":null,\"CustomerId\":null,\"RateId\":null,\"ZoneId\":null,\"FirstMessage\":{\"Line1\":\"This is your first quarter bill for 2000. Any\",\"Line2\":\"balance not paid by May 15, 2000\",\"Line3\":\"will be releived  on your year 2000 tax\",\"Line4\":\"bill with penalties.\"},\"SecondMessage\":{\"Line1\":\"\",\"Line2\":\"\",\"Line3\":\"\",\"Line4\":\"\"},\"TextMessage\":\"\",\"ElectronicBillingMessage\":null,\"ChangeSubjectLine\":null,\"TestSubjectLine\":null,\"BillNotifySubjectLine\":null},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		Assert.assertEquals(actual, expected);
+
+	}
 }

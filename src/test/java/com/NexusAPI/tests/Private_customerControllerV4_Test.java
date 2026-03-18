@@ -110,6 +110,7 @@ public class Private_customerControllerV4_Test extends BaseClass {
 	@Test(priority = 5, groups = "CustomerController")
 	public void putupdateCustomerCard() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.Bugs("CPDEV-20936");
+		CommonMethods.Bug("CPDEV-25665");
 		String uri = "/customer/updateCustomerCard";
 		String ver = "4.0";
 		String jpath = "{\r\n" + "	\"CustomerId\": \"CUSTOMER003\",\r\n" + "	\"AddressLine1\": \"6 JIM BLVD\",\r\n"
@@ -143,6 +144,7 @@ public class Private_customerControllerV4_Test extends BaseClass {
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		// CommonMethods.Bugs("CPDEV-20941");
+		CommonMethods.Bug("CPDEV-25670");
 		String uri = "/customers/info";
 		String ver = "4.0";
 		String jpath = "{\r\n" + "    \"Customer\": [\r\n" + "        {\r\n"
@@ -180,6 +182,8 @@ public class Private_customerControllerV4_Test extends BaseClass {
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		// verified //CommonMethods.Bugs("CPDEV-20941");
+		CommonMethods.Bug("CPDEV-25675");
+
 		String uri = "/customers/info";
 		String ver = "4.0";
 		String jpath = "{\r\n" + "    \"Customer\": [\r\n" + "        {\r\n"
@@ -208,6 +212,28 @@ public class Private_customerControllerV4_Test extends BaseClass {
 				+ "                    \"Enabled\": 0,\r\n" + "                    \"Info\": \"\"\r\n"
 				+ "                }\r\n" + "            ]\r\n" + "        }\r\n" + "    ]\r\n" + "}";
 		String response = "{\"Customer\":[{\"Acknowledge\":0,\"Success\":true,\"Messages\":[{\"Enabled\":1,\"Info\":\"Customer updated.\"}]}]}";
+		CommonMethods.putMethodstring(uri, ver, jpath, response);
+
+	}
+
+	@Test(priority = 9, groups = "CustomerController")
+	public void putpreauthorizedPaymentPlanv4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/customers/preauthorizedPaymentPlan";
+		String ver = "4.0";
+		String jpath = "{\r\n" + //
+				"      \"CustomerId\":\"50000202\",\r\n" + //
+				"      \"PaymentPlan\": [\r\n" + //
+				"        {\r\n" + //
+				"            \"LocationId\": \"LOC@0009\",\r\n" + //
+				"            \"BankBranchTransit\": \"01236\",\r\n" + //
+				"            \"BankAccountNumber\": \"0123505456\",\r\n" + //
+				"            \"InstId\": \"041\"\r\n" + //
+				"        }\r\n" + //
+				"      ]\r\n" + //
+				"}";
+		String response = "{\"PreauthorizedPaymentPlan\":{\"Success\":true,\"Data\":null,\"Messages\":[]}}";
 		CommonMethods.putMethodstring(uri, ver, jpath, response);
 
 	}
