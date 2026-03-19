@@ -761,7 +761,7 @@ public class Private_BillingControllerv4 extends BaseClass {
 		CommonMethods.Delay(20000);
 	}
 
-	@Test(priority = 23, groups = "billing")
+	@Test(priority = 29, groups = "billing")
 	public void getBillingmessages()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
