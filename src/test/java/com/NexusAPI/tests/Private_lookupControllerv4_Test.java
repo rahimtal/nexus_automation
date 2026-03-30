@@ -687,4 +687,18 @@ public class Private_lookupControllerv4_Test extends BaseClass {
 
 	}
 
+	@Test(priority = 47, groups = "lookup")
+	public void lookuprateUnitDescription()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/lookup/rateUnitDescription";
+		String ver = "4.0";
+		String expected = "{\"RateUnitDescription\":[{\"ServiceCategoryId\":1,\"UnitDescription\":\"0\",\"DetailType\":1,\"DetailDescription\":\"Fixed Charge\",\"ServiceCategoryDescription\":\"Electric\"},{\"ServiceCategoryId\":1,\"UnitDescription\":\"0\",\"DetailType\":2,\"DetailDescription\":\"Stepped Range\",\"ServiceCategoryDescription\":\"Electric\"},{\"ServiceCategoryId\":1,\"UnitDescription\":\"0\",\"DetailType\":4,\"DetailDescription\":\"Adjustable Var Stepped Range\",\"ServiceCategoryDescription\":\"Electric\"},{\"ServiceCategoryId\":2,\"UnitDescription\":\"0\",\"DetailType\":1,\"DetailDescription\":\"Fixed Charge\",\"ServiceCategoryDescription\":\"Water\"},{\"ServiceCategoryId\":2,\"UnitDescription\":\"0\",\"DetailType\":2,\"DetailDescription\":\"Stepped Range\",\"ServiceCategoryDescription\":\"Water\"},{\"ServiceCategoryId\":3,\"UnitDescription\":\"0\",\"DetailType\":1,\"DetailDescription\":\"Fixed Charge\",\"ServiceCategoryDescription\":\"Sewer\"},{\"ServiceCategoryId\":3,\"UnitDescription\":\"0\",\"DetailType\":2,\"DetailDescription\":\"Stepped Range\",\"ServiceCategoryDescription\":\"Sewer\"},{\"ServiceCategoryId\":4,\"UnitDescription\":\"0\",\"DetailType\":1,\"DetailDescription\":\"Fixed Charge\",\"ServiceCategoryDescription\":\"Gas\"},{\"ServiceCategoryId\":4,\"UnitDescription\":\"0\",\"DetailType\":2,\"DetailDescription\":\"Stepped Range\",\"ServiceCategoryDescription\":\"Gas\"},{\"ServiceCategoryId\":5,\"UnitDescription\":\"0\",\"DetailType\":1,\"DetailDescription\":\"Fixed Charge\",\"ServiceCategoryDescription\":\"Phone\"},{\"ServiceCategoryId\":5,\"UnitDescription\":\"0\",\"DetailType\":2,\"DetailDescription\":\"Stepped Range\",\"ServiceCategoryDescription\":\"Phone\"},{\"ServiceCategoryId\":6,\"UnitDescription\":\"0\",\"DetailType\":1,\"DetailDescription\":\"Fixed Charge\",\"ServiceCategoryDescription\":\"Refuse\"},{\"ServiceCategoryId\":6,\"UnitDescription\":\"0\",\"DetailType\":2,\"DetailDescription\":\"Stepped Range\",\"ServiceCategoryDescription\":\"Refuse\"}]}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertEquals(actual, expected);
+
+	}
+
 }
