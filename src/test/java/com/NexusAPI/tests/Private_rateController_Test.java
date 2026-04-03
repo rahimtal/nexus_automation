@@ -5,12 +5,13 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 
+import org.apache.xmlbeans.impl.soap.Detail;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
-public class Private_Test_rateController extends BaseClass {
+public class Private_rateController_Test extends BaseClass {
 
 	@Test(priority = 1, groups = "rate")
 	public void geteffectiveDates() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
@@ -618,7 +619,7 @@ public class Private_Test_rateController extends BaseClass {
 
 		String uri = "/rate/flip/ELECTRATE";
 		String ver = "4.0";
-		String expected = "{\"Rate\":{\"Success\":true,\"Data\":{\"RateClassID\":\"ELECTRATE\",\"RateFlip\":[{\"PeriodID\":\"ON PEAK\",\"PeriodIndex\":1,\"Steps\":[{\"SequenceNumber\":1,\"VolumeLowerLimit\":111,\"VolumeUpperLimit\":999999999,\"TariffID\":\"EPCA-1\",\"KWRate\":\"RATE1\",\"KVARate\":\"RATE1\"}]},{\"PeriodID\":\"OFFPEAK\",\"PeriodIndex\":2,\"Steps\":[{\"SequenceNumber\":1,\"VolumeLowerLimit\":10000,\"VolumeUpperLimit\":23123134,\"TariffID\":\"GS-PK ENERGY\",\"KWRate\":\"RATE1\",\"KVARate\":\"RATE1\"}]}]},\"Messages\":[]}}";
+		String expected = "{\"Rate\":{\"Success\":true,\"Data\":{\"RateClassID\":\"ELECTRATE\",\"ServiceCategory\":{\"Id\":1,\"Description\":\"Electric\"},\"RateType\":{\"Id\":1,\"Description\":\"Consumption\"},\"NumberOfMonths\":6,\"RateFlip\":[{\"PeriodID\":\"ON PEAK\",\"PeriodIndex\":1,\"Steps\":[{\"SequenceNumber\":1,\"VolumeLowerLimit\":111,\"VolumeUpperLimit\":999999999,\"TariffID\":\"EPCA-1\",\"KWRate\":\"RATE1\",\"KVARate\":\"RATE1\"}]},{\"PeriodID\":\"OFFPEAK\",\"PeriodIndex\":2,\"Steps\":[{\"SequenceNumber\":1,\"VolumeLowerLimit\":10000,\"VolumeUpperLimit\":23123134,\"TariffID\":\"GS-PK ENERGY\",\"KWRate\":\"RATE1\",\"KVARate\":\"RATE1\"}]}]},\"Messages\":[]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		// params.put("RateId", "ELECTRATE");
 		String result = CommonMethods.getMethodasString(uri, ver, params);
@@ -637,6 +638,57 @@ public class Private_Test_rateController extends BaseClass {
 		// params.put("RateId", "ELECTRATE");
 		String result = CommonMethods.deleteMethodasString(uri, ver);
 		Assert.assertEquals(result, expected);
+
+	}
+
+	@Test(priority = 11, groups = "rate")
+	public static void putUpdateRatev4_DeleteDetailindex()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<>();
+
+		String payload = "{  \r\n" + //
+				" \"RateId\": \"RATE4\",  \r\n" + //
+				" \"Description\": \"Update Rate Id\",  \r\n" + //
+				" \"Type\": {  \r\n" + //
+				" \"Id\": 1  \r\n" + //
+				" },  \r\n" + //
+				" \"ServiceType\": \"GAS\",  \r\n" + //
+				" \"RateClassId\": \"\",  \r\n" + //
+				" \"Active\": true,  \r\n" + //
+				" \"UseLatestRateEffectivePeriod\": false,  \r\n" + //
+				" \"ConsecutiveEstimatesAllowed\": 0,  \r\n" + //
+				" \"BillInAdvance\": false,  \r\n" + //
+				" \"LookupVisible\": false,  \r\n" + //
+				" \"SpecialCondition\": false,  \r\n" + //
+				" \"TimeOfUse\": false,  \r\n" + //
+				" \"ExcludeFromBd\": false,  \r\n" + //
+				" \"RatchetDemand\": false,  \r\n" + //
+				" \"KvarFactor\": \"0.00000\",  \r\n" + //
+				" \"EffectiveDate\": [  \r\n" + //
+				" {  \r\n" + //
+				" \"EffectiveStartDate\": \"2026-01-01\",  \r\n" + //
+				" \"MinimumAmount\": \"0.00\",  \r\n" + //
+				" \"MaximumAmount\": \"0.00\",  \r\n" + //
+				" \"ProrateMinimum\": {  \r\n" + //
+				" \"First\": false,\r\n" + //
+				" \"Regular\": false,  \r\n" + //
+				" \"Last\": false  \r\n" + //
+				" },  \r\n" + //
+				" \"ProrateMaximum\": {  \r\n" + //
+				" \"First\": false,  \r\n" + //
+				" \"Regular\": false,  \r\n" + //
+				" \"Last\": false  \r\n" + //
+				" }  \r\n" + //
+				" }  \r\n" + //
+				" ],  \r\n" + //
+				" \"Detail\": [  \r\n" + //
+				" ]  \r\n" + //
+				"}  ";
+		String expected = "{\"Rate\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Rate (RATE4) successfully saved.\",\"Level\":1}]}}";
+		String result = CommonMethods.putMethodString(uri, ver, params, payload, expected);
 
 	}
 
