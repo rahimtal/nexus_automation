@@ -1802,6 +1802,50 @@ public class CommonMethods {
 		return response;
 	}
 
+	public static String deleteMethodasString(String uri, String version, HashMap<String, String> params)
+			throws InterruptedException, IOException {
+		switch (version) {
+			case "1":
+				RestAssured.baseURI = urlv1;
+				break;
+			case "2":
+				RestAssured.baseURI = urlv2;
+				break;
+			case "2.1":
+				RestAssured.baseURI = urlv210;
+				break;
+			case "2.2":
+				RestAssured.baseURI = urlv220;
+				break;
+			case "2.3":
+				RestAssured.baseURI = urlv230;
+				break;
+			case "2.3.1":
+				RestAssured.baseURI = urlv231;
+				break;
+			case "2.4":
+				RestAssured.baseURI = urlv240;
+				break;
+			case "3.0":
+				RestAssured.baseURI = urlv3;
+				break;
+			case "4.0":
+				RestAssured.baseURI = urlv4;
+				break;
+			default:
+				version = "Invalid version";
+				break;
+		}
+		RestAssured.baseURI = RestAssured.baseURI + uri;
+		System.out.println(RestAssured.baseURI.toString());
+		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
+				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br");
+		httpRequest.queryParams(params);
+		String response = httpRequest.delete().asString();
+		System.out.println(response);
+		return response;
+	}
+
 	public static void postcall(String uri, String payload, String ver, String exResult) throws InterruptedException {
 		Response jsonPathResponse;
 		jsonPathResponse = CommonMethods.postMethodResponseasString(payload, uri, ver);
