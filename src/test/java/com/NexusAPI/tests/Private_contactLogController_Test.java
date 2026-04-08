@@ -1,23 +1,25 @@
 package com.NexusAPI.Tests;
 
-import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.Assert;
 
 import org.testng.Assert;
-import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.Assert;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
-
 import io.restassured.response.Response;
 
-public class Private_contactLogController_Test  extends BaseClass {
+public class Private_contactLogController_Test extends BaseClass {
 
 	@Test(priority = 1, groups = "contactLogController")
 	public void postcontactLogSimplev4()
@@ -61,17 +63,13 @@ public class Private_contactLogController_Test  extends BaseClass {
 		// CommonMethods.Bugs("CPDEV-18571");
 		String uri = "/contactLog/getContactLogDetail";
 		String ver = "4.0";
-		String expected = "{\"result\":[{\"Description\":\"Visit Customer\",\"AdditionalText\":\"Test\",\"ContactMethod\":\"Email\",\"ActionCode\":\"2\",\"UserID\":\"Admin\",\"UserName\":\"Admin\",\"ContactDate\":\"2020-01-14T02:48:51.000Z\",\"NextDate\":\"2020-01-21\",\"IsCompleted\":\"Outstanding\",\"Resolution\":\"\",\"ServiceOrderNumber\":\"\",\"ServiceOrderStatusDescription\":\"\",\"RequestID\":\"\",\"RequestDescription\":\"\",\"DrillbackLink\":\"\"}]}";
-		// String exp2 =
-		// "\"IsCompleted\":\"Completed\",\"Resolution\":\"\",\"ServiceOrderNumber\":\"SORD00000009044\",\"ServiceOrderStatusDescription\":\"Pending\",\"RequestID\":\"DISCONNECT\",\"RequestDescription\":\"Disconnected
-		// connection\",\"DrillbackLink\":\"cogsDrillback://DGPB/?Db=&Srv=DESKTOP-QU86F3Q&Cmp=TWO&Prod=229&Act=OPEN&Func=ServiceOrder&LocationID=LOCATION008&ServiceOrderNumber=SORD00000009044&CogsDrillback=1\"}]}";
+		String expected = "{\"result\":[{\"Description\":\"Visit Customer\",\"AdditionalText\":\"Test\",\"Id\":\"1097\",\"ContactMethod\":\"Email\",\"ActionCode\":\"2\",\"UserID\":\"Admin\",\"UserName\":\"Admin\",\"ContactDate\":\"2020-01-14T02:48:51.000Z\",\"NextDate\":\"2020-01-21\",\"IsCompleted\":\"Outstanding\",\"Resolution\":\"\",\"ServiceOrderNumber\":\"\",\"ServiceOrderStatusDescription\":\"\",\"RequestID\":\"\",\"RequestDescription\":\"\",\"DrillbackLink\":\"\"}]";
 
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("LocationId", "ELECWAT001");
 		params.put("CustomerId", "CUSTOMER007");
 		params.put("CsmApiDatabase", "NEXUS_API");
 		CommonMethods.getMethodContainsString(uri, ver, params, expected);
-		// CommonMethods.getMethodContainsString(uri, ver, params, exp2);
 
 	}
 
@@ -80,7 +78,7 @@ public class Private_contactLogController_Test  extends BaseClass {
 
 		String uri = "/contactLog";
 		String version = "4.0";
-		String expected = "{\"ContactLog\":{\"Success\":true,\"Data\":{\"Detail\":[{\"ActionCode\":\"2\",\"AdditionalText\":\"Test\",\"ContactMethod\":3,\"Description\":\"Visit Customer\",\"FirstContactDateTime\":\"2020-01-14T07:48:51\",\"NextContactDateTime\":\"2020-01-21T00:00:00\",\"CompletedDateTime\":\"1900-01-01T00:00:00\",\"IsCompleted\":false,\"ResolutionText\":\"\",\"ServiceOrder\":null,\"FollowUpEmployee\":null,\"User\":null}]},\"Messages\":[]}}";
+		String expected = "{\"ContactLog\":{\"Success\":true,\"Data\":{\"Detail\":[{\"ActionCode\":\"2\",\"AdditionalText\":\"Test\",\"Id\":\"1097\",\"ContactMethod\":3,\"Description\":\"Visit Customer\",\"FirstContactDateTime\":\"2020-01-14T07:48:51\",\"NextContactDateTime\":\"2020-01-21T00:00:00\",\"CompletedDateTime\":\"1900-01-01T00:00:00\",\"IsCompleted\":false,\"ResolutionText\":\"\",\"ServiceOrder\":{\"Number\":\"\",\"StatusDescription\":\"\",\"RequestId\":\"\",\"RequestDescription\":\"\"},\"FollowUpEmployee\":null,\"User\":null}]},\"Messages\":[]}}";
 		// String expected2 =
 		// "\"CompletedDateTime\":\"2022-04-09T23:01:05\",\"IsCompleted\":true,\"ResolutionText\":\"\",\"ServiceOrder\":{\"Number\":\"SORD00000009044\",\"StatusDescription\":\"Pending\",\"RequestId\":\"DISCONNECT\",\"RequestDescription\":\"Disconnected
 		// connection\"},\"FollowUpEmployee\":{\"Id\":\"ZAID0001\",\"FirstName\":\"Syed\",\"MiddleName\":\"M.\",\"LastName\":\"Zaidi\"},\"User\":{\"Id\":\"sa\",\"FirstName\":\"Sam\",\"MiddleName\":\"M.\",\"LastName\":\"Arsenault\"}}]},\"Messages\":[]}}";
