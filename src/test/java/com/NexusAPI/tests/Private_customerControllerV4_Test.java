@@ -238,4 +238,196 @@ public class Private_customerControllerV4_Test extends BaseClass {
 
 	}
 
+	@Test(priority = 10, groups = "CustomerController")
+	public void getCustomerAddress()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/customers/500001/address";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+
+		// Validate using JsonPath to avoid order-dependent comparison
+		JsonPath jsonPath = new JsonPath(result);
+		Assert.assertEquals(jsonPath.getString("AddressInformation[0].CustomerId"), "500001");
+		Assert.assertTrue(jsonPath.getBoolean("AddressInformation[0].Success"));
+		Assert.assertEquals(jsonPath.getInt("AddressInformation[0].Acknowledge"), 0);
+		Assert.assertEquals(jsonPath.getInt("AddressInformation[0].AddressConfirm"), 0);
+
+		// Verify all 3 addresses are present regardless of order
+		int addressCount = jsonPath.getList("AddressInformation[0].Address").size();
+		Assert.assertEquals(addressCount, 3);
+
+		// Verify each address exists by AddressId
+		java.util.List<String> addressIds = jsonPath.getList("AddressInformation[0].Address.AddressId");
+		Assert.assertTrue(addressIds.contains("83"), "PRIMARY address (Id 83) should be present");
+		Assert.assertTrue(addressIds.contains("159"), "Third address (Id 159) should be present");
+		Assert.assertTrue(addressIds.contains("160"), "Fourth address (Id 160) should be present");
+	}
+
+	@Test(priority = 11, groups = "CustomerController")
+	public void getCustomerAddressVerifyPrimary()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/customers/500001/address";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+
+		JsonPath jsonPath = new JsonPath(result);
+		java.util.List<java.util.Map<String, Object>> addresses = jsonPath.getList("AddressInformation[0].Address");
+
+		// Find PRIMARY address and validate its fields
+		java.util.Map<String, Object> primaryAddress = null;
+		for (java.util.Map<String, Object> addr : addresses) {
+			if ("PRIMARY".equals(addr.get("AddressCode"))) {
+				primaryAddress = addr;
+				break;
+			}
+		}
+		Assert.assertNotNull(primaryAddress, "PRIMARY address should exist");
+		Assert.assertEquals(primaryAddress.get("AddressId"), "83");
+		Assert.assertEquals(primaryAddress.get("ContactPerson"), "Mr. Gregg  Lammon");
+		Assert.assertEquals(primaryAddress.get("BillToAddress"), "0");
+	}
+
+	@Test(priority = 12, groups = "CustomerController")
+	public void getCustomerAddressVerifyThird()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/customers/500001/address";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+
+		JsonPath jsonPath = new JsonPath(result);
+		java.util.List<java.util.Map<String, Object>> addresses = jsonPath.getList("AddressInformation[0].Address");
+
+		// Find Third address and validate BillToAddress is "1"
+		java.util.Map<String, Object> thirdAddress = null;
+		for (java.util.Map<String, Object> addr : addresses) {
+			if ("Third".equals(addr.get("AddressCode"))) {
+				thirdAddress = addr;
+				break;
+			}
+		}
+		Assert.assertNotNull(thirdAddress, "Third address should exist");
+		Assert.assertEquals(thirdAddress.get("AddressId"), "159");
+		Assert.assertEquals(thirdAddress.get("BillToAddress"), "1");
+		Assert.assertEquals(thirdAddress.get("ContactPerson"), "Mr. Gregg  Lammon");
+	}
+
+	@Test(priority = 13, groups = "CustomerController")
+	public void getCustomerAddressVerifyFourth()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/customers/500001/address";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+
+		JsonPath jsonPath = new JsonPath(result);
+		java.util.List<java.util.Map<String, Object>> addresses = jsonPath.getList("AddressInformation[0].Address");
+
+		// Find Fourth address and validate Canada country
+		java.util.Map<String, Object> fourthAddress = null;
+		for (java.util.Map<String, Object> addr : addresses) {
+			if ("Fourth".equals(addr.get("AddressCode"))) {
+				fourthAddress = addr;
+				break;
+			}
+		}
+		Assert.assertNotNull(fourthAddress, "Fourth address should exist");
+		Assert.assertEquals(fourthAddress.get("AddressId"), "160");
+		Assert.assertEquals(fourthAddress.get("ContactPerson"), "Andy Dwyer");
+		Assert.assertEquals(fourthAddress.get("BillToAddress"), "0");
+	}
+
+	@Test(priority = 14, groups = "CustomerController")
+	public void getCustomerAddressVerifyOverride()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/customers/500001/address";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+
+		JsonPath jsonPath = new JsonPath(result);
+		java.util.List<java.util.Map<String, Object>> addresses = jsonPath.getList("AddressInformation[0].Address");
+
+		// Verify PRIMARY has Override enabled, others do not
+		for (java.util.Map<String, Object> addr : addresses) {
+			java.util.Map<String, Object> override = (java.util.Map<String, Object>) addr.get("Override");
+			if ("PRIMARY".equals(addr.get("AddressCode"))) {
+				Assert.assertEquals(override.get("Override"), "1");
+				Assert.assertEquals(override.get("AddressCode"), "PRIMARY");
+				Assert.assertEquals(override.get("FromDate"), "2020-04-01");
+				Assert.assertEquals(override.get("ToDate"), "2020-04-02");
+			} else {
+				Assert.assertEquals(override.get("Override"), "0");
+			}
+		}
+	}
+
+	@Test(priority = 15, groups = "CustomerController")
+	public void getCustomerAddressVerifyPhoneNumbers()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/customers/500001/address";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+
+		JsonPath jsonPath = new JsonPath(result);
+		java.util.List<java.util.Map<String, Object>> addresses = jsonPath.getList("AddressInformation[0].Address");
+
+		for (java.util.Map<String, Object> addr : addresses) {
+			java.util.List<java.util.Map<String, Object>> phones = (java.util.List<java.util.Map<String, Object>>) addr
+					.get("PhoneNumber");
+			Assert.assertEquals(phones.size(), 3, "Each address should have 3 phone numbers");
+
+			if ("Third".equals(addr.get("AddressCode")) || "Fourth".equals(addr.get("AddressCode"))) {
+				Assert.assertEquals(phones.get(0).get("Number"), "90563011980000");
+				Assert.assertEquals(phones.get(1).get("Number"), "90255512340000");
+				Assert.assertEquals(phones.get(2).get("Number"), "50678912340000");
+			} else if ("PRIMARY".equals(addr.get("AddressCode"))) {
+				// PRIMARY has empty phone numbers
+				Assert.assertEquals(phones.get(0).get("Number"), "");
+				Assert.assertEquals(phones.get(1).get("Number"), "");
+				Assert.assertEquals(phones.get(2).get("Number"), "");
+			}
+		}
+	}
+
+	@Test(priority = 16, groups = "CustomerController")
+	public void getCustomerAddressVerifySmartyStreets()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/customers/500001/address";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+
+		JsonPath jsonPath = new JsonPath(result);
+		java.util.List<java.util.Map<String, Object>> addresses = jsonPath.getList("AddressInformation[0].Address");
+
+		for (java.util.Map<String, Object> addr : addresses) {
+			java.util.Map<String, Object> smarty = (java.util.Map<String, Object>) addr
+					.get("SmartyStreetsMailingAddressCandidate");
+			Assert.assertTrue((Boolean) smarty.get("Success"),
+					"SmartyStreets Success should be true for address " + addr.get("AddressCode"));
+
+			if ("PRIMARY".equals(addr.get("AddressCode"))) {
+				Assert.assertEquals(smarty.get("StreetName"), "ORCHARD");
+				Assert.assertEquals(smarty.get("StreetType"), "AVE");
+				Assert.assertEquals(smarty.get("CityName"), "TROY");
+				Assert.assertEquals(smarty.get("StreetNumber"), "8");
+			} else if ("Fourth".equals(addr.get("AddressCode"))) {
+				Assert.assertEquals(smarty.get("CityName"), "Stratford");
+				Assert.assertEquals(smarty.get("State"), "PE");
+				Assert.assertEquals(smarty.get("Country"), "Canada");
+			}
+		}
+	}
+
 }
