@@ -11,7 +11,10 @@ import com.NexustAPIAutomation.java.QuickDBRestore;
 //import com.aventstack.extentreports.ExtentReports;
 
 //import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import org.testng.annotations.Listeners;
+import com.NexustAPIAutomation.java.ExtentTestNGListener;
 
+@Listeners(ExtentTestNGListener.class)
 public class BaseClass {
 
 	// public static ExtentReports extent;
