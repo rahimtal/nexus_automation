@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">API Test Results</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Apr 15, 2026 07:19:08 PM</span></a>
+<a href="#"><span class="badge badge-primary">Apr 15, 2026 07:57:48 PM</span></a>
 </li>
 </ul>
 </div>
@@ -79,7 +79,7 @@
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
 <ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a class="dropdown-item" href="#">lookup</a>
+<a class="dropdown-item" href="#">ProcessController</a><a class="dropdown-item" href="#">Negative</a><a class="dropdown-item" href="#">Search</a>
 </ul>
 </li>
 </ul>
@@ -87,12 +87,12 @@
       <ul class="test-list-item">
         <li class="test-item"  status="pass" test-id="1"
           author=""
-          tag="lookup"
+          tag="Negative ProcessController Search"
           device="">
           <div class="test-detail">
-            <p class="name">Private_lookupControllerv4_Test :: getapplyByService_Paymentsv4</p>
+            <p class="name">Private_ProcessControllerV4_Test :: getProcessStatusv4_EmptyHandleId</p>
             <p class="text-sm">
-              <span>7:19:08 PM</span> / <span>00:00:02:156</span>
+              <span>7:57:48 PM</span> / <span>00:00:01:849</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -100,16 +100,19 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">Private_lookupControllerv4_Test :: getapplyByService_Paymentsv4</h5>
-<span class='badge badge-success'>04.15.2026 7:19:08 PM</span>
-<span class='badge badge-danger'>04.15.2026 7:19:10 PM</span>
-<span class='badge badge-default'>00:00:02:156</span>
+<h5 class="test-status text-pass">Private_ProcessControllerV4_Test :: getProcessStatusv4_EmptyHandleId</h5>
+<span class='badge badge-success'>04.15.2026 7:57:48 PM</span>
+<span class='badge badge-danger'>04.15.2026 7:57:50 PM</span>
+<span class='badge badge-default'>00:00:01:849</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
-<div class="m-t-15"><span class="badge badge-pill badge-default">lookup</span></div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">Negative</span>
+<span class="badge badge-pill badge-default">ProcessController</span>
+<span class="badge badge-pill badge-default">Search</span></div>
+<div class="m-t-10 m-l-5">Verify GET /process/status with empty HandleId returns proper error</div>
 </div>
 </div><div class="detail-body mt-4">
 <table class="table table-sm">
@@ -117,44 +120,51 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:19:08 PM</td>
+        <td>7:57:48 PM</td>
         <td>
-          Priority: 2
+          Priority: 4
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:19:08 PM</td>
+        <td>7:57:48 PM</td>
         <td>
-          Test Class: Private_lookupControllerv4_Test
+          Test Class: Private_ProcessControllerV4_Test
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:19:09 PM</td>
+        <td>7:57:49 PM</td>
         <td>
-          <b>Request:</b> [GET] Version: 4.0 | URI: /lookupBatch
+          <b>Request:</b> [GET] Version: 4.0 | URI: /process/status
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:19:09 PM</td>
+        <td>7:57:49 PM</td>
         <td>
-          <b>Request Body/Params:</b><br><pre>{BatchSource=PAYMENTS}</pre>
+          <b>Request Body/Params:</b><br><pre>{HandleId=}</pre>
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>7:19:10 PM</td>
+        <td>7:57:50 PM</td>
         <td>
-          <b>Response [200]:</b><br><pre>{&quot;Batch&quot;:[{&quot;Id&quot;:&quot;10001&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;1001&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;100111&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;10111&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;109090ABC&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;12345&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;API 20190430&quot;,&quot;Description&quot;:&quot;Payments from Web Service - API&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;API 20190503&quot;,&quot;Description&quot;:&quot;Payments from Web Service - API&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;API20220908001&quot;,&quot;Description&quot;:&quot;Payments from Nexus Api - API&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;API20220929001&quot;,&quot;Description&quot;:&quot;Payments from Nexus Api - API&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;BAT1&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;CREDITNOTE&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;DPP041227sa01&quot;,&quot;Description&quot;:&quot;PYMT&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;INT4\/12\/2027&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;INT4\/30\/2025&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;PY081525sa&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;RM(3)120427&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true},{&quot;Id&quot;:&quot;WO101619CRP001&quot;,&quot;Description&quot;:&quot;Write Off - sa&quot;,&quot;HasTransaction&quot;:false},{&quot;Id&quot;:&quot;WRITEOFF01&quot;,&quot;Description&quot;:&quot;&quot;,&quot;HasTransaction&quot;:true}]}</pre>
+          <b>Response [200]:</b><br><pre>{&quot;ProcessStatus&quot;:{&quot;Success&quot;:false,&quot;Data&quot;:null,&quot;Messages&quot;:[{&quot;Enabled&quot;:1,&quot;Info&quot;:&quot;HandleId is not allowed to be empty&quot;,&quot;Level&quot;:3}]}}</pre>
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>7:19:10 PM</td>
+        <td>7:57:50 PM</td>
         <td>
-          <span class='badge white-text green'>getapplyByService_Paymentsv4 PASSED (2380ms)</span>
+          <b>Empty HandleId:</b> Status=200 — Correctly rejected
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>7:57:50 PM</td>
+        <td>
+          <span class='badge white-text green'>getProcessStatusv4_EmptyHandleId PASSED (2046ms)</span>
         </td>
       </tr>
   </tbody>
@@ -175,7 +185,7 @@
 <div class="test-list">
 <div class="test-list-tools">
 <ul class="tools pull-left"><li><a href=""><span class="font-size-14">Category</span></a></li></ul>
-<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">3</span></a></li></ul>
 </div>
 <div class="test-list-wrapper scrollable">
 <ul class="test-list-item">
@@ -184,12 +194,12 @@
 <span class="meta">
 <span class='badge log pass-bg'>1</span>
 </span>
-<p class="name">lookup</p>
+<p class="name">ProcessController</p>
 <p class="duration text-sm">1 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>lookup</h4>
+<h4>ProcessController</h4>
 <span status="pass" class='badge log pass-bg'>1 passed</span>
 </div>
 <table class='table table-sm mt-4'>
@@ -203,9 +213,75 @@
 <tbody>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>19:19:08 PM</td>
+<td>19:57:48 PM</td>
 <td>
-<a href="#" class="linked" test-id='1' id='1'>Private_lookupControllerv4_Test :: getapplyByService_Paymentsv4</a>
+<a href="#" class="linked" test-id='1' id='1'>Private_ProcessControllerV4_Test :: getProcessStatusv4_EmptyHandleId</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">Negative</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>Negative</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>19:57:48 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='1'>Private_ProcessControllerV4_Test :: getProcessStatusv4_EmptyHandleId</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">Search</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>Search</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>19:57:48 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='1'>Private_ProcessControllerV4_Test :: getProcessStatusv4_EmptyHandleId</a>
 </td>
 </tr>
 </tbody>
@@ -225,13 +301,13 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Apr 15, 2026 07:19:08 PM</h3>
+<h3>Apr 15, 2026 07:57:48 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Apr 15, 2026 07:19:10 PM</h3>
+<h3>Apr 15, 2026 07:57:50 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -282,7 +358,7 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='16%'><b>1</b> events passed</small></div>
+<div><small data-tooltip='28%'><b>2</b> events passed</small></div>
 <div>
 <small data-tooltip='0%'><b>0</b> events failed,
 <b data-tooltip='%'>5</b> others
@@ -301,7 +377,7 @@
 </div></div>
 <script>
 var timeline = {
-"Private_lookupControllerv4_Test :: getapplyByService_Paymentsv4":2.156
+"Private_ProcessControllerV4_Test :: getProcessStatusv4_EmptyHandleId":1.849
 };
 </script>
 <div class="row">
@@ -311,7 +387,23 @@ var timeline = {
 <div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
 <thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
 <tr>
-<td>lookup</td>
+<td>ProcessController</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>Negative</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>Search</td>
 <td>1</td>
 <td>0</td>
 <td>0</td>
@@ -362,7 +454,7 @@ warningGrandChild: 0,
 skipGrandChild: 0,
 infoGrandChild: 0,
 eventsCount: 5,
-passEvents: 1,
+passEvents: 2,
 failEvents: 0,
 warningEvents: 0,
 skipEvents: 0,
