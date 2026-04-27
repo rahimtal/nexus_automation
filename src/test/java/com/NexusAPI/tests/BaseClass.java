@@ -28,7 +28,8 @@ public class BaseClass {
 		// C:\\Users\\Admin\\Documents\\GitHub\\nexus_automation\\test-output\\");
 		// Runtime.getRuntime().exec("cmd /c rd /s /q
 		// C:\\Users\\Admin\\Documents\\GitHub\\nexus_automation\\target\\test-output\\");
-		QuickDBRestore.restoreDatabase();
+		//disabled for now 
+		//QuickDBRestore.restoreDatabase();
 
 	}
 

@@ -20,7 +20,7 @@ public class KeycloakStep1And2And3WithCookies {
     public static void main(String[] args) {
         String kcBase = "http://localhost:8080/realms/nexus";
         String clientId = "nexus-portal";
-        String redirectUri = "https://oauth.pstmn.io/v1/callback";
+        String redirectUri = "https://oauth.usebruno.com/callback";
         String username = "cogsuser";
         String password = "password";
         String rememberMe = "on";
@@ -116,6 +116,11 @@ public class KeycloakStep1And2And3WithCookies {
                                                  String rememberMe, Map<String, String> cookies) {
         Map<String, Object> context = new HashMap<>();
 
+        System.out.println("Step 2 - Posting to: " + kcLoginAction);
+        System.out.println("Step 2 - Username: " + username);
+        System.out.println("Step 2 - Password: " + password);
+        System.out.println("Step 2 - RememberMe: " + rememberMe);
+
         Response response = RestAssured
                 .given()
                 .redirects().follow(false)
@@ -129,13 +134,27 @@ public class KeycloakStep1And2And3WithCookies {
 
         int status = response.statusCode();
         System.out.println("Step 2 Status Code: " + status);
-
         String location = response.getHeader("Location");
+        System.out.println("Step 2 Location Header: " + (location != null ? location : "NULL"));
+
         if (location != null && location.contains("code=")) {
             String authCode = extractQueryParam(location, "code");
             context.put("auth_code", authCode);
             context.put("flow_step", "got_code");
             System.out.println("Auth code (Step 2 login): " + authCode);
+        } else if (status == 200) {
+            // Login failed, show response for debugging
+            String response_body = response.asString();
+            System.out.println("❌ Login failed - credentials rejected or form incomplete");
+            System.out.println("Response length: " + response_body.length() + " chars");
+            if (response_body.contains("alert-error")) {
+                // Extract error message if present
+                Pattern p = Pattern.compile("<span[^>]*class=\"[^\"]*alert-error[^\"]*\"[^>]*>([^<]+)</span>", Pattern.CASE_INSENSITIVE);
+                Matcher m = p.matcher(response_body);
+                if (m.find()) {
+                    System.out.println("Error message: " + m.group(1));
+                }
+            }
         } else {
             System.out.println("❌ No auth code found. Response body:\n" + response.asString());
         }
@@ -164,14 +183,29 @@ public class KeycloakStep1And2And3WithCookies {
 
         int status = response.statusCode();
         System.out.println("Step 3 Status Code: " + status);
+        System.out.println("Step 3 Response Body: " + response.asString());
 
         if (status == 200) {
-            context.put("access_token", response.jsonPath().getString("access_token"));
-            context.put("refresh_token", response.jsonPath().getString("refresh_token"));
+            try {
+                context.put("access_token", response.jsonPath().getString("access_token"));
+                context.put("refresh_token", response.jsonPath().getString("refresh_token"));
+            } catch (Exception e) {
+                System.out.println("❌ Failed to parse token response: " + e.getMessage());
+                context.put("access_token", "");
+                context.put("refresh_token", "");
+            }
         } else {
             context.put("access_token", "");
             context.put("refresh_token", "");
-            System.out.println("❌ Token exchange failed. Response body:\n" + response.asString());
+            System.out.println("❌ Token exchange failed with status " + status);
+            try {
+                String error = response.jsonPath().getString("error");
+                String errorDescription = response.jsonPath().getString("error_description");
+                System.out.println("   Error: " + error);
+                System.out.println("   Description: " + errorDescription);
+            } catch (Exception e) {
+                System.out.println("   Could not parse error response");
+            }
         }
 
         return context;

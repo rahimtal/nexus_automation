@@ -1,6 +1,7 @@
 REM filepath: c:\Users\Admin\Documents\GitHub\nexus_automation\run_All_tests.bat
 @echo off
-cd /d "c:\Users\Admin\Documents\GitHub\nexus_automation"
+cd /d "d:\Nexus Automation\nexus_automation"
+set PATH=%PATH%;C:\maven\bin
 
 REM Step 1: Create reports folder if it doesn't exist
 if not exist "reports" mkdir "reports"
@@ -9,14 +10,14 @@ REM Step 2: Restore database
 echo ======================================================
 echo   Step 1: Restoring Database...
 echo ======================================================
-mvn exec:java -Dexec.mainClass=com.NexustAPIAutomation.java.QuickDBRestore -DskipTests
-if %ERRORLEVEL% NEQ 0 (
-    echo.
-    echo *** Database restore failed! Aborting test execution. ***
-    pause
-    exit /b 1
-)
-echo Database restore completed successfully.
+REM mvn exec:java -Dexec.mainClass=com.NexustAPIAutomation.java.QuickDBRestore -DskipTests
+REM if %ERRORLEVEL% NEQ 0 (
+REM     echo.
+REM     echo *** Database restore failed! Aborting test execution. ***
+REM     pause
+REM     exit /b 1
+REM )
+echo Database restore skipped.
 
 REM Step 3: Clean old TestNG reports
 echo.
@@ -39,7 +40,7 @@ echo.
 echo ======================================================
 echo   Step 4: Running Performance Tests...
 echo ======================================================
-mvn test -Dtest=com.NexustAPIAutomation.tests.PerformanceTests -Dgroups=performance
+mvn test -Dtest=com.NexusAPI.Tests.PerformanceTests -Dgroups=performance
 if %ERRORLEVEL% NEQ 0 (
     echo.
     echo *** Some performance tests failed. Check the report for details. ***

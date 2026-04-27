@@ -60,6 +60,12 @@ public class CommonMethods {
 	public static String userName = Read.ReadFile("username");
 	public static String Password = Read.ReadFile("password");
 	public static String keycloakurl = Read.ReadFile("keycloakurl");
+	
+	// Token caching variables
+	private static String cachedToken = null;
+	private static long tokenExpirationTime = 0;
+	private static final long TOKEN_BUFFER = 30000; // 30 second buffer before expiration
+	
 	public static String urlv1 = Read.ReadFile("urlv1");
 	public static String urlv2 = Read.ReadFile("urlv2");
 	public static String urlv210 = Read.ReadFile("urlv210");
@@ -104,6 +110,13 @@ public class CommonMethods {
 
 	public static String getToken() {
 
+		// Check if cached token is still valid
+		long currentTime = System.currentTimeMillis();
+		if (cachedToken != null && currentTime < (tokenExpirationTime - TOKEN_BUFFER)) {
+			System.out.println("✅ Using cached token (valid for " + ((tokenExpirationTime - currentTime) / 1000) + " seconds)");
+			return cachedToken;
+		}
+
 		String auth_token = null;
 		java.nio.file.Path propertiesPath = java.nio.file.Paths.get("Configuration", "Project.properties");
 		if (!java.nio.file.Files.exists(propertiesPath)) {
@@ -118,9 +131,60 @@ public class CommonMethods {
 		String PKCE = readProps.ReadFile("PKCE");
 
 		if (PKCE == "true" || PKCE.equalsIgnoreCase("true")) {
-			System.out.println("PKCE flow is not implemented yet, failing the test");
-			Assert.fail("PKCE flow is not implemented yet, failing the test");
-			return null;
+			// Use KeycloakStep1And2And3WithCookies for PKCE flow
+			String kcBase = keycloakurl + "/realms/nexus";
+			String clientId = "nexus-portal";
+			String redirectUri = "https://oauth.usebruno.com/callback";
+			
+			System.out.println("\n========== PKCE Flow Started ==========");
+			System.out.println("Keycloak Base: " + kcBase);
+			System.out.println("Client ID: " + clientId);
+			System.out.println("Username: " + userName);
+			
+			// Step 1: Auth GET
+			Map<String, Object> context = KeycloakStep1And2And3WithCookies.stage1Auth(kcBase, clientId, redirectUri);
+			System.out.println("Step 1 - Flow Step: " + context.get("flow_step"));
+			System.out.println("Step 1 - Auth Code: " + context.getOrDefault("auth_code", "NOT FOUND"));
+
+			// Step 2: Login POST (if needed)
+			if ("need_login".equals(context.get("flow_step"))) {
+				System.out.println("Step 2 - Performing login...");
+				context.putAll(KeycloakStep1And2And3WithCookies.step2Login((String) context.get("kc_login_action"),
+						userName, Password, "on",
+						(Map<String, String>) context.get("cookies")));
+				System.out.println("Step 2 - Flow Step After Login: " + context.get("flow_step"));
+				System.out.println("Step 2 - Auth Code After Login: " + context.getOrDefault("auth_code", "NOT FOUND"));
+			} else if ("got_code".equals(context.get("flow_step"))) {
+				System.out.println("Step 2 - Skipped (already have auth code from Step 1)");
+			}
+
+			// Step 3: Token Exchange
+			String authCodeForExchange = (String) context.getOrDefault("auth_code", "");
+			System.out.println("Step 3 - Auth Code to exchange: " + (authCodeForExchange.isEmpty() ? "EMPTY!" : authCodeForExchange));
+			System.out.println("Step 3 - PKCE Verifier: " + context.get("pkce_verifier"));
+			
+			Map<String, Object> tokenContext = KeycloakStep1And2And3WithCookies.step3TokenExchange(
+					kcBase, clientId, redirectUri,
+					authCodeForExchange,
+					(String) context.get("pkce_verifier"),
+					(Map<String, String>) context.get("cookies")
+			);
+
+			System.out.println("\n========== Token Exchange Result ==========");
+			System.out.println("Access Token: " + tokenContext.get("access_token"));
+			System.out.println("Refresh Token: " + tokenContext.get("refresh_token"));
+			auth_token = (String) tokenContext.get("access_token");
+			
+			if (auth_token == null || auth_token.isEmpty()) {
+				System.out.println("❌ PKCE Flow Failed - No access token received");
+				System.out.println("Full Token Context: " + tokenContext);
+				Assert.fail("Authorization failed/Invalid Token/Check User Name");
+			}
+			
+			// Cache the token with expiration time (300 seconds = 5 minutes)
+			cachedToken = auth_token;
+			tokenExpirationTime = System.currentTimeMillis() + 300000;
+			System.out.println("✅ Token cached, expires in 300 seconds");
 
 		} else {
 
@@ -129,15 +193,24 @@ public class CommonMethods {
 					.contentType("application/x-www-form-urlencoded").formParam("grant_type", "password")
 					.formParam("username", userName).formParam("password", Password).when().post(url);
 
+
 			try {
 				boolean f = (response.path("error").toString()).contains("invalid_grant");
-				if (f == true) {
+				if (f == true || response.path("access_token") == null) {
 					Assert.fail("Authorization failed/Invalid Token/Check User Name");
 				}
 			} catch (NullPointerException e) {
 
 			}
+
 			auth_token = response.path("access_token").toString();
+			
+			// Cache the token with expiration time (from response or default 300 seconds)
+			Integer expiresIn = response.path("expires_in");
+			long expirationMs = (expiresIn != null && expiresIn > 0) ? expiresIn * 1000 : 300000;
+			cachedToken = auth_token;
+			tokenExpirationTime = System.currentTimeMillis() + expirationMs;
+			System.out.println("✅ Token cached, expires in " + expirationMs / 1000 + " seconds");
 
 		}
 		return auth_token;
@@ -222,7 +295,7 @@ public class CommonMethods {
 
 		RequestSpecification httpRequest = RestAssured.given()
 				.headers("Authorization", "Bearer " + getToken(), "Content-Type", ContentType.JSON, "Accept", "*/*",
-						"Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
+						"Connection", "keep-alive")
 				.body(jsonDataInFile);
 
 		System.out.println("Posting call Body :" + bodycontent.toString());
@@ -257,9 +330,8 @@ public class CommonMethods {
 
 		RequestSpecification httpRequest = RestAssured.given()
 				.headers("Authorization", "Bearer " + getToken(), "Content-Type", ContentType.JSON, "Accept", "*/*",
-						"Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
+					"Connection", "keep-alive")
 				.body(jsonDataInFile);
-
 		response = httpRequest.post();
 		System.out.println("Response :" + response.asString());
 
@@ -287,7 +359,7 @@ public class CommonMethods {
 
 		RequestSpecification httpRequest = RestAssured.given()
 				.headers("Authorization", "Bearer " + getToken(), "Content-Type", ContentType.JSON, "Accept", "*/*",
-						"Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
+						"Connection", "keep-alive")
 				.body(payload);
 
 		response = httpRequest.post();
@@ -320,7 +392,7 @@ public class CommonMethods {
 
 		RequestSpecification httpRequest = RestAssured.given()
 				.headers("Authorization", "Bearer " + getToken(), "Content-Type", ContentType.JSON, "Accept", "*/*",
-						"Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
+						"Connection", "keep-alive")
 				.body(payload);
 
 		response = httpRequest.post();
@@ -354,7 +426,7 @@ public class CommonMethods {
 
 		RequestSpecification httpRequest = RestAssured.given()
 				.headers("Authorization", "Bearer " + getToken(), "Content-Type", ContentType.JSON, "Accept", "*/*",
-						"Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
+						"Connection", "keep-alive")
 				.body(payload);
 
 		System.out.println("Uri Payload =" + payload);
@@ -390,7 +462,7 @@ public class CommonMethods {
 
 		RequestSpecification httpRequest = RestAssured.given()
 				.headers("Authorization", "Bearer " + getToken(), "Content-Type", ContentType.JSON, "Accept", "*/*",
-						"Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
+						"Connection", "keep-alive")
 				.body(payload);
 
 		response = httpRequest.post();
@@ -427,8 +499,7 @@ public class CommonMethods {
 		ExtentReportManager.logRequest("GET", uri, version, "");
 
 		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "bearer " + getToken(),
-				"Content-Type", ContentType.JSON, "Accept", "*/*", "Connection", "keep-alive", "Accept-Encoding",
-				"gzip, deflate, br", "Cache-Control", "no-cache", "urlEncodingEnabled", "false");
+				"Content-Type", ContentType.JSON, "Accept", "*/*", "Connection", "keep-alive", "Cache-Control", "no-cache", "urlEncodingEnabled", "false");
 
 		Response response = httpRequest.get();
 
@@ -497,7 +568,7 @@ public class CommonMethods {
 		ExtentReportManager.logRequest("GET", uri, version, params.toString());
 
 		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
-				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
+				"Content-Type", ContentType.JSON, "Connection", "keep-alive")
 				.queryParams(params);
 
 		Response response = httpRequest.get();
@@ -526,7 +597,7 @@ public class CommonMethods {
 		ExtentReportManager.logRequest("GET", uri, version, params.toString());
 
 		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
-				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
+				"Content-Type", ContentType.JSON, "Connection", "keep-alive")
 				.queryParams(params);
 
 		Response response = httpRequest.get();
@@ -565,7 +636,7 @@ public class CommonMethods {
 
 		RequestSpecification httpRequest = RestAssured
 				.given().headers("Authorization", "Bearer " + getToken(), "Content-Type", ContentType.JSON,
-						"Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
+						"Connection", "keep-alive")
 				.queryParams(params).body(jsonDataInFile);
 		String expe = new String(Files.readAllBytes(Paths.get(responseFile)));
 		System.out.println("Expected Response as in file : " + expe);
@@ -604,7 +675,7 @@ public class CommonMethods {
 		ExtentReportManager.logRequest("PUT", uri, version, "Payload file: " + payload);
 
 		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
-				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
+				"Content-Type", ContentType.JSON, "Connection", "keep-alive")
 				.body(jsonDataInFile);
 		System.out.println(httpRequest.toString());
 		ValidatableResponse response = httpRequest.put().then().log().all();
@@ -730,7 +801,7 @@ public class CommonMethods {
 		ExtentReportManager.logRequest("PUT", uri, version, "Payload file: " + payload);
 
 		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
-				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
+				"Content-Type", ContentType.JSON, "Connection", "keep-alive")
 				.body(jsonDataInFile);
 		String expe = new String(Files.readAllBytes(Paths.get(fresponse)));
 		System.out.println("Expected Response as in file : " + expe);
@@ -768,7 +839,7 @@ public class CommonMethods {
 		ExtentReportManager.logRequest("PUT", uri, version, payloadfile);
 
 		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
-				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
+				"Content-Type", ContentType.JSON, "Connection", "keep-alive")
 				.body(payloadfile);
 		System.out.println("** PUT call uri ** " + RestAssured.baseURI);
 		System.out.println("** PUT call payload ** " + payloadfile);
@@ -809,7 +880,7 @@ public class CommonMethods {
 		ExtentReportManager.logRequest("PUT", uri, version, payload);
 
 		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
-				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
+				"Content-Type", ContentType.JSON, "Connection", "keep-alive")
 				.body(payload);
 		System.out.println("** PUT call Body **" + payload);
 		Response response = httpRequest.put();
@@ -847,7 +918,7 @@ public class CommonMethods {
 		ExtentReportManager.logRequest("PUT", uri, version, payload);
 
 		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
-				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
+				"Content-Type", ContentType.JSON, "Connection", "keep-alive")
 				.body(payload);
 
 		String expected = new String(Files.readAllBytes(Paths.get(jsonDataInFile)));
@@ -890,7 +961,7 @@ public class CommonMethods {
 		ExtentReportManager.logRequest("GET", uri, version, params.toString());
 
 		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
-				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
+				"Content-Type", ContentType.JSON, "Connection", "keep-alive")
 				.queryParams(params);
 
 		ValidatableResponse response = httpRequest.get().then().assertThat()
@@ -925,7 +996,7 @@ public class CommonMethods {
 
 		RestAssured.baseURI = RestAssured.baseURI + uri;
 		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
-				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br");
+				"Content-Type", ContentType.JSON, "Connection", "keep-alive");
 
 		ValidatableResponse response = httpRequest.get().then().assertThat().statusCode(200);
 
@@ -1006,7 +1077,7 @@ public class CommonMethods {
 
 		RequestSpecification httpRequest = RestAssured.given()
 				.headers("Authorization", "Bearer " + getToken(), "Content-Type", ContentType.JSON, "Accept", "*/*",
-						"Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
+						"Connection", "keep-alive")
 				.body(rawbody);
 
 		Response response = httpRequest.put();
@@ -1049,7 +1120,7 @@ public class CommonMethods {
 		ExtentReportManager.logRequest("GET", uri, version, params.toString());
 
 		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
-				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
+				"Content-Type", ContentType.JSON, "Connection", "keep-alive")
 				.queryParams(params);
 
 		String validate = new String(Files.readAllBytes(Paths.get(jpath)));
@@ -1087,7 +1158,7 @@ public class CommonMethods {
 		ExtentReportManager.logRequest("GET", uri, version, params.toString());
 
 		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
-				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
+				"Content-Type", ContentType.JSON, "Connection", "keep-alive")
 				.queryParams(params);
 
 		System.out.println("Veriying String =" + expected);
@@ -1126,7 +1197,7 @@ public class CommonMethods {
 		ExtentReportManager.logRequest("GET", uri, version, params.toString());
 
 		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
-				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
+				"Content-Type", ContentType.JSON, "Connection", "keep-alive")
 				.queryParams(params);
 
 		String response;
@@ -1156,7 +1227,7 @@ public class CommonMethods {
 		ExtentReportManager.logRequest("GET", uri, version, rawbody);
 
 		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
-				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br")
+				"Content-Type", ContentType.JSON, "Connection", "keep-alive")
 				.body(rawbody);
 
 		String response;
@@ -1186,7 +1257,7 @@ public class CommonMethods {
 		ExtentReportManager.logRequest("DELETE", uri, version, "Expected from file: " + jpath);
 
 		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
-				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br");
+				"Content-Type", ContentType.JSON, "Connection", "keep-alive");
 
 		ValidatableResponse response;
 		String validate = new String(Files.readAllBytes(Paths.get(jpath)));
@@ -1224,7 +1295,7 @@ public class CommonMethods {
 		ExtentReportManager.logRequest("DELETE", uri, version, "");
 
 		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
-				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br");
+				"Content-Type", ContentType.JSON, "Connection", "keep-alive");
 
 		Response response;
 
@@ -1259,7 +1330,7 @@ public class CommonMethods {
 		ExtentReportManager.logRequest("DELETE", uri, version, "");
 
 		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
-				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br");
+				"Content-Type", ContentType.JSON, "Connection", "keep-alive");
 
 		String response = httpRequest.delete().asString();
 		System.out.println(response);
@@ -1286,7 +1357,7 @@ public class CommonMethods {
 		ExtentReportManager.logRequest("DELETE", uri, version, params.toString());
 
 		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
-				"Content-Type", ContentType.JSON, "Connection", "keep-alive", "Accept-Encoding", "gzip, deflate, br");
+				"Content-Type", ContentType.JSON, "Connection", "keep-alive");
 		httpRequest.queryParams(params);
 		String response = httpRequest.delete().asString();
 		System.out.println(response);
