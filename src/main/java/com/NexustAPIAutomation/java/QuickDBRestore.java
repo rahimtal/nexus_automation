@@ -47,7 +47,7 @@ public class QuickDBRestore {
                     "-U", username,
                     "-P", password,
                     "-Q",
-                    "RESTORE DATABASE [" + databaseName + "] FROM DISK=N'" + backupFilePath + "' WITH REPLACE, RECOVERY, MOVE 'GPSTWODat.mdf' TO '/var/opt/mssql/data/GPSTWODat.mdf', MOVE 'GPSTWOLog.ldf' TO '/var/opt/mssql/data/GPSTWOLog.ldf'"
+                    "RESTORE DATABASE [" + databaseName + "] FROM DISK=N'" + backupFilePath + "' WITH REPLACE, RECOVERY, MOVE 'GPSTWODat.mdf' TO '/var/opt/mssql/data/TWODat.mdf', MOVE 'GPSTWOLog.ldf' TO '/var/opt/mssql/data/TWOLog.ldf'"
             });
 
             // Capture output and error streams for debugging
