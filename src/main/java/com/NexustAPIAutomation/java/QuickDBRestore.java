@@ -2,8 +2,6 @@ package com.NexustAPIAutomation.java;
 
 import java.io.IOException;
 
-import org.testng.Assert;
-
 public class QuickDBRestore {
     public static void main(String[] args) throws IOException {
         restoreDatabase();
@@ -19,8 +17,7 @@ public class QuickDBRestore {
 
         if (serverName == null || username == null || password == null || databaseName == null
                 || backupFilePath == null) {
-            Assert.fail("One or more required properties are missing in Project.properties file.");
-            return;
+            throw new RuntimeException("One or more required properties are missing in Project.properties file.");
         }
 
         try {
@@ -50,17 +47,48 @@ public class QuickDBRestore {
                     "-U", username,
                     "-P", password,
                     "-Q",
-                    "RESTORE DATABASE [" + databaseName + "] FROM DISK=N'" + backupFilePath + "' WITH REPLACE, RECOVERY"
+                    "RESTORE DATABASE [" + databaseName + "] FROM DISK=N'" + backupFilePath + "' WITH REPLACE, RECOVERY, MOVE 'GPSTWODat.mdf' TO '/var/opt/mssql/data/GPSTWODat.mdf', MOVE 'GPSTWOLog.ldf' TO '/var/opt/mssql/data/GPSTWOLog.ldf'"
             });
 
-            // Log output and error streams for debugging
-            logStream(restoreDb.getInputStream(), "RESTORE DB OUTPUT");
-            logStream(restoreDb.getErrorStream(), "RESTORE DB ERROR");
+            // Capture output and error streams for debugging
+            StringBuilder outputBuilder = new StringBuilder();
+            StringBuilder errorBuilder = new StringBuilder();
+            
+            Thread outputThread = new Thread(() -> {
+                try (java.util.Scanner s = new java.util.Scanner(restoreDb.getInputStream())) {
+                    while (s.hasNextLine()) {
+                        String line = s.nextLine();
+                        outputBuilder.append(line).append("\n");
+                        System.out.println("RESTORE DB OUTPUT: " + line);
+                    }
+                }
+            });
+            
+            Thread errorThread = new Thread(() -> {
+                try (java.util.Scanner s = new java.util.Scanner(restoreDb.getErrorStream())) {
+                    while (s.hasNextLine()) {
+                        String line = s.nextLine();
+                        errorBuilder.append(line).append("\n");
+                        System.out.println("RESTORE DB ERROR: " + line);
+                    }
+                }
+            });
+            
+            outputThread.start();
+            errorThread.start();
 
             int restoreExitCode = restoreDb.waitFor();
-            if (restoreExitCode != 0) {
-                System.out.println("Restore database command failed with exit code: " + restoreExitCode);
-                Assert.fail("Restore database command failed. Check sqlcmd availability and parameters.");
+            outputThread.join();
+            errorThread.join();
+            
+            String output = outputBuilder.toString();
+            
+            // Check for SQL errors in output (Msg xxxx indicates SQL Server error)
+            if (output.contains("Msg ") || restoreExitCode != 0) {
+                System.out.println("Restore database command failed.");
+                System.out.println("Exit Code: " + restoreExitCode);
+                System.out.println("Output:\n" + output);
+                throw new RuntimeException("Restore database command failed. Check backup file path and SQL Server access. Output: " + output);
             } else {
                 System.out.println("Database restored successfully.");
             }
@@ -70,12 +98,10 @@ public class QuickDBRestore {
             System.out.println("Restore DB ==============================");
         } catch (InterruptedException | IOException e) {
             System.out.println("Database restore task INTERRUPTED or IO error occurred.");
-            Assert.fail("Database restore task INTERRUPTED or IO error: " + e.getMessage());
-            System.exit(1);
+            throw new RuntimeException("Database restore task INTERRUPTED or IO error: " + e.getMessage(), e);
         } catch (Exception e) {
             System.out.println("Database restore task FAILED.");
-            Assert.fail("Database restore task FAILED: " + e.getMessage());
-            System.exit(1);
+            throw new RuntimeException("Database restore task FAILED: " + e.getMessage(), e);
         }
         System.out.println("Database restore task completed.");
     }

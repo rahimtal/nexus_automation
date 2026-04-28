@@ -52,7 +52,7 @@ public class DataBackupRestore {
 
 		// This function will restore latest db backup along with new patches and script
 		// from source
-		CompanyDBRestore();
+		//CompanyDBRestore();
 
 	}
 

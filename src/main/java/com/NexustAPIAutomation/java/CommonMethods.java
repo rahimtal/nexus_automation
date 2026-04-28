@@ -41,8 +41,6 @@ import org.json.simple.parser.ParseException;
 import org.testng.SkipException;
 
 import com.google.gson.Gson;
-import com.profesorfalken.jpowershell.PowerShell;
-import com.profesorfalken.jpowershell.PowerShellResponse;
 
 import io.restassured.RestAssured;
 import io.restassured.config.HttpClientConfig;
@@ -221,7 +219,7 @@ public class CommonMethods {
 		Thread.sleep(i);
 	}
 
-	public static boolean CompanyDBRestore() {
+	public static boolean CompanyDBRestore() throws IOException {
 
 		try {
 			CommonMethods.Delay(10000);
@@ -230,15 +228,11 @@ public class CommonMethods {
 		}
 
 		try {
-			PowerShell powerShell = PowerShell.openSession();
-			PowerShellResponse response;
-			Map<String, String> config = new HashMap<String, String>();
-			config.put("maxWait", "200000");
-			response = powerShell.configuration(config).executeScript("./\\Configuration\\DBOnlyrestore.ps1");
-			System.out.println("Script output:" + response.getCommandOutput());
+			QuickDBRestore.restoreDatabase();
+			System.out.println("Database restore completed successfully");
 		} catch (Exception e) {
 			e.printStackTrace();
-			Assert.fail("Scripts got error while rinning DB Scripts, please see logs");
+			Assert.fail("Database restore failed: " + e.getMessage());
 			System.exit(1);
 		}
 
