@@ -8,6 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.JsonComparator;
 
 public class Private_ActionsMenuController_Test extends BaseClass {
     @Test(priority = 2, groups = "ActionsMenu")
@@ -60,7 +61,8 @@ public class Private_ActionsMenuController_Test extends BaseClass {
         params.put("CustomerId", "CUSTOMER002");
         params.put("LocationId", "SEWER003");
         String result = CommonMethods.getMethodasString(uri, ver, params);
-        Assert.assertEquals(result, expected);
+        // Use JsonComparator to ignore dynamic hostnames in cogsDrillback URLs
+        JsonComparator.assertEqualsIgnoreHostnames(result, expected);
 
     }
 
