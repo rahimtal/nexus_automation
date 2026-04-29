@@ -41,6 +41,7 @@ import org.json.simple.parser.ParseException;
 import org.testng.SkipException;
 
 import com.google.gson.Gson;
+import com.NexustAPIAutomation.java.JsonComparator;
 
 import io.restassured.RestAssured;
 import io.restassured.config.HttpClientConfig;
@@ -63,6 +64,8 @@ public class CommonMethods {
 	private static String cachedToken = null;
 	private static long tokenExpirationTime = 0;
 	private static final long TOKEN_BUFFER = 30000; // 30 second buffer before expiration
+	private static final int MAX_RETRY_ATTEMPTS = 2; // Retry once on auth failure
+	private static final long RETRY_DELAY_MS = 1000; // 1 second delay before retry
 	
 	public static String urlv1 = Read.ReadFile("urlv1");
 	public static String urlv2 = Read.ReadFile("urlv2");
@@ -97,6 +100,7 @@ public class CommonMethods {
 			case "3.0":
 				return urlv3;
 			case "4.0":
+				return urlv4;
 			case "4":
 				return urlv4;
 			case "e":
@@ -133,11 +137,13 @@ public class CommonMethods {
 			String kcBase = keycloakurl + "/realms/nexus";
 			String clientId = "nexus-portal";
 			String redirectUri = "https://oauth.usebruno.com/callback";
+			String keycloakUsername =  readProps.ReadFile("username");  // "sa_automation"; // Keycloak user (different from API username)
+			String keycloakPassword = readProps.ReadFile("password"); // Keycloak user password
 			
 			System.out.println("\n========== PKCE Flow Started ==========");
 			System.out.println("Keycloak Base: " + kcBase);
 			System.out.println("Client ID: " + clientId);
-			System.out.println("Username: " + userName);
+			System.out.println("Username: " + keycloakUsername);
 			
 			// Step 1: Auth GET
 			Map<String, Object> context = KeycloakStep1And2And3WithCookies.stage1Auth(kcBase, clientId, redirectUri);
@@ -148,7 +154,7 @@ public class CommonMethods {
 			if ("need_login".equals(context.get("flow_step"))) {
 				System.out.println("Step 2 - Performing login...");
 				context.putAll(KeycloakStep1And2And3WithCookies.step2Login((String) context.get("kc_login_action"),
-						userName, Password, "on",
+						keycloakUsername, keycloakPassword, "on",
 						(Map<String, String>) context.get("cookies")));
 				System.out.println("Step 2 - Flow Step After Login: " + context.get("flow_step"));
 				System.out.println("Step 2 - Auth Code After Login: " + context.getOrDefault("auth_code", "NOT FOUND"));
@@ -213,6 +219,30 @@ public class CommonMethods {
 		}
 		return auth_token;
 
+	}
+
+	/**
+	 * Force token refresh by clearing cache - next call to getToken() will acquire a fresh token
+	 */
+	public static void forceTokenRefresh() {
+		System.out.println("🔄 Forcing token refresh...");
+		cachedToken = null;
+		tokenExpirationTime = 0;
+	}
+
+	/**
+	 * Check if response indicates authentication failure
+	 */
+	private static boolean isAuthenticationFailure(Response response) {
+		if (response.getStatusCode() == 401) {
+			return true; // Unauthorized
+		}
+		String body = response.asString().toLowerCase();
+		if (body.contains("refresh_failed") || body.contains("unable to refresh access token") || 
+		    body.contains("not authenticated") || body.contains("unauthorized")) {
+			return true;
+		}
+		return false;
 	}
 
 	public static void Delay(int i) throws InterruptedException {
@@ -411,28 +441,49 @@ public class CommonMethods {
 			RestAssured.baseURI = baseUri;
 		}
 
-		Response response;
-		JsonPath jsonPathEvaluator;
-		RestAssured.baseURI = RestAssured.baseURI + uri;
-		System.out.println("Posting uri  = " + version + "   " + uri);
+		// Retry logic for authentication failures
+		for (int attempt = 1; attempt <= MAX_RETRY_ATTEMPTS; attempt++) {
+			Response response;
+			JsonPath jsonPathEvaluator;
+			RestAssured.baseURI = (baseUri != null ? baseUri : "") + uri;
+			System.out.println("POST Attempt " + attempt + " of " + MAX_RETRY_ATTEMPTS);
+			System.out.println("Posting uri  = " + version + "   " + uri);
 
-		ExtentReportManager.logRequest("POST", uri, version, payload);
+			ExtentReportManager.logRequest("POST", uri, version, payload);
 
-		RequestSpecification httpRequest = RestAssured.given()
-				.headers("Authorization", "Bearer " + getToken(), "Content-Type", ContentType.JSON, "Accept", "*/*",
-						"Connection", "keep-alive")
-				.body(payload);
+			RequestSpecification httpRequest = RestAssured.given()
+					.headers("Authorization", "Bearer " + getToken(), "Content-Type", ContentType.JSON, "Accept", "*/*",
+							"Connection", "keep-alive")
+					.body(payload);
 
-		System.out.println("Uri Payload =" + payload);
-		response = httpRequest.post();
-		System.out.println("Uri Response =" + response.asString());
+			System.out.println("Uri Payload =" + payload);
+			response = httpRequest.post();
+			System.out.println("Uri Response =" + response.asString());
+			System.out.println("Status Code: " + response.getStatusCode());
 
-		ExtentReportManager.logResponse(response.getStatusCode(), response.asString());
+			// Check if authentication failed
+			if (isAuthenticationFailure(response)) {
+				if (attempt < MAX_RETRY_ATTEMPTS) {
+					System.out.println("⚠️ Authentication failure detected (Attempt " + attempt + "/" + MAX_RETRY_ATTEMPTS + "), retrying with fresh token...");
+					forceTokenRefresh();
+					Thread.sleep(RETRY_DELAY_MS);
+					continue;
+				} else {
+					System.out.println("❌ Authentication failed after " + MAX_RETRY_ATTEMPTS + " attempts");
+				}
+			}
 
-		jsonPathEvaluator = response.jsonPath();
+			ExtentReportManager.logResponse(response.getStatusCode(), response.asString());
 
-		Thread.sleep(10000);
-		return response.asString();
+			jsonPathEvaluator = response.jsonPath();
+
+			Thread.sleep(10000);
+			return response.asString();
+		}
+
+		// Should not reach here
+		Assert.fail("Unable to complete POST request after " + MAX_RETRY_ATTEMPTS + " attempts");
+		return null;
 
 	}
 
@@ -447,34 +498,54 @@ public class CommonMethods {
 			RestAssured.baseURI = baseUri;
 		}
 
-		System.out.println("Payload = " + payload);
-		Response response;
-		RestAssured.baseURI = RestAssured.baseURI + uri;
-		System.out.println("Posting uri  = " + version + "   " + uri);
+		// Retry logic for authentication failures
+		for (int attempt = 1; attempt <= MAX_RETRY_ATTEMPTS; attempt++) {
+			System.out.println("Payload = " + payload);
+			Response response;
+			RestAssured.baseURI = (baseUri != null ? baseUri : "") + uri;
+			System.out.println("POST Attempt " + attempt + " of " + MAX_RETRY_ATTEMPTS);
+			System.out.println("Posting uri  = " + version + "   " + uri);
 
-		ExtentReportManager.logRequest("POST", uri, version, payload);
+			ExtentReportManager.logRequest("POST", uri, version, payload);
 
-		RequestSpecification httpRequest = RestAssured.given()
-				.headers("Authorization", "Bearer " + getToken(), "Content-Type", ContentType.JSON, "Accept", "*/*",
-						"Connection", "keep-alive")
-				.body(payload);
+			RequestSpecification httpRequest = RestAssured.given()
+					.headers("Authorization", "Bearer " + getToken(), "Content-Type", ContentType.JSON, "Accept", "*/*",
+							"Connection", "keep-alive")
+					.body(payload);
 
-		response = httpRequest.post();
-		System.out.println("Actual Response =" + response.asString());
-		System.out.println("Expected Response =" + expected);
+			response = httpRequest.post();
+			System.out.println("Actual Response =" + response.asString());
+			System.out.println("Expected Response =" + expected);
+			System.out.println("Status Code: " + response.getStatusCode());
 
-		ExtentReportManager.logResponse(response.getStatusCode(), response.asString());
+			// Check if authentication failed
+			if (isAuthenticationFailure(response)) {
+				if (attempt < MAX_RETRY_ATTEMPTS) {
+					System.out.println("⚠️ Authentication failure detected (Attempt " + attempt + "/" + MAX_RETRY_ATTEMPTS + "), retrying with fresh token...");
+					forceTokenRefresh();
+					Thread.sleep(RETRY_DELAY_MS);
+					continue;
+				} else {
+					System.out.println("❌ Authentication failed after " + MAX_RETRY_ATTEMPTS + " attempts");
+				}
+			}
 
-		Thread.sleep(10000);
+			ExtentReportManager.logResponse(response.getStatusCode(), response.asString());
 
-		try {
-			Assert.assertEquals(response.asString(), expected);
-			ExtentReportManager.logValidation(expected, response.asString(), true);
-		} catch (AssertionError e) {
-			ExtentReportManager.logValidation(expected, response.asString(), false);
-			throw e;
+			Thread.sleep(10000);
+
+			try {
+				Assert.assertEquals(response.asString(), expected);
+				ExtentReportManager.logValidation(expected, response.asString(), true);
+				return; // Success, exit retry loop
+			} catch (AssertionError e) {
+				ExtentReportManager.logValidation(expected, response.asString(), false);
+				throw e;
+			}
 		}
 
+		// Should not reach here
+		Assert.fail("Unable to complete POST request after " + MAX_RETRY_ATTEMPTS + " attempts");
 	}
 
 	public static JsonPath getMethod(String uri, String version) throws InterruptedException {
@@ -601,6 +672,44 @@ public class CommonMethods {
 
 		try {
 			Assert.assertEquals(response.asString(), expe);
+			ExtentReportManager.logValidation(expe, response.asString(), true);
+		} catch (AssertionError e) {
+			ExtentReportManager.logValidation(expe, response.asString(), false);
+			throw e;
+		}
+
+		return response.asString();
+	}
+
+	// Overload for hostname-aware comparison (ignores hostname differences in DrillbackLink URLs)
+	public static String getMethodIgnoreHostnames(String uri, String version, HashMap<String, String> params, String jpath)
+			throws InterruptedException, IOException {
+
+		String baseUri = resolveBaseUri(version);
+		if (baseUri == null) {
+			Assert.fail("Invalid version: " + version);
+			return null;
+		}
+		RestAssured.baseURI = baseUri;
+
+		String expe = new String(Files.readAllBytes(Paths.get(jpath)));
+		System.out.println("Expected Response as in file : " + jpath + " = " + expe);
+		RestAssured.baseURI = RestAssured.baseURI + uri;
+		System.out.println("Tesing URI:" + RestAssured.baseURI.toString());
+
+		ExtentReportManager.logRequest("GET", uri, version, params.toString());
+
+		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
+				"Content-Type", ContentType.JSON, "Connection", "keep-alive")
+				.queryParams(params);
+
+		Response response = httpRequest.get();
+		System.out.print(response.asString());
+
+		ExtentReportManager.logResponse(response.getStatusCode(), response.asString());
+
+		try {
+			JsonComparator.assertEqualsIgnoreHostnames(response.asString(), expe);
 			ExtentReportManager.logValidation(expe, response.asString(), true);
 		} catch (AssertionError e) {
 			ExtentReportManager.logValidation(expe, response.asString(), false);
@@ -868,30 +977,50 @@ public class CommonMethods {
 			RestAssured.baseURI = baseUri;
 		}
 
-		RestAssured.baseURI = RestAssured.baseURI + uri;
-		System.out.println(RestAssured.baseURI.toString());
+		// Retry logic for authentication failures
+		for (int attempt = 1; attempt <= MAX_RETRY_ATTEMPTS; attempt++) {
+			RestAssured.baseURI = (baseUri != null ? baseUri : "") + uri;
+			System.out.println(RestAssured.baseURI.toString());
 
-		ExtentReportManager.logRequest("PUT", uri, version, payload);
+			ExtentReportManager.logRequest("PUT", uri, version, payload);
 
-		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
-				"Content-Type", ContentType.JSON, "Connection", "keep-alive")
-				.body(payload);
-		System.out.println("** PUT call Body **" + payload);
-		Response response = httpRequest.put();
-		System.out.println("** PUT call Response **");
-		System.out.println(response.getBody().asString());
+			RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
+					"Content-Type", ContentType.JSON, "Connection", "keep-alive")
+					.body(payload);
+			System.out.println("PUT Attempt " + attempt + " of " + MAX_RETRY_ATTEMPTS);
+			System.out.println("** PUT call Body **" + payload);
+			Response response = httpRequest.put();
+			System.out.println("Status Code: " + response.getStatusCode());
+			System.out.println("** PUT call Response **");
+			System.out.println(response.getBody().asString());
 
-		ExtentReportManager.logResponse(response.getStatusCode(), response.getBody().asString());
+			// Check if authentication failed
+			if (isAuthenticationFailure(response)) {
+				if (attempt < MAX_RETRY_ATTEMPTS) {
+					System.out.println("⚠️ Authentication failure detected (Attempt " + attempt + "/" + MAX_RETRY_ATTEMPTS + "), retrying with fresh token...");
+					forceTokenRefresh();
+					Thread.sleep(RETRY_DELAY_MS);
+					continue;
+				} else {
+					System.out.println("❌ Authentication failed after " + MAX_RETRY_ATTEMPTS + " attempts");
+				}
+			}
 
-		try {
-			Assert.assertEquals(response.getBody().asString(), expected);
-			ExtentReportManager.logPass("Response matches expected output");
-		} catch (AssertionError e) {
-			ExtentReportManager.logFail("Response does NOT match expected output");
-			throw e;
+			ExtentReportManager.logResponse(response.getStatusCode(), response.getBody().asString());
+
+			try {
+				Assert.assertEquals(response.getBody().asString(), expected);
+				ExtentReportManager.logPass("Response matches expected output");
+				return response.getBody().asString(); // Success, exit retry loop
+			} catch (AssertionError e) {
+				ExtentReportManager.logFail("Response does NOT match expected output");
+				throw e;
+			}
 		}
 
-		return response.getBody().asString();
+		// Should not reach here
+		Assert.fail("Unable to complete PUT request after " + MAX_RETRY_ATTEMPTS + " attempts");
+		return null;
 
 	}
 
@@ -1151,27 +1280,46 @@ public class CommonMethods {
 
 		ExtentReportManager.logRequest("GET", uri, version, params.toString());
 
-		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
-				"Content-Type", ContentType.JSON, "Connection", "keep-alive")
-				.queryParams(params);
+		// Retry logic for authentication failures
+		for (int attempt = 1; attempt <= MAX_RETRY_ATTEMPTS; attempt++) {
+			RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
+					"Content-Type", ContentType.JSON, "Connection", "keep-alive")
+					.queryParams(params);
 
-		System.out.println("Veriying String =" + expected);
+			System.out.println("GET Attempt " + attempt + " of " + MAX_RETRY_ATTEMPTS);
+			System.out.println("Veriying String =" + expected);
 
-		Response rawResponse = httpRequest.get();
+			Response rawResponse = httpRequest.get();
+			System.out.println("Status Code: " + rawResponse.getStatusCode());
 
-		ExtentReportManager.logResponse(rawResponse.getStatusCode(), rawResponse.asString());
+			// Check if authentication failed
+			if (isAuthenticationFailure(rawResponse)) {
+				if (attempt < MAX_RETRY_ATTEMPTS) {
+					System.out.println("⚠️ Authentication failure detected (Attempt " + attempt + "/" + MAX_RETRY_ATTEMPTS + "), retrying with fresh token...");
+					forceTokenRefresh();
+					Thread.sleep(RETRY_DELAY_MS);
+					continue;
+				} else {
+					System.out.println("❌ Authentication failed after " + MAX_RETRY_ATTEMPTS + " attempts");
+				}
+			}
 
-		try {
-			rawResponse.then().assertThat().body(Matchers.containsString(expected));
-			ExtentReportManager.logPass("Response contains expected string");
-		} catch (AssertionError e) {
-			ExtentReportManager.logFail("Response does NOT contain expected string");
-			ExtentReportManager.logValidation(expected, rawResponse.asString(), false);
-			throw e;
+			ExtentReportManager.logResponse(rawResponse.getStatusCode(), rawResponse.asString());
+
+			try {
+				rawResponse.then().assertThat().body(Matchers.containsString(expected));
+				ExtentReportManager.logPass("Response contains expected string");
+				System.out.println("Response  = validated successfully");
+				return; // Success, exit retry loop
+			} catch (AssertionError e) {
+				ExtentReportManager.logFail("Response does NOT contain expected string");
+				ExtentReportManager.logValidation(expected, rawResponse.asString(), false);
+				throw e;
+			}
 		}
 
-		System.out.println("Response  = validated successfully");
-
+		// Should not reach here
+		Assert.fail("Unable to complete GET request after " + MAX_RETRY_ATTEMPTS + " attempts");
 	}
 
 	public static String getMethodasString(String uri, String version, HashMap<String, String> params)
@@ -1190,20 +1338,43 @@ public class CommonMethods {
 
 		ExtentReportManager.logRequest("GET", uri, version, params.toString());
 
-		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
-				"Content-Type", ContentType.JSON, "Connection", "keep-alive")
-				.queryParams(params);
+		// Retry logic for authentication failures
+		for (int attempt = 1; attempt <= MAX_RETRY_ATTEMPTS; attempt++) {
+			RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
+					"Content-Type", ContentType.JSON, "Connection", "keep-alive")
+					.queryParams(params);
 
-		String response;
-		System.out.println("===============================================");
-		System.out.println("===============================================");
-		response = httpRequest.get().asString();
-		System.out.println("URI :" + RestAssured.baseURI.toString());
-		System.out.println("Response :" + response);
+			String response;
+			System.out.println("===============================================");
+			System.out.println("===============================================");
+			System.out.println("GET Attempt " + attempt + " of " + MAX_RETRY_ATTEMPTS);
+			Response rawResponse = httpRequest.get();
+			response = rawResponse.asString();
+			System.out.println("URI :" + RestAssured.baseURI.toString());
+			System.out.println("Response :" + response);
+			System.out.println("Status Code: " + rawResponse.getStatusCode());
 
-		ExtentReportManager.logResponse(200, response);
+			// Check if authentication failed
+			if (isAuthenticationFailure(rawResponse)) {
+				if (attempt < MAX_RETRY_ATTEMPTS) {
+					System.out.println("⚠️ Authentication failure detected (Attempt " + attempt + "/" + MAX_RETRY_ATTEMPTS + "), retrying with fresh token...");
+					forceTokenRefresh();
+					Thread.sleep(RETRY_DELAY_MS);
+					// Reset base URI for next attempt
+					RestAssured.baseURI = resolveBaseUri(version) + uri;
+					continue;
+				} else {
+					System.out.println("❌ Authentication failed after " + MAX_RETRY_ATTEMPTS + " attempts");
+				}
+			}
 
-		return response;
+			ExtentReportManager.logResponse(rawResponse.getStatusCode(), response);
+			return response;
+		}
+
+		// Should not reach here
+		Assert.fail("Unable to complete GET request after " + MAX_RETRY_ATTEMPTS + " attempts");
+		return null;
 	}
 
 	public static String getMethodasString(String uri, String version, String rawbody)
@@ -1423,7 +1594,7 @@ public class CommonMethods {
 		String kcBase = "http://localhost:8080/realms/nexus";
 		String clientId = "nexus-portal";
 		String redirectUri = "https://oauth.pstmn.io/v1/callback";
-		String username = "cogsuser";
+		String username = "sa_automation";
 		String password = "password";
 
 		Map<String, Object> context = KeycloakStep1And2And3WithCookies.stage1Auth(kcBase, clientId, redirectUri);

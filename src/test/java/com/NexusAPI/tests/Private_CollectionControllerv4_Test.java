@@ -4,6 +4,8 @@ import org.testng.annotations.Test; import org.testng.Assert;
 
 import org.testng.annotations.Test; import org.testng.Assert;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.HashMap;
 
@@ -28,19 +30,31 @@ public class Private_CollectionControllerv4_Test  extends BaseClass {
 		System.out.println(result);
 	}
 
-	@Test(priority = 2, groups = "Collection" )
+	@Test(priority = 3, groups = "Collection" )
 	public void getcollectionv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/collection";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\getcollectionv4.json";
-		HashMap<String, String> params = new HashMap<String, String>();
-		// params.put("CustomerId", "CUSTOMER012");
-		// params.put("LocationId", "LOCATION011");
-		String result = CommonMethods.getMethod(uri, ver, params, jpath);
+		
+		// The /collection endpoint requires JSON body parameters, not query parameters
+		// Pass empty/minimal Collection object to retrieve all notices
+		String jsonBody = "{\"Collection\":{}}";
+		
+		String expe = new String(Files.readAllBytes(Paths.get(jpath)));
+		String result = CommonMethods.getMethodasString(uri, ver, jsonBody);
+		
+		try {
+			Assert.assertEquals(result, expe);
+		} catch (AssertionError e) {
+			// Log the actual response for debugging
+			System.out.println("Expected: " + expe);
+			System.out.println("Actual: " + result);
+			throw e;
+		}
 		System.out.println(result);
 	}
 
-	@Test(priority = 3, groups = "Collection" )
+	@Test(priority = 2, groups = "Collection" )
 	public void postcollectionGeneratev4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;

@@ -34,11 +34,50 @@ public class Private_CashieringController_Test extends BaseClass {
 	public static String ConnectionString;
 
 	@Test(priority = 1, groups = "Cashering")
+	public void TC001_1_Cashin() throws ClassNotFoundException, SQLException, InterruptedException {
+
+	String uri = "/cashiering/cashin";
+		String ver = "4.0";
+		String payload = "{\r\n" + //
+						"    \"CashIn\": [\r\n" + //
+						"        {\r\n" + //
+						"            \"RegisterId\": \"REGISTER-00001\",\r\n" + //
+						"            \"OpeningBalance\": 100.00,\r\n" + //
+						"            \"CheckbookId\": \"FIRST NATIONAL\",\r\n" + //
+						"            \"PaymentOriginId\": \"\",\r\n" + //
+						"            \"LoginDateTime\": \"2020-11-09T11:16:01.230\",\r\n" + //
+						"            \"ComputerName\": \"vv\"\r\n" + //
+						"        }\r\n" + //
+						"    ]\r\n" + //
+						"}";
+		jsonPathEvaluator = CommonMethods.postMethodStringPayload(payload, uri, ver);
+		System.out.println("POST Response: " + jsonPathEvaluator.get().toString());
+		
+		// Validate POST response
+		Boolean postSuccess = jsonPathEvaluator.get("CashIn[0].Success");
+		String postMessage = jsonPathEvaluator.get("CashIn[0].Messages[0].Info");
+		int messageLevel = jsonPathEvaluator.get("CashIn[0].Messages[0].Level");
+		
+		Assert.assertTrue(postSuccess, "POST should return Success=true");
+		Assert.assertNotNull(postMessage, "POST should return a message");
+		System.out.println("POST Message: " + postMessage);
+		// Accept either successful message or already logged in message
+		
+		System.out.println("✓ POST validation passed: Success=" + postSuccess + ", Message=" + postMessage);
+
+		Thread.sleep(25000); // Wait for the cash-in to be processed before GET
+		
+		
+	}
+
+	@Test(priority = 2, groups = "Cashering")
 	public void TC003_1_getCashin() throws ClassNotFoundException, SQLException, InterruptedException {
 
-		String uri = "/cashiering/cashIn";
+	
 		String ver = "4.0";
-		String payload = "";
+		 String		 uri = "/cashiering/cashIn";
+		ver = "4.0";
+		 
 		jsonPathEvaluator = CommonMethods.getMethod(uri, ver);
 		System.out.println(jsonPathEvaluator.get().toString());
 		Boolean Result = jsonPathEvaluator.get("CashedIn[0].IsCashedIn");

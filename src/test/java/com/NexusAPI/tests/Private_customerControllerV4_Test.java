@@ -13,6 +13,7 @@ import org.testng.annotations.Test;
 import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.JsonComparator;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.ValidatableResponse;
@@ -72,7 +73,8 @@ public class Private_customerControllerV4_Test extends BaseClass {
 		params.put("CustomerId", "CUSTOMER007");
 		params.put("LocationId", "ELECWAT001");
 
-		CommonMethods.getMethodContainsString(uri, ver, params, expected);
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		JsonComparator.assertEqualsIgnoreHostnames(result, expected);
 
 	}
 
@@ -89,7 +91,8 @@ public class Private_customerControllerV4_Test extends BaseClass {
 		params.put("SecondaryCustomerId", "03332301204");
 		params.put("LocationId", "ELECWAT001");
 
-		CommonMethods.getMethodContainsString(uri, ver, params, expected);
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		JsonComparator.assertEqualsIgnoreHostnames(result, expected);
 
 	}
 
