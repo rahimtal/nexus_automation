@@ -8,6 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.JsonComparator;
 
 public class Private_AlertPanelController_Test extends BaseClass {
 
@@ -23,7 +24,8 @@ public class Private_AlertPanelController_Test extends BaseClass {
         // test.log(Status.INFO, "Response: " + result);
 
         try {
-            Assert.assertEquals(expected, result);
+            // Use JsonComparator to ignore dynamic hostnames in drillback URLs
+            JsonComparator.assertEqualsIgnoreHostnames(result, expected);
             // test.log(Status.PASS, "Response matched expected result.");
         } catch (AssertionError e) {
             // test.log(Status.FAIL, "Response did not match expected result: " +
