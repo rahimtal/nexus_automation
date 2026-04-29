@@ -118,12 +118,20 @@ public class JsonComparator {
         if (node.isObject()) {
             ObjectNode obj = (ObjectNode) node;
             
-            // Check for URL fields and normalize them
+            // Check for URL-related fields and normalize them
             node.fields().forEachRemaining(entry -> {
-                if ("URL".equalsIgnoreCase(entry.getKey()) && entry.getValue().isTextual()) {
-                    String url = entry.getValue().asText();
-                    String normalized = normalizeUrl(url);
-                    obj.put(entry.getKey(), normalized);
+                if (entry.getValue().isTextual()) {
+                    String fieldName = entry.getKey();
+                    String value = entry.getValue().asText();
+                    
+                    // Normalize if field contains URL-like names or if value contains cogsDrillback
+                    if (fieldName.toLowerCase().contains("url") || 
+                        fieldName.toLowerCase().contains("link") ||
+                        value.contains("cogsDrillback://") ||
+                        value.contains("Srv=")) {
+                        String normalized = normalizeUrl(value);
+                        obj.put(fieldName, normalized);
+                    }
                 } else if (entry.getValue().isObject() || entry.getValue().isArray()) {
                     obj.set(entry.getKey(), normalizeUrls(entry.getValue()));
                 }
