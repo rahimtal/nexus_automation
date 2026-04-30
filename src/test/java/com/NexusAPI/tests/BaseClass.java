@@ -29,7 +29,16 @@ public class BaseClass {
 		// Runtime.getRuntime().exec("cmd /c rd /s /q
 		// C:\\Users\\Admin\\Documents\\GitHub\\nexus_automation\\target\\test-output\\");
 		//disabled for now 
-		QuickDBRestore.restoreDatabase();
+		System.out.println("\n========== BEFORE SUITE: Starting Database Restore ==========");
+		try {
+			QuickDBRestore.restoreDatabase();
+			System.out.println("========== BEFORE SUITE: Database Restore COMPLETED ==========\n");
+		} catch (Exception e) {
+			System.out.println("========== BEFORE SUITE: Database Restore FAILED ==========");
+			System.out.println("Error: " + e.getMessage());
+			e.printStackTrace();
+			throw new RuntimeException("Database restore failed in @BeforeSuite", e);
+		}
 
 	}
 
