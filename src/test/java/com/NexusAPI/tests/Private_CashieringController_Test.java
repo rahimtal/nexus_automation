@@ -318,6 +318,51 @@ public class Private_CashieringController_Test extends BaseClass {
 			Assert.fail();
 	}
 
+	public static void verifyCashInStatus() throws ClassNotFoundException, SQLException, InterruptedException {
+		// Verify and restore cash-in status before receipt operations
+		System.out.println("\n=== Verifying cash-in status before receipt operations ===");
+		String uri = "/cashiering/cashIn";
+		String ver = "4.0";
+		
+		try {
+			JsonPath response = CommonMethods.getMethod(uri, ver);
+			Boolean isCashedIn = response.get("CashedIn[0].IsCashedIn");
+			
+			if (isCashedIn != null && isCashedIn) {
+				System.out.println("✓ Cash-in status is active: IsCashedIn=true");
+				return;
+			} else {
+				System.out.println("⚠ Cash-in status expired or inactive, re-establishing cash-in...");
+				// Re-do cash-in to restore session
+				String cashinUri = "/cashiering/cashin";
+				String cashinPayload = "{\r\n" + //
+						"    \"CashIn\": [\r\n" + //
+						"        {\r\n" + //
+						"            \"RegisterId\": \"REGISTER-00001\",\r\n" + //
+						"            \"OpeningBalance\": 100.00,\r\n" + //
+						"            \"CheckbookId\": \"FIRST NATIONAL\",\r\n" + //
+						"            \"PaymentOriginId\": \"\",\r\n" + //
+						"            \"LoginDateTime\": \"2020-11-09T11:16:01.230\",\r\n" + //
+						"            \"ComputerName\": \"vv\"\r\n" + //
+						"        }\r\n" + //
+						"    ]\r\n" + //
+						"}";
+				
+				JsonPath cashinResponse = CommonMethods.postMethodStringPayload(cashinPayload, cashinUri, ver);
+				Boolean cashinSuccess = cashinResponse.get("CashIn[0].Success");
+				if (cashinSuccess != null && cashinSuccess) {
+					System.out.println("✓ Cash-in re-established successfully");
+					Thread.sleep(5000); // Brief wait for transaction to complete
+				} else {
+					System.out.println("✗ Failed to re-establish cash-in");
+				}
+			}
+		} catch (Exception e) {
+			System.out.println("Warning: Failed to verify cash-in status: " + e.getMessage());
+			// Continue anyway, receipt operation will fail appropriately if needed
+		}
+	}
+
 	public static void adjustRecieptPre(String recNum) throws ConnectionClosedException, InterruptedException {
 
 		String uri = "/cashiering/receipt/adjust";
@@ -337,16 +382,17 @@ public class Private_CashieringController_Test extends BaseClass {
 
 	}
 
-	@Test(priority = 1, groups = "Cashering")
+	@Test(priority = 8, groups = "Cashering", dependsOnMethods = "TC001_1_Cashin")
 	public void saveReciept_2_4()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
+		verifyCashInStatus();
 		// CommonMethods.CompanyDBRestore();
 		// CommonMethods.Bugs("CPDEV-20919");
 
 		String columnName = "umDocumentNumber";
 		String Command1 = "select top 1 umDocumentNumber from TWO.dbo.UMRM102 order by umDocumentNumber desc";
 		String Result = "";
-		ConnectionString = "jdbc:sqlserver://DESKTOP-QU86F3Q;DB= databaseName=TWO;user=sa;password=cogs;";
+		ConnectionString = "jdbc:sqlserver://localhost;DB=databaseName=TWO;user=sa;password=cogs;";
 		Result = CommonMethods.selectFromDb(Command1, ConnectionString, columnName);
 		if (Result != "") {
 			System.out.println(Result);
@@ -384,7 +430,7 @@ public class Private_CashieringController_Test extends BaseClass {
 
 	}
 
-	@Test(priority = 2, groups = "Cashering", dependsOnMethods = "saveReciept_2_4")
+	@Test(priority = 9, groups = "Cashering", dependsOnMethods = "saveReciept_2_4")
 	public void TC002_RecieptAdjustment() throws ClassNotFoundException, SQLException, InterruptedException {
 		// CommonMethods.Bug("CPDEV-22582");
 		// debug
@@ -419,9 +465,10 @@ public class Private_CashieringController_Test extends BaseClass {
 
 	}
 
-	@Test(priority = 8, groups = "Cashering")
+	@Test(priority = 10, groups = "Cashering", dependsOnMethods = "TC001_1_Cashin")
 	public void saveReciept_4_prepaymentExistingCustomer()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
+		verifyCashInStatus();
 		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
@@ -447,9 +494,10 @@ public class Private_CashieringController_Test extends BaseClass {
 
 	}
 
-	@Test(priority = 9, groups = "Cashering")
+	@Test(priority = 11, groups = "Cashering", dependsOnMethods = "TC001_1_Cashin")
 	public void saveReciept_4_prepaymentNewCustomer()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
+		verifyCashInStatus();
 		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
@@ -475,9 +523,10 @@ public class Private_CashieringController_Test extends BaseClass {
 
 	}
 
-	@Test(priority = 10, groups = "Cashering")
+	@Test(priority = 12, groups = "Cashering", dependsOnMethods = "TC001_1_Cashin")
 	public void saveReciept_4_SOTaskCompleteDepositPayment()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
+		verifyCashInStatus();
 		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
@@ -503,9 +552,10 @@ public class Private_CashieringController_Test extends BaseClass {
 
 	}
 
-	@Test(priority = 10, groups = "Cashering")
+	@Test(priority = 13, groups = "Cashering", dependsOnMethods = "TC001_1_Cashin")
 	public void saveReciept_4_SOTaskCompleteDepositPaymenttask2()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
+		verifyCashInStatus();
 		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
@@ -531,9 +581,10 @@ public class Private_CashieringController_Test extends BaseClass {
 
 	}
 
-	@Test(priority = 11, groups = "Cashering")
+	@Test(priority = 14, groups = "Cashering", dependsOnMethods = "TC001_1_Cashin")
 	public void saveReciept_SOTaskCompleteDepositPaymenttaskNewCustomer()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
+		verifyCashInStatus();
 		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
