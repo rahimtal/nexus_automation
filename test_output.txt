@@ -1,0 +1,384 @@
+﻿[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----< com.NexusAPIlAutomation.Java:com.NexusAPIlAutomation.Java >------
+[INFO] Building com.NexusApiAutomation.Java 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for org.testng:testng:jar:5.14.3 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[WARNING] The POM for org.testng:testng:jar:5.14.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[WARNING] The POM for org.testng:testng:jar:5.14.5 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[WARNING] The POM for com.beust:jcommander:jar:1.66 is missing, no dependency information available
+[WARNING] The artifact mysql:mysql-connector-java:jar:8.0.33 has been relocated to com.mysql:mysql-connector-j:jar:8.0.33: MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
+[INFO] 
+[INFO] --- enforcer:1.2:enforce (enforce-maven) @ com.NexusAPIlAutomation.Java ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ com.NexusAPIlAutomation.Java ---
+[INFO] skip non existing resourceDirectory D:\Nexus Automation\nexus_automation\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ com.NexusAPIlAutomation.Java ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ com.NexusAPIlAutomation.Java ---
+[INFO] skip non existing resourceDirectory D:\Nexus Automation\nexus_automation\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ com.NexusAPIlAutomation.Java ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- surefire:3.0.0-M7:test (default-test) @ com.NexusAPIlAutomation.Java ---
+[INFO] Using auto detected provider org.apache.maven.surefire.testng.TestNGProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.NexusAPI.Tests.Private_CashieringController_Test
+mvn : SLF4J(W): No SLF4J providers were found.
+At line:1 char:45
++ ... tomation" ; mvn -Dtest=Private_CashieringController_Test test 2>&1 |  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (SLF4J(W): No SLF4J providers were 
+    found.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+DROP DB OUTPUT: Nonqualified transactions are being rolled back. Estimated rollback completion: 0%.
+DROP DB OUTPUT: Nonqualified transactions are being rolled back. Estimated rollback completion: 100%.
+RESTORE DB OUTPUT: Processed 134888 pages for database 'TWO', file 'GPSTWODat.mdf' on file 1.
+RESTORE DB OUTPUT: Processed 2 pages for database 'TWO', file 'GPSTWOLog.ldf' on file 1.
+RESTORE DB OUTPUT: RESTORE DATABASE successfully processed 134890 pages in 0.751 seconds (1403.227 MB/sec).
+Database restored successfully.
+Restore DB ==============================
+Database restore task completed.
+======================================================
+  Test Suite Started: Surefire test
+======================================================
+  Starting: Private_CashieringController_Test :: saveReciept_2_4
+Reading Project Properties
+  FAILED:  saveReciept_2_4 (16757ms)
+  Starting: Private_CashieringController_Test :: TC002_RecieptAdjustment
+  SKIPPED: TC002_RecieptAdjustment
+  Starting: Private_CashieringController_Test :: TC003_1_getCashin
+http://localhost:3000/api/v4
+Get URI :http://localhost:3000/api/v4/cashiering/cashIn
+Reading Project Properties
+
+========== PKCE Flow Started ==========
+Keycloak Base: http://localhost:8080/realms/nexus
+Client ID: nexus-portal
+Username: cogsuser
+Auth URL:
+http://localhost:8080/realms/nexus/protocol/openid-connect/auth?response_type=code&client_id=nexus-portal&redirect_uri=https://oauth.usebruno.com/callback&scope=openid&code_challenge=zrAGXedFcz0QW_xBqQAf_XvZ4LjboH8yFumOJo9od68&code_challenge_method=S256&state=2IGCVcLopcxDN8cnuRJyqDOg&nonce=HVo8w665lRZVSUYskptu5TtM
+Step 1 Status Code: 200
+Login action URL: http://localhost:8080/realms/nexus/login-actions/authenticate?session_code=vCGR4Fib8ZrM9qNTS8bTI8Y10usL4FHnIu497QNJQ3o&execution=be89c57c-1e01-480b-afa0-ecdcc4fdd509&client_id=nexus-portal&tab_id=UiHUK7yyVRc&client_data=eyJydSI6Imh0dHBzOi8vb2F1dGgudXNlYnJ1bm8uY29tL2NhbGxiYWNrIiwicnQiOiJjb2RlIiwic3QiOiIySUdDVmNMb3BjeEROOGNudVJKeXFET2cifQ
+Step 1 - Flow Step: need_login
+Step 1 - Auth Code: NOT FOUND
+Step 2 - Performing login...
+Step 2 - Posting to: http://localhost:8080/realms/nexus/login-actions/authenticate?session_code=vCGR4Fib8ZrM9qNTS8bTI8Y10usL4FHnIu497QNJQ3o&execution=be89c57c-1e01-480b-afa0-ecdcc4fdd509&client_id=nexus-portal&tab_id=UiHUK7yyVRc&client_data=eyJydSI6Imh0dHBzOi8vb2F1dGgudXNlYnJ1bm8uY29tL2NhbGxiYWNrIiwicnQiOiJjb2RlIiwic3QiOiIySUdDVmNMb3BjeEROOGNudVJKeXFET2cifQ
+Step 2 - Username: cogsuser
+Step 2 - Password: password
+Step 2 - RememberMe: on
+Step 2 Status Code: 302
+Step 2 Location Header: https://oauth.usebruno.com/callback?state=2IGCVcLopcxDN8cnuRJyqDOg&session_state=ab1efd0b-56c2-42fe-80d5-5d7af21b903c&iss=http%3A%2F%2Flocalhost%3A8080%2Frealms%2Fnexus&code=fac51e1e-e9dc-4869-8a25-f5c34d9cf87b.ab1efd0b-56c2-42fe-80d5-5d7af21b903c.c6cc56f1-1f36-47a5-a148-2c039478e53e
+Auth code (Step 2 login): fac51e1e-e9dc-4869-8a25-f5c34d9cf87b.ab1efd0b-56c2-42fe-80d5-5d7af21b903c.c6cc56f1-1f36-47a5-a148-2c039478e53e
+Step 2 - Flow Step After Login: got_code
+Step 2 - Auth Code After Login: fac51e1e-e9dc-4869-8a25-f5c34d9cf87b.ab1efd0b-56c2-42fe-80d5-5d7af21b903c.c6cc56f1-1f36-47a5-a148-2c039478e53e
+Step 3 - Auth Code to exchange: fac51e1e-e9dc-4869-8a25-f5c34d9cf87b.ab1efd0b-56c2-42fe-80d5-5d7af21b903c.c6cc56f1-1f36-47a5-a148-2c039478e53e
+Step 3 - PKCE Verifier: 40_JHxNo9RASrwpnV.HnP0ko~v2I2PEg~gRx5zrB3jjahbz1e1cLNkBG-Ao2-cp8
+Step 3 Status Code: 200
+Step 3 Response Body: {"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJIYUZCRHdHUDdoQW04LU9ZOFJIMlROMC1rS1d0S0VGRDN3NkpDbllRM25ZIn0.eyJleHAiOjE3Nzc1MzM0MDEsImlhdCI6MTc3NzUzMzEwMSwiYXV0aF90aW1lIjoxNzc3NTMzMTAxLCJqdGkiOiJvbnJ0YWM6NTk0MDY2MmUtZDgyMS05N2FlLWFhYmMtNjcwZTE4NTYyZDU3IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9uZXh1cyIsImF1ZCI6Im5leHVzLWFwaSIsInN1YiI6IjFhMTZjYTdhLTViNWItNDg0NS1hMDU5LWNlZGNiMzA5MzQ1MiIsInR5cCI6IkJlYXJlciIsImF6cCI6Im5leHVzLXBvcnRhbCIsInNpZCI6ImFiMWVmZDBiLTU2YzItNDJmZS04MGQ1LTVkN2FmMjFiOTAzYyIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovLzE3Mi4yNy4xOS42NDozMDAwIiwiaHR0cDovLzE3Mi4yNy4xOS42NDo0MjAwIiwiaHR0cHM6Ly9uZXh1cy5sb2NhbDo4NDQzIiwiaHR0cDovL2xvY2FsaG9zdDo0MjAwIiwiaHR0cHM6Ly9vYXV0aC51c2VicnVuby5jb20iXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtbmV4dXMtcG9ydGFsIiwib2ZmbGluZV9hY2Nlc3MiXX0sInJlc291cmNlX2FjY2VzcyI6eyJuZXh1cy1hcGkiOnsicm9sZXMiOlsiYXBpLWNvbm5lY3Rpb25tZW51LWVuYWJsZWQiLCJhcGktY29udGFjdGxvZy12aWV3IiwiYXBpLWdsb2JhbG9wdGlvbnMtdXBkYXRlIiwiYXBpLWN1c3RvbWVyLXZpZXciLCJhcGktZ2xvYmFsb3B0aW9ucy12aWV3IiwiYXBpLWFjY291bnRvcHRpb25zLXZpZXciLCJhcGktY29udGFjdGxvZy1jcmVhdGUiLCJhcGktY29udGFjdGxvZy11cGRhdGUiLCJhcGktY3VzdG9tZXItY3JlYXRlIiwiYXBpLWN1c3RvbWVyLWRlbGV0ZSIsImFwaS1lcXVpcG1lbnQtdXBkYXRlIiwiYXBpLW1ldGVyc3dpdGNoLWNyZWF0ZSIsImFwaS1jdXN0b21lci11cGRhdGUiLCJhcGktYWNjb3VudG9wdGlvbnMtdXBkYXRlIiwiYXBpLWFjdGlvbnNtZW51LWVuYWJsZWQiLCJhcGktY29udGFjdGxvZy1kZWxldGUiLCJhcGktZXF1aXBtZW50c3dpdGNoLWNyZWF0ZSJdfX0sInNjb3BlIjoib3BlbmlkIGVtYWlsIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJVc2VyTmFtZSI6ImNvZ3N1c2VyIiwiVXNlcklEIjoiY29nc3VzZXIiLCJncm91cHMiOlsiL0tleWNsb2FrIEFkbWluIl19.mE9JyYlFunSZqlQZBML1A-sMqnPKiT_nsDuJhuR281CBjqilGejLfSKCsDxOv1_sVyul6eDbr2oB6fjSxXe-aAjCWP0oWJpWL_PiaADvnFwCCIq92mZrdfJ-1amdKoTS6zYz1GYP4xfUPWt2uvO1-w37yylOrN4FTtT_6_8fWaGpfJnF4t539KOe7zA3a_yrLmVSZcBzJhB4daj_qAR39KQQ7Lim1GEv-nYbXWzG8HsB4K2noV9TAlkwMZ1rEeGSX02jfNof3-irypKGscTKuj5kP_T62LH9Hc0hkLu1OTmjCXQNmgbrIKy5Q05lOkjSw6xpJ3CJNo6hViuWT1jZtQ","expires_in":300,"refresh_expires_in":1800,"refresh_token":"eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJiZDM3NmJjNC1kZmUwLTQ1ZDUtYWE3My03M2NlMTE1NGI5ZTMifQ.eyJleHAiOjE3Nzc1MzQ5MDEsImlhdCI6MTc3NzUzMzEwMSwianRpIjoiYWI0ZDMzODEtZWZhYS05ODNkLTIzNWYtZWMwM2RjMzFkN2IzIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9uZXh1cyIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9yZWFsbXMvbmV4dXMiLCJzdWIiOiIxYTE2Y2E3YS01YjViLTQ4NDUtYTA1OS1jZWRjYjMwOTM0NTIiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoibmV4dXMtcG9ydGFsIiwic2lkIjoiYWIxZWZkMGItNTZjMi00MmZlLTgwZDUtNWQ3YWYyMWI5MDNjIiwic2NvcGUiOiJvcGVuaWQgd2ViLW9yaWdpbnMgZW1haWwgcm9sZXMgYWNyIGJhc2ljIiwicmV1c2VfaWQiOiJhZTZjYzZmOS1hZDc2LTQ2NWEtYmFjYi1mOTdhNTVmNDZmZWYifQ.EMPVtgxPH_Cg_4eHx5Wkk5jvh4ZYdjfmgGQ1bWCouFExXPsjKiYSAs2SU_sb7AnTqPMTVyrqgOSHNuKOpsWKKQ","token_type":"Bearer","id_token":"eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJIYUZCRHdHUDdoQW04LU9ZOFJIMlROMC1rS1d0S0VGRDN3NkpDbllRM25ZIn0.eyJleHAiOjE3Nzc1MzM0MDEsImlhdCI6MTc3NzUzMzEwMSwiYXV0aF90aW1lIjoxNzc3NTMzMTAxLCJqdGkiOiI2MTkzYjZhMC04OGJlLThhMDAtYWE3NC02MWU4ZjFmNjExNmIiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvcmVhbG1zL25leHVzIiwiYXVkIjoibmV4dXMtcG9ydGFsIiwic3ViIjoiMWExNmNhN2EtNWI1Yi00ODQ1LWEwNTktY2VkY2IzMDkzNDUyIiwidHlwIjoiSUQiLCJhenAiOiJuZXh1cy1wb3J0YWwiLCJub25jZSI6IkhWbzh3NjY1bFJaVlNVWXNrcHR1NVR0TSIsInNpZCI6ImFiMWVmZDBiLTU2YzItNDJmZS04MGQ1LTVkN2FmMjFiOTAzYyIsImF0X2hhc2giOiI0QjNsQ0F6QmstbktqeE9ZWnRPRGRBIiwiYWNyIjoiMSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiVXNlck5hbWUiOiJjb2dzdXNlciIsIlVzZXJJRCI6ImNvZ3N1c2VyIiwiZ3JvdXBzIjpbIi9LZXljbG9hayBBZG1pbiJdfQ.pxsu_cJB6aeOkY-cZNIMQR-dkf0lMc-QErA5R9I5IebMLP7HAyIvFYFeXFEK0VSBaWVyELODl9t1ePqiavlYqZtADFjJzGSqyzYkOqFpXR8DROjCh8xK5wJiggh8-ShWZJV4XQeHA_mNPDcwSsjR1phUzFOxelVgGC3KNfa1urMprg38BPHrvmKgU-kocLHqWh9prwsQUA2gZKMzljKvyDkqTV8Trnl0Ro_05khX8D7yymyC_7TwrNOjB20Kkmr4UpwiWmV43s-_DSibLFTZYfLDQq-fUhLh7GVIZPZz7au64PWYX28Yy8Nc_HVx6fwINQbcdZH4rncG3cIki9GIHA","not-before-policy":0,"session_state":"ab1efd0b-56c2-42fe-80d5-5d7af21b903c","scope":"openid email"}
+
+========== Token Exchange Result ==========
+Access Token: eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJIYUZCRHdHUDdoQW04LU9ZOFJIMlROMC1rS1d0S0VGRDN3NkpDbllRM25ZIn0.eyJleHAiOjE3Nzc1MzM0MDEsImlhdCI6MTc3NzUzMzEwMSwiYXV0aF90aW1lIjoxNzc3NTMzMTAxLCJqdGkiOiJvbnJ0YWM6NTk0MDY2MmUtZDgyMS05N2FlLWFhYmMtNjcwZTE4NTYyZDU3IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9uZXh1cyIsImF1ZCI6Im5leHVzLWFwaSIsInN1YiI6IjFhMTZjYTdhLTViNWItNDg0NS1hMDU5LWNlZGNiMzA5MzQ1MiIsInR5cCI6IkJlYXJlciIsImF6cCI6Im5leHVzLXBvcnRhbCIsInNpZCI6ImFiMWVmZDBiLTU2YzItNDJmZS04MGQ1LTVkN2FmMjFiOTAzYyIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovLzE3Mi4yNy4xOS42NDozMDAwIiwiaHR0cDovLzE3Mi4yNy4xOS42NDo0MjAwIiwiaHR0cHM6Ly9uZXh1cy5sb2NhbDo4NDQzIiwiaHR0cDovL2xvY2FsaG9zdDo0MjAwIiwiaHR0cHM6Ly9vYXV0aC51c2VicnVuby5jb20iXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtbmV4dXMtcG9ydGFsIiwib2ZmbGluZV9hY2Nlc3MiXX0sInJlc291cmNlX2FjY2VzcyI6eyJuZXh1cy1hcGkiOnsicm9sZXMiOlsiYXBpLWNvbm5lY3Rpb25tZW51LWVuYWJsZWQiLCJhcGktY29udGFjdGxvZy12aWV3IiwiYXBpLWdsb2JhbG9wdGlvbnMtdXBkYXRlIiwiYXBpLWN1c3RvbWVyLXZpZXciLCJhcGktZ2xvYmFsb3B0aW9ucy12aWV3IiwiYXBpLWFjY291bnRvcHRpb25zLXZpZXciLCJhcGktY29udGFjdGxvZy1jcmVhdGUiLCJhcGktY29udGFjdGxvZy11cGRhdGUiLCJhcGktY3VzdG9tZXItY3JlYXRlIiwiYXBpLWN1c3RvbWVyLWRlbGV0ZSIsImFwaS1lcXVpcG1lbnQtdXBkYXRlIiwiYXBpLW1ldGVyc3dpdGNoLWNyZWF0ZSIsImFwaS1jdXN0b21lci11cGRhdGUiLCJhcGktYWNjb3VudG9wdGlvbnMtdXBkYXRlIiwiYXBpLWFjdGlvbnNtZW51LWVuYWJsZWQiLCJhcGktY29udGFjdGxvZy1kZWxldGUiLCJhcGktZXF1aXBtZW50c3dpdGNoLWNyZWF0ZSJdfX0sInNjb3BlIjoib3BlbmlkIGVtYWlsIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJVc2VyTmFtZSI6ImNvZ3N1c2VyIiwiVXNlcklEIjoiY29nc3VzZXIiLCJncm91cHMiOlsiL0tleWNsb2FrIEFkbWluIl19.mE9JyYlFunSZqlQZBML1A-sMqnPKiT_nsDuJhuR281CBjqilGejLfSKCsDxOv1_sVyul6eDbr2oB6fjSxXe-aAjCWP0oWJpWL_PiaADvnFwCCIq92mZrdfJ-1amdKoTS6zYz1GYP4xfUPWt2uvO1-w37yylOrN4FTtT_6_8fWaGpfJnF4t539KOe7zA3a_yrLmVSZcBzJhB4daj_qAR39KQQ7Lim1GEv-nYbXWzG8HsB4K2noV9TAlkwMZ1rEeGSX02jfNof3-irypKGscTKuj5kP_T62LH9Hc0hkLu1OTmjCXQNmgbrIKy5Q05lOkjSw6xpJ3CJNo6hViuWT1jZtQ
+Refresh Token: eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJiZDM3NmJjNC1kZmUwLTQ1ZDUtYWE3My03M2NlMTE1NGI5ZTMifQ.eyJleHAiOjE3Nzc1MzQ5MDEsImlhdCI6MTc3NzUzMzEwMSwianRpIjoiYWI0ZDMzODEtZWZhYS05ODNkLTIzNWYtZWMwM2RjMzFkN2IzIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9uZXh1cyIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9yZWFsbXMvbmV4dXMiLCJzdWIiOiIxYTE2Y2E3YS01YjViLTQ4NDUtYTA1OS1jZWRjYjMwOTM0NTIiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoibmV4dXMtcG9ydGFsIiwic2lkIjoiYWIxZWZkMGItNTZjMi00MmZlLTgwZDUtNWQ3YWYyMWI5MDNjIiwic2NvcGUiOiJvcGVuaWQgd2ViLW9yaWdpbnMgZW1haWwgcm9sZXMgYWNyIGJhc2ljIiwicmV1c2VfaWQiOiJhZTZjYzZmOS1hZDc2LTQ2NWEtYmFjYi1mOTdhNTVmNDZmZWYifQ.EMPVtgxPH_Cg_4eHx5Wkk5jvh4ZYdjfmgGQ1bWCouFExXPsjKiYSAs2SU_sb7AnTqPMTVyrqgOSHNuKOpsWKKQ
+Γ£à Token cached, expires in 300 seconds
+=== GET RESPONSE ===
+{CashedIn=[{IsCashedIn=false, RegisterId=, RegisterNumber=0, RegisterDescription=, PaymentOriginId=, LoginDateTime=, ComputerName=, Success=false, Messages=[{Enabled=1, Info=You must cash in before entering the Cash Receipt Entry window., Level=3}]}]}
+=== END GET RESPONSE ===
+IsCashedIn: false
+Error Message: You must cash in before entering the Cash Receipt Entry window.
+  FAILED:  TC003_1_getCashin (1716ms)
+  Starting: Private_CashieringController_Test :: TC003_2_getCashin_Verify
+
+=== TC003_2_getCashin_Verify: Testing GET /cashiering/cashIn ===
+http://localhost:3000/api/v4
+Get URI :http://localhost:3000/api/v4/cashiering/cashIn
+Γ£à Using cached token (valid for 299 seconds)
+Full Response Body:
+{CashedIn=[{IsCashedIn=false, RegisterId=, RegisterNumber=0, RegisterDescription=, PaymentOriginId=, LoginDateTime=, ComputerName=, Success=false, Messages=[{Enabled=1, Info=You must cash in before entering the Cash Receipt Entry window., Level=3}]}]}
+CashedIn array type: java.util.ArrayList
+CashedIn array value: [{IsCashedIn=false, RegisterId=, RegisterNumber=0, RegisterDescription=, PaymentOriginId=, LoginDateTime=, ComputerName=, Success=false, Messages=[{Enabled=1, Info=You must cash in before entering the Cash Receipt Entry window., Level=3}]}]
+CashedIn[0].IsCashedIn: false
+CashedIn[0].IsCashedIn (raw string): false
+All fields in CashedIn[0]:
+  IsCashedIn: false
+  RegisterId: 
+  RegisterNumber: 0
+  RegisterDescription: 
+  PaymentOriginId: 
+  LoginDateTime: 
+  ComputerName: 
+  Success: false
+  Messages: [{Enabled=1, Info=You must cash in before entering the Cash Receipt Entry window., Level=3}]
+Γ£ù Cash-in verification FAILED: IsCashedIn=false, Message: You must cash in before entering the Cash Receipt Entry window.
+  FAILED:  TC003_2_getCashin_Verify (75ms)
+  Starting: Private_CashieringController_Test :: TC004_balances
+  SKIPPED: TC004_balances
+  Starting: Private_CashieringController_Test :: TC003_getnextReceipt
+  SKIPPED: TC003_getnextReceipt
+  Starting: Private_CashieringController_Test :: TC004_getReceipt
+  SKIPPED: TC004_getReceipt
+  Starting: Private_CashieringController_Test :: TC005_getRegisterInfo
+  SKIPPED: TC005_getRegisterInfo
+  Starting: Private_CashieringController_Test :: TC006_gettransactions
+  SKIPPED: TC006_gettransactions
+  Starting: Private_CashieringController_Test :: TC007_getAutoApply
+  SKIPPED: TC007_getAutoApply
+  Starting: Private_CashieringController_Test :: saveReciept_4_prepaymentExistingCustomer
+Payload = {
+   "Receipt":{
+      "ReceiptNumber":"004240724000005",
+      "OriginatingReceiptNumber":"",
+      "Void":false,
+      "CustomerId":"customer001",
+      "LocationId":"water001",
+      "PaymentOrigin":"API",
+      "CheckbookId":"FIRST NATIONAL",
+      "PaidBy":{
+         "Type":1,
+         "Description": "customer001",
+         "Id":"customer001"
+      },
+      "Cash":10,
+      "Check":{
+         "Amount":0,
+         "Number":""
+      },
+      "CreditCard": {
+          "Amount": 0
+      },
+      "Unapplied":{
+         "Amount":10,
+         "Account":"000-2115-00",
+         "LocationId":"water001"
+      },
+      "Change":0,
+      "Comment":"This is a comment to be saved into comment in UMRM102",
+      "Document":[
+         
+      ],
+      "ServiceOrder": {
+            "Id": "SORD00000008996",
+            "Task": {
+                "Sequence": "1000",
+                "EmployeeId":"sa"
+            }
+        }
+    }
+}
+ 
+POST Attempt 1 of 2
+Posting uri  = 4.0   /cashiering/receipt
+Γ£à Using cached token (valid for 299 seconds)
+Actual Response ={"Receipt":{"Success":false,"Data":null,"Messages":[{"Enabled":1,"Info":"The user cogsuser is no longer cashed in. The receipt could not be created.","Level":3}]}}
+Expected Response ={"Receipt":{"Success":true,"Data":{"ReturnValues":[{"Name":"ReceiptNumber","Value":"004240724000005"}]},"Messages":[]}}
+Status Code: 200
+  FAILED:  saveReciept_4_prepaymentExistingCustomer (10560ms)
+  Starting: Private_CashieringController_Test :: saveReciept_4_prepaymentNewCustomer
+Payload = {
+   "Receipt":{
+      "ReceiptNumber":"004240724000009",
+      "OriginatingReceiptNumber":"",
+      "Void":false,
+      "CustomerId":"SUBCUSTOMER",
+      "LocationId":"MOVEIN",
+      "PaymentOrigin":"API",
+      "CheckbookId":"FIRST NATIONAL",
+      "PaidBy":{
+         "Type":1,
+         "Description": "SUBCUSTOMER",
+         "Id":"SUBCUSTOMER"
+      },
+      "Cash":10,
+      "Check":{
+         "Amount":0,
+         "Number":""
+      },
+      "CreditCard": {
+          "Amount": 0
+      },
+      "Unapplied":{
+         "Amount":10,
+         "Account":"000-2115-00",
+         "LocationId":"MOVEIN"
+      },
+      "Change":0,
+      "Comment":"This is a comment to be saved into comment in UMRM102",
+      "Document":[
+         
+      ],
+      "ServiceOrder": {
+            "Id": "SORD00000008998",
+            "Task": {
+                "Sequence": "1000",
+                "EmployeeId":"sa"
+            }
+        }
+    }
+}
+
+POST Attempt 1 of 2
+Posting uri  = 4.0   /cashiering/receipt
+Γ£à Using cached token (valid for 289 seconds)
+Actual Response ={"Receipt":{"Success":false,"Data":null,"Messages":[{"Enabled":1,"Info":"The user cogsuser is no longer cashed in. The receipt could not be created.","Level":3}]}}
+Expected Response ={"Receipt":{"Success":true,"Data":{"ReturnValues":[{"Name":"ReceiptNumber","Value":"004240724000009"}]},"Messages":[]}}
+Status Code: 200
+  FAILED:  saveReciept_4_prepaymentNewCustomer (10051ms)
+  Starting: Private_CashieringController_Test :: saveReciept_4_SOTaskCompleteDepositPayment
+Payload = {
+   "Receipt":{
+      "ReceiptNumber":"004240805000004",
+      "OriginatingReceiptNumber":"",
+      "Void":false,
+      "CustomerId":"500002",
+      "LocationId":"100002",
+      "PaymentOrigin":"API",
+      "CheckbookId":"FIRST NATIONAL",
+      "PaidBy":{
+         "Type":1,
+         "Description": "500002",
+         "Id":"500002"
+      },
+      "Cash":10,
+      "Check":{
+         "Amount":0,
+         "Number":""
+      },
+      "CreditCard": {
+          "Amount": 0
+      },
+      "Unapplied":{
+         "Amount":10,
+         "Account":"000-2115-00",
+         "LocationId":"100002"
+      },
+      "Change":0,
+      "Comment":"This is a comment to be saved into comment in UMRM102",
+      "Document":[
+         
+      ],
+      "ServiceOrder": {
+            "Id": "SORD00000009002",
+            "Task": {
+                "Sequence": "1100",
+                "EmployeeId":"sa"
+            }
+        }
+    }
+}
+
+POST Attempt 1 of 2
+Posting uri  = 4.0   /cashiering/receipt
+Γ£à Using cached token (valid for 279 seconds)
+Actual Response ={"Receipt":{"Success":false,"Data":null,"Messages":[{"Enabled":1,"Info":"The user cogsuser is no longer cashed in. The receipt could not be created.","Level":3}]}}
+Expected Response ={"Receipt":{"Success":true,"Data":{"ReturnValues":[{"Name":"ReceiptNumber","Value":"004240805000004"}]},"Messages":[]}}
+Status Code: 200
+  FAILED:  saveReciept_4_SOTaskCompleteDepositPayment (10048ms)
+  Starting: Private_CashieringController_Test :: saveReciept_4_SOTaskCompleteDepositPaymenttask2
+Payload = {
+   "Receipt":{
+      "ReceiptNumber":"004240805000013",
+      "OriginatingReceiptNumber":"",
+      "Void":false,
+      "CustomerId":"500002",
+      "LocationId":"100002",
+      "PaymentOrigin":"API",
+      "CheckbookId":"FIRST NATIONAL",
+      "PaidBy":{
+         "Type":1,
+         "Description": "500002",
+         "Id":"500002"
+      },
+      "Cash":10,
+      "Check":{
+         "Amount":0,
+         "Number":""
+      },
+      "CreditCard": {
+          "Amount": 0
+      },
+      "Unapplied":{
+         "Amount":10,
+         "Account":"000-2115-00",
+         "LocationId":"100002"
+      },
+      "Change":0,
+      "Comment":"This is a comment to be saved into comment in UMRM102",
+      "Document":[
+         
+      ],
+      "ServiceOrder": {
+            "Id": "SORD00000009002",
+            "Task": {
+                "Sequence": "1100",
+                "EmployeeId":"sa"
+            }
+        }
+    }
+}
+
+POST Attempt 1 of 2
+Posting uri  = 4.0   /cashiering/receipt
+Γ£à Using cached token (valid for 269 seconds)
+Actual Response ={"Receipt":{"Success":false,"Data":null,"Messages":[{"Enabled":1,"Info":"The user cogsuser is no longer cashed in. The receipt could not be created.","Level":3}]}}
+Expected Response ={"Receipt":{"Success":true,"Data":{"ReturnValues":[{"Name":"ReceiptNumber","Value":"004240805000013"}]},"Messages":[]}}
+Status Code: 200
+  FAILED:  saveReciept_4_SOTaskCompleteDepositPaymenttask2 (10043ms)
+  Starting: Private_CashieringController_Test :: saveReciept_SOTaskCompleteDepositPaymenttaskNewCustomer
+Payload = {
+   "Receipt":{
+      "ReceiptNumber":"004240805000008",
+      "OriginatingReceiptNumber":"",
+      "Void":false,
+      "CustomerId":"CUSTOMER010",
+      "LocationId":"ELECWAT003",
+      "PaymentOrigin":"API",
+      "CheckbookId":"FIRST NATIONAL",
+      "PaidBy":{
+         "Type":1,
+         "Description": "CUSTOMER010",
+         "Id":"CUSTOMER010"
+      },
+      "Cash":10,
+      "Check":{
+         "Amount":0,
+         "Number":""
+      },
+      "CreditCard": {
+          "Amount": 0
+      },
+      "Unapplied":{
+         "Amount":10,
+         "Account":"000-2115-00",
+         "LocationId":"ELECWAT003"
+      },
+      "Change":0,
+      "Comment":"This is a comment to be saved into comment in UMRM102",
+      "Document":[
+         
+      ],
+      "ServiceOrder": {
+            "Id": "SORD00000009007",
+            "Task": {
+                "Sequence": "1100",
+                "EmployeeId":"sa"
+            }
+        }
+    }
+}
+
+POST Attempt 1 of 2
+Posting uri  = 4.0   /cashiering/receipt
+Γ£à Using cached token (valid for 259 seconds)
+Actual Response ={"Receipt":{"Success":false,"Data":null,"Messages":[{"Enabled":1,"Info":"The user cogsuser is no longer cashed in. The receipt could not be created.","Level":3}]}}
+Expected Response ={"Receipt":{"Success":true,"Data":{"ReturnValues":[{"Name":"ReceiptNumber","Value":"004240805000008"}]},"Messages":[]}}
+Status Code: 200

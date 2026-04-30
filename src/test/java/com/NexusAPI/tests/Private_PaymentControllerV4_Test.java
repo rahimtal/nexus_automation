@@ -192,7 +192,7 @@ public class Private_PaymentControllerV4_Test extends BaseClass {
 
 	@Test(priority = 12, groups = "Payment")
 	public void postPaymentSimulatev4_savePayments() throws ClassNotFoundException, SQLException, InterruptedException {
-		CommonMethods.Bug("CPDEV-26298");
+	//	CommonMethods.Bug("CPDEV-26298");
 		String uri = "/payment/simulate";
 		String ver = "4.0";
 		String payload = "./\\TestData\\paymentsimulatev4_savedPayment1.json";

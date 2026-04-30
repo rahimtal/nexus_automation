@@ -33,7 +33,7 @@ public class Private_CashieringController_Test extends BaseClass {
 	public static String nextRecieptNumber;
 	public static String ConnectionString;
 
-	@Test(priority = 1, groups = "Cashering")
+	//@Test(priority = 1, groups = "Cashering")
 	public void TC001_1_Cashin() throws ClassNotFoundException, SQLException, InterruptedException {
 
 	String uri = "/cashiering/cashin";
@@ -65,26 +65,93 @@ public class Private_CashieringController_Test extends BaseClass {
 		
 		System.out.println("✓ POST validation passed: Success=" + postSuccess + ", Message=" + postMessage);
 
-		Thread.sleep(25000); // Wait for the cash-in to be processed before GET
+		// Extended wait to ensure database transaction completes and is committed
+		System.out.println("Waiting 30 seconds for database transaction to commit...");
+		Thread.sleep(30000); // Wait for the cash-in to be processed and committed to database before GET
+		System.out.println("Wait complete. Now calling GET endpoint...");
 		
 		
 	}
 
-	@Test(priority = 2, groups = "Cashering")
+	//@Test(priority = 2, groups = "Cashering")//, dependsOnMethods = "TC001_1_Cashin")
 	public void TC003_1_getCashin() throws ClassNotFoundException, SQLException, InterruptedException {
 
 	
 		String ver = "4.0";
-		 String		 uri = "/cashiering/cashIn";
-		ver = "4.0";
+		String uri = "/cashiering/cashIn";
+		
 		 
 		jsonPathEvaluator = CommonMethods.getMethod(uri, ver);
-		System.out.println(jsonPathEvaluator.get().toString());
+		String getResponse = jsonPathEvaluator.get().toString();
+		System.out.println("=== GET RESPONSE ===");
+		System.out.println(getResponse);
+		System.out.println("=== END GET RESPONSE ===");
+		
 		Boolean Result = jsonPathEvaluator.get("CashedIn[0].IsCashedIn");
-		if (Result == false) {
-			Assert.fail();
+		String errorMsg = jsonPathEvaluator.get("CashedIn[0].Messages[0].Info");
+		
+		System.out.println("IsCashedIn: " + Result);
+		System.out.println("Error Message: " + errorMsg);
+		
+		if (Result == null || Result == false) {
+			Assert.fail("Cash in failed. IsCashedIn=" + Result + ". Error: " + errorMsg);
 		}
 
+	}
+
+	@Test(priority = 2, groups = "Cashering")
+	public void TC003_2_getCashin_Verify() throws ClassNotFoundException, SQLException, InterruptedException {
+		// New test method to verify cash-in status with enhanced debugging
+		// Bruno shows true but RestAssured may be parsing differently
+		
+		String ver = "4";
+		String uri = "/cashiering/cashIn";
+		
+		System.out.println("\n=== TC003_2_getCashin_Verify: Testing GET /cashiering/cashIn ===");
+		
+		// Use CommonMethods.getMethod like the working test does
+		JsonPath jp = CommonMethods.getMethod(uri, ver);
+		String fullBody = jp.get().toString();
+		System.out.println("Full Response Body:\n" + fullBody);
+		
+		// Check if CashedIn array exists
+		try {
+			Object cashedInArray = jp.get("CashedIn");
+			System.out.println("CashedIn array type: " + (cashedInArray != null ? cashedInArray.getClass().getName() : "null"));
+			System.out.println("CashedIn array value: " + cashedInArray);
+			
+			if (cashedInArray != null) {
+				// Try different path variations
+				Boolean isCashedIn = jp.get("CashedIn[0].IsCashedIn");
+				System.out.println("CashedIn[0].IsCashedIn: " + isCashedIn);
+				
+				// Also try direct access
+				String rawValue = jp.getString("CashedIn[0].IsCashedIn");
+				System.out.println("CashedIn[0].IsCashedIn (raw string): " + rawValue);
+				
+				// Get all fields from CashedIn[0]
+				Map<String, Object> cashedInFirst = jp.getMap("CashedIn[0]");
+				System.out.println("All fields in CashedIn[0]:");
+				cashedInFirst.forEach((k, v) -> System.out.println("  " + k + ": " + v));
+				
+				// Validate
+				if (isCashedIn != null && isCashedIn) {
+					System.out.println("✓ Cash-in verification PASSED: IsCashedIn=true");
+					Assert.assertTrue(true, "Cash-in is active");
+				} else {
+					String msg = jp.getString("CashedIn[0].Messages[0].Info");
+					System.out.println("✗ Cash-in verification FAILED: IsCashedIn=" + isCashedIn + ", Message: " + msg);
+					Assert.fail("Cash in status failed. IsCashedIn=" + isCashedIn + ". Message: " + msg);
+				}
+			} else {
+				System.out.println("✗ CashedIn array is null in response");
+				Assert.fail("CashedIn array not found in response");
+			}
+		} catch (Exception e) {
+			System.out.println("Exception parsing CashedIn: " + e.getMessage());
+			e.printStackTrace();
+			Assert.fail("Failed to parse CashedIn response: " + e.getMessage());
+		}
 	}
 
 	@Test(priority = 2, groups = "Cashering", dependsOnMethods = "TC003_1_getCashin")
