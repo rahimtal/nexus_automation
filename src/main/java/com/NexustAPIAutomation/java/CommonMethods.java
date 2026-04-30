@@ -414,10 +414,20 @@ public class CommonMethods {
 
 		ExtentReportManager.logRequest("POST", uri, version, payload);
 
-		RequestSpecification httpRequest = RestAssured.given()
-				.headers("Authorization", "Bearer " + getToken(), "Content-Type", ContentType.JSON, "Accept", "*/*",
-						"Connection", "keep-alive")
-				.body(payload);
+		// Configure RestAssured for UTF-8 charset to handle character encoding properly
+		RestAssuredConfig config = RestAssuredConfig.newConfig()
+			.httpClient(HttpClientConfig.httpClientConfig()
+				.setParam("http.useragent", "RestAssured")
+				.setParam("http.connection.timeout", 60000));
+
+		RequestSpecification httpRequest = RestAssured
+			.given()
+			.config(config)
+			.headers("Authorization", "Bearer " + getToken(), 
+				"Content-Type", "application/json; charset=UTF-8", 
+				"Accept", "application/json; charset=UTF-8",
+				"Connection", "keep-alive")
+			.body(payload);
 
 		response = httpRequest.post();
 		System.out.println(response.asString());
@@ -451,10 +461,20 @@ public class CommonMethods {
 
 			ExtentReportManager.logRequest("POST", uri, version, payload);
 
-			RequestSpecification httpRequest = RestAssured.given()
-					.headers("Authorization", "Bearer " + getToken(), "Content-Type", ContentType.JSON, "Accept", "*/*",
-							"Connection", "keep-alive")
-					.body(payload);
+			// Configure RestAssured for UTF-8 charset to handle character encoding properly
+			RestAssuredConfig config = RestAssuredConfig.newConfig()
+				.httpClient(HttpClientConfig.httpClientConfig()
+					.setParam("http.useragent", "RestAssured")
+					.setParam("http.connection.timeout", 60000));
+
+			RequestSpecification httpRequest = RestAssured
+				.given()
+				.config(config)
+				.headers("Authorization", "Bearer " + getToken(), 
+					"Content-Type", "application/json; charset=UTF-8", 
+					"Accept", "application/json; charset=UTF-8",
+					"Connection", "keep-alive")
+				.body(payload);
 
 			System.out.println("Uri Payload =" + payload);
 			response = httpRequest.post();
@@ -508,10 +528,20 @@ public class CommonMethods {
 
 			ExtentReportManager.logRequest("POST", uri, version, payload);
 
-			RequestSpecification httpRequest = RestAssured.given()
-					.headers("Authorization", "Bearer " + getToken(), "Content-Type", ContentType.JSON, "Accept", "*/*",
-							"Connection", "keep-alive")
-					.body(payload);
+			// Configure RestAssured for UTF-8 charset to handle character encoding properly
+			RestAssuredConfig config = RestAssuredConfig.newConfig()
+				.httpClient(HttpClientConfig.httpClientConfig()
+					.setParam("http.useragent", "RestAssured")
+					.setParam("http.connection.timeout", 60000));
+
+			RequestSpecification httpRequest = RestAssured
+				.given()
+				.config(config)
+				.headers("Authorization", "Bearer " + getToken(), 
+					"Content-Type", "application/json; charset=UTF-8", 
+					"Accept", "application/json; charset=UTF-8",
+					"Connection", "keep-alive")
+				.body(payload);
 
 			response = httpRequest.post();
 			System.out.println("Actual Response =" + response.asString());
@@ -563,8 +593,21 @@ public class CommonMethods {
 
 		ExtentReportManager.logRequest("GET", uri, version, "");
 
-		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "bearer " + getToken(),
-				"Content-Type", ContentType.JSON, "Accept", "*/*", "Connection", "keep-alive", "Cache-Control", "no-cache", "urlEncodingEnabled", "false");
+		// Configure RestAssured for UTF-8 charset to handle character encoding properly
+		RestAssuredConfig config = RestAssuredConfig.newConfig()
+			.httpClient(HttpClientConfig.httpClientConfig()
+				.setParam("http.useragent", "RestAssured")
+				.setParam("http.connection.timeout", 60000));
+		
+		RequestSpecification httpRequest = RestAssured
+			.given()
+			.config(config)
+			.headers("Authorization", "bearer " + getToken(),
+				"Content-Type", "application/json; charset=UTF-8", 
+				"Accept", "application/json; charset=UTF-8", 
+				"Connection", "keep-alive", 
+				"Cache-Control", "no-cache", 
+				"urlEncodingEnabled", "false");
 
 		Response response = httpRequest.get();
 
@@ -590,9 +633,20 @@ public class CommonMethods {
 
 		ExtentReportManager.logRequest("GET", uri, version, responseMap.toString());
 
-		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
-				"Content-Type", ContentType.JSON, "Accept", "*/*", "Connection", "keep-alive", "Accept-Encoding",
-				"gzip, deflate, br");
+		// Configure RestAssured for UTF-8 charset to handle character encoding properly
+		RestAssuredConfig config = RestAssuredConfig.newConfig()
+			.httpClient(HttpClientConfig.httpClientConfig()
+				.setParam("http.useragent", "RestAssured")
+				.setParam("http.connection.timeout", 60000));
+
+		RequestSpecification httpRequest = RestAssured
+			.given()
+			.config(config)
+			.headers("Authorization", "Bearer " + getToken(),
+				"Content-Type", "application/json; charset=UTF-8", 
+				"Accept", "application/json; charset=UTF-8", 
+				"Connection", "keep-alive", 
+				"Accept-Encoding", "gzip, deflate, br");
 
 		Iterator<Entry<String, String>> it = responseMap.entrySet().iterator();
 		while (it.hasNext()) {
