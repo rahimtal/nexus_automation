@@ -231,4 +231,25 @@ public class Private_PaymentControllerV4_Test extends BaseClass {
 
 	}
 
+
+	@Test(priority = 15, groups = "Payment")
+	public static void paymentdocumentDeletev4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		//CommonMethods.CompanyDBRestore();
+		String uri = "/payment/documentDelete";
+		String ver = "4.0";
+		String payload = "{\r\n" + //
+						"    \"BatchId\": \"PY081525sa\",\r\n" + //
+						"    \"Document\": [\r\n" + //
+						"        {\r\n" + //
+						"            \"Number\": \"PYMT00000000539\"\r\n" + //
+						"        }\r\n" + //
+						"    ]\r\n" + //
+						"}";
+		String result = CommonMethods.postMethodStringPayloadString(payload,uri, ver);
+		String Expected = "{\"PaymentDelete\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Payment(s) successfully deleted.\",\"Level\":1}]}}";
+		Assert.assertEquals(result,Expected);
+		System.out.println(result.toString());
+
+	}
+
 }
