@@ -917,4 +917,18 @@ public class Private_rateController_Test extends BaseClass {
 
 	}
 
+	@Test(priority = 15, groups = "rate")
+	public void getrateIserviceTypeSetup()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate/serviceTypeSetup/GAS";
+		String ver = "4.0";
+		String expected = "{\"ServiceType\":{\"Success\":true,\"Data\":{\"ServiceType\":\"GAS\",\"Description\":\"Residential gas accounts\",\"Category\":{\"Id\":4,\"Description\":\"Gas\"},\"ReceivablesAccount\":{\"Index\":560,\"Number\":\"930-1410-00\",\"Description\":\"Customer Accounts Receivable - Gas\"},\"RevenueAccount\":{\"Index\":569,\"Number\":\"930-4611-00\",\"Description\":\"Metered Sales to Residential - Gas\"},\"WriteOffAccount\":{\"Index\":569,\"Number\":\"930-4611-00\",\"Description\":\"Metered Sales to Residential - Gas\"},\"CollectionAgencyAccount\":{\"Index\":0,\"Number\":\"\",\"Description\":\"\"},\"DiscountContraRevenueAccount\":{\"Index\":0,\"Number\":\"\",\"Description\":\"\"},\"DefaultTaxSchedule\":{\"Id\":\"USAUSSTCITY+6*\",\"Description\":\"US State\\/City Tax-Purchases\"},\"Penalty\":{\"Id\":\"DEFAULTPYMT\",\"Description\":\"Penalty for late payment\"},\"MinimumWriteOffAmountToAddMessage\":0.00,\"DiscountAllowed\":false,\"DiscountId\":\"\",\"IncludeThirdPartyCollections\":false,\"MarketerCharge\":false},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		//params.put("ServiceType", "GAS");
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		Assert.assertEquals(result, expected);
+
+	}
+
 }
