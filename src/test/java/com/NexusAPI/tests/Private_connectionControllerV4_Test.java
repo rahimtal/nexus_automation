@@ -23,6 +23,7 @@ public class Private_connectionControllerV4_Test  extends BaseClass{
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
 		//CommonMethods.Bugs("CPDEV-17054");
+		CommonMethods.Bug("CPDEV-26425");
 		String uri = "/connection/meter";
 		String ver = "4.0";
 		String payload = "./\\TestData\\/postconnectionv4.json";
@@ -35,6 +36,7 @@ public class Private_connectionControllerV4_Test  extends BaseClass{
 	public void postconnectionmeterv4Error()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
+		CommonMethods.Bug("CPDEV-26425");
 		String uri = "/connection/meter";
 		String ver = "4.0";
 		String payload = "./\\TestData\\/postconnectionv4.json";
@@ -46,6 +48,7 @@ public class Private_connectionControllerV4_Test  extends BaseClass{
 	@Test(priority = 3, groups = "connectionController" )
 	public void getcollectioncriteriav4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+				CommonMethods.Bug("CPDEV-26425");
 		String uri = "/connection/LOCATION011/";
 		String version = "4.0";
 		String expected = "{\"Connection\":{\"Success\":true,\"Data\":{\"LocationId\":\"LOCATION011\",\"Description\":\"\",\"LocationClass\":\"\",\"CurrentCustomerId\":\"CUSTOMER012\",\"ZoneId\":\"2\",\"RouteId\":\"\",\"CycleId\":\"\",\"Service\":[{\"CustomerId\":\"CUSTOMER012\",\"Type\":{\"Id\":\"ELECTRIC\",\"Description\":\"Residential electrical accounts\"},\"Category\":{\"Id\":1,\"Description\":\"Electric\"},\"ConnectionSequence\":1,\"AlternateConnection\":false,\"SubtractConnection\":false,\"BaseConnectionSequence\":0,\"EquipmentId\":\"EQUIPMENT013\",\"DiscountRate\":\"\",\"FlatRate\":\"\",\"TaxDiscountPercent\":0.00000,\"NetMeter\":{\"Description\":\"None\",\"DeliveredMeterId\":\"\"},\"Multiplier\":{\"Rate\":1.00000,\"Fixed\":1.00000,\"Loss\":1.00000,\"Consumption\":1.00000,\"RangeAndMinimum\":1.00000,\"Total\":1.00000},\"Route\":{\"Id\":\"ROUTEE001\",\"SequenceNumber\":901},\"MeterGroup\":{\"Id\":\"\",\"Type\":{\"Id\":0,\"Description\":\"\"},\"MultiplierId\":\"\"},\"CycleId\":\"TESTCYCLEQUART\",\"Rate\":[{\"Period\":{\"Index\":1,\"Name\":\"ON PEAK\",\"Description\":\"On Peak Consumption\",\"Consumption\":\"\",\"KW\":\"GS-PK DEMAND\",\"KVA\":\"\",\"NetMeterReceived\":\"\"}},{\"Period\":{\"Index\":2,\"Name\":\"OFFPEAK\",\"Description\":\"Off Peak Consumption\",\"Consumption\":\"\",\"KW\":\"GS-OFFPKDEMAND\",\"KVA\":\"\",\"NetMeterReceived\":\"\"}}],\"ConnectionDate\":\"1997-01-01\",\"DisconnectionDate\":\"1900-01-01\",\"InstallationDate\":\"1997-01-01\",\"Status\":{\"Id\":2,\"Description\":\"Active\"},\"CustomStatus\":{\"Id\":2,\"Description\":\"Active\"},\"Attributes\":{\"Transponder\":\"\"},\"Alternate\":[],\"Subtract\":[]}]},\"Messages\":[]}}";
@@ -59,7 +62,7 @@ public class Private_connectionControllerV4_Test  extends BaseClass{
 	@Test(priority = 4, groups = "connectionController" )
 	public void postconnectionFlatv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
-
+CommonMethods.Bug("CPDEV-26425");
 		String uri = "/connection/flat";
 		String ver = "4.0";
 		String payload = "{\"Connection\": {\r\n" + "        \"LocationId\": \"000000000523000\",\r\n"
@@ -79,6 +82,7 @@ public class Private_connectionControllerV4_Test  extends BaseClass{
 	@Test(priority = 5, groups = "connectionController" )
 	public void postconnectionalternatev4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		CommonMethods.Bug("CPDEV-26425");
 		// JsonPath jsonPathEvaluator;
 
 		String uri = "/connection/alternate";
@@ -103,7 +107,7 @@ public class Private_connectionControllerV4_Test  extends BaseClass{
 	@Test(priority = 6, groups = "connectionController" )
 	public void postconnectionmeterv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
-
+		CommonMethods.Bug("CPDEV-26425");
 		String uri = "/connection/meter";
 		String ver = "4.0";
 		String payload = "{\r\n" + "    \"Connection\": {\r\n" + "        \"ConnectionDate\": \"1900-01-01\",\r\n"
@@ -130,7 +134,7 @@ public class Private_connectionControllerV4_Test  extends BaseClass{
 	@Test(priority = 7, groups = "connectionController" )
 	public void putconnectionmeterv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
-
+CommonMethods.Bug("CPDEV-26425");
 		String uri = "/connection/meter";
 		String ver = "4.0";
 		String payload = "{\r\n" + 
@@ -179,7 +183,7 @@ public class Private_connectionControllerV4_Test  extends BaseClass{
 	public void deleteconnectionmetergrpv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
-
+CommonMethods.Bug("CPDEV-26425");
 		String uri = "/connection/meterGroup/MTGR00000000001";
 		String version = "4.0";
 		String exResponse = "{\"Connection\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Deleted\",\"Level\":1}]}}";
@@ -191,7 +195,7 @@ public class Private_connectionControllerV4_Test  extends BaseClass{
 	public void postconnectionmetergrpv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
-
+CommonMethods.Bug("CPDEV-26425");
 		String uri = "/connection/meterGroup";
 		String version = "4.0";
 		String payload = "{\r\n" + "    \"Connection\": {\r\n" + "        \"LocationId\": \"LOCATION008\",\r\n"
@@ -210,7 +214,7 @@ public class Private_connectionControllerV4_Test  extends BaseClass{
 	public void putconnectionmeterAlternatev4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
-
+CommonMethods.Bug("CPDEV-26425");
 		String uri = "/connection/alternate";
 		String ver = "4.0";
 		String payload = "{\r\n" + "    \"Connection\": {\r\n" + "        \"LocationId\": \"AUTO1001\",\r\n"
@@ -233,6 +237,7 @@ public class Private_connectionControllerV4_Test  extends BaseClass{
 	@Test(priority = 11, groups = "connectionController" )
 	public void postconnectionMeterInstallMeter() 		throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
+		CommonMethods.Bug("CPDEV-26425");
 		String uri = "/connection/meter";
 		String version = "4.0";
 		String payload = "{\r\n" + 

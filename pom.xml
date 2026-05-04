@@ -50,8 +50,9 @@
 					<suiteXmlFiles>
 						<suiteXmlFile>testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
-					<argLine>-Djava.util.logging.config.file=${project.basedir}/src/test/resources/logging.properties -Dfreemarker.debug=false</argLine>
+					<argLine>-Dfreemarker.debug=false</argLine>
 					<systemPropertyVariables>
+						<java.util.logging.config.file>${project.basedir}/src/test/resources/logging.properties</java.util.logging.config.file>
 						<freemarker.debug>false</freemarker.debug>
 						<java.util.logging.manager>java.util.logging.LogManager</java.util.logging.manager>
 					</systemPropertyVariables>
