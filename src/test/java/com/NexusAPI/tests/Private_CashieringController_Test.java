@@ -382,10 +382,10 @@ public class Private_CashieringController_Test extends BaseClass {
 
 	}
 
-	@Test(priority = 8, groups = "Cashering", dependsOnMethods = "TC001_1_Cashin")
+//	@Test(priority = 8, groups = "Cashering")
 	public void saveReciept_2_4()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
-		verifyCashInStatus();
+	
 		// CommonMethods.CompanyDBRestore();
 		// CommonMethods.Bugs("CPDEV-20919");
 
@@ -469,11 +469,13 @@ public class Private_CashieringController_Test extends BaseClass {
 
 	}
 
-	@Test(priority = 10, groups = "Cashering", dependsOnMethods = "TC001_1_Cashin")
+	@Test(priority = 10, groups = "Cashering")
 	public void saveReciept_4_prepaymentExistingCustomer()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
 		verifyCashInStatus();
 		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
+		CommonMethods.Bug("CPDEV-26410");
+
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
 		String payload = "{\r\n" + "   \"Receipt\":{\r\n" + "      \"ReceiptNumber\":\"004240724000005\",\r\n"
@@ -498,11 +500,12 @@ public class Private_CashieringController_Test extends BaseClass {
 
 	}
 
-	@Test(priority = 11, groups = "Cashering", dependsOnMethods = "TC001_1_Cashin")
+	@Test(priority = 11, groups = "Cashering")
 	public void saveReciept_4_prepaymentNewCustomer()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
 		verifyCashInStatus();
 		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
+		CommonMethods.Bug("CPDEV-26410");
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
 		String payload = "{\r\n" + "   \"Receipt\":{\r\n" + "      \"ReceiptNumber\":\"004240724000009\",\r\n"
@@ -527,11 +530,12 @@ public class Private_CashieringController_Test extends BaseClass {
 
 	}
 
-	@Test(priority = 12, groups = "Cashering", dependsOnMethods = "TC001_1_Cashin")
+	@Test(priority = 12, groups = "Cashering")
 	public void saveReciept_4_SOTaskCompleteDepositPayment()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
 		verifyCashInStatus();
 		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
+		CommonMethods.Bug("CPDEV-26410");
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
 		String payload = "{\r\n" + "   \"Receipt\":{\r\n" + "      \"ReceiptNumber\":\"004240805000004\",\r\n"
@@ -556,11 +560,12 @@ public class Private_CashieringController_Test extends BaseClass {
 
 	}
 
-	@Test(priority = 13, groups = "Cashering", dependsOnMethods = "TC001_1_Cashin")
+	@Test(priority = 13, groups = "Cashering")
 	public void saveReciept_4_SOTaskCompleteDepositPaymenttask2()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
 		verifyCashInStatus();
 		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
+		CommonMethods.Bug("CPDEV-26410");
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
 		String payload = "{\r\n" + "   \"Receipt\":{\r\n" + "      \"ReceiptNumber\":\"004240805000013\",\r\n"
@@ -590,6 +595,7 @@ public class Private_CashieringController_Test extends BaseClass {
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
 		verifyCashInStatus();
 		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
+		CommonMethods.Bug("CPDEV-26410");
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
 		String payload = "{\r\n" + "   \"Receipt\":{\r\n" + "      \"ReceiptNumber\":\"004240805000008\",\r\n"
