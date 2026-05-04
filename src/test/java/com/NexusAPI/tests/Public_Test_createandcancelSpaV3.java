@@ -23,7 +23,7 @@ public class Public_Test_createandcancelSpaV3 extends BaseClass {
 		String spaIndexfromdb = CommonMethods.getSPAIndex(customerId);
 
 		Boolean res = CommonMethods.cancelSpa(spaIndexfromdb, customerId);
-		if (!res) {
+		if (res == null || !res) {
 			Assert.fail("Not cancelled");
 		}
 		Thread.sleep(5000);
