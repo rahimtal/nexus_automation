@@ -931,4 +931,56 @@ public class Private_rateController_Test extends BaseClass {
 
 	}
 
+	@Test(priority = 16, groups = "rate")
+	public void getrateIserviceTypeSetupElectric()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate/serviceTypeSetup/ELECTRIC";
+		String ver = "4.0";
+		String expected = "{\"ServiceType\":{\"Success\":true,\"Data\":{\"ServiceType\":\"ELECTRIC\",\"Description\":\"Residential electrical accounts\",\"Category\":{\"Id\":1,\"Description\":\"Electric\"},\"ReceivablesAccount\":{\"Index\":506,\"Number\":\"900-1410-00\",\"Description\":\"Customer Accounts Receivable - Electric\"},\"RevenueAccount\":{\"Index\":515,\"Number\":\"900-4611-00\",\"Description\":\"Metered Sales to Residential - Electric\"},\"WriteOffAccount\":{\"Index\":515,\"Number\":\"900-4611-00\",\"Description\":\"Metered Sales to Residential - Electric\"},\"CollectionAgencyAccount\":{\"Index\":0,\"Number\":\"\",\"Description\":\"\"},\"DiscountContraRevenueAccount\":{\"Index\":0,\"Number\":\"\",\"Description\":\"\"},\"DefaultTaxSchedule\":{\"Id\":\"USASTCITY-6*\",\"Description\":\"State Tax-USA\"},\"Penalty\":{\"Id\":\"5%\",\"Description\":\"Late Payment Charge\"},\"MinimumWriteOffAmountToAddMessage\":0.00,\"DiscountAllowed\":false,\"DiscountId\":\"\",\"IncludeThirdPartyCollections\":false,\"MarketerCharge\":false},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		Assert.assertEquals(result, expected);
+
+	}
+
+	@Test(priority = 17, groups = "rate")
+	public void getrateIserviceTypeSetupWater()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate/serviceTypeSetup/WATER";
+		String ver = "4.0";
+		String expected = "{\"ServiceType\":{\"Success\":true,\"Data\":{\"ServiceType\":\"WATER\",\"Description\":\"Water residential customers\",\"Category\":{\"Id\":2,\"Description\":\"Water\"},\"ReceivablesAccount\":{\"Index\":508,\"Number\":\"920-1410-00\",\"Description\":\"Customer Accounts Receivable - Water\"},\"RevenueAccount\":{\"Index\":520,\"Number\":\"920-4612-00\",\"Description\":\"Metered Sales to Commercial - Water\"},\"WriteOffAccount\":{\"Index\":520,\"Number\":\"920-4612-00\",\"Description\":\"Metered Sales to Commercial - Water\"},\"CollectionAgencyAccount\":{\"Index\":0,\"Number\":\"\",\"Description\":\"\"},\"DiscountContraRevenueAccount\":{\"Index\":0,\"Number\":\"\",\"Description\":\"\"},\"DefaultTaxSchedule\":{\"Id\":\"EXEMPT\",\"Description\":\"No tax included\"},\"Penalty\":{\"Id\":\"DEFAULTPYMT\",\"Description\":\"Penalty for late payment\"},\"MinimumWriteOffAmountToAddMessage\":0.00,\"DiscountAllowed\":false,\"DiscountId\":\"\",\"IncludeThirdPartyCollections\":false,\"MarketerCharge\":false},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		Assert.assertEquals(result, expected);
+
+	}
+
+	@Test(priority = 18, groups = "rate")
+	public void getrateIserviceTypeSetupSteamNegative()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate/serviceTypeSetup/STEAM";
+		String ver = "4.0";
+		String expected = "{\"ServiceType\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Invalid Service Type steam.\",\"Level\":3}]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		Assert.assertEquals(result, expected);
+
+	}
+
+	@Test(priority = 19, groups = "rate")
+	public void getrateIserviceTypeSetupChilledNegative()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate/serviceTypeSetup/CHILLED";
+		String ver = "4.0";
+		String expected = "{\"ServiceType\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Invalid Service Type CHILLED.\",\"Level\":3}]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		Assert.assertEquals(result, expected);
+
+	}
+
 }
