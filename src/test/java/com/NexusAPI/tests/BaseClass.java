@@ -7,6 +7,7 @@ import org.testng.annotations.BeforeSuite;
 
 import com.NexustAPIAutomation.java.EmailSender;
 import com.NexustAPIAutomation.java.QuickDBRestore;
+import com.NexustAPIAutomation.java.FilteredPrintStream;
 
 //import com.aventstack.extentreports.ExtentReports;
 
@@ -23,6 +24,10 @@ public class BaseClass {
 
 	@BeforeSuite
 	public void setupReport() throws IOException, InterruptedException {
+		// Suppress FreeMarker DEBUG logs from ExtentReports at both stderr and stdout
+		System.setErr(new FilteredPrintStream(System.err));
+		System.setOut(new FilteredPrintStream(System.out));
+		
 		// System.out.println("Deleting folder");
 		// Runtime.getRuntime().exec("cmd /c rd /s /q
 		// C:\\Users\\Admin\\Documents\\GitHub\\nexus_automation\\test-output\\");

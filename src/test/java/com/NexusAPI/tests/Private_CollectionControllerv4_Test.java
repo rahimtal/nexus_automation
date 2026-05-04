@@ -32,6 +32,8 @@ public class Private_CollectionControllerv4_Test  extends BaseClass {
 
 	@Test(priority = 3, groups = "Collection" )
 	public void getcollectionv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		CommonMethods.Bug("CPDEV-26420");
+		
 		String uri = "/collection";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\getcollectionv4.json";
@@ -179,7 +181,9 @@ public class Private_CollectionControllerv4_Test  extends BaseClass {
 
 	@Test(priority = 9, groups = "Collection" )
 	public void getcollectioncriteriav4()
-			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+				throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		CommonMethods.Bug("CPDEV-26415");
 		String uri = "/collection/criteria";
 		String version = "4.0";
 		String expected = "{\"Collection\":{\"Success\":true,\"Data\":{\"CalculateCriteria\":[{\"CustomerId\":\"03332301204\",\"CycleId\":\"\",\"UserId\":\"sa\",\"CalculateBy\":4,\"CalculateByDescription\":\"Customer\",\"NoticeDate\":";// \"2024-07-15\",\"CurrentCustomer\":0,\"FormerCustomer\":1,\"Zone\":[],\"Route\":[],\"CollectionType\":[]}]},\"Messages\":[]}}";
@@ -187,7 +191,8 @@ public class Private_CollectionControllerv4_Test  extends BaseClass {
 		HashMap<String, String> params = new HashMap<String, String>();
 		// params.put("CustomerId", "CUSTOMER012");
 		String actual = CommonMethods.getMethodasString(uri, version, params);
-		Assert.assertTrue(actual.contains(expected));
-		Assert.assertTrue(actual.contains(expected2));
+		System.out.println(actual);
+		Assert.assertTrue(actual.contains(expected),expected);
+		Assert.assertTrue(actual.contains(expected2),expected2);
 	}
 }

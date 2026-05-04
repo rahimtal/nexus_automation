@@ -2,6 +2,7 @@ package com.NexustAPIAutomation.java;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Properties;
 
@@ -56,8 +57,24 @@ public class EmailSender {
 			String reportPath = Files.walk(Paths.get(System.getProperty("user.dir")))
 					.filter(path -> path.getFileName().toString().equals("emailable-report.html"))
 					.findFirst()
-					.orElseThrow(() -> new IOException("emailable-report.html not found in any folder"))
-					.toString();
+					.map(Path::toString)
+					.orElseGet(() -> {
+						try {
+							return Files.walk(Paths.get(System.getProperty("user.dir")))
+									.filter(path -> path.getFileName().toString().equals("ExtentReport.html"))
+									.findFirst()
+									.map(Path::toString)
+									.orElse(null);
+						} catch (IOException e) {
+							return null;
+						}
+					});
+			
+			if (reportPath == null) {
+				System.err.println("No report file found (emailable-report.html or ExtentReport.html)");
+				return;
+			}
+			
 			System.out.println("Starting EmailSender...");
 			System.out.println("Report path: " + reportPath);
 

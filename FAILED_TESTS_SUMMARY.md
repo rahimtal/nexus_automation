@@ -1,34 +1,191 @@
-# Failed Tests Summary - 55 Tests Requiring Investigation
+# Failed Tests Detailed Summary
 
-## Test Execution Summary
-- **Date**: May 4, 2026
-- **Total Tests Run**: 265
-- **Passed**: 197 (74%)
-- **Failed**: 55 (21%)
-- **Skipped**: 13 (5% - Known bugs)
-- **Duration**: ~7:50 minutes
+**Report Date:** May 4, 2026  
+**Status:** Execution phase complete - 8 tests analyzed in detail (Cashiering + Collection)
 
 ---
 
-## Failed Tests by Category
+## Executive Summary
 
-### 1. Cashiering Controller - 7 Tests
-**Location**: `Private_CashieringController_Test`
-**Issue Pattern**: Receipt operations (POST/GET persistence)
-
-```
-- TC007_getAutoApply
-- saveReciept_2_4
-- saveReciept_4_prepaymentExistingCustomer
-- saveReciept_4_prepaymentNewCustomer
-- saveReciept_4_SOTaskCompleteDepositPayment
-- saveReciept_4_SOTaskCompleteDepositPaymenttask2
-- saveReciept_SOTaskCompleteDepositPaymenttaskNewCustomer
-```
-
-**Investigation**: POST returns success but subsequent GET shows old state. May need explicit confirmation/commit step.
+| Category | Count | Status |
+|----------|-------|--------|
+| **Total Failed Tests Analyzed** | 8 | In Detail |
+| **Cashiering Failures** | 6 | Session persistence issue |
+| **Collection Failures** | 2 | Data retrieval issue |
+| **Root Causes Identified** | 2 | Distinct patterns |
+| **Severity Level** | All HIGH | Blocking production transactions |
 
 ---
+
+# CASHIERING CONTROLLER - 6 FAILURES
+
+## Common Root Cause: User Cash-in Session Not Persisting
+
+**Error Pattern:** `"The user cogsuser is no longer cashed in. The receipt could not be created."`  
+**HTTP Status:** 200 OK (masks the actual failure)  
+**API Response:** `Success=false` in JSON payload  
+**Timeline:** Cash-in succeeds, then 0.5 seconds later session is lost  
+**Impact:** ALL receipt creation blocked after cash-in
+
+---
+
+## CASHIERING FAILURES - DETAILED
+
+### ❌ Failure 1: saveReciept_2_4 (Line 429)
+**Test Class:** Private_CashieringController_Test  
+**Error:** `expected [true] but found [false]`  
+**API Endpoint:** POST /api/v4/cashiering/receipt  
+**Message:** "The user cogsuser is no longer cashed in. The receipt could not be created."  
+**Time Since Cash-in:** ~0.5 seconds  
+**Token Status:** Valid (300s TTL)  
+**Impact:** Cannot create receipt 
+
+---
+
+### ❌ Failure 2: saveReciept_4_prepaymentExistingCustomer (Line 497)
+**Test Class:** Private_CashieringController_Test  
+**Customer Type:** Existing  
+**Transaction Type:** Prepayment  
+**Expected Receipt Number:** 004240724000005  
+**Actual Response:** Success=false  
+**Message:** "The user cogsuser is no longer cashed in. The receipt could not be created."  
+**Root Cause:** Session lost after cash-in  
+
+---
+
+### ❌ Failure 3: saveReciept_4_prepaymentNewCustomer (Line 526)
+**Test Class:** Private_CashieringController_Test  
+**Customer Type:** New  
+**Transaction Type:** Prepayment  
+**Error Pattern:** Identical to Failure 2  
+**Message:** "The user cogsuser is no longer cashed in. The receipt could not be created."  
+
+---
+
+### ❌ Failure 4: saveReciept_4_SOTaskCompleteDepositPayment (Line 555)
+**Test Class:** Private_CashieringController_Test  
+**Receipt Type:** Service Order Task Complete  
+**Payment Type:** Deposit  
+**Error Pattern:** Identical session loss  
+**Message:** "The user cogsuser is no longer cashed in. The receipt could not be created."  
+
+---
+
+### ❌ Failure 5: saveReciept_4_SOTaskCompleteDepositPaymenttask2 (Line 584)
+**Test Class:** Private_CashieringController_Test  
+**Receipt Type:** Service Order Task Complete (Task 2)  
+**Payment Type:** Deposit  
+**Error Pattern:** Identical session loss  
+**Message:** "The user cogsuser is no longer cashed in. The receipt could not be created."  
+
+---
+
+### ❌ Failure 6: saveReciept_SOTaskCompleteDepositPaymenttaskNewCustomer (Line 613)
+**Test Class:** Private_CashieringController_Test  
+**Customer Type:** New  
+**Receipt Type:** Service Order Task Complete  
+**Payment Type:** Deposit  
+**Error Pattern:** Identical session loss  
+**Message:** "The user cogsuser is no longer cashed in. The receipt could not be created."  
+
+---
+
+## CASHIERING - ROOT CAUSE ANALYSIS
+
+**Test Flow:**
+```
+1. TC001_1_Cashin → ✅ POST /api/v4/cashiering/cashin
+   Response: Success=true, HTTP 200
+   Token expires in: 300 seconds
+   User: cogsuser
+   
+2. [0.5 second delay]
+
+3. saveReciept_* → ❌ POST /api/v4/cashiering/receipt
+   Response: Success=false, HTTP 200 ← PROBLEM: HTTP 200 masks failure
+   Message: "user no longer cashed in"
+   Token status: Still valid
+```
+
+**Critical Issues:**
+1. ❌ Backend session state not persisting between API calls
+2. ❌ HTTP 200 returned even when operation fails (hides errors)
+3. ❌ Cash-in state expires or cleared during 0.5s window
+4. ⚠️ Test workaround re-establishes cash-in but still fails receipt POST
+
+**Backend Investigation Required:**
+- [ ] Verify cash-in state stored in session cache (Redis/memory)
+- [ ] Check session TTL vs token TTL coordination
+- [ ] Review SQL procedures for cash-in state persistence
+- [ ] Trace execution flow: is state saved to DB?
+- [ ] Add logging to track cash-in state lifecycle
+
+---
+
+# COLLECTION CONTROLLER - 2 FAILURES
+
+## Common Root Cause: Data Query Returning Empty Results
+
+**Issue Pattern:** Successful API calls but no data returned  
+**HTTP Status:** 200 OK  
+**Database:** Fresh restore before test (test data present)  
+**Impact:** Collection reports and queries blocked
+
+---
+
+### ❌ Failure 7: getcollectioncriteriav4 (Line 190)
+**Test Class:** Private_CollectionControllerv4_Test  
+**Error:** `expected [true] but found [false]`  
+**API Endpoint:** GET /api/v4/collection/criteria  
+**Duration:** 31ms  
+**Test Result:** Boolean validation failed  
+**Root Cause:** Unknown - requires code inspection  
+
+---
+
+### ❌ Failure 8: getcollectionv4 (Line 47)
+**Test Class:** Private_CollectionControllerv4_Test  
+**API Endpoint:** GET /api/v4/collection/query  
+**Expected Records:** 16+ notice displays + 40+ notices  
+**Actual Records:** 0 (empty arrays)  
+
+**Expected Data Sample:**
+```json
+{
+  "NoticesDisplay": [
+    {
+      "CustomerId": "03332301204",
+      "LocationId": "SPALOCATION1",
+      "CustomerName": "Talha Rahim",
+      "ServiceAddress": "BSMT 8000 8000, Cartersville"
+    },
+    ... [15 more] ...
+  ]
+}
+```
+
+**Actual Data:**
+```json
+{
+  "NoticesDisplay": [],
+  "Notices": []
+}
+```
+
+**Root Causes to Investigate:**
+- [ ] Database restore missing collection notice test data
+- [ ] Query filter parameters too restrictive
+- [ ] Collection notices marked as inactive
+- [ ] Query not executing or returning wrong result set
+
+---
+
+## COLLECTION RESULTS SUMMARY
+**Total Collection Tests:** 10  
+**Passed:** 8 ✅  
+**Failed:** 2 ❌  
+**Pass Rate:** 80%  
+**Duration:** 39.3 seconds  
 
 ### 2. Collection Controller - 7 Tests
 **Location**: `Private_CollectionControllerv4_Test`

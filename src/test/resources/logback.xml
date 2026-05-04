@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- Console appender for console output with filter -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- File appender for detailed logging -->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>test-output/test-logs.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Suppress FreeMarker verbose DEBUG logs (both variations) -->
+    <logger name="freemark" level="ERROR"/>
+    <logger name="freemarker" level="ERROR"/>
+    
+    <!-- Suppress ExtentReports verbose logs -->
+    <logger name="com.aventstack" level="ERROR"/>
+    
+    <!-- Suppress other verbose libraries -->
+    <logger name="org.testng" level="WARN"/>
+    <logger name="org.testng.internal" level="WARN"/>
+    <logger name="org.apache.maven" level="WARN"/>
+    <logger name="org.apache.http" level="WARN"/>
+    <logger name="com.fasterxml" level="WARN"/>
+    <logger name="org.apache.commons" level="WARN"/>
+
+    <!-- Root logger configuration - set to WARN to suppress INFO spamming -->
+    <root level="WARN">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>
