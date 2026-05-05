@@ -36,7 +36,7 @@ public class BaseClass {
 		//disabled for now 
 		System.out.println("\n========== BEFORE SUITE: Starting Database Restore ==========");
 		try {
-			QuickDBRestore.restoreDatabase();
+			//QuickDBRestore.restoreDatabase();
 			System.out.println("========== BEFORE SUITE: Database Restore COMPLETED ==========\n");
 		} catch (Exception e) {
 			System.out.println("========== BEFORE SUITE: Database Restore FAILED ==========");

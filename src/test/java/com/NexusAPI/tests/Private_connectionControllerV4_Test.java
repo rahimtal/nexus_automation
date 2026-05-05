@@ -23,7 +23,7 @@ public class Private_connectionControllerV4_Test  extends BaseClass{
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// JsonPath jsonPathEvaluator;
 		//CommonMethods.Bugs("CPDEV-17054");
-		CommonMethods.Bug("CPDEV-26425");
+		//CommonMethods.Bug("CPDEV-26425");
 		String uri = "/connection/meter";
 		String ver = "4.0";
 		String payload = "./\\TestData\\/postconnectionv4.json";

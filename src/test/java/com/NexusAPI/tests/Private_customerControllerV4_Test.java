@@ -223,6 +223,7 @@ public class Private_customerControllerV4_Test extends BaseClass {
 	public void putpreauthorizedPaymentPlanv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
+		CommonMethods.Bug("CPDEV-26425");
 		String uri = "/customers/preauthorizedPaymentPlan";
 		String ver = "4.0";
 		String jpath = "{\r\n" + //
