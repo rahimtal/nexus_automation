@@ -382,12 +382,12 @@ public class Private_CashieringController_Test extends BaseClass {
 
 	}
 
-//	@Test(priority = 8, groups = "Cashering")
+	@Test(priority = 8, groups = "Cashering")
 	public void saveReciept_2_4()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
 	
 		// CommonMethods.CompanyDBRestore();
-		// CommonMethods.Bugs("CPDEV-20919");
+		CommonMethods.Bug("CPDEV-20919");
 
 		// Wrap database operation in try-catch as SQL Server may not be available
 		try {
