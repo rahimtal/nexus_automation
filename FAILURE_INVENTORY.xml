@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<failures>
+    <metadata>
+        <total>36</total>
+        <passed>147</passed>
+        <failed>36</failed>
+        <skipped>11</skipped>
+        <executionDate>2026-05-05</executionDate>
+    </metadata>
+
+    <!-- CATEGORY 1: SQL SET OPTIONS MISSING (8 failures) -->
+    <failure id="F001">
+        <category>SQL SET Options Missing</category>
+        <severity>CRITICAL</severity>
+        <controller>Connection Controller V4</controller>
+        <testMethod>postconnectionFlatv4</testMethod>
+        <line>61</line>
+        <storedProcedure>csmApi_spConnectionFlatCreate</storedProcedure>
+        <errorMessage>INSERT failed because the following SET options have incorrect settings: 'ANSI_NULLS, QUOTED_IDENTIFIER'</errorMessage>
+        <expectedBehavior>Connection flat created successfully</expectedBehavior>
+        <actualBehavior>Database constraint error due to missing SET options</actualBehavior>
+        <fix>Add SET ANSI_NULLS ON; SET QUOTED_IDENTIFIER ON; at start of stored procedure</fix>
+        <fixLocation>Database</fixLocation>
+        <estimatedFixTime>2 minutes</estimatedFixTime>
+        <status>PENDING</status>
+        <workaround>Bug annotation applied - test will skip</workaround>
+        <bugId>CPDEV-26425</bugId>
+    </failure>
+
+    <failure id="F002">
+        <category>SQL SET Options Missing</category>
+        <severity>CRITICAL</severity>
+        <controller>Connection Controller V4</controller>
+        <testMethod>postconnectionalternatev4</testMethod>
+        <line>80</line>
+        <storedProcedure>csmApi_spConnectionAlternateCreate</storedProcedure>
+        <errorMessage>INSERT failed because the following SET options have incorrect settings: 'ANSI_NULLS, QUOTED_IDENTIFIER'</errorMessage>
+        <expectedBehavior>Connection alternate created successfully</expectedBehavior>
+        <actualBehavior>Database constraint error due to missing SET options</actualBehavior>
+        <fix>Add SET ANSI_NULLS ON; SET QUOTED_IDENTIFIER ON; at start of stored procedure</fix>
+        <fixLocation>Database</fixLocation>
+        <estimatedFixTime>2 minutes</estimatedFixTime>
+        <status>PENDING</status>
+        <workaround>Bug annotation applied - test will skip</workaround>
+        <bugId>CPDEV-26425</bugId>
+    </failure>
+
+    <failure id="F003">
+        <category>SQL SET Options Missing</category>
+        <severity>CRITICAL</severity>
+        <controller>Connection Controller V4</controller>
+        <testMethod>postconnectionmeterv4</testMethod>
+        <line>104</line>
+        <storedProcedure>csmApi_spConnectionMeterCreate</storedProcedure>
+        <errorMessage>INSERT failed because the following SET options have incorrect settings: 'ANSI_NULLS, QUOTED_IDENTIFIER'</errorMessage>
+        <expectedBehavior>Connection meter created successfully</expectedBehavior>
+        <actualBehavior>Database constraint error due to missing SET options</actualBehavior>
+        <fix>Add SET ANSI_NULLS ON; SET QUOTED_IDENTIFIER ON; at start of stored procedure</fix>
+        <fixLocation>Database</fixLocation>
+        <estimatedFixTime>2 minutes</estimatedFixTime>
+        <status>PENDING</status>
+        <workaround>Bug annotation applied - test will skip</workaround>
+        <bugId>CPDEV-26425</bugId>
+    </failure>
+
+    <failure id="F004">
+        <category>SQL SET Options Missing</category>
+        <severity>CRITICAL</severity>
+        <controller>Connection Controller V4</controller>
+        <testMethod>putconnectionmeterv4</testMethod>
+        <line>127</line>
+        <storedProcedure>csmApi_spConnectionMeterUpdate_Regular</storedProcedure>
+        <errorMessage>INSERT failed because the following SET options have incorrect settings: 'ANSI_NULLS, QUOTED_IDENTIFIER'</errorMessage>
+        <expectedBehavior>Connection meter updated successfully</expectedBehavior>
+        <actualBehavior>Database constraint error due to missing SET options</actualBehavior>
+        <fix>Add SET ANSI_NULLS ON; SET QUOTED_IDENTIFIER ON; at start of stored procedure</fix>
+        <fixLocation>Database</fixLocation>
+        <estimatedFixTime>2 minutes</estimatedFixTime>
+        <status>PENDING</status>
+        <workaround>Bug annotation applied - test will skip</workaround>
+        <bugId>CPDEV-26425</bugId>
+    </failure>
+
+    <failure id="F005">
+        <category>SQL SET Options Missing</category>
+        <severity>CRITICAL</severity>
+        <controller>Connection Controller V4</controller>
+        <testMethod>deleteconnectionmetergrpv4</testMethod>
+        <line>170</line>
+        <storedProcedure>csmApi_spConnectionMeterGroupDelete</storedProcedure>
+        <errorMessage>INSERT failed because the following SET options have incorrect settings: 'ANSI_NULLS, QUOTED_IDENTIFIER'</errorMessage>
+        <expectedBehavior>Connection meter group deleted successfully</expectedBehavior>
+        <actualBehavior>Database constraint error due to missing SET options</actualBehavior>
+        <fix>Add SET ANSI_NULLS ON; SET QUOTED_IDENTIFIER ON; at start of stored procedure</fix>
+        <fixLocation>Database</fixLocation>
+        <estimatedFixTime>2 minutes</estimatedFixTime>
+        <status>PENDING</status>
+        <workaround>Bug annotation applied - test will skip</workaround>
+        <bugId>CPDEV-26425</bugId>
+    </failure>
+
+    <failure id="F006">
+        <category>SQL SET Options Missing</category>
+        <severity>CRITICAL</severity>
+        <controller>Connection Controller V4</controller>
+        <testMethod>putconnectionmeterAlternatev4</testMethod>
+        <line>199</line>
+        <storedProcedure>csmApi_spConnectionAlternateUpdate</storedProcedure>
+        <errorMessage>INSERT failed because the following SET options have incorrect settings: 'ANSI_NULLS, QUOTED_IDENTIFIER'</errorMessage>
+        <expectedBehavior>Connection meter alternate updated successfully</expectedBehavior>
+        <actualBehavior>Database constraint error due to missing SET options</actualBehavior>
+        <fix>Add SET ANSI_NULLS ON; SET QUOTED_IDENTIFIER ON; at start of stored procedure</fix>
+        <fixLocation>Database</fixLocation>
+        <estimatedFixTime>2 minutes</estimatedFixTime>
+        <status>PENDING</status>
+        <workaround>Bug annotation applied - test will skip</workaround>
+        <bugId>CPDEV-26425</bugId>
+    </failure>
+
+    <failure id="F007">
+        <category>SQL SET Options Missing</category>
+        <severity>CRITICAL</severity>
+        <controller>Connection Controller V4</controller>
+        <testMethod>postconnectionMeterInstallMeter</testMethod>
+        <line>220</line>
+        <storedProcedure>csmApi_spConnectionMeterInstall</storedProcedure>
+        <errorMessage>INSERT failed because the following SET options have incorrect settings: 'ANSI_NULLS, QUOTED_IDENTIFIER'</errorMessage>
+        <expectedBehavior>Connection meter installed successfully</expectedBehavior>
+        <actualBehavior>Database constraint error due to missing SET options</actualBehavior>
+        <fix>Add SET ANSI_NULLS ON; SET QUOTED_IDENTIFIER ON; at start of stored procedure</fix>
+        <fixLocation>Database</fixLocation>
+        <estimatedFixTime>2 minutes</estimatedFixTime>
+        <status>PENDING</status>
+        <workaround>Bug annotation applied - test will skip</workaround>
+        <bugId>CPDEV-26425</bugId>
+    </failure>
+
+    <failure id="F008">
+        <category>SQL SET Options Missing</category>
+        <severity>CRITICAL</severity>
+        <controller>Customer Controller V4</controller>
+        <testMethod>putpreauthorizedPaymentPlanv4</testMethod>
+        <line>240</line>
+        <storedProcedure>csmApi_spCustomerPreauthorizedPaymentPlanUpdate</storedProcedure>
+        <errorMessage>INSERT failed because the following SET options have incorrect settings: 'ANSI_NULLS, QUOTED_IDENTIFIER'</errorMessage>
+        <expectedBehavior>Preauthorized payment plan updated successfully</expectedBehavior>
+        <actualBehavior>Database constraint error due to missing SET options</actualBehavior>
+        <fix>Add SET ANSI_NULLS ON; SET QUOTED_IDENTIFIER ON; at start of stored procedure</fix>
+        <fixLocation>Database</fixLocation>
+        <estimatedFixTime>2 minutes</estimatedFixTime>
+        <status>PENDING</status>
+        <workaround>None - test failure blocks functionality</workaround>
+        <bugId>CPDEV-26425</bugId>
+    </failure>
+
+    <!-- CATEGORY 2: SCHEMA/API EVOLUTION (8 failures) -->
+    <failure id="F009">
+        <category>Schema Evolution - Missing Field</category>
+        <severity>HIGH</severity>
+        <controller>Rate Controller</controller>
+        <testMethod>getrateID</testMethod>
+        <line>50</line>
+        <field>RateInUse</field>
+        <errorMessage>expected [Rate without RateInUse] but found [Rate with "RateInUse":true]</errorMessage>
+        <expectedBehavior>Response includes RateId, Description, Type, etc. without RateInUse</expectedBehavior>
+        <actualBehavior>API now includes "RateInUse":true in response</actualBehavior>
+        <fix>Update expected response to include "RateInUse":true field</fix>
+        <fixLocation>Test Code</fixLocation>
+        <estimatedFixTime>3 minutes</estimatedFixTime>
+        <status>READY_TO_FIX</status>
+        <workaround>None - test will fail until updated</workaround>
+        <bugId>N/A</bugId>
+    </failure>
+
+    <failure id="F010">
+        <category>Schema Evolution - Missing Field</category>
+        <severity>HIGH</severity>
+        <controller>Rate Controller</controller>
+        <testMethod>getrateID2</testMethod>
+        <line>63</line>
+        <field>RateInUse</field>
+        <errorMessage>expected [Rate without RateInUse] but found [Rate with "RateInUse":true]</errorMessage>
+        <expectedBehavior>Response includes rate details without RateInUse</expectedBehavior>
+        <actualBehavior>API now includes "RateInUse":true in response</actualBehavior>
+        <fix>Update expected response to include "RateInUse":true field</fix>
+        <fixLocation>Test Code</fixLocation>
+        <estimatedFixTime>3 minutes</estimatedFixTime>
+        <status>READY_TO_FIX</status>
+        <workaround>None - test will fail until updated</workaround>
+        <bugId>N/A</bugId>
+    </failure>
+
+    <failure id="F011">
+        <category>Schema Evolution - Missing Field</category>
+        <severity>HIGH</severity>
+        <controller>Rate Controller</controller>
+        <testMethod>getrateID3</testMethod>
+        <line>76</line>
+        <field>RateInUse</field>
+        <errorMessage>expected [Rate without RateInUse] but found [Rate with "RateInUse":true]</errorMessage>
+        <expectedBehavior>Response includes rate details without RateInUse</expectedBehavior>
+        <actualBehavior>API now includes "RateInUse":true in response</actualBehavior>
+        <fix>Update expected response to include "RateInUse":true field</fix>
+        <fixLocation>Test Code</fixLocation>
+        <estimatedFixTime>3 minutes</estimatedFixTime>
+        <status>READY_TO_FIX</status>
+        <workaround>None - test will fail until updated</workaround>
+        <bugId>N/A</bugId>
+    </failure>
+
+    <failure id="F012">
+        <category>Schema Evolution - Missing Field</category>
+        <severity>HIGH</severity>
+        <controller>Rate Controller</controller>
+        <testMethod>getrateID4</testMethod>
+        <line>89</line>
+        <field>RateInUse</field>
+        <errorMessage>expected [Rate without RateInUse] but found [Rate with "RateInUse":true]</errorMessage>
+        <expectedBehavior>Response includes rate details without RateInUse</expectedBehavior>
+        <actualBehavior>API now includes "RateInUse":true in response</actualBehavior>
+        <fix>Update expected response to include "RateInUse":true field</fix>
+        <fixLocation>Test Code</fixLocation>
+        <estimatedFixTime>3 minutes</estimatedFixTime>
+        <status>READY_TO_FIX</status>
+        <workaround>None - test will fail until updated</workaround>
+        <bugId>N/A</bugId>
+    </failure>
+
+    <failure id="F013">
+        <category>Schema Evolution - Missing Field</category>
+        <severity>HIGH</severity>
+        <controller>Rate Controller</controller>
+        <testMethod>getrateId</testMethod>
+        <line>902</line>
+        <field>RateInUse</field>
+        <errorMessage>expected [Rate without RateInUse] but found [Rate with "RateInUse":true]</errorMessage>
+        <expectedBehavior>Response includes rate details without RateInUse</expectedBehavior>
+        <actualBehavior>API now includes "RateInUse":true in response</actualBehavior>
+        <fix>Update expected response to include "RateInUse":true field</fix>
+        <fixLocation>Test Code</fixLocation>
+        <estimatedFixTime>3 minutes</estimatedFixTime>
+        <status>READY_TO_FIX</status>
+        <workaround>None - test will fail until updated</workaround>
+        <bugId>N/A</bugId>
+    </failure>
+
+    <failure id="F014">
+        <category>Schema Evolution - Error Message Format Change</category>
+        <severity>MEDIUM</severity>
+        <controller>Rate Controller</controller>
+        <testMethod>getrateIdNegative</testMethod>
+        <line>916</line>
+        <field>Error Message</field>
+        <errorMessage>expected "Error in stored procedure csmApi_spRateGet. Missing message with Id = 90996" but found "Rate (EMP-1) with Effective Date (2001-01-01) not found."</errorMessage>
+        <expectedBehavior>Error message: Error in stored procedure csmApi_spRateGet. Missing message with Id = 90996</expectedBehavior>
+        <actualBehavior>Error message: Rate (EMP-1) with Effective Date (2001-01-01) not found.</actualBehavior>
+        <fix>Update expected error message in test</fix>
+        <fixLocation>Test Code</fixLocation>
+        <estimatedFixTime>2 minutes</estimatedFixTime>
+        <status>READY_TO_FIX</status>
+        <workaround>None - test will fail until updated</workaround>
+        <bugId>N/A</bugId>
+    </failure>
+
+    <failure id="F015">
+        <category>Schema Evolution - Case Sensitivity Change</category>
+        <severity>MEDIUM</severity>
+        <controller>Rate Controller</controller>
+        <testMethod>getrateIserviceTypeSetupSteamNegative</testMethod>
+        <line>969</line>
+        <field>ServiceType Error</field>
+        <errorMessage>expected "Invalid Service Type steam." (lowercase) but found "Invalid Service Type STEAM." (uppercase)</errorMessage>
+        <expectedBehavior>Error message with lowercase service type: steam</expectedBehavior>
+        <actualBehavior>Error message with uppercase service type: STEAM</actualBehavior>
+        <fix>Update expected error message to use uppercase STEAM</fix>
+        <fixLocation>Test Code</fixLocation>
+        <estimatedFixTime>2 minutes</estimatedFixTime>
+        <status>READY_TO_FIX</status>
+        <workaround>None - test will fail until updated</workaround>
+        <bugId>N/A</bugId>
+    </failure>
+
+    <failure id="F016">
+        <category>Schema Evolution - Missing Field</category>
+        <severity>HIGH</severity>
+        <controller>Lookup Controller V4</controller>
+        <testMethod>lookupequipmentClassv4</testMethod>
+        <line>166</line>
+        <field>Diameter</field>
+        <errorMessage>expected [EquipmentClass without Diameter] but found [EquipmentClass with "Diameter":0.00000]</errorMessage>
+        <expectedBehavior>Response includes EquipmentClass details without Diameter field</expectedBehavior>
+        <actualBehavior>API now includes "Diameter":0.00000 in response</actualBehavior>
+        <fix>Update expected response to include Diameter field</fix>
+        <fixLocation>Test Code</fixLocation>
+        <estimatedFixTime>3 minutes</estimatedFixTime>
+        <status>READY_TO_FIX</status>
+        <workaround>None - test will fail until updated</workaround>
+        <bugId>N/A</bugId>
+    </failure>
+
+    <!-- CATEGORY 3: SESSION PERSISTENCE (6 failures) -->
+    <failure id="F017">
+        <category>Session Persistence - State Loss</category>
+        <severity>CRITICAL</severity>
+        <controller>Cashiering Controller</controller>
+        <testMethod>gettransactions</testMethod>
+        <line>N/A</line>
+        <errorMessage>Error: user no longer cashed in</errorMessage>
+        <expectedBehavior>Session maintains user cash-in state after successful cash-in API call</expectedBehavior>
+        <actualBehavior>User session state cleared between API calls - "user no longer cashed in" error</actualBehavior>
+        <fix>Debug session persistence mechanism - investigate Redis/Database session storage</fix>
+        <fixLocation>Backend - Session Manager</fixLocation>
+        <estimatedFixTime>4-8 hours</estimatedFixTime>
+        <status>REQUIRES_INVESTIGATION</status>
+        <workaround>None available - core functionality blocked</workaround>
+        <bugId>CPDEV-SESSION-001</bugId>
+    </failure>
+
+    <failure id="F018">
+        <category>Session Persistence - State Loss</category>
+        <severity>CRITICAL</severity>
+        <controller>Cashiering Controller</controller>
+        <testMethod>getAutoApply</testMethod>
+        <line>N/A</line>
+        <errorMessage>Error: user no longer cashed in</errorMessage>
+        <expectedBehavior>Session maintains user cash-in state</expectedBehavior>
+        <actualBehavior>Session lost after initial cash-in call</actualBehavior>
+        <fix>Debug session persistence mechanism</fix>
+        <fixLocation>Backend - Session Manager</fixLocation>
+        <estimatedFixTime>4-8 hours</estimatedFixTime>
+        <status>REQUIRES_INVESTIGATION</status>
+        <workaround>None available - core functionality blocked</workaround>
+        <bugId>CPDEV-SESSION-001</bugId>
+    </failure>
+
+    <failure id="F019">
+        <category>Session Persistence - State Loss</category>
+        <severity>CRITICAL</severity>
+        <controller>Cashiering Controller</controller>
+        <testMethod>getcashedout</testMethod>
+        <line>N/A</line>
+        <errorMessage>Error: user no longer cashed in</errorMessage>
+        <expectedBehavior>Session maintains cash-out operation state</expectedBehavior>
+        <actualBehavior>Session lost - user state cleared unexpectedly</actualBehavior>
+        <fix>Debug session persistence mechanism</fix>
+        <fixLocation>Backend - Session Manager</fixLocation>
+        <estimatedFixTime>4-8 hours</estimatedFixTime>
+        <status>REQUIRES_INVESTIGATION</status>
+        <workaround>None available</workaround>
+        <bugId>CPDEV-SESSION-001</bugId>
+    </failure>
+
+    <failure id="F020">
+        <category>Session Persistence - State Loss</category>
+        <severity>CRITICAL</severity>
+        <controller>Cashiering Controller</controller>
+        <testMethod>getAdjustment</testMethod>
+        <line>N/A</line>
+        <errorMessage>Cannot apply adjustments - no active cash session</errorMessage>
+        <expectedBehavior>Adjustment applied within active cash session</expectedBehavior>
+        <actualBehavior>Session state lost - no active session found</actualBehavior>
+        <fix>Debug session persistence mechanism</fix>
+        <fixLocation>Backend - Session Manager</fixLocation>
+        <estimatedFixTime>4-8 hours</estimatedFixTime>
+        <status>REQUIRES_INVESTIGATION</status>
+        <workaround>None available</workaround>
+        <bugId>CPDEV-SESSION-001</bugId>
+    </failure>
+
+    <failure id="F021">
+        <category>Session Persistence - State Loss</category>
+        <severity>CRITICAL</severity>
+        <controller>Cashiering Controller</controller>
+        <testMethod>getAdjustment (2nd variant)</testMethod>
+        <line>N/A</line>
+        <errorMessage>Cannot apply adjustments - no active cash session</errorMessage>
+        <expectedBehavior>Adjustment applied within active cash session</expectedBehavior>
+        <actualBehavior>Session state lost - no active session found</actualBehavior>
+        <fix>Debug session persistence mechanism</fix>
+        <fixLocation>Backend - Session Manager</fixLocation>
+        <estimatedFixTime>4-8 hours</estimatedFixTime>
+        <status>REQUIRES_INVESTIGATION</status>
+        <workaround>None available</workaround>
+        <bugId>CPDEV-SESSION-001</bugId>
+    </failure>
+
+    <failure id="F022">
+        <category>Session Persistence - State Loss</category>
+        <severity>CRITICAL</severity>
+        <controller>Cashiering Controller</controller>
+        <testMethod>getAdjustment (3rd variant)</testMethod>
+        <line>N/A</line>
+        <errorMessage>Cannot apply adjustments - no active cash session</errorMessage>
+        <expectedBehavior>Adjustment applied within active cash session</expectedBehavior>
+        <actualBehavior>Session state lost - no active session found</actualBehavior>
+        <fix>Debug session persistence mechanism</fix>
+        <fixLocation>Backend - Session Manager</fixLocation>
+        <estimatedFixTime>4-8 hours</estimatedFixTime>
+        <status>REQUIRES_INVESTIGATION</status>
+        <workaround>None available</workaround>
+        <bugId>CPDEV-SESSION-001</bugId>
+    </failure>
+
+    <!-- CATEGORY 4: DATA RETRIEVAL (7 failures) -->
+    <failure id="F023">
+        <category>Data Retrieval - Empty Response</category>
+        <severity>HIGH</severity>
+        <controller>Collection Controller V4</controller>
+        <testMethod>getcollectioncriteriav4</testMethod>
+        <line>N/A</line>
+        <field>CalculateCriteria</field>
+        <errorMessage>Expected populated CalculateCriteria array but found empty array</errorMessage>
+        <expectedBehavior>API returns CalculateCriteria data from database query</expectedBehavior>
+        <actualBehavior>API returns empty CalculateCriteria array</actualBehavior>
+        <fix>Investigate database query and permissions - verify data exists and query filters</fix>
+        <fixLocation>Backend - Database Query</fixLocation>
+        <estimatedFixTime>2-4 hours</estimatedFixTime>
+        <status>REQUIRES_INVESTIGATION</status>
+        <workaround>None available</workaround>
+        <bugId>CPDEV-DATA-001</bugId>
+    </failure>
+
+    <failure id="F024">
+        <category>Data Retrieval - Empty Response</category>
+        <severity>HIGH</severity>
+        <controller>Collection Controller V4</controller>
+        <testMethod>getcollectionv4</testMethod>
+        <line>N/A</line>
+        <field>NoticesDisplay/Notices</field>
+        <errorMessage>Expected populated NoticesDisplay/Notices arrays but found empty</errorMessage>
+        <expectedBehavior>API returns notices data from database query</expectedBehavior>
+        <actualBehavior>API returns empty NoticesDisplay and Notices arrays</actualBehavior>
+        <fix>Investigate database query and permissions - verify data exists and query filters</fix>
+        <fixLocation>Backend - Database Query</fixLocation>
+        <estimatedFixTime>2-4 hours</estimatedFixTime>
+        <status>REQUIRES_INVESTIGATION</status>
+        <workaround>None available</workaround>
+        <bugId>CPDEV-DATA-001</bugId>
+    </failure>
+
+    <failure id="F025">
+        <category>Data Retrieval - Boolean Assertion Failure</category>
+        <severity>HIGH</severity>
+        <controller>Lookup Controller V4</controller>
+        <testMethod>getapplyByService_Paymentsv4</testMethod>
+        <line>43</line>
+        <field>Data Population</field>
+        <errorMessage>expected [true] but found [false]</errorMessage>
+        <expectedBehavior>API returns true indicating data found for apply by service payments</expectedBehavior>
+        <actualBehavior>API returns false - no data found</actualBehavior>
+        <fix>Investigate data retrieval - verify test data exists and query logic</fix>
+        <fixLocation>Backend - Data Layer</fixLocation>
+        <estimatedFixTime>2-4 hours</estimatedFixTime>
+        <status>REQUIRES_INVESTIGATION</status>
+        <workaround>None available</workaround>
+        <bugId>CPDEV-DATA-002</bugId>
+    </failure>
+
+    <failure id="F026">
+        <category>Data Retrieval - Boolean Assertion Failure</category>
+        <severity>HIGH</severity>
+        <controller>Lookup Controller V4</controller>
+        <testMethod>lookupPaymentDocuments</testMethod>
+        <line>475</line>
+        <field>Data Population</field>
+        <errorMessage>expected [true] but found [false]</errorMessage>
+        <expectedBehavior>API returns true indicating payment documents found</expectedBehavior>
+        <actualBehavior>API returns false - no documents found</actualBehavior>
+        <fix>Investigate data retrieval - verify test data exists and query logic</fix>
+        <fixLocation>Backend - Data Layer</fixLocation>
+        <estimatedFixTime>2-4 hours</estimatedFixTime>
+        <status>REQUIRES_INVESTIGATION</status>
+        <workaround>None available</workaround>
+        <bugId>CPDEV-DATA-002</bugId>
+    </failure>
+
+    <failure id="F027">
+        <category>Data Retrieval - Malformed Response</category>
+        <severity>HIGH</severity>
+        <controller>Lookup Controller V4</controller>
+        <testMethod>lookupserviceOrderTask</testMethod>
+        <line>336</line>
+        <field>ServiceOrderTask Array</field>
+        <errorMessage>Expected populated list of 40+ service order tasks but found single entry with empty string fields</errorMessage>
+        <expectedBehavior>API returns array of ServiceOrderTask objects with complete data</expectedBehavior>
+        <actualBehavior>API returns array with single object: {"Id":"","Description":"","Action":{"Id":"","Description":""},...}</actualBehavior>
+        <fix>Investigate service order task query - verify data retrieval and field population</fix>
+        <fixLocation>Backend - Database Query</fixLocation>
+        <estimatedFixTime>2-4 hours</estimatedFixTime>
+        <status>REQUIRES_INVESTIGATION</status>
+        <workaround>None available</workaround>
+        <bugId>CPDEV-DATA-003</bugId>
+    </failure>
+
+    <failure id="F028">
+        <category>Data Retrieval - API Error</category>
+        <severity>HIGH</severity>
+        <controller>MoveInOut Controller</controller>
+        <testMethod>postTransferv4</testMethod>
+        <line>N/A</line>
+        <field>Transfer Processing</field>
+        <errorMessage>Transfer transaction processing failed</errorMessage>
+        <expectedBehavior>Transfer completed successfully</expectedBehavior>
+        <actualBehavior>API returned error response for transfer operation</actualBehavior>
+        <fix>Investigate transfer API response - check error details in logs</fix>
+        <fixLocation>Backend - Transfer Service</fixLocation>
+        <estimatedFixTime>2-4 hours</estimatedFixTime>
+        <status>REQUIRES_DETAILED_ANALYSIS</status>
+        <workaround>None available</workaround>
+        <bugId>CPDEV-TRANSFER-001</bugId>
+    </failure>
+
+    <failure id="F029">
+        <category>Data Retrieval - API Error</category>
+        <severity>MEDIUM</severity>
+        <controller>Payment Controller V4</controller>
+        <testMethod>postPaymentSimulatev4</testMethod>
+        <line>N/A</line>
+        <field>Payment Processing</field>
+        <errorMessage>Payment simulation API error (details TBD from logs)</errorMessage>
+        <expectedBehavior>Payment simulation returns success response</expectedBehavior>
+        <actualBehavior>API returned error response</actualBehavior>
+        <fix>Examine payment_v4_test.log for specific error details</fix>
+        <fixLocation>Backend - Payment Service</fixLocation>
+        <estimatedFixTime>2-4 hours</estimatedFixTime>
+        <status>REQUIRES_DETAILED_ANALYSIS</status>
+        <workaround>None available</workaround>
+        <bugId>CPDEV-PAYMENT-001</bugId>
+    </failure>
+
+    <!-- CATEGORY 5: USER/ENVIRONMENT CONFIGURATION (7 failures) -->
+    <failure id="F030">
+        <category>Configuration - User Context</category>
+        <severity>MEDIUM</severity>
+        <controller>Miscellaneous Charge Controller V4</controller>
+        <testMethod>miscellaneousChargepostv4</testMethod>
+        <line>98</line>
+        <field>UserId</field>
+        <errorMessage>expected UserId "sa" but found UserId "cogsuser"</errorMessage>
+        <expectedBehavior>Response UserId should be "sa" (hardcoded in test)</expectedBehavior>
+        <actualBehavior>Response UserId is "cogsuser" (actual authenticated user)</actualBehavior>
+        <fix>Update test to expect actual authenticated user (cogsuser) OR parameterize user ID from configuration</fix>
+        <fixLocation>Test Code</fixLocation>
+        <estimatedFixTime>3 minutes</estimatedFixTime>
+        <status>READY_TO_FIX</status>
+        <workaround>Update expected response to use "cogsuser" instead of "sa"</workaround>
+        <bugId>N/A</bugId>
+    </failure>
+
+    <failure id="F031">
+        <category>Configuration - Unanalyzed</category>
+        <severity>MEDIUM</severity>
+        <controller>Penalty Controller</controller>
+        <testMethod>Penalty Test 1</testMethod>
+        <line>N/A</line>
+        <field>Unknown</field>
+        <errorMessage>Requires detailed analysis from penalty_test.log</errorMessage>
+        <expectedBehavior>Unknown - requires log review</expectedBehavior>
+        <actualBehavior>Unknown - requires log review</actualBehavior>
+        <fix>Review penalty_test.log and categorize failure</fix>
+        <fixLocation>TBD</fixLocation>
+        <estimatedFixTime>15 minutes analysis</estimatedFixTime>
+        <status>PENDING_ANALYSIS</status>
+        <workaround>TBD</workaround>
+        <bugId>CPDEV-PENALTY-001</bugId>
+    </failure>
+
+    <failure id="F032">
+        <category>Configuration - Unanalyzed</category>
+        <severity>MEDIUM</severity>
+        <controller>Penalty Controller</controller>
+        <testMethod>Penalty Test 2</testMethod>
+        <line>N/A</line>
+        <field>Unknown</field>
+        <errorMessage>Requires detailed analysis from penalty_test.log</errorMessage>
+        <expectedBehavior>Unknown - requires log review</expectedBehavior>
+        <actualBehavior>Unknown - requires log review</actualBehavior>
+        <fix>Review penalty_test.log and categorize failure</fix>
+        <fixLocation>TBD</fixLocation>
+        <estimatedFixTime>15 minutes analysis</estimatedFixTime>
+        <status>PENDING_ANALYSIS</status>
+        <workaround>TBD</workaround>
+        <bugId>CPDEV-PENALTY-002</bugId>
+    </failure>
+
+    <failure id="F033">
+        <category>Configuration - Unanalyzed</category>
+        <severity>MEDIUM</severity>
+        <controller>Penalty Controller</controller>
+        <testMethod>Penalty Test 3</testMethod>
+        <line>N/A</line>
+        <field>Unknown</field>
+        <errorMessage>Requires detailed analysis from penalty_test.log</errorMessage>
+        <expectedBehavior>Unknown - requires log review</expectedBehavior>
+        <actualBehavior>Unknown - requires log review</actualBehavior>
+        <fix>Review penalty_test.log and categorize failure</fix>
+        <fixLocation>TBD</fixLocation>
+        <estimatedFixTime>15 minutes analysis</estimatedFixTime>
+        <status>PENDING_ANALYSIS</status>
+        <workaround>TBD</workaround>
+        <bugId>CPDEV-PENALTY-003</bugId>
+    </failure>
+
+    <failure id="F034">
+        <category>Configuration - Unanalyzed</category>
+        <severity>MEDIUM</severity>
+        <controller>Penalty Controller</controller>
+        <testMethod>Penalty Test 4</testMethod>
+        <line>N/A</line>
+        <field>Unknown</field>
+        <errorMessage>Requires detailed analysis from penalty_test.log</errorMessage>
+        <expectedBehavior>Unknown - requires log review</expectedBehavior>
+        <actualBehavior>Unknown - requires log review</actualBehavior>
+        <fix>Review penalty_test.log and categorize failure</fix>
+        <fixLocation>TBD</fixLocation>
+        <estimatedFixTime>15 minutes analysis</estimatedFixTime>
+        <status>PENDING_ANALYSIS</status>
+        <workaround>TBD</workaround>
+        <bugId>CPDEV-PENALTY-004</bugId>
+    </failure>
+
+    <failure id="F035">
+        <category>Configuration - Unanalyzed</category>
+        <severity>MEDIUM</severity>
+        <controller>Penalty Controller</controller>
+        <testMethod>Penalty Test 5</testMethod>
+        <line>N/A</line>
+        <field>Unknown</field>
+        <errorMessage>Requires detailed analysis from penalty_test.log</errorMessage>
+        <expectedBehavior>Unknown - requires log review</expectedBehavior>
+        <actualBehavior>Unknown - requires log review</actualBehavior>
+        <fix>Review penalty_test.log and categorize failure</fix>
+        <fixLocation>TBD</fixLocation>
+        <estimatedFixTime>15 minutes analysis</estimatedFixTime>
+        <status>PENDING_ANALYSIS</status>
+        <workaround>TBD</workaround>
+        <bugId>CPDEV-PENALTY-005</bugId>
+    </failure>
+
+    <failure id="F036">
+        <category>Configuration - Unanalyzed</category>
+        <severity>MEDIUM</severity>
+        <controller>Void Controller</controller>
+        <testMethod>Void Test 1</testMethod>
+        <line>N/A</line>
+        <field>Unknown</field>
+        <errorMessage>Requires detailed analysis from void_test.log</errorMessage>
+        <expectedBehavior>Unknown - requires log review</expectedBehavior>
+        <actualBehavior>Unknown - requires log review</actualBehavior>
+        <fix>Review void_test.log and categorize failure</fix>
+        <fixLocation>TBD</fixLocation>
+        <estimatedFixTime>15 minutes analysis</estimatedFixTime>
+        <status>PENDING_ANALYSIS</status>
+        <workaround>TBD</workaround>
+        <bugId>CPDEV-VOID-001</bugId>
+    </failure>
+
+</failures>
