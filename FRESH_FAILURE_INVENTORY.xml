@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<failures>
+    <metadata>
+        <reportDate>2026-05-05</reportDate>
+        <executionType>Fresh Test Run</executionType>
+        <totalTests>267</totalTests>
+        <passedCount>214</passedCount>
+        <failedCount>25</failedCount>
+        <skippedCount>28</skippedCount>
+        <passPercentage>80.1</passPercentage>
+        <failPercentage>9.4</failPercentage>
+        <skipPercentage>10.5</skipPercentage>
+        <improvementFromPrevious>
+            <previousFailures>36</previousFailures>
+            <currentFailures>25</currentFailures>
+            <reductionCount>11</reductionCount>
+            <reductionPercentage>30.6</reductionPercentage>
+            <reason>Bug annotations applied to 17 tests; new test discovery added 83 tests</reason>
+        </improvementFromPrevious>
+    </metadata>
+
+    <summary>
+        <title>Fresh Failure Inventory - May 5, 2026</title>
+        <description>All 25 failed tests from fresh test execution with detailed analysis</description>
+        <buildStatus>SUCCESS</buildStatus>
+        <executionTime>~11 minutes</executionTime>
+        <timeRange>Approximately 2:10 PM - 2:21 PM UTC</timeRange>
+    </summary>
+
+    <!-- CATEGORY 1: SCHEMA EVOLUTION (8 failures) -->
+    <failureCategory id="SCHEMA" name="Schema/API Evolution" count="8" severity="HIGH">
+        <description>API added new fields or changed error message formats; test expectations need updates</description>
+        
+        <failure id="F001">
+            <controller>Rate Controller</controller>
+            <testMethod>getrateID</testMethod>
+            <severity>HIGH</severity>
+            <category>Schema Evolution</category>
+            <issue>API now includes RateInUse field in response</issue>
+            <expectedBehavior>Response includes only RateId, EffectiveDate, Status</expectedBehavior>
+            <actualBehavior>Response includes RateInUse:true field</actualBehavior>
+            <errorMessage>Assertion failed - response schema mismatch</errorMessage>
+            <fix>Add "RateInUse": true to expected response JSON</fix>
+            <fixLocation>src/test/java/com/NexusAPI/Tests/Private_rateController_Test.java, line ~850</fixLocation>
+            <estimatedFixTime>3</estimatedFixTime>
+            <fixUnit>minutes</fixUnit>
+            <status>READY_TO_FIX</status>
+            <workaround>None - test expectations must be updated</workaround>
+            <bugId>N/A</bugId>
+        </failure>
+
+        <failure id="F002">
+            <controller>Rate Controller</controller>
+            <testMethod>getrateID2</testMethod>
+            <severity>HIGH</severity>
+            <category>Schema Evolution</category>
+            <issue>API now includes RateInUse field in response</issue>
+            <expectedBehavior>Response includes only RateId, EffectiveDate, Status</expectedBehavior>
+            <actualBehavior>Response includes RateInUse:true field</actualBehavior>
+            <errorMessage>Assertion failed - response schema mismatch</errorMessage>
+            <fix>Add "RateInUse": true to expected response JSON</fix>
+            <fixLocation>src/test/java/com/NexusAPI/Tests/Private_rateController_Test.java, line ~870</fixLocation>
+            <estimatedFixTime>3</estimatedFixTime>
+            <fixUnit>minutes</fixUnit>
+            <status>READY_TO_FIX</status>
+            <workaround>None - test expectations must be updated</workaround>
+            <bugId>N/A</bugId>
+        </failure>
+
+        <failure id="F003">
+            <controller>Rate Controller</controller>
+            <testMethod>getrateID3</testMethod>
+            <severity>HIGH</severity>
+            <category>Schema Evolution</category>
+            <issue>API now includes RateInUse field in response</issue>
+            <expectedBehavior>Response includes only RateId, EffectiveDate, Status</expectedBehavior>
+            <actualBehavior>Response includes RateInUse:true field</actualBehavior>
+            <errorMessage>Assertion failed - response schema mismatch</errorMessage>
+            <fix>Add "RateInUse": true to expected response JSON</fix>
+            <fixLocation>src/test/java/com/NexusAPI/Tests/Private_rateController_Test.java, line ~890</fixLocation>
+            <estimatedFixTime>3</estimatedFixTime>
+            <fixUnit>minutes</fixUnit>
+            <status>READY_TO_FIX</status>
+            <workaround>None - test expectations must be updated</workaround>
+            <bugId>N/A</bugId>
+        </failure>
+
+        <failure id="F004">
+            <controller>Rate Controller</controller>
+            <testMethod>getrateID4</testMethod>
+            <severity>HIGH</severity>
+            <category>Schema Evolution</category>
+            <issue>API now includes RateInUse field in response</issue>
+            <expectedBehavior>Response includes only RateId, EffectiveDate, Status</expectedBehavior>
+            <actualBehavior>Response includes RateInUse:true field</actualBehavior>
+            <errorMessage>Assertion failed - response schema mismatch</errorMessage>
+            <fix>Add "RateInUse": true to expected response JSON</fix>
+            <fixLocation>src/test/java/com/NexusAPI/Tests/Private_rateController_Test.java, line ~910</fixLocation>
+            <estimatedFixTime>3</estimatedFixTime>
+            <fixUnit>minutes</fixUnit>
+            <status>READY_TO_FIX</status>
+            <workaround>None - test expectations must be updated</workaround>
+            <bugId>N/A</bugId>
+        </failure>
+
+        <failure id="F005">
+            <controller>Rate Controller</controller>
+            <testMethod>getrateId</testMethod>
+            <severity>HIGH</severity>
+            <category>Schema Evolution</category>
+            <issue>API now includes RateInUse field in response</issue>
+            <expectedBehavior>Response includes only RateId, EffectiveDate, Status</expectedBehavior>
+            <actualBehavior>Response includes RateInUse:true field</actualBehavior>
+            <errorMessage>Assertion failed - response schema mismatch</errorMessage>
+            <fix>Add "RateInUse": true to expected response JSON</fix>
+            <fixLocation>src/test/java/com/NexusAPI/Tests/Private_rateController_Test.java, line ~930</fixLocation>
+            <estimatedFixTime>3</estimatedFixTime>
+            <fixUnit>minutes</fixUnit>
+            <status>READY_TO_FIX</status>
+            <workaround>None - test expectations must be updated</workaround>
+            <bugId>N/A</bugId>
+        </failure>
+
+        <failure id="F006">
+            <controller>Rate Controller</controller>
+            <testMethod>getrateIdNegative</testMethod>
+            <severity>HIGH</severity>
+            <category>Schema Evolution</category>
+            <issue>Error message format changed</issue>
+            <expectedBehavior>Error: "Error in stored procedure csmApi_spRateGet. Missing message..."</expectedBehavior>
+            <actualBehavior>Error: "Rate (EMP-1) with Effective Date (2001-01-01) not found."</actualBehavior>
+            <errorMessage>Assertion failed - error message mismatch</errorMessage>
+            <fix>Update expected error message to new format</fix>
+            <fixLocation>src/test/java/com/NexusAPI/Tests/Private_rateController_Test.java, line ~950</fixLocation>
+            <estimatedFixTime>2</estimatedFixTime>
+            <fixUnit>minutes</fixUnit>
+            <status>READY_TO_FIX</status>
+            <workaround>None - test expectations must be updated</workaround>
+            <bugId>N/A</bugId>
+        </failure>
+
+        <failure id="F007">
+            <controller>Rate Controller</controller>
+            <testMethod>getrateIserviceTypeSetupSteamNegative</testMethod>
+            <severity>HIGH</severity>
+            <category>Schema Evolution</category>
+            <issue>Error message case changed</issue>
+            <expectedBehavior>Error: "Invalid Service Type steam."</expectedBehavior>
+            <actualBehavior>Error: "Invalid Service Type STEAM."</actualBehavior>
+            <errorMessage>Assertion failed - error message case mismatch</errorMessage>
+            <fix>Update expected error message to uppercase STEAM</fix>
+            <fixLocation>src/test/java/com/NexusAPI/Tests/Private_rateController_Test.java, line ~970</fixLocation>
+            <estimatedFixTime>2</estimatedFixTime>
+            <fixUnit>minutes</fixUnit>
+            <status>READY_TO_FIX</status>
+            <workaround>None - test expectations must be updated</workaround>
+            <bugId>N/A</bugId>
+        </failure>
+
+        <failure id="F008">
+            <controller>Lookup Controller</controller>
+            <testMethod>lookupequipmentClassv4</testMethod>
+            <severity>HIGH</severity>
+            <category>Schema Evolution</category>
+            <issue>API added Diameter field to equipment class response</issue>
+            <expectedBehavior>Response includes standard equipment class fields (EquipmentClass, etc.)</expectedBehavior>
+            <actualBehavior>Response includes Diameter: 0.00000 field</actualBehavior>
+            <errorMessage>Assertion failed - response schema mismatch</errorMessage>
+            <fix>Add Diameter field to expected response</fix>
+            <fixLocation>src/test/java/com/NexusAPI/Tests/Private_lookupControllerv4_Test.java, line ~166</fixLocation>
+            <estimatedFixTime>3</estimatedFixTime>
+            <fixUnit>minutes</fixUnit>
+            <status>READY_TO_FIX</status>
+            <workaround>None - test expectations must be updated</workaround>
+            <bugId>N/A</bugId>
+        </failure>
+    </failureCategory>
+
+    <!-- CATEGORY 2: DATA RETRIEVAL (5 failures) -->
+    <failureCategory id="DATA_RETRIEVAL" name="Data Retrieval Issues" count="5" severity="HIGH">
+        <description>API endpoints returning empty arrays or null data instead of expected populated results</description>
+        
+        <failure id="F009">
+            <controller>Lookup Controller</controller>
+            <testMethod>lookupserviceOrderTask</testMethod>
+            <severity>HIGH</severity>
+            <category>Data Retrieval</category>
+            <issue>Service order task lookup returning empty data</issue>
+            <expectedBehavior>Response should include populated service order task data</expectedBehavior>
+            <actualBehavior>Response returns empty object {} or null data</actualBehavior>
+            <errorMessage>No data returned from lookup endpoint</errorMessage>
+            <fix>Investigate service order task data setup and query conditions</fix>
+            <fixLocation>Backend: Service Order database queries</fixLocation>
+            <estimatedFixTime>2</estimatedFixTime>
+            <fixUnit>hours</fixUnit>
+            <status>REQUIRES_INVESTIGATION</status>
+            <workaround>None - data issue</workaround>
+            <bugId>N/A</bugId>
+        </failure>
+
+        <failure id="F010">
+            <controller>Lookup Controller</controller>
+            <testMethod>lookupPaymentDocuments</testMethod>
+            <severity>HIGH</severity>
+            <category>Data Retrieval</category>
+            <issue>Payment documents lookup returning empty data</issue>
+            <expectedBehavior>Response should include list of available payment documents</expectedBehavior>
+            <actualBehavior>Response returns empty array []</actualBehavior>
+            <errorMessage>No payment documents found</errorMessage>
+            <fix>Investigate payment document query and data availability</fix>
+            <fixLocation>Backend: Payment document queries</fixLocation>
+            <estimatedFixTime>2</estimatedFixTime>
+            <fixUnit>hours</fixUnit>
+            <status>REQUIRES_INVESTIGATION</status>
+            <workaround>None - data issue</workaround>
+            <bugId>N/A</bugId>
+        </failure>
+
+        <failure id="F011">
+            <controller>Payment Controller</controller>
+            <testMethod>getapplyByService_Paymentsv4</testMethod>
+            <severity>HIGH</severity>
+            <category>Data Retrieval</category>
+            <issue>Apply by service payments returning no results</issue>
+            <expectedBehavior>Response should return array of applicable payments by service</expectedBehavior>
+            <actualBehavior>Response returns false or empty data</actualBehavior>
+            <errorMessage>No applicable payments found for service</errorMessage>
+            <fix>Investigate payment filtering logic and data setup</fix>
+            <fixLocation>Backend: Payment filter queries</fixLocation>
+            <estimatedFixTime>2</estimatedFixTime>
+            <fixUnit>hours</fixUnit>
+            <status>REQUIRES_INVESTIGATION</status>
+            <workaround>None - data issue</workaround>
+            <bugId>N/A</bugId>
+        </failure>
+
+        <failure id="F012">
+            <controller>Cashiering Controller</controller>
+            <testMethod>saveReciept_2_4</testMethod>
+            <severity>HIGH</severity>
+            <category>Data Retrieval</category>
+            <issue>Receipt posting failing with data retrieval error</issue>
+            <expectedBehavior>Receipt should be successfully posted and saved</expectedBehavior>
+            <actualBehavior>Receipt posting fails; unable to retrieve necessary data</actualBehavior>
+            <errorMessage>Receipt post failed - data retrieval issue</errorMessage>
+            <fix>Investigate receipt posting flow and data persistence</fix>
+            <fixLocation>Backend: Receipt posting stored procedures</fixLocation>
+            <estimatedFixTime>3</estimatedFixTime>
+            <fixUnit>hours</fixUnit>
+            <status>REQUIRES_INVESTIGATION</status>
+            <workaround>None - core functionality issue</workaround>
+            <bugId>N/A</bugId>
+        </failure>
+
+        <failure id="F013">
+            <controller>Customer Controller</controller>
+            <testMethod>putpreauthorizedPaymentPlanv4</testMethod>
+            <severity>HIGH</severity>
+            <category>Data Retrieval</category>
+            <issue>Preauthorized payment plan update failing</issue>
+            <expectedBehavior>Payment plan should be successfully updated in database</expectedBehavior>
+            <actualBehavior>Update operation fails; data not persisted</actualBehavior>
+            <errorMessage>Payment plan update failed</errorMessage>
+            <fix>Investigate payment plan update logic and stored procedure</fix>
+            <fixLocation>Backend: csmApi_spCustomerPreauthorizedPaymentPlanUpdate SP</fixLocation>
+            <estimatedFixTime>2</estimatedFixTime>
+            <fixUnit>hours</fixUnit>
+            <status>REQUIRES_INVESTIGATION</status>
+            <workaround>None - data persistence issue</workaround>
+            <bugId>N/A</bugId>
+        </failure>
+    </failureCategory>
+
+    <!-- CATEGORY 3: PENALTY CONTROLLER (4 failures) -->
+    <failureCategory id="PENALTY" name="Penalty Controller Issues" count="4" severity="MEDIUM">
+        <description>Multiple penalty-related operations failing; root cause analysis needed</description>
+        
+        <failure id="F014">
+            <controller>Penalty Controller</controller>
+            <testMethod>postpenaltyDocuments_v_4</testMethod>
+            <severity>MEDIUM</severity>
+            <category>Penalty Logic</category>
+            <issue>Penalty document posting failing</issue>
+            <expectedBehavior>Penalty documents should be successfully created</expectedBehavior>
+            <actualBehavior>POST operation fails with unknown error</actualBehavior>
+            <errorMessage>Penalty document creation failed</errorMessage>
+            <fix>Analyze penalty_test.log for specific error; review penalty posting logic</fix>
+            <fixLocation>src/test/java/com/NexusAPI/Tests/Private_penaltyController_Test.java</fixLocation>
+            <estimatedFixTime>1</estimatedFixTime>
+            <fixUnit>hours</fixUnit>
+            <status>PENDING_ANALYSIS</status>
+            <workaround>None available</workaround>
+            <bugId>N/A</bugId>
+        </failure>
+
+        <failure id="F015">
+            <controller>Penalty Controller</controller>
+            <testMethod>getcalculatedDocuments_v4</testMethod>
+            <severity>MEDIUM</severity>
+            <category>Penalty Logic</category>
+            <issue>Calculated documents retrieval failing</issue>
+            <expectedBehavior>Should return calculated penalty documents</expectedBehavior>
+            <actualBehavior>GET operation returns empty data or error</actualBehavior>
+            <errorMessage>Calculated documents not found</errorMessage>
+            <fix>Analyze penalty_test.log; check calculation logic and data availability</fix>
+            <fixLocation>Backend: Penalty calculation queries</fixLocation>
+            <estimatedFixTime>1</estimatedFixTime>
+            <fixUnit>hours</fixUnit>
+            <status>PENDING_ANALYSIS</status>
+            <workaround>None available</workaround>
+            <bugId>N/A</bugId>
+        </failure>
+
+        <failure id="F016">
+            <controller>Penalty Controller</controller>
+            <testMethod>postpenaltyDocumentsRoute_v_4</testMethod>
+            <severity>MEDIUM</severity>
+            <category>Penalty Logic</category>
+            <issue>Penalty document routing failing</issue>
+            <expectedBehavior>Documents should be routed successfully</expectedBehavior>
+            <actualBehavior>Routing operation fails</actualBehavior>
+            <errorMessage>Document routing failed</errorMessage>
+            <fix>Analyze penalty_test.log; review routing configuration</fix>
+            <fixLocation>Backend: Penalty routing logic</fixLocation>
+            <estimatedFixTime>1</estimatedFixTime>
+            <fixUnit>hours</fixUnit>
+            <status>PENDING_ANALYSIS</status>
+            <workaround>None available</workaround>
+            <bugId>N/A</bugId>
+        </failure>
+
+        <failure id="F017">
+            <controller>Penalty Controller</controller>
+            <testMethod>postpenaltyDocumentsZones_v_4</testMethod>
+            <severity>MEDIUM</severity>
+            <category>Penalty Logic</category>
+            <issue>Penalty document zones operation failing</issue>
+            <expectedBehavior>Zone-based penalty operations should succeed</expectedBehavior>
+            <actualBehavior>POST operation fails with error</actualBehavior>
+            <errorMessage>Zone penalty operation failed</errorMessage>
+            <fix>Analyze penalty_test.log; review zone configuration</fix>
+            <fixLocation>Backend: Penalty zone operations</fixLocation>
+            <estimatedFixTime>1</estimatedFixTime>
+            <fixUnit>hours</fixUnit>
+            <status>PENDING_ANALYSIS</status>
+            <workaround>None available</workaround>
+            <bugId>N/A</bugId>
+        </failure>
+    </failureCategory>
+
+    <!-- CATEGORY 4: BUSINESS LOGIC & PROCESSING (6 failures) -->
+    <failureCategory id="BUSINESS_LOGIC" name="Business Logic Issues" count="6" severity="MEDIUM">
+        <description>Various business logic operations and data processing failures</description>
+        
+        <failure id="F018">
+            <controller>Void Controller</controller>
+            <testMethod>putvoidv4</testMethod>
+            <severity>MEDIUM</severity>
+            <category>Business Logic</category>
+            <issue>Void operation failing on update</issue>
+            <expectedBehavior>Document should be successfully voided</expectedBehavior>
+            <actualBehavior>Void operation fails with business logic error</actualBehavior>
+            <errorMessage>Void operation failed</errorMessage>
+            <fix>Analyze void_test.log; review void validation logic</fix>
+            <fixLocation>Backend: Void processing logic</fixLocation>
+            <estimatedFixTime>1.5</estimatedFixTime>
+            <fixUnit>hours</fixUnit>
+            <status>PENDING_ANALYSIS</status>
+            <workaround>None available</workaround>
+            <bugId>N/A</bugId>
+        </failure>
+
+        <failure id="F019">
+            <controller>Penalty Controller</controller>
+            <testMethod>getpenaltyHeader_v_4</testMethod>
+            <severity>MEDIUM</severity>
+            <category>Business Logic</category>
+            <issue>Penalty header retrieval failing</issue>
+            <expectedBehavior>Should return penalty header information</expectedBehavior>
+            <actualBehavior>GET fails or returns incomplete data</actualBehavior>
+            <errorMessage>Penalty header not found</errorMessage>
+            <fix>Analyze penalty_test.log; check header query logic</fix>
+            <fixLocation>Backend: Penalty header queries</fixLocation>
+            <estimatedFixTime>1</estimatedFixTime>
+            <fixUnit>hours</fixUnit>
+            <status>PENDING_ANALYSIS</status>
+            <workaround>None available</workaround>
+            <bugId>N/A</bugId>
+        </failure>
+
+        <failure id="F020">
+            <controller>Transfer Controller</controller>
+            <testMethod>postTransferv4</testMethod>
+            <severity>MEDIUM</severity>
+            <category>Business Logic</category>
+            <issue>Transfer operation failing</issue>
+            <expectedBehavior>Transfer should be successfully executed</expectedBehavior>
+            <actualBehavior>Transfer operation fails with error</actualBehavior>
+            <errorMessage>Transfer failed</errorMessage>
+            <fix>Analyze transfer logic and validation rules</fix>
+            <fixLocation>Backend: Transfer posting logic</fixLocation>
+            <estimatedFixTime>1.5</estimatedFixTime>
+            <fixUnit>hours</fixUnit>
+            <status>PENDING_ANALYSIS</status>
+            <workaround>None available</workaround>
+            <bugId>N/A</bugId>
+        </failure>
+
+        <failure id="F021">
+            <controller>Payment Controller</controller>
+            <testMethod>postPaymentSimulatev4_savePayments</testMethod>
+            <severity>MEDIUM</severity>
+            <category>Business Logic</category>
+            <issue>Payment simulation and save failing</issue>
+            <expectedBehavior>Payment should be simulated and saved successfully</expectedBehavior>
+            <actualBehavior>Payment save operation fails</actualBehavior>
+            <errorMessage>Payment save failed</errorMessage>
+            <fix>Analyze payment simulation logic and data validation</fix>
+            <fixLocation>Backend: Payment save operations</fixLocation>
+            <estimatedFixTime>2</estimatedFixTime>
+            <fixUnit>hours</fixUnit>
+            <status>PENDING_ANALYSIS</status>
+            <workaround>None available</workaround>
+            <bugId>N/A</bugId>
+        </failure>
+
+        <failure id="F022">
+            <controller>Payment Controller</controller>
+            <testMethod>gettransactionpayment_v4_AuthCode</testMethod>
+            <severity>MEDIUM</severity>
+            <category>Business Logic</category>
+            <issue>Transaction payment auth code retrieval failing</issue>
+            <expectedBehavior>Should return transaction payment with auth code</expectedBehavior>
+            <actualBehavior>GET fails or returns incomplete data</actualBehavior>
+            <errorMessage>Transaction payment not found or auth code missing</errorMessage>
+            <fix>Investigate auth code handling and transaction data persistence</fix>
+            <fixLocation>Backend: Transaction payment queries</fixLocation>
+            <estimatedFixTime>1.5</estimatedFixTime>
+            <fixUnit>hours</fixUnit>
+            <status>PENDING_ANALYSIS</status>
+            <workaround>None available</workaround>
+            <bugId>N/A</bugId>
+        </failure>
+    </failureCategory>
+
+    <!-- CATEGORY 5: ADDRESS VALIDATION (2 failures) -->
+    <failureCategory id="ADDRESS_VALIDATION" name="Address Validation Issues" count="2" severity="MEDIUM">
+        <description>SmartyStreet address validation integration failures</description>
+        
+        <failure id="F023">
+            <controller>SmartyStreet Controller</controller>
+            <testMethod>postvalidateAddresses</testMethod>
+            <severity>MEDIUM</severity>
+            <category>Address Validation</category>
+            <issue>Address validation failing on POST</issue>
+            <expectedBehavior>Addresses should be validated successfully</expectedBehavior>
+            <actualBehavior>Validation fails with error</actualBehavior>
+            <errorMessage>Address validation failed</errorMessage>
+            <fix>Check SmartyStreet API integration; verify address format validation</fix>
+            <fixLocation>Backend: Address validation service</fixLocation>
+            <estimatedFixTime>1.5</estimatedFixTime>
+            <fixUnit>hours</fixUnit>
+            <status>PENDING_ANALYSIS</status>
+            <workaround>None available</workaround>
+            <bugId>N/A</bugId>
+        </failure>
+
+        <failure id="F024">
+            <controller>Location Controller</controller>
+            <testMethod>postvalidLocation & putvalidLocation</testMethod>
+            <severity>MEDIUM</severity>
+            <category>Address Validation</category>
+            <issue>Location validation failing on POST/PUT</issue>
+            <expectedBehavior>Locations should be validated successfully</expectedBehavior>
+            <actualBehavior>Validation fails during location creation/update</actualBehavior>
+            <errorMessage>Location validation failed</errorMessage>
+            <fix>Check location validation rules and address format</fix>
+            <fixLocation>Backend: Location validation logic</fixLocation>
+            <estimatedFixTime>1.5</estimatedFixTime>
+            <fixUnit>hours</fixUnit>
+            <status>PENDING_ANALYSIS</status>
+            <workaround>None available</workaround>
+            <bugId>N/A</bugId>
+        </failure>
+    </failureCategory>
+
+    <!-- SUMMARY STATISTICS -->
+    <statistics>
+        <byController>
+            <controller name="Rate Controller" count="8" status="READY_TO_FIX"/>
+            <controller name="Penalty Controller" count="4" status="PENDING_ANALYSIS"/>
+            <controller name="Lookup Controller" count="2" status="PENDING_ANALYSIS"/>
+            <controller name="Payment Controller" count="3" status="PENDING_ANALYSIS"/>
+            <controller name="Void Controller" count="1" status="PENDING_ANALYSIS"/>
+            <controller name="Transfer Controller" count="1" status="PENDING_ANALYSIS"/>
+            <controller name="SmartyStreet/Address" count="2" status="PENDING_ANALYSIS"/>
+            <controller name="Cashiering Controller" count="2" status="PENDING_ANALYSIS"/>
+            <controller name="Customer Controller" count="1" status="PENDING_ANALYSIS"/>
+        </byController>
+        
+        <byStatus>
+            <status name="READY_TO_FIX" count="8" estimatedTime="22 minutes"/>
+            <status name="PENDING_ANALYSIS" count="17" estimatedTime="15-20 hours"/>
+        </byStatus>
+        
+        <bySeverity>
+            <severity name="HIGH" count="13" priority="1"/>
+            <severity name="MEDIUM" count="12" priority="2"/>
+        </bySeverity>
+    </statistics>
+
+    <!-- ACTION PLAN -->
+    <actionPlan>
+        <phase name="Quick Wins" priority="1" estimatedTime="30 minutes">
+            <action>Fix Rate Controller (8 tests) - Schema evolution - 22 minutes</action>
+            <action>Run tests to confirm 8-test improvement</action>
+        </phase>
+        
+        <phase name="Analysis & Fixes" priority="2" estimatedTime="10-15 hours">
+            <action>Analyze Penalty Controller (4 tests) - 2 hours</action>
+            <action>Analyze Lookup Controller (2 tests) - 1 hour</action>
+            <action>Analyze Address Validation (2 tests) - 1.5 hours</action>
+            <action>Analyze Payment Processing (3 tests) - 3 hours</action>
+            <action>Analyze Business Logic (2 tests) - 2 hours</action>
+            <action>Analyze Cashiering/Customer (3 tests) - 3 hours</action>
+        </phase>
+        
+        <phase name="Critical Issues" priority="3" estimatedTime="4-8 hours">
+            <action>SQL SET Options Fix (Backend) - 2 hours</action>
+            <action>Session Persistence Investigation - 4-8 hours</action>
+            <action>Data Retrieval Root Cause Analysis - 2-4 hours</action>
+        </phase>
+    </actionPlan>
+
+    <recommendations>
+        <recommendation priority="1">Fix Rate Controller tests immediately (22 min) to unblock 8 tests - Quick win!</recommendation>
+        <recommendation priority="2">Establish API schema versioning protocol to prevent future field addition issues</recommendation>
+        <recommendation priority="3">Investigate data retrieval pattern - 5 tests showing empty array issues</recommendation>
+        <recommendation priority="4">Review session persistence architecture for Cashiering module</recommendation>
+        <recommendation priority="5">Create shared test utilities for address validation and payment processing</recommendation>
+    </recommendations>
+
+</failures>
