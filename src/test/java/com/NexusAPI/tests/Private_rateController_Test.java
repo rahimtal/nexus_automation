@@ -983,4 +983,34 @@ public class Private_rateController_Test extends BaseClass {
 
 	}
 
+	
+
+	
+	@Test(priority = 19, groups = "rate")
+	public void getrateunitDescription()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate/unitDescription/Unit4/ELECTRIC/1";
+		String ver = "4.0";
+		String expected = "{\"UnitDescription\":{\"Success\":true,\"Data\":{\"UnitDescription\":\"Unit4\",\"ServiceCategory\":{\"Id\":1,\"Description\":\"ELECTRIC\"},\"DetailType\":{\"Id\":1,\"Description\":\"Fixed Charge\"},\"IsInUse\":false},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		Thread.sleep(12000);
+		Assert.assertEquals(result, expected);
+
+	}
+
+	@Test(priority = 20, groups = "rate", dependsOnMethods = "getrateunitDescription")
+	public void deleterateunitDescription()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate/unitDescription/Unit4/ELECTRIC/1";
+		String ver = "4.0";
+		String expected = "{\"UnitDescription\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Unit Description deleted successfully.\",\"Level\":1}]}}";
+		//HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.deleteMethodasString(uri, ver);
+		Assert.assertEquals(result, expected);
+
+	}
+
 }
