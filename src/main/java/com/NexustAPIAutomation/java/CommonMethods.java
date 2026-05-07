@@ -131,114 +131,91 @@ public class CommonMethods {
 
 		ReadProjectProperties readProps = new ReadProjectProperties();
 		String PKCE = readProps.ReadFile("PKCE");
-		boolean usePKCE = (PKCE != null && (PKCE.equals("true") || PKCE.equalsIgnoreCase("true")));
 
-		// Try PKCE flow if enabled
-		if (usePKCE) {
-			try {
-				// Use KeycloakStep1And2And3WithCookies for PKCE flow
-				String kcBase = keycloakurl + "/realms/nexus";
-				String clientId = "nexus-portal";
-				String redirectUri = "https://oauth.usebruno.com/callback";
-				String keycloakUsername =  readProps.ReadFile("username");  // "sa_automation"; // Keycloak user (different from API username)
-				String keycloakPassword = readProps.ReadFile("password"); // Keycloak user password
-				
-				System.out.println("\n========== PKCE Flow Started ==========");
-				System.out.println("Keycloak Base: " + kcBase);
-				System.out.println("Client ID: " + clientId);
-				System.out.println("Username: " + keycloakUsername);
-				
-				// Step 1: Auth GET
-				Map<String, Object> context = KeycloakStep1And2And3WithCookies.stage1Auth(kcBase, clientId, redirectUri);
-				System.out.println("Step 1 - Flow Step: " + context.get("flow_step"));
-				System.out.println("Step 1 - Auth Code: " + context.getOrDefault("auth_code", "NOT FOUND"));
+		if (PKCE == "true" || PKCE.equalsIgnoreCase("true")) {
+			// Use KeycloakStep1And2And3WithCookies for PKCE flow
+			String kcBase = keycloakurl + "/realms/nexus";
+			String clientId = "nexus-portal";
+			String redirectUri = "https://oauth.usebruno.com/callback";
+			String keycloakUsername =  readProps.ReadFile("username");  // "sa_automation"; // Keycloak user (different from API username)
+			String keycloakPassword = readProps.ReadFile("password"); // Keycloak user password
+			
+			System.out.println("\n========== PKCE Flow Started ==========");
+			System.out.println("Keycloak Base: " + kcBase);
+			System.out.println("Client ID: " + clientId);
+			System.out.println("Username: " + keycloakUsername);
+			
+			// Step 1: Auth GET
+			Map<String, Object> context = KeycloakStep1And2And3WithCookies.stage1Auth(kcBase, clientId, redirectUri);
+			System.out.println("Step 1 - Flow Step: " + context.get("flow_step"));
+			System.out.println("Step 1 - Auth Code: " + context.getOrDefault("auth_code", "NOT FOUND"));
 
-				// Step 2: Login POST (if needed)
-				if ("need_login".equals(context.get("flow_step"))) {
-					System.out.println("Step 2 - Performing login...");
-					context.putAll(KeycloakStep1And2And3WithCookies.step2Login((String) context.get("kc_login_action"),
-							keycloakUsername, keycloakPassword, "on",
-							(Map<String, String>) context.get("cookies")));
-					System.out.println("Step 2 - Flow Step After Login: " + context.get("flow_step"));
-					System.out.println("Step 2 - Auth Code After Login: " + context.getOrDefault("auth_code", "NOT FOUND"));
-				} else if ("got_code".equals(context.get("flow_step"))) {
-					System.out.println("Step 2 - Skipped (already have auth code from Step 1)");
-				}
-
-				// Step 3: Token Exchange
-				String authCodeForExchange = (String) context.getOrDefault("auth_code", "");
-				System.out.println("Step 3 - Auth Code to exchange: " + (authCodeForExchange.isEmpty() ? "EMPTY!" : authCodeForExchange));
-				System.out.println("Step 3 - PKCE Verifier: " + context.get("pkce_verifier"));
-				
-				Map<String, Object> tokenContext = KeycloakStep1And2And3WithCookies.step3TokenExchange(
-						kcBase, clientId, redirectUri,
-						authCodeForExchange,
-						(String) context.get("pkce_verifier"),
-						(Map<String, String>) context.get("cookies")
-				);
-
-				System.out.println("\n========== Token Exchange Result ==========");
-				System.out.println("Access Token: " + tokenContext.get("access_token"));
-				System.out.println("Refresh Token: " + tokenContext.get("refresh_token"));
-				auth_token = (String) tokenContext.get("access_token");
-				
-				if (auth_token != null && !auth_token.isEmpty()) {
-					// Cache the token with expiration time (300 seconds = 5 minutes)
-					cachedToken = auth_token;
-					tokenExpirationTime = System.currentTimeMillis() + 300000;
-					System.out.println("✅ Token cached, expires in 300 seconds");
-					return auth_token;
-				} else {
-					System.out.println("⚠️ PKCE Flow returned empty token, falling back to basic auth");
-					System.out.println("Full Token Context: " + tokenContext);
-					// Fall through to basic auth fallback below
-				}
-			} catch (Exception e) {
-				System.out.println("⚠️ PKCE Flow Failed with exception: " + e.getMessage());
-				e.printStackTrace();
-				System.out.println("Falling back to basic authentication...");
-				// Fall through to basic auth fallback
+			// Step 2: Login POST (if needed)
+			if ("need_login".equals(context.get("flow_step"))) {
+				System.out.println("Step 2 - Performing login...");
+				context.putAll(KeycloakStep1And2And3WithCookies.step2Login((String) context.get("kc_login_action"),
+						keycloakUsername, keycloakPassword, "on",
+						(Map<String, String>) context.get("cookies")));
+				System.out.println("Step 2 - Flow Step After Login: " + context.get("flow_step"));
+				System.out.println("Step 2 - Auth Code After Login: " + context.getOrDefault("auth_code", "NOT FOUND"));
+			} else if ("got_code".equals(context.get("flow_step"))) {
+				System.out.println("Step 2 - Skipped (already have auth code from Step 1)");
 			}
-		}
 
-		// Fallback to basic authentication (non-PKCE)
-		try {
+			// Step 3: Token Exchange
+			String authCodeForExchange = (String) context.getOrDefault("auth_code", "");
+			System.out.println("Step 3 - Auth Code to exchange: " + (authCodeForExchange.isEmpty() ? "EMPTY!" : authCodeForExchange));
+			System.out.println("Step 3 - PKCE Verifier: " + context.get("pkce_verifier"));
+			
+			Map<String, Object> tokenContext = KeycloakStep1And2And3WithCookies.step3TokenExchange(
+					kcBase, clientId, redirectUri,
+					authCodeForExchange,
+					(String) context.get("pkce_verifier"),
+					(Map<String, String>) context.get("cookies")
+			);
+
+			System.out.println("\n========== Token Exchange Result ==========");
+			System.out.println("Access Token: " + tokenContext.get("access_token"));
+			System.out.println("Refresh Token: " + tokenContext.get("refresh_token"));
+			auth_token = (String) tokenContext.get("access_token");
+			
+			if (auth_token == null || auth_token.isEmpty()) {
+				System.out.println("❌ PKCE Flow Failed - No access token received");
+				System.out.println("Full Token Context: " + tokenContext);
+				Assert.fail("Authorization failed/Invalid Token/Check User Name");
+			}
+			
+			// Cache the token with expiration time (300 seconds = 5 minutes)
+			cachedToken = auth_token;
+			tokenExpirationTime = System.currentTimeMillis() + 300000;
+			System.out.println("✅ Token cached, expires in 300 seconds");
+
+		} else {
+
 			String url = keycloakurl + "/auth/realms/nexus-portal/protocol/openid-connect/token";
 			Response response = RestAssured.given().auth().preemptive().basic("nexus-portal", url)
 					.contentType("application/x-www-form-urlencoded").formParam("grant_type", "password")
 					.formParam("username", userName).formParam("password", Password).when().post(url);
 
-			int statusCode = response.getStatusCode();
-			String responseBody = response.asString();
-			
-			System.out.println("Basic Auth Response Status: " + statusCode);
-			
+
 			try {
-				boolean hasError = response.path("error") != null && response.path("error").toString().contains("invalid_grant");
-				Object accessTokenObj = response.path("access_token");
-				
-				if (hasError || accessTokenObj == null) {
-					System.out.println("❌ Basic auth failed: error=" + response.path("error") + ", access_token=" + accessTokenObj);
-					throw new RuntimeException("Authentication failed - no access token received");
+				boolean f = (response.path("error").toString()).contains("invalid_grant");
+				if (f == true || response.path("access_token") == null) {
+					Assert.fail("Authorization failed/Invalid Token/Check User Name");
 				}
-				
-				auth_token = accessTokenObj.toString();
 			} catch (NullPointerException e) {
-				System.out.println("❌ Error parsing basic auth response: " + e.getMessage());
-				throw new RuntimeException("Failed to parse authentication response", e);
+
 			}
+
+			auth_token = response.path("access_token").toString();
 			
 			// Cache the token with expiration time (from response or default 300 seconds)
 			Integer expiresIn = response.path("expires_in");
 			long expirationMs = (expiresIn != null && expiresIn > 0) ? expiresIn * 1000 : 300000;
 			cachedToken = auth_token;
 			tokenExpirationTime = System.currentTimeMillis() + expirationMs;
-			System.out.println("✅ Token cached (basic auth), expires in " + expirationMs / 1000 + " seconds");
-			
-		} catch (Exception e) {
-			System.out.println("❌ All authentication methods failed: " + e.getMessage());
-			e.printStackTrace();
-			Assert.fail("Authorization failed/Invalid Token/Check User Name - " + e.getMessage());
+			System.out.println("✅ Token cached, expires in " + expirationMs / 1000 + " seconds");
+
 		}
 		return auth_token;
 
