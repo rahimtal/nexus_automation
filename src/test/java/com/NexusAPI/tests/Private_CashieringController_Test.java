@@ -256,7 +256,7 @@ public class Private_CashieringController_Test extends BaseClass {
 
 	}
 
-	@Test(priority = 6, groups = "Cashering", dependsOnMethods = "TC005_getRegisterInfo")
+	@Test(priority = 6, groups = "Cashering")//, dependsOnMethods = "TC005_getRegisterInfo")
 	public void TC006_gettransactions() throws ClassNotFoundException, SQLException, InterruptedException {
 		// extent.createTest("Test", "");
 		// CommonMethods.Bugs("CPDEV-16978");
@@ -295,7 +295,7 @@ public class Private_CashieringController_Test extends BaseClass {
 
 	}
 
-	@Test(priority = 7, groups = "Cashering", dependsOnMethods = "TC006_gettransactions")
+	@Test(priority = 7, groups = "Cashering")//, dependsOnMethods = "TC006_gettransactions")
 	public void TC007_getAutoApply() throws ClassNotFoundException, SQLException, InterruptedException {
 		// extent.createTest("Test", "");
 		String uri = "/cashiering/autoApply";
