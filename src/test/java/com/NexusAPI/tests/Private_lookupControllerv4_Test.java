@@ -329,6 +329,8 @@ public class Private_lookupControllerv4_Test extends BaseClass {
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.Bugs("https://cogsdale.atlassian.net/browse/CPDEV-18771");
 		// CPDEV-18771 - developer confirm this is not an issue
+
+		CommonMethods.Bug("CPDEV-26483 ");
 		String uri = "/lookup/serviceOrderTasks";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\lookupserviceOrderTasksv4.json";
