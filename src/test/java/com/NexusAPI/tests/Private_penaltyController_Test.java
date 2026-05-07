@@ -15,6 +15,7 @@ import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 import com.NexustAPIAutomation.java.DataBackupRestore;
+import com.NexustAPIAutomation.java.QuickDBRestore;
 import com.NexustAPIAutomation.java.ReadProjectProperties;
 
 import io.restassured.response.ValidatableResponse;
@@ -24,7 +25,7 @@ public class Private_penaltyController_Test {
 	@Test(priority = 1, groups = "Penalty")
 	public void DBSetup() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
-		DataBackupRestore.CompanyDBRestore();
+		QuickDBRestore.restoreDatabase();
 		Thread.sleep(10000);
 
 	}
