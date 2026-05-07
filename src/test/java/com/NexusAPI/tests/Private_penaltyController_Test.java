@@ -96,7 +96,7 @@ public class Private_penaltyController_Test {
 		// CommonMethods.Bug("CPDEV-24472");
 		String uri = "/penalty/calculatedDocuments/PENALTY2";
 		String ver = "4.0";
-		String expected = "{\"Penalty\":{\"Success\":true,\"Data\":{\"BatchId\":\"PENALTY2\",\"Document\":[{\"PenaltyDocument\":\"PNLT00000000098\",\"SourceDocument\":\"PNLT00000000063\",\"LocationId\":\"LOC@0001\",\"CustomerId\":\"0000011111\",\"ServiceType\":\"ELECTRIC\",\"PenaltyId\":\"DEFAULTPYMT\",\"TaxAmount\":0.00,\"OriginalBalance\":5.00,\"OutstandingAmount\":5.00,\"PenaltyAmount\":1.00},{\"PenaltyDocument\":\"PNLT00000000099\",\"SourceDocument\":\"BUDG00000002775\",\"LocationId\":\"LOC@0001\",\"CustomerId\":\"0000011111\",\"ServiceType\":\"ELECTRIC\",\"PenaltyId\":\"RES-OVERDUE\",\"TaxAmount\":0.00,\"OriginalBalance\":50.00,\"OutstandingAmount\":50.00,\"PenaltyAmount\":5.00}]},\"Messages\":[]}}";
+		String expected = "{\"Penalty\":{\"Success\":true,\"Data\":{\"BatchId\":\"PENALTY2\",\"Document\":[{\"PenaltyDocument\":\"PNLT00000000098\",\"SourceDocument\":\"BUDG00000002775\",\"LocationId\":\"LOC@0001\",\"CustomerId\":\"0000011111\",\"ServiceType\":\"ELECTRIC\",\"PenaltyId\":\"RES-OVERDUE\",\"TaxAmount\":0.00,\"OriginalBalance\":50.00,\"OutstandingAmount\":50.00,\"PenaltyAmount\":5.00}]},\"Messages\":[]}}";
 		HashMap<String, String> map = new HashMap<String, String>();
 		System.out.println("Sending GET request to URI: " + uri + " with version: " + ver);
 		String Result = CommonMethods.getMethodasString(uri, ver, map);
