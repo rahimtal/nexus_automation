@@ -46,6 +46,7 @@ public class Private_voidController_Test extends BaseClass {
 	@Test(priority = 1, groups = "void")
 	public void putvoidv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-23536");
+		CommonMethods.Bug("CPDEV-26425");
 		String uri = "/void";
 		String ver = "4.0";
 		String params = "{\r\n"

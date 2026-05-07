@@ -11,7 +11,7 @@ import java.util.HashMap;
 import org.testng.annotations.Test; import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
-
+import com.NexustAPIAutomation.java.QuickDBRestore;
 
 //import freemarker.core.BugException;
 import io.restassured.response.ValidatableResponse;
@@ -168,6 +168,7 @@ public class Private_transactionsControllerv4_Test  extends BaseClass{
 	public void gettransactionpayment_v4_AuthCode()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.Bugs("CPDEV-21448");
+		QuickDBRestore.restoreDatabase();
 		String uri = "/transaction/payment/PYMT00000000539";
 		String ver = "4.0";
 		String expected = "{\"Payment\":{\"Success\":true,\"Data\":{\"DocumentNumber\":\"PYMT00000000539\",\"BatchId\":\"PY081525sa\",\"PaidById\":\"500003\",\"PaidBy\":{\"Id\":1,\"Description\":\"Bill To Customer\"},\"PaymentOrigin\":null,\"Comment\":\"\",\"Status\":\"Work\",\"CreateDateTime\":\"2025-12-07T00:00:00\",\"CreatedBy\":\"sa\",\"IsAppliedToDeposit\":false,\"PayDetail\":{\"Type\":\"Cash\",\"OtherType\":null,\"TaxSchduleId\":null,\"TaxDescription\":null,\"CreditNoteId\":null,\"Date\":\"2025-12-07\",\"SubTotal\":100.00,\"TotalTaxAmount\":0.00,\"Amount\":100.00,\"UnappliedToBill\":14.84,\"CheckbookId\":\"FIRST NATIONAL\",\"CreditCard\":null,\"CheckNumber\":\"\",\"CreditNoteReasonCode\":\"\",\"TaxDetail\":[]},\"IsVoided\":false,\"Void\":null,\"LocationId\":\"100003\",\"ServiceAddress\":{\"Line1\":\"3243 7th AVE\",\"City\":\"TROY\",\"State\":\"NY\",\"ZipCode\":\"121801325\",\"Country\":\"USA\"},\"Customer\":{\"Id\":\"500003\",\"Type\":\"Individual\",\"Individual\":{\"FullName\":\"Mr. George Thomas\",\"Name\":{\"Title\":\"Mr.\",\"First\":\"George\",\"Middle\":\"\",\"Last\":\"Thomas\"}},\"Business\":null},\"Prepayment\":[]},\"Messages\":[]}}";

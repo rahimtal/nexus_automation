@@ -192,7 +192,20 @@ public class Private_PaymentControllerV4_Test extends BaseClass {
 
 	@Test(priority = 12, groups = "Payment")
 	public void postPaymentSimulatev4_savePayments() throws ClassNotFoundException, SQLException, InterruptedException {
-		CommonMethods.Bug("CPDEV-26298");
+		//CommonMethods.Bug("CPDEV-26298");
+
+	String uri1 = "/payment/documentDelete";
+		String ver1 = "4.0";
+		String payload1 = "{\r\n" + //
+						"    \"BatchId\": \"default1\",\r\n" + //
+						"    \"Document\": [\r\n" + //
+						"        {\r\n" + //
+						"            \"Number\": \"PYMT00000000546\"\r\n" + //
+						"        }\r\n" + //
+						"    ]\r\n" + //
+						"}";
+		CommonMethods.postMethodStringPayload(payload1, uri1, ver1);
+
 		String uri = "/payment/simulate";
 		String ver = "4.0";
 		String payload = "./\\TestData\\paymentsimulatev4_savedPayment1.json";
