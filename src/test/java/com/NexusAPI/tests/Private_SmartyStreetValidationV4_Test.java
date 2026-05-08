@@ -51,6 +51,7 @@ public class Private_SmartyStreetValidationV4_Test  extends BaseClass{
 	public void postvalidLocation() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// Still Bug (2025)
 		// CommonMethods.Bug("CPDEV-21907");
+		CommonMethods.Bug("CPDEV-26505");
 		String uri = "/location";
 		String ver = "4.0";
 		String payload = "{\r\n"

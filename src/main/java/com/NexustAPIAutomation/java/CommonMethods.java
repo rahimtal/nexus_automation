@@ -548,6 +548,8 @@ public class CommonMethods {
 
 			response = httpRequest.post();
 			System.out.println("Actual Response =" + response.asString());
+			System.out.println("-------------Line Break ------------");
+			System.out.println("-------------Line Break ------------");
 			System.out.println("Expected Response =" + expected);
 			System.out.println("Status Code: " + response.getStatusCode());
 
@@ -713,6 +715,8 @@ public class CommonMethods {
 
 		String expe = new String(Files.readAllBytes(Paths.get(jpath)));
 		System.out.println("Expected Response as in file : " + jpath + " = " + expe);
+		System.out.println("-------------Line Break ------------");
+		System.out.println("-------------Line Break ------------");
 		RestAssured.baseURI = RestAssured.baseURI + uri;
 		System.out.println("Tesing URI:" + RestAssured.baseURI.toString());
 
@@ -751,6 +755,8 @@ public class CommonMethods {
 
 		String expe = new String(Files.readAllBytes(Paths.get(jpath)));
 		System.out.println("Expected Response as in file : " + jpath + " = " + expe);
+		System.out.println("-------------Line Break ------------");
+		System.out.println("-------------Line Break ------------");
 		RestAssured.baseURI = RestAssured.baseURI + uri;
 		System.out.println("Tesing URI:" + RestAssured.baseURI.toString());
 
@@ -800,6 +806,8 @@ public class CommonMethods {
 				.queryParams(params).body(jsonDataInFile);
 		String expe = new String(Files.readAllBytes(Paths.get(responseFile)));
 		System.out.println("Expected Response as in file : " + expe);
+		System.out.println("-------------Line Break ------------");
+			System.out.println("-------------Line Break ------------");
 		Response responseTest = httpRequest.put();
 		System.out.println(responseTest.asString());
 
