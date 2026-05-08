@@ -1013,4 +1013,152 @@ public class Private_rateController_Test extends BaseClass {
 
 	}
 
+		
+	@Test(priority = 21, groups = "rate")
+	public void getrateCalculateAutomaticEstimates()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate/calculateAutomaticEstimates/SEWERMETERED?UserDate=2026-04-30";
+		String ver = "4.0";
+		String expected = "{\"AutomaticEstimates\":{\"Success\":true,\"Data\":{\"RateId\":\"SEWERMETERED\",\"Description\":\"Metered rates for sewrwe connection\",\"January\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"February\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"March\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"April\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"May\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"June\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"July\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"August\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"September\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"October\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"November\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"December\":{\"AverageConsumption\":0,\"NoOfBills\":0}},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		Thread.sleep(12000);
+		Assert.assertEquals(result, expected);
+
+	}
+
+
+	@Test(priority = 21, groups = "rate")
+          	public void getrateCalculateAutomaticEstimates2()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate/calculateAutomaticEstimates/WATERMETERED?UserDate=2026-04-30";
+		String ver = "4.0";
+		String expected = "{\"AutomaticEstimates\":{\"Success\":true,\"Data\":{\"RateId\":\"WATERMETERED\",\"Description\":\"Metered connection for water\",\"January\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"February\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"March\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"April\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"May\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"June\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"July\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"August\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"September\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"October\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"November\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"December\":{\"AverageConsumption\":0,\"NoOfBills\":0}},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		Thread.sleep(12000);
+		Assert.assertEquals(result, expected);
+
+	}
+
+	@Test(priority = 22, groups = "rate")
+	public void getrateCalculateAutomaticEstimates_ElectricRate()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate/calculateAutomaticEstimates/EMP-1?UserDate=2026-04-30";
+		String ver = "4.0";
+		String expected = "{\"AutomaticEstimates\":{\"Success\":true,\"Data\":{\"RateId\":\"EMP-1\",\"Description\":\"Electric Medium Power (13)\",\"January\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"February\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"March\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"April\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"May\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"June\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"July\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"August\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"September\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"October\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"November\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"December\":{\"AverageConsumption\":0,\"NoOfBills\":0}},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		Thread.sleep(12000);
+		Assert.assertEquals(result, expected);
+
+	}
+
+
+
+	@Test(priority = 24, groups = "rate")
+	public void getrateCalculateAutomaticEstimates_JanuaryDate()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate/calculateAutomaticEstimates/WATERMETERED?UserDate=2026-01-31";
+		String ver = "4.0";
+		String expected = "{\"AutomaticEstimates\":{\"Success\":true,\"Data\":{\"RateId\":\"WATERMETERED\",\"Description\":\"Metered connection for water\",\"January\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"February\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"March\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"April\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"May\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"June\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"July\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"August\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"September\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"October\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"November\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"December\":{\"AverageConsumption\":0,\"NoOfBills\":0}},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		Thread.sleep(12000);
+		Assert.assertEquals(result, expected);
+
+	}
+
+	@Test(priority = 25, groups = "rate")
+	public void getrateCalculateAutomaticEstimates_DecemberDate()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate/calculateAutomaticEstimates/WATERMETERED?UserDate=2026-12-31";
+		String ver = "4.0";
+		String expected = "{\"AutomaticEstimates\":{\"Success\":true,\"Data\":{\"RateId\":\"WATERMETERED\",\"Description\":\"Metered connection for water\",\"January\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"February\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"March\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"April\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"May\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"June\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"July\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"August\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"September\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"October\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"November\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"December\":{\"AverageConsumption\":0,\"NoOfBills\":0}},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		Thread.sleep(12000);
+		Assert.assertEquals(result, expected);
+
+	}
+
+	@Test(priority = 26, groups = "rate")
+	public void getrateCalculateAutomaticEstimates_InvalidRate()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate/calculateAutomaticEstimates/INVALID_RATE_12345?UserDate=2026-04-30";
+		String ver = "4.0";
+		String expected = "{\"AutomaticEstimates\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"RateId length must be less than or equal to 15 characters long\",\"Level\":3}]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		Thread.sleep(12000);
+		Assert.assertEquals(result, expected);
+
+	}
+
+
+
+	@Test(priority = 28, groups = "rate")
+	public void getrateCalculateAutomaticEstimates_FutureDate()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate/calculateAutomaticEstimates/WATERMETERED?UserDate=2030-12-31";
+		String ver = "4.0";
+		String expected = "{\"AutomaticEstimates\":{\"Success\":true,\"Data\":{\"RateId\":\"WATERMETERED\",\"Description\":\"Metered connection for water\",\"January\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"February\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"March\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"April\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"May\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"June\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"July\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"August\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"September\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"October\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"November\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"December\":{\"AverageConsumption\":0,\"NoOfBills\":0}},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		Thread.sleep(12000);
+		Assert.assertEquals(result, expected);
+
+	}
+
+	@Test(priority = 29, groups = "rate")
+	public void getrateCalculateAutomaticEstimates_PastDate()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate/calculateAutomaticEstimates/WATERMETERED?UserDate=2015-06-15";
+		String ver = "4.0";
+		String expected = "{\"AutomaticEstimates\":{\"Success\":true,\"Data\":{\"RateId\":\"WATERMETERED\",\"Description\":\"Metered connection for water\",\"January\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"February\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"March\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"April\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"May\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"June\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"July\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"August\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"September\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"October\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"November\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"December\":{\"AverageConsumption\":0,\"NoOfBills\":0}},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		Thread.sleep(12000);
+		Assert.assertEquals(result, expected);
+
+	}
+
+	@Test(priority = 30, groups = "rate")
+	public void getrateCalculateAutomaticEstimates_EmptyRateId()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate/calculateAutomaticEstimates/?UserDate=2026-04-30";
+		String ver = "4.0";
+		String expected = "{\"Rate\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"RateId length must be less than or equal to 15 characters long\",\"Level\":3}]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		Thread.sleep(12000);
+		Assert.assertEquals(result, expected);
+
+	}
+
+	@Test(priority = 31, groups = "rate")
+	public void getrateCalculateAutomaticEstimates_MissingDateParameter()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate/calculateAutomaticEstimates/WATERMETERED";
+		String ver = "4.0";
+		String expected = "{\"AutomaticEstimates\":{\"Success\":true,\"Data\":{\"RateId\":\"WATERMETERED\",\"Description\":\"Metered connection for water\",\"January\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"February\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"March\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"April\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"May\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"June\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"July\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"August\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"September\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"October\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"November\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"December\":{\"AverageConsumption\":0,\"NoOfBills\":0}},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		Thread.sleep(12000);
+		Assert.assertEquals(result, expected);
+
+	}
+
+	   
+
 }
