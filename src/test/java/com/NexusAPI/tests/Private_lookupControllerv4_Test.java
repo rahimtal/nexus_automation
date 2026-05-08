@@ -745,4 +745,195 @@ public class Private_lookupControllerv4_Test extends BaseClass {
 		System.out.println(actual);
 		Assert.assertEquals(actual, expected);
 	}
+
+
+
+	@Test(priority = 51, groups = "lookup")
+	public void lookupmeterSizeDiameter()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/lookup/meterSizeDiameter";
+		String ver = "4.0";
+		String expected = "{\"Diameter\":[{\"ServiceCategory\":{\"Id\":\"5\",\"Description\":\"Phone\"},\"Diameter\":[{\"Value\":\"0.00000\"}]},{\"ServiceCategory\":{\"Id\":\"4\",\"Description\":\"Gas\"},\"Diameter\":[{\"Value\":\"0.00000\"},{\"Value\":\"0.00100\"},{\"Value\":\"100.00000\"}]},{\"ServiceCategory\":{\"Id\":\"3\",\"Description\":\"Sewer\"},\"Diameter\":[{\"Value\":\"0.00000\"}]},{\"ServiceCategory\":{\"Id\":\"2\",\"Description\":\"Water\"},\"Diameter\":[{\"Value\":\"0.00000\"},{\"Value\":\"0.62000\"}]},{\"ServiceCategory\":{\"Id\":\"1\",\"Description\":\"Electric\"},\"Diameter\":[{\"Value\":\"0.00000\"}]}]}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("PageNum", "1");
+		params.put("NumPerPage", "32000");
+		params.put("OrderBy", "ServiceCategoryId DESC");		
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertEquals(actual, expected);
+	}
+
+	@Test(priority = 52, groups = "lookup")
+	public void lookupmeterSizeDiameter_OrderByAscending()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// Test sorting by ServiceCategoryId in ascending order
+		String uri = "/lookup/meterSizeDiameter";
+		String ver = "4.0";
+		String expected = "{\"Diameter\":[{\"ServiceCategory\":{\"Id\":\"1\",\"Description\":\"Electric\"},\"Diameter\":[{\"Value\":\"0.00000\"}]},{\"ServiceCategory\":{\"Id\":\"2\",\"Description\":\"Water\"},\"Diameter\":[{\"Value\":\"0.00000\"},{\"Value\":\"0.62000\"}]},{\"ServiceCategory\":{\"Id\":\"3\",\"Description\":\"Sewer\"},\"Diameter\":[{\"Value\":\"0.00000\"}]},{\"ServiceCategory\":{\"Id\":\"4\",\"Description\":\"Gas\"},\"Diameter\":[{\"Value\":\"0.00000\"},{\"Value\":\"0.00100\"},{\"Value\":\"100.00000\"}]},{\"ServiceCategory\":{\"Id\":\"5\",\"Description\":\"Phone\"},\"Diameter\":[{\"Value\":\"0.00000\"}]}]}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("PageNum", "1");
+		params.put("NumPerPage", "32000");
+		params.put("OrderBy", "ServiceCategoryId ASC");		
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertEquals(actual, expected);
+	}
+
+	@Test(priority = 53, groups = "lookup")
+	public void lookupmeterSizeDiameter_SmallPageSize()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// Test with smaller page size (pagination)
+		String uri = "/lookup/meterSizeDiameter";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("PageNum", "1");
+		params.put("NumPerPage", "2");
+		params.put("OrderBy", "ServiceCategoryId DESC");		
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		// Should return 2 items per page
+		Assert.assertTrue(actual.contains("\"Diameter\""));
+		Assert.assertTrue(actual.contains("\"ServiceCategory\""));
+	}
+
+	@Test(priority = 54, groups = "lookup")
+	public void lookupmeterSizeDiameter_Page2()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// Test page 2 with smaller page size
+		String uri = "/lookup/meterSizeDiameter";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("PageNum", "2");
+		params.put("NumPerPage", "2");
+		params.put("OrderBy", "ServiceCategoryId DESC");		
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertTrue(actual.contains("\"Diameter\""));
+	}
+
+	@Test(priority = 55, groups = "lookup")
+	public void lookupmeterSizeDiameter_ElectricOnly()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// Test filtering for Electric service category only - from UM00400 (Service Category table)
+		String uri = "/lookup/meterSizeDiameter";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("PageNum", "1");
+		params.put("NumPerPage", "32000");
+		params.put("ServiceCategoryId", "1");
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertTrue(actual.contains("Electric"));
+		Assert.assertTrue(actual.contains("0.00000"));
+	}
+
+	@Test(priority = 56, groups = "lookup")
+	public void lookupmeterSizeDiameter_WaterOnly()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// Test filtering for Water service category - from UM00400
+		String uri = "/lookup/meterSizeDiameter";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("PageNum", "1");
+		params.put("NumPerPage", "32000");
+		params.put("ServiceCategoryId", "2");
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertTrue(actual.contains("Water"));
+		Assert.assertTrue(actual.contains("0.62000"));
+	}
+
+	@Test(priority = 57, groups = "lookup")
+	public void lookupmeterSizeDiameter_GasOnly()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// Test filtering for Gas service category - from UM00400
+		String uri = "/lookup/meterSizeDiameter";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("PageNum", "1");
+		params.put("NumPerPage", "32000");
+		params.put("ServiceCategoryId", "4");
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertTrue(actual.contains("Gas"));
+		Assert.assertTrue(actual.contains("100.00000"));
+	}
+
+	@Test(priority = 58, groups = "lookup")
+	public void lookupmeterSizeDiameter_SewerOnly()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// Test filtering for Sewer service category - from UM00400
+		String uri = "/lookup/meterSizeDiameter";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("PageNum", "1");
+		params.put("NumPerPage", "32000");
+		params.put("ServiceCategoryId", "3");
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertTrue(actual.contains("Sewer"));
+	}
+
+	@Test(priority = 59, groups = "lookup")
+	public void lookupmeterSizeDiameter_PhoneOnly()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// Test filtering for Phone service category - from UM00400
+		String uri = "/lookup/meterSizeDiameter";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("PageNum", "1");
+		params.put("NumPerPage", "32000");
+		params.put("ServiceCategoryId", "5");
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertTrue(actual.contains("Phone"));
+	}
+
+	@Test(priority = 60, groups = "lookup")
+	public void lookupmeterSizeDiameter_NoPageNumber()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// Test with no page number (should default to 1)
+		String uri = "/lookup/meterSizeDiameter";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("NumPerPage", "32000");
+		params.put("OrderBy", "ServiceCategoryId DESC");		
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertTrue(actual.contains("\"Diameter\""));
+	}
+
+	@Test(priority = 61, groups = "lookup")
+	public void lookupmeterSizeDiameter_DefaultPageSize()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// Test without specifying NumPerPage (should use default)
+		String uri = "/lookup/meterSizeDiameter";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("PageNum", "1");
+		params.put("OrderBy", "ServiceCategoryId DESC");		
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertTrue(actual.contains("\"Diameter\""));
+		Assert.assertTrue(actual.contains("\"ServiceCategory\""));
+	}
+
+	@Test(priority = 62, groups = "lookup")
+	public void lookupmeterSizeDiameter_OrderByDiameter()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// Test ordering by Diameter value
+		String uri = "/lookup/meterSizeDiameter";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("PageNum", "1");
+		params.put("NumPerPage", "32000");
+		params.put("OrderBy", "Diameter ASC");		
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertTrue(actual.contains("\"Diameter\""));
+	}
+
+	
 }
+
