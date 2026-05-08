@@ -19,6 +19,8 @@ public class Private_SmartyStreetValidationV4_Test  extends BaseClass{
 	public void postvalidateAddresses() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// Still Bug (2025)
 		// CommonMethods.Bug("CPDEV-21907");
+		CommonMethods.Bug("CPDEV-26500");
+
 		String uri = "/customers/validateAddresses";
 		String ver = "4.0";
 		String payload = "{\r\n" + "       \"Address\": [\r\n" + "        {\r\n"
