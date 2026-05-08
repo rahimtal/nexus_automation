@@ -226,7 +226,7 @@ public class Private_SmartyStreetValidationV4_Test  extends BaseClass{
 	}
 
 
-	@Test(priority = 3, groups = "Smarty")
+	@Test(priority = 3, groups = "Smarty", dependsOnMethods = "postvalidLocation")
 	public void putvalidLocation() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// Still Bug (2025)
 		// CommonMethods.Bug("CPDEV-21907");
