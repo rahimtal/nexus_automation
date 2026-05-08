@@ -175,8 +175,11 @@ public class CommonMethods {
 			);
 
 			System.out.println("\n========== Token Exchange Result ==========");
-			System.out.println("Access Token: " + tokenContext.get("access_token"));
-			System.out.println("Refresh Token: " + tokenContext.get("refresh_token"));
+			
+			String token = String.valueOf(tokenContext.get("access_token"));
+			System.out.println("Access Token: " + token.substring(0, Math.min(50, token.length())));
+			String refreshToken = String.valueOf(tokenContext.get("refresh_token"));
+			System.out.println("Refresh Token: " + refreshToken.substring(0, Math.min(50, refreshToken.length())));
 			auth_token = (String) tokenContext.get("access_token");
 			
 			if (auth_token == null || auth_token.isEmpty()) {
