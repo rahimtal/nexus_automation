@@ -53,8 +53,9 @@ public class Private_PaymentControllerV4_Test extends BaseClass {
 	}
 
 	@Test(priority = 3, groups = "Payment")
-	public static void delPaymentv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		// CommonMethods.CompanyDBRestore();
+	public  void delPaymentv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		CommonMethods.CompanyDBRestore();
+		Thread.sleep(5000);
 		String uri = "/payment/PYMT00000000431";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\delPaymentV4.json";

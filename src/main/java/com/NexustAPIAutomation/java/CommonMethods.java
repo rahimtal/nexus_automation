@@ -1531,13 +1531,19 @@ public class CommonMethods {
 					}
 				}
 
-				response = httpRequest.delete().then().assertThat().body(Matchers.containsString(validate));
-				System.out.println(response.extract().asString());
+				// Validate response contains expected string
+				String responseBody = rawResponse.getBody().asString();
+				if (!responseBody.contains(validate)) {
+					ExtentReportManager.logFail("DELETE response does NOT contain expected string from: " + jpath);
+					throw new AssertionError("Response body does not contain expected string");
+				}
+				
+				System.out.println(responseBody);
 
-				ExtentReportManager.logResponse(200, response.extract().asString());
+				ExtentReportManager.logResponse(200, responseBody);
 				ExtentReportManager.logPass("DELETE response contains expected string");
 
-				return response.extract().asString(); // Success, exit retry loop
+				return responseBody; // Success, exit retry loop
 			} catch (AssertionError e) {
 				ExtentReportManager.logFail("DELETE response does NOT contain expected string from: " + jpath);
 				throw e;
