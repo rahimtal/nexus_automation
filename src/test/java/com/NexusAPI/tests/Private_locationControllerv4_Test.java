@@ -15,7 +15,7 @@ import com.NexustAPIAutomation.java.CommonMethods;
 public class Private_locationControllerv4_Test  extends BaseClass{
 
 	@Test(priority = 1, groups = "locationController" )
-	public static void dellocationv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+	public void dellocationv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/location/locdeltest";
 		String ver = "4.0";
@@ -25,7 +25,7 @@ public class Private_locationControllerv4_Test  extends BaseClass{
 	}
 
 	@Test(priority = 2, groups = "locationController" )
-	public static void getlocationClassv4()
+	public void getlocationClassv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/location/class/NONCUST-LOC";
