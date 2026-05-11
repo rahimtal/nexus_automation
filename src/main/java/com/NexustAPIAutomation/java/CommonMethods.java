@@ -376,26 +376,43 @@ public class CommonMethods {
 			Assert.fail("Invalid version: " + version);
 			return null;
 		}
-		RestAssured.baseURI = baseUri;
 
-		Response response;
-		RestAssured.baseURI = RestAssured.baseURI + uri;
-		System.out.println("Posting uri  = " + version + "   " + uri);
+		// Retry logic for authentication failures
+		for (int attempt = 1; attempt <= MAX_RETRY_ATTEMPTS; attempt++) {
+			RestAssured.baseURI = baseUri + uri;
+			System.out.println("POST Attempt " + attempt + " of " + MAX_RETRY_ATTEMPTS);
+			System.out.println("Posting uri  = " + version + "   " + uri);
 
-		ExtentReportManager.logRequest("POST", uri, version, payload);
+			ExtentReportManager.logRequest("POST", uri, version, payload);
 
-		RequestSpecification httpRequest = RestAssured.given()
-				.headers("Authorization", "Bearer " + getToken(), "Content-Type", ContentType.JSON, "Accept", "*/*",
-						"Connection", "keep-alive")
-				.body(payload);
+			RequestSpecification httpRequest = RestAssured.given()
+					.headers("Authorization", "Bearer " + getToken(), "Content-Type", ContentType.JSON, "Accept", "*/*",
+							"Connection", "keep-alive")
+					.body(payload);
 
-		response = httpRequest.post();
-		System.out.println("Response :" + response.asString());
+			Response response = httpRequest.post();
+			System.out.println("Response :" + response.asString());
+			System.out.println("Status Code: " + response.getStatusCode());
 
-		ExtentReportManager.logResponse(response.getStatusCode(), response.asString());
+			// Check if authentication failed
+			if (isAuthenticationFailure(response)) {
+				if (attempt < MAX_RETRY_ATTEMPTS) {
+					System.out.println("⚠️ Authentication failure detected (Attempt " + attempt + "/" + MAX_RETRY_ATTEMPTS + "), retrying with fresh token...");
+					forceTokenRefresh();
+					Thread.sleep(RETRY_DELAY_MS);
+					continue;
+				} else {
+					System.out.println("❌ Authentication failed after " + MAX_RETRY_ATTEMPTS + " attempts");
+				}
+			}
 
-		return response.asString();
+			ExtentReportManager.logResponse(response.getStatusCode(), response.asString());
+			return response.asString(); // Success, exit retry loop
+		}
 
+		// Should not reach here
+		Assert.fail("Unable to complete POST request after " + MAX_RETRY_ATTEMPTS + " attempts");
+		return null;
 	}
 
 	public static JsonPath postMethodStringPayload(String payload, String uri, String version)
@@ -1481,31 +1498,55 @@ public class CommonMethods {
 			RestAssured.baseURI = baseUri;
 		}
 
-		RestAssured.baseURI = RestAssured.baseURI + uri;
-		System.out.println(RestAssured.baseURI.toString());
-
-		ExtentReportManager.logRequest("DELETE", uri, version, "Expected from file: " + jpath);
-
-		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
-				"Content-Type", ContentType.JSON, "Connection", "keep-alive");
-
-		ValidatableResponse response;
 		String validate = new String(Files.readAllBytes(Paths.get(jpath)));
 		System.out.println("Veriying String =" + validate);
 
-		try {
-			response = httpRequest.delete().then().assertThat().body(Matchers.containsString(validate));
-			System.out.println(response.extract().asString());
+		// Retry logic for authentication failures
+		for (int attempt = 1; attempt <= MAX_RETRY_ATTEMPTS; attempt++) {
+			RestAssured.baseURI = (baseUri != null ? baseUri : "") + uri;
+			System.out.println("DELETE Attempt " + attempt + " of " + MAX_RETRY_ATTEMPTS);
+			System.out.println(RestAssured.baseURI.toString());
 
-			ExtentReportManager.logResponse(200, response.extract().asString());
-			ExtentReportManager.logPass("DELETE response contains expected string");
+			ExtentReportManager.logRequest("DELETE", uri, version, "Expected from file: " + jpath);
 
-			return response.extract().asString();
-		} catch (AssertionError e) {
-			ExtentReportManager.logFail("DELETE response does NOT contain expected string from: " + jpath);
-			throw e;
+			RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
+					"Content-Type", ContentType.JSON, "Connection", "keep-alive");
+
+			ValidatableResponse response;
+			System.out.println("Status Code check:");
+
+			try {
+				Response rawResponse = httpRequest.delete();
+				System.out.println("Status Code: " + rawResponse.getStatusCode());
+
+				// Check if authentication failed
+				if (isAuthenticationFailure(rawResponse)) {
+					if (attempt < MAX_RETRY_ATTEMPTS) {
+						System.out.println("⚠️ Authentication failure detected (Attempt " + attempt + "/" + MAX_RETRY_ATTEMPTS + "), retrying with fresh token...");
+						forceTokenRefresh();
+						Thread.sleep(RETRY_DELAY_MS);
+						continue;
+					} else {
+						System.out.println("❌ Authentication failed after " + MAX_RETRY_ATTEMPTS + " attempts");
+					}
+				}
+
+				response = httpRequest.delete().then().assertThat().body(Matchers.containsString(validate));
+				System.out.println(response.extract().asString());
+
+				ExtentReportManager.logResponse(200, response.extract().asString());
+				ExtentReportManager.logPass("DELETE response contains expected string");
+
+				return response.extract().asString(); // Success, exit retry loop
+			} catch (AssertionError e) {
+				ExtentReportManager.logFail("DELETE response does NOT contain expected string from: " + jpath);
+				throw e;
+			}
 		}
 
+		// Should not reach here
+		Assert.fail("Unable to complete DELETE request after " + MAX_RETRY_ATTEMPTS + " attempts");
+		return null;
 	}
 
 	public static void deleteMethodvoid(String uri, String version, String expected)
@@ -1519,29 +1560,47 @@ public class CommonMethods {
 			RestAssured.baseURI = baseUri;
 		}
 
-		RestAssured.baseURI = RestAssured.baseURI + uri;
-		System.out.println(RestAssured.baseURI.toString());
+		// Retry logic for authentication failures
+		for (int attempt = 1; attempt <= MAX_RETRY_ATTEMPTS; attempt++) {
+			RestAssured.baseURI = (baseUri != null ? baseUri : "") + uri;
+			System.out.println("DELETE Attempt " + attempt + " of " + MAX_RETRY_ATTEMPTS);
+			System.out.println(RestAssured.baseURI.toString());
 
-		ExtentReportManager.logRequest("DELETE", uri, version, "");
+			ExtentReportManager.logRequest("DELETE", uri, version, "");
 
-		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
-				"Content-Type", ContentType.JSON, "Connection", "keep-alive");
+			RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
+					"Content-Type", ContentType.JSON, "Connection", "keep-alive");
 
-		Response response;
+			Response response = httpRequest.delete();
+			System.out.println(response.asString());
+			System.out.println("Status Code: " + response.getStatusCode());
 
-		response = httpRequest.delete();
-		System.out.println(response.asString());
+			// Check if authentication failed
+			if (isAuthenticationFailure(response)) {
+				if (attempt < MAX_RETRY_ATTEMPTS) {
+					System.out.println("⚠️ Authentication failure detected (Attempt " + attempt + "/" + MAX_RETRY_ATTEMPTS + "), retrying with fresh token...");
+					forceTokenRefresh();
+					Thread.sleep(RETRY_DELAY_MS);
+					continue;
+				} else {
+					System.out.println("❌ Authentication failed after " + MAX_RETRY_ATTEMPTS + " attempts");
+				}
+			}
 
-		ExtentReportManager.logResponse(response.getStatusCode(), response.asString());
+			ExtentReportManager.logResponse(response.getStatusCode(), response.asString());
 
-		try {
-			Assert.assertEquals(response.asString(), expected);
-			ExtentReportManager.logValidation(expected, response.asString(), true);
-		} catch (AssertionError e) {
-			ExtentReportManager.logValidation(expected, response.asString(), false);
-			throw e;
+			try {
+				Assert.assertEquals(response.asString(), expected);
+				ExtentReportManager.logValidation(expected, response.asString(), true);
+				return; // Success, exit retry loop
+			} catch (AssertionError e) {
+				ExtentReportManager.logValidation(expected, response.asString(), false);
+				throw e;
+			}
 		}
 
+		// Should not reach here
+		Assert.fail("Unable to complete DELETE request after " + MAX_RETRY_ATTEMPTS + " attempts");
 	}
 
 	public static String deleteMethodasString(String uri, String version) throws InterruptedException, IOException {
@@ -1554,20 +1613,41 @@ public class CommonMethods {
 			RestAssured.baseURI = baseUri;
 		}
 
-		RestAssured.baseURI = RestAssured.baseURI + uri;
-		System.out.println(RestAssured.baseURI.toString());
+		// Retry logic for authentication failures
+		for (int attempt = 1; attempt <= MAX_RETRY_ATTEMPTS; attempt++) {
+			RestAssured.baseURI = (baseUri != null ? baseUri : "") + uri;
+			System.out.println("DELETE Attempt " + attempt + " of " + MAX_RETRY_ATTEMPTS);
+			System.out.println(RestAssured.baseURI.toString());
 
-		ExtentReportManager.logRequest("DELETE", uri, version, "");
+			ExtentReportManager.logRequest("DELETE", uri, version, "");
 
-		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
-				"Content-Type", ContentType.JSON, "Connection", "keep-alive");
+			RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
+					"Content-Type", ContentType.JSON, "Connection", "keep-alive");
 
-		String response = httpRequest.delete().asString();
-		System.out.println(response);
+			String response = httpRequest.delete().asString();
+			System.out.println("Status Code: " + httpRequest.get().getStatusCode());
+			System.out.println(response);
 
-		ExtentReportManager.logResponse(200, response);
+			// Check if authentication failed
+			if (response.toLowerCase().contains("refresh_failed") || response.toLowerCase().contains("unable to refresh access token") || 
+				response.toLowerCase().contains("not authenticated") || response.toLowerCase().contains("unauthorized")) {
+				if (attempt < MAX_RETRY_ATTEMPTS) {
+					System.out.println("⚠️ Authentication failure detected (Attempt " + attempt + "/" + MAX_RETRY_ATTEMPTS + "), retrying with fresh token...");
+					forceTokenRefresh();
+					Thread.sleep(RETRY_DELAY_MS);
+					continue;
+				} else {
+					System.out.println("❌ Authentication failed after " + MAX_RETRY_ATTEMPTS + " attempts");
+				}
+			}
 
-		return response;
+			ExtentReportManager.logResponse(200, response);
+			return response; // Success, exit retry loop
+		}
+
+		// Should not reach here
+		Assert.fail("Unable to complete DELETE request after " + MAX_RETRY_ATTEMPTS + " attempts");
+		return null;
 	}
 
 	public static String deleteMethodasString(String uri, String version, HashMap<String, String> params)
@@ -1581,20 +1661,40 @@ public class CommonMethods {
 			RestAssured.baseURI = baseUri;
 		}
 
-		RestAssured.baseURI = RestAssured.baseURI + uri;
-		System.out.println(RestAssured.baseURI.toString());
+		// Retry logic for authentication failures
+		for (int attempt = 1; attempt <= MAX_RETRY_ATTEMPTS; attempt++) {
+			RestAssured.baseURI = (baseUri != null ? baseUri : "") + uri;
+			System.out.println("DELETE Attempt " + attempt + " of " + MAX_RETRY_ATTEMPTS);
+			System.out.println(RestAssured.baseURI.toString());
 
-		ExtentReportManager.logRequest("DELETE", uri, version, params.toString());
+			ExtentReportManager.logRequest("DELETE", uri, version, params.toString());
 
-		RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
-				"Content-Type", ContentType.JSON, "Connection", "keep-alive");
-		httpRequest.queryParams(params);
-		String response = httpRequest.delete().asString();
-		System.out.println(response);
+			RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
+					"Content-Type", ContentType.JSON, "Connection", "keep-alive");
+			httpRequest.queryParams(params);
+			String response = httpRequest.delete().asString();
+			System.out.println(response);
 
-		ExtentReportManager.logResponse(200, response);
+			// Check if authentication failed
+			if (response.toLowerCase().contains("refresh_failed") || response.toLowerCase().contains("unable to refresh access token") || 
+				response.toLowerCase().contains("not authenticated") || response.toLowerCase().contains("unauthorized")) {
+				if (attempt < MAX_RETRY_ATTEMPTS) {
+					System.out.println("⚠️ Authentication failure detected (Attempt " + attempt + "/" + MAX_RETRY_ATTEMPTS + "), retrying with fresh token...");
+					forceTokenRefresh();
+					Thread.sleep(RETRY_DELAY_MS);
+					continue;
+				} else {
+					System.out.println("❌ Authentication failed after " + MAX_RETRY_ATTEMPTS + " attempts");
+				}
+			}
 
-		return response;
+			ExtentReportManager.logResponse(200, response);
+			return response; // Success, exit retry loop
+		}
+
+		// Should not reach here
+		Assert.fail("Unable to complete DELETE request after " + MAX_RETRY_ATTEMPTS + " attempts");
+		return null;
 	}
 
 	public static void postcall(String uri, String payload, String ver, String exResult) throws InterruptedException {
