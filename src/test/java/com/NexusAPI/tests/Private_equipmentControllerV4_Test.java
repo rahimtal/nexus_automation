@@ -42,9 +42,8 @@ public class Private_equipmentControllerV4_Test  extends BaseClass {
 		String uri = "/Equipment";
 		String ver = "4.0";
 		String payload = "./\\TestData\\/postEquipmentv4.json";
-		
 		jsonPathEvaluator = CommonMethods.postMethod(payload, uri, ver);
-
+		jsonPathEvaluator = CommonMethods.postMethod(payload, uri, ver);
 		Boolean Result = jsonPathEvaluator.get("Equipment.Success");
 		System.out.println(jsonPathEvaluator.prettyPrint());
 		if (Result == true) {
