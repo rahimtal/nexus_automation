@@ -983,7 +983,107 @@ public class Private_rateController_Test extends BaseClass {
 
 	}
 
-	
+	// =========================================================================
+	// POST /rate/unitDescription  (Create Unit Description) - multiple scenarios
+	// Bruno reference: nexus-bruno/.../rateController/Create Unit Description.yml
+	// Body: { "UnitDescription": "...", "ServiceCategory": "...", "DetailType": <int> }
+	// =========================================================================
+
+	@Test(priority = 18, groups = "rate")
+	public void postCreateUnitDescription_Success()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate/unitDescription";
+		String version = "4.0";
+		String payload = "{\r\n" +
+				"    \"UnitDescription\": \"UnitNewA\",\r\n" +
+				"    \"ServiceCategory\": \"ELECTRIC\",\r\n" +
+				"    \"DetailType\": 1\r\n" +
+				"}";
+		String exResponse = "{\"UnitDescription\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Unit Description saved successfully.\",\"Level\":1}]}}";
+		String response = CommonMethods.postMethodStringPayloadString(payload, uri, version);
+		Assert.assertEquals(response, exResponse);
+	}
+
+	@Test(priority = 18, groups = "rate", dependsOnMethods = "postCreateUnitDescription_Success")
+	public void postCreateUnitDescription_Duplicate()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate/unitDescription";
+		String version = "4.0";
+		String payload = "{\r\n" +
+				"    \"UnitDescription\": \"UnitNewA\",\r\n" +
+				"    \"ServiceCategory\": \"ELECTRIC\",\r\n" +
+				"    \"DetailType\": 1\r\n" +
+				"}";
+		String exResponse = "{\"UnitDescription\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"The record already exists.\",\"Level\":3}]}}";
+		String response = CommonMethods.postMethodStringPayloadString(payload, uri, version);
+		Assert.assertEquals(response, exResponse);
+	}
+
+	@Test(priority = 18, groups = "rate")
+	public void postCreateUnitDescription_InvalidServiceCategory()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate/unitDescription";
+		String version = "4.0";
+		String payload = "{\r\n" +
+				"    \"UnitDescription\": \"UnitX\",\r\n" +
+				"    \"ServiceCategory\": \"INVALID\",\r\n" +
+				"    \"DetailType\": 1\r\n" +
+				"}";
+		String exResponse = "{\"UnitDescription\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Invalid service category INVALID.\",\"Level\":3}]}}";
+		String response = CommonMethods.postMethodStringPayloadString(payload, uri, version);
+		Assert.assertEquals(response, exResponse);
+	}
+
+	@Test(priority = 18, groups = "rate")
+	public void postCreateUnitDescription_InvalidDetailType()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate/unitDescription";
+		String version = "4.0";
+		String payload = "{\r\n" +
+				"    \"UnitDescription\": \"UnitY\",\r\n" +
+				"    \"ServiceCategory\": \"ELECTRIC\",\r\n" +
+				"    \"DetailType\": 99\r\n" +
+				"}";
+		String exResponse = "{\"UnitDescription\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"DetailType must be one of [1, 2, 3, 4, 5, 6, 7, 8]\",\"Level\":3}]}}";
+		String response = CommonMethods.postMethodStringPayloadString(payload, uri, version);
+		Assert.assertEquals(response, exResponse);
+	}
+
+	@Test(priority = 18, groups = "rate")
+	public void postCreateUnitDescription_EmptyUnitDescription()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate/unitDescription";
+		String version = "4.0";
+		String payload = "{\r\n" +
+				"    \"UnitDescription\": \"\",\r\n" +
+				"    \"ServiceCategory\": \"ELECTRIC\",\r\n" +
+				"    \"DetailType\": 1\r\n" +
+				"}";
+		String exResponse = "{\"UnitDescription\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"UnitDescription is not allowed to be empty\",\"Level\":3}]}}";
+		String response = CommonMethods.postMethodStringPayloadString(payload, uri, version);
+		Assert.assertEquals(response, exResponse);
+	}
+
+	@Test(priority = 18, groups = "rate")
+	public void postCreateUnitDescription_DifferentServiceAndType()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate/unitDescription";
+		String version = "4.0";
+		String payload = "{\r\n" +
+				"    \"UnitDescription\": \"UnitGasNewB\",\r\n" +
+				"    \"ServiceCategory\": \"GAS\",\r\n" +
+				"    \"DetailType\": 2\r\n" +
+				"}";
+		String exResponse = "{\"UnitDescription\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Unit Description saved successfully.\",\"Level\":1}]}}";
+		String response = CommonMethods.postMethodStringPayloadString(payload, uri, version);
+		Assert.assertEquals(response, exResponse);
+	}
 
 	
 	@Test(priority = 19, groups = "rate")
@@ -1158,6 +1258,22 @@ public class Private_rateController_Test extends BaseClass {
 		Assert.assertEquals(result, expected);
 
 	}
+
+	
+	@Test(priority = 32, groups = "rate")
+	public void posttrateCalculateAutomaticEstimates_MissingDateParameter()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate/calculateAutomaticEstimates/WATERMETERED";
+		String ver = "4.0";
+		String expected = "{\"AutomaticEstimates\":{\"Success\":true,\"Data\":{\"RateId\":\"WATERMETERED\",\"Description\":\"Metered connection for water\",\"January\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"February\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"March\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"April\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"May\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"June\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"July\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"August\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"September\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"October\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"November\":{\"AverageConsumption\":0,\"NoOfBills\":0},\"December\":{\"AverageConsumption\":0,\"NoOfBills\":0}},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		Thread.sleep(12000);
+		Assert.assertEquals(result, expected);
+
+	}
+
 
 	   
 
