@@ -10,33 +10,30 @@ import org.testng.annotations.Test; import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.ValidatableResponse;
 
 public class Public_Test_consumptionHistoryControllerV3  extends BaseClass {
 
 	public static ValidatableResponse jsonPathEvaluator;
 
-	@Test(priority = 1, groups = "ConsumptionHistoryController" )
-	public void getconsumptionHistoryController() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-	//	CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-23531");
+
+	@Test(priority = 6, groups = "ConsumptionHistoryController")
+	public void getConsumptionHistory_InvalidCustomerId()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/consumptionHistory/getConsumptionHistory";
 		String ver = "3.0";
-		String jpath = "./\\TestData\\consumptionHist.json";
-				
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("LocationId", "LOCATION008");
-		params.put("CustomerId", "CUSTOMER009");
+		params.put("CustomerId", "INVALID_CUSTOMER");
 		params.put("ConnectionSequence", "0");
 		params.put("UserDate", "2000-04-01");
 		params.put("NumberOfYears", "20");
-		
-		String result = CommonMethods.getMethod(uri, ver, params, jpath);
-		System.out.println(result);
-		
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		JsonPath json = JsonPath.from(result);
+		java.util.List<Object> records = json.getList("ConsumptionHistory");
+		Assert.assertTrue(records == null || records.isEmpty(),
+				"Expected no consumption history for an invalid CustomerId");
 	}
-	
-	
-		
-	
 
 }
