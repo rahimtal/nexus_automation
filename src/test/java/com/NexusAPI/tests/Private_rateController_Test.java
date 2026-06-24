@@ -11,6 +11,8 @@ import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
+import io.restassured.path.json.JsonPath;
+
 public class Private_rateController_Test extends BaseClass {
 
 	@Test(priority = 1, groups = "rate")
@@ -1270,6 +1272,32 @@ public class Private_rateController_Test extends BaseClass {
 		HashMap<String, String> params = new HashMap<String, String>();
 		String result = CommonMethods.getMethodasString(uri, ver, params);
 		Thread.sleep(12000);
+		Assert.assertEquals(result, expected);
+
+	}
+
+	@Test(priority = 9, groups = "rate")
+	public void getGenerateRateMeterSizeReport()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate/generateRateMeterSizeReport/RATE1/2";
+		String ver = "4.0";
+		String expected = "{\"RateMeterSize\":{\"Success\":true,\"Data\":{\"ReportList\":[{\"Name\":\"RateMeterSize\",\"DisplayName\":\"Rate Meter Size\",\"PrintOrder\":1}]},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		Assert.assertEquals(result, expected);
+
+	}
+
+	@Test(priority = 9, groups = "rate")
+	public void getGenerateRateMeterSizeReport_InvalidRate()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/rate/generateRateMeterSizeReport/INVALIDRATE/3";
+		String ver = "4.0";
+		String expected = "{\"result\":{\"Success\":false,\"Message\":\"Not Found\"}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
 		Assert.assertEquals(result, expected);
 
 	}

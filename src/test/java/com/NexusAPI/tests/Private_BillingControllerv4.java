@@ -890,8 +890,397 @@ public class Private_BillingControllerv4 extends BaseClass {
 
 	}
 
+	@Test(priority = 32, groups = "billing")
+	public void putUpdateBillingmessagesv4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
+		String uri = "/billing/messages";
+		String ver = "4.0";
 
-	
+		// 1. Create a billing message for MessageType 2 / LocationId 100001
+		String createPayload = "{\r\n" + //
+				"   \"ChangePreviousMessage\": false,\r\n" + //
+				"   \"MessageType\": {\r\n" + //
+				"      \"Id\": 2\r\n" + //
+				"   },\r\n" + //
+				"   \"LocationId\": \"100001\",\r\n" + //
+				"   \"RateId\": \"RateId\",\r\n" + //
+				"   \"ZoneId\": \"ZoneId\",\r\n" + //
+				"   \"FirstMessage\": {\r\n" + //
+				"      \"Line1\": \"First Message Line 1\",\r\n" + //
+				"      \"Line2\": \"First Message Line 2\",\r\n" + //
+				"      \"Line3\": \"First Message Line 3\",\r\n" + //
+				"      \"Line4\": \"First Message Line 4\"\r\n" + //
+				"   },\r\n" + //
+				"   \"SecondMessage\": {\r\n" + //
+				"      \"Line1\": \"Second Message Line 1\",\r\n" + //
+				"      \"Line2\": \"Second Message Line 2\",\r\n" + //
+				"      \"Line3\": \"Second Message Line 3\",\r\n" + //
+				"      \"Line4\": \"Second Message Line 4\"\r\n" + //
+				"   },\r\n" + //
+				"   \"TextMessage\": \"Global/Default Text Message\",\r\n" + //
+				"   \"ElectronicBillingMessage\": \"Electronic Billing Message\",\r\n" + //
+				"   \"ChangeSubjectLine\": \"Change Subject Line\",\r\n" + //
+				"   \"TestSubjectLine\": \"Test Subject Line\",\r\n" + //
+				"   \"BillNotifySubjectLine\": \"Bill Notify Subject Line\"\r\n" + //
+				"}";
+		String savedExpected = "{\"Billing\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Message successfully saved.\",\"Level\":1}]}}";
+
+		String actual = CommonMethods.postMethodStringPayloadString(createPayload, uri, ver);
+		Assert.assertTrue(actual.contains(savedExpected));
+		CommonMethods.Delay(20000);
+
+		// 2. Update the billing message via PUT (changed message lines)
+		String updatePayload = "{\r\n" + //
+				"   \"ChangePreviousMessage\": false,\r\n" + //
+				"   \"MessageType\": {\r\n" + //
+				"      \"Id\": 2\r\n" + //
+				"   },\r\n" + //
+				"   \"LocationId\": \"100001\",\r\n" + //
+				"   \"RateId\": \"RateId\",\r\n" + //
+				"   \"ZoneId\": \"ZoneId\",\r\n" + //
+				"   \"FirstMessage\": {\r\n" + //
+				"      \"Line1\": \"Updated First Message Line 1\",\r\n" + //
+				"      \"Line2\": \"Updated First Message Line 2\",\r\n" + //
+				"      \"Line3\": \"Updated First Message Line 3\",\r\n" + //
+				"      \"Line4\": \"Updated First Message Line 4\"\r\n" + //
+				"   },\r\n" + //
+				"   \"SecondMessage\": {\r\n" + //
+				"      \"Line1\": \"Updated Second Message Line 1\",\r\n" + //
+				"      \"Line2\": \"Updated Second Message Line 2\",\r\n" + //
+				"      \"Line3\": \"Updated Second Message Line 3\",\r\n" + //
+				"      \"Line4\": \"Updated Second Message Line 4\"\r\n" + //
+				"   },\r\n" + //
+				"   \"TextMessage\": \"Updated Global/Default Text Message\",\r\n" + //
+				"   \"ElectronicBillingMessage\": \"Updated Electronic Billing Message\",\r\n" + //
+				"   \"ChangeSubjectLine\": \"Updated Change Subject Line\",\r\n" + //
+				"   \"TestSubjectLine\": \"Updated Test Subject Line\",\r\n" + //
+				"   \"BillNotifySubjectLine\": \"Updated Bill Notify Subject Line\"\r\n" + //
+				"}";
+
+		actual = CommonMethods.putMethodstring(uri, ver, updatePayload, savedExpected);
+		Assert.assertEquals(actual, savedExpected);
+		CommonMethods.Delay(20000);
+
+		// 3. Verify the update via GET
+		String getUri = "/billing/messages/2";
+		HashMap<String, String> getParams = new HashMap<String, String>();
+		getParams.put("LocationId", "100001");
+		String getActual = CommonMethods.getMethodasString(getUri, ver, getParams);
+		Assert.assertTrue(getActual.contains("Updated First Message Line 1"));
+
+		// 4. Clean up - delete the billing message
+		String deleteExpected = "{\"Billing\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Message successfully deleted.\",\"Level\":1}]}}";
+		HashMap<String, String> deleteParams = new HashMap<String, String>();
+		deleteParams.put("LocationId", "100001");
+		deleteParams.put("ZoneId", "");
+		deleteParams.put("RateId", "");
+		String deleteActual = CommonMethods.deleteMethodasString(getUri, ver, deleteParams);
+		Assert.assertEquals(deleteActual, deleteExpected);
+
+	}
+
+	@Test(priority = 33, groups = "billing")
+	public void getLookupBillingMessageTypev4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/lookup/billingMessageType";
+		String ver = "4.0";
+		String expected = "{\"BillingMessageType\":[{\"Id\":0,\"Description\":\"Default\"},{\"Id\":1,\"Description\":\"Global\"},{\"Id\":3,\"Description\":\"Customer Specific\"},{\"Id\":4,\"Description\":\"Rate\"},{\"Id\":5,\"Description\":\"Zone\"}]}";
+		HashMap<String, String> params = new HashMap<String, String>();
+
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		Assert.assertEquals(actual, expected);
+
+	}
+
+	// PUT - Update an existing message with ChangePreviousMessage = true
+	@Test(priority = 34, groups = "billing")
+	public void putBillingmessagesChangePreviousTruev4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/billing/messages";
+		String ver = "4.0";
+		String savedExpected = "{\"Billing\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Message successfully saved.\",\"Level\":1}]}}";
+
+		// 1. Create the message first so it exists
+		String createPayload = "{\r\n" + //
+				"   \"ChangePreviousMessage\": false,\r\n" + //
+				"   \"MessageType\": {\r\n" + //
+				"      \"Id\": 2\r\n" + //
+				"   },\r\n" + //
+				"   \"LocationId\": \"100001\",\r\n" + //
+				"   \"RateId\": \"RateId\",\r\n" + //
+				"   \"ZoneId\": \"ZoneId\",\r\n" + //
+				"   \"FirstMessage\": {\r\n" + //
+				"      \"Line1\": \"First Message Line 1\",\r\n" + //
+				"      \"Line2\": \"First Message Line 2\",\r\n" + //
+				"      \"Line3\": \"First Message Line 3\",\r\n" + //
+				"      \"Line4\": \"First Message Line 4\"\r\n" + //
+				"   },\r\n" + //
+				"   \"SecondMessage\": {\r\n" + //
+				"      \"Line1\": \"Second Message Line 1\",\r\n" + //
+				"      \"Line2\": \"Second Message Line 2\",\r\n" + //
+				"      \"Line3\": \"Second Message Line 3\",\r\n" + //
+				"      \"Line4\": \"Second Message Line 4\"\r\n" + //
+				"   },\r\n" + //
+				"   \"TextMessage\": \"Global/Default Text Message\",\r\n" + //
+				"   \"ElectronicBillingMessage\": \"Electronic Billing Message\",\r\n" + //
+				"   \"ChangeSubjectLine\": \"Change Subject Line\",\r\n" + //
+				"   \"TestSubjectLine\": \"Test Subject Line\",\r\n" + //
+				"   \"BillNotifySubjectLine\": \"Bill Notify Subject Line\"\r\n" + //
+				"}";
+		String actual = CommonMethods.postMethodStringPayloadString(createPayload, uri, ver);
+		Assert.assertTrue(actual.contains(savedExpected));
+		CommonMethods.Delay(20000);
+
+		// 2. PUT update the existing message with ChangePreviousMessage = true
+		String payload = "{\r\n" + //
+				"   \"ChangePreviousMessage\": true,\r\n" + //
+				"   \"MessageType\": {\r\n" + //
+				"      \"Id\": 2\r\n" + //
+				"   },\r\n" + //
+				"   \"LocationId\": \"100001\",\r\n" + //
+				"   \"RateId\": \"RateId\",\r\n" + //
+				"   \"ZoneId\": \"ZoneId\",\r\n" + //
+				"   \"FirstMessage\": {\r\n" + //
+				"      \"Line1\": \"Change Previous First Line 1\",\r\n" + //
+				"      \"Line2\": \"Change Previous First Line 2\",\r\n" + //
+				"      \"Line3\": \"Change Previous First Line 3\",\r\n" + //
+				"      \"Line4\": \"Change Previous First Line 4\"\r\n" + //
+				"   },\r\n" + //
+				"   \"SecondMessage\": {\r\n" + //
+				"      \"Line1\": \"Change Previous Second Line 1\",\r\n" + //
+				"      \"Line2\": \"Change Previous Second Line 2\",\r\n" + //
+				"      \"Line3\": \"Change Previous Second Line 3\",\r\n" + //
+				"      \"Line4\": \"Change Previous Second Line 4\"\r\n" + //
+				"   },\r\n" + //
+				"   \"TextMessage\": \"Change Previous Text Message\",\r\n" + //
+				"   \"ElectronicBillingMessage\": \"Change Previous Electronic Billing Message\",\r\n" + //
+				"   \"ChangeSubjectLine\": \"Change Subject Line\",\r\n" + //
+				"   \"TestSubjectLine\": \"Test Subject Line\",\r\n" + //
+				"   \"BillNotifySubjectLine\": \"Bill Notify Subject Line\"\r\n" + //
+				"}";
+
+		actual = CommonMethods.putMethodstring(uri, ver, payload, savedExpected);
+		Assert.assertEquals(actual, savedExpected);
+		CommonMethods.Delay(20000);
+
+		// 3. Verify via GET
+		String getUri = "/billing/messages/2";
+		HashMap<String, String> getParams = new HashMap<String, String>();
+		getParams.put("LocationId", "100001");
+		String getActual = CommonMethods.getMethodasString(getUri, ver, getParams);
+		Assert.assertTrue(getActual.contains("Change Previous First Line 1"));
+
+		// 4. Clean up
+		String deleteExpected = "{\"Billing\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Message successfully deleted.\",\"Level\":1}]}}";
+		HashMap<String, String> deleteParams = new HashMap<String, String>();
+		deleteParams.put("LocationId", "100001");
+		deleteParams.put("ZoneId", "");
+		deleteParams.put("RateId", "");
+		String deleteActual = CommonMethods.deleteMethodasString(getUri, ver, deleteParams);
+		Assert.assertEquals(deleteActual, deleteExpected);
+
+	}
+
+	// PUT - Update an existing message clearing the FirstMessage lines to blank
+	@Test(priority = 35, groups = "billing")
+	public void putBillingmessagesClearLinesv4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/billing/messages";
+		String ver = "4.0";
+		String savedExpected = "{\"Billing\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Message successfully saved.\",\"Level\":1}]}}";
+
+		// 1. Create the message with content
+		String createPayload = "{\r\n" + //
+				"   \"ChangePreviousMessage\": false,\r\n" + //
+				"   \"MessageType\": {\r\n" + //
+				"      \"Id\": 2\r\n" + //
+				"   },\r\n" + //
+				"   \"LocationId\": \"100001\",\r\n" + //
+				"   \"RateId\": \"RateId\",\r\n" + //
+				"   \"ZoneId\": \"ZoneId\",\r\n" + //
+				"   \"FirstMessage\": {\r\n" + //
+				"      \"Line1\": \"First Message Line 1\",\r\n" + //
+				"      \"Line2\": \"First Message Line 2\",\r\n" + //
+				"      \"Line3\": \"First Message Line 3\",\r\n" + //
+				"      \"Line4\": \"First Message Line 4\"\r\n" + //
+				"   },\r\n" + //
+				"   \"SecondMessage\": {\r\n" + //
+				"      \"Line1\": \"Second Message Line 1\",\r\n" + //
+				"      \"Line2\": \"Second Message Line 2\",\r\n" + //
+				"      \"Line3\": \"Second Message Line 3\",\r\n" + //
+				"      \"Line4\": \"Second Message Line 4\"\r\n" + //
+				"   },\r\n" + //
+				"   \"TextMessage\": \"Global/Default Text Message\",\r\n" + //
+				"   \"ElectronicBillingMessage\": \"Electronic Billing Message\",\r\n" + //
+				"   \"ChangeSubjectLine\": \"Change Subject Line\",\r\n" + //
+				"   \"TestSubjectLine\": \"Test Subject Line\",\r\n" + //
+				"   \"BillNotifySubjectLine\": \"Bill Notify Subject Line\"\r\n" + //
+				"}";
+		String actual = CommonMethods.postMethodStringPayloadString(createPayload, uri, ver);
+		Assert.assertTrue(actual.contains(savedExpected));
+		CommonMethods.Delay(20000);
+
+		// 2. PUT update clearing the FirstMessage lines
+		String updatePayload = "{\r\n" + //
+				"   \"ChangePreviousMessage\": false,\r\n" + //
+				"   \"MessageType\": {\r\n" + //
+				"      \"Id\": 2\r\n" + //
+				"   },\r\n" + //
+				"   \"LocationId\": \"100001\",\r\n" + //
+				"   \"RateId\": \"RateId\",\r\n" + //
+				"   \"ZoneId\": \"ZoneId\",\r\n" + //
+				"   \"FirstMessage\": {\r\n" + //
+				"      \"Line1\": \"\",\r\n" + //
+				"      \"Line2\": \"\",\r\n" + //
+				"      \"Line3\": \"\",\r\n" + //
+				"      \"Line4\": \"\"\r\n" + //
+				"   },\r\n" + //
+				"   \"SecondMessage\": {\r\n" + //
+				"      \"Line1\": \"Second Message Line 1\",\r\n" + //
+				"      \"Line2\": \"Second Message Line 2\",\r\n" + //
+				"      \"Line3\": \"Second Message Line 3\",\r\n" + //
+				"      \"Line4\": \"Second Message Line 4\"\r\n" + //
+				"   },\r\n" + //
+				"   \"TextMessage\": \"Global/Default Text Message\",\r\n" + //
+				"   \"ElectronicBillingMessage\": \"Electronic Billing Message\",\r\n" + //
+				"   \"ChangeSubjectLine\": \"Change Subject Line\",\r\n" + //
+				"   \"TestSubjectLine\": \"Test Subject Line\",\r\n" + //
+				"   \"BillNotifySubjectLine\": \"Bill Notify Subject Line\"\r\n" + //
+				"}";
+		actual = CommonMethods.putMethodstring(uri, ver, updatePayload, savedExpected);
+		Assert.assertEquals(actual, savedExpected);
+		CommonMethods.Delay(20000);
+
+		// 3. Verify the FirstMessage lines were cleared
+		String getUri = "/billing/messages/2";
+		HashMap<String, String> getParams = new HashMap<String, String>();
+		getParams.put("LocationId", "100001");
+		String getActual = CommonMethods.getMethodasString(getUri, ver, getParams);
+		Assert.assertTrue(getActual
+				.contains("\"FirstMessage\":{\"Line1\":\"\",\"Line2\":\"\",\"Line3\":\"\",\"Line4\":\"\"}"));
+
+		// 4. Clean up
+		String deleteExpected = "{\"Billing\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Message successfully deleted.\",\"Level\":1}]}}";
+		HashMap<String, String> deleteParams = new HashMap<String, String>();
+		deleteParams.put("LocationId", "100001");
+		deleteParams.put("ZoneId", "");
+		deleteParams.put("RateId", "");
+		String deleteActual = CommonMethods.deleteMethodasString(getUri, ver, deleteParams);
+		Assert.assertEquals(deleteActual, deleteExpected);
+
+	}
+
+	// PUT - Negative: invalid MessageType Id should not save
+	@Test(priority = 36, groups = "billing")
+	public void putBillingmessagesInvalidMessageTypev4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/billing/messages";
+		String ver = "4.0";
+		String payload = "{\r\n" + //
+				"   \"ChangePreviousMessage\": false,\r\n" + //
+				"   \"MessageType\": {\r\n" + //
+				"      \"Id\": 99\r\n" + //
+				"   },\r\n" + //
+				"   \"LocationId\": \"100001\",\r\n" + //
+				"   \"RateId\": \"RateId\",\r\n" + //
+				"   \"ZoneId\": \"ZoneId\",\r\n" + //
+				"   \"FirstMessage\": {\r\n" + //
+				"      \"Line1\": \"First Message Line 1\",\r\n" + //
+				"      \"Line2\": \"First Message Line 2\",\r\n" + //
+				"      \"Line3\": \"First Message Line 3\",\r\n" + //
+				"      \"Line4\": \"First Message Line 4\"\r\n" + //
+				"   },\r\n" + //
+				"   \"SecondMessage\": {\r\n" + //
+				"      \"Line1\": \"Second Message Line 1\",\r\n" + //
+				"      \"Line2\": \"Second Message Line 2\",\r\n" + //
+				"      \"Line3\": \"Second Message Line 3\",\r\n" + //
+				"      \"Line4\": \"Second Message Line 4\"\r\n" + //
+				"   },\r\n" + //
+				"   \"TextMessage\": \"Global/Default Text Message\",\r\n" + //
+				"   \"ElectronicBillingMessage\": \"Electronic Billing Message\",\r\n" + //
+				"   \"ChangeSubjectLine\": \"Change Subject Line\",\r\n" + //
+				"   \"TestSubjectLine\": \"Test Subject Line\",\r\n" + //
+				"   \"BillNotifySubjectLine\": \"Bill Notify Subject Line\"\r\n" + //
+				"}";
+
+		String filepath = "./\\TestData\\putBillingmessagesInvalidv4.json";
+		FileWriter file = new FileWriter(filepath);
+		file.write(payload);
+		file.close();
+
+		String actual = CommonMethods.putMethod(uri, ver, filepath).extract().asString();
+		Assert.assertTrue(actual.contains("\"Success\":false"));
+
+	}
+
+	// GET - Get a Rate-type billing message (MessageTypeId 5) filtered by RateId
+	@Test(priority = 37, groups = "billing")
+	public void getBillingmessagesByRatev4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/billing/messages";
+		String ver = "4.0";
+		String savedExpected = "{\"Billing\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Message successfully saved.\",\"Level\":1}]}}";
+
+		// 1. Upsert a Rate-type billing message for RateId EMP-1 (PUT works whether
+		// the message already exists or not)
+		String upsertPayload = "{\r\n" + //
+				"   \"ChangePreviousMessage\": false,\r\n" + //
+				"   \"MessageType\": {\r\n" + //
+				"      \"Id\": 5\r\n" + //
+				"   },\r\n" + //
+				"   \"LocationId\": \"\",\r\n" + //
+				"   \"RateId\": \"EMP-1\",\r\n" + //
+				"   \"ZoneId\": \"\",\r\n" + //
+				"   \"FirstMessage\": {\r\n" + //
+				"      \"Line1\": \"First Message Line 1\",\r\n" + //
+				"      \"Line2\": \"First Message Line 2\",\r\n" + //
+				"      \"Line3\": \"First Message Line 3\",\r\n" + //
+				"      \"Line4\": \"First Message Line 4\"\r\n" + //
+				"   },\r\n" + //
+				"   \"SecondMessage\": {\r\n" + //
+				"      \"Line1\": \"Second Message Line 1\",\r\n" + //
+				"      \"Line2\": \"Second Message Line 2\",\r\n" + //
+				"      \"Line3\": \"Second Message Line 3\",\r\n" + //
+				"      \"Line4\": \"Second Message Line 4\"\r\n" + //
+				"   },\r\n" + //
+				"   \"TextMessage\": \"\",\r\n" + //
+				"   \"ElectronicBillingMessage\": \"\",\r\n" + //
+				"   \"ChangeSubjectLine\": \"Change Subject Line for EMP-1\",\r\n" + //
+				"   \"TestSubjectLine\": \"Test Subject Line for EMP-1\",\r\n" + //
+				"   \"BillNotifySubjectLine\": \"Bill Notify Subject Line for EMP-1\"\r\n" + //
+				"}";
+		String actual = CommonMethods.putMethodstring(uri, ver, upsertPayload, savedExpected);
+		Assert.assertEquals(actual, savedExpected);
+		CommonMethods.Delay(20000);
+
+		// 2. GET /billing/messages/5?RateId=EMP-1 and verify the Rate-type message
+		String getUri = "/billing/messages/5";
+		HashMap<String, String> getParams = new HashMap<String, String>();
+		getParams.put("LocationId", "");
+		getParams.put("ZoneId", "");
+		getParams.put("RateId", "EMP-1");
+		String getActual = CommonMethods.getMethodasString(getUri, ver, getParams);
+		Assert.assertTrue(getActual.contains("\"Success\":true"));
+		Assert.assertTrue(getActual.contains("\"MessageType\":{\"Id\":5,\"Description\":\"Rate\"}"));
+		Assert.assertTrue(getActual.contains("\"RateId\":\"EMP-1\""));
+		Assert.assertTrue(getActual.contains(
+				"\"FirstMessage\":{\"Line1\":\"First Message Line 1\",\"Line2\":\"First Message Line 2\",\"Line3\":\"First Message Line 3\",\"Line4\":\"First Message Line 4\"}"));
+
+		// 3. Clean up - delete the Rate-type billing message
+		String deleteExpected = "{\"Billing\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Message successfully deleted.\",\"Level\":1}]}}";
+		HashMap<String, String> deleteParams = new HashMap<String, String>();
+		deleteParams.put("LocationId", "");
+		deleteParams.put("ZoneId", "");
+		deleteParams.put("RateId", "EMP-1");
+		String deleteActual = CommonMethods.deleteMethodasString(getUri, ver, deleteParams);
+		Assert.assertEquals(deleteActual, deleteExpected);
+
+	}
 
 }

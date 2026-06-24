@@ -1,0 +1,26 @@
+{
+   "ChangePreviousMessage": false,
+   "MessageType": {
+      "Id": 99
+   },
+   "LocationId": "100001",
+   "RateId": "RateId",
+   "ZoneId": "ZoneId",
+   "FirstMessage": {
+      "Line1": "First Message Line 1",
+      "Line2": "First Message Line 2",
+      "Line3": "First Message Line 3",
+      "Line4": "First Message Line 4"
+   },
+   "SecondMessage": {
+      "Line1": "Second Message Line 1",
+      "Line2": "Second Message Line 2",
+      "Line3": "Second Message Line 3",
+      "Line4": "Second Message Line 4"
+   },
+   "TextMessage": "Global/Default Text Message",
+   "ElectronicBillingMessage": "Electronic Billing Message",
+   "ChangeSubjectLine": "Change Subject Line",
+   "TestSubjectLine": "Test Subject Line",
+   "BillNotifySubjectLine": "Bill Notify Subject Line"
+}
