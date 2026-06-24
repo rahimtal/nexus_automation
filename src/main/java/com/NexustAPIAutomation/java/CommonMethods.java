@@ -1280,6 +1280,21 @@ public class CommonMethods {
 		return Result;
 	}
 
+	public static boolean deleteFromDb(String Command, String ConnectionString)
+			throws ClassNotFoundException, SQLException {
+		Connection con = DriverManager.getConnection(ConnectionString);
+		try {
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+			Statement stmt = con.createStatement();
+			System.out.println("Executing delete: " + Command);
+			int rows = stmt.executeUpdate(Command);
+			System.out.println("Rows affected: " + rows);
+			return true;
+		} finally {
+			con.close();
+		}
+	}
+
 	private static void log(String string) {
 		System.out.println(string);
 	}

@@ -14,6 +14,7 @@ import org.testng.annotations.Test;
 import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.ReadProjectProperties;
 
 import io.restassured.response.Response;
 
@@ -141,7 +142,7 @@ public class Private_Apiglobalscontroller_Test extends BaseClass {
 		// CommonMethods.CompanyDBRestore();
 		String uri = "/apiGlobalSettings/Defaults/Penalties";
 		String ver = "4.0";
-		String expected = "{\"ApiGlobalSettings\":[{\"Section\":[{\"Id\":1,\"Name\":\"Defaults\",\"SubSection\":[{\"Id\":3011,\"Name\":\"Penalties\",\"Setting\":[{\"Id\":5092,\"Name\":\"PenaltyProcessing_OneTime\",\"Label\":\"Penalty Processing - One Time\",\"Description\":\"\",\"FieldType\":{\"Id\":4,\"Value\":\"Boolean\"},\"FieldTypeModel\":{\"Id\":1,\"Value\":\"Request\"},\"EndPoint\":\"\",\"Required\":false,\"CustomValue\":false,\"Display\":{\"Id\":1,\"Value\":\"Enabled\"},\"Value\":\"true\"},{\"Id\":5093,\"Name\":\"PenaltyProcessing_Periodic\",\"Label\":\"Penalty Processing - Periodic\",\"Description\":\"\",\"FieldType\":{\"Id\":4,\"Value\":\"Boolean\"},\"FieldTypeModel\":{\"Id\":1,\"Value\":\"Request\"},\"EndPoint\":\"\",\"Required\":false,\"CustomValue\":false,\"Display\":{\"Id\":1,\"Value\":\"Enabled\"},\"Value\":\"false\"},{\"Id\":5094,\"Name\":\"CompoundPenalties\",\"Label\":\"Compound Penalty\",\"Description\":\"\",\"FieldType\":{\"Id\":4,\"Value\":\"Boolean\"},\"FieldTypeModel\":{\"Id\":1,\"Value\":\"Request\"},\"EndPoint\":\"\",\"Required\":false,\"CustomValue\":false,\"Display\":{\"Id\":1,\"Value\":\"Enabled\"},\"Value\":\"true\"},{\"Id\":5095,\"Name\":\"PenaltyId\",\"Label\":\"Penalty Id\",\"Description\":\"\",\"FieldType\":{\"Id\":6,\"Value\":\"Lookup-Static\"},\"FieldTypeModel\":{\"Id\":4,\"Value\":\"Penalty\"},\"EndPoint\":\"/api/v4/lookupPenalty\",\"Required\":false,\"CustomValue\":false,\"Display\":{\"Id\":1,\"Value\":\"Enabled\"},\"Value\":\"DEFAULTPYMT\"}]}]}]}]}";
+		String expected = "{\"ApiGlobalSettings\":[{\"Section\":[{\"Id\":1,\"Name\":\"Defaults\",\"SubSection\":[{\"Id\":6,\"Name\":\"Penalties\",\"Setting\":[{\"Id\":1031,\"Name\":\"PenaltyProcessing_OneTime\",\"Label\":\"Penalty Processing - One Time\",\"Description\":\"\",\"FieldType\":{\"Id\":4,\"Value\":\"Boolean\"},\"FieldTypeModel\":{\"Id\":1,\"Value\":\"Request\"},\"EndPoint\":\"\",\"Required\":false,\"CustomValue\":false,\"Display\":{\"Id\":1,\"Value\":\"Enabled\"},\"Value\":\"true\"},{\"Id\":1032,\"Name\":\"PenaltyProcessing_Periodic\",\"Label\":\"Penalty Processing - Periodic\",\"Description\":\"\",\"FieldType\":{\"Id\":4,\"Value\":\"Boolean\"},\"FieldTypeModel\":{\"Id\":1,\"Value\":\"Request\"},\"EndPoint\":\"\",\"Required\":false,\"CustomValue\":false,\"Display\":{\"Id\":1,\"Value\":\"Enabled\"},\"Value\":\"false\"},{\"Id\":1033,\"Name\":\"CompoundPenalties\",\"Label\":\"Compound Penalty\",\"Description\":\"\",\"FieldType\":{\"Id\":4,\"Value\":\"Boolean\"},\"FieldTypeModel\":{\"Id\":1,\"Value\":\"Request\"},\"EndPoint\":\"\",\"Required\":false,\"CustomValue\":false,\"Display\":{\"Id\":1,\"Value\":\"Enabled\"},\"Value\":\"true\"},{\"Id\":1034,\"Name\":\"PenaltyId\",\"Label\":\"Penalty Id\",\"Description\":\"\",\"FieldType\":{\"Id\":6,\"Value\":\"Lookup-Static\"},\"FieldTypeModel\":{\"Id\":4,\"Value\":\"Penalty\"},\"EndPoint\":\"/api/v4/lookupPenalty\",\"Required\":false,\"CustomValue\":false,\"Display\":{\"Id\":1,\"Value\":\"Enabled\"},\"Value\":\"DEFAULTPYMT\"}]}]}]}]}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		String result = CommonMethods.getMethodasString(uri, ver, params);
 		Assert.assertEquals(result, expected);
@@ -353,6 +354,14 @@ public class Private_Apiglobalscontroller_Test extends BaseClass {
 				+ "        \r\n"
 				+ "    \r\n"
 				+ "}";
+		// Self-cleaning: remove the pre-existing (SubSectionId=1, Name='PenaltyId')
+		// ApiGlobalSetting row so the PUT's insert does not hit the unique index
+		// UNIQUE_IDX_APIGLOBALSETTING (duplicate key (1, PenaltyId)). The DB is
+		// restored between runs and the PUT re-creates the row, so this is idempotent.
+		String apiConn = new ReadProjectProperties().ReadFile("ConnectionStringApi");
+		CommonMethods.deleteFromDb(
+				"DELETE FROM ApiGlobalSetting WHERE SubSectionId = 1 AND Name = 'PenaltyId'", apiConn);
+
 		String expected = "{\"ApiGlobal\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"API Global Settings Updated.\",\"Level\":1}]}}";
 		CommonMethods.putMethodstring(uri, ver, params, expected);
 

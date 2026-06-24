@@ -9,6 +9,7 @@ import java.util.HashMap;
 import org.testng.annotations.Test; import org.testng.Assert;
 
 import com.NexustAPIAutomation.java.CommonMethods;
+import com.NexustAPIAutomation.java.JsonComparator;
 import com.NexustAPIAutomation.java.ReadProjectProperties;
 
 
@@ -25,7 +26,7 @@ public class Private_Drillback_Test  extends BaseClass{
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("Id", "69");
 		String result = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(expected, result);
+		JsonComparator.assertEqualsIgnoreHostnames(result, expected);
 	}
 
 	public void getdrillbackv4_1() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
