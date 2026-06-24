@@ -434,14 +434,17 @@ public class Private_BillingControllerv4 extends BaseClass {
 	}
 
 	// Test 11: TC002 Get Bill Batch Status
-	@Test(priority = 15, groups = "billing")
+	@Test(priority = 38, groups = "billing")
 	public void TC002_getbillBatchStatus()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.Bugs("CPDEV-21608");
 		// ExtentTest test = extent.createTest("TC002_getbillBatchStatus");
 		// test.log(Status.INFO, "Starting test: TC002_getbillBatchStatus");
 
-		String uri = "/billing/billBatchStatus/BT1231";
+		// Use FINALBILL, a static batch that always exists in the restored DB, so the
+		// test is independent of execution order. (BT1231 is created and posted by the
+		// priority 1-5 billing flow, so it no longer exists when this test runs.)
+		String uri = "/billing/billBatchStatus/FINALBILL";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\billBatchStatus_v4.json";
 		HashMap<String, String> params = new HashMap<String, String>();
@@ -707,11 +710,28 @@ public class Private_BillingControllerv4 extends BaseClass {
 		// test.log(Status.INFO, "Payload: " + payload);
 		// test.log(Status.INFO, "Expected contains: " + expected);
 
+		// Best-effort cleanup of any leftover EMP-1 Rate message so the POST create
+		// below does not fail with "Message already exist for Rate Id (EMP-1)."
+		HashMap<String, String> empDeleteParams = new HashMap<String, String>();
+		empDeleteParams.put("LocationId", "");
+		empDeleteParams.put("ZoneId", "");
+		empDeleteParams.put("RateId", "EMP-1");
+		try {
+			CommonMethods.deleteMethodasString("/billing/messages/5", ver, empDeleteParams);
+		} catch (Exception ignored) {
+		}
+
 		String actual = CommonMethods.postMethodStringPayloadString(payload, uri, ver);
 		// test.log(Status.INFO, "Actual: " + actual);
 		Assert.assertTrue(actual.contains(expected));
 		// test.log(Status.PASS, "Response contains the expected value.");
 		CommonMethods.Delay(20000);
+
+		// Clean up the EMP-1 Rate message created above so the test is repeatable
+		try {
+			CommonMethods.deleteMethodasString("/billing/messages/5", ver, empDeleteParams);
+		} catch (Exception ignored) {
+		}
 	}
 
 	@Test(priority = 28, groups = "billing")
