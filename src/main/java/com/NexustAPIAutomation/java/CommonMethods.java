@@ -345,27 +345,42 @@ public class CommonMethods {
 			Assert.fail("Invalid version: " + version);
 			return null;
 		}
-		RestAssured.baseURI = baseUri;
 
 		File jsonDataInFile = new File(payload);
 
-		Response response;
-		RestAssured.baseURI = RestAssured.baseURI + uri;
-		System.out.println("Posting uri  = " + version + "   " + uri);
+		// Retry logic for authentication failures
+		Response response = null;
+		for (int attempt = 1; attempt <= MAX_RETRY_ATTEMPTS; attempt++) {
+			RestAssured.baseURI = baseUri + uri;
+			System.out.println("POST Attempt " + attempt + " of " + MAX_RETRY_ATTEMPTS);
+			System.out.println("Posting uri  = " + version + "   " + uri);
 
-		ExtentReportManager.logRequest("POST", uri, version, "Payload file: " + payload);
+			ExtentReportManager.logRequest("POST", uri, version, "Payload file: " + payload);
 
-		RequestSpecification httpRequest = RestAssured.given()
-				.headers("Authorization", "Bearer " + getToken(), "Content-Type", ContentType.JSON, "Accept", "*/*",
-					"Connection", "keep-alive")
-				.body(jsonDataInFile);
-		response = httpRequest.post();
-		System.out.println("Response :" + response.asString());
+			RequestSpecification httpRequest = RestAssured.given()
+					.headers("Authorization", "Bearer " + getToken(), "Content-Type", ContentType.JSON, "Accept", "*/*",
+							"Connection", "keep-alive")
+					.body(jsonDataInFile);
+			response = httpRequest.post();
+			System.out.println("Response :" + response.asString());
 
-		ExtentReportManager.logResponse(response.getStatusCode(), response.asString());
+			// Check if authentication failed
+			if (isAuthenticationFailure(response)) {
+				if (attempt < MAX_RETRY_ATTEMPTS) {
+					System.out.println("⚠️ Authentication failure detected (Attempt " + attempt + "/" + MAX_RETRY_ATTEMPTS + "), retrying with fresh token...");
+					forceTokenRefresh();
+					Thread.sleep(RETRY_DELAY_MS);
+					continue;
+				} else {
+					System.out.println("❌ Authentication failed after " + MAX_RETRY_ATTEMPTS + " attempts");
+				}
+			}
+
+			ExtentReportManager.logResponse(response.getStatusCode(), response.asString());
+			return response;
+		}
 
 		return response;
-
 	}
 
 	public static String postMethodResponseAsString(String payload, String uri, String version)
