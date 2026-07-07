@@ -1303,6 +1303,70 @@ public class Private_rateController_Test extends BaseClass {
 	}
 
 
+	// ==========================================================================
+	// Rate Flip Inquiry - CPDEV-26651
+	// Endpoints:
+	//   GET /rate/flip/:RateId                        (rate flip inquiry data)
+	//   GET /rate/generateRateFlipReport/:RateClassId (rate flip SSRS report)
+	// Source tables: UMRFHDR (header), UM41320, csmApi_vwReportRateFlip,
+	//                csmApi_ReportHeader (ReportName = 'RateFlipReport')
+	// ==========================================================================
+
+	// Verify the rate flip inquiry returns the correct response and the
+	// expanded period / step tables when the rate class exists.
+	@Test(priority = 63, groups = "rate")
+	public void getRateFlip_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/rate/flip/ELECTRATE";
+		String ver = "4.0";
+		String expected = "{\"Rate\":{\"Success\":true,\"Data\":{\"RateClassID\":\"ELECTRATE\",\"ServiceCategory\":{\"Id\":1,\"Description\":\"Electric\"},\"RateType\":{\"Id\":1,\"Description\":\"Consumption\"},\"NumberOfMonths\":6,\"RateFlip\":[{\"PeriodID\":\"ON PEAK\",\"PeriodIndex\":1,\"Steps\":[{\"SequenceNumber\":1,\"VolumeLowerLimit\":111,\"VolumeUpperLimit\":999999999,\"TariffID\":\"EPCA-1\",\"KWRate\":\"RATE1\",\"KVARate\":\"RATE1\"}]},{\"PeriodID\":\"OFFPEAK\",\"PeriodIndex\":2,\"Steps\":[{\"SequenceNumber\":1,\"VolumeLowerLimit\":10000,\"VolumeUpperLimit\":23123134,\"TariffID\":\"GS-PK ENERGY\",\"KWRate\":\"RATE1\",\"KVARate\":\"RATE1\"}]}]},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(result);
+		Assert.assertEquals(result, expected);
+	}
+
+	// Verify the response when the requested rate class does not exist.
+	@Test(priority = 64, groups = "rate")
+	public void getRateFlip_InvalidRate_v4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/rate/flip/INVALIDRATE";
+		String ver = "4.0";
+		String expected = "{\"Rate\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Rate Flip for INVALIDRATE does not exist.\",\"Level\":2}]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(result);
+		Assert.assertEquals(result, expected);
+	}
+
+	// Generate Rate Flip report metadata for an existing rate class.
+	// NOTE: in the current QA database the 'RateFlipReport' row in
+	// csmApi_ReportHeader is not seeded, so the endpoint returns Not Found
+	// (same data gap as getGenerateRateMeterSizeReport). Once the report
+	// header is seeded this should return the ReportList success payload.
+	@Test(priority = 65, groups = "rate")
+	public void getGenerateRateFlipReport_v4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/rate/generateRateFlipReport/ELECTRATE";
+		String ver = "4.0";
+		String expected = "{\"result\":{\"Success\":false,\"Message\":\"Not Found\"}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(result);
+		Assert.assertEquals(result, expected);
+	}
+
+	// Verify the report response when the rate class does not exist.
+	@Test(priority = 66, groups = "rate")
+	public void getGenerateRateFlipReport_InvalidRateClass_v4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/rate/generateRateFlipReport/INVALIDRATE";
+		String ver = "4.0";
+		String expected = "{\"result\":{\"Success\":false,\"Message\":\"Not Found\"}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(result);
+		Assert.assertEquals(result, expected);
+	}
 	   
 
 }

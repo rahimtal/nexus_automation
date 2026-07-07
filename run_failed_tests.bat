@@ -1,4 +1,4 @@
 @echo off
-cd /d "c:\Users\Admin\Documents\GitHub\nexus_automation"
-mvn test -Dsurefire.suiteXmlFiles=target/test-output/testng-failed.xml
+cd /d "%~dp0"
+mvn test -Dsurefire.suiteXmlFiles=target/surefire-reports/testng-failed.xml
 pause
