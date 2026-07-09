@@ -1367,6 +1367,33 @@ public class Private_rateController_Test extends BaseClass {
 		System.out.println(result);
 		Assert.assertEquals(result, expected);
 	}
+
+	// Verify generateRateMeterSizeReport returns the report metadata for an
+	// existing rate / detail index (RateId = gas1, DetailIndex = 1).
+	@Test(priority = 67, groups = "rate")
+	public void getGenerateRateMeterSizeReport_Gas1_v4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/rate/generateRateMeterSizeReport/gas1/1";
+		String ver = "4.0";
+		String expected = "{\"RateMeterSize\":{\"Success\":true,\"Data\":{\"ReportList\":[{\"Name\":\"RateMeterSize\",\"DisplayName\":\"Rate Meter Size\",\"PrintOrder\":1}]},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(result);
+		Assert.assertEquals(result, expected);
+	}
+
+	// Verify the report response when the requested rate does not exist.
+	@Test(priority = 68, groups = "rate")
+	public void getGenerateRateMeterSizeReport_InvalidRate_v4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/rate/generateRateMeterSizeReport/INVALIDRATE/1";
+		String ver = "4.0";
+		String expected = "{\"RateMeterSize\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Rate INVALIDRATE does not exist.\",\"Level\":3}]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(result);
+		Assert.assertEquals(result, expected);
+	}
 	   
 
 }
