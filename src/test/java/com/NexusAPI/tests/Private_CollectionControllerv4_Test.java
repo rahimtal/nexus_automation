@@ -32,7 +32,7 @@ public class Private_CollectionControllerv4_Test  extends BaseClass {
 
 	@Test(priority = 3, groups = "Collection" )
 	public void getcollectionv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		CommonMethods.Bug("CPDEV-26420");
+	//	CommonMethods.Bug("CPDEV-26420");
 		
 		String uri = "/collection";
 		String ver = "4.0";
