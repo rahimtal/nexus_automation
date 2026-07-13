@@ -1394,6 +1394,79 @@ public class Private_rateController_Test extends BaseClass {
 		System.out.println(result);
 		Assert.assertEquals(result, expected);
 	}
-	   
+
+	// ==========================================================================
+	// Get Rate Information - Audit fields (CreatedDateTime / UserId)
+	// Reference: Bruno "Get Rate Information" -> GET {{latest}}/rate/:RateId
+	// The attached Bruno screenshot (RateId = EPCA-1, EffectiveDate = 2001-01-01)
+	// shows each EffectiveDate element now carrying the audit fields
+	// "CreatedDateTime" (e.g. "1996-01-01T08:28:16") and "UserId":"sa",
+	// immediately after the "ProrateMaximum" object.
+	//
+	// The audit fields live inside every EffectiveDate array element:
+	//   Rate.Data.EffectiveDate[i].CreatedDateTime
+	//   Rate.Data.EffectiveDate[i].UserId
+	// CreatedDateTime is a stored timestamp, so we assert it is present /
+	// non-empty. UserId is data-dependent - it can be the login (e.g. "sa") or
+	// an empty string for records where no user was captured - so we assert the
+	// field is present (non-null) rather than equal to a fixed value.
+	// EPCA-1 is a seeded rate, so no dependency on the create/update tests.
+	// ==========================================================================
+
+	// Verify the Get Rate Information response returns the CreatedDateTime and
+	// UserId audit fields inside the EffectiveDate element.
+	@Test(priority = 69, groups = "rate")
+	public void getRateInformation_AuditFields_v4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/rate/EPCA-1";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(result);
+
+		JsonPath jp = new JsonPath(result);
+		Assert.assertTrue(jp.getBoolean("Rate.Success"),
+				"Rate.Success should be true. Actual: " + result);
+		Assert.assertEquals(jp.getString("Rate.Data.RateId"), "EPCA-1",
+				"Rate.Data.RateId should be EPCA-1. Actual: " + result);
+
+		// Audit fields present on the first EffectiveDate element.
+		String createdDateTime = jp.getString("Rate.Data.EffectiveDate[0].CreatedDateTime");
+		String userId = jp.getString("Rate.Data.EffectiveDate[0].UserId");
+		Assert.assertNotNull(createdDateTime,
+				"CreatedDateTime audit field should be present. Actual: " + result);
+		Assert.assertFalse(createdDateTime.trim().isEmpty(),
+				"CreatedDateTime audit field should not be empty. Actual: " + result);
+		Assert.assertNotNull(userId,
+				"UserId audit field should be present (may be empty or a login). Actual: " + result);
+	}
+
+	// Verify the audit fields are returned when the request is scoped by an
+	// EffectiveDate query parameter. The screenshot used EffectiveDate=2001-01-01,
+	// but EPCA-1's effective period in the restored DB starts 1998-01-01, so we
+	// scope by that actual start date to keep the test independent of extra data.
+	@Test(priority = 70, groups = "rate")
+	public void getRateInformation_AuditFields_WithEffectiveDate_v4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/rate/EPCA-1";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("EffectiveDate", "1998-01-01");
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(result);
+
+		JsonPath jp = new JsonPath(result);
+		Assert.assertTrue(jp.getBoolean("Rate.Success"),
+				"Rate.Success should be true for the effective period. Actual: " + result);
+
+		String createdDateTime = jp.getString("Rate.Data.EffectiveDate[0].CreatedDateTime");
+		String userId = jp.getString("Rate.Data.EffectiveDate[0].UserId");
+		Assert.assertNotNull(createdDateTime,
+				"CreatedDateTime audit field should be present. Actual: " + result);
+		Assert.assertFalse(createdDateTime.trim().isEmpty(),
+				"CreatedDateTime audit field should not be empty. Actual: " + result);
+		Assert.assertNotNull(userId,
+				"UserId audit field should be present (may be empty or a login). Actual: " + result);
+	}
 
 }
