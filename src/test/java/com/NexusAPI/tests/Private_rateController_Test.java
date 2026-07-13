@@ -1399,23 +1399,7 @@ public class Private_rateController_Test extends BaseClass {
 	}
 
 	// ==========================================================================
-	// Get Rate Information - Audit fields (CreatedDateTime / UserId)
-	// Reference: Bruno "Get Rate Information" -> GET {{latest}}/rate/:RateId
-	// The attached Bruno screenshot (RateId = EPCA-1, EffectiveDate = 2001-01-01)
-	// shows each EffectiveDate element now carrying the audit fields
-	// "CreatedDateTime" (e.g. "1996-01-01T08:28:16") and "UserId":"sa",
-	// immediately after the "ProrateMaximum" object.
-	//
-	// The audit fields live inside every EffectiveDate array element:
-	//   Rate.Data.EffectiveDate[i].CreatedDateTime
-	//   Rate.Data.EffectiveDate[i].UserId
-	// CreatedDateTime is a stored timestamp, so we assert it is present /
-	// non-empty. UserId is data-dependent - it can be the login (e.g. "sa") or
-	// an empty string for records where no user was captured - so we assert the
-	// field is present (non-null) rather than equal to a fixed value.
-	// EPCA-1 is a seeded rate, so no dependency on the create/update tests.
-	// ==========================================================================
-
+	
 	// Verify the Get Rate Information response returns the CreatedDateTime and
 	// UserId audit fields inside the EffectiveDate element.
 	@Test(priority = 69, groups = "rate")
