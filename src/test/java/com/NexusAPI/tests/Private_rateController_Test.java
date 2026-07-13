@@ -1456,4 +1456,239 @@ public class Private_rateController_Test extends BaseClass {
 				"UserId audit field should be present (may be empty or a login). Actual: " + result);
 	}
 
+	// ==========================================================================
+	// Rate validation - getRate (getRateValidation) and postRate
+	// (postRateValidation + csmApi_spRateCreateValidation) negative scenarios.
+	// Reference: src/server/validations/Rate.ts and the rateController SPs.
+	// These assert Success:false and the specific validation message. Payloads
+	// start from a schema-valid Type-1 (Fixed Charge) base and mutate one field.
+	// ==========================================================================
+
+	// Compact, schema-valid Type-1 (Fixed Charge) create payload used as the base
+	// for postRate validation tests. Individual tests mutate a single field to
+	// trigger a specific validation error.
+	private static String validRateCreatePayload(String rateId) {
+		return "{\"RateId\":\"" + rateId + "\",\"Description\":\"Validation base rate\",\"Type\":{\"Id\":1},"
+				+ "\"ServiceType\":\"ELECTRIC\",\"RateClassId\":\"\",\"Active\":1,\"UseLatestRateEffectivePeriod\":false,"
+				+ "\"ConsecutiveEstimatesAllowed\":0,\"BillInAdvance\":false,\"LookupVisible\":false,\"SpecialCondition\":false,"
+				+ "\"TimeOfUse\":false,\"ExcludeFromBd\":false,\"RatchetDemand\":false,\"KvarFactor\":\"0.00000\","
+				+ "\"EffectiveDate\":[{\"EffectiveStartDate\":\"2026-01-01\",\"MinimumAmount\":\"0.00\",\"MaximumAmount\":\"0.00\","
+				+ "\"ProrateMinimum\":{\"First\":false,\"Regular\":false,\"Last\":false},"
+				+ "\"ProrateMaximum\":{\"First\":false,\"Regular\":false,\"Last\":false}}],"
+				+ "\"Detail\":[{\"DetailIndex\":1,\"Detail\":{\"Type\":1},\"EffectiveStartDate\":\"2026-01-01\","
+				+ "\"DetailDescription\":\"Fixed\",\"TaxSchedule\":\"USASTCITY-6*\",\"ServiceType\":\"ELECTRIC\",\"BillingFrequency\":30,"
+				+ "\"ProrateDetail\":{\"First\":false,\"Regular\":false,\"Last\":false},"
+				+ "\"ProrateMinimum\":{\"First\":false,\"Regular\":false,\"Last\":false},\"MinimumCharge\":\"0.00\","
+				+ "\"UnitDescription\":\"\",\"FixedCharge\":\"10.00000\","
+				+ "\"Consumption\":{\"BillingDemandMinimum\":\"0.00\",\"ConsumptionTolerance\":\"0.00000\",\"UseActualDays\":false,"
+				+ "\"Reporting\":{\"IncludeUnits\":true,\"IncludeRevenue\":true},\"ExportDetail\":false,\"ApplyDiscountPercentage\":0,"
+				+ "\"WinterNormalizationAdjustment\":{\"Type\":0,\"TypeDetail\":0},\"CustomerChoice\":0},"
+				+ "\"RevenueAccount\":{\"Index\":515},\"ReceivableAccount\":{\"Index\":506},"
+				+ "\"DetailSequence\":[],\"MeterSizeMinimum\":null,\"AutomaticEstimates\":null}]}";
+	}
+
+	// -------- getRate validation --------
+
+	// RateId longer than 15 characters is rejected by getRateValidation.
+	@Test(priority = 71, groups = "rate")
+	public void getRateValidation_RateIdTooLong()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/rate/THISRATEIDTOOLONG16";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(result);
+		Assert.assertTrue(result.contains("\"Success\":false"),
+				"Expected Success:false for an over-length RateId. Actual: " + result);
+		Assert.assertTrue(result.contains("RateId length must be less than or equal to 15 characters long"),
+				"Expected max-length message. Actual: " + result);
+	}
+
+	// A well-formed RateId that does not exist returns the rate-not-found message.
+	@Test(priority = 72, groups = "rate")
+	public void getRateValidation_RateNotFound()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/rate/NOSUCHRATE";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(result);
+		Assert.assertTrue(result.contains("\"Success\":false"),
+				"Expected Success:false for a non-existent rate. Actual: " + result);
+		Assert.assertTrue(result.contains("does not exist") || result.contains("not found"),
+				"Expected rate-not-found message. Actual: " + result);
+	}
+
+	// Requesting an effective date the rate has no period for returns not found.
+	@Test(priority = 73, groups = "rate")
+	public void getRateValidation_EffectiveDateNotFound()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String uri = "/rate/EPCA-1";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("EffectiveDate", "1901-01-01");
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(result);
+		Assert.assertTrue(result.contains("\"Success\":false"),
+				"Expected Success:false for a missing effective date. Actual: " + result);
+		Assert.assertTrue(result.contains("Effective Date") && result.contains("not found"),
+				"Expected effective-date-not-found message. Actual: " + result);
+	}
+
+	// -------- postRate validation --------
+
+	// Creating a rate whose RateId already exists is rejected (use update).
+	@Test(priority = 74, groups = "rate")
+	public void postRateValidation_DuplicateRateId()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String payload = validRateCreatePayload("EMP-1");
+		String response = CommonMethods.postMethodStringPayloadString(payload, "/rate", "4.0");
+		System.out.println(response);
+		Assert.assertTrue(response.contains("\"Success\":false"),
+				"Expected Success:false for a duplicate RateId. Actual: " + response);
+		Assert.assertTrue(response.contains("already exist"),
+				"Expected 'already exists' message. Actual: " + response);
+	}
+
+	// RateId longer than 15 characters is rejected by postRateValidation schema.
+	@Test(priority = 75, groups = "rate")
+	public void postRateValidation_RateIdTooLong()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String payload = validRateCreatePayload("THISIDTOOLONG16X");
+		String response = CommonMethods.postMethodStringPayloadString(payload, "/rate", "4.0");
+		System.out.println(response);
+		Assert.assertTrue(response.contains("\"Success\":false"),
+				"Expected Success:false for an over-length RateId. Actual: " + response);
+		Assert.assertTrue(response.contains("length must be less than or equal to 15"),
+				"Expected RateId max-length message. Actual: " + response);
+	}
+
+	// Invalid header ServiceType is rejected before detail validations.
+	@Test(priority = 76, groups = "rate")
+	public void postRateValidation_InvalidHeaderServiceType()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String payload = validRateCreatePayload("RATEVAL1")
+				.replace("\"ServiceType\":\"ELECTRIC\",\"RateClassId\"", "\"ServiceType\":\"INVALIDST\",\"RateClassId\"");
+		String response = CommonMethods.postMethodStringPayloadString(payload, "/rate", "4.0");
+		System.out.println(response);
+		Assert.assertTrue(response.contains("\"Success\":false"),
+				"Expected Success:false for an invalid header service type. Actual: " + response);
+		Assert.assertTrue(response.contains("Invalid Service Type") || response.contains("service type"),
+				"Expected invalid service type message. Actual: " + response);
+	}
+
+	// Invalid TaxSchedule on a detail item is rejected.
+	@Test(priority = 77, groups = "rate")
+	public void postRateValidation_InvalidTaxSchedule()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String payload = validRateCreatePayload("RATEVAL2")
+				.replace("\"TaxSchedule\":\"USASTCITY-6*\"", "\"TaxSchedule\":\"NOSUCHTAX\"");
+		String response = CommonMethods.postMethodStringPayloadString(payload, "/rate", "4.0");
+		System.out.println(response);
+		Assert.assertTrue(response.contains("\"Success\":false"),
+				"Expected Success:false for an invalid tax schedule. Actual: " + response);
+		Assert.assertTrue(response.contains("tax schedule"),
+				"Expected invalid tax schedule message. Actual: " + response);
+	}
+
+	// Invalid detail ServiceType (header valid) is rejected.
+	@Test(priority = 78, groups = "rate")
+	public void postRateValidation_InvalidDetailServiceType()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String payload = validRateCreatePayload("RATEVAL3")
+				.replace("\"ServiceType\":\"ELECTRIC\",\"BillingFrequency\"", "\"ServiceType\":\"INVALIDST\",\"BillingFrequency\"");
+		String response = CommonMethods.postMethodStringPayloadString(payload, "/rate", "4.0");
+		System.out.println(response);
+		Assert.assertTrue(response.contains("\"Success\":false"),
+				"Expected Success:false for an invalid detail service type. Actual: " + response);
+		Assert.assertTrue(response.contains("Service Type") || response.contains("service type"),
+				"Expected invalid service type message. Actual: " + response);
+	}
+
+	// Invalid (non-existent) unit description on a detail item is rejected.
+	@Test(priority = 79, groups = "rate")
+	public void postRateValidation_InvalidUnitDescription()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String payload = validRateCreatePayload("RATEVAL4")
+				.replace("\"UnitDescription\":\"\"", "\"UnitDescription\":\"NoSuchUnit\"");
+		String response = CommonMethods.postMethodStringPayloadString(payload, "/rate", "4.0");
+		System.out.println(response);
+		Assert.assertTrue(response.contains("\"Success\":false"),
+				"Expected Success:false for an invalid unit description. Actual: " + response);
+		Assert.assertTrue(response.contains("Invalid Unit Description"),
+				"Expected invalid unit description message. Actual: " + response);
+	}
+
+	// A RevenueAccount.Index that does not exist in GL is rejected.
+	@Test(priority = 80, groups = "rate")
+	public void postRateValidation_InvalidRevenueAccountIndex()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String payload = validRateCreatePayload("RATEVAL5")
+				.replace("\"RevenueAccount\":{\"Index\":515}", "\"RevenueAccount\":{\"Index\":987654}");
+		String response = CommonMethods.postMethodStringPayloadString(payload, "/rate", "4.0");
+		System.out.println(response);
+		Assert.assertTrue(response.contains("\"Success\":false"),
+				"Expected Success:false for an invalid account index. Actual: " + response);
+		Assert.assertTrue(response.contains("account index") || response.contains("account"),
+				"Expected invalid account index message. Actual: " + response);
+	}
+
+	// EffectiveStartDate of 1900-01-01 is rejected by the schema.
+	@Test(priority = 81, groups = "rate")
+	public void postRateValidation_EffectiveStartDate1900()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String payload = validRateCreatePayload("RATEVAL6").replace("2026-01-01", "1900-01-01");
+		String response = CommonMethods.postMethodStringPayloadString(payload, "/rate", "4.0");
+		System.out.println(response);
+		Assert.assertTrue(response.contains("\"Success\":false"),
+				"Expected Success:false for an 1900-01-01 effective start date. Actual: " + response);
+		Assert.assertTrue(response.contains("1900-01-01") || response.contains("EffectiveStartDate"),
+				"Expected 1900-01-01 rejection message. Actual: " + response);
+	}
+
+	// DetailSequence must be empty when Detail.Type is 1 (Fixed Charge).
+	@Test(priority = 82, groups = "rate")
+	public void postRateValidation_DetailSequenceNotEmptyForFixedCharge()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String payload = validRateCreatePayload("RATEVAL7").replace("\"DetailSequence\":[]",
+				"\"DetailSequence\":[{\"DetailIndexSequence\":1,\"UnitRate\":\"1.00000\",\"VolumeLowerLimit\":\"0\","
+						+ "\"VolumeUpperLimit\":\"100\",\"VolumeLowerLimitString\":\"0\",\"VolumeUpperLimitString\":\"999999999\"}]");
+		String response = CommonMethods.postMethodStringPayloadString(payload, "/rate", "4.0");
+		System.out.println(response);
+		Assert.assertTrue(response.contains("\"Success\":false"),
+				"Expected Success:false for a non-empty DetailSequence on a fixed charge. Actual: " + response);
+		Assert.assertTrue(response.contains("DetailSequence must be empty"),
+				"Expected DetailSequence-must-be-empty message. Actual: " + response);
+	}
+
+	// WNA TypeDetail "Base" (=1) is only valid for stepped-range (Type 2) details.
+	@Test(priority = 83, groups = "rate")
+	public void postRateValidation_WNATypeDetailBaseOnFixedCharge()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String payload = validRateCreatePayload("RATEVAL8")
+				.replace("\"WinterNormalizationAdjustment\":{\"Type\":0,\"TypeDetail\":0}",
+						"\"WinterNormalizationAdjustment\":{\"Type\":2,\"TypeDetail\":1}");
+		String response = CommonMethods.postMethodStringPayloadString(payload, "/rate", "4.0");
+		System.out.println(response);
+		Assert.assertTrue(response.contains("\"Success\":false"),
+				"Expected Success:false for WNA Base on a fixed charge. Actual: " + response);
+		Assert.assertTrue(response.contains("only allowed for stepped range"),
+				"Expected WNA-Base-stepped-range message. Actual: " + response);
+	}
+
+	// All Detail.EffectiveStartDate values must equal EffectiveDate[0].EffectiveStartDate.
+	@Test(priority = 84, groups = "rate")
+	public void postRateValidation_DetailEffectiveDateMismatch()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String payload = validRateCreatePayload("RATEVAL9").replace(
+				"\"Detail\":[{\"DetailIndex\":1,\"Detail\":{\"Type\":1},\"EffectiveStartDate\":\"2026-01-01\"",
+				"\"Detail\":[{\"DetailIndex\":1,\"Detail\":{\"Type\":1},\"EffectiveStartDate\":\"2027-01-01\"");
+		String response = CommonMethods.postMethodStringPayloadString(payload, "/rate", "4.0");
+		System.out.println(response);
+		Assert.assertTrue(response.contains("\"Success\":false"),
+				"Expected Success:false when detail effective date does not match header. Actual: " + response);
+		Assert.assertTrue(response.contains("must be the same as EffectiveDate"),
+				"Expected detail-effective-date-mismatch message. Actual: " + response);
+	}
+
 }
