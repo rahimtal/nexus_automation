@@ -49,7 +49,8 @@ public class Private_rateController_Test extends BaseClass {
 		String expected = "{\"Rate\":{\"Success\":true,\"Data\":{\"RateId\":\"EMP-1\",\"Description\":\"Electric Medium Power (13)\",\"Type\":{\"Id\":1,\"Description\":\"Consumption\"},\"ServiceType\":\"ELECTRIC\",\"RateClassId\":\"\",\"BillingMessageExist\":true,\"Active\":true,\"UseLatestRateEffectivePeriod\":false,\"ConsecutiveEstimatesAllowed\":0,\"BillInAdvance\":false,\"LookupVisible\":false,\"SpecialCondition\":false,\"TimeOfUse\":false,\"ExcludeFromBd\":false,\"RatchetDemand\":true,\"KvarFactor\":0.00000,\"RateInUse\":true,\"EffectiveDate\":[{\"EffectiveStartDate\":\"1998-01-01\",\"MinimumAmount\":0.00,\"MaximumAmount\":0.00,\"ProrateMinimum\":{\"First\":false,\"Regular\":false,\"Last\":false},\"ProrateMaximum\":{\"First\":false,\"Regular\":false,\"Last\":false}}],\"Detail\":[{\"DetailIndex\":1,\"Detail\":{\"Type\":1,\"Description\":\"Fixed Charge\"},\"EffectiveStartDate\":\"1998-01-01\",\"EffectiveEndDate\":\"1900-01-01\",\"DetailDescription\":\"Electric Monhtly Charge\",\"TaxSchedule\":\"USASTCITY-6*\",\"ServiceType\":\"ELECTRIC\",\"BillingFrequency\":90,\"ProrateDetail\":{\"First\":true,\"Regular\":false,\"Last\":true},\"ProrateMinimum\":{\"First\":false,\"Regular\":false,\"Last\":false},\"MinimumCharge\":0.00,\"UnitDescription\":\"\",\"FixedCharge\":16.42000,\"Consumption\":{\"BillingDemandMinimum\":0.00,\"ConsumptionTolerance\":0.00000,\"UseActualDays\":false,\"Reporting\":{\"IncludeUnits\":true,\"IncludeRevenue\":true},\"ExportDetail\":false,\"ApplyDiscountPercentage\":0,\"WinterNormalizationAdjustment\":{\"Type\":0,\"TypeDetail\":0},\"CustomerChoice\":0,\"OldestEstimateUpdateDate\":\"1900-01-01\"},\"RevenueAccount\":{\"Index\":515,\"Number\":\"900-4611-00\",\"Description\":\"Metered Sales to Residential - Electric\"},\"ReceivableAccount\":{\"Index\":506,\"Number\":\"900-1410-00\",\"Description\":\"Customer Accounts Receivable - Electric\"},\"DetailSequence\":null,\"MeterSizeMinimum\":[],\"AutomaticEstimates\":null},{\"DetailIndex\":2,\"Detail\":{\"Type\":4,\"Description\":\"Adjustable Var Stepped Range\"},\"EffectiveStartDate\":\"1998-01-01\",\"EffectiveEndDate\":\"1900-01-01\",\"DetailDescription\":\"Electric Energy Charge MP-1\",\"TaxSchedule\":\"USASTCITY-6*\",\"ServiceType\":\"ELECTRIC\",\"BillingFrequency\":90,\"ProrateDetail\":{\"First\":false,\"Regular\":false,\"Last\":false},\"ProrateMinimum\":{\"First\":false,\"Regular\":false,\"Last\":false},\"MinimumCharge\":0.00,\"UnitDescription\":\"\",\"FixedCharge\":0.00000,\"Consumption\":{\"BillingDemandMinimum\":0.00,\"ConsumptionTolerance\":0.00000,\"UseActualDays\":false,\"Reporting\":{\"IncludeUnits\":true,\"IncludeRevenue\":true},\"ExportDetail\":false,\"ApplyDiscountPercentage\":0,\"WinterNormalizationAdjustment\":{\"Type\":0,\"TypeDetail\":0},\"CustomerChoice\":0,\"OldestEstimateUpdateDate\":\"1900-01-01\"},\"RevenueAccount\":{\"Index\":515,\"Number\":\"900-4611-00\",\"Description\":\"Metered Sales to Residential - Electric\"},\"ReceivableAccount\":{\"Index\":506,\"Number\":\"900-1410-00\",\"Description\":\"Customer Accounts Receivable - Electric\"},\"DetailSequence\":[{\"DetailIndexSequence\":1,\"UnitRate\":0.10689,\"VolumeLowerLimit\":0,\"VolumeUpperLimit\":0,\"VolumeLowerLimitString\":\"0\",\"VolumeUpperLimitString\":\"3000\"},{\"DetailIndexSequence\":2,\"UnitRate\":0.09789,\"VolumeLowerLimit\":0,\"VolumeUpperLimit\":0,\"VolumeLowerLimitString\":\"3000+1\",\"VolumeUpperLimitString\":\"10000\"},{\"DetailIndexSequence\":3,\"UnitRate\":0.08560,\"VolumeLowerLimit\":0,\"VolumeUpperLimit\":0,\"VolumeLowerLimitString\":\"10000+1\",\"VolumeUpperLimitString\":\"200000\"},{\"DetailIndexSequence\":4,\"UnitRate\":0.01089,\"VolumeLowerLimit\":0,\"VolumeUpperLimit\":0,\"VolumeLowerLimitString\":\"200000+1\",\"VolumeUpperLimitString\":\"BD*200\"},{\"DetailIndexSequence\":5,\"UnitRate\":0.01078,\"VolumeLowerLimit\":0,\"VolumeUpperLimit\":0,\"VolumeLowerLimitString\":\"BD*200+1\",\"VolumeUpperLimitString\":\"BD*400\"},{\"DetailIndexSequence\":6,\"UnitRate\":0.00989,\"VolumeLowerLimit\":0,\"VolumeUpperLimit\":0,\"VolumeLowerLimitString\":\"BD*400+1\",\"VolumeUpperLimitString\":\"BD*600\"},{\"DetailIndexSequence\":7,\"UnitRate\":0.00787,\"VolumeLowerLimit\":0,\"VolumeUpperLimit\":0,\"VolumeLowerLimitString\":\"BD*600+1\",\"VolumeUpperLimitString\":\"999999999\"}],\"MeterSizeMinimum\":[],\"AutomaticEstimates\":null}]},\"Messages\":[]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		String result = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(result.replace("\"MeterSizeMinimum\":null", "\"MeterSizeMinimum\":[]"), expected);
+		Assert.assertEquals(result.replace("\"MeterSizeMinimum\":null", "\"MeterSizeMinimum\":[]")
+				.replaceAll(",\"CreatedDateTime\":\"[^\"]*\",\"UserId\":\"[^\"]*\"", ""), expected);
 
 	}
 
@@ -62,7 +63,8 @@ public class Private_rateController_Test extends BaseClass {
 		String expected = "{\"Rate\":{\"Success\":true,\"Data\":{\"RateId\":\"EOL-1HPS100WOB\",\"Description\":\"Outdoor Lighting-High Pressure Sodium 100Watt Open Bottom\",\"Type\":{\"Id\":1,\"Description\":\"Consumption\"},\"ServiceType\":\"ST-LIGHTS\",\"RateClassId\":\"\",\"BillingMessageExist\":false,\"Active\":true,\"UseLatestRateEffectivePeriod\":false,\"ConsecutiveEstimatesAllowed\":0,\"BillInAdvance\":false,\"LookupVisible\":false,\"SpecialCondition\":false,\"TimeOfUse\":false,\"ExcludeFromBd\":false,\"RatchetDemand\":false,\"KvarFactor\":0.00000,\"RateInUse\":true,\"EffectiveDate\":[{\"EffectiveStartDate\":\"1999-01-01\",\"MinimumAmount\":0.00,\"MaximumAmount\":0.00,\"ProrateMinimum\":{\"First\":false,\"Regular\":false,\"Last\":false},\"ProrateMaximum\":{\"First\":false,\"Regular\":false,\"Last\":false}}],\"Detail\":[{\"DetailIndex\":1,\"Detail\":{\"Type\":1,\"Description\":\"Fixed Charge\"},\"EffectiveStartDate\":\"1999-01-01\",\"EffectiveEndDate\":\"1900-01-01\",\"DetailDescription\":\"Monthly Charge-street lights\",\"TaxSchedule\":\"USALLEXMPT-0\",\"ServiceType\":\"ST-LIGHTS\",\"BillingFrequency\":30,\"ProrateDetail\":{\"First\":true,\"Regular\":false,\"Last\":true},\"ProrateMinimum\":{\"First\":false,\"Regular\":false,\"Last\":false},\"MinimumCharge\":0.00,\"UnitDescription\":\"\",\"FixedCharge\":16.00000,\"Consumption\":{\"BillingDemandMinimum\":0.00,\"ConsumptionTolerance\":0.00000,\"UseActualDays\":false,\"Reporting\":{\"IncludeUnits\":true,\"IncludeRevenue\":true},\"ExportDetail\":false,\"ApplyDiscountPercentage\":0,\"WinterNormalizationAdjustment\":{\"Type\":0,\"TypeDetail\":0},\"CustomerChoice\":0,\"OldestEstimateUpdateDate\":\"1900-01-01\"},\"RevenueAccount\":{\"Index\":524,\"Number\":\"900-4614-00\",\"Description\":\"Metered Sales to Public Auth. - Electric\"},\"ReceivableAccount\":{\"Index\":506,\"Number\":\"900-1410-00\",\"Description\":\"Customer Accounts Receivable - Electric\"},\"DetailSequence\":null,\"MeterSizeMinimum\":[],\"AutomaticEstimates\":null}]},\"Messages\":[]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		String result = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(result.replace("\"MeterSizeMinimum\":null", "\"MeterSizeMinimum\":[]"), expected);
+		Assert.assertEquals(result.replace("\"MeterSizeMinimum\":null", "\"MeterSizeMinimum\":[]")
+				.replaceAll(",\"CreatedDateTime\":\"[^\"]*\",\"UserId\":\"[^\"]*\"", ""), expected);
 
 	}
 
@@ -75,7 +77,8 @@ public class Private_rateController_Test extends BaseClass {
 		String expected = "{\"Rate\":{\"Success\":true,\"Data\":{\"RateId\":\"EPCA-1\",\"Description\":\"Electric Power Cost Adjustment\",\"Type\":{\"Id\":1,\"Description\":\"Consumption\"},\"ServiceType\":\"ELECTRIC\",\"RateClassId\":\"\",\"BillingMessageExist\":false,\"Active\":true,\"UseLatestRateEffectivePeriod\":false,\"ConsecutiveEstimatesAllowed\":0,\"BillInAdvance\":false,\"LookupVisible\":false,\"SpecialCondition\":false,\"TimeOfUse\":false,\"ExcludeFromBd\":false,\"RatchetDemand\":true,\"KvarFactor\":0.00000,\"RateInUse\":true,\"EffectiveDate\":[{\"EffectiveStartDate\":\"1998-01-01\",\"MinimumAmount\":0.00,\"MaximumAmount\":0.00,\"ProrateMinimum\":{\"First\":false,\"Regular\":false,\"Last\":false},\"ProrateMaximum\":{\"First\":false,\"Regular\":false,\"Last\":false}}],\"Detail\":[{\"DetailIndex\":1,\"Detail\":{\"Type\":2,\"Description\":\"Stepped Range\"},\"EffectiveStartDate\":\"1998-01-01\",\"EffectiveEndDate\":\"1900-01-01\",\"DetailDescription\":\"PCA for Electric Service\",\"TaxSchedule\":\"USASTCITY-6*\",\"ServiceType\":\"ELECTRIC\",\"BillingFrequency\":90,\"ProrateDetail\":{\"First\":false,\"Regular\":false,\"Last\":false},\"ProrateMinimum\":{\"First\":false,\"Regular\":false,\"Last\":false},\"MinimumCharge\":0.00,\"UnitDescription\":\"\",\"FixedCharge\":0.00000,\"Consumption\":{\"BillingDemandMinimum\":0.00,\"ConsumptionTolerance\":0.00000,\"UseActualDays\":false,\"Reporting\":{\"IncludeUnits\":true,\"IncludeRevenue\":true},\"ExportDetail\":false,\"ApplyDiscountPercentage\":0,\"WinterNormalizationAdjustment\":{\"Type\":0,\"TypeDetail\":0},\"CustomerChoice\":0,\"OldestEstimateUpdateDate\":\"1900-01-01\"},\"RevenueAccount\":{\"Index\":515,\"Number\":\"900-4611-00\",\"Description\":\"Metered Sales to Residential - Electric\"},\"ReceivableAccount\":{\"Index\":506,\"Number\":\"900-1410-00\",\"Description\":\"Customer Accounts Receivable - Electric\"},\"DetailSequence\":[{\"DetailIndexSequence\":1,\"UnitRate\":0.53000,\"VolumeLowerLimit\":0,\"VolumeUpperLimit\":999999999,\"VolumeLowerLimitString\":\"\",\"VolumeUpperLimitString\":\"\"}],\"MeterSizeMinimum\":[],\"AutomaticEstimates\":null}]},\"Messages\":[]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		String result = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(result.replace("\"MeterSizeMinimum\":null", "\"MeterSizeMinimum\":[]"), expected);
+		Assert.assertEquals(result.replace("\"MeterSizeMinimum\":null", "\"MeterSizeMinimum\":[]")
+				.replaceAll(",\"CreatedDateTime\":\"[^\"]*\",\"UserId\":\"[^\"]*\"", ""), expected);
 
 	}
 
@@ -88,7 +91,8 @@ public class Private_rateController_Test extends BaseClass {
 		String expected = "{\"Rate\":{\"Success\":true,\"Data\":{\"RateId\":\"INTERNETFIX\",\"Description\":\"\",\"Type\":{\"Id\":0,\"Description\":\"\"},\"ServiceType\":\"INTERNET\",\"RateClassId\":\"\",\"BillingMessageExist\":false,\"Active\":true,\"UseLatestRateEffectivePeriod\":false,\"ConsecutiveEstimatesAllowed\":0,\"BillInAdvance\":false,\"LookupVisible\":false,\"SpecialCondition\":false,\"TimeOfUse\":false,\"ExcludeFromBd\":false,\"RatchetDemand\":false,\"KvarFactor\":0.00000,\"RateInUse\":true,\"EffectiveDate\":[{\"EffectiveStartDate\":\"2019-06-01\",\"MinimumAmount\":0.00,\"MaximumAmount\":0.00,\"ProrateMinimum\":{\"First\":false,\"Regular\":false,\"Last\":false},\"ProrateMaximum\":{\"First\":false,\"Regular\":false,\"Last\":false}}],\"Detail\":[{\"DetailIndex\":1,\"Detail\":{\"Type\":1,\"Description\":\"Fixed Charge\"},\"EffectiveStartDate\":\"2019-06-01\",\"EffectiveEndDate\":\"1900-01-01\",\"DetailDescription\":\"\",\"TaxSchedule\":\"USAUSSTCITY+6*\",\"ServiceType\":\"INTERNET\",\"BillingFrequency\":30,\"ProrateDetail\":{\"First\":false,\"Regular\":false,\"Last\":false},\"ProrateMinimum\":{\"First\":false,\"Regular\":false,\"Last\":false},\"MinimumCharge\":0.00,\"UnitDescription\":\"\",\"FixedCharge\":10.00000,\"Consumption\":{\"BillingDemandMinimum\":0.00,\"ConsumptionTolerance\":0.00000,\"UseActualDays\":false,\"Reporting\":{\"IncludeUnits\":false,\"IncludeRevenue\":false},\"ExportDetail\":false,\"ApplyDiscountPercentage\":0,\"WinterNormalizationAdjustment\":{\"Type\":0,\"TypeDetail\":0},\"CustomerChoice\":0,\"OldestEstimateUpdateDate\":\"1900-01-01\"},\"RevenueAccount\":{\"Index\":624,\"Number\":\"900-4616-00\",\"Description\":\"Internet Service\"},\"ReceivableAccount\":{\"Index\":623,\"Number\":\"900-1414-00\",\"Description\":\"Customer Account Receivable-Internet service\"},\"DetailSequence\":null,\"MeterSizeMinimum\":[],\"AutomaticEstimates\":null}]},\"Messages\":[]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		String result = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(result.replace("\"MeterSizeMinimum\":null", "\"MeterSizeMinimum\":[]"), expected);
+		Assert.assertEquals(result.replace("\"MeterSizeMinimum\":null", "\"MeterSizeMinimum\":[]")
+				.replaceAll(",\"CreatedDateTime\":\"[^\"]*\",\"UserId\":\"[^\"]*\"", ""), expected);
 
 	}
 
@@ -901,7 +905,8 @@ public class Private_rateController_Test extends BaseClass {
 		HashMap<String, String> params = new HashMap<String, String>();
 		// params.put("RateId", "ELECTRATE");
 		String result = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(result.replace("\"MeterSizeMinimum\":null", "\"MeterSizeMinimum\":[]"), expected);
+		Assert.assertEquals(result.replace("\"MeterSizeMinimum\":null", "\"MeterSizeMinimum\":[]")
+				.replaceAll(",\"CreatedDateTime\":\"[^\"]*\",\"UserId\":\"[^\"]*\"", ""), expected);
 
 	}
 
@@ -1295,7 +1300,7 @@ public class Private_rateController_Test extends BaseClass {
 
 		String uri = "/rate/generateRateMeterSizeReport/INVALIDRATE/3";
 		String ver = "4.0";
-		String expected = "{\"result\":{\"Success\":false,\"Message\":\"Not Found\"}}";
+		String expected = "{\"RateMeterSize\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Rate INVALIDRATE does not exist.\",\"Level\":3}]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		String result = CommonMethods.getMethodasString(uri, ver, params);
 		Assert.assertEquals(result, expected);
@@ -1338,17 +1343,15 @@ public class Private_rateController_Test extends BaseClass {
 		Assert.assertEquals(result, expected);
 	}
 
-	// Generate Rate Flip report metadata for an existing rate class.
-	// NOTE: in the current QA database the 'RateFlipReport' row in
-	// csmApi_ReportHeader is not seeded, so the endpoint returns Not Found
-	// (same data gap as getGenerateRateMeterSizeReport). Once the report
-	// header is seeded this should return the ReportList success payload.
+	// Generate Rate Flip report metadata for an existing rate class. The report
+	// header ('RateFlipReport' in csmApi_ReportHeader) is seeded in the current
+	// backup, so the endpoint returns the ReportList success payload.
 	@Test(priority = 65, groups = "rate")
 	public void getGenerateRateFlipReport_v4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/rate/generateRateFlipReport/ELECTRATE";
 		String ver = "4.0";
-		String expected = "{\"result\":{\"Success\":false,\"Message\":\"Not Found\"}}";
+		String expected = "{\"RateFlipReport\":{\"Success\":true,\"Data\":{\"ReportList\":[{\"Name\":\"RateFlipReport\",\"DisplayName\":\"Rate Flip Report\",\"PrintOrder\":1}]},\"Messages\":[]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		String result = CommonMethods.getMethodasString(uri, ver, params);
 		System.out.println(result);
@@ -1361,7 +1364,7 @@ public class Private_rateController_Test extends BaseClass {
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/rate/generateRateFlipReport/INVALIDRATE";
 		String ver = "4.0";
-		String expected = "{\"result\":{\"Success\":false,\"Message\":\"Not Found\"}}";
+		String expected = "{\"RateFlipReport\":{\"Success\":false,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Invalid Rate Class Id INVALIDRATE.\",\"Level\":3}]}}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		String result = CommonMethods.getMethodasString(uri, ver, params);
 		System.out.println(result);
