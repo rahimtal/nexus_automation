@@ -62,10 +62,12 @@ public class CommonMethods {
 	
 	// Token caching variables
 	private static String cachedToken = null;
+	private static String cachedRefreshToken = null;
 	private static long tokenExpirationTime = 0;
-	private static final long TOKEN_BUFFER = 30000; // 30 second buffer before expiration
+	private static final long TOKEN_BUFFER = 120000; // renew 2 min before expiry (API rejects tokens early)
 	private static final int MAX_RETRY_ATTEMPTS = 2; // Retry once on auth failure
 	private static final long RETRY_DELAY_MS = 1000; // 1 second delay before retry
+	private static final long DEFAULT_TOKEN_TTL_MS = 300000; // fallback when expires_in is missing
 	
 	public static String urlv1 = Read.ReadFile("urlv1");
 	public static String urlv2 = Read.ReadFile("urlv2");
@@ -110,13 +112,40 @@ public class CommonMethods {
 		}
 	}
 
-	public static String getToken() {
+	public static synchronized String getToken() {
 
 		// Check if cached token is still valid
 		long currentTime = System.currentTimeMillis();
 		if (cachedToken != null && currentTime < (tokenExpirationTime - TOKEN_BUFFER)) {
 			System.out.println("✅ Using cached token (valid for " + ((tokenExpirationTime - currentTime) / 1000) + " seconds)");
 			return cachedToken;
+		}
+
+		ReadProjectProperties readProps = new ReadProjectProperties();
+		String PKCE = readProps.ReadFile("PKCE");
+		boolean isPkce = PKCE != null && PKCE.equalsIgnoreCase("true");
+
+		// Fast path: renew the expired access token with the stored refresh token
+		// (single POST) instead of repeating the full 3-step interactive PKCE login.
+		if (isPkce && cachedRefreshToken != null && !cachedRefreshToken.isEmpty()) {
+			String kcBase = keycloakurl + "/realms/nexus";
+			String clientId = "nexus-portal";
+			Map<String, Object> refreshCtx = KeycloakStep1And2And3WithCookies.refreshToken(kcBase, clientId,
+					cachedRefreshToken);
+			String refreshedToken = (String) refreshCtx.getOrDefault("access_token", "");
+			if (refreshedToken != null && !refreshedToken.isEmpty()) {
+				cachedToken = refreshedToken;
+				String newRefresh = (String) refreshCtx.getOrDefault("refresh_token", null);
+				if (newRefresh != null && !newRefresh.isEmpty()) {
+					cachedRefreshToken = newRefresh;
+				}
+				long expMs = parseExpiresInMs(refreshCtx.get("expires_in"), DEFAULT_TOKEN_TTL_MS);
+				tokenExpirationTime = System.currentTimeMillis() + expMs;
+				System.out.println("✅ Token renewed via refresh grant, expires in " + expMs / 1000 + " seconds");
+				return cachedToken;
+			}
+			System.out.println("⚠️ Refresh grant failed - performing full PKCE login.");
+			cachedRefreshToken = null;
 		}
 
 		String auth_token = null;
@@ -128,9 +157,6 @@ public class CommonMethods {
 		}
 
 		java.util.Properties properties = new java.util.Properties();
-
-		ReadProjectProperties readProps = new ReadProjectProperties();
-		String PKCE = readProps.ReadFile("PKCE");
 
 		if (PKCE == "true" || PKCE.equalsIgnoreCase("true")) {
 			// Use KeycloakStep1And2And3WithCookies for PKCE flow
@@ -188,10 +214,13 @@ public class CommonMethods {
 				Assert.fail("Authorization failed/Invalid Token/Check User Name");
 			}
 			
-			// Cache the token with expiration time (300 seconds = 5 minutes)
+			// Cache the token using the real lifetime (expires_in) from Keycloak,
+			// and keep the refresh token for cheap non-interactive renewals.
 			cachedToken = auth_token;
-			tokenExpirationTime = System.currentTimeMillis() + 300000;
-			System.out.println("✅ Token cached, expires in 300 seconds");
+			cachedRefreshToken = (String) tokenContext.getOrDefault("refresh_token", null);
+			long expMs = parseExpiresInMs(tokenContext.get("expires_in"), DEFAULT_TOKEN_TTL_MS);
+			tokenExpirationTime = System.currentTimeMillis() + expMs;
+			System.out.println("✅ Token cached, expires in " + expMs / 1000 + " seconds");
 
 		} else {
 
@@ -231,6 +260,27 @@ public class CommonMethods {
 		System.out.println("🔄 Forcing token refresh...");
 		cachedToken = null;
 		tokenExpirationTime = 0;
+		// Intentionally keep cachedRefreshToken so the next getToken() renews via
+		// the fast (single POST) refresh grant instead of repeating the full
+		// interactive PKCE login. getToken() clears it and falls back to a full
+		// login only if the refresh grant itself fails.
+	}
+
+	/**
+	 * Parse a Keycloak expires_in value (seconds) into milliseconds, falling back
+	 * to a default when the value is missing or unparseable.
+	 */
+	private static long parseExpiresInMs(Object expiresIn, long defaultMs) {
+		try {
+			if (expiresIn != null) {
+				long seconds = Long.parseLong(String.valueOf(expiresIn).trim());
+				if (seconds > 0) {
+					return seconds * 1000L;
+				}
+			}
+		} catch (NumberFormatException ignored) {
+		}
+		return defaultMs;
 	}
 
 	/**

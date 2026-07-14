@@ -189,6 +189,8 @@ public class KeycloakStep1And2And3WithCookies {
             try {
                 context.put("access_token", response.jsonPath().getString("access_token"));
                 context.put("refresh_token", response.jsonPath().getString("refresh_token"));
+                context.put("expires_in", response.jsonPath().getString("expires_in"));
+                context.put("refresh_expires_in", response.jsonPath().getString("refresh_expires_in"));
             } catch (Exception e) {
                 System.out.println("❌ Failed to parse token response: " + e.getMessage());
                 context.put("access_token", "");
@@ -208,6 +210,43 @@ public class KeycloakStep1And2And3WithCookies {
             }
         }
 
+        return context;
+    }
+
+    // ================= Refresh Token Grant =================
+    // Fast, non-interactive renewal of the access token using a stored refresh
+    // token. Avoids repeating the full 3-step interactive PKCE login on every
+    // token expiry during a long test run.
+    public static Map<String, Object> refreshToken(String kcBase, String clientId, String refreshToken) {
+        Map<String, Object> context = new HashMap<>();
+        String tokenUrl = kcBase + "/protocol/openid-connect/token";
+
+        Response response = RestAssured
+                .given()
+                .header("User-Agent", "Mozilla/5.0")
+                .header("Content-Type", "application/x-www-form-urlencoded")
+                .formParam("grant_type", "refresh_token")
+                .formParam("client_id", clientId)
+                .formParam("refresh_token", refreshToken)
+                .when()
+                .post(tokenUrl);
+
+        int status = response.statusCode();
+        System.out.println("Refresh Token Status Code: " + status);
+
+        if (status == 200) {
+            try {
+                context.put("access_token", response.jsonPath().getString("access_token"));
+                context.put("refresh_token", response.jsonPath().getString("refresh_token"));
+                context.put("expires_in", response.jsonPath().getString("expires_in"));
+            } catch (Exception e) {
+                System.out.println("❌ Failed to parse refresh response: " + e.getMessage());
+                context.put("access_token", "");
+            }
+        } else {
+            context.put("access_token", "");
+            System.out.println("❌ Refresh token grant failed with status " + status + " - will re-login.");
+        }
         return context;
     }
 
