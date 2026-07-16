@@ -76,6 +76,20 @@ public class JsonComparator {
     }
 
     /**
+     * Compare JSON while ignoring common user identity fields that vary by environment.
+     */
+    public static void assertEqualsIgnoreUserIdentity(String actual, String expected) {
+        assertEquals(actual, expected,
+                "UserId",
+                "UserID",
+                "UserName",
+                "PrepUserId",
+                "EditListUserId",
+                "PrintUserId",
+                "PostUserId");
+    }
+
+    /**
      * Strip specified fields from JSON tree recursively
      */
     private static JsonNode stripFields(JsonNode node, String... fields) {
