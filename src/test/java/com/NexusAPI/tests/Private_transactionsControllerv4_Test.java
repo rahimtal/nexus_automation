@@ -212,4 +212,73 @@ public class Private_transactionsControllerv4_Test  extends BaseClass{
 		System.out.println(result);
 	}
 
+	// -----------------------------------------------------------------------
+	// Performance improvement (stored procedures): new optional query parameter
+	// IncludeDrillback on transactionsController.getTransactionsByLocation
+	// (/transactions/getTransactions). Defaults to existing behavior, so the
+	// parameter must be non-breaking.
+	// -----------------------------------------------------------------------
+
+	// IncludeDrillback=true -> drillback links are generated (response contains a
+	// cogsDrillback link).
+	@Test(priority = 30, groups = "Transaction")
+	public void getTransactionsIncludeDrillbackTruev4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/transactions/getTransactions";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("LocationId", "ELECWAT002");
+		params.put("CustomerId", "CUSTOMER015");
+		params.put("StartDate", "2000-01-05");
+		params.put("EndDate", "1900-01-01");
+		params.put("CSM", "true");
+		params.put("Payment", "true");
+		params.put("History", "true");
+		params.put("MeterReads", "true");
+		params.put("MiscCharges", "true");
+		params.put("Work", "true");
+		params.put("Open", "true");
+		params.put("Electric", "true");
+		params.put("Water", "true");
+		params.put("IncludeDrillback", "true");
+
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertTrue(actual.contains("\"result\""));
+		Assert.assertTrue(actual.contains("\"DrillbackLink\":\"cogsDrillback"),
+				"Expected drillback links to be generated when IncludeDrillback=true. Actual: " + actual);
+	}
+
+	// IncludeDrillback=false (default behavior) -> drillback links are NOT
+	// generated (backward compatible), so DrillbackLink is empty.
+	@Test(priority = 31, groups = "Transaction")
+	public void getTransactionsIncludeDrillbackFalsev4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/transactions/getTransactions";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("LocationId", "ELECWAT002");
+		params.put("CustomerId", "CUSTOMER015");
+		params.put("StartDate", "2000-01-05");
+		params.put("EndDate", "1900-01-01");
+		params.put("CSM", "true");
+		params.put("Payment", "true");
+		params.put("History", "true");
+		params.put("MeterReads", "true");
+		params.put("MiscCharges", "true");
+		params.put("Work", "true");
+		params.put("Open", "true");
+		params.put("Electric", "true");
+		params.put("Water", "true");
+		params.put("IncludeDrillback", "false");
+
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertTrue(actual.contains("\"result\""));
+		Assert.assertFalse(actual.contains("cogsDrillback"),
+				"Expected no drillback links when IncludeDrillback=false. Actual: " + actual);
+	}
+
 }

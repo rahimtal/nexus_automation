@@ -37,4 +37,47 @@ public class Public_Test_customerControllerV4  extends BaseClass{
 
 	}
 
+	// -----------------------------------------------------------------------
+	// Performance improvement (stored procedures): new optional query parameter
+	// IncludeDrillback on customerController.getCustomerBillingOptions
+	// (/customers/{CustomerId}/billingoptions). Defaults to existing behavior,
+	// so the parameter must be non-breaking.
+	// -----------------------------------------------------------------------
+
+	// IncludeDrillback=true -> drillback links are generated for the billing
+	// options (response contains a cogsDrillback link).
+	@Test(priority = 10, groups = "CustomerController")
+	public void getCustomerBillingOptionsIncludeDrillbackTruev4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/customers/500001/billingoptions";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("IncludeDrillback", "true");
+
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertTrue(actual.contains("\"Success\":true"));
+		Assert.assertTrue(actual.contains("cogsDrillback"),
+				"Expected drillback links to be generated when IncludeDrillback=true. Actual: " + actual);
+	}
+
+	// IncludeDrillback=false (default behavior) -> drillback links are NOT
+	// generated (backward compatible), so the Drillback fields are empty.
+	@Test(priority = 11, groups = "CustomerController")
+	public void getCustomerBillingOptionsIncludeDrillbackFalsev4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/customers/500001/billingoptions";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("IncludeDrillback", "false");
+
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertTrue(actual.contains("\"Success\":true"));
+		Assert.assertFalse(actual.contains("cogsDrillback"),
+				"Expected no drillback links when IncludeDrillback=false. Actual: " + actual);
+	}
+
 }

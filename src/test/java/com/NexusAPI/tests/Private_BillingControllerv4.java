@@ -1303,4 +1303,103 @@ public class Private_BillingControllerv4 extends BaseClass {
 
 	}
 
+	// ---------------------------------------------------------------------------
+	// Performance improvement (stored procedures): new optional query parameters.
+	// These default to existing behavior, so they must be non-breaking.
+	// billingController endpoints affected:
+	// getBillingAccountAttributes -> IncludeDrillback
+	// getBillingStatements -> StatementMonths
+	// ---------------------------------------------------------------------------
+
+	// GET Billing Account Attributes with IncludeDrillback=true -> drillback links
+	// are generated (response contains a cogsDrillback link).
+	@Test(priority = 39, groups = "billing")
+	public void getBillingAccountAttributesIncludeDrillbackTruev4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/billingAccountAttributes/MASTER001/LOCATION004";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("IncludeDrillback", "true");
+
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertTrue(actual.contains("\"BillingAccountAttributes\""),
+				"Expected a BillingAccountAttributes response. Actual: " + actual);
+		Assert.assertTrue(actual.contains("\"DrillbackLink\":\"cogsDrillback"),
+				"Expected drillback links to be generated when IncludeDrillback=true. Actual: " + actual);
+	}
+
+	// GET Billing Account Attributes with IncludeDrillback=false (default behavior)
+	// -> drillback links are NOT generated (backward compatible).
+	@Test(priority = 40, groups = "billing")
+	public void getBillingAccountAttributesIncludeDrillbackFalsev4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/billingAccountAttributes/MASTER001/LOCATION004";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("IncludeDrillback", "false");
+
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertTrue(actual.contains("\"BillingAccountAttributes\""),
+				"Expected a BillingAccountAttributes response. Actual: " + actual);
+		Assert.assertFalse(actual.contains("cogsDrillback"),
+				"Expected no drillback links when IncludeDrillback=false. Actual: " + actual);
+	}
+
+	// GET Billing Account Attributes without IncludeDrillback -> default (no
+	// drillback), proving the new parameter does not change existing behavior.
+	@Test(priority = 41, groups = "billing")
+	public void getBillingAccountAttributesDefaultv4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/billingAccountAttributes/MASTER001/LOCATION004";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertTrue(actual.contains("\"BillingAccountAttributes\""),
+				"Expected a BillingAccountAttributes response. Actual: " + actual);
+		Assert.assertFalse(actual.contains("cogsDrillback"),
+				"Expected default behavior (no drillback) when IncludeDrillback is omitted. Actual: " + actual);
+	}
+
+	// GET Billing Statements with StatementMonths -> limits statements to the
+	// requested number of months while still returning successfully.
+	@Test(priority = 42, groups = "billing")
+	public void getBillingStatementsStatementMonthsv4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/billing/statements/CUSTOMER010/ELECWAT003";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("StatementMonths", "12");
+
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertTrue(actual.contains("\"Statements\""));
+		Assert.assertTrue(actual.contains("\"Success\":true"),
+				"Expected successful response when StatementMonths is supplied. Actual: " + actual);
+	}
+
+	// GET Billing Statements without StatementMonths -> default behavior is
+	// preserved (backward compatible), returning a successful response.
+	@Test(priority = 43, groups = "billing")
+	public void getBillingStatementsDefaultv4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/billing/statements/CUSTOMER010/ELECWAT003";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertTrue(actual.contains("\"Statements\""));
+		Assert.assertTrue(actual.contains("\"Success\":true"),
+				"Expected successful default response when StatementMonths is omitted. Actual: " + actual);
+	}
+
 }
