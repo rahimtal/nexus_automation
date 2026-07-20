@@ -436,6 +436,8 @@ public class CommonMethods {
 	public static String postMethodResponseAsString(String payload, String uri, String version)
 			throws InterruptedException {
 
+		System.out.println("DEBUG: Payload = " + payload);
+
 		String baseUri = resolveBaseUri(version);
 		if (baseUri == null) {
 			Assert.fail("Invalid version: " + version);

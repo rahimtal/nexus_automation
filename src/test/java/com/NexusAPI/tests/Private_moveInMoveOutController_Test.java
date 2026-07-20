@@ -24,6 +24,7 @@ public class Private_moveInMoveOutController_Test  extends BaseClass {
 	@Test(priority = 1, groups = "moveInMoveOutController")
 	public void postTransferv4() throws ClassNotFoundException, SQLException, InterruptedException {
 //CommonMethods.Bug("CPDEV-26488");
+CommonMethods.Bug("CPDEV-27114");
 		String uri = "/transfer";
 		String ver = "4.0";
 		String payload = " {\r\n"
