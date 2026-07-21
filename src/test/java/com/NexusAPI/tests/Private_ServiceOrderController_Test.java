@@ -53,7 +53,7 @@ public class Private_ServiceOrderController_Test  extends BaseClass{
 		// 'ANSI_NULLS, QUOTED_IDENTIFIER'". Service order DELETE is broken at the SQL level
 		// on the TWO baseline (same root cause as csmApi_spSOTransferWrapper / postTransferv4).
 		// The create-then-delete flow below is correct and will pass once the DB defect is fixed.
-		CommonMethods.Bug("csmApi_spServiceOrderDelete SET ANSI_NULLS/QUOTED_IDENTIFIER - service order DELETE broken");
+		CommonMethods.Bug("CPDEV-27123 - csmApi_spServiceOrderDelete SET ANSI_NULLS/QUOTED_IDENTIFIER - service order DELETE broken");
 		// Self-contained: create a fresh service order then delete it (happy path).
 		String sord = createDeletableServiceOrder();
 		String ver = "4.0";
@@ -116,7 +116,7 @@ public class Private_ServiceOrderController_Test  extends BaseClass{
 		// 'ANSI_NULLS, QUOTED_IDENTIFIER'". Service order DELETE is broken at the SQL level
 		// on the TWO baseline (same root cause as csmApi_spSOTransferWrapper / postTransferv4).
 		// The create-then-delete flow below is correct and will pass once the DB defect is fixed.
-		CommonMethods.Bug("csmApi_spServiceOrderDelete SET ANSI_NULLS/QUOTED_IDENTIFIER - service order DELETE broken");
+		CommonMethods.Bug("CPDEV-27123 - csmApi_spServiceOrderDelete SET ANSI_NULLS/QUOTED_IDENTIFIER - service order DELETE broken");
 		// Self-contained: create a fresh service order then delete it (happy path).
 		String sord = createDeletableServiceOrder();
 		String ver = "4.0";

@@ -21,6 +21,10 @@ public class Private_transactionsControllerv3_Test  extends BaseClass{
 	@Test(priority = 1, groups = "Transaction" )
 	public void getTransactions_v_3() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
+		// Backend/v3 regression: getTransactions v3 returns {"result":[]} for MASTER001/LOCATION002
+		// even though the baseline has 1998-2000 payment history (the v4 endpoint returns it correctly).
+		CommonMethods.Bug("CPDEV-27133 - transactions v3 getTransactions returns empty result for customer with history");
+
 		String uri = "/transactions/getTransactions";
 		String ver = "3.0";
 

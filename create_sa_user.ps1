@@ -72,3 +72,31 @@ try {
         throw
     }
 }
+
+# Authorization in the 'nexus' realm is driven by GROUP membership, not roles.
+# 'sa' must join the same groups as 'cogsuser' ("Nexus All Roles" and
+# "Keycloak Admin") or the API returns {"message":"Forbidden: insufficient role"}.
+Write-Host "Resolving user id for 'sa'..."
+$saUser = (Invoke-WebRequest -Uri "$keycloakUrl/admin/realms/$realm/users?username=sa&exact=true" `
+  -Headers @{"Authorization"="Bearer $token"} -UseBasicParsing).Content | ConvertFrom-Json
+$saUserId = $saUser[0].id
+Write-Host "sa user id: $saUserId"
+
+$requiredGroups = @("Nexus All Roles", "Keycloak Admin")
+foreach ($groupName in $requiredGroups) {
+    $encoded = [System.Uri]::EscapeDataString($groupName)
+    $group = (Invoke-WebRequest -Uri "$keycloakUrl/admin/realms/$realm/groups?search=$encoded" `
+      -Headers @{"Authorization"="Bearer $token"} -UseBasicParsing).Content | ConvertFrom-Json
+    $match = $group | Where-Object { $_.name -eq $groupName } | Select-Object -First 1
+    if ($null -eq $match) {
+        Write-Host "WARNING: group '$groupName' not found in realm '$realm'. Skipping."
+        continue
+    }
+    Invoke-WebRequest -Uri "$keycloakUrl/admin/realms/$realm/users/$saUserId/groups/$($match.id)" `
+      -Method Put `
+      -Headers @{"Authorization"="Bearer $token"} `
+      -UseBasicParsing | Out-Null
+    Write-Host "Added 'sa' to group '$groupName'."
+}
+Write-Host "Group membership configured for 'sa'."
+

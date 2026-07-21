@@ -32,8 +32,11 @@ public class Private_CollectionControllerv4_Test  extends BaseClass {
 
 	@Test(priority = 3, groups = "Collection" )
 	public void getcollectionv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-	//	CommonMethods.Bug("CPDEV-26420");
-		
+		// Backend defect: /collection/generate reports "Collection Notices Calculated." (success) but
+		// GET /collection returns empty NoticesDisplay/Notices. Confirmed not auth/user related
+		// (reproduces with authorized sa user). Notices are generated but not returned by the read endpoint.
+		CommonMethods.Bug("CPDEV-27128 - GET /collection returns empty notices after successful generate");
+
 		String uri = "/collection";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\getcollectionv4.json";
