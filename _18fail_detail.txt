@@ -1,0 +1,1350 @@
+=== Private_MiscellaneousChargeControllerV4_Test :: miscellaneousChargepostv4 ===
+[java.lang.AssertionError]
+expected [{"MiscellaneousCharge":{"Success":true,"Data":{"UserId":"cogsuser","VersionNumber":"1.0.0","PostDate":"2022-09-30","BatchId":"NADMC2022093001","MiscCharge":{"Document":[{"DocType":"MISC","DocumentNumber":"MISC00000000351","CustomerId":"03332301204","LocationId":"SPALOCATION1","DocumentDate":"2022-09-30","TransactionAmount":10.00,"TaxAmount":0.00,"TotalChargeAmount":10.00,"ServiceType":"WATER","OutstandingAmount":10.00,"MiscChargeType":"SERVICE WATER","TransactionDescription":"Charge for water service","TaxSchedule":"EXEMPT"}]},"MiscChargeDistribution":{"DocumentDistribution":[{"DocType":"MISC","DocumentNumber":"MISC00000000351","DistributionType":9,"DistributionIndex":401,"OriginalDebitAmount":0.00,"OriginalCreditAmount":10.00},{"DocType":"MISC","DocumentNumber":"MISC00000000351","DistributionType":3,"DistributionIndex":508,"OriginalDebitAmount":10.00,"OriginalCreditAmount":0.00}]},"Payment":null,"PaymentDistribution":null,"Bill":null,"BillDistribution":null,"HasPostingError":false,"HasPostingReport":true,"Document":[{"DocumentNumber":"MISC00000000351"}],"ApplyDocument":[],"PostedDistribution":[{"DocumentNumber":"MISC00000000351","LineSequence":1,"DistributionIndex":401,"TransactionAmount":10.00,"LocationId":""},{"DocumentNumber":"MISC00000000351","LineSequence":2,"DistributionIndex":508,"TransactionAmount":-10.00,"LocationId":""}],"ReportList":[{"Name":"Post Misc Charge Edit List","PrintOrder":1,"DisplayName":"Post Misc Charge Edit List","PrintEnabled":true},{"Name":"Post Misc Charge Dist Breakdown Summary","PrintOrder":2,"DisplayName":"Post Misc Charge Dist Breakdown Summary","PrintEnabled":true},{"Name":"Post Misc Charge Payment Dist Breakdown Detail","PrintOrder":3,"DisplayName":"Post Misc Charge Payment Dist Breakdown Detail","PrintEnabled":false},{"Name":"Post Misc Charge Payment Dist Breakdown Summary","PrintOrder":4,"DisplayName":"Post Misc Charge Payment Dist Breakdown Summary","PrintEnabled":false}],"ReportErrorList":[{"Name":"Post Misc Charge Error List","PrintOrder":1,"DisplayName":"Post Misc Charge Error List","PrintEnabled":true}]},"Messages":[]}}] but found [{"message":"Forbidden: insufficient role"}]
+AT: at com.NexusAPI.Tests.Private_MiscellaneousChargeControllerV4_Test.miscellaneousChargepostv4(Private_MiscellaneousChargeControllerV4_Test.java:98)
+
+=== Private_MiscellaneousChargeControllerV4_Test :: miscellaneousChargepostv4err ===
+[java.lang.AssertionError]
+expected [{"MiscellaneousCharge":{"Success":false,"Data":{"UserId":"","VersionNumber":"1.0.0","PostDate":"2022-09-30","BatchId":"NADMC2022093001","MiscCharge":{"Document":null},"MiscChargeDistribution":{"DocumentDistribution":[{"DocType":"MISC","DocumentNumber":"MISC00000000351","DistributionType":9,"DistributionIndex":401,"OriginalDebitAmount":0.00,"OriginalCreditAmount":10.00},{"DocType":"MISC","DocumentNumber":"MISC00000000351","DistributionType":3,"DistributionIndex":508,"OriginalDebitAmount":10.00,"OriginalCreditAmount":0.00}]},"Payment":null,"PaymentDistribution":null,"Bill":null,"BillDistribution":null,"HasPostingError":false,"HasPostingReport":true,"Document":[{"DocumentNumber":"MISC00000000351"}],"ApplyDocument":[],"PostedDistribution":[],"ReportList":[{"Name":"Post Misc Charge Edit List","PrintOrder":1,"DisplayName":"Post Misc Charge Edit List","PrintEnabled":true},{"Name":"Post Misc Charge Dist Breakdown Summary","PrintOrder":2,"DisplayName":"Post Misc Charge Dist Breakdown Summary","PrintEnabled":true},{"Name":"Post Misc Charge Payment Dist Breakdown Detail","PrintOrder":3,"DisplayName":"Post Misc Charge Payment Dist Breakdown Detail","PrintEnabled":false},{"Name":"Post Misc Charge Payment Dist Breakdown Summary","PrintOrder":4,"DisplayName":"Post Misc Charge Payment Dist Breakdown Summary","PrintEnabled":false}],"ReportErrorList":[{"Name":"Post Misc Charge Error List","PrintOrder":1,"DisplayName":"Post Misc Charge Error List","PrintEnabled":true}]},"Messages":[{"Enabled":1,"Info":"csmApi_spCsmPostToGL - No distribution found in audit (UM40009) table","Level":2}]}}] but found [{"message":"Forbidden: insufficient role"}]
+AT: at com.NexusAPI.Tests.Private_MiscellaneousChargeControllerV4_Test.miscellaneousChargepostv4err(Private_MiscellaneousChargeControllerV4_Test.java:158)
+
+=== Private_MeterReadControllerV4_Test :: postMeterReadPostInvalidv4 ===
+[java.lang.NullPointerException]
+Cannot invoke "java.lang.Boolean.booleanValue()" because "Result" is null
+AT: at com.NexusAPI.Tests.Private_MeterReadControllerV4_Test.postMeterReadPostInvalidv4(Private_MeterReadControllerV4_Test.java:265)
+
+=== Private_CollectionControllerv4_Test :: postcollectionprocessv4 ===
+[java.lang.AssertionError]
+expected [{"Collection":{"Success":true,"Data":null,"Messages":[{"Enabled":1,"Info":"Collection Notices Processed.","Level":1}]}}] but found [{"message":"Forbidden: insufficient role"}]
+AT: at com.NexusAPI.Tests.Private_CollectionControllerv4_Test.postcollectionprocessv4(Private_CollectionControllerv4_Test.java:95)
+
+=== Private_CollectionControllerv4_Test :: confirmNoticev4 ===
+[java.lang.AssertionError]
+expected [{"Collection":{"Success":true,"Data":null,"Messages":[{"Enabled":1,"Info":"Collection Notices Processed.","Level":1}]}}] but found [{"message":"Forbidden: insufficient role"}]
+AT: at com.NexusAPI.Tests.Private_CollectionControllerv4_Test.confirmNoticev4(Private_CollectionControllerv4_Test.java:157)
+
+=== Private_PaymentControllerV4_Test :: postPaymentSimulatev4 ===
+[java.lang.AssertionError]
+expected [{"Payment":{"Success":true,"Data":{"LocationId":"000000000523000","CustomerId":"0012200","CreditNoteId":"RMGT-OTH-000002","TaxScheduleId":"ONT GST\/PST","Amount":5.00,"TotalTax":0.00,"TotalAmount":5.00,"UnappliedAmount":5.00,"DistributionDetail":[{"TypeId":3,"Type":"RECV","Description":"Accounts Receivable","Index":6,"Number":"000-1200-00","DebitAmount":0.00,"CreditAmount":5.00},{"TypeId":9,"Type":"SALES","Description":"Other Electric Revenues","Index":554,"Number":"900-4740-00","DebitAmount":5.00,"CreditAmount":0.00}],"DistributionTotal":{"DebitAmount":5.00,"CreditAmount":5.00},"DefaultDistributionDetail":[{"TypeId":3,"Type":"RECV","Description":"Accounts Receivable","Index":6,"Number":"000-1200-00","DebitAmount":0.00,"CreditAmount":5.00},{"TypeId":9,"Type":"SALES","Description":"Other Electric Revenues","Index":554,"Number":"900-4740-00","DebitAmount":5.00,"CreditAmount":0.00}],"TaxDetail":[],"Document":[]},"Messages":[]}}] but found [{"Payment":{"Success":true,"Data":{"LocationId":"000000000523000","CustomerId":"0012200","CreditNoteId":"RMGT-OTH-000002","TaxScheduleId":"ONT GST\/PST","Amount":5.00,"TotalTax":0.00,"TotalAmount":5.00,"UnappliedAmount":0.00,"DistributionDetail":[{"TypeId":3,"Type":"RECV","Description":"Accounts Receivable","Index":6,"Number":"000-1200-00","DebitAmount":0.00,"CreditAmount":5.00},{"TypeId":9,"Type":"SALES","Description":"Other Electric Revenues","Index":554,"Number":"900-4740-00","DebitAmount":5.00,"CreditAmount":0.00}],"DistributionTotal":{"DebitAmount":5.00,"CreditAmount":5.00},"DefaultDistributionDetail":[{"TypeId":3,"Type":"RECV","Description":"Accounts Receivable","Index":6,"Number":"000-1200-00","DebitAmount":0.00,"CreditAmount":5.00},{"TypeId":9,"Type":"SALES","Description":"Other Electric Revenues","Index":554,"Number":"900-4740-00","DebitAmount":5.00,"CreditAmount":0.00}],"TaxDetail":[],"Document":[{"Number":"BUDG00000002604","LocationId":"000000000523000","LocationAddress":"130 W SAMSULA DR","StatementNumber":0,"Type":[{"Id":7,"Description":"Budget Document"}],"ServiceType":[{"Id":"","Description":""}],"Date":"2000-05-22","DueDate":"2000-05-22","Amount":167.00,"OutstandingAmount":162.00,"ApplyAmount":5.00,"Sequence":1,"ReferenceDocumentNumber":"BUDG00000002600","ReferenceDocumentDate":"2000-01-01","ServiceCategory":[{"Id":0,"Description":"ALL"}],"Attribute":[{"ChargeType":"","ChargeDescription":"","PaymentOrigin":"","SupportAuthorization":0,"Service":[{"Category":0,"Description":"","Type":"","Amount":0.00,"OutstandingAmount":0.00,"ApplyAmount":0.00}]}]},{"Number":"BUDG00000002605","LocationId":"000000000523000","LocationAddress":"130 W SAMSULA DR","StatementNumber":0,"Type":[{"Id":7,"Description":"Budget Document"}],"ServiceType":[{"Id":"","Description":""}],"Date":"2000-06-21","DueDate":"2000-06-21","Amount":167.00,"OutstandingAmount":167.00,"ApplyAmount":0.00,"Sequence":2,"ReferenceDocumentNumber":"BUDG00000002600","ReferenceDocumentDate":"2000-01-01","ServiceCategory":[{"Id":0,"Description":"ALL"}],"Attribute":[{"ChargeType":"","ChargeDescription":"","PaymentOrigin":"","SupportAuthorization":0,"Service":[{"Category":0,"Description":"","Type":"","Amount":0.00,"OutstandingAmount":0.00,"ApplyAmount":0.00}]}]},{"Number":"BUDG00000002606","LocationId":"000000000523000","LocationAddress":"130 W SAMSULA DR","StatementNumber":0,"Type":[{"Id":7,"Description":"Budget Document"}],"ServiceType":[{"Id":"","Description":""}],"Date":"2000-07-21","DueDate":"2000-07-21","Amount":167.00,"OutstandingAmount":167.00,"ApplyAmount":0.00,"Sequence":3,"ReferenceDocumentNumber":"BUDG00000002600","ReferenceDocumentDate":"2000-01-01","ServiceCategory":[{"Id":0,"Description":"ALL"}],"Attribute":[{"ChargeType":"","ChargeDescription":"","PaymentOrigin":"","SupportAuthorization":0,"Service":[{"Category":0,"Description":"","Type":"","Amount":0.00,"OutstandingAmount":0.00,"ApplyAmount":0.00}]}]},{"Number":"BUDG00000002607","LocationId":"000000000523000","LocationAddress":"130 W SAMSULA DR","StatementNumber":0,"Type":[{"Id":7,"Description":"Budget Document"}],"ServiceType":[{"Id":"","Description":""}],"Date":"2000-08-21","DueDate":"2000-08-21","Amount":167.00,"OutstandingAmount":167.00,"ApplyAmount":0.00,"Sequence":4,"ReferenceDocumentNumber":"BUDG00000002600","ReferenceDocumentDate":"2000-01-01","ServiceCategory":[{"Id":0,"Description":"ALL"}],"Attribute":[{"ChargeType":"","ChargeDescription":"","PaymentOrigin":"","SupportAuthorization":0,"Service":[{"Category":0,"Description":"","Type":"","Amount":0.00,"OutstandingAmount":0.00,"ApplyAmount":0.00}]}]},{"Number":"BUDG00000002608","LocationId":"000000000523000","LocationAddress":"130 W SAMSULA DR","StatementNumber":0,"Type":[{"Id":7,"Description":"Budget Document"}],"ServiceType":[{"Id":"","Description":""}],"Date":"2000-09-21","DueDate":"2000-09-21","Amount":167.00,"OutstandingAmount":167.00,"ApplyAmount":0.00,"Sequence":5,"ReferenceDocumentNumber":"BUDG00000002600","ReferenceDocumentDate":"2000-01-01","ServiceCategory":[{"Id":0,"Description":"ALL"}],"Attribute":[{"ChargeType":"","ChargeDescription":"","PaymentOrigin":"","SupportAuthorization":0,"Service":[{"Category":0,"Description":"","Type":"","Amount":0.00,"OutstandingAmount":0.00,"ApplyAmount":0.00}]}]},{"Number":"BUDG00000002609","LocationId":"000000000523000","LocationAddress":"130 W SAMSULA DR","StatementNumber":0,"Type":[{"Id":7,"Description":"Budget Document"}],"ServiceType":[{"Id":"","Description":""}],"Date":"2000-10-23","DueDate":"2000-10-23","Amount":167.00,"OutstandingAmount":167.00,"ApplyAmount":0.00,"Sequence":6,"ReferenceDocumentNumber":"BUDG00000002600","ReferenceDocumentDate":"2000-01-01","ServiceCategory":[{"Id":0,"Description":"ALL"}],"Attribute":[{"ChargeType":"","ChargeDescription":"","PaymentOrigin":"","SupportAuthorization":0,"Service":[{"Category":0,"Description":"","Type":"","Amount":0.00,"OutstandingAmount":0.00,"ApplyAmount":0.00}]}]},{"Number":"BUDG00000002610","LocationId":"000000000523000","LocationAddress":"130 W SAMSULA DR","StatementNumber":0,"Type":[{"Id":7,"Description":"Budget Document"}],"ServiceType":[{"Id":"","Description":""}],"Date":"2000-11-21","DueDate":"2000-11-21","Amount":167.00,"OutstandingAmount":167.00,"ApplyAmount":0.00,"Sequence":7,"ReferenceDocumentNumber":"BUDG00000002600","ReferenceDocumentDate":"2000-01-01","ServiceCategory":[{"Id":0,"Description":"ALL"}],"Attribute":[{"ChargeType":"","ChargeDescription":"","PaymentOrigin":"","SupportAuthorization":0,"Service":[{"Category":0,"Description":"","Type":"","Amount":0.00,"OutstandingAmount":0.00,"ApplyAmount":0.00}]}]},{"Number":"BUDG00000002611","LocationId":"000000000523000","LocationAddress":"130 W SAMSULA DR","StatementNumber":0,"Type":[{"Id":7,"Description":"Budget Document"}],"ServiceType":[{"Id":"","Description":""}],"Date":"2000-12-21","DueDate":"2000-12-21","Amount":167.00,"OutstandingAmount":167.00,"ApplyAmount":0.00,"Sequence":8,"ReferenceDocumentNumber":"BUDG00000002600","ReferenceDocumentDate":"2000-01-01","ServiceCategory":[{"Id":0,"Description":"ALL"}],"Attribute":[{"ChargeType":"","ChargeDescription":"","PaymentOrigin":"","SupportAuthorization":0,"Service":[{"Category":0,"Description":"","Type":"","Amount":0.00,"OutstandingAmount":0.00,"ApplyAmount":0.00}]}]},{"Number":"BUDG00000002612","LocationId":"000000000523000","LocationAddress":"130 W SAMSULA DR","StatementNumber":0,"Type":[{"Id":7,"Description":"Budget Document"}],"ServiceType":[{"Id":"","Description":""}],"Date":"2001-01-21","DueDate":"2001-01-21","Amount":167.00,"OutstandingAmount":167.00,"ApplyAmount":0.00,"Sequence":9,"ReferenceDocumentNumber":"BUDG00000002600","ReferenceDocumentDate":"2000-01-01","ServiceCategory":[{"Id":0,"Description":"ALL"}],"Attribute":[{"ChargeType":"","ChargeDescription":"","PaymentOrigin":"","SupportAuthorization":0,"Service":[{"Category":0,"Description":"","Type":"","Amount":0.00,"OutstandingAmount":0.00,"ApplyAmount":0.00}]}]},{"Number":"BILL00000000582","LocationId":"000000000523000","LocationAddress":"130 W SAMSULA DR","StatementNumber":384,"Type":[{"Id":5,"Description":"Regular Bill"}],"ServiceType":[{"Id":"","Description":""}],"Date":"2019-09-01","DueDate":"2019-09-22","Amount":133.45,"OutstandingAmount":133.45,"ApplyAmount":0.00,"Sequence":10,"ReferenceDocumentNumber":"","ReferenceDocumentDate":"","ServiceCategory":[{"Id":0,"Description":"ALL"}],"Attribute":[{"ChargeType":"","ChargeDescription":"","PaymentOrigin":"","SupportAuthorization":0,"Service":[{"Category":2,"Description":"Water","Type":"IR","Amount":51.55,"OutstandingAmount":51.55,"ApplyAmount":0.00},{"Category":3,"Description":"Sewer","Type":"PC","Amount":37.20,"OutstandingAmount":37.20,"ApplyAmount":0.00},{"Category":2,"Description":"Water","Type":"WR","Amount":44.70,"OutstandingAmount":44.70,"ApplyAmount":0.00}]}]},{"Number":"BILL00000000583","LocationId":"000000000523000","LocationAddress":"130 W SAMSULA DR","StatementNumber":384,"Type":[{"Id":5,"Description":"Regular Bill"}],"ServiceType":[{"Id":"","Description":""}],"Date":"2019-09-01","DueDate":"2019-09-22","Amount":31.36,"OutstandingAmount":31.36,"ApplyAmount":0.00,"Sequence":11,"ReferenceDocumentNumber":"","ReferenceDocumentDate":"","ServiceCategory":[{"Id":1,"Description":"Electric"}],"Attribute":[{"ChargeType":"","ChargeDescription":"","PaymentOrigin":"","SupportAuthorization":0,"Service":[{"Category":1,"Description":"Electric","Type":"GC","Amount":14.79,"OutstandingAmount":14.79,"ApplyAmount":0.00},{"Category":1,"Description":"Electric","Type":"RE_FIX","Amount":5.65,"OutstandingAmount":5.65,"ApplyAmount":0.00},{"Category":1,"Description":"Electric","Type":"RE_MR","Amount":10.92,"OutstandingAmount":10.92,"ApplyAmount":0.00}]}]},{"Number":"MISC00000000305","LocationId":"000000000523000","LocationAddress":"130 W SAMSULA DR","StatementNumber":384,"Type":[{"Id":2,"Description":"Misc Charge"}],"ServiceType":[{"Id":"","Description":""}],"Date":"2000-04-20","DueDate":"2019-09-22","Amount":20.00,"OutstandingAmount":20.00,"ApplyAmount":0.00,"Sequence":12,"ReferenceDocumentNumber":"","ReferenceDocumentDate":"","ServiceCategory":[{"Id":0,"Description":""}],"Attribute":[{"ChargeType":"L K\/RECON WR","ChargeDescription":"FEE FOR WR METER REINSTALLATION","PaymentOrigin":"","SupportAuthorization":0,"Service":[{"Category":0,"Description":"","Type":"","Amount":0.00,"OutstandingAmount":20.00,"ApplyAmount":0.00}]}]},{"Number":"MISC00000000332","LocationId":"000000000523000","LocationAddress":"130 W SAMSULA DR","StatementNumber":384,"Type":[{"Id":2,"Description":"Misc Charge"}],"ServiceType":[{"Id":"","Description":""}],"Date":"2019-07-31","DueDate":"2019-09-22","Amount":500.00,"OutstandingAmount":500.00,"ApplyAmount":0.00,"Sequence":13,"ReferenceDocumentNumber":"","ReferenceDocumentDate":"","ServiceCategory":[{"Id":0,"Description":""}],"Attribute":[{"ChargeType":"CHEQUE","ChargeDescription":"Misc charge for printed cheque","PaymentOrigin":"","SupportAuthorization":0,"Service":[{"Category":0,"Description":"","Type":"","Amount":500.00,"OutstandingAmount":500.00,"ApplyAmount":0.00}]}]}]},"Messages":[]}}]
+AT: at com.NexusAPI.Tests.Private_PaymentControllerV4_Test.postPaymentSimulatev4(Private_PaymentControllerV4_Test.java:51)
+
+=== Private_PaymentControllerV4_Test :: postPaymentSimulateExt ===
+[java.lang.AssertionError]
+expected [{"Payment":{"Success":true,"Data":{"LocationId":"000000000523000","CustomerId":"0012200","CreditNoteId":"RMGT-OTH-000002","TaxScheduleId":"ONT GST\/PST","Amount":5.00,"TotalTax":0.00,"TotalAmount":5.00,"UnappliedAmount":5.00,"DistributionDetail":[{"TypeId":3,"Type":"RECV","Description":"Accounts Receivable","Index":6,"Number":"000-1200-00","DebitAmount":0.00,"CreditAmount":5.00},{"TypeId":9,"Type":"SALES","Description":"Other Electric Revenues","Index":554,"Number":"900-4740-00","DebitAmount":5.00,"CreditAmount":0.00}],"DistributionTotal":{"DebitAmount":5.00,"CreditAmount":5.00},"DefaultDistributionDetail":[{"TypeId":3,"Type":"RECV","Description":"Accounts Receivable","Index":6,"Number":"000-1200-00","DebitAmount":0.00,"CreditAmount":5.00},{"TypeId":9,"Type":"SALES","Description":"Other Electric Revenues","Index":554,"Number":"900-4740-00","DebitAmount":5.00,"CreditAmount":0.00}],"TaxDetail":[],"Document":[{"Number":"BUDG00000002604","LocationId":"000000000523000","LocationAddress":"130 W SAMSULA DR","StatementNumber":0,"Type":[{"Id":7,"Description":"Budget Document"}],"ServiceType":[{"Id":"","Description":""}],"Date":"2000-05-22","DueDate":"2000-05-22","Amount":167.00,"OutstandingAmount":167.00,"ApplyAmount":0.00,"Sequence":1,"ReferenceDocumentNumber":"BUDG00000002600","ReferenceDocumentDate":"2000-01-01","ServiceCategory":[{"Id":0,"Description":"ALL"}],"Attribute":[{"ChargeType":"","ChargeDescription":"","PaymentOrigin":"","SupportAuthorization":0,"Service":[{"Category":0,"Description":"","Type":"","Amount":0.00,"OutstandingAmount":0.00,"ApplyAmount":0.00}]}]},{"Number":"BUDG00000002605","LocationId":"000000000523000","LocationAddress":"130 W SAMSULA DR","StatementNumber":0,"Type":[{"Id":7,"Description":"Budget Document"}],"ServiceType":[{"Id":"","Description":""}],"Date":"2000-06-21","DueDate":"2000-06-21","Amount":167.00,"OutstandingAmount":167.00,"ApplyAmount":0.00,"Sequence":2,"ReferenceDocumentNumber":"BUDG00000002600","ReferenceDocumentDate":"2000-01-01","ServiceCategory":[{"Id":0,"Description":"ALL"}],"Attribute":[{"ChargeType":"","ChargeDescription":"","PaymentOrigin":"","SupportAuthorization":0,"Service":[{"Category":0,"Description":"","Type":"","Amount":0.00,"OutstandingAmount":0.00,"ApplyAmount":0.00}]}]},{"Number":"BUDG00000002606","LocationId":"000000000523000","LocationAddress":"130 W SAMSULA DR","StatementNumber":0,"Type":[{"Id":7,"Description":"Budget Document"}],"ServiceType":[{"Id":"","Description":""}],"Date":"2000-07-21","DueDate":"2000-07-21","Amount":167.00,"OutstandingAmount":167.00,"ApplyAmount":0.00,"Sequence":3,"ReferenceDocumentNumber":"BUDG00000002600","ReferenceDocumentDate":"2000-01-01","ServiceCategory":[{"Id":0,"Description":"ALL"}],"Attribute":[{"ChargeType":"","ChargeDescription":"","PaymentOrigin":"","SupportAuthorization":0,"Service":[{"Category":0,"Description":"","Type":"","Amount":0.00,"OutstandingAmount":0.00,"ApplyAmount":0.00}]}]},{"Number":"BUDG00000002607","LocationId":"000000000523000","LocationAddress":"130 W SAMSULA DR","StatementNumber":0,"Type":[{"Id":7,"Description":"Budget Document"}],"ServiceType":[{"Id":"","Description":""}],"Date":"2000-08-21","DueDate":"2000-08-21","Amount":167.00,"OutstandingAmount":167.00,"ApplyAmount":0.00,"Sequence":4,"ReferenceDocumentNumber":"BUDG00000002600","ReferenceDocumentDate":"2000-01-01","ServiceCategory":[{"Id":0,"Description":"ALL"}],"Attribute":[{"ChargeType":"","ChargeDescription":"","PaymentOrigin":"","SupportAuthorization":0,"Service":[{"Category":0,"Description":"","Type":"","Amount":0.00,"OutstandingAmount":0.00,"ApplyAmount":0.00}]}]},{"Number":"BUDG00000002608","LocationId":"000000000523000","LocationAddress":"130 W SAMSULA DR","StatementNumber":0,"Type":[{"Id":7,"Description":"Budget Document"}],"ServiceType":[{"Id":"","Description":""}],"Date":"2000-09-21","DueDate":"2000-09-21","Amount":167.00,"OutstandingAmount":167.00,"ApplyAmount":0.00,"Sequence":5,"ReferenceDocumentNumber":"BUDG00000002600","ReferenceDocumentDate":"2000-01-01","ServiceCategory":[{"Id":0,"Description":"ALL"}],"Attribute":[{"ChargeType":"","ChargeDescription":"","PaymentOrigin":"","SupportAuthorization":0,"Service":[{"Category":0,"Description":"","Type":"","Amount":0.00,"OutstandingAmount":0.00,"ApplyAmount":0.00}]}]},{"Number":"BUDG00000002609","LocationId":"000000000523000","LocationAddress":"130 W SAMSULA DR","StatementNumber":0,"Type":[{"Id":7,"Description":"Budget Document"}],"ServiceType":[{"Id":"","Description":""}],"Date":"2000-10-23","DueDate":"2000-10-23","Amount":167.00,"OutstandingAmount":167.00,"ApplyAmount":0.00,"Sequence":6,"ReferenceDocumentNumber":"BUDG00000002600","ReferenceDocumentDate":"2000-01-01","ServiceCategory":[{"Id":0,"Description":"ALL"}],"Attribute":[{"ChargeType":"","ChargeDescription":"","PaymentOrigin":"","SupportAuthorization":0,"Service":[{"Category":0,"Description":"","Type":"","Amount":0.00,"OutstandingAmount":0.00,"ApplyAmount":0.00}]}]},{"Number":"BUDG00000002610","LocationId":"000000000523000","LocationAddress":"130 W SAMSULA DR","StatementNumber":0,"Type":[{"Id":7,"Description":"Budget Document"}],"ServiceType":[{"Id":"","Description":""}],"Date":"2000-11-21","DueDate":"2000-11-21","Amount":167.00,"OutstandingAmount":167.00,"ApplyAmount":0.00,"Sequence":7,"ReferenceDocumentNumber":"BUDG00000002600","ReferenceDocumentDate":"2000-01-01","ServiceCategory":[{"Id":0,"Description":"ALL"}],"Attribute":[{"ChargeType":"","ChargeDescription":"","PaymentOrigin":"","SupportAuthorization":0,"Service":[{"Category":0,"Description":"","Type":"","Amount":0.00,"OutstandingAmount":0.00,"ApplyAmount":0.00}]}]},{"Number":"BUDG00000002611","LocationId":"000000000523000","LocationAddress":"130 W SAMSULA DR","StatementNumber":0,"Type":[{"Id":7,"Description":"Budget Document"}],"ServiceType":[{"Id":"","Description":""}],"Date":"2000-12-21","DueDate":"2000-12-21","Amount":167.00,"OutstandingAmount":167.00,"ApplyAmount":0.00,"Sequence":8,"ReferenceDocumentNumber":"BUDG00000002600","ReferenceDocumentDate":"2000-01-01","ServiceCategory":[{"Id":0,"Description":"ALL"}],"Attribute":[{"ChargeType":"","ChargeDescription":"","PaymentOrigin":"","SupportAuthorization":0,"Service":[{"Category":0,"Description":"","Type":"","Amount":0.00,"OutstandingAmount":0.00,"ApplyAmount":0.00}]}]},{"Number":"BUDG00000002612","LocationId":"000000000523000","LocationAddress":"130 W SAMSULA DR","StatementNumber":0,"Type":[{"Id":7,"Description":"Budget Document"}],"ServiceType":[{"Id":"","Description":""}],"Date":"2001-01-21","DueDate":"2001-01-21","Amount":167.00,"OutstandingAmount":167.00,"ApplyAmount":0.00,"Sequence":9,"ReferenceDocumentNumber":"BUDG00000002600","ReferenceDocumentDate":"2000-01-01","ServiceCategory":[{"Id":0,"Description":"ALL"}],"Attribute":[{"ChargeType":"","ChargeDescription":"","PaymentOrigin":"","SupportAuthorization":0,"Service":[{"Category":0,"Description":"","Type":"","Amount":0.00,"OutstandingAmount":0.00,"ApplyAmount":0.00}]}]},{"Number":"BILL00000000582","LocationId":"000000000523000","LocationAddress":"130 W SAMSULA DR","StatementNumber":384,"Type":[{"Id":5,"Description":"Regular Bill"}],"ServiceType":[{"Id":"","Description":""}],"Date":"2019-09-01","DueDate":"2019-09-22","Amount":133.45,"OutstandingAmount":133.45,"ApplyAmount":0.00,"Sequence":10,"ReferenceDocumentNumber":"","ReferenceDocumentDate":"","ServiceCategory":[{"Id":0,"Description":"ALL"}],"Attribute":[{"ChargeType":"","ChargeDescription":"","PaymentOrigin":"","SupportAuthorization":0,"Service":[{"Category":2,"Description":"Water","Type":"IR","Amount":51.55,"OutstandingAmount":51.55,"ApplyAmount":0.00},{"Category":3,"Description":"Sewer","Type":"PC","Amount":37.20,"OutstandingAmount":37.20,"ApplyAmount":0.00},{"Category":2,"Description":"Water","Type":"WR","Amount":44.70,"OutstandingAmount":44.70,"ApplyAmount":0.00}]}]},{"Number":"BILL00000000583","LocationId":"000000000523000","LocationAddress":"130 W SAMSULA DR","StatementNumber":384,"Type":[{"Id":5,"Description":"Regular Bill"}],"ServiceType":[{"Id":"","Description":""}],"Date":"2019-09-01","DueDate":"2019-09-22","Amount":31.36,"OutstandingAmount":31.36,"ApplyAmount":0.00,"Sequence":11,"ReferenceDocumentNumber":"","ReferenceDocumentDate":"","ServiceCategory":[{"Id":1,"Description":"Electric"}],"Attribute":[{"ChargeType":"","ChargeDescription":"","PaymentOrigin":"","SupportAuthorization":0,"Service":[{"Category":1,"Description":"Electric","Type":"GC","Amount":14.79,"OutstandingAmount":14.79,"ApplyAmount":0.00},{"Category":1,"Description":"Electric","Type":"RE_FIX","Amount":5.65,"OutstandingAmount":5.65,"ApplyAmount":0.00},{"Category":1,"Description":"Electric","Type":"RE_MR","Amount":10.92,"OutstandingAmount":10.92,"ApplyAmount":0.00}]}]},{"Number":"MISC00000000305","LocationId":"000000000523000","LocationAddress":"130 W SAMSULA DR","StatementNumber":384,"Type":[{"Id":2,"Description":"Misc Charge"}],"ServiceType":[{"Id":"","Description":""}],"Date":"2000-04-20","DueDate":"2019-09-22","Amount":20.00,"OutstandingAmount":20.00,"ApplyAmount":0.00,"Sequence":12,"ReferenceDocumentNumber":"","ReferenceDocumentDate":"","ServiceCategory":[{"Id":0,"Description":""}],"Attribute":[{"ChargeType":"L K\/RECON WR","ChargeDescription":"FEE FOR WR METER REINSTALLATION","PaymentOrigin":"","SupportAuthorization":0,"Service":[{"Category":0,"Description":"","Type":"","Amount":0.00,"OutstandingAmount":20.00,"ApplyAmount":0.00}]}]},{"Number":"MISC00000000332","LocationId":"000000000523000","LocationAddress":"130 W SAMSULA DR","StatementNumber":384,"Type":[{"Id":2,"Description":"Misc Charge"}],"ServiceType":[{"Id":"","Description":""}],"Date":"2019-07-31","DueDate":"2019-09-22","Amount":500.00,"OutstandingAmount":500.00,"ApplyAmount":0.00,"Sequence":13,"ReferenceDocumentNumber":"","ReferenceDocumentDate":"","ServiceCategory":[{"Id":0,"Description":""}],"Attribute":[{"ChargeType":"CHEQUE","ChargeDescription":"Misc charge for printed cheque","PaymentOrigin":"","SupportAuthorization":0,"Service":[{"Category":0,"Description":"","Type":"","Amount":500.00,"OutstandingAmount":500.00,"ApplyAmount":0.00}]}]}]},"Messages":[]}}] but found [{"Payment":{"Success":true,"Data":{"LocationId":"000000000523000","CustomerId":"0012200","CreditNoteId":"RMGT-OTH-000002","TaxScheduleId":"ONT GST\/PST","Amount":5.00,"TotalTax":0.00,"TotalAmount":5.00,"UnappliedAmount":5.00,"DistributionDetail":[{"TypeId":3,"Type":"RECV","Description":"Accounts Receivable","Index":6,"Number":"000-1200-00","DebitAmount":0.00,"CreditAmount":5.00},{"TypeId":9,"Type":"SALES","Description":"Other Electric Revenues","Index":554,"Number":"900-4740-00","DebitAmount":5.00,"CreditAmount":0.00}],"DistributionTotal":{"DebitAmount":5.00,"CreditAmount":5.00},"DefaultDistributionDetail":[{"TypeId":3,"Type":"RECV","Description":"Accounts Receivable","Index":6,"Number":"000-1200-00","DebitAmount":0.00,"CreditAmount":5.00},{"TypeId":9,"Type":"SALES","Description":"Other Electric Revenues","Index":554,"Number":"900-4740-00","DebitAmount":5.00,"CreditAmount":0.00}],"TaxDetail":[],"Document":[]},"Messages":[]}}]
+AT: at com.NexusAPI.Tests.Private_PaymentControllerV4_Test.postPaymentSimulateExt(Private_PaymentControllerV4_Test.java:160)
+
+=== Private_penaltyController_Test :: postpenaltyDocuments_v_4 ===
+[java.lang.AssertionError]
+JSON mismatch!
+Expected:
+{
+  "Penalty" : {
+    "Success" : true,
+    "Data" : {
+      "VersionNumber" : "1.0.0",
+      "PostDate" : "2025-09-18",
+      "BatchId" : "PENALTY",
+      "MiscCharge" : {
+        "Document" : [ {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000063",
+          "CustomerId" : "0000011111",
+          "LocationId" : "LOC@0001",
+          "DocumentDate" : "2000-05-01",
+          "TransactionAmount" : 5.0,
+          "TaxAmount" : 0.0,
+          "TotalChargeAmount" : 5.0,
+          "ServiceType" : "ELECTRIC",
+          "OutstandingAmount" : 5.0,
+          "MiscChargeType" : "RES-OVERDUE",
+          "TransactionDescription" : "Penalty for overdue",
+          "TaxSchedule" : ""
+        } ]
+      },
+      "MiscChargeDistribution" : {
+        "DocumentDistribution" : [ {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000063",
+          "DistributionType" : 3,
+          "DistributionIndex" : 611,
+          "OriginalDebitAmount" : 5.0,
+          "OriginalCreditAmount" : 0.0
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000063",
+          "DistributionType" : 9,
+          "DistributionIndex" : 612,
+          "OriginalDebitAmount" : 0.0,
+          "OriginalCreditAmount" : 5.0
+        } ]
+      },
+      "Payment" : null,
+      "PaymentDistribution" : null,
+      "Bill" : null,
+      "BillDistribution" : null,
+      "HasPostingError" : false,
+      "HasPostingReport" : true,
+      "Document" : [ {
+        "DocumentNumber" : "PNLT00000000063"
+      } ],
+      "ApplyDocument" : [ ],
+      "PostedDistribution" : [ {
+        "DocumentNumber" : "PNLT00000000063",
+        "LineSequence" : 1,
+        "DistributionIndex" : 611,
+        "TransactionAmount" : -5.0,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000063",
+        "LineSequence" : 2,
+        "DistributionIndex" : 612,
+        "TransactionAmount" : 5.0,
+        "LocationId" : ""
+      } ],
+      "ReportList" : [ {
+        "Name" : "Post Misc Charge Edit List",
+        "PrintOrder" : 1,
+        "DisplayName" : "Post Misc Charge Edit List",
+        "PrintEnabled" : true
+      }, {
+        "Name" : "Post Misc Charge Dist Breakdown Summary",
+        "PrintOrder" : 2,
+        "DisplayName" : "Post Misc Charge Dist Breakdown Summary",
+        "PrintEnabled" : true
+      }, {
+        "Name" : "Post Misc Charge Payment Dist Breakdown Detail",
+        "PrintOrder" : 3,
+        "DisplayName" : "Post Misc Charge Payment Dist Breakdown Detail",
+        "PrintEnabled" : false
+      }, {
+        "Name" : "Post Misc Charge Payment Dist Breakdown Summary",
+        "PrintOrder" : 4,
+        "DisplayName" : "Post Misc Charge Payment Dist Breakdown Summary",
+        "PrintEnabled" : false
+      } ],
+      "ReportErrorList" : [ {
+        "Name" : "Post Misc Charge Error List",
+        "PrintOrder" : 1,
+        "DisplayName" : "Post Misc Charge Error List",
+        "PrintEnabled" : true
+      } ]
+    },
+    "Messages" : [ ]
+  }
+}
+
+Actual:
+{
+  "message" : "Forbidden: insufficient role"
+}
+AT: at com.NexusAPI.Tests.Private_penaltyController_Test.postpenaltyDocuments_v_4(Private_penaltyController_Test.java:56)
+
+=== Private_penaltyController_Test :: postpenaltycalculate_v_4 ===
+[java.lang.AssertionError]
+The result does not contain the expected string. expected [true] but found [false]
+AT: at com.NexusAPI.Tests.Private_penaltyController_Test.postpenaltycalculate_v_4(Private_penaltyController_Test.java:91)
+
+=== Private_penaltyController_Test :: getcalculatedDocuments_v4 ===
+[java.lang.AssertionError]
+JSON mismatch!
+Expected:
+{
+  "Penalty" : {
+    "Success" : true,
+    "Data" : {
+      "BatchId" : "PENALTY2",
+      "Document" : [ {
+        "PenaltyDocument" : "PNLT00000000098",
+        "SourceDocument" : "BUDG00000002775",
+        "LocationId" : "LOC@0001",
+        "CustomerId" : "0000011111",
+        "ServiceType" : "ELECTRIC",
+        "PenaltyId" : "RES-OVERDUE",
+        "TaxAmount" : 0.0,
+        "OriginalBalance" : 50.0,
+        "OutstandingAmount" : 50.0,
+        "PenaltyAmount" : 5.0
+      } ]
+    },
+    "Messages" : [ ]
+  }
+}
+
+Actual:
+{
+  "Penalty" : {
+    "Success" : false,
+    "Data" : null,
+    "Messages" : [ {
+      "Enabled" : 1,
+      "Info" : "Invalid Batch Id PENALTY2",
+      "Level" : 3
+    } ]
+  }
+}
+AT: at com.NexusAPI.Tests.Private_penaltyController_Test.getcalculatedDocuments_v4(Private_penaltyController_Test.java:111)
+
+=== Private_penaltyController_Test :: postpenaltyDocumentsRoute_v_4 ===
+[java.lang.AssertionError]
+JSON mismatch!
+Expected:
+{
+  "Penalty" : {
+    "Success" : true,
+    "Data" : {
+      "VersionNumber" : "1.0.0",
+      "PostDate" : "2025-09-30",
+      "BatchId" : "ROUTE",
+      "MiscCharge" : {
+        "Document" : [ {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000064",
+          "CustomerId" : "500001",
+          "LocationId" : "100001",
+          "DocumentDate" : "2000-05-01",
+          "TransactionAmount" : 2.79,
+          "TaxAmount" : 0.0,
+          "TotalChargeAmount" : 2.79,
+          "ServiceType" : "WR-A",
+          "OutstandingAmount" : 2.79,
+          "MiscChargeType" : "DEFAULTPYMT",
+          "TransactionDescription" : "Penalty for late payment",
+          "TaxSchedule" : ""
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000065",
+          "CustomerId" : "500001",
+          "LocationId" : "100001",
+          "DocumentDate" : "2000-05-01",
+          "TransactionAmount" : 1.62,
+          "TaxAmount" : 0.0,
+          "TotalChargeAmount" : 1.62,
+          "ServiceType" : "IR-A",
+          "OutstandingAmount" : 1.62,
+          "MiscChargeType" : "REFUSE",
+          "TransactionDescription" : "Refuse Late Charges",
+          "TaxSchedule" : ""
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000066",
+          "CustomerId" : "500002",
+          "LocationId" : "100002",
+          "DocumentDate" : "2000-05-01",
+          "TransactionAmount" : 2.67,
+          "TaxAmount" : 0.0,
+          "TotalChargeAmount" : 2.67,
+          "ServiceType" : "WR-A",
+          "OutstandingAmount" : 2.67,
+          "MiscChargeType" : "DEFAULTPYMT",
+          "TransactionDescription" : "Penalty for late payment",
+          "TaxSchedule" : ""
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000067",
+          "CustomerId" : "500002",
+          "LocationId" : "100002",
+          "DocumentDate" : "2000-05-01",
+          "TransactionAmount" : 1.55,
+          "TaxAmount" : 0.0,
+          "TotalChargeAmount" : 1.55,
+          "ServiceType" : "IR-A",
+          "OutstandingAmount" : 1.55,
+          "MiscChargeType" : "REFUSE",
+          "TransactionDescription" : "Refuse Late Charges",
+          "TaxSchedule" : ""
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000068",
+          "CustomerId" : "500300",
+          "LocationId" : "WATER005",
+          "DocumentDate" : "2000-05-01",
+          "TransactionAmount" : 2.99,
+          "TaxAmount" : 0.0,
+          "TotalChargeAmount" : 2.99,
+          "ServiceType" : "WATER",
+          "OutstandingAmount" : 2.99,
+          "MiscChargeType" : "DEFAULTPYMT",
+          "TransactionDescription" : "Penalty for late payment",
+          "TaxSchedule" : ""
+        } ]
+      },
+      "MiscChargeDistribution" : {
+        "DocumentDistribution" : [ {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000064",
+          "DistributionType" : 9,
+          "DistributionIndex" : 615,
+          "OriginalDebitAmount" : 0.0,
+          "OriginalCreditAmount" : 2.79
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000064",
+          "DistributionType" : 3,
+          "DistributionIndex" : 618,
+          "OriginalDebitAmount" : 2.79,
+          "OriginalCreditAmount" : 0.0
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000065",
+          "DistributionType" : 3,
+          "DistributionIndex" : 613,
+          "OriginalDebitAmount" : 1.62,
+          "OriginalCreditAmount" : 0.0
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000065",
+          "DistributionType" : 9,
+          "DistributionIndex" : 616,
+          "OriginalDebitAmount" : 0.0,
+          "OriginalCreditAmount" : 1.62
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000066",
+          "DistributionType" : 9,
+          "DistributionIndex" : 615,
+          "OriginalDebitAmount" : 0.0,
+          "OriginalCreditAmount" : 2.67
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000066",
+          "DistributionType" : 3,
+          "DistributionIndex" : 618,
+          "OriginalDebitAmount" : 2.67,
+          "OriginalCreditAmount" : 0.0
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000067",
+          "DistributionType" : 3,
+          "DistributionIndex" : 613,
+          "OriginalDebitAmount" : 1.55,
+          "OriginalCreditAmount" : 0.0
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000067",
+          "DistributionType" : 9,
+          "DistributionIndex" : 616,
+          "OriginalDebitAmount" : 0.0,
+          "OriginalCreditAmount" : 1.55
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000068",
+          "DistributionType" : 9,
+          "DistributionIndex" : 615,
+          "OriginalDebitAmount" : 0.0,
+          "OriginalCreditAmount" : 2.99
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000068",
+          "DistributionType" : 3,
+          "DistributionIndex" : 618,
+          "OriginalDebitAmount" : 2.99,
+          "OriginalCreditAmount" : 0.0
+        } ]
+      },
+      "Payment" : null,
+      "PaymentDistribution" : null,
+      "Bill" : null,
+      "BillDistribution" : null,
+      "HasPostingError" : false,
+      "HasPostingReport" : true,
+      "Document" : [ {
+        "DocumentNumber" : "PNLT00000000064"
+      }, {
+        "DocumentNumber" : "PNLT00000000065"
+      }, {
+        "DocumentNumber" : "PNLT00000000066"
+      }, {
+        "DocumentNumber" : "PNLT00000000067"
+      }, {
+        "DocumentNumber" : "PNLT00000000068"
+      } ],
+      "ApplyDocument" : [ ],
+      "PostedDistribution" : [ {
+        "DocumentNumber" : "PNLT00000000064",
+        "LineSequence" : 1,
+        "DistributionIndex" : 615,
+        "TransactionAmount" : 2.79,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000064",
+        "LineSequence" : 2,
+        "DistributionIndex" : 618,
+        "TransactionAmount" : -2.79,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000065",
+        "LineSequence" : 1,
+        "DistributionIndex" : 613,
+        "TransactionAmount" : -1.62,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000065",
+        "LineSequence" : 2,
+        "DistributionIndex" : 616,
+        "TransactionAmount" : 1.62,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000066",
+        "LineSequence" : 1,
+        "DistributionIndex" : 615,
+        "TransactionAmount" : 2.67,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000066",
+        "LineSequence" : 2,
+        "DistributionIndex" : 618,
+        "TransactionAmount" : -2.67,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000067",
+        "LineSequence" : 1,
+        "DistributionIndex" : 613,
+        "TransactionAmount" : -1.55,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000067",
+        "LineSequence" : 2,
+        "DistributionIndex" : 616,
+        "TransactionAmount" : 1.55,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000068",
+        "LineSequence" : 1,
+        "DistributionIndex" : 615,
+        "TransactionAmount" : 2.99,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000068",
+        "LineSequence" : 2,
+        "DistributionIndex" : 618,
+        "TransactionAmount" : -2.99,
+        "LocationId" : ""
+      } ],
+      "ReportList" : [ {
+        "Name" : "Post Misc Charge Edit List",
+        "PrintOrder" : 1,
+        "DisplayName" : "Post Misc Charge Edit List",
+        "PrintEnabled" : true
+      }, {
+        "Name" : "Post Misc Charge Dist Breakdown Summary",
+        "PrintOrder" : 2,
+        "DisplayName" : "Post Misc Charge Dist Breakdown Summary",
+        "PrintEnabled" : true
+      }, {
+        "Name" : "Post Misc Charge Payment Dist Breakdown Detail",
+        "PrintOrder" : 3,
+        "DisplayName" : "Post Misc Charge Payment Dist Breakdown Detail",
+        "PrintEnabled" : false
+      }, {
+        "Name" : "Post Misc Charge Payment Dist Breakdown Summary",
+        "PrintOrder" : 4,
+        "DisplayName" : "Post Misc Charge Payment Dist Breakdown Summary",
+        "PrintEnabled" : false
+      } ],
+      "ReportErrorList" : [ {
+        "Name" : "Post Misc Charge Error List",
+        "PrintOrder" : 1,
+        "DisplayName" : "Post Misc Charge Error List",
+        "PrintEnabled" : true
+      } ]
+    },
+    "Messages" : [ ]
+  }
+}
+
+Actual:
+{
+  "message" : "Forbidden: insufficient role"
+}
+AT: at com.NexusAPI.Tests.Private_penaltyController_Test.postpenaltyDocumentsRoute_v_4(Private_penaltyController_Test.java:125)
+
+=== Private_penaltyController_Test :: postpenaltyDocumentsZones_v_4 ===
+[java.lang.AssertionError]
+JSON mismatch!
+Expected:
+{
+  "Penalty" : {
+    "Success" : true,
+    "Data" : {
+      "VersionNumber" : "1.0.0",
+      "PostDate" : "2025-09-18",
+      "BatchId" : "ZONES",
+      "MiscCharge" : {
+        "Document" : [ {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000069",
+          "CustomerId" : "CUSTOMER007",
+          "LocationId" : "ELECWAT001",
+          "DocumentDate" : "2020-01-01",
+          "TransactionAmount" : 5.5,
+          "TaxAmount" : 0.0,
+          "TotalChargeAmount" : 5.5,
+          "ServiceType" : "ELECTRIC",
+          "OutstandingAmount" : 5.5,
+          "MiscChargeType" : "5%",
+          "TransactionDescription" : "Late Payment Charge",
+          "TaxSchedule" : ""
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000070",
+          "CustomerId" : "CUSTOMER007",
+          "LocationId" : "ELECWAT001",
+          "DocumentDate" : "2020-01-01",
+          "TransactionAmount" : 4.49,
+          "TaxAmount" : 0.0,
+          "TotalChargeAmount" : 4.49,
+          "ServiceType" : "",
+          "OutstandingAmount" : 4.49,
+          "MiscChargeType" : "DEFAULTPYMT",
+          "TransactionDescription" : "Penalty for late payment",
+          "TaxSchedule" : ""
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000071",
+          "CustomerId" : "CUSTOMER007",
+          "LocationId" : "ELECWAT001",
+          "DocumentDate" : "2020-01-01",
+          "TransactionAmount" : 2.4,
+          "TaxAmount" : 0.0,
+          "TotalChargeAmount" : 2.4,
+          "ServiceType" : "REFUSE",
+          "OutstandingAmount" : 2.4,
+          "MiscChargeType" : "REFUSE",
+          "TransactionDescription" : "Refuse Late Charges",
+          "TaxSchedule" : ""
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000072",
+          "CustomerId" : "CUSTOMER007",
+          "LocationId" : "ELECWAT001",
+          "DocumentDate" : "2020-01-01",
+          "TransactionAmount" : 305.35,
+          "TaxAmount" : 0.0,
+          "TotalChargeAmount" : 305.35,
+          "ServiceType" : "",
+          "OutstandingAmount" : 305.35,
+          "MiscChargeType" : "RES-OVERDUE",
+          "TransactionDescription" : "Penalty for overdue",
+          "TaxSchedule" : ""
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000073",
+          "CustomerId" : "CUSTOMER007",
+          "LocationId" : "LOCATION006",
+          "DocumentDate" : "2020-01-01",
+          "TransactionAmount" : 60.8,
+          "TaxAmount" : 0.0,
+          "TotalChargeAmount" : 60.8,
+          "ServiceType" : "",
+          "OutstandingAmount" : 60.8,
+          "MiscChargeType" : "RES-OVERDUE",
+          "TransactionDescription" : "Penalty for overdue",
+          "TaxSchedule" : ""
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000074",
+          "CustomerId" : "CUSTOMER008",
+          "LocationId" : "LOCATION007",
+          "DocumentDate" : "2020-01-01",
+          "TransactionAmount" : 136.0,
+          "TaxAmount" : 0.0,
+          "TotalChargeAmount" : 136.0,
+          "ServiceType" : "",
+          "OutstandingAmount" : 136.0,
+          "MiscChargeType" : "RES-OVERDUE",
+          "TransactionDescription" : "Penalty for overdue",
+          "TaxSchedule" : ""
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000075",
+          "CustomerId" : "CUSTOMER009",
+          "LocationId" : "SEWER002",
+          "DocumentDate" : "2020-01-01",
+          "TransactionAmount" : 3.0,
+          "TaxAmount" : 0.0,
+          "TotalChargeAmount" : 3.0,
+          "ServiceType" : "",
+          "OutstandingAmount" : 3.0,
+          "MiscChargeType" : "RES-OVERDUE",
+          "TransactionDescription" : "Penalty for overdue",
+          "TaxSchedule" : ""
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000076",
+          "CustomerId" : "CUSTOMER010",
+          "LocationId" : "LOCATION009",
+          "DocumentDate" : "2020-01-01",
+          "TransactionAmount" : 1.6,
+          "TaxAmount" : 0.0,
+          "TotalChargeAmount" : 1.6,
+          "ServiceType" : "ELECTRIC",
+          "OutstandingAmount" : 1.6,
+          "MiscChargeType" : "5%",
+          "TransactionDescription" : "Late Payment Charge",
+          "TaxSchedule" : ""
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000077",
+          "CustomerId" : "MASTER001",
+          "LocationId" : "LOCATION002",
+          "DocumentDate" : "2020-01-01",
+          "TransactionAmount" : 62.8,
+          "TaxAmount" : 0.0,
+          "TotalChargeAmount" : 62.8,
+          "ServiceType" : "",
+          "OutstandingAmount" : 62.8,
+          "MiscChargeType" : "RES-OVERDUE",
+          "TransactionDescription" : "Penalty for overdue",
+          "TaxSchedule" : ""
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000078",
+          "CustomerId" : "MASTER001",
+          "LocationId" : "LOCATION003",
+          "DocumentDate" : "2020-01-01",
+          "TransactionAmount" : 800.0,
+          "TaxAmount" : 0.0,
+          "TotalChargeAmount" : 800.0,
+          "ServiceType" : "",
+          "OutstandingAmount" : 800.0,
+          "MiscChargeType" : "RES-OVERDUE",
+          "TransactionDescription" : "Penalty for overdue",
+          "TaxSchedule" : ""
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000079",
+          "CustomerId" : "MASTER001",
+          "LocationId" : "LOCATION004",
+          "DocumentDate" : "2020-01-01",
+          "TransactionAmount" : 41.77,
+          "TaxAmount" : 0.0,
+          "TotalChargeAmount" : 41.77,
+          "ServiceType" : "",
+          "OutstandingAmount" : 41.77,
+          "MiscChargeType" : "RES-OVERDUE",
+          "TransactionDescription" : "Penalty for overdue",
+          "TaxSchedule" : ""
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000080",
+          "CustomerId" : "CUSTOMER014",
+          "LocationId" : "WATER002",
+          "DocumentDate" : "2020-01-01",
+          "TransactionAmount" : 5.06,
+          "TaxAmount" : 0.0,
+          "TotalChargeAmount" : 5.06,
+          "ServiceType" : "",
+          "OutstandingAmount" : 5.06,
+          "MiscChargeType" : "DEFAULTPYMT",
+          "TransactionDescription" : "Penalty for late payment",
+          "TaxSchedule" : ""
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000081",
+          "CustomerId" : "CUSTOMER014",
+          "LocationId" : "WATER002",
+          "DocumentDate" : "2020-01-01",
+          "TransactionAmount" : 2.4,
+          "TaxAmount" : 0.0,
+          "TotalChargeAmount" : 2.4,
+          "ServiceType" : "REFUSE",
+          "OutstandingAmount" : 2.4,
+          "MiscChargeType" : "REFUSE",
+          "TransactionDescription" : "Refuse Late Charges",
+          "TaxSchedule" : ""
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000082",
+          "CustomerId" : "CUSTOMER014",
+          "LocationId" : "WATER002",
+          "DocumentDate" : "2020-01-01",
+          "TransactionAmount" : 124.8,
+          "TaxAmount" : 0.0,
+          "TotalChargeAmount" : 124.8,
+          "ServiceType" : "WATER",
+          "OutstandingAmount" : 124.8,
+          "MiscChargeType" : "RES-OVERDUE",
+          "TransactionDescription" : "Penalty for overdue",
+          "TaxSchedule" : ""
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000083",
+          "CustomerId" : "0000011111",
+          "LocationId" : "LOC@0001",
+          "DocumentDate" : "2020-01-01",
+          "TransactionAmount" : 48.53,
+          "TaxAmount" : 0.0,
+          "TotalChargeAmount" : 48.53,
+          "ServiceType" : "ELECTRIC",
+          "OutstandingAmount" : 48.53,
+          "MiscChargeType" : "RES-OVERDUE",
+          "TransactionDescription" : "Penalty for overdue",
+          "TaxSchedule" : ""
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000084",
+          "CustomerId" : "0012200",
+          "LocationId" : "000000000523000",
+          "DocumentDate" : "2020-01-01",
+          "TransactionAmount" : 4.82,
+          "TaxAmount" : 0.0,
+          "TotalChargeAmount" : 4.82,
+          "ServiceType" : "",
+          "OutstandingAmount" : 4.82,
+          "MiscChargeType" : "DEFAULTPYMT",
+          "TransactionDescription" : "Penalty for late payment",
+          "TaxSchedule" : ""
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000085",
+          "CustomerId" : "0012200",
+          "LocationId" : "000000000523000",
+          "DocumentDate" : "2020-01-01",
+          "TransactionAmount" : 3.72,
+          "TaxAmount" : 0.0,
+          "TotalChargeAmount" : 3.72,
+          "ServiceType" : "PC",
+          "OutstandingAmount" : 3.72,
+          "MiscChargeType" : "REFUSE",
+          "TransactionDescription" : "Refuse Late Charges",
+          "TaxSchedule" : ""
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000086",
+          "CustomerId" : "0012200",
+          "LocationId" : "000000000523000",
+          "DocumentDate" : "2020-01-01",
+          "TransactionAmount" : 150.3,
+          "TaxAmount" : 0.0,
+          "TotalChargeAmount" : 150.3,
+          "ServiceType" : "WR",
+          "OutstandingAmount" : 150.3,
+          "MiscChargeType" : "RES-OVERDUE",
+          "TransactionDescription" : "Penalty for overdue",
+          "TaxSchedule" : ""
+        } ]
+      },
+      "MiscChargeDistribution" : {
+        "DocumentDistribution" : [ {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000069",
+          "DistributionType" : 9,
+          "DistributionIndex" : 1,
+          "OriginalDebitAmount" : 0.0,
+          "OriginalCreditAmount" : 5.5
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000069",
+          "DistributionType" : 3,
+          "DistributionIndex" : 180,
+          "OriginalDebitAmount" : 5.5,
+          "OriginalCreditAmount" : 0.0
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000070",
+          "DistributionType" : 9,
+          "DistributionIndex" : 615,
+          "OriginalDebitAmount" : 0.0,
+          "OriginalCreditAmount" : 4.49
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000070",
+          "DistributionType" : 3,
+          "DistributionIndex" : 618,
+          "OriginalDebitAmount" : 4.49,
+          "OriginalCreditAmount" : 0.0
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000071",
+          "DistributionType" : 3,
+          "DistributionIndex" : 613,
+          "OriginalDebitAmount" : 2.4,
+          "OriginalCreditAmount" : 0.0
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000071",
+          "DistributionType" : 9,
+          "DistributionIndex" : 616,
+          "OriginalDebitAmount" : 0.0,
+          "OriginalCreditAmount" : 2.4
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000072",
+          "DistributionType" : 3,
+          "DistributionIndex" : 611,
+          "OriginalDebitAmount" : 305.35,
+          "OriginalCreditAmount" : 0.0
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000072",
+          "DistributionType" : 9,
+          "DistributionIndex" : 612,
+          "OriginalDebitAmount" : 0.0,
+          "OriginalCreditAmount" : 305.35
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000073",
+          "DistributionType" : 3,
+          "DistributionIndex" : 611,
+          "OriginalDebitAmount" : 60.8,
+          "OriginalCreditAmount" : 0.0
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000073",
+          "DistributionType" : 9,
+          "DistributionIndex" : 612,
+          "OriginalDebitAmount" : 0.0,
+          "OriginalCreditAmount" : 60.8
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000074",
+          "DistributionType" : 3,
+          "DistributionIndex" : 611,
+          "OriginalDebitAmount" : 136.0,
+          "OriginalCreditAmount" : 0.0
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000074",
+          "DistributionType" : 9,
+          "DistributionIndex" : 612,
+          "OriginalDebitAmount" : 0.0,
+          "OriginalCreditAmount" : 136.0
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000075",
+          "DistributionType" : 3,
+          "DistributionIndex" : 611,
+          "OriginalDebitAmount" : 3.0,
+          "OriginalCreditAmount" : 0.0
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000075",
+          "DistributionType" : 9,
+          "DistributionIndex" : 612,
+          "OriginalDebitAmount" : 0.0,
+          "OriginalCreditAmount" : 3.0
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000076",
+          "DistributionType" : 9,
+          "DistributionIndex" : 1,
+          "OriginalDebitAmount" : 0.0,
+          "OriginalCreditAmount" : 1.6
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000076",
+          "DistributionType" : 3,
+          "DistributionIndex" : 180,
+          "OriginalDebitAmount" : 1.6,
+          "OriginalCreditAmount" : 0.0
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000077",
+          "DistributionType" : 3,
+          "DistributionIndex" : 611,
+          "OriginalDebitAmount" : 62.8,
+          "OriginalCreditAmount" : 0.0
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000077",
+          "DistributionType" : 9,
+          "DistributionIndex" : 612,
+          "OriginalDebitAmount" : 0.0,
+          "OriginalCreditAmount" : 62.8
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000078",
+          "DistributionType" : 3,
+          "DistributionIndex" : 611,
+          "OriginalDebitAmount" : 800.0,
+          "OriginalCreditAmount" : 0.0
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000078",
+          "DistributionType" : 9,
+          "DistributionIndex" : 612,
+          "OriginalDebitAmount" : 0.0,
+          "OriginalCreditAmount" : 800.0
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000079",
+          "DistributionType" : 3,
+          "DistributionIndex" : 611,
+          "OriginalDebitAmount" : 41.77,
+          "OriginalCreditAmount" : 0.0
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000079",
+          "DistributionType" : 9,
+          "DistributionIndex" : 612,
+          "OriginalDebitAmount" : 0.0,
+          "OriginalCreditAmount" : 41.77
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000080",
+          "DistributionType" : 9,
+          "DistributionIndex" : 615,
+          "OriginalDebitAmount" : 0.0,
+          "OriginalCreditAmount" : 5.06
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000080",
+          "DistributionType" : 3,
+          "DistributionIndex" : 618,
+          "OriginalDebitAmount" : 5.06,
+          "OriginalCreditAmount" : 0.0
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000081",
+          "DistributionType" : 3,
+          "DistributionIndex" : 613,
+          "OriginalDebitAmount" : 2.4,
+          "OriginalCreditAmount" : 0.0
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000081",
+          "DistributionType" : 9,
+          "DistributionIndex" : 616,
+          "OriginalDebitAmount" : 0.0,
+          "OriginalCreditAmount" : 2.4
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000082",
+          "DistributionType" : 3,
+          "DistributionIndex" : 611,
+          "OriginalDebitAmount" : 124.8,
+          "OriginalCreditAmount" : 0.0
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000082",
+          "DistributionType" : 9,
+          "DistributionIndex" : 612,
+          "OriginalDebitAmount" : 0.0,
+          "OriginalCreditAmount" : 124.8
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000083",
+          "DistributionType" : 3,
+          "DistributionIndex" : 611,
+          "OriginalDebitAmount" : 48.53,
+          "OriginalCreditAmount" : 0.0
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000083",
+          "DistributionType" : 9,
+          "DistributionIndex" : 612,
+          "OriginalDebitAmount" : 0.0,
+          "OriginalCreditAmount" : 48.53
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000084",
+          "DistributionType" : 9,
+          "DistributionIndex" : 615,
+          "OriginalDebitAmount" : 0.0,
+          "OriginalCreditAmount" : 4.82
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000084",
+          "DistributionType" : 3,
+          "DistributionIndex" : 618,
+          "OriginalDebitAmount" : 4.82,
+          "OriginalCreditAmount" : 0.0
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000085",
+          "DistributionType" : 3,
+          "DistributionIndex" : 613,
+          "OriginalDebitAmount" : 3.72,
+          "OriginalCreditAmount" : 0.0
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000085",
+          "DistributionType" : 9,
+          "DistributionIndex" : 616,
+          "OriginalDebitAmount" : 0.0,
+          "OriginalCreditAmount" : 3.72
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000086",
+          "DistributionType" : 3,
+          "DistributionIndex" : 611,
+          "OriginalDebitAmount" : 150.3,
+          "OriginalCreditAmount" : 0.0
+        }, {
+          "DocType" : "PNLT",
+          "DocumentNumber" : "PNLT00000000086",
+          "DistributionType" : 9,
+          "DistributionIndex" : 612,
+          "OriginalDebitAmount" : 0.0,
+          "OriginalCreditAmount" : 150.3
+        } ]
+      },
+      "Payment" : null,
+      "PaymentDistribution" : null,
+      "Bill" : null,
+      "BillDistribution" : null,
+      "HasPostingError" : false,
+      "HasPostingReport" : true,
+      "Document" : [ {
+        "DocumentNumber" : "PNLT00000000069"
+      }, {
+        "DocumentNumber" : "PNLT00000000070"
+      }, {
+        "DocumentNumber" : "PNLT00000000071"
+      }, {
+        "DocumentNumber" : "PNLT00000000072"
+      }, {
+        "DocumentNumber" : "PNLT00000000073"
+      }, {
+        "DocumentNumber" : "PNLT00000000074"
+      }, {
+        "DocumentNumber" : "PNLT00000000075"
+      }, {
+        "DocumentNumber" : "PNLT00000000076"
+      }, {
+        "DocumentNumber" : "PNLT00000000077"
+      }, {
+        "DocumentNumber" : "PNLT00000000078"
+      }, {
+        "DocumentNumber" : "PNLT00000000079"
+      }, {
+        "DocumentNumber" : "PNLT00000000080"
+      }, {
+        "DocumentNumber" : "PNLT00000000081"
+      }, {
+        "DocumentNumber" : "PNLT00000000082"
+      }, {
+        "DocumentNumber" : "PNLT00000000083"
+      }, {
+        "DocumentNumber" : "PNLT00000000084"
+      }, {
+        "DocumentNumber" : "PNLT00000000085"
+      }, {
+        "DocumentNumber" : "PNLT00000000086"
+      } ],
+      "ApplyDocument" : [ ],
+      "PostedDistribution" : [ {
+        "DocumentNumber" : "PNLT00000000069",
+        "LineSequence" : 1,
+        "DistributionIndex" : 1,
+        "TransactionAmount" : 5.5,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000069",
+        "LineSequence" : 2,
+        "DistributionIndex" : 180,
+        "TransactionAmount" : -5.5,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000070",
+        "LineSequence" : 1,
+        "DistributionIndex" : 615,
+        "TransactionAmount" : 4.49,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000070",
+        "LineSequence" : 2,
+        "DistributionIndex" : 618,
+        "TransactionAmount" : -4.49,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000071",
+        "LineSequence" : 1,
+        "DistributionIndex" : 613,
+        "TransactionAmount" : -2.4,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000071",
+        "LineSequence" : 2,
+        "DistributionIndex" : 616,
+        "TransactionAmount" : 2.4,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000072",
+        "LineSequence" : 1,
+        "DistributionIndex" : 611,
+        "TransactionAmount" : -305.35,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000072",
+        "LineSequence" : 2,
+        "DistributionIndex" : 612,
+        "TransactionAmount" : 305.35,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000073",
+        "LineSequence" : 1,
+        "DistributionIndex" : 611,
+        "TransactionAmount" : -60.8,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000073",
+        "LineSequence" : 2,
+        "DistributionIndex" : 612,
+        "TransactionAmount" : 60.8,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000074",
+        "LineSequence" : 1,
+        "DistributionIndex" : 611,
+        "TransactionAmount" : -136.0,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000074",
+        "LineSequence" : 2,
+        "DistributionIndex" : 612,
+        "TransactionAmount" : 136.0,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000075",
+        "LineSequence" : 1,
+        "DistributionIndex" : 611,
+        "TransactionAmount" : -3.0,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000075",
+        "LineSequence" : 2,
+        "DistributionIndex" : 612,
+        "TransactionAmount" : 3.0,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000076",
+        "LineSequence" : 1,
+        "DistributionIndex" : 1,
+        "TransactionAmount" : 1.6,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000076",
+        "LineSequence" : 2,
+        "DistributionIndex" : 180,
+        "TransactionAmount" : -1.6,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000077",
+        "LineSequence" : 1,
+        "DistributionIndex" : 611,
+        "TransactionAmount" : -62.8,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000077",
+        "LineSequence" : 2,
+        "DistributionIndex" : 612,
+        "TransactionAmount" : 62.8,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000078",
+        "LineSequence" : 1,
+        "DistributionIndex" : 611,
+        "TransactionAmount" : -800.0,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000078",
+        "LineSequence" : 2,
+        "DistributionIndex" : 612,
+        "TransactionAmount" : 800.0,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000079",
+        "LineSequence" : 1,
+        "DistributionIndex" : 611,
+        "TransactionAmount" : -41.77,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000079",
+        "LineSequence" : 2,
+        "DistributionIndex" : 612,
+        "TransactionAmount" : 41.77,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000080",
+        "LineSequence" : 1,
+        "DistributionIndex" : 615,
+        "TransactionAmount" : 5.06,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000080",
+        "LineSequence" : 2,
+        "DistributionIndex" : 618,
+        "TransactionAmount" : -5.06,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000081",
+        "LineSequence" : 1,
+        "DistributionIndex" : 613,
+        "TransactionAmount" : -2.4,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000081",
+        "LineSequence" : 2,
+        "DistributionIndex" : 616,
+        "TransactionAmount" : 2.4,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000082",
+        "LineSequence" : 1,
+        "DistributionIndex" : 611,
+        "TransactionAmount" : -124.8,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000082",
+        "LineSequence" : 2,
+        "DistributionIndex" : 612,
+        "TransactionAmount" : 124.8,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000083",
+        "LineSequence" : 1,
+        "DistributionIndex" : 611,
+        "TransactionAmount" : -48.53,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000083",
+        "LineSequence" : 2,
+        "DistributionIndex" : 612,
+        "TransactionAmount" : 48.53,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000084",
+        "LineSequence" : 1,
+        "DistributionIndex" : 615,
+        "TransactionAmount" : 4.82,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000084",
+        "LineSequence" : 2,
+        "DistributionIndex" : 618,
+        "TransactionAmount" : -4.82,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000085",
+        "LineSequence" : 1,
+        "DistributionIndex" : 613,
+        "TransactionAmount" : -3.72,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000085",
+        "LineSequence" : 2,
+        "DistributionIndex" : 616,
+        "TransactionAmount" : 3.72,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000086",
+        "LineSequence" : 1,
+        "DistributionIndex" : 611,
+        "TransactionAmount" : -150.3,
+        "LocationId" : ""
+      }, {
+        "DocumentNumber" : "PNLT00000000086",
+        "LineSequence" : 2,
+        "DistributionIndex" : 612,
+        "TransactionAmount" : 150.3,
+        "LocationId" : ""
+      } ],
+      "ReportList" : [ {
+        "Name" : "Post Misc Charge Edit List",
+        "PrintOrder" : 1,
+        "DisplayName" : "Post Misc Charge Edit List",
+        "PrintEnabled" : true
+      }, {
+        "Name" : "Post Misc Charge Dist Breakdown Summary",
+        "PrintOrder" : 2,
+        "DisplayName" : "Post Misc Charge Dist Breakdown Summary",
+        "PrintEnabled" : true
+      }, {
+        "Name" : "Post Misc Charge Payment Dist Breakdown Detail",
+        "PrintOrder" : 3,
+        "DisplayName" : "Post Misc Charge Payment Dist Breakdown Detail",
+        "PrintEnabled" : false
+      }, {
+        "Name" : "Post Misc Charge Payment Dist Breakdown Summary",
+        "PrintOrder" : 4,
+        "DisplayName" : "Post Misc Charge Payment Dist Breakdown Summary",
+        "PrintEnabled" : false
+      } ],
+      "ReportErrorList" : [ {
+        "Name" : "Post Misc Charge Error List",
+        "PrintOrder" : 1,
+        "DisplayName" : "Post Misc Charge Error List",
+        "PrintEnabled" : true
+      } ]
+    },
+    "Messages" : [ ]
+  }
+}
+
+Actual:
+{
+  "message" : "Forbidden: insufficient role"
+}
+AT: at com.NexusAPI.Tests.Private_penaltyController_Test.postpenaltyDocumentsZones_v_4(Private_penaltyController_Test.java:138)
+
+=== Private_penaltyController_Test :: getpenaltyHeader_v_4 ===
+[java.lang.AssertionError]
+JSON mismatch!
+Expected:
+{
+  "Penalty" : {
+    "Success" : true,
+    "Data" : {
+      "CalculateBy" : "0",
+      "BatchId" : "PENALTY2",
+      "PenaltyDocumentDate" : "2025-01-01",
+      "PenaltyDueDate" : "2025-09-15",
+      "ExcludeFormerCustomers" : "false",
+      "IncludeOnlyPrintedDocuments" : "false",
+      "IncludeFormerCustomerstWithLoanBalance" : "false",
+      "Route" : [ "001", "002" ],
+      "IncludeDocumentsWithDueDate" : "2025-09-15",
+      "IncludeDocumentWithPenaltyProcessingDate" : "2025-09-15",
+      "Zone" : [ ],
+      "Cycle" : [ ],
+      "LocationId" : ""
+    },
+    "Messages" : [ ]
+  }
+}
+
+Actual:
+{
+  "Penalty" : {
+    "Success" : false,
+    "Data" : null,
+    "Messages" : [ {
+      "Enabled" : 1,
+      "Info" : "Batch Id (PENALTY2) not found for penalty header.",
+      "Level" : 3
+    } ]
+  }
+}
+AT: at com.NexusAPI.Tests.Private_penaltyController_Test.getpenaltyHeader_v_4(Private_penaltyController_Test.java:194)
+
+=== Private_checkControllerv4_Test :: postingReceivable4RefundError ===
+[java.lang.AssertionError]
+{"message":"Forbidden: insufficient role"}
+AT: at com.NexusAPI.Tests.Private_checkControllerv4_Test.postingReceivable4RefundError(Private_checkControllerv4_Test.java:202)
+
+=== Private_rateController_Test :: getRateInformation_AuditFields_v4 ===
+[java.lang.AssertionError]
+CreatedDateTime audit field should be present. Actual: {"Rate":{"Success":true,"Data":{"RateId":"EPCA-1","Description":"Electric Power Cost Adjustment","Type":{"Id":1,"Description":"Consumption"},"ServiceType":"ELECTRIC","RateClassId":"","BillingMessageExist":false,"Active":true,"UseLatestRateEffectivePeriod":false,"ConsecutiveEstimatesAllowed":0,"BillInAdvance":false,"LookupVisible":false,"SpecialCondition":false,"TimeOfUse":false,"ExcludeFromBd":false,"RatchetDemand":true,"KvarFactor":0.00000,"RateInUse":true,"EffectiveDate":[{"EffectiveStartDate":"1998-01-01","MinimumAmount":0.00,"MaximumAmount":0.00,"ProrateMinimum":{"First":false,"Regular":false,"Last":false},"ProrateMaximum":{"First":false,"Regular":false,"Last":false}}],"Detail":[{"DetailIndex":1,"Detail":{"Type":2,"Description":"Stepped Range"},"EffectiveStartDate":"1998-01-01","EffectiveEndDate":"1900-01-01","DetailDescription":"PCA for Electric Service","TaxSchedule":"USASTCITY-6*","ServiceType":"ELECTRIC","BillingFrequency":90,"ProrateDetail":{"First":false,"Regular":false,"Last":false},"ProrateMinimum":{"First":false,"Regular":false,"Last":false},"MinimumCharge":0.00,"UnitDescription":"","FixedCharge":0.00000,"Consumption":{"BillingDemandMinimum":0.00,"ConsumptionTolerance":0.00000,"UseActualDays":false,"Reporting":{"IncludeUnits":true,"IncludeRevenue":true},"ExportDetail":false,"ApplyDiscountPercentage":0,"WinterNormalizationAdjustment":{"Type":0,"TypeDetail":0},"CustomerChoice":0,"OldestEstimateUpdateDate":"1900-01-01"},"RevenueAccount":{"Index":515,"Number":"900-4611-00","Description":"Metered Sales to Residential - Electric"},"ReceivableAccount":{"Index":506,"Number":"900-1410-00","Description":"Customer Accounts Receivable - Electric"},"DetailSequence":[{"DetailIndexSequence":1,"UnitRate":0.53000,"VolumeLowerLimit":0,"VolumeUpperLimit":999999999,"VolumeLowerLimitString":"","VolumeUpperLimitString":""}],"MeterSizeMinimum":null,"AutomaticEstimates":null}]},"Messages":[]}} expected object to not be null
+AT: at com.NexusAPI.Tests.Private_rateController_Test.getRateInformation_AuditFields_v4(Private_rateController_Test.java:1423)
+
+=== Private_rateController_Test :: getRateInformation_AuditFields_WithEffectiveDate_v4 ===
+[java.lang.AssertionError]
+CreatedDateTime audit field should be present. Actual: {"Rate":{"Success":true,"Data":{"RateId":"EPCA-1","Description":"Electric Power Cost Adjustment","Type":{"Id":1,"Description":"Consumption"},"ServiceType":"ELECTRIC","RateClassId":"","BillingMessageExist":false,"Active":true,"UseLatestRateEffectivePeriod":false,"ConsecutiveEstimatesAllowed":0,"BillInAdvance":false,"LookupVisible":false,"SpecialCondition":false,"TimeOfUse":false,"ExcludeFromBd":false,"RatchetDemand":true,"KvarFactor":0.00000,"RateInUse":true,"EffectiveDate":[{"EffectiveStartDate":"1998-01-01","MinimumAmount":0.00,"MaximumAmount":0.00,"ProrateMinimum":{"First":false,"Regular":false,"Last":false},"ProrateMaximum":{"First":false,"Regular":false,"Last":false}}],"Detail":[{"DetailIndex":1,"Detail":{"Type":2,"Description":"Stepped Range"},"EffectiveStartDate":"1998-01-01","EffectiveEndDate":"1900-01-01","DetailDescription":"PCA for Electric Service","TaxSchedule":"USASTCITY-6*","ServiceType":"ELECTRIC","BillingFrequency":90,"ProrateDetail":{"First":false,"Regular":false,"Last":false},"ProrateMinimum":{"First":false,"Regular":false,"Last":false},"MinimumCharge":0.00,"UnitDescription":"","FixedCharge":0.00000,"Consumption":{"BillingDemandMinimum":0.00,"ConsumptionTolerance":0.00000,"UseActualDays":false,"Reporting":{"IncludeUnits":true,"IncludeRevenue":true},"ExportDetail":false,"ApplyDiscountPercentage":0,"WinterNormalizationAdjustment":{"Type":0,"TypeDetail":0},"CustomerChoice":0,"OldestEstimateUpdateDate":"1900-01-01"},"RevenueAccount":{"Index":515,"Number":"900-4611-00","Description":"Metered Sales to Residential - Electric"},"ReceivableAccount":{"Index":506,"Number":"900-1410-00","Description":"Customer Accounts Receivable - Electric"},"DetailSequence":[{"DetailIndexSequence":1,"UnitRate":0.53000,"VolumeLowerLimit":0,"VolumeUpperLimit":999999999,"VolumeLowerLimitString":"","VolumeUpperLimitString":""}],"MeterSizeMinimum":null,"AutomaticEstimates":null}]},"Messages":[]}} expected object to not be null
+AT: at com.NexusAPI.Tests.Private_rateController_Test.getRateInformation_AuditFields_WithEffectiveDate_v4(Private_rateController_Test.java:1451)
+
+=== Private_customerControllerV4_Test :: putupdateCustomerCard ===
+[java.lang.AssertionError]
+expected [{"result":[{"success":true,"message":"Customer Card Updated."}]}] but found [{"result":{"Success":false,"Message":"Error: csmApi_spUpdateCustomerCard_v3.0.0 - INSERT failed because the following SET options have incorrect settings: 'ANSI_NULLS, QUOTED_IDENTIFIER'. Verify that SET options are correct for use with indexed views and/or indexes on computed columns and/or filtered indexes and/or query notifications and/or XML data type methods and/or spatial index operations."}}]
+AT: at com.NexusAPI.Tests.Private_customerControllerV4_Test.putupdateCustomerCard(Private_customerControllerV4_Test.java:130)
+
+=== Private_customerControllerV4_Test :: putupdateCustomersInfov4Pos ===
+[java.lang.AssertionError]
+expected [{"Customer":[{"Acknowledge":0,"Success":true,"Messages":[{"Enabled":1,"Info":"Customer updated."}]}]}] but found [{"result":{"Success":false,"Message":"Error: csmApi_spUpdateCustomerBasicInfo - INSERT failed because the following SET options have incorrect settings: 'ANSI_NULLS, QUOTED_IDENTIFIER'. Verify that SET options are correct for use with indexed views and/or indexes on computed columns and/or filtered indexes and/or query notifications and/or XML data type methods and/or spatial index operations."}}]
+AT: at com.NexusAPI.Tests.Private_customerControllerV4_Test.putupdateCustomersInfov4Pos(Private_customerControllerV4_Test.java:218)
+
+=== Private_CollectionControllerv4_Test :: confirmNoticev4 ===
+[java.lang.AssertionError]
+expected [{"Collection":{"Success":true,"Data":null,"Messages":[{"Enabled":1,"Info":"Collection Notices Processed.","Level":1}]}}] but found [{"message":"Forbidden: insufficient role"}]
+AT: at com.NexusAPI.Tests.Private_CollectionControllerv4_Test.confirmNoticev4(Private_CollectionControllerv4_Test.java:157)
+

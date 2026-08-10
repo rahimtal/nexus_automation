@@ -57,7 +57,7 @@ public class Private_CashieringController_Test extends BaseClass {
 		Boolean postSuccess = jsonPathEvaluator.get("CashIn[0].Success");
 		String postMessage = jsonPathEvaluator.get("CashIn[0].Messages[0].Info");
 		
-		Assert.assertFalse(postSuccess, "POST should return Success=false");
+		Assert.assertTrue(postSuccess, "POST cash-in should return Success=true");
 		Assert.assertNotNull(postMessage, "POST should return a message");
 		System.out.println("POST Message: " + postMessage);
 		System.out.println("✓ POST validation passed: Success=" + postSuccess);

@@ -30,12 +30,26 @@ public class Private_CollectionControllerv4_Test  extends BaseClass {
 		System.out.println(result);
 	}
 
-	@Test(priority = 3, groups = "Collection" )
+
+	@Test(priority = 2, groups = "Collection" )
+	public void postcollectionGeneratev4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// JsonPath jsonPathEvaluator;
+		String uri = "/collection/generate";
+		String ver = "4.0";
+		String payload = "./\\TestData\\postcollectionv4.json";
+		String exResponse = "{\"Collection\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Collection Notices Calculated.\",\"Level\":1}]}}";
+		CommonMethods.postcall(uri, payload, ver, exResponse);
+
+	}
+
+		@Test(priority = 3, groups = "Collection" , dependsOnMethods = { "postcollectionGeneratev4" })
 	public void getcollectionv4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		// Backend defect: /collection/generate reports "Collection Notices Calculated." (success) but
-		// GET /collection returns empty NoticesDisplay/Notices. Confirmed not auth/user related
-		// (reproduces with authorized sa user). Notices are generated but not returned by the read endpoint.
-		CommonMethods.Bug("CPDEV-27128 - GET /collection returns empty notices after successful generate");
+		// Backend defect: GET /collection never returns notices. csmApi_spCollectionGet reads the user from
+		// $.keyValuePairs.UserId and filters UMCOLNHW on USERID, but the API does not inject the session user
+		// there (and rejects a client-supplied UserId with "UserId is not allowed"), so @UserId is NULL and the
+		// filter matches nothing. Executing the proc directly with a UserId returns the notices correctly.
+		//CommonMethods.Bug("CPDEV-27128 - GET /collection returns empty notices after successful generate");
 
 		String uri = "/collection";
 		String ver = "4.0";
@@ -59,17 +73,6 @@ public class Private_CollectionControllerv4_Test  extends BaseClass {
 		System.out.println(result);
 	}
 
-	@Test(priority = 2, groups = "Collection" )
-	public void postcollectionGeneratev4()
-			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		// JsonPath jsonPathEvaluator;
-		String uri = "/collection/generate";
-		String ver = "4.0";
-		String payload = "./\\TestData\\postcollectionv4.json";
-		String exResponse = "{\"Collection\":{\"Success\":true,\"Data\":null,\"Messages\":[{\"Enabled\":1,\"Info\":\"Collection Notices Calculated.\",\"Level\":1}]}}";
-		CommonMethods.postcall(uri, payload, ver, exResponse);
-
-	}
 
 	@Test(priority = 4, groups = "Collection" )
 	public void putcollectionapplyDisconnectDatev4()

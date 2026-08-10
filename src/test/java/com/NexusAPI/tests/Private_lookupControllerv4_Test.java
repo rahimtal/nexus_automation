@@ -329,14 +329,85 @@ public class Private_lookupControllerv4_Test extends BaseClass {
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.Bugs("https://cogsdale.atlassian.net/browse/CPDEV-18771");
 		// CPDEV-18771 - developer confirm this is not an issue
-
-		CommonMethods.Bug("CPDEV-26483 ");
+		//tests on QA_RELEASE_TAG=feature-cpdev-26483 on backup it might fail
+		//CommonMethods.Bug("CPDEV-26483 ");
 		String uri = "/lookup/serviceOrderTasks";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\lookupserviceOrderTasksv4.json";
 		HashMap<String, String> params = new HashMap<String, String>();
 		String result = CommonMethods.getMethod(uri, ver, params, jpath);
 		System.out.println(result);
+	}
+
+	@Test(priority = 271, groups = "lookup")
+	public void lookupserviceOrderTask_ReturnsData()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// Positive test: endpoint returns the ServiceOrderTask collection with expected structure.
+		String uri = "/lookup/serviceOrderTasks";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("PageNum", "1");
+		params.put("NumPerPage", "32000");
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertTrue(actual.contains("\"ServiceOrderTask\""), actual);
+		Assert.assertTrue(actual.contains("\"Action\""), actual);
+		Assert.assertTrue(actual.contains("\"ServiceCategory\""), actual);
+		Assert.assertTrue(actual.contains("\"ChargeType\""), actual);
+		Assert.assertTrue(actual.contains("\"EmployeeId\""), actual);
+		Assert.assertTrue(actual.contains("\"Amount\""), actual);
+	}
+
+	@Test(priority = 272, groups = "lookup")
+	public void lookupserviceOrderTask_ContainsKnownTasks()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// Positive test: known Collection tasks are returned with the correct Action and ServiceCategory.
+		String uri = "/lookup/serviceOrderTasks";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("PageNum", "1");
+		params.put("NumPerPage", "32000");
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertTrue(actual.contains(
+				"{\"Id\":\"COLLECTION\",\"Description\":\"Collection -deposit\",\"Action\":{\"Id\":\"14\",\"Description\":\"Collection\"},\"ServiceCategory\":{\"Id\":1,\"Description\":\"Electric\"},\"ChargeType\":\"\",\"EmployeeId\":\"\",\"Amount\":0.00}"),
+				actual);
+		Assert.assertTrue(actual.contains(
+				"{\"Id\":\"COLLECTION 1\",\"Description\":\"Collection -NSF\",\"Action\":{\"Id\":\"14\",\"Description\":\"Collection\"},\"ServiceCategory\":{\"Id\":1,\"Description\":\"Electric\"},\"ChargeType\":\"\",\"EmployeeId\":\"\",\"Amount\":0.00}"),
+				actual);
+		Assert.assertTrue(actual.contains(
+				"{\"Id\":\"COLLECTION 2\",\"Description\":\"Collection-overdue\",\"Action\":{\"Id\":\"14\",\"Description\":\"Collection\"},\"ServiceCategory\":{\"Id\":1,\"Description\":\"Electric\"},\"ChargeType\":\"\",\"EmployeeId\":\"\",\"Amount\":0.00}"),
+				actual);
+	}
+
+	@Test(priority = 273, groups = "lookup")
+	public void lookupserviceOrderTask_OrderByServiceCategoryDesc()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// Positive test: OrderBy parameter is accepted and data is returned.
+		String uri = "/lookup/serviceOrderTasks";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("OrderBy", "ServiceCategory.Id DESC");
+		params.put("PageNum", "1");
+		params.put("NumPerPage", "32000");
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertTrue(actual.contains("\"ServiceOrderTask\""), actual);
+		Assert.assertTrue(actual.contains("\"ServiceCategory\""), actual);
+	}
+
+	@Test(priority = 274, groups = "lookup")
+	public void lookupserviceOrderTask_Pagination()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// Positive test: pagination with a small page size still returns the collection.
+		String uri = "/lookup/serviceOrderTasks";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("PageNum", "1");
+		params.put("NumPerPage", "2");
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertTrue(actual.contains("\"ServiceOrderTask\""), actual);
 	}
 
 	@Test(priority = 28, groups = "lookup")

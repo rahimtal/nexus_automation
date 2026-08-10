@@ -1,0 +1,31 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "QuickDBRestore",
+      "request": "launch",
+      "mainClass": "com.NexustAPIAutomation.java.QuickDBRestore",
+      "projectName": "com.NexusAPIlAutomation.Java"
+    },
+    {
+      "type": "java",
+      "name": "QuickDBBackup (non-interactive)",
+      "request": "launch",
+      "mainClass": "com.NexustAPIAutomation.java.QuickDBBackup",
+      "projectName": "com.NexusAPIlAutomation.Java",
+      "console": "internalConsole",
+      "args": [
+        "-y"
+      ]
+    },
+    {
+      "type": "java",
+      "name": "QuickDBBackup (interactive)",
+      "request": "launch",
+      "mainClass": "com.NexustAPIAutomation.java.QuickDBBackup",
+      "projectName": "com.NexusAPIlAutomation.Java",
+      "console": "integratedTerminal"
+    }
+  ]
+}
