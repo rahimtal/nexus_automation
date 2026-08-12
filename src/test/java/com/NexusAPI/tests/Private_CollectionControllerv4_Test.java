@@ -49,7 +49,7 @@ public class Private_CollectionControllerv4_Test  extends BaseClass {
 		// $.keyValuePairs.UserId and filters UMCOLNHW on USERID, but the API does not inject the session user
 		// there (and rejects a client-supplied UserId with "UserId is not allowed"), so @UserId is NULL and the
 		// filter matches nothing. Executing the proc directly with a UserId returns the notices correctly.
-		//CommonMethods.Bug("CPDEV-27128 - GET /collection returns empty notices after successful generate");
+		CommonMethods.Bug("CPDEV-27128 - GET /collection returns empty notices after successful generate");
 
 		String uri = "/collection";
 		String ver = "4.0";

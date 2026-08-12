@@ -1499,6 +1499,7 @@ public class CommonMethods {
 		System.out.println("===============================================");
 		RestAssured.baseURI = RestAssured.baseURI + uri;
 		System.out.println(RestAssured.baseURI.toString());
+		System.out.println("Parameters  = "+params.toString());
 
 		ExtentReportManager.logRequest("GET", uri, version, params.toString());
 
@@ -1517,6 +1518,7 @@ public class CommonMethods {
 			System.out.println("URI :" + RestAssured.baseURI.toString());
 			System.out.println("Response :" + response);
 			System.out.println("Status Code: " + rawResponse.getStatusCode());
+			
 
 			// Check if authentication failed
 			if (isAuthenticationFailure(rawResponse)) {
