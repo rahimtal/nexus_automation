@@ -113,4 +113,44 @@ public class Public_Test_billingController extends BaseClass {
 
 	}
 
+	// -----------------------------------------------------------------------
+	// Performance improvement (stored procedures): new optional query parameter
+	// StatementMonths on billingController.getBillingStatements
+	// (/billing/statements/{CustomerId}/{LocationId}). Defaults to existing
+	// behavior, so the parameter must be non-breaking.
+	// -----------------------------------------------------------------------
+
+	// StatementMonths supplied -> limits statements to the requested number of
+	// months while still returning successfully.
+	@Test(priority = 7, groups = "Billing")
+	public static void billingStatementsStatementMonthsv4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/billing/statements/500001/100001";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("StatementMonths", "400");
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(result);
+		Assert.assertTrue(result.contains("\"Statements\""));
+		Assert.assertTrue(result.contains("\"Success\":true"),
+				"Expected successful response when StatementMonths is supplied. Actual: " + result);
+	}
+
+	// StatementMonths omitted -> default behavior is preserved (backward
+	// compatible), returning a successful response.
+	@Test(priority = 8, groups = "Billing")
+	public static void billingStatementsStatementMonthsDefaultv4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/billing/statements/500001/100001";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String result = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(result);
+		Assert.assertTrue(result.contains("\"Statements\""));
+		Assert.assertTrue(result.contains("\"Success\":true"),
+				"Expected successful default response when StatementMonths is omitted. Actual: " + result);
+	}
+
 }

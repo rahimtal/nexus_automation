@@ -113,7 +113,7 @@ public class Private_customerControllerV4_Test extends BaseClass {
 	@Test(priority = 5, groups = "CustomerController")
 	public void putupdateCustomerCard() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.Bugs("CPDEV-20936");
-		CommonMethods.Bug("CPDEV-25665");
+		//CommonMethods.Bug("CPDEV-25665");
 		String uri = "/customer/updateCustomerCard";
 		String ver = "4.0";
 		String jpath = "{\r\n" + "	\"CustomerId\": \"CUSTOMER003\",\r\n" + "	\"AddressLine1\": \"6 JIM BLVD\",\r\n"
@@ -147,7 +147,7 @@ public class Private_customerControllerV4_Test extends BaseClass {
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		// CommonMethods.Bugs("CPDEV-20941");
-		CommonMethods.Bug("CPDEV-25670");
+		//CommonMethods.Bug("CPDEV-25670");
 		String uri = "/customers/info";
 		String ver = "4.0";
 		String jpath = "{\r\n" + "    \"Customer\": [\r\n" + "        {\r\n"
@@ -185,7 +185,7 @@ public class Private_customerControllerV4_Test extends BaseClass {
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
 		// verified //CommonMethods.Bugs("CPDEV-20941");
-		CommonMethods.Bug("CPDEV-25675");
+		//CommonMethods.Bug("CPDEV-25675");
 
 		String uri = "/customers/info";
 		String ver = "4.0";

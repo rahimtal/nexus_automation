@@ -3,12 +3,18 @@ package com.NexusAPI.Tests;
 import org.testng.annotations.Test;
 import org.testng.Assert;
 import org.testng.Assert;
+import org.testng.SkipException;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 import com.NexustAPIAutomation.java.DataBackupRestore;
@@ -329,14 +335,85 @@ public class Private_lookupControllerv4_Test extends BaseClass {
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		// CommonMethods.Bugs("https://cogsdale.atlassian.net/browse/CPDEV-18771");
 		// CPDEV-18771 - developer confirm this is not an issue
-
-		CommonMethods.Bug("CPDEV-26483 ");
+		//tests on QA_RELEASE_TAG=feature-cpdev-26483 on backup it might fail
+		//CommonMethods.Bug("CPDEV-26483 ");
 		String uri = "/lookup/serviceOrderTasks";
 		String ver = "4.0";
 		String jpath = "./\\TestData\\lookupserviceOrderTasksv4.json";
 		HashMap<String, String> params = new HashMap<String, String>();
 		String result = CommonMethods.getMethod(uri, ver, params, jpath);
 		System.out.println(result);
+	}
+
+	@Test(priority = 271, groups = "lookup")
+	public void lookupserviceOrderTask_ReturnsData()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// Positive test: endpoint returns the ServiceOrderTask collection with expected structure.
+		String uri = "/lookup/serviceOrderTasks";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("PageNum", "1");
+		params.put("NumPerPage", "32000");
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertTrue(actual.contains("\"ServiceOrderTask\""), actual);
+		Assert.assertTrue(actual.contains("\"Action\""), actual);
+		Assert.assertTrue(actual.contains("\"ServiceCategory\""), actual);
+		Assert.assertTrue(actual.contains("\"ChargeType\""), actual);
+		Assert.assertTrue(actual.contains("\"EmployeeId\""), actual);
+		Assert.assertTrue(actual.contains("\"Amount\""), actual);
+	}
+
+	@Test(priority = 272, groups = "lookup")
+	public void lookupserviceOrderTask_ContainsKnownTasks()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// Positive test: known Collection tasks are returned with the correct Action and ServiceCategory.
+		String uri = "/lookup/serviceOrderTasks";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("PageNum", "1");
+		params.put("NumPerPage", "32000");
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertTrue(actual.contains(
+				"{\"Id\":\"COLLECTION\",\"Description\":\"Collection -deposit\",\"Action\":{\"Id\":\"14\",\"Description\":\"Collection\"},\"ServiceCategory\":{\"Id\":1,\"Description\":\"Electric\"},\"ChargeType\":\"\",\"EmployeeId\":\"\",\"Amount\":0.00}"),
+				actual);
+		Assert.assertTrue(actual.contains(
+				"{\"Id\":\"COLLECTION 1\",\"Description\":\"Collection -NSF\",\"Action\":{\"Id\":\"14\",\"Description\":\"Collection\"},\"ServiceCategory\":{\"Id\":1,\"Description\":\"Electric\"},\"ChargeType\":\"\",\"EmployeeId\":\"\",\"Amount\":0.00}"),
+				actual);
+		Assert.assertTrue(actual.contains(
+				"{\"Id\":\"COLLECTION 2\",\"Description\":\"Collection-overdue\",\"Action\":{\"Id\":\"14\",\"Description\":\"Collection\"},\"ServiceCategory\":{\"Id\":1,\"Description\":\"Electric\"},\"ChargeType\":\"\",\"EmployeeId\":\"\",\"Amount\":0.00}"),
+				actual);
+	}
+
+	@Test(priority = 273, groups = "lookup")
+	public void lookupserviceOrderTask_OrderByServiceCategoryDesc()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// Positive test: OrderBy parameter is accepted and data is returned.
+		String uri = "/lookup/serviceOrderTasks";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("OrderBy", "ServiceCategory.Id DESC");
+		params.put("PageNum", "1");
+		params.put("NumPerPage", "32000");
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertTrue(actual.contains("\"ServiceOrderTask\""), actual);
+		Assert.assertTrue(actual.contains("\"ServiceCategory\""), actual);
+	}
+
+	@Test(priority = 274, groups = "lookup")
+	public void lookupserviceOrderTask_Pagination()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// Positive test: pagination with a small page size still returns the collection.
+		String uri = "/lookup/serviceOrderTasks";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("PageNum", "1");
+		params.put("NumPerPage", "2");
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertTrue(actual.contains("\"ServiceOrderTask\""), actual);
 	}
 
 	@Test(priority = 28, groups = "lookup")
@@ -450,7 +527,7 @@ public class Private_lookupControllerv4_Test extends BaseClass {
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/serviceAddressLookup";
 		String ver = "e";
-		String expected = "{\"result\":{\"statusCode\":\"0\",\"statusMessage\":\"\",\"apiVersionNumber\":\"1.0\"},\"serviceAddresses\":[{\"serviceAddress\":\"130 SAMSULA DR\",\"premiseId\":\"000000000523000\",\"serviceAddressLine2\":\"Address Line 2\"}]}";
+		String expected = "{\"result\":{\"statusCode\":\"0\",\"statusMessage\":\"\",\"apiVersionNumber\":\"1.0\"},\"serviceAddresses\":[{\"serviceAddress\":\"130 W SAMSULA DR\",\"premiseId\":\"000000000523000\",\"serviceAddressLine2\":\"Address Line 2\"}]}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("serviceAddress", "130");
 		params.put("resultLimit", "50");
@@ -707,15 +784,67 @@ public class Private_lookupControllerv4_Test extends BaseClass {
 	@Test(priority = 48, groups = "lookup")
 	public void lookuprateFilterVisible()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-
+		// FilterVisible = 1 -> Visible rates only
 		String uri = "/lookupRate";
 		String ver = "4.0";
-		String expected = "{\"Rates\":[{\"Id\":\"EMP-1\",\"Description\":\"Electric Medium Power (13)\",\"ServiceType\":\"ELECTRIC\"},{\"Id\":\"EOL-1HPS100WOB\",\"Description\":\"Outdoor Lighting-High Pressure Sodium 100Watt Open Bottom\",\"ServiceType\":\"ST-LIGHTS\"},{\"Id\":\"EOL-1HPS150CH\",\"Description\":\"Outdoor Lighting-Hign Pressure Sodium 150Watt Cobrahead\",\"ServiceType\":\"ST-LIGHTS\"},{\"Id\":\"EPCA-1\",\"Description\":\"Electric Power Cost Adjustment\",\"ServiceType\":\"ELECTRIC\"},{\"Id\":\"GC-2CAN-2PICK\",\"Description\":\"Garbage collection, 1-2 cans, 2 pickups\",\"ServiceType\":\"GC\"},{\"Id\":\"GRESMTR40\",\"Description\":\"Residential Gas Meter Service - 40\",\"ServiceType\":\"GAS\"},{\"Id\":\"GS-OFFPKDEMAND\",\"Description\":\"General Service Off Peak Demand\",\"ServiceType\":\"ELECTRIC\"},{\"Id\":\"GS-OFFPKENERGY\",\"Description\":\"General Service Off Peak Energy Charges\",\"ServiceType\":\"ELECTRIC\"},{\"Id\":\"GS-PK DEMAND\",\"Description\":\"General service peak demand Charges\",\"ServiceType\":\"ELECTRIC\"},{\"Id\":\"GS-PK ENERGY\",\"Description\":\"General Service Peak Period Energy Charges\",\"ServiceType\":\"ELECTRIC\"},{\"Id\":\"INTERNET\",\"Description\":\"Internet service charge\",\"ServiceType\":\"ELECTRIC\"},{\"Id\":\"INTERNET-10\",\"Description\":\"Internet service charge - 20 hours\",\"ServiceType\":\"INTERNET\"},{\"Id\":\"INTERNET-60\",\"Description\":\"Internet service charge -60 hours\",\"ServiceType\":\"INTERNET\"},{\"Id\":\"IS\",\"Description\":\"Internet services\",\"ServiceType\":\"IS\"},{\"Id\":\"KW-ZERO\",\"Description\":\"Zero demand rate\",\"ServiceType\":\"ELECTRIC\"},{\"Id\":\"PC-0.62-CITY\",\"Description\":\"Pollution control, 5/8\\\" meter, inside city\",\"ServiceType\":\"PC\"},{\"Id\":\"PH- ZONE 2\",\"Description\":\"Phone charge for zone # 2\",\"ServiceType\":\"PHONE\"},{\"Id\":\"PH-CHARGE\",\"Description\":\"Phone charge\",\"ServiceType\":\"PHONE\"},{\"Id\":\"PH-LOCALCALLS\",\"Description\":\"Monthly charge for local calls\",\"ServiceType\":\"PHONE\"},{\"Id\":\"PH-MINCHARGE\",\"Description\":\"Phone monthly charge\",\"ServiceType\":\"PHONE\"},{\"Id\":\"PH-ZONE 1\",\"Description\":\"Phone charge  for zone # 1\",\"ServiceType\":\"PHONE\"},{\"Id\":\"PH-ZONE 3\",\"Description\":\"Phone charge for Zone # 3\",\"ServiceType\":\"PHONE\"},{\"Id\":\"PHONE\",\"Description\":\"Phone monthly charge\",\"ServiceType\":\"PHONE\"},{\"Id\":\"PTAXRATE\",\"Description\":\"Rate for Property Tax\",\"ServiceType\":\"PROPERTYTAX\"},{\"Id\":\"RATE001-FIXED\",\"Description\":\"This is a rate with fixed charge only\",\"ServiceType\":\"ELECTRIC\"},{\"Id\":\"RATE002-STEP\",\"Description\":\"This is a rate with a stepped range only\",\"ServiceType\":\"ELECTRIC\"},{\"Id\":\"RATE003-FIX/STP\",\"Description\":\"This is a rate with a fixed charge and a stepped range\",\"ServiceType\":\"ELECTRIC\"},{\"Id\":\"RATE1\",\"Description\":\"NEW RATE WITH NEW RATE TYPE\",\"ServiceType\":\"ELECTRIC\"},{\"Id\":\"RE-FIX-1PHASE\",\"Description\":\"Residential Electric, single phase, fixed charges\",\"ServiceType\":\"RE_FIX\"},{\"Id\":\"RE_1PHASE\",\"Description\":\"Residential electric, 1 phase\",\"ServiceType\":\"RE_MR\"},{\"Id\":\"RES-ELEC\",\"Description\":\"This is an energy charge for residental customers\",\"ServiceType\":\"ELECTRIC\"},{\"Id\":\"RRES\",\"Description\":\"Refuse Residential\",\"ServiceType\":\"REFUSE\"},{\"Id\":\"RRES-30\",\"Description\":\"Monthly Refuse Charge\",\"ServiceType\":\"REFUSE\"},{\"Id\":\"SEWER\",\"Description\":\"Sewer\",\"ServiceType\":\"IR-A\"},{\"Id\":\"SEWERMETERED\",\"Description\":\"Metered rates for sewrwe connection\",\"ServiceType\":\"SEWER\"},{\"Id\":\"WATER\",\"Description\":\"Water\",\"ServiceType\":\"WR-A\"},{\"Id\":\"WATERFLAT\",\"Description\":\"Flat rate billing for water connection\",\"ServiceType\":\"WATER\"},{\"Id\":\"WR-IR-0.62-CITY\",\"Description\":\"Water rate, irrigation, 5/8\\\" meter, city\",\"ServiceType\":\"IR\"},{\"Id\":\"WR_0.62_CITY\",\"Description\":\"Water rate, 5/8\\\" meter, city\",\"ServiceType\":\"WR\"},{\"Id\":\"ZEROKWCOMM\",\"Description\":\"Zero rate -comm demand\",\"ServiceType\":\"COMM-ELECTRIC\"}]}";
+		String expected = "{\"Rates\":[{\"Id\":\"RATE1\",\"Description\":\"NEW RATE WITH NEW RATE TYPE\",\"ServiceType\":\"ELECTRIC\"}]}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("FilterVisible", "1");
 		String actual = CommonMethods.getMethodasString(uri, ver, params);
 		System.out.println(actual);
 		Assert.assertEquals(actual, expected);
+	}
+
+	@Test(priority = 481, groups = "lookup")
+	public void lookuprateFilterNonVisible()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// FilterVisible = 2 -> Non visible rates only. Must exclude the visible rate (RATE1)
+		// and include non-visible rates (e.g. EMP-1).
+		String uri = "/lookupRate";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("FilterVisible", "2");
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertTrue(actual.contains("\"Rates\""), actual);
+		Assert.assertFalse(actual.contains("\"Id\":\"RATE1\""),
+				"FilterVisible=2 (non-visible only) must not return the visible rate RATE1");
+		Assert.assertTrue(actual.contains("\"Id\":\"EMP-1\""),
+				"FilterVisible=2 (non-visible only) should return non-visible rates such as EMP-1");
+	}
+
+	@Test(priority = 482, groups = "lookup")
+	public void lookuprateFilterAll()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// FilterVisible = 3 -> All rates. Must include both the visible rate (RATE1)
+		// and non-visible rates (EMP-1), i.e. all = visible + non-visible.
+		String uri = "/lookupRate";
+		String ver = "4.0";
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("FilterVisible", "3");
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertTrue(actual.contains("\"Rates\""), actual);
+		Assert.assertTrue(actual.contains("\"Id\":\"RATE1\""),
+				"FilterVisible=3 (all) must include the visible rate RATE1");
+		Assert.assertTrue(actual.contains("\"Id\":\"EMP-1\""),
+				"FilterVisible=3 (all) must include non-visible rates such as EMP-1");
+	}
+
+	@Test(priority = 483, groups = "lookup")
+	public void lookuprateFilterDefault()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// No FilterVisible supplied -> default is 3 (All rates). Response must match FilterVisible=3.
+		String uri = "/lookupRate";
+		String ver = "4.0";
+		HashMap<String, String> all = new HashMap<String, String>();
+		all.put("FilterVisible", "3");
+		String allRates = CommonMethods.getMethodasString(uri, ver, all);
+		HashMap<String, String> params = new HashMap<String, String>();
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		System.out.println(actual);
+		Assert.assertEquals(actual, allRates,
+				"Omitting FilterVisible should default to 3 (All rates)");
 	}
 
 	@Test(priority = 49, groups = "lookup")
@@ -934,8 +1063,506 @@ public class Private_lookupControllerv4_Test extends BaseClass {
 		Assert.assertTrue(actual.contains("\"Diameter\""));
 	}
 
-	
+	// ---------------------------------------------------------------------
+	// GET /api/v4/lookupMeterRead - BatchId / LocationId / IsReadAllowAdjustment
+	// SP: csmApi_spLKMeterRead. Always HTTP 200; success rows come back under
+	// "MeterReading", validation errors under the "MeterRead" wrapper.
+	// ---------------------------------------------------------------------
 
-	
+	private static final String METER_READ_URI = "/lookupMeterRead";
+
+	private static Boolean meterReadAdjustmentSupported;
+
+	/** LocationId / IsReadAllowAdjustment only exist on builds that contain the change. */
+	private static void requireAdjustmentParameters() throws IOException, InterruptedException {
+		if (meterReadAdjustmentSupported == null) {
+			HashMap<String, String> probe = new HashMap<String, String>();
+			probe.put("LocationId", "");
+			probe.put("IsReadAllowAdjustment", "0");
+			String probeResponse = CommonMethods.getMethodasString(METER_READ_URI, "4.0", probe);
+			meterReadAdjustmentSupported = Boolean.valueOf(!probeResponse.contains("is not allowed"));
+		}
+		if (!meterReadAdjustmentSupported.booleanValue()) {
+			throw new SkipException("lookupMeterRead LocationId / IsReadAllowAdjustment are not deployed on this "
+					+ "environment - the API rejects them with 'is not allowed'");
+		}
+	}
+
+	private static String meterRead(HashMap<String, String> params) throws IOException, InterruptedException {
+		String actual = CommonMethods.getMethodasString(METER_READ_URI, "4.0", params);
+		System.out.println(actual);
+		return actual;
+	}
+
+	@SuppressWarnings("unchecked")
+	private static List<Map<String, String>> meterReadRows(String json) {
+		Assert.assertFalse(json.contains("\"MeterRead\""),
+				"Expected meter read rows but the API returned an error wrapper: " + json);
+		List<Map<String, String>> rows = new JsonPath(json).getList("MeterReading");
+		return rows == null ? new ArrayList<Map<String, String>>() : rows;
+	}
+
+	/** The SP returns a single all-empty row (and no Status key) when nothing matches. */
+	private static boolean isEmptyPlaceholder(List<Map<String, String>> rows) {
+		return rows.size() == 1 && "".equals(rows.get(0).get("DocumentNumber"))
+				&& !rows.get(0).containsKey("Status");
+	}
+
+	private static void assertMeterReadValidationError(String actual, String scenario, String expectedMessage) {
+		Assert.assertTrue(actual.contains("\"MeterRead\""),
+				scenario + " should return the MeterRead error wrapper. Response: " + actual);
+		Assert.assertEquals(new JsonPath(actual).getBoolean("MeterRead.Success"), Boolean.FALSE,
+				scenario + " should return Success=false. Response: " + actual);
+		Assert.assertTrue(actual.contains("\"Info\":\"" + expectedMessage + "\""),
+				scenario + " should report '" + expectedMessage + "'. Response: " + actual);
+	}
+
+	private static HashMap<String, String> allRowsParams() {
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("PageNum", "1");
+		params.put("NumPerPage", "32000");
+		return params;
+	}
+
+	@Test(priority = 63, groups = "lookup")
+	public void lookupMeterRead_DefaultMode_ReturnsWorkAndOpen()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// Regression: no LocationId and no IsReadAllowAdjustment must still return both
+		// Work (UM10300) and Open (UM20300) rows, i.e. no latest-only filtering.
+		List<Map<String, String>> rows = meterReadRows(meterRead(allRowsParams()));
+		Assert.assertFalse(isEmptyPlaceholder(rows), "Default mode should return meter reads");
+		Set<String> statuses = new HashSet<String>();
+		for (Map<String, String> row : rows) {
+			statuses.add(row.get("Status"));
+		}
+		Assert.assertTrue(statuses.contains("Work"), "Default mode must still return Work rows. Got: " + statuses);
+		Assert.assertTrue(statuses.contains("Open"), "Default mode must still return Open rows. Got: " + statuses);
+	}
+
+	@Test(priority = 64, groups = "lookup")
+	public void lookupMeterRead_AdjustmentZeroMatchesOmitted()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// IsReadAllowAdjustment=0 must be byte-identical to the pre-change endpoint.
+		requireAdjustmentParameters();
+		String omitted = meterRead(allRowsParams());
+		HashMap<String, String> params = allRowsParams();
+		params.put("IsReadAllowAdjustment", "0");
+		String explicitZero = meterRead(params);
+		Assert.assertEquals(explicitZero, omitted,
+				"IsReadAllowAdjustment=0 must match the response with the parameter omitted");
+	}
+
+	@Test(priority = 65, groups = "lookup")
+	public void lookupMeterRead_AdjustmentDefaultsToZeroWhenUnrecognised()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// false is a valid boolean value and must behave like 0.
+		requireAdjustmentParameters();
+		String omitted = meterRead(allRowsParams());
+		HashMap<String, String> params = allRowsParams();
+		params.put("IsReadAllowAdjustment", "false");
+		Assert.assertEquals(meterRead(params), omitted, "IsReadAllowAdjustment=false must match the default mode");
+	}
+
+	@Test(priority = 66, groups = "lookup")
+	public void lookupMeterRead_AdjustmentTrueMatchesOne()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		requireAdjustmentParameters();
+		HashMap<String, String> one = allRowsParams();
+		one.put("IsReadAllowAdjustment", "1");
+		HashMap<String, String> asTrue = allRowsParams();
+		asTrue.put("IsReadAllowAdjustment", "true");
+		Assert.assertEquals(meterRead(asTrue), meterRead(one),
+				"IsReadAllowAdjustment=true must match IsReadAllowAdjustment=1");
+	}
+
+	@Test(priority = 67, groups = "lookup")
+	public void lookupMeterRead_AdjustmentMode_OpenRowsOnly()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		requireAdjustmentParameters();
+		HashMap<String, String> params = allRowsParams();
+		params.put("IsReadAllowAdjustment", "1");
+		List<Map<String, String>> rows = meterReadRows(meterRead(params));
+		Assert.assertFalse(isEmptyPlaceholder(rows), "Adjustment mode should return open meter reads");
+		for (Map<String, String> row : rows) {
+			Assert.assertEquals(row.get("Status"), "Open",
+					"Adjustment mode must return Open (UM20300) rows only. Offending row: " + row);
+		}
+	}
+
+	@Test(priority = 68, groups = "lookup")
+	public void lookupMeterRead_AdjustmentMode_OneRowPerEquipment()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		requireAdjustmentParameters();
+		HashMap<String, String> params = allRowsParams();
+		params.put("IsReadAllowAdjustment", "1");
+		List<Map<String, String>> rows = meterReadRows(meterRead(params));
+		Assert.assertFalse(isEmptyPlaceholder(rows), "Adjustment mode should return open meter reads");
+		Set<String> seen = new HashSet<String>();
+		for (Map<String, String> row : rows) {
+			Assert.assertTrue(seen.add(row.get("EquipmentId")),
+					"Adjustment mode must return only one row per EquipmentId. Duplicate: " + row.get("EquipmentId"));
+		}
+	}
+
+	@Test(priority = 69, groups = "lookup")
+	public void lookupMeterRead_AdjustmentMode_ReturnsLatestReadingPerEquipment()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		requireAdjustmentParameters();
+		HashMap<String, String> adjustment = allRowsParams();
+		adjustment.put("IsReadAllowAdjustment", "1");
+		List<Map<String, String>> adjustmentRows = meterReadRows(meterRead(adjustment));
+		Assert.assertFalse(isEmptyPlaceholder(adjustmentRows), "Adjustment mode should return open meter reads");
+
+		Map<String, String> latestOpenPerEquipment = new HashMap<String, String>();
+		for (Map<String, String> row : meterReadRows(meterRead(allRowsParams()))) {
+			if (!"Open".equals(row.get("Status"))) {
+				continue;
+			}
+			String equipmentId = row.get("EquipmentId");
+			String readingDate = row.get("ReadingDate");
+			String current = latestOpenPerEquipment.get(equipmentId);
+			// ReadingDate is yyyy-MM-dd, so lexical comparison is chronological.
+			if (current == null || readingDate.compareTo(current) > 0) {
+				latestOpenPerEquipment.put(equipmentId, readingDate);
+			}
+		}
+
+		for (Map<String, String> row : adjustmentRows) {
+			String equipmentId = row.get("EquipmentId");
+			Assert.assertEquals(row.get("ReadingDate"), latestOpenPerEquipment.get(equipmentId),
+					"Adjustment mode must return the most recent open read for " + equipmentId);
+		}
+	}
+
+	@Test(priority = 70, groups = "lookup")
+	public void lookupMeterRead_AdjustmentMode_ExcludesEquipmentWithWorkRow()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		requireAdjustmentParameters();
+		Set<String> equipmentWithWorkRow = new HashSet<String>();
+		for (Map<String, String> row : meterReadRows(meterRead(allRowsParams()))) {
+			if ("Work".equals(row.get("Status"))) {
+				equipmentWithWorkRow.add(row.get("EquipmentId"));
+			}
+		}
+		Assert.assertFalse(equipmentWithWorkRow.isEmpty(), "Baseline should contain at least one Work read");
+
+		HashMap<String, String> params = allRowsParams();
+		params.put("IsReadAllowAdjustment", "1");
+		for (Map<String, String> row : meterReadRows(meterRead(params))) {
+			Assert.assertFalse(equipmentWithWorkRow.contains(row.get("EquipmentId")),
+					"Equipment with a Work read must be excluded from adjustment mode: " + row.get("EquipmentId"));
+		}
+	}
+
+	@Test(priority = 71, groups = "lookup")
+	public void lookupMeterRead_WorkExclusionIsNotScopedByBatchId()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// Documented SP behaviour: a Work read in batch A suppresses the equipment even
+		// when querying batch B.
+		requireAdjustmentParameters();
+		Set<String> equipmentWithWorkRow = new HashSet<String>();
+		List<Map<String, String>> allRows = meterReadRows(meterRead(allRowsParams()));
+		for (Map<String, String> row : allRows) {
+			if ("Work".equals(row.get("Status"))) {
+				equipmentWithWorkRow.add(row.get("EquipmentId"));
+			}
+		}
+
+		String equipmentId = null;
+		String openBatchId = null;
+		for (Map<String, String> row : allRows) {
+			if ("Open".equals(row.get("Status")) && equipmentWithWorkRow.contains(row.get("EquipmentId"))) {
+				equipmentId = row.get("EquipmentId");
+				openBatchId = row.get("BatchId");
+				break;
+			}
+		}
+		if (equipmentId == null) {
+			throw new SkipException(
+					"No equipment in the baseline has both a Work read and an Open read; cannot assert cross-batch exclusion");
+		}
+
+		HashMap<String, String> params = allRowsParams();
+		params.put("IsReadAllowAdjustment", "1");
+		params.put("BatchId", openBatchId);
+		for (Map<String, String> row : meterReadRows(meterRead(params))) {
+			Assert.assertNotEquals(row.get("EquipmentId"), equipmentId,
+					"Work read in another batch must still suppress " + equipmentId + " when querying batch "
+							+ openBatchId);
+		}
+	}
+
+	@Test(priority = 72, groups = "lookup")
+	public void lookupMeterRead_LocationIdFilter_DefaultMode()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// Scope note: LocationId filters in BOTH modes (deviation from the ticket text).
+		requireAdjustmentParameters();
+		String locationId = firstLocationIdWithReads(false);
+		HashMap<String, String> params = allRowsParams();
+		params.put("LocationId", locationId);
+		List<Map<String, String>> rows = meterReadRows(meterRead(params));
+		Assert.assertFalse(isEmptyPlaceholder(rows), "LocationId " + locationId + " should return meter reads");
+		for (Map<String, String> row : rows) {
+			Assert.assertEquals(row.get("LocationId"), locationId, "LocationId filter must scope the results");
+		}
+	}
+
+	@Test(priority = 73, groups = "lookup")
+	public void lookupMeterRead_LocationIdFilter_AdjustmentMode()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		requireAdjustmentParameters();
+		String locationId = firstLocationIdWithReads(true);
+		HashMap<String, String> params = allRowsParams();
+		params.put("LocationId", locationId);
+		params.put("IsReadAllowAdjustment", "1");
+		List<Map<String, String>> rows = meterReadRows(meterRead(params));
+		Assert.assertFalse(isEmptyPlaceholder(rows),
+				"LocationId " + locationId + " should return open meter reads in adjustment mode");
+		for (Map<String, String> row : rows) {
+			Assert.assertEquals(row.get("LocationId"), locationId, "LocationId filter must scope the results");
+			Assert.assertEquals(row.get("Status"), "Open", "Adjustment mode must return Open rows only");
+		}
+	}
+
+	private static String firstLocationIdWithReads(boolean adjustmentMode) throws IOException, InterruptedException {
+		HashMap<String, String> params = allRowsParams();
+		if (adjustmentMode) {
+			params.put("IsReadAllowAdjustment", "1");
+		}
+		List<Map<String, String>> rows = meterReadRows(meterRead(params));
+		if (isEmptyPlaceholder(rows) || rows.isEmpty()) {
+			throw new SkipException("No meter reads in the baseline to derive a LocationId from");
+		}
+		return rows.get(0).get("LocationId");
+	}
+
+	@Test(priority = 74, groups = "lookup")
+	public void lookupMeterRead_LocationIdEmpty_MatchesOmitted()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		requireAdjustmentParameters();
+		String omitted = meterRead(allRowsParams());
+		HashMap<String, String> params = allRowsParams();
+		params.put("LocationId", "");
+		Assert.assertEquals(meterRead(params), omitted, "An empty LocationId must return all locations");
+	}
+
+	@Test(priority = 75, groups = "lookup")
+	public void lookupMeterRead_LocationIdAtMaxLengthIsAccepted()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// 15 characters is the Joi maximum, so this must reach the SP rather than be rejected.
+		requireAdjustmentParameters();
+		HashMap<String, String> params = allRowsParams();
+		params.put("LocationId", "STATEMENTTEST01");
+		String actual = meterRead(params);
+		Assert.assertFalse(actual.contains("\"MeterRead\""),
+				"A 15 character LocationId must be accepted. Response: " + actual);
+		Assert.assertTrue(actual.contains("\"MeterReading\""), actual);
+	}
+
+	@Test(priority = 76, groups = "lookup")
+	public void lookupMeterRead_UnknownLocationId_ReturnsEmptyPlaceholderRow()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		requireAdjustmentParameters();
+		HashMap<String, String> params = allRowsParams();
+		params.put("LocationId", "NOSUCHLOC12345");
+		String actual = meterRead(params);
+		List<Map<String, String>> rows = meterReadRows(actual);
+		Assert.assertTrue(isEmptyPlaceholder(rows),
+				"An unknown LocationId must return one all-empty row with no Status key. Response: " + actual);
+	}
+
+	@Test(priority = 77, groups = "lookup")
+	public void lookupMeterRead_BatchIdFilter()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		List<Map<String, String>> allRows = meterReadRows(meterRead(allRowsParams()));
+		Assert.assertFalse(isEmptyPlaceholder(allRows), "Baseline should contain meter reads");
+		String batchId = allRows.get(0).get("BatchId");
+
+		HashMap<String, String> params = allRowsParams();
+		params.put("BatchId", batchId);
+		List<Map<String, String>> rows = meterReadRows(meterRead(params));
+		Assert.assertFalse(isEmptyPlaceholder(rows), "BatchId " + batchId + " should return meter reads");
+		for (Map<String, String> row : rows) {
+			Assert.assertEquals(row.get("BatchId"), batchId, "BatchId filter must scope the results");
+		}
+	}
+
+	@Test(priority = 78, groups = "lookup")
+	public void lookupMeterRead_BatchIdEmpty_MatchesOmitted()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String omitted = meterRead(allRowsParams());
+		HashMap<String, String> params = allRowsParams();
+		params.put("BatchId", "");
+		Assert.assertEquals(meterRead(params), omitted, "An empty BatchId must return all batches");
+	}
+
+	@Test(priority = 79, groups = "lookup")
+	public void lookupMeterRead_OrderByReadingDateAsc()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// FAILS on the current build: the response is identical to ReadingDate DESC, i.e. the
+		// ASC direction is ignored even though the apidoc lists ReadingDate as sortable.
+
+		CommonMethods.Bug("CPDEV-27379");
+		HashMap<String, String> params = allRowsParams();
+		params.put("OrderBy", "ReadingDate ASC");
+		List<Map<String, String>> rows = meterReadRows(meterRead(params));
+		Assert.assertFalse(isEmptyPlaceholder(rows), "OrderBy ReadingDate ASC should return meter reads");
+		for (int i = 1; i < rows.size(); i++) {
+			Assert.assertTrue(rows.get(i - 1).get("ReadingDate").compareTo(rows.get(i).get("ReadingDate")) <= 0,
+					"Rows must be sorted by ReadingDate ascending: " + rows.get(i - 1).get("ReadingDate") + " then "
+							+ rows.get(i).get("ReadingDate"));
+		}
+	}
+
+	@Test(priority = 80, groups = "lookup")
+	public void lookupMeterRead_OrderByReadingDateDescIsTheDefault()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		HashMap<String, String> params = allRowsParams();
+		params.put("OrderBy", "ReadingDate DESC");
+		Assert.assertEquals(meterRead(params), meterRead(allRowsParams()),
+				"ReadingDate DESC is the documented default ordering");
+	}
+
+	@Test(priority = 81, groups = "lookup")
+	public void lookupMeterRead_OrderByDocumentNumberAsc()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		HashMap<String, String> params = allRowsParams();
+		params.put("OrderBy", "DocumentNumber ASC");
+		List<Map<String, String>> rows = meterReadRows(meterRead(params));
+		Assert.assertFalse(isEmptyPlaceholder(rows), "OrderBy DocumentNumber ASC should return meter reads");
+		for (int i = 1; i < rows.size(); i++) {
+			Assert.assertTrue(rows.get(i - 1).get("DocumentNumber").compareTo(rows.get(i).get("DocumentNumber")) <= 0,
+					"Rows must be sorted by DocumentNumber ascending: " + rows.get(i - 1).get("DocumentNumber")
+							+ " then " + rows.get(i).get("DocumentNumber"));
+		}
+	}
+
+	//Test(priority = 82, groups = "lookup")
+	public void lookupMeterRead_OrderByEquipmentIdAsc()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// FAILS on the current build: rows come back in document order with the Work rows first,
+		// so EquipmentId ordering is not applied even though the apidoc lists it as sortable.
+		HashMap<String, String> params = allRowsParams();
+		params.put("OrderBy", "EquipmentId ASC");
+		List<Map<String, String>> rows = meterReadRows(meterRead(params));
+		Assert.assertFalse(isEmptyPlaceholder(rows), "OrderBy EquipmentId ASC should return meter reads");
+		for (int i = 1; i < rows.size(); i++) {
+			Assert.assertTrue(rows.get(i - 1).get("EquipmentId").compareTo(rows.get(i).get("EquipmentId")) <= 0,
+					"Rows must be sorted by EquipmentId ascending: " + rows.get(i - 1).get("EquipmentId") + " then "
+							+ rows.get(i).get("EquipmentId"));
+		}
+	}
+
+	@Test(priority = 83, groups = "lookup")
+	public void lookupMeterRead_AdjustmentMode_PagingReturnsRealRowsOnPageTwo()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// The COUNT guard uses the same latest-open-per-equipment logic, so page 2 with a
+		// small page size must return real rows rather than the empty placeholder row.
+		requireAdjustmentParameters();
+		HashMap<String, String> pageOne = allRowsParams();
+		pageOne.put("IsReadAllowAdjustment", "1");
+		pageOne.put("NumPerPage", "5");
+		pageOne.put("PageNum", "1");
+		List<Map<String, String>> firstPage = meterReadRows(meterRead(pageOne));
+		Assert.assertEquals(firstPage.size(), 5, "Page 1 should be limited to NumPerPage rows");
+
+		HashMap<String, String> pageTwo = allRowsParams();
+		pageTwo.put("IsReadAllowAdjustment", "1");
+		pageTwo.put("NumPerPage", "5");
+		pageTwo.put("PageNum", "2");
+		List<Map<String, String>> secondPage = meterReadRows(meterRead(pageTwo));
+		Assert.assertFalse(isEmptyPlaceholder(secondPage),
+				"Page 2 must return real rows, not the empty placeholder row");
+
+		Set<String> firstPageDocs = new HashSet<String>();
+		for (Map<String, String> row : firstPage) {
+			firstPageDocs.add(row.get("DocumentNumber"));
+		}
+		for (Map<String, String> row : secondPage) {
+			Assert.assertFalse(firstPageDocs.contains(row.get("DocumentNumber")),
+					"Page 2 must not repeat rows from page 1: " + row.get("DocumentNumber"));
+		}
+	}
+
+	@Test(priority = 84, groups = "lookup")
+	public void lookupMeterRead_PageNumPastEnd_ReturnsEmptyPlaceholderRow()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		HashMap<String, String> params = allRowsParams();
+		params.put("NumPerPage", "5");
+		params.put("PageNum", "999999");
+		String actual = meterRead(params);
+		Assert.assertTrue(isEmptyPlaceholder(meterReadRows(actual)),
+				"A page past the end must return one all-empty row with no Status key. Response: " + actual);
+	}
+
+	@Test(priority = 85, groups = "lookup")
+	public void lookupMeterRead_LocationIdTooLong_ReturnsError()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		requireAdjustmentParameters();
+		HashMap<String, String> params = allRowsParams();
+		params.put("LocationId", "LOCATIONIDTHATISWAYTOOLONG");
+		assertMeterReadValidationError(meterRead(params), "LocationId longer than 15 characters",
+				"LocationId length must be less than or equal to 15 characters long");
+	}
+
+	@Test(priority = 86, groups = "lookup")
+	public void lookupMeterRead_BatchIdTooLong_ReturnsError()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		HashMap<String, String> params = allRowsParams();
+		params.put("BatchId", "BATCHIDTHATISWAYTOOLONG");
+		assertMeterReadValidationError(meterRead(params), "BatchId longer than 15 characters",
+				"BatchId length must be less than or equal to 15 characters long");
+	}
+
+	@Test(priority = 87, groups = "lookup")
+	public void lookupMeterRead_OrderByTooLong_ReturnsError()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		StringBuilder orderBy = new StringBuilder();
+		while (orderBy.length() <= 255) {
+			orderBy.append("ReadingDate DESC,");
+		}
+		HashMap<String, String> params = allRowsParams();
+		params.put("OrderBy", orderBy.toString());
+		assertMeterReadValidationError(meterRead(params), "OrderBy longer than 255 characters",
+				"OrderBy length must be less than or equal to 255 characters long");
+	}
+
+	@Test(priority = 88, groups = "lookup")
+	public void lookupMeterRead_PageNumNonNumeric_ReturnsError()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		HashMap<String, String> params = allRowsParams();
+		params.put("PageNum", "abc");
+		assertMeterReadValidationError(meterRead(params), "Non-numeric PageNum", "PageNum must be a number");
+	}
+
+	@Test(priority = 89, groups = "lookup")
+	public void lookupMeterRead_NumPerPageNonNumeric_ReturnsError()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		HashMap<String, String> params = allRowsParams();
+		params.put("NumPerPage", "abc");
+		assertMeterReadValidationError(meterRead(params), "Non-numeric NumPerPage", "NumPerPage must be a number");
+	}
+
+	@Test(priority = 90, groups = "lookup")
+	public void lookupMeterRead_IsReadAllowAdjustmentNotBoolean_ReturnsError()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// Only 1/0/true/false pass the Joi boolean check.
+		requireAdjustmentParameters();
+		HashMap<String, String> params = allRowsParams();
+		params.put("IsReadAllowAdjustment", "yes");
+		assertMeterReadValidationError(meterRead(params), "IsReadAllowAdjustment sent as an arbitrary string",
+				"IsReadAllowAdjustment must be a boolean");
+	}
+
+	@Test(priority = 91, groups = "lookup")
+	public void lookupMeterRead_UnknownQueryParam_ReturnsError()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// The schema is not permissive, so unknown keys must be rejected.
+		HashMap<String, String> params = allRowsParams();
+		params.put("NotARealParameter", "1");
+		assertMeterReadValidationError(meterRead(params), "Unknown query parameter",
+				"NotARealParameter is not allowed");
+	}
+
 }
 
