@@ -1,0 +1,644 @@
+﻿[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----< com.NexusAPIlAutomation.Java:com.NexusAPIlAutomation.Java >------
+[INFO] Building com.NexusApiAutomation.Java 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for org.testng:testng:jar:5.14.3 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[WARNING] The POM for org.testng:testng:jar:5.14.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[WARNING] The POM for org.testng:testng:jar:5.14.5 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[WARNING] The POM for com.beust:jcommander:jar:1.66 is missing, no dependency information available
+[WARNING] The artifact mysql:mysql-connector-java:jar:8.0.33 has been relocated to com.mysql:mysql-connector-j:jar:8.0.33: MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
+[INFO] 
+[INFO] --- enforcer:1.2:enforce (enforce-maven) @ com.NexusAPIlAutomation.Java ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ com.NexusAPIlAutomation.Java ---
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ com.NexusAPIlAutomation.Java ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ com.NexusAPIlAutomation.Java ---
+[INFO] Copying 3 resources from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ com.NexusAPIlAutomation.Java ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- surefire:3.0.0-M7:test (default-test) @ com.NexusAPIlAutomation.Java ---
+[INFO] Using auto detected provider org.apache.maven.surefire.testng.TestNGProvider
+[WARNING] The system property freemarker.debug is configured twice! The property appears in <argLine/> and any of <systemPropertyVariables/>, <systemProperties/> or user property.
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running TestSuite
+
+========== BEFORE SUITE: Starting Database Restore ==========
+mvn : Bad level value for property: freemarker.level
+At line:1 char:51
++ ... on'; $out = mvn -o test "-Dtest=Private_MeterReadControllerV4_Test#ge ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Bad level value...reemarker.level 
+   :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Bad level value for property: org.apache.http.level
+Bad level value for property: freemarker.cache.TemplateCache.level
+DROP DB OUTPUT: Nonqualified transactions are being rolled back. Estimated rollback completion: 0%.
+DROP DB OUTPUT: Nonqualified transactions are being rolled back. Estimated rollback completion: 100%.
+RESTORE DB OUTPUT: Processed 140688 pages for database 'TWO', file 'GPSTWODat.mdf' on file 1.
+RESTORE DB OUTPUT: Processed 2 pages for database 'TWO', file 'GPSTWOLog.ldf' on file 1.
+RESTORE DB OUTPUT: RESTORE DATABASE successfully processed 140690 pages in 1.786 seconds (615.418 MB/sec).
+Database restored successfully.
+Restore DB ==============================
+Database restore task completed.
+========== BEFORE SUITE: Database Restore COMPLETED ==========
+
+======================================================
+  Test Suite Started: Surefire test
+======================================================
+  Starting: Private_lookupControllerv4_Test :: lookupMeterRead_SuccessReturnsHttp200UnderMeterReadingKey
+Reading Project Properties
+http://localhost:3000/api/v4/lookupMeterRead
+Reading Project Properties
+
+========== PKCE Flow Started ==========
+Keycloak Base: http://localhost:8080/realms/nexus
+Client ID: nexus-portal
+Username: cogsuser
+Auth URL:
+http://localhost:8080/realms/nexus/protocol/openid-connect/auth?response_type=code&client_id=nexus-portal&redirect_uri=https://oauth.usebruno.com/callback&scope=openid&code_challenge=gPP7E6nF6AE6jxy5i9e8iZchomlxt2hzjq3hEW7d3qU&code_challenge_method=S256&state=sMNXpjH_UVmQrBzEKzZMRCyP&nonce=Y3_pk~_dSI7t_hr4RHfiHszh
+Step 1 Status Code: 200
+Login action URL: http://localhost:8080/realms/nexus/login-actions/authenticate?session_code=4pANY94qpOpt2KzCqRrW47NnV9DtyQJpa_bjDxwA7Is&execution=274c5808-4fdb-46b9-8781-4cd6a5d7f021&client_id=nexus-portal&tab_id=ywVyBrbxj90&client_data=eyJydSI6Imh0dHBzOi8vb2F1dGgudXNlYnJ1bm8uY29tL2NhbGxiYWNrIiwicnQiOiJjb2RlIiwic3QiOiJzTU5YcGpIX1VWbVFyQnpFS3paTVJDeVAifQ
+Step 1 - Flow Step: need_login
+Step 1 - Auth Code: NOT FOUND
+Step 2 - Performing login...
+Step 2 - Posting to: http://localhost:8080/realms/nexus/login-actions/authenticate?session_code=4pANY94qpOpt2KzCqRrW47NnV9DtyQJpa_bjDxwA7Is&execution=274c5808-4fdb-46b9-8781-4cd6a5d7f021&client_id=nexus-portal&tab_id=ywVyBrbxj90&client_data=eyJydSI6Imh0dHBzOi8vb2F1dGgudXNlYnJ1bm8uY29tL2NhbGxiYWNrIiwicnQiOiJjb2RlIiwic3QiOiJzTU5YcGpIX1VWbVFyQnpFS3paTVJDeVAifQ
+Step 2 - Username: cogsuser
+Step 2 - Password: password
+Step 2 - RememberMe: on
+Step 2 Status Code: 302
+Step 2 Location Header: https://oauth.usebruno.com/callback?state=sMNXpjH_UVmQrBzEKzZMRCyP&session_state=1f320843-0d06-4819-aba6-30cf3a381b9c&iss=http%3A%2F%2Flocalhost%3A8080%2Frealms%2Fnexus&code=cd3dbd92-b2dd-44b8-a692-409bee39685a.1f320843-0d06-4819-aba6-30cf3a381b9c.c6cc56f1-1f36-47a5-a148-2c039478e53e
+Auth code (Step 2 login): cd3dbd92-b2dd-44b8-a692-409bee39685a.1f320843-0d06-4819-aba6-30cf3a381b9c.c6cc56f1-1f36-47a5-a148-2c039478e53e
+Step 2 - Flow Step After Login: got_code
+Step 2 - Auth Code After Login: cd3dbd92-b2dd-44b8-a692-409bee39685a.1f320843-0d06-4819-aba6-30cf3a381b9c.c6cc56f1-1f36-47a5-a148-2c039478e53e
+Step 3 - Auth Code to exchange: cd3dbd92-b2dd-44b8-a692-409bee39685a.1f320843-0d06-4819-aba6-30cf3a381b9c.c6cc56f1-1f36-47a5-a148-2c039478e53e
+Step 3 - PKCE Verifier: lvTN1GSTTirJKTqcn5Jg7-DA_txDA8ko18VmKhOQnYB_DzSStnygzhTHzYY9_rDH
+Step 3 Status Code: 200
+Step 3 Response Body: {"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJIYUZCRHdHUDdoQW04LU9ZOFJIMlROMC1rS1d0S0VGRDN3NkpDbllRM25ZIn0.eyJleHAiOjE3ODc4MzM0NTAsImlhdCI6MTc4NzgzMzE1MCwiYXV0aF90aW1lIjoxNzg3ODMzMTUwLCJqdGkiOiJvbnJ0YWM6M2E2OTA0M2UtNzA4NC1iMzM5LWUyNmQtMTFkYzYwYzM3MDg2IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9uZXh1cyIsImF1ZCI6Im5leHVzLWFwaSIsInN1YiI6IjFhMTZjYTdhLTViNWItNDg0NS1hMDU5LWNlZGNiMzA5MzQ1MiIsInR5cCI6IkJlYXJlciIsImF6cCI6Im5leHVzLXBvcnRhbCIsInNpZCI6IjFmMzIwODQzLTBkMDYtNDgxOS1hYmE2LTMwY2YzYTM4MWI5YyIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovLzE3Mi4yNy4xOS42NDo4MDgwIiwiaHR0cHM6Ly9uZXh1cy5sb2NhbDo4NDQzIiwiaHR0cDovL2xvY2FsaG9zdDo0MjAwIiwiaHR0cHM6Ly9vYXV0aC51c2VicnVuby5jb20iXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtbmV4dXMtcG9ydGFsIiwib2ZmbGluZV9hY2Nlc3MiXX0sInJlc291cmNlX2FjY2VzcyI6eyJuZXh1cy1hcGkiOnsicm9sZXMiOlsiYXBpLWNvbm5lY3Rpb25tZW51LWVuYWJsZWQiLCJhcGktc2VhcmNoLWNyZWF0ZSIsImFwaS1wYXltZW50cHJvdmlkZXItdmlldyIsImFwaS1jYXNoaWVyaW5nLXVwZGF0ZSIsImFwaS1wYXltZW50Z2F0ZXdheS12aWV3IiwiYXBpLWNvbGxlY3Rpb24tZGVsZXRlIiwiYXBpLXBlbmFsdHktdmlldyIsImFwaS1jb25uZWN0aW9uLXZpZXciLCJhcGktY3VzdG9tZXItZGVsZXRlIiwiYXBpLWJhdGNoLXVwZGF0ZSIsImFwaS1sb2NhdGlvbi1jcmVhdGUiLCJhcGktbG9jYXRpb24tdmlldyIsImFwaS1jaGVjay12aWV3IiwiYXBpLXBlbmFsdHktcG9zdCIsImFwaS1tZXRlcnJlYWRpbmctY3JlYXRlIiwiYXBpLXNwYS12aWV3IiwiYXBpLWNoZWNrLXBvc3QiLCJhcGktc2VydmljZW9yZGVyLXVwZGF0ZSIsImFwaS1lcXVpcG1lbnQtY3JlYXRlIiwiYXBpLWxvY2F0aW9uLXVwZGF0ZSIsImFwaS1jb250YWN0bG9nLXZpZXciLCJhcGktYmlsbGluZy1wb3N0IiwiYXBpLWJpbGxpbmctdmlldyIsImFwaS1wYXJhbWNvbmZpZy11cGRhdGUiLCJhcGktcmF0ZXNldHVwLXVwZGF0ZSIsImFwaS1zdGF0ZW1lbnQtdmlldyIsImFwaS11ZGYtY3JlYXRlIiwiYXBpLWNvbnRhY3Rsb2ctdXBkYXRlIiwiYXBpLXBhcmFtY29uZmlnLXZpZXciLCJhcGktcGVuYWx0eS1jcmVhdGUiLCJhcGktcGF5bWVudC1kZWxldGUiLCJhcGktY3Ntc2V0dXAtdmlldyIsImFwaS1lbXBsb3llZS11cGRhdGUiLCJhcGktdHJhbnNhY3Rpb25zLXZpZXciLCJhcGktZXF1aXBtZW50LXVwZGF0ZSIsImFwaS1taXNjY2hhcmdlLXBvc3QiLCJhcGktbWlzY2NoYXJnZS12aWV3IiwiYXBpLWRlcG9zaXQtY3JlYXRlIiwiYXBpLXBheW1lbnQtcG9zdCIsImFwaS1wZW5hbHR5LXVwZGF0ZSIsImFwaS1hY2NvdW50b3B0aW9ucy11cGRhdGUiLCJhcGktbW92ZWlubW92ZW91dC12aWV3IiwiYXBpLWVxdWlwbWVudHN3aXRjaC1jcmVhdGUiLCJhcGktYnVkZ2V0LXVwZGF0ZSIsImFwaS1wYXltZW50LXZpZXciLCJhcGktbW92ZWlubW92ZW91dC1wb3N0IiwiYXBpLW1ldGVycmVhZGluZy11cGRhdGUiLCJhcGktc2VhcmNoLXZpZXciLCJhcGktbWV0ZXJyZWFkaW5nLWRlbGV0ZSIsImFwaS1tZXRlcnJlYWRpbmctdmlldyIsImFwaS12b2lkLXZpZXciLCJhcGktc2VydmljZW9yZGVyLXZpZXciLCJhcGktc2VydmljZW9yZGVyLXBvc3QiLCJhcGktc3BhLWNyZWF0ZSIsImFwaS11ZGYtdmlldyIsImFwaS1tZXRlcnJlYWRpbmctcG9zdCIsImFwaS1iYXRjaC12aWV3IiwiYXBpLWNhc2hpZXJpbmctdmlldyIsImFwaS11ZGYtZGVsZXRlIiwiYXBpLWJpbGxpbmctZGVsZXRlIiwiYXBpLWltcG9ydC1jcmVhdGUiLCJhcGktY3VzdG9tZXItdmlldyIsImFwaS1sb2NhdGlvbi1kZWxldGUiLCJhcGktcm9sZS1jcmVhdGUiLCJhcGktcGF5bWVudC11cGRhdGUiLCJhcGktdm9pZC1jcmVhdGUiLCJhcGktZXF1aXBtZW50LXZpZXciLCJhcGktZW5oYW5jZWRub3Rlcy1jcmVhdGUiLCJhcGktcGFyYW1jb25maWctY3JlYXRlIiwiYXBpLWNzbXNldHVwLXVwZGF0ZSIsImFwaS1lcXVpcG1lbnQtZGVsZXRlIiwiYXBpLW1pc2NjaGFyZ2UtdXBkYXRlIiwiYXBpLWVtcGxveWVlLXZpZXciLCJhcGktbW92ZWlubW92ZW91dC1jcmVhdGUiLCJhcGktZW1wbG95ZWUtZGVsZXRlIiwiYXBpLXBlbmFsdHktZGVsZXRlIiwiYXBpLWNvbm5lY3Rpb24tdXBkYXRlIiwiYXBpLWxlZ2FjeSIsImFwaS1jaGVjay1jcmVhdGUiLCJhcGktc3BhLXVwZGF0ZSIsImFwaS1jb2xsZWN0aW9uLXVwZGF0ZSIsImFwaS1zZXJ2aWNlb3JkZXItZGVsZXRlIiwiYXBpLW1ldGVyc3dpdGNoLWNyZWF0ZSIsImFwaS1jdXN0b21lci11cGRhdGUiLCJhcGktY29udGFjdGxvZy1kZWxldGUiLCJhcGktY29sbGVjdGlvbi1wb3N0IiwiYXBpLWFjY291bnRvcHRpb25zLXZpZXciLCJhcGktYmlsbGluZy1jcmVhdGUiLCJhcGktZGVwb3NpdC12aWV3IiwiYXBpLWNoZWNrLWRlbGV0ZSIsImFwaS1yYXRlc2V0dXAtY3JlYXRlIiwiYXBpLW1pc2NjaGFyZ2UtZGVsZXRlIiwiYXBpLXV0aWxpdHktYWRtaW4iLCJhcGktcGVydXNlciIsImFwaS1jb25uZWN0aW9uLWRlbGV0ZSIsImFwaS1zZWFyY2gtZGVsZXRlIiwiYXBpLWJhdGNoLWNyZWF0ZSIsImFwaS1zZXJ2aWNlb3JkZXItY3JlYXRlIiwiYXBpLWVtcGxveWVlLWNyZWF0ZSIsImFwaS1nbG9iYWxvcHRpb25zLXVwZGF0ZSIsImFwaS1jYXNoaWVyaW5nLWNyZWF0ZSIsImFwaS1iaWxsaW5nLXVwZGF0ZSIsImFwaS1yYXRlc2V0dXAtdmlldyIsImFwaS1yb2xlLWRlbGV0ZSIsImFwaS1zdGF0ZW1lbnQtY3JlYXRlIiwiYXBpLWNvbnRhY3Rsb2ctY3JlYXRlIiwiYXBpLXJvbGUtdXBkYXRlIiwiYXBpLWN1c3RvbWVyLWNyZWF0ZSIsImFwaS1jb2xsZWN0aW9uLWNyZWF0ZSIsImFwaS1wYXltZW50cHJvdmlkZXItdXBkYXRlIiwiYXBpLXBhcmFtY29uZmlnLWRlbGV0ZSIsImFwaS11ZGYtdXBkYXRlIiwiYXBpLW1pc2NjaGFyZ2UtY3JlYXRlIiwiYXBpLWNoZWNrLXVwZGF0ZSIsImFwaS1jb25uZWN0aW9uLWNyZWF0ZSIsImFwaS1kZXBvc2l0LWRlbGV0ZSIsImFwaS1jb2xsZWN0aW9uLXZpZXciLCJhcGktZ2xvYmFsb3B0aW9ucy12aWV3IiwiYXBpLXBheW1lbnRnYXRld2F5LXVwZGF0ZSIsImFwaS1yb2xlLXZpZXciLCJhcGktYnVkZ2V0LXZpZXciLCJhcGktcG9ydGFsLXZpZXciLCJhcGktYWN0aW9uc21lbnUtZW5hYmxlZCIsImFwaS1zZWFyY2gtdXBkYXRlIiwiYXBpLXBheW1lbnQtY3JlYXRlIiwiYXBpLWVuaGFuY2Vkbm90ZXMtdmlldyIsImFwaS1yYXRlc2V0dXAtZGVsZXRlIl19fSwic2NvcGUiOiJvcGVuaWQgZW1haWwiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIlVzZXJOYW1lIjoiY29nc3VzZXIiLCJVc2VySUQiOiJjb2dzdXNlciIsImdyb3VwcyI6WyIvS2V5Y2xvYWsgQWRtaW4iLCIvTmV4dXMgQWxsIFJvbGVzIl19.VIv4H9XN4dgMJLpqZXqs2SMQrabMAA2OwQF_sRQTWA5NhaqRqKy6E64U7tsQHLbbczNmCmhQSaNMv-Tjn_LTERID-q0845w1T4c0gV8l8obU5dEFGd1GVvJM9tAKrsR9x30WJjNfGwef56KilPjQbIOyTW03Wn038DdQTUwE7XeVReB20h2SpCINTL-qU4GmgCiE8FLyHexm6KYZBI-DLEKdxCvg1AQQxOoZnkoG2qJQOAxPwr72_lIm-8S86Bt7SFiCMLg-_7njnnJ9Yq4E-dNEcuVPjI3jPfTQYcHP2YxoH9CZWaq93tWWPrGDZffzUeVEq7Wkud7f0pBr-tbeJA","expires_in":300,"refresh_expires_in":1800,"refresh_token":"eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJiZDM3NmJjNC1kZmUwLTQ1ZDUtYWE3My03M2NlMTE1NGI5ZTMifQ.eyJleHAiOjE3ODc4MzQ5NTAsImlhdCI6MTc4NzgzMzE1MCwianRpIjoiOTI0YmIxZjctNzVlMy1jMDkwLTNkNzctN2VmZjQ1ODYxMTc1IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9uZXh1cyIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9yZWFsbXMvbmV4dXMiLCJzdWIiOiIxYTE2Y2E3YS01YjViLTQ4NDUtYTA1OS1jZWRjYjMwOTM0NTIiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoibmV4dXMtcG9ydGFsIiwic2lkIjoiMWYzMjA4NDMtMGQwNi00ODE5LWFiYTYtMzBjZjNhMzgxYjljIiwic2NvcGUiOiJvcGVuaWQgd2ViLW9yaWdpbnMgZW1haWwgcm9sZXMgYWNyIGJhc2ljIiwicmV1c2VfaWQiOiI3OGE4MTFhZS1iOGRlLTRjYjQtOThiNS1kZTFiYTcyYjQ4OTUifQ.1gxvGyfWKM6McutUIbzuf3bBaQAUDGJv6SmQjgNNVCP1mi5DxeWxNVKLMJkfXaZodTCqxmj_TxrYaqt_VYg8Jw","token_type":"Bearer","id_token":"eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJIYUZCRHdHUDdoQW04LU9ZOFJIMlROMC1rS1d0S0VGRDN3NkpDbllRM25ZIn0.eyJleHAiOjE3ODc4MzM0NTAsImlhdCI6MTc4NzgzMzE1MCwiYXV0aF90aW1lIjoxNzg3ODMzMTUwLCJqdGkiOiIwMDExYzA5MC04Y2ViLTNkY2UtMDNiYS1mYmJmYjNiYjFjOWIiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvcmVhbG1zL25leHVzIiwiYXVkIjoibmV4dXMtcG9ydGFsIiwic3ViIjoiMWExNmNhN2EtNWI1Yi00ODQ1LWEwNTktY2VkY2IzMDkzNDUyIiwidHlwIjoiSUQiLCJhenAiOiJuZXh1cy1wb3J0YWwiLCJub25jZSI6IlkzX3Brfl9kU0k3dF9ocjRSSGZpSHN6aCIsInNpZCI6IjFmMzIwODQzLTBkMDYtNDgxOS1hYmE2LTMwY2YzYTM4MWI5YyIsImF0X2hhc2giOiJPZHhid2RMeW1xMzNCUGpfSl9LSWxRIiwiYWNyIjoiMSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiVXNlck5hbWUiOiJjb2dzdXNlciIsIlVzZXJJRCI6ImNvZ3N1c2VyIiwiZ3JvdXBzIjpbIi9LZXljbG9hayBBZG1pbiIsIi9OZXh1cyBBbGwgUm9sZXMiXX0.le0QGqburitquj9A6GY0rXC1j9SmkDU_Z2zlD3pWrQqWdu5cVtbPZy57UIAMtT6dgs41oLQpsTQKD7dwEaGmCkQ9gF15HlT85Dv2dbRC2ekt1SMoJHi4lX8NnJdcelKEupxRZAWhXUGhBXLln6XYqqdOMRQGWRofytMn6VVjzZVgdiw2SsqtG294SLQcXoan7U5fiAq8FWLOg9aIyMAQxgKIsw6_87H7SxqUoeJ9MIEzB4fWwxHfoTz0sHHJo35-OoUQf-J8vd73HT9bowBLLshZi4S35p76-yRrMTzf5B8P9BNlTiWBRB_cn27yTv60H-4quJIeMjwv1eQU_RANKQ","not-before-policy":0,"session_state":"1f320843-0d06-4819-aba6-30cf3a381b9c","scope":"openid email"}
+
+========== Token Exchange Result ==========
+Access Token: eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6IC
+Refresh Token: eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6IC
+Γ£à Token cached, expires in 300 seconds
+  PASSED:  lookupMeterRead_SuccessReturnsHttp200UnderMeterReadingKey (1666ms)
+  Starting: Private_lookupControllerv4_Test :: lookupMeterRead_ValidationErrorStillReturnsHttp200
+http://localhost:3000/api/v4/lookupMeterRead
+Γ£à Using cached token (valid for 299 seconds)
+  PASSED:  lookupMeterRead_ValidationErrorStillReturnsHttp200 (33ms)
+  Starting: Private_lookupControllerv4_Test :: lookupMeterRead_ErrorWrapperShape
+===============================================
+http://localhost:3000/api/v4/lookupMeterRead
+Parameters  = {PageNum=1, BatchId=BATCHIDTHATISWAYTOOLONG, NumPerPage=32000}
+Γ£à Using cached token (valid for 299 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/lookupMeterRead
+Response :{"MeterRead":{"Success":false,"Data":null,"Messages":[{"Enabled":1,"Info":"BatchId length must be less than or equal to 15 characters long","Level":3}]}}
+Status Code: 200
+{"MeterRead":{"Success":false,"Data":null,"Messages":[{"Enabled":1,"Info":"BatchId length must be less than or equal to 15 characters long","Level":3}]}}
+  PASSED:  lookupMeterRead_ErrorWrapperShape (74ms)
+  Starting: Private_lookupControllerv4_Test :: lookupMeterRead_RowsExposeOnlyTheDocumentedFields
+===============================================
+http://localhost:3000/api/v4/lookupMeterRead
+Parameters  = {PageNum=1, NumPerPage=32000}
+Γ£à Using cached token (valid for 299 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/lookupMeterRead
+Response :{"MeterReading":[{"DocumentNumber":"READ00000000915","ReadingDate":"2027-04-12","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT008","BatchId":"12312312","Status":"Work"},{"DocumentNumber":"READ00000000927","ReadingDate":"2027-04-12","LocationId":"STATEMENTTEST01","EquipmentId":"NETMETER001","BatchId":"MR041227sa","Status":"Open"},{"DocumentNumber":"READ00000000928","ReadingDate":"2024-09-02","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER002","BatchId":"BATCH0024","Status":"Open"},{"DocumentNumber":"READ00000000922","ReadingDate":"2024-09-02","LocationId":"STATEMENTTEST01","EquipmentId":"NETMETER001","BatchId":"BAT2024","Status":"Open"},{"DocumentNumber":"READ00000000932","ReadingDate":"2024-02-12","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER0002","BatchId":"BAT0004","Status":"Open"},{"DocumentNumber":"READ00000000930","ReadingDate":"2024-01-01","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER0002","BatchId":"BAT12","Status":"Open"},{"DocumentNumber":"READ00000000913","ReadingDate":"2020-02-10","LocationId":"WATER100","EquipmentId":"ELECT","BatchId":"TEST100","Status":"Open"},{"DocumentNumber":"READ00000000834","ReadingDate":"2019-09-23","LocationId":"SPALOCATION1","EquipmentId":"EQUIPMENT018","BatchId":"BILL10111","Status":"Open"},{"DocumentNumber":"READ00000000862","ReadingDate":"2019-08-09","LocationId":"BUDGETLOC01","EquipmentId":"EQUIPMENT022","BatchId":"BILL","Status":"Open"},{"DocumentNumber":"READ00000000871","ReadingDate":"2019-07-31","LocationId":"SPALOCATION1","EquipmentId":"AUTOGAS","BatchId":"BATGAS1","Status":"Open"},{"DocumentNumber":"READ00000000830","ReadingDate":"2019-07-31","LocationId":"TRANSACTION001","EquipmentId":"EQUIPMENT007","BatchId":"AC1001","Status":"Open"},{"DocumentNumber":"READ00000000890","ReadingDate":"2019-07-01","LocationId":"BILLGRAPH","EquipmentId":"ELECMETER","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000882","ReadingDate":"2019-06-01","LocationId":"BILLGRAPH","EquipmentId":"ELECMETER","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000803","ReadingDate":"2019-04-12","LocationId":"ELECWAT003","EquipmentId":"EQUIPMENT015","BatchId":"1","Status":"Open"},{"DocumentNumber":"READ00000000805","ReadingDate":"2019-04-12","LocationId":"ELECWAT002","EquipmentId":"EQUIPMENT016","BatchId":"001","Status":"Open"},{"DocumentNumber":"READ00000000907","ReadingDate":"2019-02-28","LocationId":"STATEMENTTEST01","EquipmentId":"ELEC0001","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000905","ReadingDate":"2019-01-30","LocationId":"STATEMENTTEST01","EquipmentId":"ELEC0001","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000418","ReadingDate":"2000-06-30","LocationId":"LOCEMP-1","EquipmentId":"EQUIPELEC021","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000419","ReadingDate":"2000-06-30","LocationId":"LOCEMP-1","EquipmentId":"EQUIPELEC022","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000420","ReadingDate":"2000-06-30","LocationId":"LOCATION007","EquipmentId":"EQUIPMENT009","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000421","ReadingDate":"2000-06-30","LocationId":"LOCATION002","EquipmentId":"EQUIPMENT001","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000422","ReadingDate":"2000-06-30","LocationId":"LOCATION003","EquipmentId":"EQUIPMENT002","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000423","ReadingDate":"2000-06-30","LocationId":"LOCATION004","EquipmentId":"EQUIPMENT005","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000424","ReadingDate":"2000-06-30","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT006","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000425","ReadingDate":"2000-06-30","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT008","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000428","ReadingDate":"2000-06-30","LocationId":"LOCATION011","EquipmentId":"EQUIPMENT013","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000429","ReadingDate":"2000-06-30","LocationId":"LOCATION012","EquipmentId":"EQUIPMENT014","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000430","ReadingDate":"2000-06-30","LocationId":"LOCATION013","EquipmentId":"EQUIPMENT017","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000938","ReadingDate":"2000-05-30","LocationId":"100001","EquipmentId":"87779650-1","BatchId":"NEW2025","Status":"Open"},{"DocumentNumber":"READ00000000704","ReadingDate":"2000-04-30","LocationId":"000000000532001","EquipmentId":"7899910","BatchId":"READ66","Status":"Open"},{"DocumentNumber":"READ00000000705","ReadingDate":"2000-04-30","LocationId":"000000000532001","EquipmentId":"16358960","BatchId":"READ66","Status":"Open"},{"DocumentNumber":"READ00000000675","ReadingDate":"2000-04-15","LocationId":"LOCATION009","EquipmentId":"EQUIPMENT010","BatchId":"SOMR00000000004","Status":"Open"},{"DocumentNumber":"READ00000000677","ReadingDate":"2000-04-15","LocationId":"LOCATION010","EquipmentId":"EQUIPMENT012","BatchId":"SOMR00000000006","Status":"Open"},{"DocumentNumber":"READ00000000648","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-GAS-2","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000649","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-PHONE-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000651","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPMENT016","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000652","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"WATEREQUIP003","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000653","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIPMENT015","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000654","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"WATEREQUIP004","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000656","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPPH-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000657","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPPH-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000658","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-PHONE-1","BatchId":"READ55","Status":"Open"}]}
+Status Code: 200
+{"MeterReading":[{"DocumentNumber":"READ00000000915","ReadingDate":"2027-04-12","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT008","BatchId":"12312312","Status":"Work"},{"DocumentNumber":"READ00000000927","ReadingDate":"2027-04-12","LocationId":"STATEMENTTEST01","EquipmentId":"NETMETER001","BatchId":"MR041227sa","Status":"Open"},{"DocumentNumber":"READ00000000928","ReadingDate":"2024-09-02","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER002","BatchId":"BATCH0024","Status":"Open"},{"DocumentNumber":"READ00000000922","ReadingDate":"2024-09-02","LocationId":"STATEMENTTEST01","EquipmentId":"NETMETER001","BatchId":"BAT2024","Status":"Open"},{"DocumentNumber":"READ00000000932","ReadingDate":"2024-02-12","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER0002","BatchId":"BAT0004","Status":"Open"},{"DocumentNumber":"READ00000000930","ReadingDate":"2024-01-01","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER0002","BatchId":"BAT12","Status":"Open"},{"DocumentNumber":"READ00000000913","ReadingDate":"2020-02-10","LocationId":"WATER100","EquipmentId":"ELECT","BatchId":"TEST100","Status":"Open"},{"DocumentNumber":"READ00000000834","ReadingDate":"2019-09-23","LocationId":"SPALOCATION1","EquipmentId":"EQUIPMENT018","BatchId":"BILL10111","Status":"Open"},{"DocumentNumber":"READ00000000862","ReadingDate":"2019-08-09","LocationId":"BUDGETLOC01","EquipmentId":"EQUIPMENT022","BatchId":"BILL","Status":"Open"},{"DocumentNumber":"READ00000000871","ReadingDate":"2019-07-31","LocationId":"SPALOCATION1","EquipmentId":"AUTOGAS","BatchId":"BATGAS1","Status":"Open"},{"DocumentNumber":"READ00000000830","ReadingDate":"2019-07-31","LocationId":"TRANSACTION001","EquipmentId":"EQUIPMENT007","BatchId":"AC1001","Status":"Open"},{"DocumentNumber":"READ00000000890","ReadingDate":"2019-07-01","LocationId":"BILLGRAPH","EquipmentId":"ELECMETER","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000882","ReadingDate":"2019-06-01","LocationId":"BILLGRAPH","EquipmentId":"ELECMETER","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000803","ReadingDate":"2019-04-12","LocationId":"ELECWAT003","EquipmentId":"EQUIPMENT015","BatchId":"1","Status":"Open"},{"DocumentNumber":"READ00000000805","ReadingDate":"2019-04-12","LocationId":"ELECWAT002","EquipmentId":"EQUIPMENT016","BatchId":"001","Status":"Open"},{"DocumentNumber":"READ00000000907","ReadingDate":"2019-02-28","LocationId":"STATEMENTTEST01","EquipmentId":"ELEC0001","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000905","ReadingDate":"2019-01-30","LocationId":"STATEMENTTEST01","EquipmentId":"ELEC0001","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000418","ReadingDate":"2000-06-30","LocationId":"LOCEMP-1","EquipmentId":"EQUIPELEC021","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000419","ReadingDate":"2000-06-30","LocationId":"LOCEMP-1","EquipmentId":"EQUIPELEC022","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000420","ReadingDate":"2000-06-30","LocationId":"LOCATION007","EquipmentId":"EQUIPMENT009","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000421","ReadingDate":"2000-06-30","LocationId":"LOCATION002","EquipmentId":"EQUIPMENT001","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000422","ReadingDate":"2000-06-30","LocationId":"LOCATION003","EquipmentId":"EQUIPMENT002","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000423","ReadingDate":"2000-06-30","LocationId":"LOCATION004","EquipmentId":"EQUIPMENT005","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000424","ReadingDate":"2000-06-30","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT006","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000425","ReadingDate":"2000-06-30","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT008","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000428","ReadingDate":"2000-06-30","LocationId":"LOCATION011","EquipmentId":"EQUIPMENT013","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000429","ReadingDate":"2000-06-30","LocationId":"LOCATION012","EquipmentId":"EQUIPMENT014","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000430","ReadingDate":"2000-06-30","LocationId":"LOCATION013","EquipmentId":"EQUIPMENT017","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000938","ReadingDate":"2000-05-30","LocationId":"100001","EquipmentId":"87779650-1","BatchId":"NEW2025","Status":"Open"},{"DocumentNumber":"READ00000000704","ReadingDate":"2000-04-30","LocationId":"000000000532001","EquipmentId":"7899910","BatchId":"READ66","Status":"Open"},{"DocumentNumber":"READ00000000705","ReadingDate":"2000-04-30","LocationId":"000000000532001","EquipmentId":"16358960","BatchId":"READ66","Status":"Open"},{"DocumentNumber":"READ00000000675","ReadingDate":"2000-04-15","LocationId":"LOCATION009","EquipmentId":"EQUIPMENT010","BatchId":"SOMR00000000004","Status":"Open"},{"DocumentNumber":"READ00000000677","ReadingDate":"2000-04-15","LocationId":"LOCATION010","EquipmentId":"EQUIPMENT012","BatchId":"SOMR00000000006","Status":"Open"},{"DocumentNumber":"READ00000000648","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-GAS-2","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000649","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-PHONE-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000651","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPMENT016","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000652","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"WATEREQUIP003","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000653","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIPMENT015","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000654","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"WATEREQUIP004","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000656","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPPH-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000657","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPPH-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000658","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-PHONE-1","BatchId":"READ55","Status":"Open"}]}
+  PASSED:  lookupMeterRead_RowsExposeOnlyTheDocumentedFields (39ms)
+  Starting: Private_lookupControllerv4_Test :: lookupMeterRead_EmptyPlaceholderRowOmitsStatus
+===============================================
+http://localhost:3000/api/v4/lookupMeterRead
+Parameters  = {PageNum=1, BatchId=NOSUCHBATCH1234, NumPerPage=32000}
+Γ£à Using cached token (valid for 299 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/lookupMeterRead
+Response :{"MeterReading":[{"DocumentNumber":"","ReadingDate":"","LocationId":"","EquipmentId":"","BatchId":""}]}
+Status Code: 200
+{"MeterReading":[{"DocumentNumber":"","ReadingDate":"","LocationId":"","EquipmentId":"","BatchId":""}]}
+  PASSED:  lookupMeterRead_EmptyPlaceholderRowOmitsStatus (31ms)
+  Starting: Private_lookupControllerv4_Test :: lookupMeterRead_NumPerPageDefaultsTo32000
+===============================================
+http://localhost:3000/api/v4/lookupMeterRead
+Parameters  = {PageNum=1}
+Γ£à Using cached token (valid for 299 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/lookupMeterRead
+Response :{"MeterReading":[{"DocumentNumber":"READ00000000915","ReadingDate":"2027-04-12","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT008","BatchId":"12312312","Status":"Work"},{"DocumentNumber":"READ00000000927","ReadingDate":"2027-04-12","LocationId":"STATEMENTTEST01","EquipmentId":"NETMETER001","BatchId":"MR041227sa","Status":"Open"},{"DocumentNumber":"READ00000000928","ReadingDate":"2024-09-02","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER002","BatchId":"BATCH0024","Status":"Open"},{"DocumentNumber":"READ00000000922","ReadingDate":"2024-09-02","LocationId":"STATEMENTTEST01","EquipmentId":"NETMETER001","BatchId":"BAT2024","Status":"Open"},{"DocumentNumber":"READ00000000932","ReadingDate":"2024-02-12","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER0002","BatchId":"BAT0004","Status":"Open"},{"DocumentNumber":"READ00000000930","ReadingDate":"2024-01-01","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER0002","BatchId":"BAT12","Status":"Open"},{"DocumentNumber":"READ00000000913","ReadingDate":"2020-02-10","LocationId":"WATER100","EquipmentId":"ELECT","BatchId":"TEST100","Status":"Open"},{"DocumentNumber":"READ00000000834","ReadingDate":"2019-09-23","LocationId":"SPALOCATION1","EquipmentId":"EQUIPMENT018","BatchId":"BILL10111","Status":"Open"},{"DocumentNumber":"READ00000000862","ReadingDate":"2019-08-09","LocationId":"BUDGETLOC01","EquipmentId":"EQUIPMENT022","BatchId":"BILL","Status":"Open"},{"DocumentNumber":"READ00000000871","ReadingDate":"2019-07-31","LocationId":"SPALOCATION1","EquipmentId":"AUTOGAS","BatchId":"BATGAS1","Status":"Open"},{"DocumentNumber":"READ00000000830","ReadingDate":"2019-07-31","LocationId":"TRANSACTION001","EquipmentId":"EQUIPMENT007","BatchId":"AC1001","Status":"Open"},{"DocumentNumber":"READ00000000890","ReadingDate":"2019-07-01","LocationId":"BILLGRAPH","EquipmentId":"ELECMETER","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000882","ReadingDate":"2019-06-01","LocationId":"BILLGRAPH","EquipmentId":"ELECMETER","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000803","ReadingDate":"2019-04-12","LocationId":"ELECWAT003","EquipmentId":"EQUIPMENT015","BatchId":"1","Status":"Open"},{"DocumentNumber":"READ00000000805","ReadingDate":"2019-04-12","LocationId":"ELECWAT002","EquipmentId":"EQUIPMENT016","BatchId":"001","Status":"Open"},{"DocumentNumber":"READ00000000907","ReadingDate":"2019-02-28","LocationId":"STATEMENTTEST01","EquipmentId":"ELEC0001","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000905","ReadingDate":"2019-01-30","LocationId":"STATEMENTTEST01","EquipmentId":"ELEC0001","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000418","ReadingDate":"2000-06-30","LocationId":"LOCEMP-1","EquipmentId":"EQUIPELEC021","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000419","ReadingDate":"2000-06-30","LocationId":"LOCEMP-1","EquipmentId":"EQUIPELEC022","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000420","ReadingDate":"2000-06-30","LocationId":"LOCATION007","EquipmentId":"EQUIPMENT009","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000421","ReadingDate":"2000-06-30","LocationId":"LOCATION002","EquipmentId":"EQUIPMENT001","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000422","ReadingDate":"2000-06-30","LocationId":"LOCATION003","EquipmentId":"EQUIPMENT002","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000423","ReadingDate":"2000-06-30","LocationId":"LOCATION004","EquipmentId":"EQUIPMENT005","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000424","ReadingDate":"2000-06-30","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT006","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000425","ReadingDate":"2000-06-30","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT008","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000428","ReadingDate":"2000-06-30","LocationId":"LOCATION011","EquipmentId":"EQUIPMENT013","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000429","ReadingDate":"2000-06-30","LocationId":"LOCATION012","EquipmentId":"EQUIPMENT014","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000430","ReadingDate":"2000-06-30","LocationId":"LOCATION013","EquipmentId":"EQUIPMENT017","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000938","ReadingDate":"2000-05-30","LocationId":"100001","EquipmentId":"87779650-1","BatchId":"NEW2025","Status":"Open"},{"DocumentNumber":"READ00000000704","ReadingDate":"2000-04-30","LocationId":"000000000532001","EquipmentId":"7899910","BatchId":"READ66","Status":"Open"},{"DocumentNumber":"READ00000000705","ReadingDate":"2000-04-30","LocationId":"000000000532001","EquipmentId":"16358960","BatchId":"READ66","Status":"Open"},{"DocumentNumber":"READ00000000675","ReadingDate":"2000-04-15","LocationId":"LOCATION009","EquipmentId":"EQUIPMENT010","BatchId":"SOMR00000000004","Status":"Open"},{"DocumentNumber":"READ00000000677","ReadingDate":"2000-04-15","LocationId":"LOCATION010","EquipmentId":"EQUIPMENT012","BatchId":"SOMR00000000006","Status":"Open"},{"DocumentNumber":"READ00000000648","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-GAS-2","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000649","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-PHONE-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000651","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPMENT016","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000652","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"WATEREQUIP003","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000653","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIPMENT015","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000654","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"WATEREQUIP004","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000656","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPPH-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000657","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPPH-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000658","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-PHONE-1","BatchId":"READ55","Status":"Open"}]}
+Status Code: 200
+{"MeterReading":[{"DocumentNumber":"READ00000000915","ReadingDate":"2027-04-12","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT008","BatchId":"12312312","Status":"Work"},{"DocumentNumber":"READ00000000927","ReadingDate":"2027-04-12","LocationId":"STATEMENTTEST01","EquipmentId":"NETMETER001","BatchId":"MR041227sa","Status":"Open"},{"DocumentNumber":"READ00000000928","ReadingDate":"2024-09-02","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER002","BatchId":"BATCH0024","Status":"Open"},{"DocumentNumber":"READ00000000922","ReadingDate":"2024-09-02","LocationId":"STATEMENTTEST01","EquipmentId":"NETMETER001","BatchId":"BAT2024","Status":"Open"},{"DocumentNumber":"READ00000000932","ReadingDate":"2024-02-12","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER0002","BatchId":"BAT0004","Status":"Open"},{"DocumentNumber":"READ00000000930","ReadingDate":"2024-01-01","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER0002","BatchId":"BAT12","Status":"Open"},{"DocumentNumber":"READ00000000913","ReadingDate":"2020-02-10","LocationId":"WATER100","EquipmentId":"ELECT","BatchId":"TEST100","Status":"Open"},{"DocumentNumber":"READ00000000834","ReadingDate":"2019-09-23","LocationId":"SPALOCATION1","EquipmentId":"EQUIPMENT018","BatchId":"BILL10111","Status":"Open"},{"DocumentNumber":"READ00000000862","ReadingDate":"2019-08-09","LocationId":"BUDGETLOC01","EquipmentId":"EQUIPMENT022","BatchId":"BILL","Status":"Open"},{"DocumentNumber":"READ00000000871","ReadingDate":"2019-07-31","LocationId":"SPALOCATION1","EquipmentId":"AUTOGAS","BatchId":"BATGAS1","Status":"Open"},{"DocumentNumber":"READ00000000830","ReadingDate":"2019-07-31","LocationId":"TRANSACTION001","EquipmentId":"EQUIPMENT007","BatchId":"AC1001","Status":"Open"},{"DocumentNumber":"READ00000000890","ReadingDate":"2019-07-01","LocationId":"BILLGRAPH","EquipmentId":"ELECMETER","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000882","ReadingDate":"2019-06-01","LocationId":"BILLGRAPH","EquipmentId":"ELECMETER","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000803","ReadingDate":"2019-04-12","LocationId":"ELECWAT003","EquipmentId":"EQUIPMENT015","BatchId":"1","Status":"Open"},{"DocumentNumber":"READ00000000805","ReadingDate":"2019-04-12","LocationId":"ELECWAT002","EquipmentId":"EQUIPMENT016","BatchId":"001","Status":"Open"},{"DocumentNumber":"READ00000000907","ReadingDate":"2019-02-28","LocationId":"STATEMENTTEST01","EquipmentId":"ELEC0001","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000905","ReadingDate":"2019-01-30","LocationId":"STATEMENTTEST01","EquipmentId":"ELEC0001","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000418","ReadingDate":"2000-06-30","LocationId":"LOCEMP-1","EquipmentId":"EQUIPELEC021","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000419","ReadingDate":"2000-06-30","LocationId":"LOCEMP-1","EquipmentId":"EQUIPELEC022","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000420","ReadingDate":"2000-06-30","LocationId":"LOCATION007","EquipmentId":"EQUIPMENT009","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000421","ReadingDate":"2000-06-30","LocationId":"LOCATION002","EquipmentId":"EQUIPMENT001","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000422","ReadingDate":"2000-06-30","LocationId":"LOCATION003","EquipmentId":"EQUIPMENT002","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000423","ReadingDate":"2000-06-30","LocationId":"LOCATION004","EquipmentId":"EQUIPMENT005","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000424","ReadingDate":"2000-06-30","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT006","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000425","ReadingDate":"2000-06-30","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT008","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000428","ReadingDate":"2000-06-30","LocationId":"LOCATION011","EquipmentId":"EQUIPMENT013","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000429","ReadingDate":"2000-06-30","LocationId":"LOCATION012","EquipmentId":"EQUIPMENT014","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000430","ReadingDate":"2000-06-30","LocationId":"LOCATION013","EquipmentId":"EQUIPMENT017","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000938","ReadingDate":"2000-05-30","LocationId":"100001","EquipmentId":"87779650-1","BatchId":"NEW2025","Status":"Open"},{"DocumentNumber":"READ00000000704","ReadingDate":"2000-04-30","LocationId":"000000000532001","EquipmentId":"7899910","BatchId":"READ66","Status":"Open"},{"DocumentNumber":"READ00000000705","ReadingDate":"2000-04-30","LocationId":"000000000532001","EquipmentId":"16358960","BatchId":"READ66","Status":"Open"},{"DocumentNumber":"READ00000000675","ReadingDate":"2000-04-15","LocationId":"LOCATION009","EquipmentId":"EQUIPMENT010","BatchId":"SOMR00000000004","Status":"Open"},{"DocumentNumber":"READ00000000677","ReadingDate":"2000-04-15","LocationId":"LOCATION010","EquipmentId":"EQUIPMENT012","BatchId":"SOMR00000000006","Status":"Open"},{"DocumentNumber":"READ00000000648","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-GAS-2","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000649","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-PHONE-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000651","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPMENT016","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000652","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"WATEREQUIP003","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000653","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIPMENT015","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000654","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"WATEREQUIP004","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000656","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPPH-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000657","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPPH-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000658","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-PHONE-1","BatchId":"READ55","Status":"Open"}]}
+===============================================
+http://localhost:3000/api/v4/lookupMeterRead
+Parameters  = {PageNum=1, NumPerPage=32000}
+Γ£à Using cached token (valid for 299 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/lookupMeterRead
+Response :{"MeterReading":[{"DocumentNumber":"READ00000000915","ReadingDate":"2027-04-12","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT008","BatchId":"12312312","Status":"Work"},{"DocumentNumber":"READ00000000927","ReadingDate":"2027-04-12","LocationId":"STATEMENTTEST01","EquipmentId":"NETMETER001","BatchId":"MR041227sa","Status":"Open"},{"DocumentNumber":"READ00000000928","ReadingDate":"2024-09-02","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER002","BatchId":"BATCH0024","Status":"Open"},{"DocumentNumber":"READ00000000922","ReadingDate":"2024-09-02","LocationId":"STATEMENTTEST01","EquipmentId":"NETMETER001","BatchId":"BAT2024","Status":"Open"},{"DocumentNumber":"READ00000000932","ReadingDate":"2024-02-12","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER0002","BatchId":"BAT0004","Status":"Open"},{"DocumentNumber":"READ00000000930","ReadingDate":"2024-01-01","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER0002","BatchId":"BAT12","Status":"Open"},{"DocumentNumber":"READ00000000913","ReadingDate":"2020-02-10","LocationId":"WATER100","EquipmentId":"ELECT","BatchId":"TEST100","Status":"Open"},{"DocumentNumber":"READ00000000834","ReadingDate":"2019-09-23","LocationId":"SPALOCATION1","EquipmentId":"EQUIPMENT018","BatchId":"BILL10111","Status":"Open"},{"DocumentNumber":"READ00000000862","ReadingDate":"2019-08-09","LocationId":"BUDGETLOC01","EquipmentId":"EQUIPMENT022","BatchId":"BILL","Status":"Open"},{"DocumentNumber":"READ00000000871","ReadingDate":"2019-07-31","LocationId":"SPALOCATION1","EquipmentId":"AUTOGAS","BatchId":"BATGAS1","Status":"Open"},{"DocumentNumber":"READ00000000830","ReadingDate":"2019-07-31","LocationId":"TRANSACTION001","EquipmentId":"EQUIPMENT007","BatchId":"AC1001","Status":"Open"},{"DocumentNumber":"READ00000000890","ReadingDate":"2019-07-01","LocationId":"BILLGRAPH","EquipmentId":"ELECMETER","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000882","ReadingDate":"2019-06-01","LocationId":"BILLGRAPH","EquipmentId":"ELECMETER","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000803","ReadingDate":"2019-04-12","LocationId":"ELECWAT003","EquipmentId":"EQUIPMENT015","BatchId":"1","Status":"Open"},{"DocumentNumber":"READ00000000805","ReadingDate":"2019-04-12","LocationId":"ELECWAT002","EquipmentId":"EQUIPMENT016","BatchId":"001","Status":"Open"},{"DocumentNumber":"READ00000000907","ReadingDate":"2019-02-28","LocationId":"STATEMENTTEST01","EquipmentId":"ELEC0001","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000905","ReadingDate":"2019-01-30","LocationId":"STATEMENTTEST01","EquipmentId":"ELEC0001","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000418","ReadingDate":"2000-06-30","LocationId":"LOCEMP-1","EquipmentId":"EQUIPELEC021","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000419","ReadingDate":"2000-06-30","LocationId":"LOCEMP-1","EquipmentId":"EQUIPELEC022","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000420","ReadingDate":"2000-06-30","LocationId":"LOCATION007","EquipmentId":"EQUIPMENT009","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000421","ReadingDate":"2000-06-30","LocationId":"LOCATION002","EquipmentId":"EQUIPMENT001","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000422","ReadingDate":"2000-06-30","LocationId":"LOCATION003","EquipmentId":"EQUIPMENT002","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000423","ReadingDate":"2000-06-30","LocationId":"LOCATION004","EquipmentId":"EQUIPMENT005","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000424","ReadingDate":"2000-06-30","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT006","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000425","ReadingDate":"2000-06-30","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT008","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000428","ReadingDate":"2000-06-30","LocationId":"LOCATION011","EquipmentId":"EQUIPMENT013","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000429","ReadingDate":"2000-06-30","LocationId":"LOCATION012","EquipmentId":"EQUIPMENT014","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000430","ReadingDate":"2000-06-30","LocationId":"LOCATION013","EquipmentId":"EQUIPMENT017","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000938","ReadingDate":"2000-05-30","LocationId":"100001","EquipmentId":"87779650-1","BatchId":"NEW2025","Status":"Open"},{"DocumentNumber":"READ00000000704","ReadingDate":"2000-04-30","LocationId":"000000000532001","EquipmentId":"7899910","BatchId":"READ66","Status":"Open"},{"DocumentNumber":"READ00000000705","ReadingDate":"2000-04-30","LocationId":"000000000532001","EquipmentId":"16358960","BatchId":"READ66","Status":"Open"},{"DocumentNumber":"READ00000000675","ReadingDate":"2000-04-15","LocationId":"LOCATION009","EquipmentId":"EQUIPMENT010","BatchId":"SOMR00000000004","Status":"Open"},{"DocumentNumber":"READ00000000677","ReadingDate":"2000-04-15","LocationId":"LOCATION010","EquipmentId":"EQUIPMENT012","BatchId":"SOMR00000000006","Status":"Open"},{"DocumentNumber":"READ00000000648","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-GAS-2","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000649","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-PHONE-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000651","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPMENT016","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000652","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"WATEREQUIP003","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000653","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIPMENT015","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000654","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"WATEREQUIP004","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000656","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPPH-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000657","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPPH-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000658","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-PHONE-1","BatchId":"READ55","Status":"Open"}]}
+Status Code: 200
+{"MeterReading":[{"DocumentNumber":"READ00000000915","ReadingDate":"2027-04-12","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT008","BatchId":"12312312","Status":"Work"},{"DocumentNumber":"READ00000000927","ReadingDate":"2027-04-12","LocationId":"STATEMENTTEST01","EquipmentId":"NETMETER001","BatchId":"MR041227sa","Status":"Open"},{"DocumentNumber":"READ00000000928","ReadingDate":"2024-09-02","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER002","BatchId":"BATCH0024","Status":"Open"},{"DocumentNumber":"READ00000000922","ReadingDate":"2024-09-02","LocationId":"STATEMENTTEST01","EquipmentId":"NETMETER001","BatchId":"BAT2024","Status":"Open"},{"DocumentNumber":"READ00000000932","ReadingDate":"2024-02-12","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER0002","BatchId":"BAT0004","Status":"Open"},{"DocumentNumber":"READ00000000930","ReadingDate":"2024-01-01","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER0002","BatchId":"BAT12","Status":"Open"},{"DocumentNumber":"READ00000000913","ReadingDate":"2020-02-10","LocationId":"WATER100","EquipmentId":"ELECT","BatchId":"TEST100","Status":"Open"},{"DocumentNumber":"READ00000000834","ReadingDate":"2019-09-23","LocationId":"SPALOCATION1","EquipmentId":"EQUIPMENT018","BatchId":"BILL10111","Status":"Open"},{"DocumentNumber":"READ00000000862","ReadingDate":"2019-08-09","LocationId":"BUDGETLOC01","EquipmentId":"EQUIPMENT022","BatchId":"BILL","Status":"Open"},{"DocumentNumber":"READ00000000871","ReadingDate":"2019-07-31","LocationId":"SPALOCATION1","EquipmentId":"AUTOGAS","BatchId":"BATGAS1","Status":"Open"},{"DocumentNumber":"READ00000000830","ReadingDate":"2019-07-31","LocationId":"TRANSACTION001","EquipmentId":"EQUIPMENT007","BatchId":"AC1001","Status":"Open"},{"DocumentNumber":"READ00000000890","ReadingDate":"2019-07-01","LocationId":"BILLGRAPH","EquipmentId":"ELECMETER","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000882","ReadingDate":"2019-06-01","LocationId":"BILLGRAPH","EquipmentId":"ELECMETER","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000803","ReadingDate":"2019-04-12","LocationId":"ELECWAT003","EquipmentId":"EQUIPMENT015","BatchId":"1","Status":"Open"},{"DocumentNumber":"READ00000000805","ReadingDate":"2019-04-12","LocationId":"ELECWAT002","EquipmentId":"EQUIPMENT016","BatchId":"001","Status":"Open"},{"DocumentNumber":"READ00000000907","ReadingDate":"2019-02-28","LocationId":"STATEMENTTEST01","EquipmentId":"ELEC0001","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000905","ReadingDate":"2019-01-30","LocationId":"STATEMENTTEST01","EquipmentId":"ELEC0001","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000418","ReadingDate":"2000-06-30","LocationId":"LOCEMP-1","EquipmentId":"EQUIPELEC021","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000419","ReadingDate":"2000-06-30","LocationId":"LOCEMP-1","EquipmentId":"EQUIPELEC022","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000420","ReadingDate":"2000-06-30","LocationId":"LOCATION007","EquipmentId":"EQUIPMENT009","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000421","ReadingDate":"2000-06-30","LocationId":"LOCATION002","EquipmentId":"EQUIPMENT001","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000422","ReadingDate":"2000-06-30","LocationId":"LOCATION003","EquipmentId":"EQUIPMENT002","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000423","ReadingDate":"2000-06-30","LocationId":"LOCATION004","EquipmentId":"EQUIPMENT005","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000424","ReadingDate":"2000-06-30","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT006","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000425","ReadingDate":"2000-06-30","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT008","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000428","ReadingDate":"2000-06-30","LocationId":"LOCATION011","EquipmentId":"EQUIPMENT013","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000429","ReadingDate":"2000-06-30","LocationId":"LOCATION012","EquipmentId":"EQUIPMENT014","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000430","ReadingDate":"2000-06-30","LocationId":"LOCATION013","EquipmentId":"EQUIPMENT017","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000938","ReadingDate":"2000-05-30","LocationId":"100001","EquipmentId":"87779650-1","BatchId":"NEW2025","Status":"Open"},{"DocumentNumber":"READ00000000704","ReadingDate":"2000-04-30","LocationId":"000000000532001","EquipmentId":"7899910","BatchId":"READ66","Status":"Open"},{"DocumentNumber":"READ00000000705","ReadingDate":"2000-04-30","LocationId":"000000000532001","EquipmentId":"16358960","BatchId":"READ66","Status":"Open"},{"DocumentNumber":"READ00000000675","ReadingDate":"2000-04-15","LocationId":"LOCATION009","EquipmentId":"EQUIPMENT010","BatchId":"SOMR00000000004","Status":"Open"},{"DocumentNumber":"READ00000000677","ReadingDate":"2000-04-15","LocationId":"LOCATION010","EquipmentId":"EQUIPMENT012","BatchId":"SOMR00000000006","Status":"Open"},{"DocumentNumber":"READ00000000648","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-GAS-2","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000649","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-PHONE-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000651","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPMENT016","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000652","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"WATEREQUIP003","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000653","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIPMENT015","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000654","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"WATEREQUIP004","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000656","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPPH-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000657","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPPH-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000658","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-PHONE-1","BatchId":"READ55","Status":"Open"}]}
+  PASSED:  lookupMeterRead_NumPerPageDefaultsTo32000 (44ms)
+  Starting: Private_lookupControllerv4_Test :: lookupMeterRead_PageNumOmitted_UsesConfiguredDefault
+===============================================
+http://localhost:3000/api/v4/lookupMeterRead
+Parameters  = {NumPerPage=5}
+Γ£à Using cached token (valid for 299 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/lookupMeterRead
+Response :{"MeterReading":[{"DocumentNumber":"READ00000000915","ReadingDate":"2027-04-12","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT008","BatchId":"12312312","Status":"Work"},{"DocumentNumber":"READ00000000927","ReadingDate":"2027-04-12","LocationId":"STATEMENTTEST01","EquipmentId":"NETMETER001","BatchId":"MR041227sa","Status":"Open"},{"DocumentNumber":"READ00000000928","ReadingDate":"2024-09-02","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER002","BatchId":"BATCH0024","Status":"Open"},{"DocumentNumber":"READ00000000922","ReadingDate":"2024-09-02","LocationId":"STATEMENTTEST01","EquipmentId":"NETMETER001","BatchId":"BAT2024","Status":"Open"},{"DocumentNumber":"READ00000000932","ReadingDate":"2024-02-12","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER0002","BatchId":"BAT0004","Status":"Open"},{"DocumentNumber":"READ00000000930","ReadingDate":"2024-01-01","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER0002","BatchId":"BAT12","Status":"Open"},{"DocumentNumber":"READ00000000913","ReadingDate":"2020-02-10","LocationId":"WATER100","EquipmentId":"ELECT","BatchId":"TEST100","Status":"Open"},{"DocumentNumber":"READ00000000834","ReadingDate":"2019-09-23","LocationId":"SPALOCATION1","EquipmentId":"EQUIPMENT018","BatchId":"BILL10111","Status":"Open"},{"DocumentNumber":"READ00000000862","ReadingDate":"2019-08-09","LocationId":"BUDGETLOC01","EquipmentId":"EQUIPMENT022","BatchId":"BILL","Status":"Open"},{"DocumentNumber":"READ00000000871","ReadingDate":"2019-07-31","LocationId":"SPALOCATION1","EquipmentId":"AUTOGAS","BatchId":"BATGAS1","Status":"Open"},{"DocumentNumber":"READ00000000830","ReadingDate":"2019-07-31","LocationId":"TRANSACTION001","EquipmentId":"EQUIPMENT007","BatchId":"AC1001","Status":"Open"},{"DocumentNumber":"READ00000000890","ReadingDate":"2019-07-01","LocationId":"BILLGRAPH","EquipmentId":"ELECMETER","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000882","ReadingDate":"2019-06-01","LocationId":"BILLGRAPH","EquipmentId":"ELECMETER","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000803","ReadingDate":"2019-04-12","LocationId":"ELECWAT003","EquipmentId":"EQUIPMENT015","BatchId":"1","Status":"Open"},{"DocumentNumber":"READ00000000805","ReadingDate":"2019-04-12","LocationId":"ELECWAT002","EquipmentId":"EQUIPMENT016","BatchId":"001","Status":"Open"},{"DocumentNumber":"READ00000000907","ReadingDate":"2019-02-28","LocationId":"STATEMENTTEST01","EquipmentId":"ELEC0001","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000905","ReadingDate":"2019-01-30","LocationId":"STATEMENTTEST01","EquipmentId":"ELEC0001","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000418","ReadingDate":"2000-06-30","LocationId":"LOCEMP-1","EquipmentId":"EQUIPELEC021","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000419","ReadingDate":"2000-06-30","LocationId":"LOCEMP-1","EquipmentId":"EQUIPELEC022","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000420","ReadingDate":"2000-06-30","LocationId":"LOCATION007","EquipmentId":"EQUIPMENT009","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000421","ReadingDate":"2000-06-30","LocationId":"LOCATION002","EquipmentId":"EQUIPMENT001","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000422","ReadingDate":"2000-06-30","LocationId":"LOCATION003","EquipmentId":"EQUIPMENT002","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000423","ReadingDate":"2000-06-30","LocationId":"LOCATION004","EquipmentId":"EQUIPMENT005","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000424","ReadingDate":"2000-06-30","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT006","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000425","ReadingDate":"2000-06-30","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT008","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000428","ReadingDate":"2000-06-30","LocationId":"LOCATION011","EquipmentId":"EQUIPMENT013","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000429","ReadingDate":"2000-06-30","LocationId":"LOCATION012","EquipmentId":"EQUIPMENT014","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000430","ReadingDate":"2000-06-30","LocationId":"LOCATION013","EquipmentId":"EQUIPMENT017","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000938","ReadingDate":"2000-05-30","LocationId":"100001","EquipmentId":"87779650-1","BatchId":"NEW2025","Status":"Open"},{"DocumentNumber":"READ00000000704","ReadingDate":"2000-04-30","LocationId":"000000000532001","EquipmentId":"7899910","BatchId":"READ66","Status":"Open"},{"DocumentNumber":"READ00000000705","ReadingDate":"2000-04-30","LocationId":"000000000532001","EquipmentId":"16358960","BatchId":"READ66","Status":"Open"},{"DocumentNumber":"READ00000000675","ReadingDate":"2000-04-15","LocationId":"LOCATION009","EquipmentId":"EQUIPMENT010","BatchId":"SOMR00000000004","Status":"Open"},{"DocumentNumber":"READ00000000677","ReadingDate":"2000-04-15","LocationId":"LOCATION010","EquipmentId":"EQUIPMENT012","BatchId":"SOMR00000000006","Status":"Open"},{"DocumentNumber":"READ00000000648","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-GAS-2","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000649","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-PHONE-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000651","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPMENT016","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000652","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"WATEREQUIP003","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000653","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIPMENT015","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000654","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"WATEREQUIP004","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000656","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPPH-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000657","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPPH-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000658","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-PHONE-1","BatchId":"READ55","Status":"Open"}]}
+Status Code: 200
+{"MeterReading":[{"DocumentNumber":"READ00000000915","ReadingDate":"2027-04-12","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT008","BatchId":"12312312","Status":"Work"},{"DocumentNumber":"READ00000000927","ReadingDate":"2027-04-12","LocationId":"STATEMENTTEST01","EquipmentId":"NETMETER001","BatchId":"MR041227sa","Status":"Open"},{"DocumentNumber":"READ00000000928","ReadingDate":"2024-09-02","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER002","BatchId":"BATCH0024","Status":"Open"},{"DocumentNumber":"READ00000000922","ReadingDate":"2024-09-02","LocationId":"STATEMENTTEST01","EquipmentId":"NETMETER001","BatchId":"BAT2024","Status":"Open"},{"DocumentNumber":"READ00000000932","ReadingDate":"2024-02-12","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER0002","BatchId":"BAT0004","Status":"Open"},{"DocumentNumber":"READ00000000930","ReadingDate":"2024-01-01","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER0002","BatchId":"BAT12","Status":"Open"},{"DocumentNumber":"READ00000000913","ReadingDate":"2020-02-10","LocationId":"WATER100","EquipmentId":"ELECT","BatchId":"TEST100","Status":"Open"},{"DocumentNumber":"READ00000000834","ReadingDate":"2019-09-23","LocationId":"SPALOCATION1","EquipmentId":"EQUIPMENT018","BatchId":"BILL10111","Status":"Open"},{"DocumentNumber":"READ00000000862","ReadingDate":"2019-08-09","LocationId":"BUDGETLOC01","EquipmentId":"EQUIPMENT022","BatchId":"BILL","Status":"Open"},{"DocumentNumber":"READ00000000871","ReadingDate":"2019-07-31","LocationId":"SPALOCATION1","EquipmentId":"AUTOGAS","BatchId":"BATGAS1","Status":"Open"},{"DocumentNumber":"READ00000000830","ReadingDate":"2019-07-31","LocationId":"TRANSACTION001","EquipmentId":"EQUIPMENT007","BatchId":"AC1001","Status":"Open"},{"DocumentNumber":"READ00000000890","ReadingDate":"2019-07-01","LocationId":"BILLGRAPH","EquipmentId":"ELECMETER","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000882","ReadingDate":"2019-06-01","LocationId":"BILLGRAPH","EquipmentId":"ELECMETER","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000803","ReadingDate":"2019-04-12","LocationId":"ELECWAT003","EquipmentId":"EQUIPMENT015","BatchId":"1","Status":"Open"},{"DocumentNumber":"READ00000000805","ReadingDate":"2019-04-12","LocationId":"ELECWAT002","EquipmentId":"EQUIPMENT016","BatchId":"001","Status":"Open"},{"DocumentNumber":"READ00000000907","ReadingDate":"2019-02-28","LocationId":"STATEMENTTEST01","EquipmentId":"ELEC0001","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000905","ReadingDate":"2019-01-30","LocationId":"STATEMENTTEST01","EquipmentId":"ELEC0001","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000418","ReadingDate":"2000-06-30","LocationId":"LOCEMP-1","EquipmentId":"EQUIPELEC021","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000419","ReadingDate":"2000-06-30","LocationId":"LOCEMP-1","EquipmentId":"EQUIPELEC022","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000420","ReadingDate":"2000-06-30","LocationId":"LOCATION007","EquipmentId":"EQUIPMENT009","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000421","ReadingDate":"2000-06-30","LocationId":"LOCATION002","EquipmentId":"EQUIPMENT001","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000422","ReadingDate":"2000-06-30","LocationId":"LOCATION003","EquipmentId":"EQUIPMENT002","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000423","ReadingDate":"2000-06-30","LocationId":"LOCATION004","EquipmentId":"EQUIPMENT005","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000424","ReadingDate":"2000-06-30","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT006","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000425","ReadingDate":"2000-06-30","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT008","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000428","ReadingDate":"2000-06-30","LocationId":"LOCATION011","EquipmentId":"EQUIPMENT013","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000429","ReadingDate":"2000-06-30","LocationId":"LOCATION012","EquipmentId":"EQUIPMENT014","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000430","ReadingDate":"2000-06-30","LocationId":"LOCATION013","EquipmentId":"EQUIPMENT017","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000938","ReadingDate":"2000-05-30","LocationId":"100001","EquipmentId":"87779650-1","BatchId":"NEW2025","Status":"Open"},{"DocumentNumber":"READ00000000704","ReadingDate":"2000-04-30","LocationId":"000000000532001","EquipmentId":"7899910","BatchId":"READ66","Status":"Open"},{"DocumentNumber":"READ00000000705","ReadingDate":"2000-04-30","LocationId":"000000000532001","EquipmentId":"16358960","BatchId":"READ66","Status":"Open"},{"DocumentNumber":"READ00000000675","ReadingDate":"2000-04-15","LocationId":"LOCATION009","EquipmentId":"EQUIPMENT010","BatchId":"SOMR00000000004","Status":"Open"},{"DocumentNumber":"READ00000000677","ReadingDate":"2000-04-15","LocationId":"LOCATION010","EquipmentId":"EQUIPMENT012","BatchId":"SOMR00000000006","Status":"Open"},{"DocumentNumber":"READ00000000648","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-GAS-2","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000649","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-PHONE-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000651","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPMENT016","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000652","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"WATEREQUIP003","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000653","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIPMENT015","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000654","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"WATEREQUIP004","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000656","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPPH-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000657","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPPH-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000658","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-PHONE-1","BatchId":"READ55","Status":"Open"}]}
+  PASSED:  lookupMeterRead_PageNumOmitted_UsesConfiguredDefault (35ms)
+  Starting: Private_lookupControllerv4_Test :: lookupMeterRead_OrderByDocumentNumberDesc
+===============================================
+http://localhost:3000/api/v4/lookupMeterRead
+Parameters  = {OrderBy=DocumentNumber DESC, PageNum=1, NumPerPage=32000}
+Γ£à Using cached token (valid for 299 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/lookupMeterRead
+Response :{"MeterReading":[{"DocumentNumber":"READ00000000938","ReadingDate":"2000-05-30","LocationId":"100001","EquipmentId":"87779650-1","BatchId":"NEW2025","Status":"Open"},{"DocumentNumber":"READ00000000932","ReadingDate":"2024-02-12","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER0002","BatchId":"BAT0004","Status":"Open"},{"DocumentNumber":"READ00000000930","ReadingDate":"2024-01-01","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER0002","BatchId":"BAT12","Status":"Open"},{"DocumentNumber":"READ00000000928","ReadingDate":"2024-09-02","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER002","BatchId":"BATCH0024","Status":"Open"},{"DocumentNumber":"READ00000000927","ReadingDate":"2027-04-12","LocationId":"STATEMENTTEST01","EquipmentId":"NETMETER001","BatchId":"MR041227sa","Status":"Open"},{"DocumentNumber":"READ00000000922","ReadingDate":"2024-09-02","LocationId":"STATEMENTTEST01","EquipmentId":"NETMETER001","BatchId":"BAT2024","Status":"Open"},{"DocumentNumber":"READ00000000915","ReadingDate":"2027-04-12","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT008","BatchId":"12312312","Status":"Work"},{"DocumentNumber":"READ00000000913","ReadingDate":"2020-02-10","LocationId":"WATER100","EquipmentId":"ELECT","BatchId":"TEST100","Status":"Open"},{"DocumentNumber":"READ00000000907","ReadingDate":"2019-02-28","LocationId":"STATEMENTTEST01","EquipmentId":"ELEC0001","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000905","ReadingDate":"2019-01-30","LocationId":"STATEMENTTEST01","EquipmentId":"ELEC0001","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000890","ReadingDate":"2019-07-01","LocationId":"BILLGRAPH","EquipmentId":"ELECMETER","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000882","ReadingDate":"2019-06-01","LocationId":"BILLGRAPH","EquipmentId":"ELECMETER","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000871","ReadingDate":"2019-07-31","LocationId":"SPALOCATION1","EquipmentId":"AUTOGAS","BatchId":"BATGAS1","Status":"Open"},{"DocumentNumber":"READ00000000862","ReadingDate":"2019-08-09","LocationId":"BUDGETLOC01","EquipmentId":"EQUIPMENT022","BatchId":"BILL","Status":"Open"},{"DocumentNumber":"READ00000000834","ReadingDate":"2019-09-23","LocationId":"SPALOCATION1","EquipmentId":"EQUIPMENT018","BatchId":"BILL10111","Status":"Open"},{"DocumentNumber":"READ00000000830","ReadingDate":"2019-07-31","LocationId":"TRANSACTION001","EquipmentId":"EQUIPMENT007","BatchId":"AC1001","Status":"Open"},{"DocumentNumber":"READ00000000805","ReadingDate":"2019-04-12","LocationId":"ELECWAT002","EquipmentId":"EQUIPMENT016","BatchId":"001","Status":"Open"},{"DocumentNumber":"READ00000000803","ReadingDate":"2019-04-12","LocationId":"ELECWAT003","EquipmentId":"EQUIPMENT015","BatchId":"1","Status":"Open"},{"DocumentNumber":"READ00000000705","ReadingDate":"2000-04-30","LocationId":"000000000532001","EquipmentId":"16358960","BatchId":"READ66","Status":"Open"},{"DocumentNumber":"READ00000000704","ReadingDate":"2000-04-30","LocationId":"000000000532001","EquipmentId":"7899910","BatchId":"READ66","Status":"Open"},{"DocumentNumber":"READ00000000677","ReadingDate":"2000-04-15","LocationId":"LOCATION010","EquipmentId":"EQUIPMENT012","BatchId":"SOMR00000000006","Status":"Open"},{"DocumentNumber":"READ00000000675","ReadingDate":"2000-04-15","LocationId":"LOCATION009","EquipmentId":"EQUIPMENT010","BatchId":"SOMR00000000004","Status":"Open"},{"DocumentNumber":"READ00000000658","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-PHONE-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000657","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPPH-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000656","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPPH-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000654","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"WATEREQUIP004","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000653","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIPMENT015","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000652","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"WATEREQUIP003","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000651","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPMENT016","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000649","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-PHONE-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000648","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-GAS-2","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000430","ReadingDate":"2000-06-30","LocationId":"LOCATION013","EquipmentId":"EQUIPMENT017","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000429","ReadingDate":"2000-06-30","LocationId":"LOCATION012","EquipmentId":"EQUIPMENT014","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000428","ReadingDate":"2000-06-30","LocationId":"LOCATION011","EquipmentId":"EQUIPMENT013","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000425","ReadingDate":"2000-06-30","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT008","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000424","ReadingDate":"2000-06-30","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT006","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000423","ReadingDate":"2000-06-30","LocationId":"LOCATION004","EquipmentId":"EQUIPMENT005","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000422","ReadingDate":"2000-06-30","LocationId":"LOCATION003","EquipmentId":"EQUIPMENT002","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000421","ReadingDate":"2000-06-30","LocationId":"LOCATION002","EquipmentId":"EQUIPMENT001","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000420","ReadingDate":"2000-06-30","LocationId":"LOCATION007","EquipmentId":"EQUIPMENT009","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000419","ReadingDate":"2000-06-30","LocationId":"LOCEMP-1","EquipmentId":"EQUIPELEC022","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000418","ReadingDate":"2000-06-30","LocationId":"LOCEMP-1","EquipmentId":"EQUIPELEC021","BatchId":"READ55","Status":"Open"}]}
+Status Code: 200
+{"MeterReading":[{"DocumentNumber":"READ00000000938","ReadingDate":"2000-05-30","LocationId":"100001","EquipmentId":"87779650-1","BatchId":"NEW2025","Status":"Open"},{"DocumentNumber":"READ00000000932","ReadingDate":"2024-02-12","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER0002","BatchId":"BAT0004","Status":"Open"},{"DocumentNumber":"READ00000000930","ReadingDate":"2024-01-01","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER0002","BatchId":"BAT12","Status":"Open"},{"DocumentNumber":"READ00000000928","ReadingDate":"2024-09-02","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER002","BatchId":"BATCH0024","Status":"Open"},{"DocumentNumber":"READ00000000927","ReadingDate":"2027-04-12","LocationId":"STATEMENTTEST01","EquipmentId":"NETMETER001","BatchId":"MR041227sa","Status":"Open"},{"DocumentNumber":"READ00000000922","ReadingDate":"2024-09-02","LocationId":"STATEMENTTEST01","EquipmentId":"NETMETER001","BatchId":"BAT2024","Status":"Open"},{"DocumentNumber":"READ00000000915","ReadingDate":"2027-04-12","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT008","BatchId":"12312312","Status":"Work"},{"DocumentNumber":"READ00000000913","ReadingDate":"2020-02-10","LocationId":"WATER100","EquipmentId":"ELECT","BatchId":"TEST100","Status":"Open"},{"DocumentNumber":"READ00000000907","ReadingDate":"2019-02-28","LocationId":"STATEMENTTEST01","EquipmentId":"ELEC0001","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000905","ReadingDate":"2019-01-30","LocationId":"STATEMENTTEST01","EquipmentId":"ELEC0001","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000890","ReadingDate":"2019-07-01","LocationId":"BILLGRAPH","EquipmentId":"ELECMETER","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000882","ReadingDate":"2019-06-01","LocationId":"BILLGRAPH","EquipmentId":"ELECMETER","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000871","ReadingDate":"2019-07-31","LocationId":"SPALOCATION1","EquipmentId":"AUTOGAS","BatchId":"BATGAS1","Status":"Open"},{"DocumentNumber":"READ00000000862","ReadingDate":"2019-08-09","LocationId":"BUDGETLOC01","EquipmentId":"EQUIPMENT022","BatchId":"BILL","Status":"Open"},{"DocumentNumber":"READ00000000834","ReadingDate":"2019-09-23","LocationId":"SPALOCATION1","EquipmentId":"EQUIPMENT018","BatchId":"BILL10111","Status":"Open"},{"DocumentNumber":"READ00000000830","ReadingDate":"2019-07-31","LocationId":"TRANSACTION001","EquipmentId":"EQUIPMENT007","BatchId":"AC1001","Status":"Open"},{"DocumentNumber":"READ00000000805","ReadingDate":"2019-04-12","LocationId":"ELECWAT002","EquipmentId":"EQUIPMENT016","BatchId":"001","Status":"Open"},{"DocumentNumber":"READ00000000803","ReadingDate":"2019-04-12","LocationId":"ELECWAT003","EquipmentId":"EQUIPMENT015","BatchId":"1","Status":"Open"},{"DocumentNumber":"READ00000000705","ReadingDate":"2000-04-30","LocationId":"000000000532001","EquipmentId":"16358960","BatchId":"READ66","Status":"Open"},{"DocumentNumber":"READ00000000704","ReadingDate":"2000-04-30","LocationId":"000000000532001","EquipmentId":"7899910","BatchId":"READ66","Status":"Open"},{"DocumentNumber":"READ00000000677","ReadingDate":"2000-04-15","LocationId":"LOCATION010","EquipmentId":"EQUIPMENT012","BatchId":"SOMR00000000006","Status":"Open"},{"DocumentNumber":"READ00000000675","ReadingDate":"2000-04-15","LocationId":"LOCATION009","EquipmentId":"EQUIPMENT010","BatchId":"SOMR00000000004","Status":"Open"},{"DocumentNumber":"READ00000000658","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-PHONE-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000657","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPPH-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000656","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPPH-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000654","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"WATEREQUIP004","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000653","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIPMENT015","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000652","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"WATEREQUIP003","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000651","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPMENT016","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000649","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-PHONE-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000648","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-GAS-2","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000430","ReadingDate":"2000-06-30","LocationId":"LOCATION013","EquipmentId":"EQUIPMENT017","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000429","ReadingDate":"2000-06-30","LocationId":"LOCATION012","EquipmentId":"EQUIPMENT014","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000428","ReadingDate":"2000-06-30","LocationId":"LOCATION011","EquipmentId":"EQUIPMENT013","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000425","ReadingDate":"2000-06-30","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT008","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000424","ReadingDate":"2000-06-30","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT006","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000423","ReadingDate":"2000-06-30","LocationId":"LOCATION004","EquipmentId":"EQUIPMENT005","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000422","ReadingDate":"2000-06-30","LocationId":"LOCATION003","EquipmentId":"EQUIPMENT002","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000421","ReadingDate":"2000-06-30","LocationId":"LOCATION002","EquipmentId":"EQUIPMENT001","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000420","ReadingDate":"2000-06-30","LocationId":"LOCATION007","EquipmentId":"EQUIPMENT009","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000419","ReadingDate":"2000-06-30","LocationId":"LOCEMP-1","EquipmentId":"EQUIPELEC022","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000418","ReadingDate":"2000-06-30","LocationId":"LOCEMP-1","EquipmentId":"EQUIPELEC021","BatchId":"READ55","Status":"Open"}]}
+  PASSED:  lookupMeterRead_OrderByDocumentNumberDesc (62ms)
+  Starting: Private_lookupControllerv4_Test :: lookupMeterRead_NoAuthToken_ReturnsUnauthorized
+Unauthenticated status: 401
+  PASSED:  lookupMeterRead_NoAuthToken_ReturnsUnauthorized (11ms)
+  Starting: Private_MeterReadControllerV4_Test :: getMeterReadAdjustment_OpenLatestRead_Success
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READNOTAREAD01
+Parameters  = {}
+Γ£à Using cached token (valid for 299 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READNOTAREAD01
+Response :{"MeterReading":{"Success":false,"Data":null,"Messages":[{"Enabled":1,"Info":"Invalid document number (READNOTAREAD01).","Level":3}]}}
+Status Code: 200
+===============================================
+http://localhost:3000/api/v4/lookupMeterRead
+Parameters  = {PageNum=1, NumPerPage=32000}
+Γ£à Using cached token (valid for 299 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/lookupMeterRead
+Response :{"MeterReading":[{"DocumentNumber":"READ00000000915","ReadingDate":"2027-04-12","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT008","BatchId":"12312312","Status":"Work"},{"DocumentNumber":"READ00000000927","ReadingDate":"2027-04-12","LocationId":"STATEMENTTEST01","EquipmentId":"NETMETER001","BatchId":"MR041227sa","Status":"Open"},{"DocumentNumber":"READ00000000928","ReadingDate":"2024-09-02","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER002","BatchId":"BATCH0024","Status":"Open"},{"DocumentNumber":"READ00000000922","ReadingDate":"2024-09-02","LocationId":"STATEMENTTEST01","EquipmentId":"NETMETER001","BatchId":"BAT2024","Status":"Open"},{"DocumentNumber":"READ00000000932","ReadingDate":"2024-02-12","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER0002","BatchId":"BAT0004","Status":"Open"},{"DocumentNumber":"READ00000000930","ReadingDate":"2024-01-01","LocationId":"NETMETERLOC0001","EquipmentId":"NETMETER0002","BatchId":"BAT12","Status":"Open"},{"DocumentNumber":"READ00000000913","ReadingDate":"2020-02-10","LocationId":"WATER100","EquipmentId":"ELECT","BatchId":"TEST100","Status":"Open"},{"DocumentNumber":"READ00000000834","ReadingDate":"2019-09-23","LocationId":"SPALOCATION1","EquipmentId":"EQUIPMENT018","BatchId":"BILL10111","Status":"Open"},{"DocumentNumber":"READ00000000862","ReadingDate":"2019-08-09","LocationId":"BUDGETLOC01","EquipmentId":"EQUIPMENT022","BatchId":"BILL","Status":"Open"},{"DocumentNumber":"READ00000000871","ReadingDate":"2019-07-31","LocationId":"SPALOCATION1","EquipmentId":"AUTOGAS","BatchId":"BATGAS1","Status":"Open"},{"DocumentNumber":"READ00000000830","ReadingDate":"2019-07-31","LocationId":"TRANSACTION001","EquipmentId":"EQUIPMENT007","BatchId":"AC1001","Status":"Open"},{"DocumentNumber":"READ00000000890","ReadingDate":"2019-07-01","LocationId":"BILLGRAPH","EquipmentId":"ELECMETER","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000882","ReadingDate":"2019-06-01","LocationId":"BILLGRAPH","EquipmentId":"ELECMETER","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000803","ReadingDate":"2019-04-12","LocationId":"ELECWAT003","EquipmentId":"EQUIPMENT015","BatchId":"1","Status":"Open"},{"DocumentNumber":"READ00000000805","ReadingDate":"2019-04-12","LocationId":"ELECWAT002","EquipmentId":"EQUIPMENT016","BatchId":"001","Status":"Open"},{"DocumentNumber":"READ00000000907","ReadingDate":"2019-02-28","LocationId":"STATEMENTTEST01","EquipmentId":"ELEC0001","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000905","ReadingDate":"2019-01-30","LocationId":"STATEMENTTEST01","EquipmentId":"ELEC0001","BatchId":"VOID","Status":"Open"},{"DocumentNumber":"READ00000000418","ReadingDate":"2000-06-30","LocationId":"LOCEMP-1","EquipmentId":"EQUIPELEC021","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000419","ReadingDate":"2000-06-30","LocationId":"LOCEMP-1","EquipmentId":"EQUIPELEC022","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000420","ReadingDate":"2000-06-30","LocationId":"LOCATION007","EquipmentId":"EQUIPMENT009","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000421","ReadingDate":"2000-06-30","LocationId":"LOCATION002","EquipmentId":"EQUIPMENT001","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000422","ReadingDate":"2000-06-30","LocationId":"LOCATION003","EquipmentId":"EQUIPMENT002","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000423","ReadingDate":"2000-06-30","LocationId":"LOCATION004","EquipmentId":"EQUIPMENT005","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000424","ReadingDate":"2000-06-30","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT006","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000425","ReadingDate":"2000-06-30","LocationId":"LOCATION008","EquipmentId":"EQUIPMENT008","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000428","ReadingDate":"2000-06-30","LocationId":"LOCATION011","EquipmentId":"EQUIPMENT013","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000429","ReadingDate":"2000-06-30","LocationId":"LOCATION012","EquipmentId":"EQUIPMENT014","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000430","ReadingDate":"2000-06-30","LocationId":"LOCATION013","EquipmentId":"EQUIPMENT017","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000938","ReadingDate":"2000-05-30","LocationId":"100001","EquipmentId":"87779650-1","BatchId":"NEW2025","Status":"Open"},{"DocumentNumber":"READ00000000704","ReadingDate":"2000-04-30","LocationId":"000000000532001","EquipmentId":"7899910","BatchId":"READ66","Status":"Open"},{"DocumentNumber":"READ00000000705","ReadingDate":"2000-04-30","LocationId":"000000000532001","EquipmentId":"16358960","BatchId":"READ66","Status":"Open"},{"DocumentNumber":"READ00000000675","ReadingDate":"2000-04-15","LocationId":"LOCATION009","EquipmentId":"EQUIPMENT010","BatchId":"SOMR00000000004","Status":"Open"},{"DocumentNumber":"READ00000000677","ReadingDate":"2000-04-15","LocationId":"LOCATION010","EquipmentId":"EQUIPMENT012","BatchId":"SOMR00000000006","Status":"Open"},{"DocumentNumber":"READ00000000648","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-GAS-2","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000649","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-PHONE-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000651","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPMENT016","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000652","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"WATEREQUIP003","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000653","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIPMENT015","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000654","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"WATEREQUIP004","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000656","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPPH-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000657","ReadingDate":"2000-03-31","LocationId":"ELECWAT002","EquipmentId":"EQUIPPH-1","BatchId":"READ55","Status":"Open"},{"DocumentNumber":"READ00000000658","ReadingDate":"2000-03-31","LocationId":"ELECWAT003","EquipmentId":"EQUIP-PHONE-1","BatchId":"READ55","Status":"Open"}]}
+Status Code: 200
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ00000000927
+Parameters  = {}
+Γ£à Using cached token (valid for 299 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ00000000927
+Response :{"MeterReading":{"Success":true,"Data":null,"Messages":[]}}
+Status Code: 200
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ00000000928
+Parameters  = {}
+Γ£à Using cached token (valid for 299 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ00000000928
+Response :{"MeterReading":{"Success":true,"Data":null,"Messages":[]}}
+Status Code: 200
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ00000000932
+Parameters  = {}
+Γ£à Using cached token (valid for 299 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ00000000932
+Response :{"MeterReading":{"Success":true,"Data":null,"Messages":[]}}
+Status Code: 200
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ00000000913
+Parameters  = {}
+Γ£à Using cached token (valid for 299 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ00000000913
+Response :{"MeterReading":{"Success":true,"Data":null,"Messages":[]}}
+Status Code: 200
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ00000000834
+Parameters  = {}
+Γ£à Using cached token (valid for 299 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ00000000834
+Response :{"MeterReading":{"Success":true,"Data":null,"Messages":[]}}
+Status Code: 200
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ00000000862
+Parameters  = {}
+Γ£à Using cached token (valid for 299 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ00000000862
+Response :{"MeterReading":{"Success":true,"Data":null,"Messages":[]}}
+Status Code: 200
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ00000000871
+Parameters  = {}
+Γ£à Using cached token (valid for 299 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ00000000871
+Response :{"MeterReading":{"Success":true,"Data":null,"Messages":[]}}
+Status Code: 200
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ00000000830
+Parameters  = {}
+Γ£à Using cached token (valid for 299 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ00000000830
+Response :{"MeterReading":{"Success":true,"Data":null,"Messages":[]}}
+Status Code: 200
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ00000000890
+Parameters  = {}
+Γ£à Using cached token (valid for 299 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ00000000890
+Response :{"MeterReading":{"Success":true,"Data":null,"Messages":[]}}
+Status Code: 200
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ00000000803
+Parameters  = {}
+Γ£à Using cached token (valid for 299 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ00000000803
+Response :{"MeterReading":{"Success":true,"Data":null,"Messages":[]}}
+Status Code: 200
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ00000000805
+Parameters  = {}
+Γ£à Using cached token (valid for 299 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ00000000805
+Response :{"MeterReading":{"Success":true,"Data":null,"Messages":[]}}
+Status Code: 200
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ00000000907
+Parameters  = {}
+Γ£à Using cached token (valid for 299 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ00000000907
+Response :{"MeterReading":{"Success":true,"Data":null,"Messages":[]}}
+Status Code: 200
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ00000000418
+Parameters  = {}
+Γ£à Using cached token (valid for 299 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ00000000418
+Response :{"MeterReading":{"Success":true,"Data":null,"Messages":[]}}
+Status Code: 200
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ00000000419
+Parameters  = {}
+Γ£à Using cached token (valid for 299 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ00000000419
+Response :{"MeterReading":{"Success":true,"Data":null,"Messages":[]}}
+Status Code: 200
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ00000000420
+Parameters  = {}
+Γ£à Using cached token (valid for 298 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ00000000420
+Response :{"MeterReading":{"Success":true,"Data":null,"Messages":[]}}
+Status Code: 200
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ00000000421
+Parameters  = {}
+Γ£à Using cached token (valid for 298 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ00000000421
+Response :{"MeterReading":{"Success":true,"Data":null,"Messages":[]}}
+Status Code: 200
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ00000000422
+Parameters  = {}
+Γ£à Using cached token (valid for 298 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ00000000422
+Response :{"MeterReading":{"Success":true,"Data":null,"Messages":[]}}
+Status Code: 200
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ00000000423
+Parameters  = {}
+Γ£à Using cached token (valid for 298 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ00000000423
+Response :{"MeterReading":{"Success":true,"Data":null,"Messages":[]}}
+Status Code: 200
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ00000000424
+Parameters  = {}
+Γ£à Using cached token (valid for 298 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ00000000424
+Response :{"MeterReading":{"Success":true,"Data":null,"Messages":[]}}
+Status Code: 200
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ00000000425
+Parameters  = {}
+Γ£à Using cached token (valid for 298 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ00000000425
+Response :{"MeterReading":{"Success":false,"Data":null,"Messages":[{"Enabled":1,"Info":"This Location has Meter Readings in WORK. No adjustments can be made until that reading is either Posted or Deleted.","Level":3}]}}
+Status Code: 200
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ00000000428
+Parameters  = {}
+Γ£à Using cached token (valid for 298 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ00000000428
+Response :{"MeterReading":{"Success":true,"Data":null,"Messages":[]}}
+Status Code: 200
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ00000000429
+Parameters  = {}
+Γ£à Using cached token (valid for 298 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ00000000429
+Response :{"MeterReading":{"Success":true,"Data":null,"Messages":[]}}
+Status Code: 200
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ00000000430
+Parameters  = {}
+Γ£à Using cached token (valid for 298 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ00000000430
+Response :{"MeterReading":{"Success":true,"Data":null,"Messages":[]}}
+Status Code: 200
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ00000000938
+Parameters  = {}
+Γ£à Using cached token (valid for 298 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ00000000938
+Response :{"MeterReading":{"Success":false,"Data":null,"Messages":[{"Enabled":1,"Info":"Location has bill in work. No adjustment can be made until bill is posted or deleted.","Level":3},{"Enabled":1,"Info":"Warning: Subtract Meter connected to Master Location 100001A.","Level":2}]}}
+Status Code: 200
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ00000000704
+Parameters  = {}
+Γ£à Using cached token (valid for 298 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ00000000704
+Response :{"MeterReading":{"Success":true,"Data":null,"Messages":[]}}
+Status Code: 200
+  PASSED:  getMeterReadAdjustment_OpenLatestRead_Success (733ms)
+  Starting: Private_MeterReadControllerV4_Test :: getMeterReadAdjustment_SuccessReturnsNoData
+  PASSED:  getMeterReadAdjustment_SuccessReturnsNoData (12ms)
+  Starting: Private_MeterReadControllerV4_Test :: getMeterReadAdjustment_FollowOnReadInquiryLoadsTheWindow
+===============================================
+http://localhost:3000/api/v4/transaction/read/READ00000000927
+Parameters  = {}
+Γ£à Using cached token (valid for 298 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/transaction/read/READ00000000927
+Response :{"Read":{"Success":true,"Data":{"DocumentNumber":"READ00000000927","PrevDocumentNumber":"","NextDocumentNumber":"","BatchId":"MR041227sa","Description":"","LocationId":"STATEMENTTEST01","EquipmentId":"NETMETER001","ReadingType":{"Id":1,"Description":"Actual"},"NetMeterType":{"Id":2,"Description":"Single Register"},"MeterReader":"","ReasonCodeId":"","CreatedBy":"sa","NumberOfDays":952,"Components":0,"MeterGroup":"","SequenceNumber":0,"RouteId":"001","Status":"Open","TotalMultiplier":1.00000,"ConnectionSequence":2,"ServiceTypeId":"ELECTRIC","ReadingDateTime":"2027-04-12T04:14:30","PreviousReadingDate":"2024-09-02","CreateDate":"2027-04-12","DateAdjusted":"1900-01-01","Customer":{"Id":"03332301204","Type":"Individual","Individual":{"FullName":"Mr. Talha Rahim","Name":{"Title":"Mr.","First":"Talha","Middle":"","Last":"Rahim"}},"Business":null}},"Messages":[]}}
+Status Code: 200
+  PASSED:  getMeterReadAdjustment_FollowOnReadInquiryLoadsTheWindow (342ms)
+  Starting: Private_MeterReadControllerV4_Test :: getMeterReadAdjustment_InvalidDocumentNumber_50385
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READNOTAREAD01
+Parameters  = {}
+Γ£à Using cached token (valid for 298 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READNOTAREAD01
+Response :{"MeterReading":{"Success":false,"Data":null,"Messages":[{"Enabled":1,"Info":"Invalid document number (READNOTAREAD01).","Level":3}]}}
+Status Code: 200
+  PASSED:  getMeterReadAdjustment_InvalidDocumentNumber_50385 (31ms)
+  Starting: Private_MeterReadControllerV4_Test :: getMeterReadAdjustment_ReadInWorkStatus_51080
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ00000000915
+Parameters  = {}
+Γ£à Using cached token (valid for 298 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ00000000915
+Response :{"MeterReading":{"Success":false,"Data":null,"Messages":[{"Enabled":1,"Info":"Document READ00000000915 is not in Open status.","Level":3}]}}
+Status Code: 200
+  PASSED:  getMeterReadAdjustment_ReadInWorkStatus_51080 (32ms)
+  Starting: Private_MeterReadControllerV4_Test :: getMeterReadAdjustment_ReadInHistoryStatus_51080
+===============================================
+http://localhost:3000/api/v4/transaction/read/READ00000000002
+Parameters  = {}
+Γ£à Using cached token (valid for 298 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/transaction/read/READ00000000002
+Response :{"Read":{"Success":true,"Data":{"DocumentNumber":"READ00000000002","PrevDocumentNumber":"","NextDocumentNumber":"","BillNumber":"BILL00000000001","Description":"","EquipmentId":"EQUIPMENT011","ReadingType":{"Id":1,"Description":"Actual"},"LocationId":"ELECWAT001","NetMeterType":{"Id":1,"Description":"None"},"MeterReader":"","ReasonCodeId":"","CreatedBy":"","NumberOfDays":1,"Components":0,"MeterGroup":"","SequenceNumber":0,"RouteId":"ROUTEEW001","Status":"History","TotalMultiplier":1.00000,"ConnectionSequence":1,"ServiceTypeId":"ELECTRIC","ReadingDateTime":"1997-01-01T10:27:00","PreviousReadingDate":"1997-01-01","CreateDate":"1997-01-01","DateAdjusted":"1900-01-01","Customer":{"Id":"CUSTOMER014","Type":"Individual","Individual":{"FullName":"Test Name","Name":{"Title":"","First":"Test","Middle":"","Last":"Name"}},"Business":null}},"Messages":[]}}
+Status Code: 200
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ00000000002
+Parameters  = {}
+Γ£à Using cached token (valid for 298 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ00000000002
+Response :{"MeterReading":{"Success":false,"Data":null,"Messages":[{"Enabled":1,"Info":"Document READ00000000002 is not in Open status.","Level":3}]}}
+Status Code: 200
+  PASSED:  getMeterReadAdjustment_ReadInHistoryStatus_51080 (70ms)
+  Starting: Private_MeterReadControllerV4_Test :: getMeterReadAdjustment_NotTheLatestReading_51081
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ00000000922
+Parameters  = {}
+Γ£à Using cached token (valid for 298 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ00000000922
+Response :{"MeterReading":{"Success":false,"Data":null,"Messages":[{"Enabled":1,"Info":"This is not the latest Reading for this Equipment. No changes will be permitted. You must delete the most recent Meter Reading in order to adjust this one.","Level":3}]}}
+Status Code: 200
+  PASSED:  getMeterReadAdjustment_NotTheLatestReading_51081 (27ms)
+  Starting: Private_MeterReadControllerV4_Test :: getMeterReadAdjustment_LocationHasReadInWork_50639
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ00000000425
+Parameters  = {}
+Γ£à Using cached token (valid for 298 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ00000000425
+Response :{"MeterReading":{"Success":false,"Data":null,"Messages":[{"Enabled":1,"Info":"This Location has Meter Readings in WORK. No adjustments can be made until that reading is either Posted or Deleted.","Level":3}]}}
+Status Code: 200
+  PASSED:  getMeterReadAdjustment_LocationHasReadInWork_50639 (29ms)
+  Starting: Private_MeterReadControllerV4_Test :: getMeterReadAdjustment_LocationHasBillInWork_50645
+  PASSED:  getMeterReadAdjustment_LocationHasBillInWork_50645 (172ms)
+  Starting: Private_MeterReadControllerV4_Test :: getMeterReadAdjustment_SubtractMeterWarningDoesNotBlock_51082
+  PASSED:  getMeterReadAdjustment_SubtractMeterWarningDoesNotBlock_51082 (188ms)
+  Starting: Private_MeterReadControllerV4_Test :: getMeterReadAdjustment_SuccessIsFalseOnlyForLevel3
+  PASSED:  getMeterReadAdjustment_SuccessIsFalseOnlyForLevel3 (142ms)
+  Starting: Private_MeterReadControllerV4_Test :: getMeterReadAdjustment_AtMostOneBlockingMessage
+  PASSED:  getMeterReadAdjustment_AtMostOneBlockingMessage (162ms)
+  Starting: Private_MeterReadControllerV4_Test :: getMeterReadAdjustment_DataIsAlwaysNull
+  PASSED:  getMeterReadAdjustment_DataIsAlwaysNull (119ms)
+  Starting: Private_MeterReadControllerV4_Test :: getMeterReadAdjustment_FailureStillReturnsHttp200
+http://localhost:3000/api/v4/meterReading/adjustment/READNOTAREAD01
+Γ£à Using cached token (valid for 297 seconds)
+  PASSED:  getMeterReadAdjustment_FailureStillReturnsHttp200 (17ms)
+  Starting: Private_MeterReadControllerV4_Test :: getMeterReadAdjustment_DocumentNumberLongerThan15_Rejected
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment/READ000000000000
+Parameters  = {}
+Γ£à Using cached token (valid for 297 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment/READ000000000000
+Response :{"MeterReading":{"Success":false,"Data":null,"Messages":[{"Enabled":1,"Info":"DocumentNumber length must be less than or equal to 15 characters long","Level":3}]}}
+Status Code: 200
+  PASSED:  getMeterReadAdjustment_DocumentNumberLongerThan15_Rejected (11ms)
+  Starting: Private_MeterReadControllerV4_Test :: getMeterReadAdjustment_MissingDocumentNumber_Rejected
+===============================================
+http://localhost:3000/api/v4/meterReading/adjustment
+Parameters  = {}
+Γ£à Using cached token (valid for 297 seconds)
+===============================================
+===============================================
+GET Attempt 1 of 2
+URI :http://localhost:3000/api/v4/meterReading/adjustment
+Response :{"result":{"Success":false,"Message":"Not Found"}}
+Status Code: 404
+  PASSED:  getMeterReadAdjustment_MissingDocumentNumber_Rejected (11ms)
+======================================================
+  Test Suite Finished: Surefire test
+------------------------------------------------------
+  TOTAL:     25
+  PASSED:    25
+  FAILED:    0
+  SKIPPED:   0
+  PASS RATE: 100.0%
+------------------------------------------------------
+  Report: D:\Nexus Automation\nexus_automation\test-output\ExtentReport.html
+======================================================
+Initializing SMTP connection...
+SMTP Host: smtp.gmail.com
+SMTP Port: 587
+From Email: cogsauto@gmail.com
+To Email: trahim@cogsdale.com
+SMTP connection initialized successfully.
+Starting EmailSender...
+Report path: D:\Nexus Automation\nexus_automation\target\surefire-reports\emailable-report.html
+Report file found: D:\Nexus Automation\nexus_automation\target\surefire-reports\emailable-report.html
+Reading report file...
+Report file read successfully.
+Email sent successfully to trahim@cogsdale.com
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 35.073 s - in TestSuite
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] >>> surefire-report:3.0.0-M7:report (generate-surefire-report) > [surefire]test @ com.NexusAPIlAutomation.Java >>>
+[INFO] 
+[INFO] --- enforcer:1.2:enforce (enforce-maven) @ com.NexusAPIlAutomation.Java ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ com.NexusAPIlAutomation.Java ---
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ com.NexusAPIlAutomation.Java ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ com.NexusAPIlAutomation.Java ---
+[INFO] Copying 3 resources from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ com.NexusAPIlAutomation.Java ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- surefire:3.0.0-M7:test (default-test) @ com.NexusAPIlAutomation.Java ---
+[INFO] Skipping execution of surefire because it has already been run for this configuration
+[INFO] 
+[INFO] <<< surefire-report:3.0.0-M7:report (generate-surefire-report) < [surefire]test @ com.NexusAPIlAutomation.Java <<<
+[INFO] 
+[INFO] 
+[INFO] --- surefire-report:3.0.0-M7:report (generate-surefire-report) @ com.NexusAPIlAutomation.Java ---
+[WARNING] Unable to locate Test Source XRef to link to - DISABLED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  38.517 s
+[INFO] Finished at: 2026-08-27T17:19:31+05:00
+[INFO] ------------------------------------------------------------------------

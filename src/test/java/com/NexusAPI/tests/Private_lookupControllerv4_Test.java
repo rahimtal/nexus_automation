@@ -1402,7 +1402,7 @@ public class Private_lookupControllerv4_Test extends BaseClass {
 		// FAILS on the current build: the response is identical to ReadingDate DESC, i.e. the
 		// ASC direction is ignored even though the apidoc lists ReadingDate as sortable.
 
-		CommonMethods.Bug("CPDEV-27379");
+	//	CommonMethods.Bug("CPDEV-27379");
 		HashMap<String, String> params = allRowsParams();
 		params.put("OrderBy", "ReadingDate ASC");
 		List<Map<String, String>> rows = meterReadRows(meterRead(params));
@@ -1562,6 +1562,125 @@ public class Private_lookupControllerv4_Test extends BaseClass {
 		params.put("NotARealParameter", "1");
 		assertMeterReadValidationError(meterRead(params), "Unknown query parameter",
 				"NotARealParameter is not allowed");
+	}
+
+	@Test(priority = 92, groups = "lookup")
+	public void lookupMeterRead_SuccessReturnsHttp200UnderMeterReadingKey()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// Regression guard for the known docs mismatch: the apidoc example shows the root
+		// key as MeterRead, but the SP emits ROOT('MeterReading').
+		io.restassured.response.Response response = CommonMethods.getMethod(METER_READ_URI, "4.0", allRowsParams());
+		Assert.assertEquals(response.getStatusCode(), 200, "Body: " + response.asString());
+		String actual = response.asString();
+		Assert.assertTrue(actual.contains("\"MeterReading\""), "Successful rows must sit under MeterReading: " + actual);
+		Assert.assertFalse(actual.contains("\"MeterRead\":"), "MeterRead is the error wrapper only: " + actual);
+	}
+
+	@Test(priority = 93, groups = "lookup")
+	public void lookupMeterRead_ValidationErrorStillReturnsHttp200()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		HashMap<String, String> params = allRowsParams();
+		params.put("BatchId", "BATCHIDTHATISWAYTOOLONG");
+		io.restassured.response.Response response = CommonMethods.getMethod(METER_READ_URI, "4.0", params);
+		Assert.assertEquals(response.getStatusCode(), 200,
+				"A Joi rejection must still return HTTP 200. Body: " + response.asString());
+		Assert.assertTrue(response.asString().contains("\"MeterRead\""), response.asString());
+	}
+
+	@Test(priority = 94, groups = "lookup")
+	public void lookupMeterRead_ErrorWrapperShape()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		HashMap<String, String> params = allRowsParams();
+		params.put("BatchId", "BATCHIDTHATISWAYTOOLONG");
+		String actual = meterRead(params);
+		JsonPath json = new JsonPath(actual);
+		Assert.assertEquals(json.getBoolean("MeterRead.Success"), Boolean.FALSE, actual);
+		Assert.assertNull(json.get("MeterRead.Data"), "The error wrapper must carry a null Data. Response: " + actual);
+		Assert.assertEquals(json.getInt("MeterRead.Messages[0].Level"), 3,
+				"Joi rejections must be Level 3. Response: " + actual);
+	}
+
+	@Test(priority = 95, groups = "lookup")
+	public void lookupMeterRead_RowsExposeOnlyTheDocumentedFields()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		Set<String> documented = new HashSet<String>();
+		documented.add("DocumentNumber");
+		documented.add("ReadingDate");
+		documented.add("LocationId");
+		documented.add("EquipmentId");
+		documented.add("BatchId");
+		documented.add("Status");
+
+		List<Map<String, String>> rows = meterReadRows(meterRead(allRowsParams()));
+		Assert.assertFalse(isEmptyPlaceholder(rows), "Baseline should contain meter reads");
+		for (Map<String, String> row : rows) {
+			Assert.assertEquals(row.keySet(), documented, "Unexpected row shape: " + row);
+		}
+	}
+
+	@Test(priority = 96, groups = "lookup")
+	public void lookupMeterRead_EmptyPlaceholderRowOmitsStatus()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		HashMap<String, String> params = allRowsParams();
+		params.put("BatchId", "NOSUCHBATCH1234");
+		String actual = meterRead(params);
+		List<Map<String, String>> rows = meterReadRows(actual);
+		Assert.assertEquals(rows.size(), 1, "No matches must return exactly one placeholder row. Response: " + actual);
+		Assert.assertFalse(rows.get(0).containsKey("Status"),
+				"The placeholder row must not carry a Status key. Response: " + actual);
+		for (Map.Entry<String, String> field : rows.get(0).entrySet()) {
+			Assert.assertEquals(field.getValue(), "", "Placeholder fields must be empty: " + field);
+		}
+	}
+
+	@Test(priority = 97, groups = "lookup")
+	public void lookupMeterRead_NumPerPageDefaultsTo32000()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		HashMap<String, String> omitted = new HashMap<String, String>();
+		omitted.put("PageNum", "1");
+		Assert.assertEquals(meterRead(omitted), meterRead(allRowsParams()),
+				"Omitting NumPerPage must match the documented default of 32000");
+	}
+
+	@Test(priority = 98, groups = "lookup")
+	public void lookupMeterRead_PageNumOmitted_UsesConfiguredDefault()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// PageNum falls back to the CSM_ParameterConfig default rather than erroring.
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("NumPerPage", "5");
+		String actual = meterRead(params);
+		Assert.assertFalse(actual.contains("\"MeterRead\""), "Omitting PageNum must not be rejected: " + actual);
+		Assert.assertFalse(isEmptyPlaceholder(meterReadRows(actual)),
+				"Omitting PageNum must return real rows. Response: " + actual);
+	}
+
+	@Test(priority = 99, groups = "lookup")
+	public void lookupMeterRead_OrderByDocumentNumberDesc()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		HashMap<String, String> params = allRowsParams();
+		params.put("OrderBy", "DocumentNumber DESC");
+		List<Map<String, String>> rows = meterReadRows(meterRead(params));
+		Assert.assertFalse(isEmptyPlaceholder(rows), "OrderBy DocumentNumber DESC should return meter reads");
+		for (int i = 1; i < rows.size(); i++) {
+			Assert.assertTrue(rows.get(i - 1).get("DocumentNumber").compareTo(rows.get(i).get("DocumentNumber")) >= 0,
+					"Rows must be sorted by DocumentNumber descending: " + rows.get(i - 1).get("DocumentNumber")
+							+ " then " + rows.get(i).get("DocumentNumber"));
+		}
+	}
+
+	@Test(priority = 100, groups = "lookup")
+	public void lookupMeterRead_NoAuthToken_ReturnsUnauthorized()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// Keycloak rejects the request before the handler runs, so this is a 401 rather
+		// than the usual HTTP 200 envelope.
+		io.restassured.response.Response response = io.restassured.RestAssured.given()
+				.baseUri(CommonMethods.urlv4 + METER_READ_URI)
+				.header("Content-Type", "application/json")
+				.queryParams(allRowsParams())
+				.get();
+		System.out.println("Unauthenticated status: " + response.getStatusCode());
+		Assert.assertEquals(response.getStatusCode(), 401,
+				"A request without a bearer token must be rejected. Body: " + response.asString());
 	}
 
 }

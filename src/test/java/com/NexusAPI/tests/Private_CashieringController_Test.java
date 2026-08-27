@@ -448,7 +448,7 @@ public class Private_CashieringController_Test extends BaseClass {
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
 		verifyCashInStatus();
 		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
-		CommonMethods.Bug("CPDEV-26410");
+		//CommonMethods.Bug("CPDEV-26410");
 
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
@@ -479,7 +479,7 @@ public class Private_CashieringController_Test extends BaseClass {
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
 		verifyCashInStatus();
 		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
-		CommonMethods.Bug("CPDEV-26410");
+	//	CommonMethods.Bug("CPDEV-26410");
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
 		String payload = "{\r\n" + "   \"Receipt\":{\r\n" + "      \"ReceiptNumber\":\"004240724000009\",\r\n"
@@ -509,7 +509,7 @@ public class Private_CashieringController_Test extends BaseClass {
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
 		verifyCashInStatus();
 		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
-		CommonMethods.Bug("CPDEV-26410");
+	//	CommonMethods.Bug("CPDEV-26410");
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
 		String payload = "{\r\n" + "   \"Receipt\":{\r\n" + "      \"ReceiptNumber\":\"004240805000004\",\r\n"
@@ -539,7 +539,7 @@ public class Private_CashieringController_Test extends BaseClass {
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
 		verifyCashInStatus();
 		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
-		CommonMethods.Bug("CPDEV-26410");
+	//	CommonMethods.Bug("CPDEV-26410");
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
 		String payload = "{\r\n" + "   \"Receipt\":{\r\n" + "      \"ReceiptNumber\":\"004240805000013\",\r\n"
@@ -569,7 +569,7 @@ public class Private_CashieringController_Test extends BaseClass {
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
 		verifyCashInStatus();
 		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
-		CommonMethods.Bug("CPDEV-26410");
+	//	CommonMethods.Bug("CPDEV-26410");
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
 		String payload = "{\r\n" + "   \"Receipt\":{\r\n" + "      \"ReceiptNumber\":\"004240805000008\",\r\n"
