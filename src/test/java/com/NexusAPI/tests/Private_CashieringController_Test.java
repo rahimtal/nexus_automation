@@ -292,6 +292,11 @@ public class Private_CashieringController_Test extends BaseClass {
 			Assert.fail();
 	}
 
+	// Receipt numbers used by the saveReciept_* tests start with "004", which maps to
+	// UMRM002.umrmnRegID = 4 => TRREG000001. csmApi_spCashieringSaveReceiptValidation requires an
+	// open UMRM101 row for THAT register and the calling user, so the cash-in must target it.
+	private static final String RECEIPT_REGISTER_ID = "TRREG000001";
+
 	public static void verifyCashInStatus() throws ClassNotFoundException, SQLException, InterruptedException {
 		// Verify and restore cash-in status before receipt operations
 		System.out.println("\n=== Verifying cash-in status before receipt operations ===");
@@ -301,18 +306,36 @@ public class Private_CashieringController_Test extends BaseClass {
 		try {
 			JsonPath response = CommonMethods.getMethod(uri, ver);
 			Boolean isCashedIn = response.get("CashedIn[0].IsCashedIn");
+			String registerId = response.getString("CashedIn[0].RegisterId");
 			
-			if (isCashedIn != null && isCashedIn) {
-				System.out.println("✓ Cash-in status is active: IsCashedIn=true");
+			if (isCashedIn != null && isCashedIn && RECEIPT_REGISTER_ID.equalsIgnoreCase(registerId)) {
+				System.out.println("✓ Cash-in status is active on " + RECEIPT_REGISTER_ID);
 				return;
 			} else {
-				System.out.println("⚠ Cash-in status expired or inactive, re-establishing cash-in...");
-				// Re-do cash-in to restore session
+				System.out.println("⚠ Not cashed in on " + RECEIPT_REGISTER_ID + " (IsCashedIn=" + isCashedIn
+						+ ", RegisterId=" + registerId + "), establishing cash-in...");
+				// The API exposes no cash-out/log-out endpoint. Cash-in is rejected while the user holds an
+				// open session on another register (baseline leaves one on REGISTER-00001) or while another
+				// user occupies the target register (baseline leaves 'sa' on TRREG000001, captured back when
+				// the suite authenticated as sa). Close both blocking sessions directly.
+				String twoConn = CommonMethods.Read.ReadFile("ConnectionStringServTWO");
+				CommonMethods.deleteFromDb(
+						"UPDATE TWO.dbo.UMRM101 SET umrmLogout = 1 WHERE umrmLogout = 0 AND umrmCashOut = 0"
+								+ " AND (USERID = '" + CommonMethods.userName + "' OR umrmRegisterID = '"
+								+ RECEIPT_REGISTER_ID + "')",
+						twoConn);
+				// UMRM003 (register/user assignment) in the baseline only grants TRREG000001 to 'sa'.
+				CommonMethods.deleteFromDb(
+						"INSERT INTO TWO.dbo.UMRM003 (umrmRegisterID, soEmployeeID) SELECT '" + RECEIPT_REGISTER_ID
+								+ "', '" + CommonMethods.userName + "' WHERE NOT EXISTS (SELECT 1 FROM TWO.dbo.UMRM003"
+								+ " WHERE umrmRegisterID = '" + RECEIPT_REGISTER_ID + "' AND soEmployeeID = '"
+								+ CommonMethods.userName + "')",
+						twoConn);
 				String cashinUri = "/cashiering/cashin";
 				String cashinPayload = "{\r\n" + //
 						"    \"CashIn\": [\r\n" + //
 						"        {\r\n" + //
-						"            \"RegisterId\": \"REGISTER-00001\",\r\n" + //
+						"            \"RegisterId\": \"" + RECEIPT_REGISTER_ID + "\",\r\n" + //
 						"            \"OpeningBalance\": 100.00,\r\n" + //
 						"            \"CheckbookId\": \"FIRST NATIONAL\",\r\n" + //
 						"            \"PaymentOriginId\": \"\",\r\n" + //
@@ -325,10 +348,11 @@ public class Private_CashieringController_Test extends BaseClass {
 				JsonPath cashinResponse = CommonMethods.postMethodStringPayload(cashinPayload, cashinUri, ver);
 				Boolean cashinSuccess = cashinResponse.get("CashIn[0].Success");
 				if (cashinSuccess != null && cashinSuccess) {
-					System.out.println("✓ Cash-in re-established successfully");
+					System.out.println("✓ Cash-in established on " + RECEIPT_REGISTER_ID);
 					Thread.sleep(5000); // Brief wait for transaction to complete
 				} else {
-					System.out.println("✗ Failed to re-establish cash-in");
+					System.out.println("✗ Failed to establish cash-in on " + RECEIPT_REGISTER_ID + ": "
+							+ cashinResponse.getString("CashIn[0].Messages[0].Info"));
 				}
 			}
 		} catch (Exception e) {

@@ -1103,7 +1103,9 @@ public class Private_rateController_Test extends BaseClass {
 		HashMap<String, String> params = new HashMap<String, String>();
 		String result = CommonMethods.getMethodasString(uri, ver, params);
 		Thread.sleep(12000);
-		Assert.assertEquals(result, expected);
+		// RowId is UM41318.DEX_ROW_ID (identity), so its value varies with the data baseline.
+		Assert.assertTrue(result.matches(".*\"RowId\":\\d+.*"), "Response should expose a numeric RowId: " + result);
+		Assert.assertEquals(result.replaceAll(",\"RowId\":\\d+", ""), expected);
 
 	}
 

@@ -2,15 +2,15 @@
     "Collection": {
         "Notice": [
             {
-                "CustomerId": "03332301204",
-                "LocationId": "SPALOCATION1",
+                "CustomerId": "MASTERCUS01",
+                "LocationId": "INCLUDEDLOC01",
                 "NoticeTypeId": 1,
-                "DueDate": "2000-01-31",
+                "DueDate": "2019-11-30",
                 "PendingDisconnect": 0,
                 "DisconnectDateTime": "1900-01-01T00:00:00",
                 "CurrentFormer": 0,
-                "NoticeOverDueAmount": 59.59,
-                "TotalOverDueAmount": 59.59
+                "NoticeOverDueAmount": 18.31,
+                "TotalOverDueAmount": 18.31
             }
         ]
     }
