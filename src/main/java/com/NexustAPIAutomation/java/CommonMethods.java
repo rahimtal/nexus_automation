@@ -1173,6 +1173,48 @@ public class CommonMethods {
 
 	}
 
+	public static String putMethodasString(String uri, String version, String payload)
+			throws InterruptedException, IOException {
+
+		String baseUri = resolveBaseUri(version);
+		if (baseUri == null) {
+			Assert.fail("Invalid version: " + version);
+			return null;
+		}
+
+		// Retry logic for authentication failures
+		for (int attempt = 1; attempt <= MAX_RETRY_ATTEMPTS; attempt++) {
+			RestAssured.baseURI = baseUri + uri;
+			System.out.println("PUT URI: " + RestAssured.baseURI);
+			System.out.println("PUT Payload: " + payload);
+
+			ExtentReportManager.logRequest("PUT", uri, version, payload);
+
+			RequestSpecification httpRequest = RestAssured.given().headers("Authorization", "Bearer " + getToken(),
+					"Content-Type", ContentType.JSON, "Connection", "keep-alive")
+					.body(payload);
+
+			Response response = httpRequest.put();
+			String body = response.asString();
+			System.out.println("Status Code: " + response.getStatusCode());
+			System.out.println("PUT Response: " + body);
+
+			if (isAuthenticationFailure(response) && attempt < MAX_RETRY_ATTEMPTS) {
+				System.out.println("Authentication failure detected (Attempt " + attempt + "/" + MAX_RETRY_ATTEMPTS
+						+ "), retrying with fresh token...");
+				forceTokenRefresh();
+				Thread.sleep(RETRY_DELAY_MS);
+				continue;
+			}
+
+			ExtentReportManager.logResponse(response.getStatusCode(), body);
+			return body;
+		}
+
+		Assert.fail("Unable to complete PUT request after " + MAX_RETRY_ATTEMPTS + " attempts");
+		return null;
+	}
+
 	public static ValidatableResponse putMethodNofile(String uri, String version, String payload, String jsonDataInFile)
 			throws InterruptedException, IOException {
 
@@ -1342,6 +1384,21 @@ public class CommonMethods {
 			int rows = stmt.executeUpdate(Command);
 			System.out.println("Rows affected: " + rows);
 			return true;
+		} finally {
+			con.close();
+		}
+	}
+
+	public static int executeUpdateDb(String Command, String ConnectionString)
+			throws ClassNotFoundException, SQLException {
+		Connection con = DriverManager.getConnection(ConnectionString);
+		try {
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+			Statement stmt = con.createStatement();
+			System.out.println("Executing update: " + Command);
+			int rows = stmt.executeUpdate(Command);
+			System.out.println("Rows affected: " + rows);
+			return rows;
 		} finally {
 			con.close();
 		}
