@@ -3,6 +3,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "QuickDBRestore_FeatureBranch",
+      "request": "launch",
+      "mainClass": "com.NexustAPIAutomation.java.QuickDBRestore_FeatureBranch",
+      "projectName": "com.NexusAPIlAutomation.Java"
+    },
+    {
+      "type": "java",
+      "name": "QuickDBBackup_FeatureBranch",
+      "request": "launch",
+      "mainClass": "com.NexustAPIAutomation.java.QuickDBBackup_FeatureBranch",
+      "projectName": "com.NexusAPIlAutomation.Java"
+    },
+    {
+      "type": "java",
       "name": "QuickDBRestore",
       "request": "launch",
       "mainClass": "com.NexustAPIAutomation.java.QuickDBRestore",

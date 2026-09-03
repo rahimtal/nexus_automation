@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuickDBRestore {
+public class QuickDBRestore_FeatureBranch {
     public static void main(String[] args) throws IOException {
         restoreDatabase();
     }
@@ -15,7 +15,7 @@ public class QuickDBRestore {
         String username = ReadProjectProperties.ReadFile("Dbusername");
         String password = ReadProjectProperties.ReadFile("Dbpassword");
         String databaseName = ReadProjectProperties.ReadFile("databaseName");
-        String backupFilePath = ReadProjectProperties.ReadFile("backupFilePath");
+        String backupFilePath = ReadProjectProperties.ReadFile("backupFilePath_FeatureBranch");
 
         if (serverName == null || username == null || password == null || databaseName == null
                 || backupFilePath == null) {
@@ -120,10 +120,6 @@ public class QuickDBRestore {
             throw new RuntimeException("Database restore task FAILED: " + e.getMessage(), e);
         }
         System.out.println("Database restore task completed.");
-
-        // The backup reverts SQL objects to its own vintage, so redeploy the payload
-        // to bring the database back in step with the checked-out API branch.
-        SqlPayloadDeploy.deploy();
     }
 
     // Helper method to log process streams
@@ -132,16 +128,6 @@ public class QuickDBRestore {
             try (java.util.Scanner s = new java.util.Scanner(inputStream)) {
                 while (s.hasNextLine()) {
                     System.out.println(streamName + ": " + s.nextLine());
-                }
-            }
-        }).start();
-    }
-
-    private static void consumeStream(java.io.InputStream inputStream) {
-        new Thread(() -> {
-            try (java.util.Scanner s = new java.util.Scanner(inputStream)) {
-                while (s.hasNextLine()) {
-                    s.nextLine();
                 }
             }
         }).start();
