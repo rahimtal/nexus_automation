@@ -716,6 +716,9 @@ public class Private_MeterReadControllerV4_Test extends BaseClass {
 	private static final String HISTORY_DOCUMENT = "READ00000000002";
 	private static final String NEVER_ADJUSTED = "1900-01-01";
 
+	/** umNetMeterType value that gates UM00300.umDeliveredEquipmentID. */
+	private static final int NET_METER_TYPE_DELIVERED = 4;
+
 	/** Header fields the spec requires on every successful inquiry. */
 	private static final String[] INQUIRY_FIELDS = { "DocumentNumber", "PrevDocumentNumber", "NextDocumentNumber",
 			"Description", "EquipmentId", "ReadingType", "LocationId", "NetMeterType", "MeterReader", "ReasonCodeId",
@@ -756,18 +759,56 @@ public class Private_MeterReadControllerV4_Test extends BaseClass {
 	}
 
 	@Test(priority = 41, groups = "MeterRead")
-	public void getMeterReadInquiry_NetMeterTypeCarriesDeliveredMeter()
+	public void getMeterReadInquiry_DeliveredMeterIsAlwaysAString()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		// DeliveredMeter (UM00300.umDeliveredEquipmentID) was added after the original
-		// inquiry payload, so builds without it return NetMeterType as Id + Description.
-		if (firstInquiryWhereNotNull("Read.Data.NetMeterType.DeliveredMeter") == null) {
-			throw new SkipException("This build does not return NetMeterType.DeliveredMeter");
-		}
+		// UM00300.umDeliveredEquipmentID (UM00300H for History). Uniformly a string so
+		// the UI needs no null handling, even though the ticket wording says NULL.
+		requireDeliveredMeterDeployed();
 		for (Map.Entry<String, String> entry : inquiryScan().entrySet()) {
 			Assert.assertNotNull(new JsonPath(entry.getValue()).getString("Read.Data.NetMeterType.DeliveredMeter"),
-					"DeliveredMeter must be present, empty when unset, for " + entry.getKey() + ". Response: "
-							+ entry.getValue());
+					"DeliveredMeter must never be null for " + entry.getKey() + ". Response: " + entry.getValue());
 		}
+	}
+
+	@Test(priority = 41, groups = "MeterRead")
+	public void getMeterReadInquiry_DeliveredMeterIsEmptyWhenNetMeterTypeIsNot4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		requireDeliveredMeterDeployed();
+		boolean checked = false;
+		for (Map.Entry<String, String> entry : inquiryScan().entrySet()) {
+			JsonPath json = new JsonPath(entry.getValue());
+			if (json.getInt("Read.Data.NetMeterType.Id") == NET_METER_TYPE_DELIVERED) {
+				continue;
+			}
+			Assert.assertEquals(json.getString("Read.Data.NetMeterType.DeliveredMeter"), "",
+					"DeliveredMeter is gated on NetMeterType = 4 for " + entry.getKey() + ". Response: "
+							+ entry.getValue());
+			checked = true;
+		}
+		Assert.assertTrue(checked, "No scanned read has a NetMeterType other than 4");
+	}
+
+	@Test(priority = 41, groups = "MeterRead")
+	public void getMeterReadInquiry_DeliveredMeterIsResolvedWhenNetMeterTypeIs4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		requireDeliveredMeterDeployed();
+		Map.Entry<String, String> hit = null;
+		for (Map.Entry<String, String> entry : inquiryScan().entrySet()) {
+			JsonPath json = new JsonPath(entry.getValue());
+			if (json.getInt("Read.Data.NetMeterType.Id") == NET_METER_TYPE_DELIVERED
+					&& notBlank(json.getString("Read.Data.NetMeterType.DeliveredMeter"))) {
+				hit = entry;
+				break;
+			}
+		}
+		if (hit == null) {
+			throw new SkipException("No scanned read has NetMeterType 4 with a delivered meter assigned");
+		}
+		JsonPath json = new JsonPath(hit.getValue());
+		Assert.assertNotEquals(json.getString("Read.Data.NetMeterType.DeliveredMeter"),
+				json.getString("Read.Data.EquipmentId"),
+				"The delivered meter must be a different meter than the one being read (" + hit.getKey()
+						+ "). Response: " + hit.getValue());
 	}
 
 	@Test(priority = 42, groups = "MeterRead")
@@ -798,6 +839,10 @@ public class Private_MeterReadControllerV4_Test extends BaseClass {
 		// UM30300 rows are billed, so the history header carries the bill it produced.
 		Assert.assertTrue(inquiryData(actual).containsKey("BillNumber"),
 				"A History read should expose BillNumber. Response: " + actual);
+		// History reads resolve the delivered meter from UM00300H, which has no UM00306H.
+		requireDeliveredMeterDeployed();
+		Assert.assertNotNull(json.getString("Read.Data.NetMeterType.DeliveredMeter"),
+				"DeliveredMeter must never be null on a History read. Response: " + actual);
 	}
 
 	@Test(priority = 44, groups = "MeterRead")
@@ -1052,18 +1097,19 @@ public class Private_MeterReadControllerV4_Test extends BaseClass {
 		return null;
 	}
 
-	private static Map.Entry<String, String> firstInquiryWhereNotNull(String path)
-			throws IOException, InterruptedException {
-		for (Map.Entry<String, String> entry : inquiryScan().entrySet()) {
-			if (new JsonPath(entry.getValue()).get(path) != null) {
-				return entry;
-			}
-		}
-		return null;
-	}
-
 	private static boolean notBlank(String value) {
 		return value != null && !value.trim().isEmpty();
+	}
+
+	/** DeliveredMeter is only emitted by builds that carry the CPDEV-27145 U01.16 SP. */
+	private static void requireDeliveredMeterDeployed() throws IOException, InterruptedException {
+		for (Map.Entry<String, String> entry : inquiryScan().entrySet()) {
+			if (new JsonPath(entry.getValue()).get("Read.Data.NetMeterType.DeliveredMeter") != null) {
+				return;
+			}
+		}
+		throw new SkipException("This build does not return NetMeterType.DeliveredMeter - "
+				+ "csmApi_spMeterReadInquiryGet does not select umDeliveredEquipmentID");
 	}
 
 }
