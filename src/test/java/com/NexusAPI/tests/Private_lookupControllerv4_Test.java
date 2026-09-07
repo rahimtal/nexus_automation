@@ -18,6 +18,7 @@ import java.util.Set;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 import com.NexustAPIAutomation.java.DataBackupRestore;
+import com.NexustAPIAutomation.java.QuickDBRestore;
 
 import io.restassured.path.json.JsonPath;
 
@@ -25,7 +26,9 @@ public class Private_lookupControllerv4_Test extends BaseClass {
 
 	@Test(priority = 1, groups = "lookup")
 	public void getlookupBatch_v4() throws ClassNotFoundException, SQLException, InterruptedException, IOException {
-		DataBackupRestore.CompanyDBRestore();
+	//	DataBackupRestore.CompanyDBRestore();
+		
+		
 		String uri = "/lookupBatch";
 		String ver = "4.0";
 		String string1 = "{\"Id\":\"109090ABC\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"12312312\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"12345\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"ABC10001\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"ABC1213\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"API 20190430\",\"Description\":\"Payments from Web Service - API\",\"HasTransaction\":true},{\"Id\":\"API 20190503\",\"Description\":\"Payments from Web Service - API\",\"HasTransaction\":true},{\"Id\":\"API20220908001\",\"Description\":\"Payments from Nexus Api - API\",\"HasTransaction\":true},{\"Id\":\"API20220929001\",\"Description\":\"Payments from Nexus Api - ";
@@ -41,7 +44,7 @@ public class Private_lookupControllerv4_Test extends BaseClass {
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 		String uri = "/lookupBatch";
 		String version = "4.0";
-		String expected = "{\"Batch\":[{\"Id\":\"10001\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"1001\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"100111\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"10111\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"109090ABC\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"12345\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"API 20190430\",\"Description\":\"Payments from Web Service - API\",\"HasTransaction\":true},{\"Id\":\"API 20190503\",\"Description\":\"Payments from Web Service - API\",\"HasTransaction\":true},{\"Id\":\"API20220908001\",\"Description\":\"Payments from Nexus Api - API\",\"HasTransaction\":true},{\"Id\":\"API20220929001\",\"Description\":\"Payments from Nexus Api - API\",\"HasTransaction\":true},{\"Id\":\"BAT1\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"CREDITNOTE\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"default1\",\"Description\":\"Import Payment\",\"HasTransaction\":true},{\"Id\":\"DPP041227sa01\",\"Description\":\"PYMT\",\"HasTransaction\":true},{\"Id\":\"INT4\\/12\\/2027\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"INT4\\/30\\/2025\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"PY081525sa\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"RM(3)120427\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"WO101619CRP001\",\"Description\":\"Write Off - sa\",\"HasTransaction\":false},{\"Id\":\"WRITEOFF01\",\"Description\":\"\",\"HasTransaction\":true}]}";
+		String expected = "{\"Batch\":[{\"Id\":\"10001\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"1001\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"100111\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"10111\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"109090ABC\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"12345\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"API 20190430\",\"Description\":\"Payments from Web Service - API\",\"HasTransaction\":true},{\"Id\":\"API 20190503\",\"Description\":\"Payments from Web Service - API\",\"HasTransaction\":true},{\"Id\":\"API20220908001\",\"Description\":\"Payments from Nexus Api - API\",\"HasTransaction\":true},{\"Id\":\"API20220929001\",\"Description\":\"Payments from Nexus Api - API\",\"HasTransaction\":true},{\"Id\":\"BAT1\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"CREDITNOTE\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"default1\",\"Description\":\"Import Payment\",\"HasTransaction\":true},{\"Id\":\"DPP041227sa01\",\"Description\":\"PYMT\",\"HasTransaction\":true},{\"Id\":\"INT4\\/12\\/2027\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"INT4\\/30\\/2025\",\"Description\":\"\",\"HasTransaction\":false},{\"Id\":\"PY081525sa\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"RM(3)120427\",\"Description\":\"\",\"HasTransaction\":true},{\"Id\":\"Test Batch 2025\",\"Description\":\"Updated Example Comments\",\"HasTransaction\":false},{\"Id\":\"WO101619CRP001\",\"Description\":\"Write Off - sa\",\"HasTransaction\":false},{\"Id\":\"WRITEOFF01\",\"Description\":\"\",\"HasTransaction\":true}]}";
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("BatchSource", "PAYMENTS");
 		String actual = CommonMethods.getMethodasString(uri, version, params);

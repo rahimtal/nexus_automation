@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -702,6 +704,366 @@ public class Private_MeterReadControllerV4_Test extends BaseClass {
 			}
 		}
 		throw new SkipException("No equipment has both an open read and a read in Work on this data set");
+	}
+
+	// =====================================================================
+	// CPDEV-27145 - GET /api/v4/transaction/read/:DocumentNumber
+	// Meter Read Inquiry header. Sources documents from Work (UM10300),
+	// Open (UM20300) and History (UM30300) branches and asserts the header
+	// contract shown in the Meter Reading Inquiry window.
+	// =====================================================================
+
+	private static final String HISTORY_DOCUMENT = "READ00000000002";
+	private static final String NEVER_ADJUSTED = "1900-01-01";
+
+	/** Header fields the spec requires on every successful inquiry. */
+	private static final String[] INQUIRY_FIELDS = { "DocumentNumber", "PrevDocumentNumber", "NextDocumentNumber",
+			"Description", "EquipmentId", "ReadingType", "LocationId", "NetMeterType", "MeterReader", "ReasonCodeId",
+			"CreatedBy", "NumberOfDays", "Components", "MeterGroup", "SequenceNumber", "RouteId", "Status",
+			"TotalMultiplier", "ConnectionSequence", "ServiceTypeId", "ReadingDateTime", "PreviousReadingDate",
+			"CreateDate", "DateAdjusted", "Customer" };
+
+	private static Map<String, String> inquiryResults;
+
+	@Test(priority = 40, groups = "MeterRead")
+	public void getMeterReadInquiry_ReturnsAllSpecFields()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		Map.Entry<String, String> entry = firstInquiry();
+		Map<String, Object> data = inquiryData(entry.getValue());
+		for (String field : INQUIRY_FIELDS) {
+			Assert.assertTrue(data.containsKey(field),
+					"Header field '" + field + "' is missing for " + entry.getKey() + ". Response: " + entry.getValue());
+		}
+		Assert.assertEquals(data.get("DocumentNumber"), entry.getKey(),
+				"The inquiry must echo the requested document. Response: " + entry.getValue());
+	}
+
+	@Test(priority = 41, groups = "MeterRead")
+	public void getMeterReadInquiry_ReadingTypeAndNetMeterTypeAreResolvedLookups()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		for (Map.Entry<String, String> entry : inquiryScan().entrySet()) {
+			JsonPath json = new JsonPath(entry.getValue());
+			// UM40620 / umNetMeterType are expanded into Id + Description pairs.
+			Assert.assertNotNull(json.get("Read.Data.ReadingType.Id"),
+					"ReadingType.Id missing for " + entry.getKey() + ". Response: " + entry.getValue());
+			Assert.assertTrue(notBlank(json.getString("Read.Data.ReadingType.Description")),
+					"ReadingType must be described for " + entry.getKey() + ". Response: " + entry.getValue());
+			Assert.assertNotNull(json.get("Read.Data.NetMeterType.Id"),
+					"NetMeterType.Id missing for " + entry.getKey() + ". Response: " + entry.getValue());
+			Assert.assertTrue(notBlank(json.getString("Read.Data.NetMeterType.Description")),
+					"NetMeterType must be described for " + entry.getKey() + ". Response: " + entry.getValue());
+		}
+	}
+
+	@Test(priority = 41, groups = "MeterRead")
+	public void getMeterReadInquiry_NetMeterTypeCarriesDeliveredMeter()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		// DeliveredMeter (UM00300.umDeliveredEquipmentID) was added after the original
+		// inquiry payload, so builds without it return NetMeterType as Id + Description.
+		if (firstInquiryWhereNotNull("Read.Data.NetMeterType.DeliveredMeter") == null) {
+			throw new SkipException("This build does not return NetMeterType.DeliveredMeter");
+		}
+		for (Map.Entry<String, String> entry : inquiryScan().entrySet()) {
+			Assert.assertNotNull(new JsonPath(entry.getValue()).getString("Read.Data.NetMeterType.DeliveredMeter"),
+					"DeliveredMeter must be present, empty when unset, for " + entry.getKey() + ". Response: "
+							+ entry.getValue());
+		}
+	}
+
+	@Test(priority = 42, groups = "MeterRead")
+	public void getMeterReadInquiry_StatusMatchesTheSourceBranch()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		for (Map<String, String> row : allMeterReads()) {
+			String expected = row.get("Status");
+			String document = row.get("DocumentNumber");
+			String actual = inquiryScan().get(document);
+			if (actual == null) {
+				continue;
+			}
+			Assert.assertEquals(new JsonPath(actual).getString("Read.Data.Status"), expected,
+					"Status must reflect the branch the document lives in (" + document + "). Response: " + actual);
+		}
+	}
+
+	@Test(priority = 43, groups = "MeterRead")
+	public void getMeterReadInquiry_HistoryDocumentIsReadFromHistoryBranch()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String actual = readInquiry(HISTORY_DOCUMENT, false, false, false);
+		JsonPath json = new JsonPath(actual);
+		if (!"History".equals(json.getString("Read.Data.Status"))) {
+			throw new SkipException(HISTORY_DOCUMENT + " is not a History read on this data set");
+		}
+		Assert.assertEquals(json.getBoolean("Read.Success"), Boolean.TRUE, "Response: " + actual);
+		Assert.assertEquals(json.getString("Read.Data.DocumentNumber"), HISTORY_DOCUMENT, "Response: " + actual);
+		// UM30300 rows are billed, so the history header carries the bill it produced.
+		Assert.assertTrue(inquiryData(actual).containsKey("BillNumber"),
+				"A History read should expose BillNumber. Response: " + actual);
+	}
+
+	@Test(priority = 44, groups = "MeterRead")
+	public void getMeterReadInquiry_DateAdjustedIsSetWhenTheReadWasAdjusted()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		Map.Entry<String, String> hit = firstInquiryWhere("Read.Data.DateAdjusted", NEVER_ADJUSTED, false);
+		if (hit == null) {
+			throw new SkipException("No scanned read has been adjusted on this data set");
+		}
+		String dateAdjusted = new JsonPath(hit.getValue()).getString("Read.Data.DateAdjusted");
+		Assert.assertNotEquals(dateAdjusted, NEVER_ADJUSTED, "Response: " + hit.getValue());
+		Assert.assertTrue(dateAdjusted.matches("\\d{4}-\\d{2}-\\d{2}"),
+				"DateAdjusted must be a plain date for " + hit.getKey() + ". Response: " + hit.getValue());
+	}
+
+	@Test(priority = 45, groups = "MeterRead")
+	public void getMeterReadInquiry_DateAdjustedDefaultsWhenNeverAdjusted()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		Map.Entry<String, String> hit = firstInquiryWhere("Read.Data.DateAdjusted", NEVER_ADJUSTED, true);
+		if (hit == null) {
+			throw new SkipException("Every scanned read has already been adjusted on this data set");
+		}
+		Assert.assertEquals(new JsonPath(hit.getValue()).getString("Read.Data.DateAdjusted"), NEVER_ADJUSTED,
+				"An unadjusted read must default DateAdjusted instead of returning null. Response: " + hit.getValue());
+	}
+
+	@Test(priority = 46, groups = "MeterRead")
+	public void getMeterReadInquiry_ReasonCodeIsReturned()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		for (Map.Entry<String, String> entry : inquiryScan().entrySet()) {
+			Assert.assertNotNull(new JsonPath(entry.getValue()).getString("Read.Data.ReasonCodeId"),
+					"ReasonCodeId must be an empty string rather than null for " + entry.getKey() + ". Response: "
+							+ entry.getValue());
+		}
+		Map.Entry<String, String> hit = firstInquiryWithNonBlank("Read.Data.ReasonCodeId");
+		if (hit == null) {
+			throw new SkipException("No scanned read carries a reason code on this data set");
+		}
+		Assert.assertTrue(notBlank(new JsonPath(hit.getValue()).getString("Read.Data.ReasonCodeId")),
+				"Response: " + hit.getValue());
+	}
+
+	@Test(priority = 47, groups = "MeterRead")
+	public void getMeterReadInquiry_MeterReaderAndDescriptionAreReturned()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		for (Map.Entry<String, String> entry : inquiryScan().entrySet()) {
+			JsonPath json = new JsonPath(entry.getValue());
+			Assert.assertNotNull(json.getString("Read.Data.MeterReader"),
+					"MeterReader must be present for " + entry.getKey() + ". Response: " + entry.getValue());
+			String description = json.getString("Read.Data.Description");
+			Assert.assertNotNull(description,
+					"Description must be present for " + entry.getKey() + ". Response: " + entry.getValue());
+			// UM10302.umDescr64
+			Assert.assertTrue(description.length() <= 64,
+					"Description exceeds 64 characters for " + entry.getKey() + ". Response: " + entry.getValue());
+		}
+		if (firstInquiryWithNonBlank("Read.Data.MeterReader") == null
+				&& firstInquiryWithNonBlank("Read.Data.Description") == null) {
+			throw new SkipException("No scanned read carries a meter reader or a description on this data set");
+		}
+	}
+
+	@Test(priority = 48, groups = "MeterRead")
+	public void getMeterReadInquiry_PrevNextFlagsOffReturnNoSiblings()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		for (Map.Entry<String, String> entry : inquiryScan().entrySet()) {
+			JsonPath json = new JsonPath(entry.getValue());
+			Assert.assertEquals(json.getString("Read.Data.PrevDocumentNumber"), "",
+					"PrevDocumentNumber must stay empty when PrevNextIn* are false (" + entry.getKey() + "). Response: "
+							+ entry.getValue());
+			Assert.assertEquals(json.getString("Read.Data.NextDocumentNumber"), "",
+					"NextDocumentNumber must stay empty when PrevNextIn* are false (" + entry.getKey() + "). Response: "
+							+ entry.getValue());
+		}
+	}
+
+	@Test(priority = 49, groups = "MeterRead")
+	public void getMeterReadInquiry_PrevNextFlagsOnResolveSiblings()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String sibling = null;
+		String owner = null;
+		String response = null;
+		for (String document : inquiryScan().keySet()) {
+			response = readInquiry(document, true, true, true);
+			JsonPath json = new JsonPath(response);
+			String prev = json.getString("Read.Data.PrevDocumentNumber");
+			String next = json.getString("Read.Data.NextDocumentNumber");
+			Assert.assertNotEquals(prev, document, "A document cannot be its own previous. Response: " + response);
+			Assert.assertNotEquals(next, document, "A document cannot be its own next. Response: " + response);
+			if (sibling == null) {
+				sibling = notBlank(prev) ? prev : (notBlank(next) ? next : null);
+				owner = document;
+			}
+		}
+		if (sibling == null) {
+			throw new SkipException("No scanned read has a previous or next document on this data set");
+		}
+		// The resolved sibling must itself be a valid meter read document.
+		String siblingResponse = readInquiry(sibling, false, false, false);
+		Assert.assertEquals(new JsonPath(siblingResponse).getBoolean("Read.Success"), Boolean.TRUE,
+				sibling + " was returned as a sibling of " + owner + " but cannot be loaded. Response: "
+						+ siblingResponse);
+		Assert.assertEquals(new JsonPath(siblingResponse).getString("Read.Data.DocumentNumber"), sibling,
+				"Response: " + siblingResponse);
+	}
+
+	@Test(priority = 50, groups = "MeterRead")
+	public void getMeterReadInquiry_CustomerIsIndividualOrBusinessNotBoth()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		for (Map.Entry<String, String> entry : inquiryScan().entrySet()) {
+			JsonPath json = new JsonPath(entry.getValue());
+			String type = json.getString("Read.Data.Customer.Type");
+			Object individual = json.get("Read.Data.Customer.Individual");
+			Object business = json.get("Read.Data.Customer.Business");
+			Assert.assertTrue(notBlank(json.getString("Read.Data.Customer.Id")),
+					"The bill-to customer must be linked for " + entry.getKey() + ". Response: " + entry.getValue());
+			if ("Individual".equals(type)) {
+				Assert.assertNotNull(individual, "Response: " + entry.getValue());
+				Assert.assertNull(business,
+						"Business must be null for an individual customer. Response: " + entry.getValue());
+				Assert.assertTrue(notBlank(json.getString("Read.Data.Customer.Individual.FullName")),
+						"Response: " + entry.getValue());
+			} else {
+				Assert.assertNotNull(business, "Response: " + entry.getValue());
+				Assert.assertNull(individual,
+						"Individual must be null for a business customer. Response: " + entry.getValue());
+			}
+		}
+	}
+
+	@Test(priority = 51, groups = "MeterRead")
+	public void getMeterReadInquiry_NumberOfDaysMatchesTheReadingWindow()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		for (Map.Entry<String, String> entry : inquiryScan().entrySet()) {
+			JsonPath json = new JsonPath(entry.getValue());
+			String previous = json.getString("Read.Data.PreviousReadingDate");
+			String reading = json.getString("Read.Data.ReadingDateTime");
+			Assert.assertTrue(reading != null && reading.contains("T"),
+					"ReadingDateTime must keep its time component for " + entry.getKey() + ". Response: "
+							+ entry.getValue());
+			long expected = ChronoUnit.DAYS.between(LocalDate.parse(previous),
+					LocalDate.parse(reading.substring(0, 10)));
+			long actual = json.getLong("Read.Data.NumberOfDays");
+			// The SP counts with DATEDIFF over the stored datetimes, so a single day of
+			// drift against the date-only window is expected.
+			Assert.assertTrue(actual >= 0 && Math.abs(actual - expected) <= 1,
+					"NumberOfDays must span PreviousReadingDate -> ReadingDateTime (expected ~" + expected + ") for "
+							+ entry.getKey() + ". Response: " + entry.getValue());
+		}
+	}
+
+	@Test(priority = 52, groups = "MeterRead")
+	public void getMeterReadInquiry_ComponentsCountIsNeverNegative()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		for (Map.Entry<String, String> entry : inquiryScan().entrySet()) {
+			JsonPath json = new JsonPath(entry.getValue());
+			// UM30303 component count and UM00300 connection sequence.
+			Assert.assertTrue(json.getInt("Read.Data.Components") >= 0,
+					"Components cannot be negative for " + entry.getKey() + ". Response: " + entry.getValue());
+			Assert.assertTrue(json.getInt("Read.Data.ConnectionSequence") > 0,
+					"ConnectionSequence must identify a connection for " + entry.getKey() + ". Response: "
+							+ entry.getValue());
+			Assert.assertTrue(notBlank(json.getString("Read.Data.ServiceTypeId")),
+					"ServiceTypeId must come from the master connection for " + entry.getKey() + ". Response: "
+							+ entry.getValue());
+		}
+	}
+
+	@Test(priority = 53, groups = "MeterRead")
+	public void getMeterReadInquiry_InvalidDocumentNumber()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		String document = "READNOTAREAD01";
+		String actual = readInquiry(document, false, false, false);
+		JsonPath json = new JsonPath(actual);
+		Assert.assertEquals(json.getBoolean("Read.Success"), Boolean.FALSE,
+				"An unknown document must not resolve. Response: " + actual);
+		Assert.assertNull(json.get("Read.Data"), "Response: " + actual);
+		Assert.assertTrue(actual.toLowerCase().contains(MSG_INVALID_DOCUMENT),
+				"The failure should name the invalid document. Response: " + actual);
+	}
+
+	@Test(priority = 54, groups = "MeterRead")
+	public void getMeterReadInquiry_FailureStillReturnsHttp200()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		Response response = CommonMethods.getMethod(READ_INQUIRY_URI + "READNOTAREAD01", VER,
+				new HashMap<String, String>());
+		Assert.assertEquals(response.getStatusCode(), 200,
+				"A failed inquiry must still return HTTP 200. Body: " + response.asString());
+	}
+
+	// ---------------------------------------------------------------------
+	// Read inquiry helpers
+	// ---------------------------------------------------------------------
+
+	private static String readInquiry(String documentNumber, boolean prevNextInWork, boolean prevNextInOpen,
+			boolean prevNextInHistory) throws IOException, InterruptedException {
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("PrevNextInWork", String.valueOf(prevNextInWork));
+		params.put("PrevNextInOpen", String.valueOf(prevNextInOpen));
+		params.put("PrevNextInHistory", String.valueOf(prevNextInHistory));
+		return CommonMethods.getMethodasString(READ_INQUIRY_URI + documentNumber, VER, params);
+	}
+
+	/** Loads up to {@link #SCAN_LIMIT} documents with the Prev/Next flags off. */
+	private static Map<String, String> inquiryScan() throws IOException, InterruptedException {
+		if (inquiryResults == null) {
+			Map<String, String> results = new LinkedHashMap<String, String>();
+			for (Map<String, String> row : allMeterReads()) {
+				if (results.size() >= SCAN_LIMIT) {
+					break;
+				}
+				String document = row.get("DocumentNumber");
+				String actual = readInquiry(document, false, false, false);
+				if (new JsonPath(actual).getBoolean("Read.Success")) {
+					results.put(document, actual);
+				}
+			}
+			Assert.assertFalse(results.isEmpty(), "No meter read document could be loaded through " + READ_INQUIRY_URI);
+			inquiryResults = results;
+		}
+		return inquiryResults;
+	}
+
+	@SuppressWarnings("unchecked")
+	private static Map<String, Object> inquiryData(String json) {
+		Map<String, Object> data = (Map<String, Object>) new JsonPath(json).get("Read.Data");
+		Assert.assertNotNull(data, "Expected a populated Read.Data. Response: " + json);
+		return data;
+	}
+
+	private static Map.Entry<String, String> firstInquiry() throws IOException, InterruptedException {
+		return inquiryScan().entrySet().iterator().next();
+	}
+
+	private static Map.Entry<String, String> firstInquiryWhere(String path, String value, boolean shouldEqual)
+			throws IOException, InterruptedException {
+		for (Map.Entry<String, String> entry : inquiryScan().entrySet()) {
+			if (value.equals(new JsonPath(entry.getValue()).getString(path)) == shouldEqual) {
+				return entry;
+			}
+		}
+		return null;
+	}
+
+	private static Map.Entry<String, String> firstInquiryWithNonBlank(String path)
+			throws IOException, InterruptedException {
+		for (Map.Entry<String, String> entry : inquiryScan().entrySet()) {
+			if (notBlank(new JsonPath(entry.getValue()).getString(path))) {
+				return entry;
+			}
+		}
+		return null;
+	}
+
+	private static Map.Entry<String, String> firstInquiryWhereNotNull(String path)
+			throws IOException, InterruptedException {
+		for (Map.Entry<String, String> entry : inquiryScan().entrySet()) {
+			if (new JsonPath(entry.getValue()).get(path) != null) {
+				return entry;
+			}
+		}
+		return null;
+	}
+
+	private static boolean notBlank(String value) {
+		return value != null && !value.trim().isEmpty();
 	}
 
 }
