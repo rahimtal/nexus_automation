@@ -190,7 +190,7 @@ public class Private_connectionControllerV4_Test  extends BaseClass{
 				"        }\r\n" + 
 				"	}\r\n" + 
 				"}";
-		String exResponse = "{\"Connection\":{\"Success\":true,\"Data\":{\"LocationId\":\"AUTO1001\",\"BaseConnection\":{\"ConnectionSequence\":1,\"NewConnectionSequence\":0},\"AlternateConnection\":[{\"AlternateConnectionSequence\":2,\"NewAlternateConnectionSequence\":0}],\"SubtractConnection\":\"[]\",\"Confirm\":{\"DisconnectToActiveValidation\":false,\"EquipmentReinstallValidation\":false,\"DisconnectMeterReadValidation\":false}},\"Messages\":[{\"Enabled\":1,\"Info\":\"Updated\",\"Level\":1}]}}";
+		String exResponse = "{\"Connection\":{\"Success\":true,\"Data\":{\"LocationId\":\"AUTO1001\",\"BaseConnection\":{\"ConnectionSequence\":1,\"NewConnectionSequence\":0},\"AlternateConnection\":[{\"AlternateConnectionSequence\":2,\"NewAlternateConnectionSequence\":0}],\"SubtractConnection\":[],\"Confirm\":{\"DisconnectToActiveValidation\":false,\"EquipmentReinstallValidation\":false,\"DisconnectMeterReadValidation\":false}},\"Messages\":[{\"Enabled\":1,\"Info\":\"Updated\",\"Level\":1}]}}";
 		//CommonMethods.putMethodstring(payload, uri, ver, exResponse);
 		CommonMethods.putMethodstring(uri, ver, payload, exResponse);
 
