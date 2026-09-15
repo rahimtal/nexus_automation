@@ -78,4 +78,42 @@ public class Private_locationControllerv4_Test  extends BaseClass{
 		Assert.assertEquals(actual, expected);
 	}
 
+	// CPDEV-27210 : Fetch Latitude/Longitude from SmartyStreets (360 Degree Account Panel)
+	@Test(priority = 5, groups = "locationController")
+	public void getlocationCoordinatesv4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/location/100001/coordinates";
+		String ver = "4.0";
+		String expected = "{\"LocationCoordinates\":{\"Success\":true,\"Data\":{\"Latitude\":42.69252,\"Longitude\":-73.67305},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		Assert.assertEquals(actual, expected);
+	}
+
+	@Test(priority = 6, groups = "locationController")
+	public void getlocationCoordinatesSecondLocationv4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/location/100003/coordinates";
+		String ver = "4.0";
+		String expected = "{\"LocationCoordinates\":{\"Success\":true,\"Data\":{\"Latitude\":42.75115,\"Longitude\":-73.68035},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		Assert.assertEquals(actual, expected);
+	}
+
+	// Location with an address SmartyStreets cannot resolve returns null coordinates
+	@Test(priority = 7, groups = "locationController")
+	public void getlocationCoordinatesInvalidAddressv4()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+
+		String uri = "/location/100002/coordinates";
+		String ver = "4.0";
+		String expected = "{\"LocationCoordinates\":{\"Success\":true,\"Data\":{\"Latitude\":null,\"Longitude\":null},\"Messages\":[]}}";
+		HashMap<String, String> params = new HashMap<String, String>();
+		String actual = CommonMethods.getMethodasString(uri, ver, params);
+		Assert.assertEquals(actual, expected);
+	}
+
 }
