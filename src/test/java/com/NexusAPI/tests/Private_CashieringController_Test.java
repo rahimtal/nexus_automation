@@ -297,7 +297,18 @@ public class Private_CashieringController_Test extends BaseClass {
 	// open UMRM101 row for THAT register and the calling user, so the cash-in must target it.
 	private static final String RECEIPT_REGISTER_ID = "TRREG000001";
 
-	public static void verifyCashInStatus() throws ClassNotFoundException, SQLException, InterruptedException {
+	// The API resolves the register from the first 3 digits of ReceiptNumber, not from the cash-in
+	// request, so the receipt number has to come from the register the test actually cashed into.
+	public static String nextReceiptNumber(String registerId) throws InterruptedException {
+		JsonPath next = CommonMethods.getMethod("/cashiering/receipt/" + registerId + "/nextReceipt", "4.0");
+		String receiptNumber = next.get("Receipt[0].ReceiptNumber");
+		Assert.assertNotNull(receiptNumber, "Unable to retrieve next receipt number for " + registerId + ": "
+				+ next.prettyPrint());
+		System.out.println("Next receipt number for " + registerId + " = " + receiptNumber);
+		return receiptNumber;
+	}
+
+	public static String verifyCashInStatus() throws ClassNotFoundException, SQLException, InterruptedException {
 		// Verify and restore cash-in status before receipt operations
 		System.out.println("\n=== Verifying cash-in status before receipt operations ===");
 		String uri = "/cashiering/cashIn";
@@ -310,7 +321,7 @@ public class Private_CashieringController_Test extends BaseClass {
 			
 			if (isCashedIn != null && isCashedIn && RECEIPT_REGISTER_ID.equalsIgnoreCase(registerId)) {
 				System.out.println("✓ Cash-in status is active on " + RECEIPT_REGISTER_ID);
-				return;
+				return registerId;
 			} else {
 				System.out.println("⚠ Not cashed in on " + RECEIPT_REGISTER_ID + " (IsCashedIn=" + isCashedIn
 						+ ", RegisterId=" + registerId + "), establishing cash-in...");
@@ -318,11 +329,13 @@ public class Private_CashieringController_Test extends BaseClass {
 				// open session on another register (baseline leaves one on REGISTER-00001) or while another
 				// user occupies the target register (baseline leaves 'sa' on TRREG000001, captured back when
 				// the suite authenticated as sa). Close both blocking sessions directly.
+				// Also cash out, otherwise a future-dated 'sa' session on the target register stays open
+				// and blocks later cashiering tests.
 				String twoConn = CommonMethods.Read.ReadFile("ConnectionStringServTWO");
 				CommonMethods.deleteFromDb(
-						"UPDATE TWO.dbo.UMRM101 SET umrmLogout = 1 WHERE umrmLogout = 0 AND umrmCashOut = 0"
-								+ " AND (USERID = '" + CommonMethods.userName + "' OR umrmRegisterID = '"
-								+ RECEIPT_REGISTER_ID + "')",
+						"UPDATE TWO.dbo.UMRM101 SET umrmLogout = 1, umrmCashOut = 1 WHERE umrmLogout = 0"
+								+ " AND umrmCashOut = 0 AND (USERID = '" + CommonMethods.userName
+								+ "' OR umrmRegisterID = '" + RECEIPT_REGISTER_ID + "')",
 						twoConn);
 				// UMRM003 (register/user assignment) in the baseline only grants TRREG000001 to 'sa'.
 				CommonMethods.deleteFromDb(
@@ -359,6 +372,7 @@ public class Private_CashieringController_Test extends BaseClass {
 			System.out.println("Warning: Failed to verify cash-in status: " + e.getMessage());
 			// Continue anyway, receipt operation will fail appropriately if needed
 		}
+		return RECEIPT_REGISTER_ID;
 	}
 
 	public static void adjustRecieptPre(String recNum) throws ConnectionClosedException, InterruptedException {
@@ -402,15 +416,7 @@ public class Private_CashieringController_Test extends BaseClass {
 			System.out.println("Warning: Database operation skipped (DB not available): " + e.getMessage());
 		}
 
-		JsonPath next = CommonMethods.getMethod("/cashiering/receipt/TRREG000001/nextReceipt", "4.0");
-		nextRecieptNumber = next.get("Receipt[0].ReceiptNumber");
-		if (nextRecieptNumber == null) {
-			Assert.fail();
-		}
-		System.out.println("Next Reciept = " + nextRecieptNumber);
-		System.out.println(nextRecieptNumber);
-		System.out.println(" = = = = = = = =");
-		System.out.println(" = = = = = = = =");
+		nextRecieptNumber = nextReceiptNumber(RECEIPT_REGISTER_ID);
 
 		Thread.sleep(5000);
 		String uri = "/cashiering/receipt";
@@ -439,8 +445,7 @@ public class Private_CashieringController_Test extends BaseClass {
 		// nextRecieptNumber = "004211209000001";
 		if (nextRecieptNumber == null || nextRecieptNumber.isEmpty()) {
 			// Try to get a new receipt number if the previous one is null or empty
-			JsonPath next = CommonMethods.getMethod("/cashiering/receipt/TRREG000001/nextReceipt", "4.0");
-			nextRecieptNumber = next.get("Receipt[0].ReceiptNumber");
+			nextRecieptNumber = nextReceiptNumber(RECEIPT_REGISTER_ID);
 			if (nextRecieptNumber == null || nextRecieptNumber.isEmpty()) {
 				Assert.fail("Unable to retrieve a valid nextRecieptNumber for adjustment.");
 			}
@@ -470,13 +475,14 @@ public class Private_CashieringController_Test extends BaseClass {
 	@Test(priority = 10, groups = "Cashering")
 	public void saveReciept_4_prepaymentExistingCustomer()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
-		verifyCashInStatus();
+		String registerId = verifyCashInStatus();
+		String receiptNumber = nextReceiptNumber(registerId);
 		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
 		//CommonMethods.Bug("CPDEV-26410");
 
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
-		String payload = "{\r\n" + "   \"Receipt\":{\r\n" + "      \"ReceiptNumber\":\"004240724000005\",\r\n"
+		String payload = "{\r\n" + "   \"Receipt\":{\r\n" + "      \"ReceiptNumber\":\"" + receiptNumber + "\",\r\n"
 				+ "      \"OriginatingReceiptNumber\":\"\",\r\n" + "      \"Void\":false,\r\n"
 				+ "      \"CustomerId\":\"customer001\",\r\n" + "      \"LocationId\":\"water001\",\r\n"
 				+ "      \"PaymentOrigin\":\"API\",\r\n" + "      \"CheckbookId\":\"FIRST NATIONAL\",\r\n"
@@ -493,7 +499,8 @@ public class Private_CashieringController_Test extends BaseClass {
 				+ "                \"Sequence\": \"1000\",\r\n" + "                \"EmployeeId\":\"sa\"\r\n"
 				+ "            }\r\n" + "        }\r\n" + "    }\r\n" + "}\r\n" + " ";
 
-		String expected = "{\"Receipt\":{\"Success\":true,\"Data\":{\"ReturnValues\":[{\"Name\":\"ReceiptNumber\",\"Value\":\"004240724000005\"}]},\"Messages\":[]}}";
+		String expected = "{\"Receipt\":{\"Success\":true,\"Data\":{\"ReturnValues\":[{\"Name\":\"ReceiptNumber\",\"Value\":\""
+				+ receiptNumber + "\"}]},\"Messages\":[]}}";
 		CommonMethods.postMethodString(payload, uri, ver, expected);
 
 	}
@@ -501,12 +508,13 @@ public class Private_CashieringController_Test extends BaseClass {
 	@Test(priority = 11, groups = "Cashering")
 	public void saveReciept_4_prepaymentNewCustomer()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
-		verifyCashInStatus();
+		String registerId = verifyCashInStatus();
+		String receiptNumber = nextReceiptNumber(registerId);
 		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
 	//	CommonMethods.Bug("CPDEV-26410");
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
-		String payload = "{\r\n" + "   \"Receipt\":{\r\n" + "      \"ReceiptNumber\":\"004240724000009\",\r\n"
+		String payload = "{\r\n" + "   \"Receipt\":{\r\n" + "      \"ReceiptNumber\":\"" + receiptNumber + "\",\r\n"
 				+ "      \"OriginatingReceiptNumber\":\"\",\r\n" + "      \"Void\":false,\r\n"
 				+ "      \"CustomerId\":\"SUBCUSTOMER\",\r\n" + "      \"LocationId\":\"MOVEIN\",\r\n"
 				+ "      \"PaymentOrigin\":\"API\",\r\n" + "      \"CheckbookId\":\"FIRST NATIONAL\",\r\n"
@@ -523,7 +531,8 @@ public class Private_CashieringController_Test extends BaseClass {
 				+ "                \"Sequence\": \"1000\",\r\n" + "                \"EmployeeId\":\"sa\"\r\n"
 				+ "            }\r\n" + "        }\r\n" + "    }\r\n" + "}\r\n" + "";
 
-		String expected = "{\"Receipt\":{\"Success\":true,\"Data\":{\"ReturnValues\":[{\"Name\":\"ReceiptNumber\",\"Value\":\"004240724000009\"}]},\"Messages\":[]}}";
+		String expected = "{\"Receipt\":{\"Success\":true,\"Data\":{\"ReturnValues\":[{\"Name\":\"ReceiptNumber\",\"Value\":\""
+				+ receiptNumber + "\"}]},\"Messages\":[]}}";
 		CommonMethods.postMethodString(payload, uri, ver, expected);
 
 	}
@@ -531,12 +540,13 @@ public class Private_CashieringController_Test extends BaseClass {
 	@Test(priority = 12, groups = "Cashering")
 	public void saveReciept_4_SOTaskCompleteDepositPayment()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
-		verifyCashInStatus();
+		String registerId = verifyCashInStatus();
+		String receiptNumber = nextReceiptNumber(registerId);
 		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
 	//	CommonMethods.Bug("CPDEV-26410");
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
-		String payload = "{\r\n" + "   \"Receipt\":{\r\n" + "      \"ReceiptNumber\":\"004240805000004\",\r\n"
+		String payload = "{\r\n" + "   \"Receipt\":{\r\n" + "      \"ReceiptNumber\":\"" + receiptNumber + "\",\r\n"
 				+ "      \"OriginatingReceiptNumber\":\"\",\r\n" + "      \"Void\":false,\r\n"
 				+ "      \"CustomerId\":\"500002\",\r\n" + "      \"LocationId\":\"100002\",\r\n"
 				+ "      \"PaymentOrigin\":\"API\",\r\n" + "      \"CheckbookId\":\"FIRST NATIONAL\",\r\n"
@@ -553,7 +563,8 @@ public class Private_CashieringController_Test extends BaseClass {
 				+ "                \"Sequence\": \"1100\",\r\n" + "                \"EmployeeId\":\"sa\"\r\n"
 				+ "            }\r\n" + "        }\r\n" + "    }\r\n" + "}\r\n" + "";
 
-		String expected = "{\"Receipt\":{\"Success\":true,\"Data\":{\"ReturnValues\":[{\"Name\":\"ReceiptNumber\",\"Value\":\"004240805000004\"}]},\"Messages\":[]}}";
+		String expected = "{\"Receipt\":{\"Success\":true,\"Data\":{\"ReturnValues\":[{\"Name\":\"ReceiptNumber\",\"Value\":\""
+				+ receiptNumber + "\"}]},\"Messages\":[]}}";
 		CommonMethods.postMethodString(payload, uri, ver, expected);
 
 	}
@@ -561,12 +572,13 @@ public class Private_CashieringController_Test extends BaseClass {
 	@Test(priority = 13, groups = "Cashering")
 	public void saveReciept_4_SOTaskCompleteDepositPaymenttask2()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
-		verifyCashInStatus();
+		String registerId = verifyCashInStatus();
+		String receiptNumber = nextReceiptNumber(registerId);
 		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
 	//	CommonMethods.Bug("CPDEV-26410");
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
-		String payload = "{\r\n" + "   \"Receipt\":{\r\n" + "      \"ReceiptNumber\":\"004240805000013\",\r\n"
+		String payload = "{\r\n" + "   \"Receipt\":{\r\n" + "      \"ReceiptNumber\":\"" + receiptNumber + "\",\r\n"
 				+ "      \"OriginatingReceiptNumber\":\"\",\r\n" + "      \"Void\":false,\r\n"
 				+ "      \"CustomerId\":\"500002\",\r\n" + "      \"LocationId\":\"100002\",\r\n"
 				+ "      \"PaymentOrigin\":\"API\",\r\n" + "      \"CheckbookId\":\"FIRST NATIONAL\",\r\n"
@@ -583,7 +595,8 @@ public class Private_CashieringController_Test extends BaseClass {
 				+ "                \"Sequence\": \"1100\",\r\n" + "                \"EmployeeId\":\"sa\"\r\n"
 				+ "            }\r\n" + "        }\r\n" + "    }\r\n" + "}\r\n" + "";
 
-		String expected = "{\"Receipt\":{\"Success\":true,\"Data\":{\"ReturnValues\":[{\"Name\":\"ReceiptNumber\",\"Value\":\"004240805000013\"}]},\"Messages\":[]}}";
+		String expected = "{\"Receipt\":{\"Success\":true,\"Data\":{\"ReturnValues\":[{\"Name\":\"ReceiptNumber\",\"Value\":\""
+				+ receiptNumber + "\"}]},\"Messages\":[]}}";
 		CommonMethods.postMethodString(payload, uri, ver, expected);
 
 	}
@@ -591,12 +604,13 @@ public class Private_CashieringController_Test extends BaseClass {
 	@Test(priority = 14, groups = "Cashering", dependsOnMethods = "TC001_1_Cashin")
 	public void saveReciept_SOTaskCompleteDepositPaymenttaskNewCustomer()
 			throws ClassNotFoundException, SQLException, InterruptedException, ConnectionClosedException {
-		verifyCashInStatus();
+		String registerId = verifyCashInStatus();
+		String receiptNumber = nextReceiptNumber(registerId);
 		// CommonMethods.Bug("https://cogsdale.atlassian.net/browse/CPDEV-22587");
 	//	CommonMethods.Bug("CPDEV-26410");
 		String uri = "/cashiering/receipt";
 		String ver = "4.0";
-		String payload = "{\r\n" + "   \"Receipt\":{\r\n" + "      \"ReceiptNumber\":\"004240805000008\",\r\n"
+		String payload = "{\r\n" + "   \"Receipt\":{\r\n" + "      \"ReceiptNumber\":\"" + receiptNumber + "\",\r\n"
 				+ "      \"OriginatingReceiptNumber\":\"\",\r\n" + "      \"Void\":false,\r\n"
 				+ "      \"CustomerId\":\"CUSTOMER010\",\r\n" + "      \"LocationId\":\"ELECWAT003\",\r\n"
 				+ "      \"PaymentOrigin\":\"API\",\r\n" + "      \"CheckbookId\":\"FIRST NATIONAL\",\r\n"
@@ -613,7 +627,8 @@ public class Private_CashieringController_Test extends BaseClass {
 				+ "                \"Sequence\": \"1100\",\r\n" + "                \"EmployeeId\":\"sa\"\r\n"
 				+ "            }\r\n" + "        }\r\n" + "    }\r\n" + "}\r\n" + "";
 
-		String expected = "{\"Receipt\":{\"Success\":true,\"Data\":{\"ReturnValues\":[{\"Name\":\"ReceiptNumber\",\"Value\":\"004240805000008\"}]},\"Messages\":[]}}";
+		String expected = "{\"Receipt\":{\"Success\":true,\"Data\":{\"ReturnValues\":[{\"Name\":\"ReceiptNumber\",\"Value\":\""
+				+ receiptNumber + "\"}]},\"Messages\":[]}}";
 		CommonMethods.postMethodString(payload, uri, ver, expected);
 
 	}

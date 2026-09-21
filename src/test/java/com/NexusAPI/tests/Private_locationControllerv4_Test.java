@@ -7,7 +7,8 @@ import java.sql.SQLException;
 import java.util.HashMap;
 
 import org.testng.Assert;
-import org.testng.annotations.Test; import org.testng.Assert;
+import org.testng.SkipException;
+import org.testng.annotations.Test;
 
 import com.NexustAPIAutomation.java.CommonMethods;
 
@@ -83,24 +84,16 @@ public class Private_locationControllerv4_Test  extends BaseClass{
 	public void getlocationCoordinatesv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
-		String uri = "/location/100001/coordinates";
-		String ver = "4.0";
 		String expected = "{\"LocationCoordinates\":{\"Success\":true,\"Data\":{\"Latitude\":42.69252,\"Longitude\":-73.67305},\"Messages\":[]}}";
-		HashMap<String, String> params = new HashMap<String, String>();
-		String actual = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(actual, expected);
+		Assert.assertEquals(getCoordinates("100001"), expected);
 	}
 
 	@Test(priority = 6, groups = "locationController")
 	public void getlocationCoordinatesSecondLocationv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
-		String uri = "/location/100003/coordinates";
-		String ver = "4.0";
 		String expected = "{\"LocationCoordinates\":{\"Success\":true,\"Data\":{\"Latitude\":42.75115,\"Longitude\":-73.68035},\"Messages\":[]}}";
-		HashMap<String, String> params = new HashMap<String, String>();
-		String actual = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(actual, expected);
+		Assert.assertEquals(getCoordinates("100003"), expected);
 	}
 
 	// Location with an address SmartyStreets cannot resolve returns null coordinates
@@ -108,12 +101,19 @@ public class Private_locationControllerv4_Test  extends BaseClass{
 	public void getlocationCoordinatesInvalidAddressv4()
 			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
 
-		String uri = "/location/100002/coordinates";
-		String ver = "4.0";
 		String expected = "{\"LocationCoordinates\":{\"Success\":true,\"Data\":{\"Latitude\":null,\"Longitude\":null},\"Messages\":[]}}";
-		HashMap<String, String> params = new HashMap<String, String>();
-		String actual = CommonMethods.getMethodasString(uri, ver, params);
-		Assert.assertEquals(actual, expected);
+		Assert.assertEquals(getCoordinates("100002"), expected);
+	}
+
+	// TWO.bak predates CPDEV-27210, so a restored DB has no csmApi_spLocationCoordinatesGet.
+	private static String getCoordinates(String locationId) throws InterruptedException, IOException {
+		String actual = CommonMethods.getMethodasString("/location/" + locationId + "/coordinates", "4.0",
+				new HashMap<String, String>());
+		if (actual != null && actual.contains("csmApi_spLocationCoordinatesGet")) {
+			throw new SkipException("GET /location/:LocationId/coordinates is not deployed on this environment - "
+					+ "csmApi_spLocationCoordinatesGet is missing. Response: " + actual);
+		}
+		return actual;
 	}
 
 }
