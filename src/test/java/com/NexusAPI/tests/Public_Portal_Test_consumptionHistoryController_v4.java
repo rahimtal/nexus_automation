@@ -141,4 +141,75 @@ public class Public_Portal_Test_consumptionHistoryController_v4  extends BaseCla
 				"Expected no consumption history for an invalid CustomerId");
 	}
 
+	// CPDEV-27430 : Include billed meter with zero billing in portal consumption history
+	@Test(priority = 7, groups = "ConsumptionHistoryController")
+	public void getPortalConsumptionHistory_ZeroBilledMeterIncluded()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		JsonPath json = JsonPath.from(getZeroBillLocationHistory("4.0"));
+		Assert.assertEquals(json.getList("ConsumptionHistory.findAll { it.BilledAmount == 0.00 }.ReadingDate"),
+				java.util.Arrays.asList(ZERO_BILL_READING_DATES),
+				"Expected both zero-billed readings of " + ZERO_BILL_LOCATION + " to be returned");
+	}
+
+	@Test(priority = 8, groups = "ConsumptionHistoryController")
+	public void getPortalConsumptionHistory_ZeroBilledMeterValues()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		JsonPath json = JsonPath.from(getZeroBillLocationHistory("4.0"));
+		String record = "ConsumptionHistory.find { it.ReadingDate == '1998-08-31' }.";
+		Assert.assertEquals(json.getFloat(record + "BilledAmount"), 0.00f,
+				"Expected BilledAmount 0.00 on the 1998-08-31 reading");
+		Assert.assertEquals(json.getFloat(record + "SewerBilledAmount"), 0.00f,
+				"Expected SewerBilledAmount 0.00 on the 1998-08-31 reading");
+		Assert.assertEquals(Float.parseFloat(json.getString(record + "Consumption")), 50.0f,
+				"Expected Consumption 50 on the 1998-08-31 reading");
+		Assert.assertEquals(json.getString(record + "NumberOfDays"), "61",
+				"Expected NumberOfDays 61 on the 1998-08-31 reading");
+		Assert.assertEquals(json.getString(record + "UnitsPerDay"), "0.82",
+				"Expected UnitsPerDay 0.82 on the 1998-08-31 reading");
+		Assert.assertEquals(json.getInt(record + "CurrentReading"), 1240,
+				"Expected CurrentReading 1240 on the 1998-08-31 reading");
+		Assert.assertEquals(json.getInt(record + "PreviousReading"), 1190,
+				"Expected PreviousReading 1190 on the 1998-08-31 reading");
+	}
+
+	// The zero-billed row must still carry its meter/service details, otherwise the
+	// portal renders an unattributed consumption line.
+	@Test(priority = 9, groups = "ConsumptionHistoryController")
+	public void getPortalConsumptionHistory_ZeroBilledMeterKeepsEquipmentDetails()
+			throws ClassNotFoundException, SQLException, InterruptedException, IOException {
+		JsonPath json = JsonPath.from(getZeroBillLocationHistory("4.0"));
+		String record = "ConsumptionHistory.find { it.ReadingDate == '1998-06-30' }.";
+		Assert.assertEquals(json.getFloat(record + "BilledAmount"), 0.00f,
+				"Expected BilledAmount 0.00 on the 1998-06-30 reading");
+		Assert.assertEquals(json.getString(record + "ServiceCategory"), "Electric",
+				"Expected ServiceCategory Electric on the zero-billed reading");
+		Assert.assertEquals(json.getString(record + "MeterEquipments"), ZERO_BILL_EQUIPMENT,
+				"Expected the zero-billed reading to keep its meter equipment");
+		Assert.assertEquals(json.getString(record + "ConsumptionPeriodEnd"), "1998-06-01",
+				"Expected ConsumptionPeriodEnd 1998-06-01 on the zero-billed reading");
+	}
+
+	// ELECWAT001 connection 1 has two billed readings whose charges net to zero.
+	static final String ZERO_BILL_LOCATION = "ELECWAT001";
+	static final String ZERO_BILL_CUSTOMER = "CUSTOMER007";
+	static final String ZERO_BILL_EQUIPMENT = "EQUIPMENT011";
+	static final String[] ZERO_BILL_READING_DATES = { "1998-06-30", "1998-08-31" };
+
+	static String getZeroBillLocationHistory(String ver) throws InterruptedException, IOException {
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("LocationId", ZERO_BILL_LOCATION);
+		params.put("CustomerId", ZERO_BILL_CUSTOMER);
+		params.put("UserDate", "2000-04-01");
+		params.put("ConnectionSequence", "1");
+		params.put("NumberOfYears", "20");
+		String result = CommonMethods.getMethodasString("/portal/ConsumptionHistory", ver, params);
+		JsonPath json = JsonPath.from(result);
+		java.util.List<Object> records = json.getList("ConsumptionHistory");
+		if (records == null || records.isEmpty() || Boolean.FALSE.equals(json.get("ConsumptionHistory[0].Success"))) {
+			throw new org.testng.SkipException("No consumption history for " + ZERO_BILL_LOCATION + "/"
+					+ ZERO_BILL_CUSTOMER + " on this environment. Response: " + result);
+		}
+		return result;
+	}
+
 }
